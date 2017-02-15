@@ -8,8 +8,6 @@ target 'Vyrl' do
     pod 'KeychainAccess'
     pod 'Fabric'
     pod 'Crashlytics'
-    pod 'FBSDKLoginKit'
-    pod 'FBSDKShareKit'
     pod 'Whisper', :git => 'https://github.com/AllinMobile/Whisper'
     pod 'Spring', :git => 'https://github.com/MengTo/Spring.git', :branch => 'swift3'
     pod 'ReachabilitySwift', '~> 3'
