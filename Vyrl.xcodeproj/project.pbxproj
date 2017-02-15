@@ -177,6 +177,7 @@
 				0BB35FF182BF64C4DD68148D /* [CP] Embed Pods Frameworks */,
 				03FF94D2C1F697618F8693D8 /* [CP] Copy Pods Resources */,
 				1ADAF7FD1E549FCF00155D9F /* ShellScript */,
+				B22BC1051E54C77700C4519C /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -220,6 +221,7 @@
 				TargetAttributes = {
 					1ADAF7C31E545F3C00155D9F = {
 						CreatedOnToolsVersion = 8.2;
+						DevelopmentTeam = WW89T5YHE3;
 						ProvisioningStyle = Automatic;
 					};
 					1ADAF7D71E545F3C00155D9F = {
@@ -356,6 +358,19 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-VyrlTests/Pods-VyrlTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		B22BC1051E54C77700C4519C /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Fabric/run\" 08d922e6ae6e53d01869785f12389bb6fa98bd18 5ef27b6864e319771898508f9720404697cc29787cc9d129bbbb6eeec5a20b89\n";
 		};
 		C7CA3F426B05C121BAEBFB85 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -513,10 +528,11 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = WW89T5YHE3;
 				INFOPLIST_FILE = Vyrl/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = io.govyrl.vyrl.ios.main;
+				PRODUCT_BUNDLE_IDENTIFIER = io.govyrl.vyrl.ios.main.brand.dev;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -528,10 +544,11 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = WW89T5YHE3;
 				INFOPLIST_FILE = Vyrl/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = io.govyrl.vyrl.ios.main;
+				PRODUCT_BUNDLE_IDENTIFIER = io.govyrl.vyrl.ios.main.brand.dev;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
