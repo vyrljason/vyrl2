@@ -1,0 +1,17 @@
+language: objective-c
+
+branches:
+    only:
+        - develop
+        - master
+
+xcode_workspace: Vyrl.xcworkspace
+xcode_scheme: Vyrl
+osx_image: xcode8.2
+xcode_sdk: iphonesimulator10.2
+
+before_install:
+    - echo y | fastlane snapshot reset_simulators
+
+script:
+    - xcodebuild -workspace Vyrl.xcworkspace -scheme Vyrl -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 6s,OS=10.2' test
