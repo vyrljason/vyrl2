@@ -4,7 +4,6 @@
 
 import UIKit
 
-
 protocol WindowProtocol: class {
     func makeKeyAndVisible()
     var isKeyWindow: Bool { get }

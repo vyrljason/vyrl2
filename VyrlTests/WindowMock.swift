@@ -4,7 +4,6 @@
 
 import UIKit
 
-
 final class WindowMock: UIWindow {
     var didCalledMakeKeyAndVisible = false
     var setRootViewController: UIViewController?

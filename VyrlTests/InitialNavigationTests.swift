@@ -5,7 +5,6 @@
 import XCTest
 @testable import Vyrl
 
-
 final class InitialNavigationTests: XCTestCase {
     private var subject: InitialNavigation!
     private var window: WindowMock!
