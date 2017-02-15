@@ -1,0 +1,29 @@
+disabled_rules:
+  - line_length
+  - trailing_whitespace
+excluded:
+  - Pods
+
+force_cast: error
+force_try: error
+
+file_length:
+  warning: 500
+  error: 1000
+
+type_name:
+  min_length: 2 # only warning
+  max_length:
+    warning: 40
+    error: 50
+
+function_parameter_count:
+  warning: 4
+  error: 6
+
+cyclomatic_complexity:
+  warning: 6
+  error: 8
+
+variable_name:
+  min_length: 2

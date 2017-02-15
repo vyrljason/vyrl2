@@ -4,6 +4,7 @@ target 'Vyrl' do
     use_frameworks!
 
     pod 'Decodable'
+    pod 'SwiftLint'
     pod 'Alamofire'
     pod 'KeychainAccess'
     pod 'Fabric'

@@ -176,6 +176,7 @@
 				1ADAF7C21E545F3C00155D9F /* Resources */,
 				0BB35FF182BF64C4DD68148D /* [CP] Embed Pods Frameworks */,
 				03FF94D2C1F697618F8693D8 /* [CP] Copy Pods Resources */,
+				1ADAF7FD1E549FCF00155D9F /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -297,6 +298,19 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Vyrl/Pods-Vyrl-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		1ADAF7FD1E549FCF00155D9F /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
 		};
 		4612598FA8C6BA7645B68D9E /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
