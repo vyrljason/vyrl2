@@ -12,20 +12,12 @@
 		1ADAF7CF1E545F3C00155D9F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1ADAF7CE1E545F3C00155D9F /* Assets.xcassets */; };
 		1ADAF7D21E545F3C00155D9F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1ADAF7D01E545F3C00155D9F /* LaunchScreen.storyboard */; };
 		1ADAF7DD1E545F3C00155D9F /* InitialNavigationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ADAF7DC1E545F3C00155D9F /* InitialNavigationTests.swift */; };
-		1ADAF7E81E545F3C00155D9F /* VyrlUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ADAF7E71E545F3C00155D9F /* VyrlUITests.swift */; };
 		1ADAF7F61E545FA300155D9F /* InitialNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ADAF7F51E545FA300155D9F /* InitialNavigation.swift */; };
 		1ADAF7FC1E54648A00155D9F /* WindowMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ADAF7FB1E54648A00155D9F /* WindowMock.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
 		1ADAF7D91E545F3C00155D9F /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 1ADAF7BC1E545F3C00155D9F /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 1ADAF7C31E545F3C00155D9F;
-			remoteInfo = Vyrl;
-		};
-		1ADAF7E41E545F3C00155D9F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 1ADAF7BC1E545F3C00155D9F /* Project object */;
 			proxyType = 1;
@@ -44,9 +36,6 @@
 		1ADAF7D81E545F3C00155D9F /* VyrlTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VyrlTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1ADAF7DC1E545F3C00155D9F /* InitialNavigationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialNavigationTests.swift; sourceTree = "<group>"; };
 		1ADAF7DE1E545F3C00155D9F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		1ADAF7E31E545F3C00155D9F /* VyrlUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VyrlUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		1ADAF7E71E545F3C00155D9F /* VyrlUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VyrlUITests.swift; sourceTree = "<group>"; };
-		1ADAF7E91E545F3C00155D9F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1ADAF7F51E545FA300155D9F /* InitialNavigation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InitialNavigation.swift; sourceTree = "<group>"; };
 		1ADAF7FB1E54648A00155D9F /* WindowMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WindowMock.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -66,13 +55,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		1ADAF7E01E545F3C00155D9F /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -81,7 +63,6 @@
 			children = (
 				1ADAF7C61E545F3C00155D9F /* Vyrl */,
 				1ADAF7DB1E545F3C00155D9F /* VyrlTests */,
-				1ADAF7E61E545F3C00155D9F /* VyrlUITests */,
 				1ADAF7C51E545F3C00155D9F /* Products */,
 			);
 			sourceTree = "<group>";
@@ -91,7 +72,6 @@
 			children = (
 				1ADAF7C41E545F3C00155D9F /* Vyrl.app */,
 				1ADAF7D81E545F3C00155D9F /* VyrlTests.xctest */,
-				1ADAF7E31E545F3C00155D9F /* VyrlUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -116,15 +96,6 @@
 				1ADAF7DE1E545F3C00155D9F /* Info.plist */,
 			);
 			path = VyrlTests;
-			sourceTree = "<group>";
-		};
-		1ADAF7E61E545F3C00155D9F /* VyrlUITests */ = {
-			isa = PBXGroup;
-			children = (
-				1ADAF7E71E545F3C00155D9F /* VyrlUITests.swift */,
-				1ADAF7E91E545F3C00155D9F /* Info.plist */,
-			);
-			path = VyrlUITests;
 			sourceTree = "<group>";
 		};
 		1ADAF7F71E54604300155D9F /* Resources */ = {
@@ -198,24 +169,6 @@
 			productReference = 1ADAF7D81E545F3C00155D9F /* VyrlTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		1ADAF7E21E545F3C00155D9F /* VyrlUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 1ADAF7F21E545F3C00155D9F /* Build configuration list for PBXNativeTarget "VyrlUITests" */;
-			buildPhases = (
-				1ADAF7DF1E545F3C00155D9F /* Sources */,
-				1ADAF7E01E545F3C00155D9F /* Frameworks */,
-				1ADAF7E11E545F3C00155D9F /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				1ADAF7E51E545F3C00155D9F /* PBXTargetDependency */,
-			);
-			name = VyrlUITests;
-			productName = VyrlUITests;
-			productReference = 1ADAF7E31E545F3C00155D9F /* VyrlUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -231,12 +184,6 @@
 						ProvisioningStyle = Automatic;
 					};
 					1ADAF7D71E545F3C00155D9F = {
-						CreatedOnToolsVersion = 8.2;
-						DevelopmentTeam = 2FUQCB4MRE;
-						ProvisioningStyle = Automatic;
-						TestTargetID = 1ADAF7C31E545F3C00155D9F;
-					};
-					1ADAF7E21E545F3C00155D9F = {
 						CreatedOnToolsVersion = 8.2;
 						DevelopmentTeam = 2FUQCB4MRE;
 						ProvisioningStyle = Automatic;
@@ -259,7 +206,6 @@
 			targets = (
 				1ADAF7C31E545F3C00155D9F /* Vyrl */,
 				1ADAF7D71E545F3C00155D9F /* VyrlTests */,
-				1ADAF7E21E545F3C00155D9F /* VyrlUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -275,13 +221,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		1ADAF7D61E545F3C00155D9F /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		1ADAF7E11E545F3C00155D9F /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -310,14 +249,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		1ADAF7DF1E545F3C00155D9F /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				1ADAF7E81E545F3C00155D9F /* VyrlUITests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -325,11 +256,6 @@
 			isa = PBXTargetDependency;
 			target = 1ADAF7C31E545F3C00155D9F /* Vyrl */;
 			targetProxy = 1ADAF7D91E545F3C00155D9F /* PBXContainerItemProxy */;
-		};
-		1ADAF7E51E545F3C00155D9F /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 1ADAF7C31E545F3C00155D9F /* Vyrl */;
-			targetProxy = 1ADAF7E41E545F3C00155D9F /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -492,34 +418,6 @@
 			};
 			name = Release;
 		};
-		1ADAF7F31E545F3C00155D9F /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				DEVELOPMENT_TEAM = 2FUQCB4MRE;
-				INFOPLIST_FILE = VyrlUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = io.govyrl.VyrlUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
-				TEST_TARGET_NAME = Vyrl;
-			};
-			name = Debug;
-		};
-		1ADAF7F41E545F3C00155D9F /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				DEVELOPMENT_TEAM = 2FUQCB4MRE;
-				INFOPLIST_FILE = VyrlUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = io.govyrl.VyrlUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
-				TEST_TARGET_NAME = Vyrl;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -546,15 +444,6 @@
 			buildConfigurations = (
 				1ADAF7F01E545F3C00155D9F /* Debug */,
 				1ADAF7F11E545F3C00155D9F /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		1ADAF7F21E545F3C00155D9F /* Build configuration list for PBXNativeTarget "VyrlUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				1ADAF7F31E545F3C00155D9F /* Debug */,
-				1ADAF7F41E545F3C00155D9F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
