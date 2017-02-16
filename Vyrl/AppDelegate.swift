@@ -10,7 +10,8 @@ import Crashlytics
 final class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    private let initialNavigation = InitialNavigation()
+    private let initialNavigation = InitialNavigation(mainView: ViewController(),
+                                                      leftMenu: LeftMenuViewController())
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         initializeAnalytics()

@@ -15,27 +15,37 @@ extension UIWindow: WindowProtocol { }
 
 final class InitialNavigation {
 
-    private let window: WindowProtocol
-    private var initialViewController: SlideMenuController!
+    private enum Constant {
+        static let menuWidthRatio: CGFloat = 0.8
+    }
 
-    init(window: WindowProtocol = UIWindow()) {
+    private let window: WindowProtocol
+    private var slideMenu: SlideMenuController!
+    private let mainView: ViewController
+    private let leftMenu: LeftMenuViewController
+
+    init(mainView: ViewController, leftMenu: LeftMenuViewController, window: WindowProtocol = UIWindow()) {
+        self.mainView = mainView
+        self.leftMenu = leftMenu
         self.window = window
     }
 
     func showInitialViewController() {
-        presentViewController()
+        setUpSlideMenu()
+        presentSlideMenu()
     }
 
-    private func presentViewController() {
-        SlideMenuOptions.leftViewWidth = UIScreen.main.bounds.size.width * 0.8
+    private func presentSlideMenu() {
+        slideMenu = SlideMenuController(mainViewController: mainView,
+                                        leftMenuViewController: leftMenu)
+        window.rootViewController = slideMenu
+        makeWindowKeyAndVisible()
+    }
+
+    private func setUpSlideMenu() {
+        SlideMenuOptions.leftViewWidth = UIScreen.main.bounds.size.width * Constant.menuWidthRatio
         SlideMenuOptions.contentViewScale = 1.0
         SlideMenuOptions.contentViewDrag = true
-        let main = ViewController()
-        let leftMenu = LeftMenuViewController()
-        initialViewController = SlideMenuController(mainViewController: main,
-                                                    leftMenuViewController: leftMenu)
-        window.rootViewController = initialViewController
-        makeWindowKeyAndVisible()
     }
 
     private func makeWindowKeyAndVisible() {
