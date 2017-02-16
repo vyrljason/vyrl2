@@ -9,4 +9,11 @@ final class BrandsViewController: UIViewController, HavingNib {
 
     @IBOutlet fileprivate weak var brandsCollection: UICollectionView!
 
+    init() {
+        super.init(nibName: BrandsViewController.nibName, bundle: nil)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 }
