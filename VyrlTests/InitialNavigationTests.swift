@@ -31,9 +31,12 @@ final class InitialNavigationTests: XCTestCase {
     func test_slideMenuHasCorrectViewControllers() {
         subject.showInitialViewController()
 
-        if let menu = window.setRootViewController as? SlideMenuController {
-            XCTAssertTrue(menu.leftViewController === leftMenu)
-            XCTAssertTrue(menu.mainViewController === mainView)
+        guard let menu = window.setRootViewController as? SlideMenuController else {
+            XCTFail()
+            return
         }
+        
+        XCTAssertTrue(menu.leftViewController === leftMenu)
+        XCTAssertTrue(menu.mainViewController === mainView)
     }
 }

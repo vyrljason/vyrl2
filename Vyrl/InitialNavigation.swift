@@ -17,6 +17,7 @@ final class InitialNavigation {
 
     private enum Constant {
         static let menuWidthRatio: CGFloat = 0.8
+        static let contentViewScale: CGFloat = 1.0
     }
 
     private let window: WindowProtocol
@@ -44,7 +45,7 @@ final class InitialNavigation {
 
     private func setUpSlideMenu() {
         SlideMenuOptions.leftViewWidth = UIScreen.main.bounds.size.width * Constant.menuWidthRatio
-        SlideMenuOptions.contentViewScale = 1.0
+        SlideMenuOptions.contentViewScale = Constant.contentViewScale
         SlideMenuOptions.contentViewDrag = true
     }
 
