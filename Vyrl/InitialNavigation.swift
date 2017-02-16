@@ -61,7 +61,9 @@ final class InitialNavigation {
 
     private func setUpMainNavigationController() {
         mainNavigation = UINavigationController(rootViewController: mainView)
-        let renderable = NavigationBarRenderable(tintColor: .white, backgroundColor: .rouge, translucent: false)
+        let renderable = NavigationBarRenderable(tintColor: .white,
+                                                 backgroundColor: .rouge,
+                                                 translucent: false)
         mainNavigation.render(renderable)
     }
 
