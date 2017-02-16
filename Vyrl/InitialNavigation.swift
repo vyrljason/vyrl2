@@ -5,14 +5,6 @@
 import UIKit
 import SlideMenuControllerSwift
 
-protocol WindowProtocol: class {
-    func makeKeyAndVisible()
-    var isKeyWindow: Bool { get }
-    var rootViewController: UIViewController? { get set }
-}
-
-extension UIWindow: WindowProtocol { }
-
 enum MainViewFactory {
     static func initialize() -> UIViewController {
         let viewController = UIViewController()
