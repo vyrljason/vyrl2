@@ -21,10 +21,10 @@ final class InitialNavigation {
 
     private let window: WindowProtocol
     private var slideMenu: SlideMenuController!
-    private let mainView: ViewController
-    private let leftMenu: LeftMenuViewController
+    private let mainView: UIViewController
+    private let leftMenu: UIViewController
 
-    init(mainView: ViewController, leftMenu: LeftMenuViewController, window: WindowProtocol = UIWindow()) {
+    init(mainView: UIViewController, leftMenu: UIViewController, window: WindowProtocol = UIWindow()) {
         self.mainView = mainView
         self.leftMenu = leftMenu
         self.window = window

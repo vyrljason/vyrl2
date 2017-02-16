@@ -10,13 +10,13 @@ final class InitialNavigationTests: XCTestCase {
     private var subject: InitialNavigation!
     private var window: WindowMock!
 
-    private var mainView: ViewController!
+    private var mainView: UIViewController!
     private var leftMenu: LeftMenuViewController!
 
     override func setUp() {
         super.setUp()
         window = WindowMock()
-        mainView = ViewController()
+        mainView = UIViewController()
         leftMenu = LeftMenuViewController()
         subject = InitialNavigation(mainView: mainView,
                                     leftMenu: leftMenu,
