@@ -3,6 +3,7 @@
 //
 
 import UIKit
+import SlideMenuControllerSwift
 
 protocol WindowProtocol: class {
     func makeKeyAndVisible()
@@ -15,7 +16,7 @@ extension UIWindow: WindowProtocol { }
 final class InitialNavigation {
 
     private let window: WindowProtocol
-    private var initialViewController: UIViewController!
+    private var initialViewController: SlideMenuController!
 
     init(window: WindowProtocol = UIWindow()) {
         self.window = window
@@ -26,7 +27,13 @@ final class InitialNavigation {
     }
 
     private func presentViewController() {
-        initialViewController = ViewController()
+        SlideMenuOptions.leftViewWidth = UIScreen.main.bounds.size.width * 0.8
+        SlideMenuOptions.contentViewScale = 1.0
+        SlideMenuOptions.contentViewDrag = true
+        let main = ViewController()
+        let leftMenu = LeftMenuViewController()
+        initialViewController = SlideMenuController(mainViewController: main,
+                                                    leftMenuViewController: leftMenu)
         window.rootViewController = initialViewController
         makeWindowKeyAndVisible()
     }
