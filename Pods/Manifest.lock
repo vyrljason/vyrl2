@@ -32,6 +32,7 @@ PODS:
   - GoogleToolboxForMac/NSData+zlib (2.1.0):
     - GoogleToolboxForMac/Defines (= 2.1.0)
   - KeychainAccess (3.0.1)
+  - Kingfisher (3.3.3)
   - ReachabilitySwift (3)
   - SlideMenuControllerSwift (3.0.1)
   - Spring (1.0.3)
@@ -47,6 +48,7 @@ DEPENDENCIES:
   - FBSnapshotTestCase
   - Firebase (~> 3.0)
   - KeychainAccess
+  - Kingfisher
   - ReachabilitySwift (~> 3)
   - SlideMenuControllerSwift
   - Spring (from `https://github.com/MengTo/Spring.git`, branch `swift3`)
@@ -74,7 +76,7 @@ SPEC CHECKSUMS:
   Decodable: 7c90acc68d357b71d0d6efc120faf9c53c644b7e
   Fabric: 5911403591946b8228ab1c51d98f1d7137e863c6
   Fakery: 97b99c23937d2e025d9135c75e2b17351ccd5031
-  FBSnapshotTestCase: 094f9f314decbabe373b87cc339bea235a63e07a
+  FBSnapshotTestCase: '094f9f314decbabe373b87cc339bea235a63e07a'
   Firebase: b8134e285eb33201115bc688bc5d7f112923bc1f
   FirebaseAnalytics: 9c67af0ebeb8d2146c9b4ea2616439affa947b58
   FirebaseCore: 03da1cb32615569bbc2830a22f9ad753d9a02ef5
@@ -83,12 +85,13 @@ SPEC CHECKSUMS:
   GoogleSymbolUtilities: 631ee17048aa5e9ab133470d768ea997a5ef9b96
   GoogleToolboxForMac: 2b2596cbb7186865e98cadf2b1e262d851c2b168
   KeychainAccess: 017ea25e313a49eda10bb19b0bb0760fb1edfe1a
+  Kingfisher: 893215a42e5c2164e916f69463c68003092b104c
   ReachabilitySwift: f5b9bb30a0777fac8f09ce8b067e32faeb29bb64
   SlideMenuControllerSwift: 9a163b16d54afab734add42858cba7ef7c307755
   Spring: 3f02b5dc3308572ef177b3cad0fa7bbc4b0706f7
   SwiftLint: b8b683208cc09640898f16318a7a452274e91f61
-  Whisper: 08be92623311f8e53201e62e17f6d7b9599a4714
+  Whisper: '08be92623311f8e53201e62e17f6d7b9599a4714'
 
-PODFILE CHECKSUM: 4266566adffd70628dbc505dc72daf4063f76937
+PODFILE CHECKSUM: 2665b23ef86fc6e0fca94ade539ee6c6f8a0573d
 
-COCOAPODS: 1.1.1
+COCOAPODS: 1.2.0

@@ -14,6 +14,7 @@ target 'Vyrl' do
     pod 'ReachabilitySwift', '~> 3'
     pod 'Firebase', '~> 3.0'
     pod 'SlideMenuControllerSwift'
+    pod 'Kingfisher'
 
     target 'VyrlTests' do
         inherit! :search_paths
