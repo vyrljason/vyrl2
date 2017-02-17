@@ -5,14 +5,6 @@
 import UIKit
 import SlideMenuControllerSwift
 
-enum MainViewFactory {
-    static func initialize() -> UIViewController {
-        let viewController = UIViewController()
-        viewController.view.backgroundColor = .white
-        return viewController
-    }
-}
-
 final class InitialNavigation {
 
     private enum Constant {
@@ -43,7 +35,6 @@ final class InitialNavigation {
         setUpMainNavigationController()
         createAndPresentSlideMenu()
     }
-
     private func setUpNavigationItems(in viewController: UIViewController) {
         viewController.render(NavigationItemRenderable(titleImage: Constant.titleImage))
         viewController.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "H",

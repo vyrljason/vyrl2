@@ -4,6 +4,10 @@
 
 import UIKit
 
+private enum Strings {
+    static let submissionsName = NSLocalizedString("brand.submissionName", comment: "")
+}
+
 protocol BrandRendering {
     func render(_ renderable: BrandRenderable)
 }
@@ -13,18 +17,23 @@ protocol BrandCoverImageFetching {
 }
 
 final class BrandCell: UICollectionViewCell, HavingNib, BrandRendering, BrandCoverImageFetching {
-    typealias Renderable = BrandRenderable
+    static let nibName = "BrandCell"
 
     @IBOutlet private weak var coverImage: DownloadingImageView!
     @IBOutlet private weak var submissions: UILabel!
+    @IBOutlet private weak var submissionsCount: UILabel!
     @IBOutlet private weak var name: UILabel!
 
-    static let nibName = "BrandCell"
     fileprivate let placeholder = UIImage() //TODO: replace with real placeholder
+
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        submissions.text = Strings.submissionsName
+    }
 
     func render(_ renderable: BrandRenderable) {
         name.text = renderable.name
-        submissions.text = renderable.submissions
+        submissionsCount.text = renderable.submissions
     }
 
     func setCoverImage(using imageFetcher: ImageFetching) {
