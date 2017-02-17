@@ -14,7 +14,6 @@ final class BrandsViewController: UIViewController, HavingNib {
     init(interactor: BrandsInteracting) {
         self.interactor = interactor
         super.init(nibName: BrandsViewController.nibName, bundle: nil)
-        interactor.presenter = self
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -24,10 +23,11 @@ final class BrandsViewController: UIViewController, HavingNib {
     override func viewDidLoad() {
         super.viewDidLoad()
         interactor.use(brandsCollection)
-        interactor.loadData(refresh: true)
+        interactor.loadData()
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        interactor.loadData()
     }
 }

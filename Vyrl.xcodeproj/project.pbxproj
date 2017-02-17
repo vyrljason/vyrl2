@@ -50,12 +50,12 @@
 		858D64201E5734A800CFDD4C /* CollectionViewUsing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858D641F1E5734A800CFDD4C /* CollectionViewUsing.swift */; };
 		858D64231E57473100CFDD4C /* CollectionViewDataProviding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858D64101E570E4C00CFDD4C /* CollectionViewDataProviding.swift */; };
 		858D64261E5747D600CFDD4C /* BrandsViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858D64251E5747D600CFDD4C /* BrandsViewControllerFactory.swift */; };
-		858D642B1E574B0600CFDD4C /* brand.json in Resources */ = {isa = PBXBuildFile; fileRef = 858D642A1E574B0600CFDD4C /* brand.json */; };
 		858D64311E574B5C00CFDD4C /* BrandCellSnapshotTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858D64301E574B5C00CFDD4C /* BrandCellSnapshotTest.swift */; };
 		858D64341E574B8800CFDD4C /* SnapshotTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858D64331E574B8800CFDD4C /* SnapshotTestCase.swift */; };
-		858D64361E574F5400CFDD4C /* BrandTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858D64351E574F5400CFDD4C /* BrandTest.swift */; };
-		858D64381E57500100CFDD4C /* XCTestCase+JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858D64371E57500100CFDD4C /* XCTestCase+JSON.swift */; };
-		858D643A1E57501900CFDD4C /* JSONReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858D64391E57501900CFDD4C /* JSONReader.swift */; };
+		858D643C1E5751A400CFDD4C /* BrandsServiceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858D643B1E5751A400CFDD4C /* BrandsServiceTest.swift */; };
+		858D643E1E5752FD00CFDD4C /* BrandsDataSourceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858D643D1E5752FD00CFDD4C /* BrandsDataSourceTest.swift */; };
+		858D64401E57538A00CFDD4C /* BrandsInteractorTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858D643F1E57538A00CFDD4C /* BrandsInteractorTest.swift */; };
+		858D64421E5755FC00CFDD4C /* CollectionViewMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858D64411E5755FC00CFDD4C /* CollectionViewMock.swift */; };
 		A4256F0E1E675A7BB6AE21F5 /* Pods_Vyrl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AA1C43D9EC44CB342D10427 /* Pods_Vyrl.framework */; };
 		BDDF0A4F0C2F3D7D482551AB /* Pods_VyrlTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3553ABBDC82B1A7C9E6385AE /* Pods_VyrlTests.framework */; };
 /* End PBXBuildFile section */
@@ -122,12 +122,12 @@
 		858D641D1E572C4300CFDD4C /* APIResponseError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIResponseError.swift; sourceTree = "<group>"; };
 		858D641F1E5734A800CFDD4C /* CollectionViewUsing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewUsing.swift; sourceTree = "<group>"; };
 		858D64251E5747D600CFDD4C /* BrandsViewControllerFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrandsViewControllerFactory.swift; sourceTree = "<group>"; };
-		858D642A1E574B0600CFDD4C /* brand.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = brand.json; sourceTree = "<group>"; };
 		858D64301E574B5C00CFDD4C /* BrandCellSnapshotTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrandCellSnapshotTest.swift; sourceTree = "<group>"; };
 		858D64331E574B8800CFDD4C /* SnapshotTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnapshotTestCase.swift; sourceTree = "<group>"; };
-		858D64351E574F5400CFDD4C /* BrandTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrandTest.swift; sourceTree = "<group>"; };
-		858D64371E57500100CFDD4C /* XCTestCase+JSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "XCTestCase+JSON.swift"; sourceTree = "<group>"; };
-		858D64391E57501900CFDD4C /* JSONReader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONReader.swift; sourceTree = "<group>"; };
+		858D643B1E5751A400CFDD4C /* BrandsServiceTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrandsServiceTest.swift; sourceTree = "<group>"; };
+		858D643D1E5752FD00CFDD4C /* BrandsDataSourceTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrandsDataSourceTest.swift; sourceTree = "<group>"; };
+		858D643F1E57538A00CFDD4C /* BrandsInteractorTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrandsInteractorTest.swift; sourceTree = "<group>"; };
+		858D64411E5755FC00CFDD4C /* CollectionViewMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewMock.swift; sourceTree = "<group>"; };
 		D1CA9B6CB49B011CC24AABEF /* Pods-Vyrl.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Vyrl.release.xcconfig"; path = "Pods/Target Support Files/Pods-Vyrl/Pods-Vyrl.release.xcconfig"; sourceTree = "<group>"; };
 		E340CAC7115BDC8D7662DAA1 /* Pods-VyrlTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VyrlTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-VyrlTests/Pods-VyrlTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -204,7 +204,6 @@
 				858D63F41E55FF7100CFDD4C /* Helpers */,
 				858D63EC1E55F68C00CFDD4C /* Common */,
 				1ADAF7FA1E54647E00155D9F /* Mocks */,
-				858D64281E574AF000CFDD4C /* Resources */,
 				1ADAF7DC1E545F3C00155D9F /* InitialNavigationTests.swift */,
 				1ADAF7DE1E545F3C00155D9F /* Info.plist */,
 			);
@@ -245,6 +244,7 @@
 				1ADAF7FB1E54648A00155D9F /* WindowMock.swift */,
 				858D63F01E55F6D600CFDD4C /* ImageRetrieverMock.swift */,
 				858D63FA1E56037600CFDD4C /* ImageFetcherMock.swift */,
+				858D64411E5755FC00CFDD4C /* CollectionViewMock.swift */,
 			);
 			name = Mocks;
 			sourceTree = "<group>";
@@ -357,8 +357,6 @@
 			isa = PBXGroup;
 			children = (
 				858D63F51E55FF8600CFDD4C /* CustomAssertions.swift */,
-				858D64371E57500100CFDD4C /* XCTestCase+JSON.swift */,
-				858D64391E57501900CFDD4C /* JSONReader.swift */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -434,7 +432,6 @@
 				858D642F1E574B4900CFDD4C /* DataSource */,
 				858D642E1E574B4100CFDD4C /* Interactor */,
 				858D642D1E574B3700CFDD4C /* Service */,
-				858D642C1E574B3300CFDD4C /* Model */,
 			);
 			name = Brands;
 			sourceTree = "<group>";
@@ -456,33 +453,10 @@
 			name = SnapshotTest;
 			sourceTree = "<group>";
 		};
-		858D64281E574AF000CFDD4C /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				858D64291E574AF700CFDD4C /* jsons */,
-			);
-			name = Resources;
-			sourceTree = "<group>";
-		};
-		858D64291E574AF700CFDD4C /* jsons */ = {
-			isa = PBXGroup;
-			children = (
-				858D642A1E574B0600CFDD4C /* brand.json */,
-			);
-			name = jsons;
-			sourceTree = "<group>";
-		};
-		858D642C1E574B3300CFDD4C /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				858D64351E574F5400CFDD4C /* BrandTest.swift */,
-			);
-			name = Model;
-			sourceTree = "<group>";
-		};
 		858D642D1E574B3700CFDD4C /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				858D643B1E5751A400CFDD4C /* BrandsServiceTest.swift */,
 			);
 			name = Service;
 			sourceTree = "<group>";
@@ -490,6 +464,7 @@
 		858D642E1E574B4100CFDD4C /* Interactor */ = {
 			isa = PBXGroup;
 			children = (
+				858D643F1E57538A00CFDD4C /* BrandsInteractorTest.swift */,
 			);
 			name = Interactor;
 			sourceTree = "<group>";
@@ -497,6 +472,7 @@
 		858D642F1E574B4900CFDD4C /* DataSource */ = {
 			isa = PBXGroup;
 			children = (
+				858D643D1E5752FD00CFDD4C /* BrandsDataSourceTest.swift */,
 			);
 			name = DataSource;
 			sourceTree = "<group>";
@@ -635,7 +611,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				858D642B1E574B0600CFDD4C /* brand.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -806,13 +781,14 @@
 				858D63FB1E56037600CFDD4C /* ImageFetcherMock.swift in Sources */,
 				1ADAF7DD1E545F3C00155D9F /* InitialNavigationTests.swift in Sources */,
 				858D63EF1E55F6A800CFDD4C /* ImageFetcherTest.swift in Sources */,
-				858D643A1E57501900CFDD4C /* JSONReader.swift in Sources */,
+				858D64421E5755FC00CFDD4C /* CollectionViewMock.swift in Sources */,
+				858D643E1E5752FD00CFDD4C /* BrandsDataSourceTest.swift in Sources */,
 				1ADAF7FC1E54648A00155D9F /* WindowMock.swift in Sources */,
 				858D64311E574B5C00CFDD4C /* BrandCellSnapshotTest.swift in Sources */,
 				858D63F61E55FF8600CFDD4C /* CustomAssertions.swift in Sources */,
-				858D64361E574F5400CFDD4C /* BrandTest.swift in Sources */,
 				858D63F91E56030300CFDD4C /* DownloadingImageViewTest.swift in Sources */,
-				858D64381E57500100CFDD4C /* XCTestCase+JSON.swift in Sources */,
+				858D643C1E5751A400CFDD4C /* BrandsServiceTest.swift in Sources */,
+				858D64401E57538A00CFDD4C /* BrandsInteractorTest.swift in Sources */,
 				858D64341E574B8800CFDD4C /* SnapshotTestCase.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

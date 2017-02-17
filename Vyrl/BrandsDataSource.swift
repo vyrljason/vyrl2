@@ -29,7 +29,7 @@ extension BrandsDataSource: CollectionViewNibRegistering {
 }
 
 extension BrandsDataSource: CollectionViewDataProviding {
-    func loadData(refresh: Bool = true) {
+    func loadData() {
         repository.brands { [weak self] result in
             guard let `self` = self else { return }
             switch result {

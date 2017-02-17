@@ -8,23 +8,20 @@ fileprivate struct Constants {
     static let baseCellHeight: CGFloat  = 44.0
 }
 
-protocol BrandsInteracting: CollectionViewHaving, CollectionViewControlling, CollectionViewUsing {
-    weak var presenter: UIViewController? { get set }
-}
+protocol BrandsInteracting: CollectionViewHaving, CollectionViewControlling, CollectionViewUsing { }
 
 final class BrandsInteractor: BrandsInteracting {
 
     fileprivate let dataSource: CollectionViewNibRegistering & CollectionViewDataProviding
     weak var collectionView: UICollectionView?
-    weak var presenter: UIViewController?
 
     init(dataSource: CollectionViewNibRegistering & CollectionViewDataProviding) {
         self.dataSource = dataSource
         dataSource.delegate = self
     }
 
-    func loadData(refresh: Bool = false) {
-        dataSource.loadData(refresh: refresh)
+    func loadData() {
+        dataSource.loadData()
     }
 
     func reloadData() {

@@ -4,7 +4,7 @@
 
 import UIKit
 
-private enum Strings {
+private enum Constants {
     static let submissionsName = NSLocalizedString("brand.submissionName", comment: "")
 }
 
@@ -28,7 +28,7 @@ final class BrandCell: UICollectionViewCell, HavingNib, BrandRendering, BrandCov
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        submissions.text = Strings.submissionsName
+        submissions.text = Constants.submissionsName
     }
 
     func render(_ renderable: BrandRenderable) {
