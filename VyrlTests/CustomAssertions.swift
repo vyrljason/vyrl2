@@ -7,7 +7,7 @@ import XCTest
 @testable import Vyrl
 
 func expect<ResultType: ResultProtocol, SuccessType>(_ result: ResultType, toBeSuccessWith expected: SuccessType, file: StaticString = #file, line: UInt = #line) where ResultType.SuccessType == SuccessType, SuccessType: Equatable {
-    result.when(success: { value in
+    result.on(success: { value in
         XCTAssertEqual(value, expected, file: file, line: line)
     }, failure: { _ in
         XCTFail(file: file, line: line)
@@ -15,7 +15,7 @@ func expect<ResultType: ResultProtocol, SuccessType>(_ result: ResultType, toBeS
 }
 
 func expect<ResultType: ResultProtocol, SuccessType>(_ result: ResultType, toBeSuccessWith expected: [SuccessType], file: StaticString = #file, line: UInt = #line) where ResultType.SuccessType == [SuccessType], SuccessType: Equatable {
-    result.when(success: { value in
+    result.on(success: { value in
         XCTAssertEqual(value, expected, file: file, line: line)
     }, failure: { _ in
         XCTFail(file: file, line: line)
@@ -23,7 +23,7 @@ func expect<ResultType: ResultProtocol, SuccessType>(_ result: ResultType, toBeS
 }
 
 func expect<ResultType: ResultProtocol, ErrorType>(_ result: ResultType, toBeErrorWith expectedError: ErrorType, file: StaticString = #file, line: UInt = #line) where ResultType.ErrorType == ErrorType, ErrorType: Swift.Error, ErrorType: Equatable {
-    result.when(success: { result in
+    result.on(success: { result in
         XCTFail(file: file, line: line)
     }, failure: { error in
         XCTAssertEqual(error, expectedError)
@@ -31,14 +31,14 @@ func expect<ResultType: ResultProtocol, ErrorType>(_ result: ResultType, toBeErr
 }
 
 func expectToBeSuccess<ResultType: ResultProtocol>(_ result: ResultType, file: StaticString = #file, line: UInt = #line) {
-    result.when(success: { _ in },
+    result.on(success: { _ in },
                 failure: { _ in
                     XCTFail(file: file, line: line)
     })
 }
 
 func expectToBeFailure<Result: ResultProtocol>(_ result: Result, file: StaticString = #file, line: UInt = #line) {
-    result.when(success: { _ in
+    result.on(success: { _ in
         XCTFail(file: file, line: line)
     }, failure: { _ in })
 }

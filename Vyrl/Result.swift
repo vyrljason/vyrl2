@@ -8,32 +8,32 @@ protocol ResultProtocol {
     associatedtype SuccessType
     associatedtype ErrorType: Swift.Error
 
-    @discardableResult func mapResult<Output>(ifSuccess: (SuccessType) -> Output, ifFailure: (ErrorType) -> Output) -> Output
-    @discardableResult func when(success: ((SuccessType) -> Void)?, failure: ((ErrorType) -> Void)?) -> Self
+    @discardableResult func map<Output>(success: (SuccessType) -> Output, failure: (ErrorType) -> Output) -> Output
+    @discardableResult func on(success: ((SuccessType) -> Void)?, failure: ((ErrorType) -> Void)?) -> Self
 }
 
 extension ResultProtocol {
-    @discardableResult func map<Output>(_ transform: (SuccessType) -> Output) -> Result<Output, ErrorType> {
-        return mapResult(ifSuccess: { value in
+    @discardableResult func mapSuccess<Output>(_ transform: (SuccessType) -> Output) -> Result<Output, ErrorType> {
+        return map(success: { value in
             return Result<Output, ErrorType>(value: transform(value))
-        }, ifFailure: { error in
+        }, failure: { error in
             return Result<Output, ErrorType>(error: error)
         })
     }
 
     @discardableResult func mapError<OutputError>(_ transform: (ErrorType) -> OutputError) -> Result<SuccessType, OutputError> {
-        return mapResult(ifSuccess: { value in
+        return map(success: { value in
             return Result<SuccessType, OutputError>(value: value)
-        }, ifFailure: { error in
+        }, failure: { error in
             return Result<SuccessType, OutputError>(error: transform(error))
         })
     }
 
-    @discardableResult func when(success: ((SuccessType) -> Void)? = nil, failure: ((ErrorType) -> Void)? = nil) -> Self {
-        return mapResult(ifSuccess: { value in
+    @discardableResult func on(success: ((SuccessType) -> Void)? = nil, failure: ((ErrorType) -> Void)? = nil) -> Self {
+        return map(success: { value in
             success?(value)
             return self
-        }, ifFailure: { error in
+        }, failure: { error in
             failure?(error)
             return self
         })
@@ -55,12 +55,12 @@ enum Result<Success, Error:Swift.Error>: ResultProtocol {
         self = .failure(error)
     }
 
-    func mapResult<Result>(ifSuccess: (Success) -> Result, ifFailure: (Error) -> Result) -> Result {
+    func map<Result>(success: (Success) -> Result, failure: (Error) -> Result) -> Result {
         switch self {
         case .success(let value):
-            return ifSuccess(value)
+            return success(value)
         case .failure(let error):
-            return ifFailure(error)
+            return failure(error)
         }
     }
 }

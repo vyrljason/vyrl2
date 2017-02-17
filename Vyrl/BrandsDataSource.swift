@@ -22,7 +22,7 @@ final class BrandsDataSource: NSObject {
     }
 
     fileprivate func prepare(cell: BrandCell, using brand: Brand) {
-        cell.render(renderable: BrandRenderable(brand: brand))
+        cell.render(BrandRenderable(brand: brand))
         cell.setCoverImage(using: ImageFetcher(url: brand.coverImageURL))
     }
 }
@@ -43,4 +43,3 @@ extension BrandsDataSource: UICollectionViewDataSource {
         return cell
     }
 }
-

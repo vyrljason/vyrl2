@@ -8,15 +8,15 @@ enum BrandsError: Error {
     case unknown
 }
 
-typealias BrandsResult = (Result<[Brand], BrandsError>) -> Void
+typealias BrandsResultClosure = (Result<[Brand], BrandsError>) -> Void
 
 protocol BrandsFetching {
-    func brands(with limit: Int, offset: Int, completion: @escaping BrandsResult)
+    func brands(with limit: Int, offset: Int, completion: @escaping BrandsResultClosure)
 }
 
 protocol BrandsHaving {
     func reset()
-    func nextBrandsPage(callback: @escaping BrandsResult)
+    func nextBrandsPage(completion: @escaping BrandsResultClosure)
 }
 
 final class BrandsService: BrandsHaving {
@@ -40,16 +40,16 @@ final class BrandsService: BrandsHaving {
         brands.removeAll()
     }
 
-    func nextBrandsPage(callback: @escaping BrandsResult) {
+    func nextBrandsPage(completion: @escaping BrandsResultClosure) {
         resource.brands(with: pageSize, offset: offset) { [weak self] result in
             guard let `self` = self else { return }
             switch result {
             case .success(let newBrands):
                 self.brands.append(contentsOf: newBrands)
                 self.currentPage += 1
-                callback(.success(newBrands))
+                completion(.success(newBrands))
             case .failure(let error):
-                callback(.failure(error))
+                completion(.failure(error))
             }
         }
     }

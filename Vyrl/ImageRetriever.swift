@@ -26,7 +26,7 @@ extension RetrieveImageTask: ImageRetrievingTask { }
 
 final class ImageRetrieverAdapter: ImageRetrieving {
 
-    let imageRetriever: KingfisherManager
+    private let imageRetriever: KingfisherManager
 
     init(imageRetriever: KingfisherManager) {
         self.imageRetriever = imageRetriever

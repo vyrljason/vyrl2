@@ -20,13 +20,13 @@ final class DownloadingImageViewTest: XCTestCase {
     func test_setImage_withPlaceholder_setsPlaceholder() {
         imageFetcher.success = false
 
-        subject.setImage(using: imageFetcher, placeholder: placeholder, animated: false)
+        subject.fetchImage(using: imageFetcher, placeholder: placeholder, animated: false)
 
         XCTAssertEqual(subject.image, placeholder)
     }
 
     func test_setImage_withSuccess_setsImage() {
-        subject.setImage(using: imageFetcher, animated: false)
+        subject.fetchImage(using: imageFetcher, animated: false)
 
         XCTAssertEqual(subject.image, imageFetcher.image)
     }
@@ -38,13 +38,13 @@ final class DownloadingImageViewTest: XCTestCase {
     func test_setImage_withPlaceholder_withError_setsNoImage_showsPlaceholder() {
         imageFetcher.success = false
 
-        subject.setImage(using: imageFetcher, placeholder: placeholder, animated: false)
+        subject.fetchImage(using: imageFetcher, placeholder: placeholder, animated: false)
 
         XCTAssertEqual(subject.image, placeholder)
     }
 
     func test_cancelImageFetching_cancelsImageFetching() {
-        subject.setImage(using: imageFetcher)
+        subject.fetchImage(using: imageFetcher)
 
         subject.cancelImageFetching()
 

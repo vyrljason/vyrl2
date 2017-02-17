@@ -10,7 +10,7 @@ private struct Constants {
 }
 
 protocol DownloadableImageRendering {
-    func setImage(using imageFetcher: ImageFetching, placeholder: UIImage?, animated: Bool)
+    func fetchImage(using imageFetcher: ImageFetching, placeholder: UIImage?, animated: Bool)
     func cancelImageFetching()
 }
 
@@ -18,13 +18,13 @@ final class DownloadingImageView: UIImageView, DownloadableImageRendering {
 
     weak var imageFetcher: ImageFetching?
 
-    func setImage(using imageFetcher: ImageFetching, placeholder: UIImage? = nil, animated: Bool = true) {
+    func fetchImage(using imageFetcher: ImageFetching, placeholder: UIImage? = nil, animated: Bool = true) {
         image = placeholder
         self.imageFetcher = imageFetcher
         self.imageFetcher?.fetchImage { [weak self] result in
             guard let `self` = self else { return }
 
-            result.when(success: { image in
+            result.on(success: { image in
                 self.contentMode = .scaleAspectFill
                 if animated {
                     UIView.transition(with: self,

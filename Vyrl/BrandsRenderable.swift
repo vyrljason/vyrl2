@@ -11,6 +11,6 @@ struct BrandRenderable {
 
     init(brand: Brand) {
         name = brand.name
-        submissions = "\(brand.submissionsCount)"
+        submissions = String(brand.submissionsCount)
     }
 }

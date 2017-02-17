@@ -42,7 +42,6 @@
 		858D64071E5608CA00CFDD4C /* BrandsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858D64061E5608CA00CFDD4C /* BrandsService.swift */; };
 		858D64091E560EBC00CFDD4C /* CollectionViewControlling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858D64081E560EBC00CFDD4C /* CollectionViewControlling.swift */; };
 		858D640B1E560F0100CFDD4C /* CollectionViewHaving.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858D640A1E560F0100CFDD4C /* CollectionViewHaving.swift */; };
-		858D640D1E5612CA00CFDD4C /* RenderingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858D640C1E5612CA00CFDD4C /* RenderingView.swift */; };
 		858D64111E570E4C00CFDD4C /* LoadingDataForCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858D64101E570E4C00CFDD4C /* LoadingDataForCollectionView.swift */; };
 		858D64141E57121600CFDD4C /* BrandsRenderable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858D64131E57121600CFDD4C /* BrandsRenderable.swift */; };
 		A4256F0E1E675A7BB6AE21F5 /* Pods_Vyrl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AA1C43D9EC44CB342D10427 /* Pods_Vyrl.framework */; };
@@ -103,7 +102,6 @@
 		858D64061E5608CA00CFDD4C /* BrandsService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrandsService.swift; sourceTree = "<group>"; };
 		858D64081E560EBC00CFDD4C /* CollectionViewControlling.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewControlling.swift; sourceTree = "<group>"; };
 		858D640A1E560F0100CFDD4C /* CollectionViewHaving.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewHaving.swift; sourceTree = "<group>"; };
-		858D640C1E5612CA00CFDD4C /* RenderingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RenderingView.swift; sourceTree = "<group>"; };
 		858D64101E570E4C00CFDD4C /* LoadingDataForCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingDataForCollectionView.swift; sourceTree = "<group>"; };
 		858D64131E57121600CFDD4C /* BrandsRenderable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrandsRenderable.swift; sourceTree = "<group>"; };
 		D1CA9B6CB49B011CC24AABEF /* Pods-Vyrl.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Vyrl.release.xcconfig"; path = "Pods/Target Support Files/Pods-Vyrl/Pods-Vyrl.release.xcconfig"; sourceTree = "<group>"; };
@@ -272,7 +270,6 @@
 				852ACD441E55DCDC00219E90 /* ReusableView.swift */,
 				858D64081E560EBC00CFDD4C /* CollectionViewControlling.swift */,
 				858D640A1E560F0100CFDD4C /* CollectionViewHaving.swift */,
-				858D640C1E5612CA00CFDD4C /* RenderingView.swift */,
 				858D64101E570E4C00CFDD4C /* LoadingDataForCollectionView.swift */,
 			);
 			name = Protocols;

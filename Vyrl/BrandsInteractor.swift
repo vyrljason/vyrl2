@@ -15,7 +15,6 @@ protocol BrandsInteracting: CollectionViewHaving, CollectionViewControlling {
 final class BrandsInteractor: BrandsInteracting {
 
     fileprivate let dataSource: LoadingDataForCollectionView
-
     weak var collectionView: UICollectionView? {
         didSet {
             collectionView?.dataSource = dataSource
@@ -28,10 +27,6 @@ final class BrandsInteractor: BrandsInteracting {
     init(dataSource: LoadingDataForCollectionView) {
         self.dataSource = dataSource
         dataSource.delegate = self
-    }
-
-    @objc func refresh() {
-        dataSource.loadData(refresh: true)
     }
 
     func loadData(refresh: Bool = false) {
