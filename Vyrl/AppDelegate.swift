@@ -11,8 +11,7 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     
-    private let initialNavigation = InitialNavigation(mainView: BrandsViewControllerFactory.make(),
-                                                      leftMenu: LeftMenuViewController())
+    private let initialNavigation = InitialNavigationFactory.make()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         initializeAnalytics()
