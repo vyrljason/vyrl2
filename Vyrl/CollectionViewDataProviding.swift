@@ -4,8 +4,11 @@
 
 import UIKit
 
-protocol LoadingDataForCollectionView: class, UICollectionViewDataSource, UICollectionViewDelegate {
+protocol CollectionViewDataProviding: class, UICollectionViewDataSource, UICollectionViewDelegate {
     weak var delegate: CollectionViewHaving & CollectionViewControlling? { get set }
     func loadData(refresh: Bool)
+}
+
+protocol CollectionViewNibRegistering {
     func registerNibs()
 }
