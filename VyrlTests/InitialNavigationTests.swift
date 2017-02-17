@@ -18,9 +18,11 @@ final class InitialNavigationTests: XCTestCase {
         window = WindowMock()
         mainView = UIViewController()
         leftMenu = LeftMenuViewController()
-        subject = InitialNavigation(mainView: mainView,
-                                    leftMenu: leftMenu,
-                                    window: window)
+        subject = InitialNavigationFactory.make(mainView: mainView,
+                                                leftMenu: leftMenu,
+                                                cart: UIViewController(),
+                                                chat: UIViewController(),
+                                                window: window)
     }
 
     func test_showsSlideMenuController() {

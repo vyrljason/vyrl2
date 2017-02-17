@@ -23,6 +23,14 @@ enum InitialNavigationFactory {
     }
 }
 
+protocol InitialNavigationControlling: class {
+    func showMenu()
+    func showChat()
+
+    func showCart()
+    func dismissModal()
+}
+
 final class InitialNavigation {
 
     private enum Constants {
@@ -33,27 +41,32 @@ final class InitialNavigation {
                                                                      titleFont: .titleFont,
                                                                      backgroundColor: .rouge,
                                                                      translucent: false)
+        static let closeTitle: String = NSLocalizedString("Close", comment: "")
     }
 
     private let window: WindowProtocol
-    private var slideMenu: SlideMenuController!
+    fileprivate var slideMenu: SlideMenuController!
     private let mainView: UIViewController
-    private var mainNavigation: UINavigationController!
+    fileprivate var mainNavigation: UINavigationController!
     private let leftMenu: UIViewController
-    private let cart: UIViewController
-    private let chat: UIViewController
+    fileprivate let cart: UIViewController
+    fileprivate let chat: UIViewController
+    private let interactor: InitialNavigationInteracting & NavigationDelegateHaving
 
     // swiftlint:disable function_parameter_count
-    init(mainView: UIViewController,
+    init(interactor: InitialNavigationInteracting & NavigationDelegateHaving,
+         mainView: UIViewController,
          leftMenu: UIViewController,
          cart: UIViewController,
          chat: UIViewController,
          window: WindowProtocol) {
+        self.interactor = interactor
         self.mainView = mainView
         self.leftMenu = leftMenu
         self.cart = cart
         self.chat = chat
         self.window = window
+        interactor.delegate = self
     }
 
     func showInitialViewController() {
@@ -68,19 +81,26 @@ final class InitialNavigation {
     }
     private func setUpNavigationItems(in viewController: UIViewController) {
         viewController.render(NavigationItemRenderable(titleImage: Constants.titleImage))
-        viewController.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Menu",
-                                                                          style: .plain,
-                                                                          target: self,
-                                                                          action: #selector(showLeftMenu))
+
+        // This is temporary - icon will be used.
+        let menuButton = UIBarButtonItem(title: "Menu",
+                                         style: .plain,
+                                         target: interactor,
+                                         action: #selector(InitialNavigationInteracting.didTapMenu))
+
+        viewController.navigationItem.leftBarButtonItem = menuButton
+
+        // This is temporary - icon will be used.
         let chat = UIBarButtonItem(title: "Chat",
                                    style: .plain,
-                                   target: self,
-                                   action: #selector(showChat))
+                                   target: interactor,
+                                   action: #selector(InitialNavigationInteracting.didTapChat))
 
+        // This is temporary - icon will be used.
         let cart = UIBarButtonItem(title: "Cart",
                                    style: .plain,
-                                   target: self,
-                                   action: #selector(showCart))
+                                   target: interactor,
+                                   action: #selector(InitialNavigationInteracting.didTapCart))
 
         viewController.navigationItem.rightBarButtonItems = [chat, cart]
     }
@@ -110,33 +130,35 @@ final class InitialNavigation {
         }
     }
 
-    @objc private func showLeftMenu() {
-        slideMenu.openLeft()
-    }
-
-    @objc private func showCart() {
-        presentModally(cart)
-    }
-
-    @objc private func showChat() {
-        presentModally(chat)
-    }
-
-    private func presentModally(_ viewController: UIViewController) {
+    fileprivate func presentModally(_ viewController: UIViewController) {
         viewController.modalTransitionStyle = .coverVertical
-        viewController.modalPresentationStyle = .overCurrentContext
+        viewController.modalPresentationStyle = .fullScreen
         viewController.view.backgroundColor = .white
-        let close = UIBarButtonItem(title: NSLocalizedString("Close", comment: ""),
+        let close = UIBarButtonItem(title: Constants.closeTitle,
                                     style: .done,
-                                    target: self,
-                                    action: #selector(dismissModal))
+                                    target: interactor,
+                                    action: #selector(InitialNavigationInteracting.didTapClose))
         viewController.navigationItem.leftBarButtonItem = close
         let navigation = UINavigationController(rootViewController: viewController)
         navigation.render(Constants.navigationBarRenderable)
         mainNavigation.present(navigation, animated: true, completion: nil)
     }
+}
 
-    @objc private func dismissModal() {
+extension InitialNavigation: InitialNavigationControlling {
+    func showMenu() {
+        slideMenu.openLeft()
+    }
+
+    func showChat() {
+        presentModally(chat)
+    }
+
+    func showCart() {
+        presentModally(chat)
+    }
+
+    func dismissModal() {
         mainNavigation.dismiss(animated: true, completion: nil)
     }
 }
