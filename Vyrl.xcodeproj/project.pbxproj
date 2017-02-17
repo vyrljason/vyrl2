@@ -37,6 +37,14 @@
 		858D63F91E56030300CFDD4C /* DownloadingImageViewTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858D63F81E56030300CFDD4C /* DownloadingImageViewTest.swift */; };
 		858D63FB1E56037600CFDD4C /* ImageFetcherMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858D63FA1E56037600CFDD4C /* ImageFetcherMock.swift */; };
 		858D63FC1E56057F00CFDD4C /* Brand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850740CC1E55E71E00E2F65B /* Brand.swift */; };
+		858D64011E56082500CFDD4C /* BrandsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858D64001E56082500CFDD4C /* BrandsInteractor.swift */; };
+		858D64051E56089B00CFDD4C /* BrandsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858D64041E56089B00CFDD4C /* BrandsDataSource.swift */; };
+		858D64071E5608CA00CFDD4C /* BrandsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858D64061E5608CA00CFDD4C /* BrandsService.swift */; };
+		858D64091E560EBC00CFDD4C /* CollectionViewControlling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858D64081E560EBC00CFDD4C /* CollectionViewControlling.swift */; };
+		858D640B1E560F0100CFDD4C /* CollectionViewHaving.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858D640A1E560F0100CFDD4C /* CollectionViewHaving.swift */; };
+		858D640D1E5612CA00CFDD4C /* RenderingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858D640C1E5612CA00CFDD4C /* RenderingView.swift */; };
+		858D64111E570E4C00CFDD4C /* LoadingDataForCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858D64101E570E4C00CFDD4C /* LoadingDataForCollectionView.swift */; };
+		858D64141E57121600CFDD4C /* BrandsRenderable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858D64131E57121600CFDD4C /* BrandsRenderable.swift */; };
 		A4256F0E1E675A7BB6AE21F5 /* Pods_Vyrl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AA1C43D9EC44CB342D10427 /* Pods_Vyrl.framework */; };
 		BDDF0A4F0C2F3D7D482551AB /* Pods_VyrlTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3553ABBDC82B1A7C9E6385AE /* Pods_VyrlTests.framework */; };
 /* End PBXBuildFile section */
@@ -90,6 +98,14 @@
 		858D63F51E55FF8600CFDD4C /* CustomAssertions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomAssertions.swift; sourceTree = "<group>"; };
 		858D63F81E56030300CFDD4C /* DownloadingImageViewTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DownloadingImageViewTest.swift; sourceTree = "<group>"; };
 		858D63FA1E56037600CFDD4C /* ImageFetcherMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageFetcherMock.swift; sourceTree = "<group>"; };
+		858D64001E56082500CFDD4C /* BrandsInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrandsInteractor.swift; sourceTree = "<group>"; };
+		858D64041E56089B00CFDD4C /* BrandsDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrandsDataSource.swift; sourceTree = "<group>"; };
+		858D64061E5608CA00CFDD4C /* BrandsService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrandsService.swift; sourceTree = "<group>"; };
+		858D64081E560EBC00CFDD4C /* CollectionViewControlling.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewControlling.swift; sourceTree = "<group>"; };
+		858D640A1E560F0100CFDD4C /* CollectionViewHaving.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewHaving.swift; sourceTree = "<group>"; };
+		858D640C1E5612CA00CFDD4C /* RenderingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RenderingView.swift; sourceTree = "<group>"; };
+		858D64101E570E4C00CFDD4C /* LoadingDataForCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingDataForCollectionView.swift; sourceTree = "<group>"; };
+		858D64131E57121600CFDD4C /* BrandsRenderable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrandsRenderable.swift; sourceTree = "<group>"; };
 		D1CA9B6CB49B011CC24AABEF /* Pods-Vyrl.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Vyrl.release.xcconfig"; path = "Pods/Target Support Files/Pods-Vyrl/Pods-Vyrl.release.xcconfig"; sourceTree = "<group>"; };
 		E340CAC7115BDC8D7662DAA1 /* Pods-VyrlTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VyrlTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-VyrlTests/Pods-VyrlTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -217,6 +233,10 @@
 		852ACD351E55DAE800219E90 /* Brands */ = {
 			isa = PBXGroup;
 			children = (
+				858D64121E57120C00CFDD4C /* Renderable */,
+				858D63FF1E56080200CFDD4C /* Service */,
+				858D63FE1E5607FD00CFDD4C /* DataSource */,
+				858D63FD1E5607F700CFDD4C /* Interactor */,
 				850740CB1E55E5A200E2F65B /* Model */,
 				852ACD381E55DB0500219E90 /* Views */,
 			);
@@ -250,6 +270,10 @@
 			children = (
 				852ACD3F1E55DB8400219E90 /* HavingNib.swift */,
 				852ACD441E55DCDC00219E90 /* ReusableView.swift */,
+				858D64081E560EBC00CFDD4C /* CollectionViewControlling.swift */,
+				858D640A1E560F0100CFDD4C /* CollectionViewHaving.swift */,
+				858D640C1E5612CA00CFDD4C /* RenderingView.swift */,
+				858D64101E570E4C00CFDD4C /* LoadingDataForCollectionView.swift */,
 			);
 			name = Protocols;
 			sourceTree = "<group>";
@@ -314,6 +338,38 @@
 				858D63F81E56030300CFDD4C /* DownloadingImageViewTest.swift */,
 			);
 			name = UserInterface;
+			sourceTree = "<group>";
+		};
+		858D63FD1E5607F700CFDD4C /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				858D64001E56082500CFDD4C /* BrandsInteractor.swift */,
+			);
+			name = Interactor;
+			sourceTree = "<group>";
+		};
+		858D63FE1E5607FD00CFDD4C /* DataSource */ = {
+			isa = PBXGroup;
+			children = (
+				858D64041E56089B00CFDD4C /* BrandsDataSource.swift */,
+			);
+			name = DataSource;
+			sourceTree = "<group>";
+		};
+		858D63FF1E56080200CFDD4C /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				858D64061E5608CA00CFDD4C /* BrandsService.swift */,
+			);
+			name = Service;
+			sourceTree = "<group>";
+		};
+		858D64121E57120C00CFDD4C /* Renderable */ = {
+			isa = PBXGroup;
+			children = (
+				858D64131E57121600CFDD4C /* BrandsRenderable.swift */,
+			);
+			name = Renderable;
 			sourceTree = "<group>";
 		};
 		A04E77D5729CEC243AC965C5 /* Pods */ = {
@@ -575,7 +631,10 @@
 				852ACD431E55DC9600219E90 /* UIView+NibHaving.swift in Sources */,
 				1ADAF7C81E545F3C00155D9F /* AppDelegate.swift in Sources */,
 				858D63DE1E55F18100CFDD4C /* DownloadingImageView.swift in Sources */,
+				858D640B1E560F0100CFDD4C /* CollectionViewHaving.swift in Sources */,
 				858D63EA1E55F24C00CFDD4C /* Result.swift in Sources */,
+				858D64011E56082500CFDD4C /* BrandsInteractor.swift in Sources */,
+				858D64071E5608CA00CFDD4C /* BrandsService.swift in Sources */,
 				858D63E71E55F21800CFDD4C /* ServiceLocator.swift in Sources */,
 				858D63E51E55F1E000CFDD4C /* ImageRetriever.swift in Sources */,
 				852ACD4B1E55DDEE00219E90 /* BrandCell.swift in Sources */,
@@ -583,11 +642,16 @@
 				1A69C6A61E56008100134EF5 /* NavigationBar.swift in Sources */,
 				852ACD451E55DCDC00219E90 /* ReusableView.swift in Sources */,
 				1A69C6A01E55DC8C00134EF5 /* LeftMenuViewController.swift in Sources */,
+				858D64111E570E4C00CFDD4C /* LoadingDataForCollectionView.swift in Sources */,
 				858D63E01E55F19A00CFDD4C /* ImageFetcher.swift in Sources */,
+				858D64141E57121600CFDD4C /* BrandsRenderable.swift in Sources */,
 				852ACD471E55DCF200219E90 /* UIView+ReusableView.swift in Sources */,
 				1A69C6A81E560F4800134EF5 /* WindowProtocol.swift in Sources */,
+				858D640D1E5612CA00CFDD4C /* RenderingView.swift in Sources */,
 				1ADAF7F61E545FA300155D9F /* InitialNavigation.swift in Sources */,
 				1A69C6A41E55FF0000134EF5 /* UIColor.swift in Sources */,
+				858D64051E56089B00CFDD4C /* BrandsDataSource.swift in Sources */,
+				858D64091E560EBC00CFDD4C /* CollectionViewControlling.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
