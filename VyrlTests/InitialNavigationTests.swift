@@ -37,6 +37,12 @@ final class InitialNavigationTests: XCTestCase {
         }
         
         XCTAssertTrue(menu.leftViewController === leftMenu)
-        XCTAssertTrue(menu.mainViewController === mainView)
+
+        guard let navigation = menu.mainViewController as? UINavigationController else {
+            XCTFail()
+            return
+        }
+
+        XCTAssertTrue(navigation.viewControllers.first === mainView)
     }
 }
