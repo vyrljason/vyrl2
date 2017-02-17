@@ -14,7 +14,7 @@ protocol BrandsInteracting: CollectionViewHaving, CollectionViewControlling {
 
 final class BrandsInteractor: BrandsInteracting {
 
-    fileprivate let dataSource: LoadingDataForCollectionView
+    fileprivate let dataSource: CollectionViewDataProviding & CollectionViewNibRegistering
     weak var collectionView: UICollectionView? {
         didSet {
             collectionView?.dataSource = dataSource
@@ -24,7 +24,7 @@ final class BrandsInteractor: BrandsInteracting {
     }
     weak var presenter: UIViewController?
 
-    init(dataSource: LoadingDataForCollectionView) {
+    init(dataSource: CollectionViewDataProviding & CollectionViewNibRegistering) {
         self.dataSource = dataSource
         dataSource.delegate = self
     }
