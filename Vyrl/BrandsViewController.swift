@@ -43,7 +43,6 @@ extension BrandsViewController {
         refreshControl.tintColor = UIColor.rouge
         refreshControl.addTarget(interactor, action: #selector(CollectionViewRefreshing.refresh), for: .valueChanged)
         brandsCollection.addSubview(refreshControl)
-        brandsCollection.alwaysBounceVertical = true
     }
 }
 
