@@ -5,7 +5,7 @@
 import Foundation
 
 enum BrandsViewControllerFactory {
-    static func initialize() -> BrandsViewController {
+    static func make() -> BrandsViewController {
         let resource = BrandsResourceMock(amount: 30)
         let service = BrandsService(resource: resource)
         let dataSource = BrandsDataSource(repository: service)

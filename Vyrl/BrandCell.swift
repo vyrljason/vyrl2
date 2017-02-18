@@ -4,16 +4,12 @@
 
 import UIKit
 
-private enum Constants {
-    static let submissionsName = NSLocalizedString("brand.submissionName", comment: "")
-}
-
 protocol BrandRendering {
     func render(_ renderable: BrandRenderable)
 }
 
 protocol BrandCoverImageFetching {
-    func setCoverImage(using imageFetcher: ImageFetching)
+    func set(coverImageFetcher imageFetcher: ImageFetching)
 }
 
 final class BrandCell: UICollectionViewCell, HavingNib, BrandRendering, BrandCoverImageFetching {
@@ -28,7 +24,11 @@ final class BrandCell: UICollectionViewCell, HavingNib, BrandRendering, BrandCov
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        submissions.text = Constants.submissionsName
+    }
+
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        coverImage.cancelImageFetching()
     }
 
     func render(_ renderable: BrandRenderable) {
@@ -36,7 +36,7 @@ final class BrandCell: UICollectionViewCell, HavingNib, BrandRendering, BrandCov
         submissionsCount.text = renderable.submissions
     }
 
-    func setCoverImage(using imageFetcher: ImageFetching) {
+    func set(coverImageFetcher imageFetcher: ImageFetching) {
         coverImage.fetchImage(using: imageFetcher, placeholder: placeholder)
     }
 }

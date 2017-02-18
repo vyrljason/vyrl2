@@ -32,14 +32,8 @@ extension BrandsDataSource: CollectionViewDataProviding {
     func loadData() {
         repository.brands { [weak self] result in
             guard let `self` = self else { return }
-            switch result {
-            case .success(let brands):
-                self.items = brands
-                self.delegate?.reloadData()
-            case .failure:
-                self.items = []
-                self.delegate?.reloadData()
-            }
+            self.items = result.map(success: { $0 }, failure: { _ in return [] })
+            self.delegate?.reloadData()
         }
     }
 }
@@ -48,7 +42,7 @@ extension BrandsDataSource: UICollectionViewDataSource {
 
     fileprivate func prepare(cell: BrandCell, using brand: Brand) {
         cell.render(BrandRenderable(brand: brand))
-        cell.setCoverImage(using: ImageFetcher(url: brand.coverImageURL))
+        cell.set(coverImageFetcher: ImageFetcher(url: brand.coverImageURL))
     }
 
     func numberOfSections(in collectionView: UICollectionView) -> Int {
