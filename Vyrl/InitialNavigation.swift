@@ -114,7 +114,6 @@ final class InitialNavigation {
 
     private func setUpMainNavigationController() {
         mainNavigation = UINavigationController(rootViewController: mainView)
-
         mainNavigation.render(Constants.navigationBarRenderable)
     }
 
@@ -155,7 +154,7 @@ extension InitialNavigation: InitialNavigationControlling {
     }
 
     func showCart() {
-        presentModally(chat)
+        presentModally(cart)
     }
 
     func dismissModal() {

@@ -11,17 +11,24 @@ final class InitialNavigationTests: XCTestCase {
     private var window: WindowMock!
 
     private var mainView: UIViewController!
+    private var cart: UIViewController!
+    private var chat: UIViewController!
     private var leftMenu: LeftMenuViewController!
+    private var interactor: InitialNavigationInteractor!
 
     override func setUp() {
         super.setUp()
         window = WindowMock()
         mainView = UIViewController()
+        chat = UIViewController()
+        cart = UIViewController()
         leftMenu = LeftMenuViewController()
-        subject = InitialNavigationFactory.make(mainView: mainView,
+        interactor = InitialNavigationInteractor()
+        subject = InitialNavigationFactory.make(interactor: interactor,
+                                                mainView: mainView,
                                                 leftMenu: leftMenu,
-                                                cart: UIViewController(),
-                                                chat: UIViewController(),
+                                                cart: cart,
+                                                chat: chat,
                                                 window: window)
     }
 
