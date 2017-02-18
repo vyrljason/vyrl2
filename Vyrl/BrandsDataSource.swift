@@ -34,7 +34,11 @@ extension BrandsDataSource: CollectionViewDataProviding {
             guard let `self` = self else { return }
             self.items = result.map(success: { $0 }, failure: { _ in return [] })
             DispatchQueue.onMainThread {
-                self.delegate?.reloadData()
+                result.on(success: { brands in
+                    self.delegate?.updateCollection(with: brands.isEmpty ? .empty : .someData)
+                }, failure: { _ in
+                    self.delegate?.updateCollection(with: .error)
+                })
             }
         }
     }

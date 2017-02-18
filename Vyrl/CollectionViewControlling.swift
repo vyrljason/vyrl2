@@ -4,7 +4,13 @@
 
 import Foundation
 
+enum DataFetchResult {
+    case someData
+    case empty
+    case error
+}
+
 protocol CollectionViewControlling: class {
-    func reloadData()
+    func updateCollection(with result: DataFetchResult)
     func loadData()
 }

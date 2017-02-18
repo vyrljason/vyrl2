@@ -5,7 +5,7 @@
 import Foundation
 import DZNEmptyDataSet
 
-private struct Constants {
+private enum Constants {
     static let titleAttributes: [String: Any] = [:]
     static let descriptionAttributes: [String: Any] = [:]
     static let noDataTitle = NSLocalizedString("No brands", comment: "")
@@ -16,13 +16,13 @@ private struct Constants {
 
 enum EmptyCollectionMode {
     case noData
-    case networkingError
+    case error
 
     var title: NSAttributedString {
         switch self {
         case .noData:
             return NSAttributedString(string: Constants.noDataTitle, attributes: Constants.titleAttributes)
-        case .networkingError:
+        case .error:
             return NSAttributedString(string: Constants.networkingErrorTitle, attributes: Constants.titleAttributes)
         }
     }
@@ -31,17 +31,17 @@ enum EmptyCollectionMode {
         switch self {
         case .noData:
             return NSAttributedString(string: Constants.noDataDescription, attributes: Constants.descriptionAttributes)
-        case .networkingError:
+        case .error:
             return NSAttributedString(string: Constants.networkingErrorDescription, attributes: Constants.descriptionAttributes)
         }
     }
 }
 
 protocol EmptyCollectionViewHandling: CollectionViewUsing {
-
+    func configure(with mode: EmptyCollectionMode)
 }
 
-final class EmptyCollectionHandler: NSObject, DZNEmptyDataSetSource, DZNEmptyDataSetDelegate, CollectionViewUsing {
+final class EmptyCollectionHandler: NSObject, DZNEmptyDataSetSource, DZNEmptyDataSetDelegate, EmptyCollectionViewHandling {
     private weak var collectionView: UICollectionView?
     private var titleText: NSAttributedString?
     private var descriptionText: NSAttributedString?
@@ -69,5 +69,11 @@ final class EmptyCollectionHandler: NSObject, DZNEmptyDataSetSource, DZNEmptyDat
         return descriptionText
     }
 
+    func emptyDataSetShouldDisplay(_ scrollView: UIScrollView!) -> Bool {
+        return false
+    }
 
+    func emptyDataSetShouldAllowScroll(_ scrollView: UIScrollView!) -> Bool {
+        return true
+    }
 }
