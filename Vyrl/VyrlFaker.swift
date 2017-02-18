@@ -17,3 +17,9 @@ extension Faker {
         return Brand(id: id, name: name, submissionsCount: submissionsCount, coverImageURL: coverImageURL)
     }
 }
+
+extension Internet {
+    func url() -> String {
+        return "https://\(domainName())/\(username())"
+    }
+}

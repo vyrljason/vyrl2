@@ -11,6 +11,7 @@ enum BrandsViewControllerFactory {
         let dataSource = BrandsDataSource(repository: service)
         let interactor = BrandsInteractor(dataSource: dataSource)
         let viewController = BrandsViewController(interactor: interactor)
+        interactor.dataUpdateListener = viewController
         return viewController
     }
 }

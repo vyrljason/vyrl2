@@ -33,7 +33,9 @@ extension BrandsDataSource: CollectionViewDataProviding {
         repository.brands { [weak self] result in
             guard let `self` = self else { return }
             self.items = result.map(success: { $0 }, failure: { _ in return [] })
-            self.delegate?.reloadData()
+            DispatchQueue.onMainThread {
+                self.delegate?.reloadData()
+            }
         }
     }
 }

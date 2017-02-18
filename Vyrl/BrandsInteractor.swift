@@ -8,12 +8,15 @@ fileprivate struct Constants {
     static let baseCellHeight: CGFloat  = 44.0
 }
 
-protocol BrandsInteracting: CollectionViewHaving, CollectionViewControlling, CollectionViewUsing { }
+protocol BrandsInteracting: CollectionViewHaving, CollectionViewControlling, CollectionViewUsing {
+    weak var dataUpdateListener: DataLoadingEventsListening? { get set }
+}
 
 final class BrandsInteractor: BrandsInteracting {
 
     fileprivate let dataSource: CollectionViewNibRegistering & CollectionViewDataProviding
     weak var collectionView: UICollectionView?
+    weak var dataUpdateListener: DataLoadingEventsListening?
 
     init(dataSource: CollectionViewNibRegistering & CollectionViewDataProviding) {
         self.dataSource = dataSource
@@ -21,11 +24,13 @@ final class BrandsInteractor: BrandsInteracting {
     }
 
     func loadData() {
+        dataUpdateListener?.willStartDataLoading()
         dataSource.loadData()
     }
 
     func reloadData() {
         collectionView?.reloadData()
+        dataUpdateListener?.didFinishDataLoading()
     }
 }
 
@@ -35,5 +40,11 @@ extension BrandsInteractor: CollectionViewUsing {
         self.collectionView?.dataSource = dataSource
         self.collectionView?.delegate = dataSource
         dataSource.registerNibs()
+    }
+}
+
+extension BrandsInteractor: CollectionViewRefreshing {
+    func refresh() {
+        reloadData()
     }
 }

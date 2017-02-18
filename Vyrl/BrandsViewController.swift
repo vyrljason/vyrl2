@@ -4,14 +4,20 @@
 
 import UIKit
 
+protocol DataLoadingEventsListening: class {
+    func willStartDataLoading()
+    func didFinishDataLoading()
+}
+
 final class BrandsViewController: UIViewController, HavingNib {
     static let nibName: String = "BrandsViewController"
 
-    fileprivate let interactor: BrandsInteracting
-    
-    @IBOutlet fileprivate weak var brandsCollection: UICollectionView!
+    fileprivate let interactor: BrandsInteracting & CollectionViewRefreshing
 
-    init(interactor: BrandsInteracting) {
+    @IBOutlet fileprivate weak var brandsCollection: UICollectionView!
+    fileprivate let refreshControl = UIRefreshControl()
+
+    init(interactor: BrandsInteracting & CollectionViewRefreshing) {
         self.interactor = interactor
         super.init(nibName: BrandsViewController.nibName, bundle: nil)
     }
@@ -22,12 +28,30 @@ final class BrandsViewController: UIViewController, HavingNib {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        setUpRefresh()
         interactor.use(brandsCollection)
-        interactor.loadData()
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         interactor.loadData()
+    }
+}
+
+extension BrandsViewController {
+    fileprivate func setUpRefresh() {
+        refreshControl.tintColor = UIColor.rouge
+        refreshControl.addTarget(interactor, action: #selector(CollectionViewRefreshing.refresh), for: .valueChanged)
+        brandsCollection.addSubview(refreshControl)
+    }
+}
+
+extension BrandsViewController: DataLoadingEventsListening {
+    func willStartDataLoading() {
+        refreshControl.beginRefreshing()
+    }
+
+    func didFinishDataLoading() {
+        refreshControl.endRefreshing()
     }
 }
