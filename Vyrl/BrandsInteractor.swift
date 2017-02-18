@@ -39,7 +39,12 @@ extension BrandsInteractor: CollectionViewUsing {
         self.collectionView = collectionView
         self.collectionView?.dataSource = dataSource
         self.collectionView?.delegate = dataSource
+
         dataSource.registerNibs()
+    }
+
+    func stopUsingCollectionView() {
+        collectionView = nil
     }
 }
 
