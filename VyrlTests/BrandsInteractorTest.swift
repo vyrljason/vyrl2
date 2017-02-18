@@ -5,7 +5,7 @@
 @testable import Vyrl
 import XCTest
 
-final class DataUpdateListener: DataUpdateListening {
+final class DataUpdateListener: DataLoadingEventsListening {
     var willStart = false
     var didFinish = false
 
@@ -93,5 +93,14 @@ final class BrandsInteractorTest: XCTestCase {
         subject.reloadData()
 
         XCTAssertTrue(dataUpdateListener.didFinish)
+    }
+
+    func test_refresh_reloadsCollectionVie() {
+        subject.use(collectionView)
+
+        subject.refresh()
+
+        XCTAssertTrue(collectionView.reloadDidCall)
+
     }
 }

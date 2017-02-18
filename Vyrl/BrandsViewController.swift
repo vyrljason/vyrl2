@@ -4,7 +4,7 @@
 
 import UIKit
 
-protocol DataUpdateListening: class {
+protocol DataLoadingEventsListening: class {
     func willStartDataLoading()
     func didFinishDataLoading()
 }
@@ -12,12 +12,12 @@ protocol DataUpdateListening: class {
 final class BrandsViewController: UIViewController, HavingNib {
     static let nibName: String = "BrandsViewController"
 
-    fileprivate let interactor: BrandsInteracting
+    fileprivate let interactor: BrandsInteracting & CollectionViewRefreshing
 
     @IBOutlet fileprivate weak var brandsCollection: UICollectionView!
     fileprivate let refreshControl = UIRefreshControl()
 
-    init(interactor: BrandsInteracting) {
+    init(interactor: BrandsInteracting & CollectionViewRefreshing) {
         self.interactor = interactor
         super.init(nibName: BrandsViewController.nibName, bundle: nil)
     }
@@ -41,16 +41,12 @@ final class BrandsViewController: UIViewController, HavingNib {
 extension BrandsViewController {
     fileprivate func setUpRefresh() {
         refreshControl.tintColor = UIColor.rouge
-        refreshControl.addTarget(self, action: #selector(BrandsViewController.refresh), for: .valueChanged)
+        refreshControl.addTarget(interactor, action: #selector(CollectionViewRefreshing.refresh), for: .valueChanged)
         brandsCollection.addSubview(refreshControl)
-    }
-
-    @objc fileprivate func refresh() {
-        interactor.loadData()
     }
 }
 
-extension BrandsViewController: DataUpdateListening {
+extension BrandsViewController: DataLoadingEventsListening {
     func willStartDataLoading() {
         refreshControl.beginRefreshing()
     }

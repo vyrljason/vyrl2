@@ -9,14 +9,14 @@ fileprivate struct Constants {
 }
 
 protocol BrandsInteracting: CollectionViewHaving, CollectionViewControlling, CollectionViewUsing {
-    weak var dataUpdateListener: DataUpdateListening? { get set }
+    weak var dataUpdateListener: DataLoadingEventsListening? { get set }
 }
 
 final class BrandsInteractor: BrandsInteracting {
 
     fileprivate let dataSource: CollectionViewNibRegistering & CollectionViewDataProviding
     weak var collectionView: UICollectionView?
-    weak var dataUpdateListener: DataUpdateListening?
+    weak var dataUpdateListener: DataLoadingEventsListening?
 
     init(dataSource: CollectionViewNibRegistering & CollectionViewDataProviding) {
         self.dataSource = dataSource
@@ -40,5 +40,11 @@ extension BrandsInteractor: CollectionViewUsing {
         self.collectionView?.dataSource = dataSource
         self.collectionView?.delegate = dataSource
         dataSource.registerNibs()
+    }
+}
+
+extension BrandsInteractor: CollectionViewRefreshing {
+    func refresh() {
+        reloadData()
     }
 }
