@@ -5,28 +5,9 @@
 import UIKit
 import SlideMenuControllerSwift
 
-enum InitialNavigationFactory {
-    static func make(mainView: UIViewController = BrandsViewControllerFactory.make(),
-                     leftMenu: UIViewController = LeftMenuViewController(),
-                     cart: UIViewController = UIViewController(),
-                     chat: UIViewController = UIViewController(),
-                     window: WindowProtocol = UIWindow()) -> InitialNavigation {
-
-        chat.title = NSLocalizedString("CHAT", comment: "")
-        cart.title = NSLocalizedString("YOUR CART", comment: "")
-
-        return InitialNavigation(mainView: mainView,
-                                 leftMenu: leftMenu,
-                                 cart: cart,
-                                 chat: chat,
-                                 window: window)
-    }
-}
-
 protocol InitialNavigationControlling: class {
     func showMenu()
     func showChat()
-
     func showCart()
     func dismissModal()
 }

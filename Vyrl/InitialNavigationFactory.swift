@@ -12,7 +12,7 @@ enum InitialNavigationFactory {
     }
 
     static func make(interactor: InitialNavigationInteracting & NavigationDelegateHaving = InitialNavigationInteractor(),
-                     mainView: UIViewController = MainViewFactory.make(),
+                     mainView: UIViewController = BrandsViewControllerFactory.make(),
                      leftMenu: UIViewController = LeftMenuViewController(),
                      cart: UIViewController = UIViewController(),
                      chat: UIViewController = UIViewController(),
