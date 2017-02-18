@@ -4,6 +4,7 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -11,14 +12,14 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="BrandCell" id="Kc3-hu-jTj" customClass="BrandCell" customModule="Vyrl" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="386" height="303"/>
+            <rect key="frame" x="0.0" y="0.0" width="386" height="188"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                <rect key="frame" x="0.0" y="0.0" width="386" height="303"/>
+                <rect key="frame" x="0.0" y="0.0" width="386" height="188"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ITW-a2-O8z">
-                        <rect key="frame" x="0.0" y="255" width="393" height="48"/>
+                        <rect key="frame" x="0.0" y="140" width="393" height="48"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="GoPro" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zlu-BV-AdR">
                                 <rect key="frame" x="20" y="4" width="48" height="20.5"/>
@@ -51,8 +52,9 @@
                             <constraint firstItem="sVY-8c-HzD" firstAttribute="leading" secondItem="44s-s9-dz3" secondAttribute="trailing" constant="6" id="nj4-Tf-Oe5"/>
                         </constraints>
                     </view>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="i14-ha-zyw">
-                        <rect key="frame" x="0.0" y="0.0" width="386" height="255"/>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="i14-ha-zyw" customClass="DownloadingImageView" customModule="Vyrl" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="386" height="140"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                     </imageView>
                 </subviews>
             </view>
@@ -66,7 +68,13 @@
                 <constraint firstAttribute="bottom" secondItem="ITW-a2-O8z" secondAttribute="bottom" id="rxA-Oj-yuX"/>
             </constraints>
             <size key="customSize" width="386" height="303"/>
-            <point key="canvasLocation" x="52" y="-9.5"/>
+            <connections>
+                <outlet property="coverImage" destination="i14-ha-zyw" id="06s-iO-ec4"/>
+                <outlet property="name" destination="Zlu-BV-AdR" id="v2q-WS-g4c"/>
+                <outlet property="submissions" destination="sVY-8c-HzD" id="YqG-bw-p7d"/>
+                <outlet property="submissionsCount" destination="44s-s9-dz3" id="pqa-Ae-wwo"/>
+            </connections>
+            <point key="canvasLocation" x="-494" y="22"/>
         </collectionViewCell>
     </objects>
 </document>

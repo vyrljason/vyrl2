@@ -6,7 +6,7 @@ import UIKit
 
 protocol CollectionViewDataProviding: class, UICollectionViewDataSource, UICollectionViewDelegate {
     weak var delegate: CollectionViewHaving & CollectionViewControlling? { get set }
-    func loadData(refresh: Bool)
+    func loadData()
 }
 
 protocol CollectionViewNibRegistering {

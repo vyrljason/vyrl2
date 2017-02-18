@@ -4,6 +4,10 @@
 
 import UIKit
 
+private enum Constants {
+    static let cellHeight: CGFloat = 188
+}
+
 final class BrandsDataSource: NSObject {
 
     fileprivate let repository: BrandsHaving
@@ -15,19 +19,31 @@ final class BrandsDataSource: NSObject {
         self.repository = repository
         super.init()
     }
+}
 
+extension BrandsDataSource: CollectionViewNibRegistering {
     func registerNibs() {
         guard let collectionView = delegate?.collectionView else { return }
         BrandCell.register(to: collectionView)
     }
+}
 
-    fileprivate func prepare(cell: BrandCell, using brand: Brand) {
-        cell.render(BrandRenderable(brand: brand))
-        cell.setCoverImage(using: ImageFetcher(url: brand.coverImageURL))
+extension BrandsDataSource: CollectionViewDataProviding {
+    func loadData() {
+        repository.brands { [weak self] result in
+            guard let `self` = self else { return }
+            self.items = result.map(success: { $0 }, failure: { _ in return [] })
+            self.delegate?.reloadData()
+        }
     }
 }
 
 extension BrandsDataSource: UICollectionViewDataSource {
+
+    fileprivate func prepare(cell: BrandCell, using brand: Brand) {
+        cell.render(BrandRenderable(brand: brand))
+        cell.set(coverImageFetcher: ImageFetcher(url: brand.coverImageURL))
+    }
 
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
@@ -41,5 +57,19 @@ extension BrandsDataSource: UICollectionViewDataSource {
         let cell: BrandCell = collectionView.dequeueCell(at: indexPath)
         prepare(cell: cell, using: items[indexPath.row])
         return cell
+    }
+}
+extension BrandsDataSource: UICollectionViewDelegateFlowLayout {
+
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: delegate?.collectionView?.bounds.width ?? 0, height: Constants.cellHeight)
+    }
+
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        insetForSectionAt section: Int) -> UIEdgeInsets {
+        return .zero
     }
 }

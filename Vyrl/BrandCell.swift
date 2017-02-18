@@ -9,25 +9,34 @@ protocol BrandRendering {
 }
 
 protocol BrandCoverImageFetching {
-    func setCoverImage(using imageFetcher: ImageFetching)
+    func set(coverImageFetcher imageFetcher: ImageFetching)
 }
 
 final class BrandCell: UICollectionViewCell, HavingNib, BrandRendering, BrandCoverImageFetching {
-    typealias Renderable = BrandRenderable
+    static let nibName = "BrandCell"
 
     @IBOutlet private weak var coverImage: DownloadingImageView!
     @IBOutlet private weak var submissions: UILabel!
+    @IBOutlet private weak var submissionsCount: UILabel!
     @IBOutlet private weak var name: UILabel!
 
-    static let nibName = "BrandCell"
     fileprivate let placeholder = UIImage() //TODO: replace with real placeholder
+
+    override func awakeFromNib() {
+        super.awakeFromNib()
+    }
+
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        coverImage.cancelImageFetching()
+    }
 
     func render(_ renderable: BrandRenderable) {
         name.text = renderable.name
-        submissions.text = renderable.submissions
+        submissionsCount.text = renderable.submissions
     }
 
-    func setCoverImage(using imageFetcher: ImageFetching) {
+    func set(coverImageFetcher imageFetcher: ImageFetching) {
         coverImage.fetchImage(using: imageFetcher, placeholder: placeholder)
     }
 }

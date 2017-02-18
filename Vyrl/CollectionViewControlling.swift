@@ -6,4 +6,5 @@ import Foundation
 
 protocol CollectionViewControlling: class {
     func reloadData()
+    func loadData()
 }
