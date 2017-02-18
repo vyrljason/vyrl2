@@ -46,6 +46,7 @@ final class BrandsInteractorTest: XCTestCase {
     var collectionView: CollectionViewMock!
     var dataSource: BrandsDataSourceMock!
     var dataUpdateListener: DataUpdateListener!
+    var emptyCollectionHandler: EmptyCollectionViewHandlerMock!
     var subject: BrandsInteractor!
 
     override func setUp() {
@@ -53,7 +54,8 @@ final class BrandsInteractorTest: XCTestCase {
         collectionView = CollectionViewMock()
         dataSource = BrandsDataSourceMock()
         dataUpdateListener = DataUpdateListener()
-        subject = BrandsInteractor(dataSource: dataSource)
+        emptyCollectionHandler = EmptyCollectionViewHandlerMock()
+        subject = BrandsInteractor(dataSource: dataSource, emptyCollectionHandler: emptyCollectionHandler)
         subject.dataUpdateListener = dataUpdateListener
         dataSource.delegate = subject
     }
@@ -79,10 +81,10 @@ final class BrandsInteractorTest: XCTestCase {
         XCTAssertTrue(dataUpdateListener.willStart)
     }
 
-    func test_reloadData_reloadsCollectionView() {
+    func test_updateCollection_reloadsCollectionView() {
         subject.use(collectionView)
 
-        subject.reloadData()
+        subject.updateCollection(with: .someData)
 
         XCTAssertTrue(collectionView.reloadDidCall)
     }
@@ -90,9 +92,25 @@ final class BrandsInteractorTest: XCTestCase {
     func test_reloadData_informsThatDataLoadDidFinish() {
         subject.use(collectionView)
 
-        subject.reloadData()
+        subject.updateCollection(with: .someData)
 
         XCTAssertTrue(dataUpdateListener.didFinish)
+    }
+
+    func test_updateCollection_whenResultIsEmpty_informsEmptyCollectionHandler() {
+        subject.use(collectionView)
+
+        subject.updateCollection(with: .empty)
+
+        XCTAssertEqual(emptyCollectionHandler.currentMode, .noData)
+    }
+
+    func test_updateCollection_whenResultIsError_informsEmptyCollectionHandler() {
+        subject.use(collectionView)
+
+        subject.updateCollection(with: .error)
+
+        XCTAssertEqual(emptyCollectionHandler.currentMode, .error)
     }
 
     func test_refresh_reloadsCollectionVie() {

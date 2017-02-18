@@ -6,8 +6,8 @@ import Foundation
 import DZNEmptyDataSet
 
 private enum Constants {
-    static let titleAttributes: [String: Any] = [:]
-    static let descriptionAttributes: [String: Any] = [:]
+    static let titleAttributes: [String: Any] = [:] //This should be adjusted by the final design
+    static let descriptionAttributes: [String: Any] = [:] //This should be adjusted by the final design
     static let noDataTitle = NSLocalizedString("No brands", comment: "")
     static let networkingErrorTitle = NSLocalizedString("Something went wrong", comment: "")
     static let noDataDescription = NSLocalizedString("Sorry, there are no brands at the moment.", comment: "")
@@ -41,7 +41,7 @@ protocol EmptyCollectionViewHandling: CollectionViewUsing {
     func configure(with mode: EmptyCollectionMode)
 }
 
-final class EmptyCollectionHandler: NSObject, DZNEmptyDataSetSource, DZNEmptyDataSetDelegate, EmptyCollectionViewHandling {
+final class EmptyCollectionViewHandler: NSObject, DZNEmptyDataSetSource, DZNEmptyDataSetDelegate, EmptyCollectionViewHandling {
     private weak var collectionView: UICollectionView?
     private var titleText: NSAttributedString?
     private var descriptionText: NSAttributedString?
@@ -57,10 +57,6 @@ final class EmptyCollectionHandler: NSObject, DZNEmptyDataSetSource, DZNEmptyDat
         descriptionText = mode.description
     }
 
-    func stopUsingCollectionView() {
-        collectionView = nil
-    }
-
     func title(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
         return titleText
     }
@@ -70,7 +66,7 @@ final class EmptyCollectionHandler: NSObject, DZNEmptyDataSetSource, DZNEmptyDat
     }
 
     func emptyDataSetShouldDisplay(_ scrollView: UIScrollView!) -> Bool {
-        return false
+        return titleText != nil && descriptionText != nil
     }
 
     func emptyDataSetShouldAllowScroll(_ scrollView: UIScrollView!) -> Bool {

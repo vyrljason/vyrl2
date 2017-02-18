@@ -32,13 +32,13 @@ final class BrandsInteractor: BrandsInteracting {
     }
 
     func updateCollection(with result: DataFetchResult) {
-//        switch result {
-//        case .error:
-//            emptyCollectionHandler.configure(with: .error)
-//        case .empty:
-//            emptyCollectionHandler.configure(with: .noData)
-//        default: ()
-//        }
+        switch result {
+        case .error:
+            emptyCollectionHandler.configure(with: .error)
+        case .empty:
+            emptyCollectionHandler.configure(with: .noData)
+        default: ()
+        }
         reloadData()
     }
 
@@ -53,12 +53,8 @@ extension BrandsInteractor: CollectionViewUsing {
         self.collectionView = collectionView
         self.collectionView?.dataSource = dataSource
         self.collectionView?.delegate = dataSource
-//        emptyCollectionHandler.use(collectionView)
+        emptyCollectionHandler.use(collectionView)
         dataSource.registerNibs()
-    }
-
-    func stopUsingCollectionView() {
-        collectionView = nil
     }
 }
 

@@ -6,5 +6,4 @@ import UIKit
 
 protocol CollectionViewUsing: class {
     func use(_ collectionView: UICollectionView)
-    func stopUsingCollectionView()
 }
