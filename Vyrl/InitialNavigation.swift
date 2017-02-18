@@ -115,7 +115,6 @@ final class InitialNavigation {
     fileprivate func presentModally(_ viewController: UIViewController) {
         viewController.modalTransitionStyle = .coverVertical
         viewController.modalPresentationStyle = .fullScreen
-        viewController.view.backgroundColor = .white
         let close = UIBarButtonItem(title: Constants.closeTitle,
                                     style: .done,
                                     target: interactor,
