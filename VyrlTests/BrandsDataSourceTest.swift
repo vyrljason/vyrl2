@@ -75,7 +75,6 @@ final class BrandsDataSourceTest: XCTestCase {
         XCTAssertTrue(interactor.didReloadData)
     }
 
-
     func test_loadData_whenServiceReturnsError_NumberOfItemsInCollectionViewIsZero() {
         service.success = false
 

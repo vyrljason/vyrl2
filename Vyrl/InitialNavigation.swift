@@ -37,12 +37,14 @@ final class InitialNavigation {
     // swiftlint:disable function_parameter_count
     init(interactor: InitialNavigationInteracting & NavigationDelegateHaving,
          mainView: UIViewController,
+         mainNavigation: UINavigationController,
          leftMenu: UIViewController,
          cart: UIViewController,
          chat: UIViewController,
          window: WindowProtocol) {
         self.interactor = interactor
         self.mainView = mainView
+        self.mainNavigation = mainNavigation
         self.leftMenu = leftMenu
         self.cart = cart
         self.chat = chat
@@ -94,7 +96,7 @@ final class InitialNavigation {
     }
 
     private func setUpMainNavigationController() {
-        mainNavigation = UINavigationController(rootViewController: mainView)
+        mainNavigation.viewControllers = [mainView]
         mainNavigation.render(Constants.navigationBarRenderable)
     }
 

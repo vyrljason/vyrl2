@@ -13,6 +13,7 @@ enum InitialNavigationFactory {
 
     static func make(interactor: InitialNavigationInteracting & NavigationDelegateHaving = InitialNavigationInteractor(),
                      mainView: UIViewController = BrandsViewControllerFactory.make(),
+                     mainNavigation: UINavigationController = UINavigationController(),
                      leftMenu: UIViewController = LeftMenuViewController(),
                      cart: UIViewController = UIViewController(),
                      chat: UIViewController = UIViewController(),
@@ -23,6 +24,7 @@ enum InitialNavigationFactory {
 
         return InitialNavigation(interactor: interactor,
                                  mainView: mainView,
+                                 mainNavigation: mainNavigation,
                                  leftMenu: leftMenu,
                                  cart: cart,
                                  chat: chat,

@@ -17,6 +17,7 @@
 		1A859C151E575E7E0013EB09 /* InitialNavigationFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A859C141E575E7E0013EB09 /* InitialNavigationFactory.swift */; };
 		1A859C171E58999A0013EB09 /* InitialNavigationInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A859C161E58999A0013EB09 /* InitialNavigationInteractorTests.swift */; };
 		1A859C191E5899D80013EB09 /* InitialNavigationControllingMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A859C181E5899D80013EB09 /* InitialNavigationControllingMock.swift */; };
+		1A859C1B1E58A5620013EB09 /* NavigationControllerMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A859C1A1E58A5620013EB09 /* NavigationControllerMock.swift */; };
 		1ADAF7C81E545F3C00155D9F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ADAF7C71E545F3C00155D9F /* AppDelegate.swift */; };
 		1ADAF7CF1E545F3C00155D9F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1ADAF7CE1E545F3C00155D9F /* Assets.xcassets */; };
 		1ADAF7D21E545F3C00155D9F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1ADAF7D01E545F3C00155D9F /* LaunchScreen.storyboard */; };
@@ -89,6 +90,7 @@
 		1A859C141E575E7E0013EB09 /* InitialNavigationFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InitialNavigationFactory.swift; sourceTree = "<group>"; };
 		1A859C161E58999A0013EB09 /* InitialNavigationInteractorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InitialNavigationInteractorTests.swift; sourceTree = "<group>"; };
 		1A859C181E5899D80013EB09 /* InitialNavigationControllingMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InitialNavigationControllingMock.swift; sourceTree = "<group>"; };
+		1A859C1A1E58A5620013EB09 /* NavigationControllerMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationControllerMock.swift; sourceTree = "<group>"; };
 		1AA1C43D9EC44CB342D10427 /* Pods_Vyrl.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Vyrl.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1ADAF7C41E545F3C00155D9F /* Vyrl.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Vyrl.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1ADAF7C71E545F3C00155D9F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -286,6 +288,7 @@
 				858D63FA1E56037600CFDD4C /* ImageFetcherMock.swift */,
 				1A859C181E5899D80013EB09 /* InitialNavigationControllingMock.swift */,
 				858D64411E5755FC00CFDD4C /* CollectionViewMock.swift */,
+				1A859C1A1E58A5620013EB09 /* NavigationControllerMock.swift */,
 			);
 			name = Mocks;
 			sourceTree = "<group>";
@@ -849,6 +852,7 @@
 				858D63F91E56030300CFDD4C /* DownloadingImageViewTest.swift in Sources */,
 				858D643C1E5751A400CFDD4C /* BrandsServiceTest.swift in Sources */,
 				858D64401E57538A00CFDD4C /* BrandsInteractorTest.swift in Sources */,
+				1A859C1B1E58A5620013EB09 /* NavigationControllerMock.swift in Sources */,
 				858D64341E574B8800CFDD4C /* SnapshotTestCase.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
