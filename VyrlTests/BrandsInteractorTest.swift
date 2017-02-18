@@ -62,7 +62,7 @@ final class BrandsInteractorTest: XCTestCase {
 
         subject.use(collectionView)
 
-        XCTAssertTrue(collectionView.delegateDidSet)
+        XCTAssertTrue(collectionView.didSetDelegation)
         XCTAssertTrue(collectionView.dataSourceDidSet)
         XCTAssertTrue(dataSource.didRegisterNibs)
     }

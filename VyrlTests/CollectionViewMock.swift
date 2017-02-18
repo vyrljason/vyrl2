@@ -6,7 +6,7 @@ import UIKit
 
 final class CollectionViewMock: UICollectionView {
 
-    var delegateDidSet = false
+    var didSetDelegation = false
     var dataSourceDidSet = false
     var reloadDidCall = false
 
@@ -18,9 +18,9 @@ final class CollectionViewMock: UICollectionView {
         fatalError("init(coder:) has not been implemented")
     }
 
-    override var delegate: UICollectionViewDelegate? {
+    override weak var delegate: UICollectionViewDelegate? {
         didSet {
-            delegateDidSet = true
+            didSetDelegation = true
         }
     }
 
