@@ -4,12 +4,14 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LeftMenuViewController" customModule="Vyrl" customModuleProvider="target">
             <connections>
+                <outlet property="homeButton" destination="IJe-wT-f19" id="G1e-B0-GTl"/>
                 <outlet property="view" destination="iN0-l3-epB" id="twT-NE-PPx"/>
             </connections>
         </placeholder>
@@ -17,7 +19,33 @@
         <view contentMode="scaleToFill" id="iN0-l3-epB">
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-            <color key="backgroundColor" red="1" green="0.029831843470000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XVq-l7-7y5">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="64"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IJe-wT-f19">
+                            <rect key="frame" x="165" y="17" width="44" height="30"/>
+                            <state key="normal" title="HOME">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" red="0.60392156860000001" green="0.1176470588" blue="0.1450980392" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="64" id="A3N-wT-muH"/>
+                        <constraint firstItem="IJe-wT-f19" firstAttribute="centerX" secondItem="XVq-l7-7y5" secondAttribute="centerX" id="LsK-0A-psy"/>
+                        <constraint firstItem="IJe-wT-f19" firstAttribute="centerY" secondItem="XVq-l7-7y5" secondAttribute="centerY" id="cyS-Oe-nz2"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="XVq-l7-7y5" secondAttribute="trailing" id="8mb-hd-g1s"/>
+                <constraint firstItem="XVq-l7-7y5" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="My6-dr-oNT"/>
+                <constraint firstItem="XVq-l7-7y5" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="r65-Lq-0Mv"/>
+            </constraints>
+            <nil key="simulatedBottomBarMetrics"/>
+            <point key="canvasLocation" x="33.5" y="54.5"/>
         </view>
     </objects>
 </document>
