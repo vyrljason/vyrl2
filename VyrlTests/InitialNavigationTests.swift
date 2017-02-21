@@ -6,12 +6,27 @@ import XCTest
 import SlideMenuControllerSwift
 @testable import Vyrl
 
+final class BrandsFlowNavigationMock: BrandsFlowNavigating {
+
+    let navigationController: UINavigationController
+
+    var didResetNavigation = false
+
+    init(navigationController: UINavigationController) {
+        self.navigationController = navigationController
+    }
+
+    func resetNavigation() {
+        didResetNavigation = true
+    }
+}
+
 final class InitialNavigationTests: XCTestCase {
     private var subject: InitialNavigation!
     private var window: WindowMock!
-
+    private var brandsFlowNavigation: BrandsFlowNavigationMock!
+    private var brandsNavigationController: NavigationControllerMock!
     private var mainView: UIViewController!
-    private var mainNavigation: NavigationControllerMock!
     private var cart: UIViewController!
     private var chat: UIViewController!
     private var leftMenu: LeftMenuViewController!
@@ -20,17 +35,15 @@ final class InitialNavigationTests: XCTestCase {
     override func setUp() {
         super.setUp()
         window = WindowMock()
-        mainView = UIViewController()
-        mainNavigation = NavigationControllerMock()
         chat = UIViewController()
         cart = UIViewController()
         leftMenu = LeftMenuViewController(interactor: LeftMenuInteractor())
         interactor = InitialNavigationInteractor()
-        
-        let builder = InitialNavigationBuilder()
+        brandsNavigationController = NavigationControllerMock()
+        brandsFlowNavigation = BrandsFlowNavigationMock(navigationController: brandsNavigationController)
+
+        let builder = InitialNavigationBuilder(brandsNavigation: brandsFlowNavigation)
         builder.interactor = interactor
-        builder.mainView = mainView
-        builder.mainNavigation = mainNavigation
         builder.leftMenu = leftMenu
         builder.cart = cart
         builder.chat = chat
@@ -66,7 +79,7 @@ final class InitialNavigationTests: XCTestCase {
         subject.showInitialViewController()
         subject.showCart()
 
-        guard let navigation = mainNavigation.presented as? UINavigationController else {
+        guard let navigation = brandsNavigationController.presented as? UINavigationController else {
             XCTFail()
             return
         }
@@ -78,7 +91,7 @@ final class InitialNavigationTests: XCTestCase {
         subject.showInitialViewController()
         subject.showChat()
 
-        guard let navigation = mainNavigation.presented as? UINavigationController else {
+        guard let navigation = brandsNavigationController.presented as? UINavigationController else {
             XCTFail()
             return
         }
@@ -90,13 +103,13 @@ final class InitialNavigationTests: XCTestCase {
         subject.showInitialViewController()
         subject.dismissModal()
 
-        XCTAssertTrue(mainNavigation.dismissed)
+        XCTAssertTrue(brandsNavigationController.dismissed)
     }
 
     func test_showHome_poppedToRoot() {
         subject.showInitialViewController()
         subject.showHome()
 
-        XCTAssertTrue(mainNavigation.poppedToRoot)
+        XCTAssertTrue(brandsNavigationController.poppedToRoot)
     }
 }

@@ -11,9 +11,15 @@ final class InitialNavigationBuilder {
         static let cartTitle = NSLocalizedString("YOUR CART", comment: "")
     }
 
+    private let brandsNavigation: BrandsFlowNavigating
+
+    init(brandsNavigation: BrandsFlowNavigating = BrandsNavigation(brandsFactory: BrandsControllerFactory.self, brandStoreFactory: BrandStoreControllerFactory.self)) {
+        self.brandsNavigation = brandsNavigation
+        mainNavigation = brandsNavigation.navigationController
+    }
+
     var interactor: InitialNavigationInteracting & NavigationDelegateHaving = InitialNavigationInteractor()
-    var mainView: UIViewController = BrandsViewControllerFactory.make()
-    var mainNavigation: UINavigationController = UINavigationController()
+    private(set) var mainNavigation: UINavigationController
     var leftMenuInteractor: LeftMenuInteractor = LeftMenuInteractor()
     var cart: UIViewController = UIViewController()
     var chat: UIViewController = UIViewController()
@@ -28,7 +34,6 @@ final class InitialNavigationBuilder {
         cart.title = Constants.cartTitle
 
         let navigation = InitialNavigation(interactor: interactor,
-                                           mainView: mainView,
                                            mainNavigation: mainNavigation,
                                            leftMenu: leftMenu,
                                            cart: cart,

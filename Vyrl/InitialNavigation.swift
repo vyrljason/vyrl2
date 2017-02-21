@@ -31,8 +31,7 @@ final class InitialNavigation {
 
     private let window: WindowProtocol
     fileprivate var slideMenu: SlideMenuController!
-    private let mainView: UIViewController
-    fileprivate var mainNavigation: UINavigationController!
+    fileprivate var mainNavigation: UINavigationController
     private let leftMenu: UIViewController
     fileprivate let cart: UIViewController
     fileprivate let chat: UIViewController
@@ -40,14 +39,12 @@ final class InitialNavigation {
 
     // swiftlint:disable function_parameter_count
     init(interactor: InitialNavigationInteracting & NavigationDelegateHaving,
-         mainView: UIViewController,
          mainNavigation: UINavigationController,
          leftMenu: UIViewController,
          cart: UIViewController,
          chat: UIViewController,
          window: WindowProtocol) {
         self.interactor = interactor
-        self.mainView = mainView
         self.mainNavigation = mainNavigation
         self.leftMenu = leftMenu
         self.cart = cart
@@ -62,7 +59,6 @@ final class InitialNavigation {
     }
 
     private func presentSlideMenu() {
-        setUpNavigationItems(in: mainView)
         setUpMainNavigationController()
         createAndPresentSlideMenu()
     }
@@ -100,7 +96,8 @@ final class InitialNavigation {
     }
 
     private func setUpMainNavigationController() {
-        mainNavigation.viewControllers = [mainView]
+        guard let topViewController = mainNavigation.topViewController else { return }
+        setUpNavigationItems(in: topViewController)
         mainNavigation.render(Constants.navigationBarRenderable)
     }
 
