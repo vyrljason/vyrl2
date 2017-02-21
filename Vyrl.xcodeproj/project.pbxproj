@@ -336,6 +336,8 @@
 				1AF49CD01E59F24A00FE7857 /* LeftMenuInteractorTests.swift */,
 			);
 			name = LeftMenu;
+			sourceTree = "<group>";
+		};
 		3169C3431E5C295C00545989 /* BrandStore */ = {
 			isa = PBXGroup;
 			children = (
