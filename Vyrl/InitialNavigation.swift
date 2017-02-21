@@ -12,6 +12,10 @@ protocol InitialNavigationControlling: class {
     func dismissModal()
 }
 
+protocol HomeScreenPresenting: class {
+    func showHome()
+}
+
 final class InitialNavigation {
 
     private enum Constants {
@@ -123,6 +127,13 @@ final class InitialNavigation {
         let navigation = UINavigationController(rootViewController: viewController)
         navigation.render(Constants.navigationBarRenderable)
         mainNavigation.present(navigation, animated: true, completion: nil)
+    }
+}
+
+extension InitialNavigation: HomeScreenPresenting {
+    func showHome() {
+        mainNavigation.popToRootViewController(animated: true)
+        slideMenu.closeLeft()
     }
 }
 

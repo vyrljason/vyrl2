@@ -24,23 +24,27 @@ final class InitialNavigationTests: XCTestCase {
         mainNavigation = NavigationControllerMock()
         chat = UIViewController()
         cart = UIViewController()
-        leftMenu = LeftMenuViewController()
+        leftMenu = LeftMenuViewController(interactor: LeftMenuInteractor())
         interactor = InitialNavigationInteractor()
-        subject = InitialNavigationFactory.make(interactor: interactor,
-                                                mainView: mainView,
-                                                mainNavigation: mainNavigation,
-                                                leftMenu: leftMenu,
-                                                cart: cart,
-                                                chat: chat,
-                                                window: window)
+        
+        let builder = InitialNavigationBuilder()
+        builder.interactor = interactor
+        builder.mainView = mainView
+        builder.mainNavigation = mainNavigation
+        builder.leftMenu = leftMenu
+        builder.cart = cart
+        builder.chat = chat
+        builder.window = window
+
+        subject = builder.build()
     }
 
-    func test_showsSlideMenuController() {
+    func test_showInitialViewController_showsSlideMenuController() {
         subject.showInitialViewController()
         XCTAssertTrue(window.setRootViewController! is SlideMenuController)
     }
 
-    func test_slideMenuHasCorrectViewControllers() {
+    func test_showInitialViewController_slideMenuHasCorrectViewControllers() {
         subject.showInitialViewController()
 
         guard let menu = window.setRootViewController as? SlideMenuController else {
@@ -58,7 +62,7 @@ final class InitialNavigationTests: XCTestCase {
         XCTAssertTrue(navigation.viewControllers.first === mainView)
     }
 
-    func test_showsCart() {
+    func test_showCart_showsCart() {
         subject.showInitialViewController()
         subject.showCart()
 
@@ -70,7 +74,7 @@ final class InitialNavigationTests: XCTestCase {
         XCTAssertTrue(navigation.viewControllers.first === cart)
     }
 
-    func test_showsChat() {
+    func test_showChat_showsChat() {
         subject.showInitialViewController()
         subject.showChat()
 
@@ -82,10 +86,17 @@ final class InitialNavigationTests: XCTestCase {
         XCTAssertTrue(navigation.viewControllers.first === chat)
     }
 
-    func test_dismissed() {
+    func test_dismissModal_dismissed() {
         subject.showInitialViewController()
         subject.dismissModal()
 
         XCTAssertTrue(mainNavigation.dismissed)
+    }
+
+    func test_showHome_poppedToRoot() {
+        subject.showInitialViewController()
+        subject.showHome()
+
+        XCTAssertTrue(mainNavigation.poppedToRoot)
     }
 }

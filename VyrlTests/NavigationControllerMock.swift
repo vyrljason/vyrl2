@@ -10,6 +10,7 @@ final class NavigationControllerMock: UINavigationController {
     var expectation: XCTestExpectation?
     var presented: UIViewController?
     var popped = false
+    var poppedToRoot = false
     var dismissed = false
 
     override func present(_ viewControllerToPresent: UIViewController, animated flag: Bool, completion: (() -> Void)? = nil) {
@@ -20,6 +21,11 @@ final class NavigationControllerMock: UINavigationController {
 
     override func popViewController(animated: Bool) -> UIViewController? {
         popped = true
+        return nil
+    }
+
+    override func popToRootViewController(animated: Bool) -> [UIViewController]? {
+        poppedToRoot = true
         return nil
     }
 
