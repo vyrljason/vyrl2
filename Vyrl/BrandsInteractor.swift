@@ -50,7 +50,7 @@ final class BrandsInteractor: BrandsInteracting {
     }
 
     func didSelect(brand: Brand) {
-        brandStorePresenter?.presentStore(for: brand, modally: false, animated: true)
+        brandStorePresenter?.presentStore(for: brand, animated: true)
     }
 
     fileprivate func reloadData() {

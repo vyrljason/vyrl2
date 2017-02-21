@@ -31,19 +31,22 @@ final class BrandStoreFactoryMock: BrandStoreMaking {
 }
 
 final class BrandsNavigationTest: XCTestCase {
+
+    private var navigationController: NavigationControllerMock!
     private var subject: BrandsNavigation!
 
     override func setUp() {
         super.setUp()
-        subject = BrandsNavigation(brandsFactory: BrandsFactoryMock.self, brandStoreFactory: BrandStoreFactoryMock.self)
+        navigationController = NavigationControllerMock()
+        subject = BrandsNavigation(brandsFactory: BrandsFactoryMock.self, brandStoreFactory: BrandStoreFactoryMock.self, navigationController: navigationController)
 
     }
 
-    func test_presentStore_whenModallyIsFalse_setsBrandStoreViewControllerAsTopViewController() {
+    func test_presentStore_setsBrandStoreViewControllerAsTopViewController() {
         let brand = VyrlFaker.faker.brand()
 
-        subject.presentStore(for: brand, modally: false, animated: false)
+        subject.presentStore(for: brand, animated: false)
 
-        XCTAssertTrue(subject.navigationController.topViewController is BrandStoreViewController)
+        XCTAssertTrue(navigationController.pushed is BrandStoreViewController)
     }
 }

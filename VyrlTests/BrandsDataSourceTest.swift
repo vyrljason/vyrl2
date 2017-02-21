@@ -48,19 +48,19 @@ final class BrandsDataSourceTest: XCTestCase {
     var service: BrandsServiceMock!
     var interactor: CollectionInteractorMock!
     var subject: BrandsDataSource!
-    var selectionDelegate: BrandSelectionMock!
+    var brandSelection: BrandSelectionMock!
 
     override func setUp() {
         super.setUp()
         collectionView = CollectionViewMock()
         service = BrandsServiceMock()
-        selectionDelegate = BrandSelectionMock()
+        brandSelection = BrandSelectionMock()
         interactor = CollectionInteractorMock()
         interactor.collectionView = collectionView
 
         subject = BrandsDataSource(repository: service)
         subject.delegate = interactor
-        subject.selectionDelegate = selectionDelegate
+        subject.selectionDelegate = brandSelection
     }
 
     func test_loadData_whenServiceReturnsDataSuccess_NumberOfItemsInCollectionViewIsCorrect() {
@@ -110,6 +110,6 @@ final class BrandsDataSourceTest: XCTestCase {
 
         subject.collectionView(interactor.collectionView!, didSelectItemAt: indexPath)
 
-        XCTAssertTrue(selectionDelegate.didSelectCalled)
+        XCTAssertTrue(brandSelection.didSelectCalled)
     }
 }

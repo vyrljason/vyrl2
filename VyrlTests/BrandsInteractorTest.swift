@@ -8,7 +8,7 @@ import XCTest
 final class BrandStorePresenterMock: BrandStorePresenting {
     var didCallPresentStore = false
 
-    func presentStore(for brand: Brand, modally: Bool, animated: Bool) {
+    func presentStore(for brand: Brand, animated: Bool) {
         didCallPresentStore = true
     }
 }

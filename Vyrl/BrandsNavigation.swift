@@ -5,25 +5,27 @@
 import UIKit
 
 protocol BrandStorePresenting: class {
-    func presentStore(for brand: Brand, modally: Bool, animated: Bool)
+    func presentStore(for brand: Brand, animated: Bool)
 }
 
 final class BrandsNavigation: NavigationHaving {
 
-    private(set) var navigationController: UINavigationController = UINavigationController()
+    let navigationController: UINavigationController
     fileprivate let brandsFactory: BrandsControllerMaking.Type
     fileprivate let brandStoreFactory: BrandStoreMaking.Type
 
     init(brandsFactory: BrandsControllerMaking.Type,
-         brandStoreFactory: BrandStoreMaking.Type) {
+         brandStoreFactory: BrandStoreMaking.Type,
+         navigationController: UINavigationController) {
         self.brandStoreFactory = brandStoreFactory
         self.brandsFactory = brandsFactory
+        self.navigationController = navigationController
         initializeNavigation()
     }
 
     private func initializeNavigation() {
         let mainViewController: BrandsViewController = brandsFactory.make(storePresenter: self)
-        navigationController = UINavigationController(rootViewController: mainViewController)
+        navigationController.viewControllers = [mainViewController]
     }
 
     func resetNavigation() {
@@ -36,12 +38,8 @@ final class BrandsNavigation: NavigationHaving {
 }
 
 extension BrandsNavigation: BrandStorePresenting {
-    func presentStore(for brand: Brand, modally: Bool = false, animated: Bool = true) {
+    func presentStore(for brand: Brand, animated: Bool = true) {
         let vc = brandStoreFactory.make(brand: brand)
-        if modally {
-            navigationController.present(vc, animated: animated, completion: nil)
-        } else {
-            navigationController.pushViewController(vc, animated: animated)
-        }
+        navigationController.pushViewController(vc, animated: animated)
     }
 }
