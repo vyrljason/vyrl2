@@ -20,8 +20,8 @@ extension UINavigationController: NavigationBarRendering {
         navigationBar.barTintColor = renderable.backgroundColor
         navigationBar.isTranslucent = renderable.translucent
         navigationBar.tintColor = renderable.tintColor
-        navigationBar.titleTextAttributes = [NSFontAttributeName : renderable.titleFont,
-                                             NSForegroundColorAttributeName : renderable.tintColor]
+        navigationBar.titleTextAttributes = [NSFontAttributeName: renderable.titleFont,
+                                             NSForegroundColorAttributeName: renderable.tintColor]
     }
 }
 
