@@ -3,6 +3,7 @@ PODS:
   - Crashlytics (3.8.3):
     - Fabric (~> 1.6.3)
   - Decodable (0.5)
+  - DZNEmptyDataSet (1.8.1)
   - Fabric (1.6.11)
   - Fakery (2.0.0)
   - FBSnapshotTestCase (2.1.4):
@@ -43,6 +44,7 @@ DEPENDENCIES:
   - Alamofire
   - Crashlytics
   - Decodable
+  - DZNEmptyDataSet
   - Fabric
   - Fakery
   - FBSnapshotTestCase
@@ -74,6 +76,7 @@ SPEC CHECKSUMS:
   Alamofire: aa2e09d871c9160ac53c90e83c68064a94e3dfbe
   Crashlytics: 2b6dbe138a42395577cfa73dfa1aa7248cadf39e
   Decodable: 7c90acc68d357b71d0d6efc120faf9c53c644b7e
+  DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
   Fabric: 5911403591946b8228ab1c51d98f1d7137e863c6
   Fakery: 97b99c23937d2e025d9135c75e2b17351ccd5031
   FBSnapshotTestCase: '094f9f314decbabe373b87cc339bea235a63e07a'
@@ -92,6 +95,6 @@ SPEC CHECKSUMS:
   SwiftLint: b8b683208cc09640898f16318a7a452274e91f61
   Whisper: '08be92623311f8e53201e62e17f6d7b9599a4714'
 
-PODFILE CHECKSUM: 267e3881b9adbbdd11d99fcf24ed3f4393756091
+PODFILE CHECKSUM: 91fec2304878257d0cb6e6fb9a48f04bbc2de219
 
 COCOAPODS: 1.2.0

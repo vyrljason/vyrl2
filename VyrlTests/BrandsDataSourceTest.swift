@@ -7,13 +7,14 @@ import XCTest
 
 final class BrandsServiceMock: BrandsHaving {
 
-    let brands: [Brand] = (0..<5).map { _ in VyrlFaker.faker.brand() }
+    var brands: [Brand] = (0..<5).map { _ in VyrlFaker.faker.brand() }
     let error: BrandsError = .unknown
     var success = true
+    var isResponseEmpty: Bool = false
 
     func brands(completion: @escaping BrandsResultClosure) {
         if success {
-            completion(.success(brands))
+            completion(.success(isResponseEmpty ? [] : brands))
         } else {
             completion(.failure(error))
         }
@@ -22,11 +23,11 @@ final class BrandsServiceMock: BrandsHaving {
 
 final class CollectionInteractorMock: CollectionViewHaving, CollectionViewControlling {
     var collectionView: UICollectionView?
-    var didReloadData = false
+    var updateResult: DataFetchResult?
     var didLoadData = false
 
-    func reloadData() {
-        didReloadData = true
+    func updateCollection(with result: DataFetchResult) {
+        updateResult = result
     }
 
     func loadData() {
@@ -59,12 +60,21 @@ final class BrandsDataSourceTest: XCTestCase {
         XCTAssertEqual(subject.collectionView(interactor.collectionView!, numberOfItemsInSection: 1), service.brands.count)
     }
 
-    func test_loadData_whenServiceReturnsDataSuccess_InformsDelegate() {
+    func test_loadData_whenServiceReturnsNonEmptyDataSuccess_InformsDelegate() {
         service.success = true
 
         subject.loadData()
 
-        XCTAssertTrue(interactor.didReloadData)
+        XCTAssertEqual(interactor.updateResult, .someData)
+    }
+
+    func test_loadData_whenServiceReturnsEmptyDataSuccess_InformsDelegate() {
+        service.success = true
+        service.isResponseEmpty = true
+        
+        subject.loadData()
+
+        XCTAssertEqual(interactor.updateResult, .empty)
     }
 
     func test_loadData_whenServiceReturnsError_InformsDelegate() {
@@ -72,7 +82,7 @@ final class BrandsDataSourceTest: XCTestCase {
 
         subject.loadData()
 
-        XCTAssertTrue(interactor.didReloadData)
+        XCTAssertEqual(interactor.updateResult, .error)
     }
 
     func test_loadData_whenServiceReturnsError_NumberOfItemsInCollectionViewIsZero() {
