@@ -688,7 +688,7 @@
 				TargetAttributes = {
 					1ADAF7C31E545F3C00155D9F = {
 						CreatedOnToolsVersion = 8.2;
-						DevelopmentTeam = 3M78FF338K;
+						DevelopmentTeam = WW89T5YHE3;
 						ProvisioningStyle = Automatic;
 					};
 					1ADAF7D71E545F3C00155D9F = {
@@ -1053,7 +1053,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEVELOPMENT_TEAM = 3M78FF338K;
+				DEVELOPMENT_TEAM = WW89T5YHE3;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"$(inherited)",
 					"COCOAPODS=1",
@@ -1073,7 +1073,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 3M78FF338K;
+				DEVELOPMENT_TEAM = WW89T5YHE3;
 				INFOPLIST_FILE = Vyrl/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
