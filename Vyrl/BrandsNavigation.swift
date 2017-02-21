@@ -4,18 +4,13 @@
 
 import UIKit
 
-protocol BrandsFlowNavigating {
-    var navigationController: UINavigationController { get }
-    func resetNavigation()
-}
-
-protocol BrandStorePresenting {
+protocol BrandStorePresenting: class {
     func presentStore(for brand: Brand, modally: Bool, animated: Bool)
 }
 
-final class BrandsNavigation: BrandsFlowNavigating {
+final class BrandsNavigation: NavigationHaving {
 
-    let navigationController: UINavigationController
+    private(set) var navigationController: UINavigationController = UINavigationController()
     fileprivate let brandsFactory: BrandsControllerMaking.Type
     fileprivate let brandStoreFactory: BrandStoreMaking.Type
 
@@ -23,11 +18,20 @@ final class BrandsNavigation: BrandsFlowNavigating {
          brandStoreFactory: BrandStoreMaking.Type) {
         self.brandStoreFactory = brandStoreFactory
         self.brandsFactory = brandsFactory
-        navigationController = UINavigationController(rootViewController: self.brandsFactory.make())
+        initializeNavigation()
+    }
+
+    private func initializeNavigation() {
+        let mainViewController: BrandsViewController = brandsFactory.make(storePresenter: self)
+        navigationController = UINavigationController(rootViewController: mainViewController)
     }
 
     func resetNavigation() {
         navigationController.popViewController(animated: true)
+    }
+
+    func dismissModalFlow() {
+        navigationController.dismiss(animated: true, completion: nil)
     }
 }
 

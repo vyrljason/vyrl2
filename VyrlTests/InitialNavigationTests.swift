@@ -6,12 +6,13 @@ import XCTest
 import SlideMenuControllerSwift
 @testable import Vyrl
 
-final class BrandsFlowNavigationMock: BrandsFlowNavigating {
+final class NavigationProviderMock: NavigationHaving {
 
     let navigationController: UINavigationController
 
     var didResetNavigation = false
-
+    var didDismissModal = false
+    
     init(navigationController: UINavigationController) {
         self.navigationController = navigationController
     }
@@ -19,12 +20,16 @@ final class BrandsFlowNavigationMock: BrandsFlowNavigating {
     func resetNavigation() {
         didResetNavigation = true
     }
+
+    func dismissModalFlow() {
+        didDismissModal = true
+    }
 }
 
 final class InitialNavigationTests: XCTestCase {
     private var subject: InitialNavigation!
     private var window: WindowMock!
-    private var brandsFlowNavigation: BrandsFlowNavigationMock!
+    private var navigationProvider: NavigationProviderMock!
     private var brandsNavigationController: NavigationControllerMock!
     private var mainView: UIViewController!
     private var cart: UIViewController!
@@ -40,14 +45,15 @@ final class InitialNavigationTests: XCTestCase {
         leftMenu = LeftMenuViewController(interactor: LeftMenuInteractor())
         interactor = InitialNavigationInteractor()
         brandsNavigationController = NavigationControllerMock()
-        brandsFlowNavigation = BrandsFlowNavigationMock(navigationController: brandsNavigationController)
+        navigationProvider = NavigationProviderMock(navigationController: brandsNavigationController)
 
-        let builder = InitialNavigationBuilder(brandsNavigation: brandsFlowNavigation)
+        let builder = InitialNavigationBuilder()
         builder.interactor = interactor
         builder.leftMenu = leftMenu
         builder.cart = cart
         builder.chat = chat
         builder.window = window
+        builder.mainNavigation = navigationProvider
 
         subject = builder.build()
     }
@@ -103,13 +109,13 @@ final class InitialNavigationTests: XCTestCase {
         subject.showInitialViewController()
         subject.dismissModal()
 
-        XCTAssertTrue(brandsNavigationController.dismissed)
+        XCTAssertTrue(navigationProvider.didDismissModal)
     }
 
     func test_showHome_poppedToRoot() {
         subject.showInitialViewController()
         subject.showHome()
 
-        XCTAssertTrue(brandsNavigationController.poppedToRoot)
+        XCTAssertTrue(navigationProvider.didResetNavigation)
     }
 }

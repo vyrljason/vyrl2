@@ -10,14 +10,16 @@ final class BrandStoreInteractorMock: BrandStoreInteracting { }
 final class BrandsInteractorMock: BrandsInteracting, CollectionViewRefreshing {
     var collectionView: UICollectionView?
     weak var dataUpdateListener: DataLoadingEventsListening?
+    weak var brandStorePresenter: BrandStorePresenting?
     func refresh() { }
     func updateCollection(with result: DataFetchResult) { }
     func loadData() { }
     func use(_ collectionView: UICollectionView) { }
+    func didSelect(brand: Brand) { }
 }
 
 final class BrandsFactoryMock: BrandsControllerMaking {
-    static func make() -> BrandsViewController {
+    static func make(storePresenter: BrandStorePresenting) -> BrandsViewController {
         return BrandsViewController(interactor: BrandsInteractorMock())
     }
 }
@@ -43,13 +45,5 @@ final class BrandsNavigationTest: XCTestCase {
         subject.presentStore(for: brand, modally: false, animated: false)
 
         XCTAssertTrue(subject.navigationController.topViewController is BrandStoreViewController)
-    }
-
-    func test_presentStore_whenModallyIsTrue_setsBrandStoreViewControllerAsPresenterdViewController() {
-        let brand = VyrlFaker.faker.brand()
-        
-        subject.presentStore(for: brand, modally: true, animated: false)
-
-        XCTAssertTrue(subject.navigationController.presentedViewController is BrandStoreViewController)
     }
 }
