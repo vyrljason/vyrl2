@@ -9,7 +9,8 @@ enum BrandsViewControllerFactory {
         let resource = BrandsResourceMock(amount: 30)
         let service = BrandsService(resource: resource)
         let dataSource = BrandsDataSource(repository: service)
-        let interactor = BrandsInteractor(dataSource: dataSource)
+        let emptyCollectionHandler = EmptyCollectionViewHandler()
+        let interactor = BrandsInteractor(dataSource: dataSource, emptyCollectionHandler: emptyCollectionHandler)
         let viewController = BrandsViewController(interactor: interactor)
         interactor.dataUpdateListener = viewController
         return viewController

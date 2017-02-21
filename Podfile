@@ -16,6 +16,7 @@ target 'Vyrl' do
     pod 'SlideMenuControllerSwift'
     pod 'Kingfisher'
     pod 'Fakery'
+    pod 'DZNEmptyDataSet'
 
     target 'VyrlTests' do
         inherit! :search_paths
