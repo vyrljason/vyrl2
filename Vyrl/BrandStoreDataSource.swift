@@ -15,6 +15,11 @@ final class BrandStoreDataSource: NSObject {
 }
 
 extension BrandStoreDataSource: UICollectionViewDataSource {
+
+    fileprivate func prepare(header: BrandStoreHeaderRendering, using brand: Brand) {
+        let renderable = BrandStoreHeaderRenderable(title: brand.name, textCollapsed: brand.name, textExpanded: nil)
+        header.render(_: renderable)
+    }
     
     public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         return UICollectionViewCell(frame: CGRect(x: 0, y: 0, width: 100, height: 100)) //stub
@@ -29,9 +34,8 @@ extension BrandStoreDataSource: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-//        let headerAtTop : Bool = (kind == UICollectionElementKindSectionHeader) && (indexPath.section == 0)
-        let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionElementKindSectionHeader, withReuseIdentifier: BrandStoreHeader.reusableIdentifier, for: indexPath)
-        //TODO: prepare cell
+        let header: BrandStoreHeader = collectionView.dequeueHeader(at: indexPath)
+        prepare(header: header, using: self.brand)
         return header
     }
 }

@@ -20,4 +20,12 @@ extension UICollectionView {
         }
         return cell
     }
+    
+    func dequeueHeader<Header: UICollectionReusableView>(at indexPath: IndexPath) -> Header where Header: ReusableView {
+        let headerIdentifier = Header.reusableIdentifier
+        guard let header = dequeueReusableSupplementaryView(ofKind: UICollectionElementKindSectionHeader, withReuseIdentifier: headerIdentifier, for: indexPath) as? Header else {
+            return Header()
+        }
+        return header
+    }
 }
