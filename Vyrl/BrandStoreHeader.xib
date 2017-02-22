@@ -24,33 +24,33 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="93P-6K-RcL">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Resizable description" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1t7-fK-KAx">
                     <rect key="frame" x="18" y="71" width="339" height="72"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="72" id="qGt-wh-mDJ"/>
+                        <constraint firstAttribute="height" constant="72" id="JdT-3v-kwC"/>
                     </constraints>
-                    <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                </textView>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
+            <color key="backgroundColor" red="1" green="0.72941176470000002" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstItem="AYM-jr-P2k" firstAttribute="leading" secondItem="7cr-Vt-TYt" secondAttribute="leading" id="3SJ-yr-F8K"/>
                 <constraint firstAttribute="trailing" secondItem="AYM-jr-P2k" secondAttribute="trailing" id="3v5-JM-z5f"/>
-                <constraint firstAttribute="bottom" secondItem="93P-6K-RcL" secondAttribute="bottom" constant="37" id="4oN-sD-qxG"/>
                 <constraint firstItem="AYM-jr-P2k" firstAttribute="top" secondItem="7cr-Vt-TYt" secondAttribute="top" id="9ya-N9-Fgr"/>
-                <constraint firstItem="93P-6K-RcL" firstAttribute="top" secondItem="7cr-Vt-TYt" secondAttribute="top" constant="71" id="I8h-b5-MDZ"/>
-                <constraint firstItem="93P-6K-RcL" firstAttribute="leading" secondItem="7cr-Vt-TYt" secondAttribute="leading" constant="18" id="Sqx-tz-iks"/>
+                <constraint firstAttribute="bottom" secondItem="1t7-fK-KAx" secondAttribute="bottom" constant="37" id="BTJ-NZ-Vyo"/>
+                <constraint firstItem="1t7-fK-KAx" firstAttribute="leading" secondItem="7cr-Vt-TYt" secondAttribute="leading" constant="18" id="e8f-30-imh"/>
                 <constraint firstItem="YgW-4H-jyg" firstAttribute="top" secondItem="7cr-Vt-TYt" secondAttribute="top" constant="10" id="hgc-JR-fxS"/>
-                <constraint firstAttribute="trailing" secondItem="93P-6K-RcL" secondAttribute="trailing" constant="18" id="jHy-lD-rGw"/>
+                <constraint firstItem="1t7-fK-KAx" firstAttribute="top" secondItem="7cr-Vt-TYt" secondAttribute="top" constant="71" id="oKA-ez-v9g"/>
                 <constraint firstItem="YgW-4H-jyg" firstAttribute="centerX" secondItem="7cr-Vt-TYt" secondAttribute="centerX" id="rGK-x8-Utn"/>
                 <constraint firstAttribute="bottom" secondItem="AYM-jr-P2k" secondAttribute="bottom" id="vCx-7g-bYq"/>
+                <constraint firstAttribute="trailing" secondItem="1t7-fK-KAx" secondAttribute="trailing" constant="18" id="wRM-GR-Ive"/>
             </constraints>
             <connections>
                 <outlet property="backgroundImage" destination="AYM-jr-P2k" id="0Yt-iN-AN5"/>
-                <outlet property="descriptionHeight" destination="qGt-wh-mDJ" id="L23-iE-i70"/>
-                <outlet property="descriptionTextView" destination="93P-6K-RcL" id="ASi-Sm-SP5"/>
+                <outlet property="descriptionHeight" destination="JdT-3v-kwC" id="bP5-ik-CQc"/>
+                <outlet property="descriptionLabel" destination="1t7-fK-KAx" id="DLE-Rx-l0D"/>
                 <outlet property="header" destination="YgW-4H-jyg" id="pwM-TL-Xll"/>
             </connections>
             <point key="canvasLocation" x="36" y="-430"/>

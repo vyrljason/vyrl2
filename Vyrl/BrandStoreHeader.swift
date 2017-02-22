@@ -16,13 +16,16 @@ final class BrandStoreHeader: UICollectionReusableView, ReusableView, HavingNib,
     static let nibName = "BrandStoreHeader"
     
     @IBOutlet private weak var header: UILabel!
-    @IBOutlet private weak var descriptionTextView: UITextView!
+    @IBOutlet private weak var descriptionLabel: UILabel!
     @IBOutlet private weak var descriptionHeight: NSLayoutConstraint!
     @IBOutlet private weak var backgroundImage: UIImageView!
     
     func render(_ renderable: BrandStoreHeaderRenderable) {
         self.header.text = renderable.title
-        self.descriptionTextView.text = renderable.textCollapsed
+        self.descriptionLabel.text = renderable.textCollapsed
     }
     
+    static func registerAsHeader(to collectionView: UICollectionView?) {
+        collectionView?.register(nib(), forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: reusableIdentifier)
+    }
 }

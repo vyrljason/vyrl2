@@ -25,7 +25,7 @@ extension BrandStoreDataSource: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 1
+        return 0
     }
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
@@ -38,7 +38,15 @@ extension BrandStoreDataSource: UICollectionViewDataSource {
 
 extension BrandStoreDataSource: CollectionViewNibRegistering {
     func registerNibs() {
-        guard let collectionView = delegate?.collectionView else { return }
-        BrandStoreHeader.register(to: collectionView)
+        guard let collectionView = delegate?.collectionView else {
+            return
+        }
+        BrandStoreHeader.registerAsHeader(to: collectionView)
+    }
+}
+
+extension BrandStoreDataSource: CollectionViewDataProviding {
+    func loadData() {
+        self.delegate?.updateCollection(with: .empty)
     }
 }
