@@ -25,7 +25,7 @@ extension NavigationHaving where Self: StackNavigationControlling {
     }
 }
 
-extension NavigationHaving where Self: StackNavigationControlling {
+extension NavigationHaving where Self: ModalNavigationControlling {
     func dismiss(animated: Bool) {
         navigationController.dismiss(animated: animated, completion: nil)
     }
