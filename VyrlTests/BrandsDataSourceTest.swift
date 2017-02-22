@@ -5,6 +5,13 @@
 @testable import Vyrl
 import XCTest
 
+final class BrandSelectionMock: BrandSelecting {
+    var didSelectCalled = false
+
+    func didSelect(brand: Brand) {
+        didSelectCalled = true
+    }
+}
 final class BrandsServiceMock: BrandsHaving {
 
     var brands: [Brand] = (0..<5).map { _ in VyrlFaker.faker.brand() }
@@ -41,15 +48,19 @@ final class BrandsDataSourceTest: XCTestCase {
     var service: BrandsServiceMock!
     var interactor: CollectionInteractorMock!
     var subject: BrandsDataSource!
+    var brandSelection: BrandSelectionMock!
 
     override func setUp() {
         super.setUp()
         collectionView = CollectionViewMock()
         service = BrandsServiceMock()
+        brandSelection = BrandSelectionMock()
         interactor = CollectionInteractorMock()
         interactor.collectionView = collectionView
+
         subject = BrandsDataSource(repository: service)
         subject.delegate = interactor
+        subject.selectionDelegate = brandSelection
     }
 
     func test_loadData_whenServiceReturnsDataSuccess_NumberOfItemsInCollectionViewIsCorrect() {
@@ -91,5 +102,14 @@ final class BrandsDataSourceTest: XCTestCase {
         subject.loadData()
 
         XCTAssertEqual(subject.collectionView(interactor.collectionView!, numberOfItemsInSection: 1), 0)
+    }
+
+    func test_didSelect_callsSelectionDelegate() {
+        subject.loadData()
+        let indexPath = IndexPath(item: 0, section: 0)
+
+        subject.collectionView(interactor.collectionView!, didSelectItemAt: indexPath)
+
+        XCTAssertTrue(brandSelection.didSelectCalled)
     }
 }

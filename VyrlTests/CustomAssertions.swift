@@ -23,7 +23,7 @@ func expect<ResultType: ResultProtocol, SuccessType>(_ result: ResultType, toBeS
 }
 
 func expect<ResultType: ResultProtocol, ErrorType>(_ result: ResultType, toBeErrorWith expectedError: ErrorType, file: StaticString = #file, line: UInt = #line) where ResultType.ErrorType == ErrorType, ErrorType: Swift.Error, ErrorType: Equatable {
-    result.on(success: { result in
+    result.on(success: { _ in
         XCTFail(file: file, line: line)
     }, failure: { error in
         XCTAssertEqual(error, expectedError)

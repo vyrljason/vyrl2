@@ -18,7 +18,7 @@ final class ImageFetchingTest: XCTestCase {
     }
 
     func test_fetchImage_withSuccess_returnsImage() {
-        subject.fetchImage() { result in
+        subject.fetchImage { result in
             expectToBeSuccess(result)
         }
     }
@@ -26,14 +26,14 @@ final class ImageFetchingTest: XCTestCase {
     func test_fetchImage_withError_returnsError() {
         imageRetriever.success = false
 
-        subject.fetchImage() { result in
+        subject.fetchImage { result in
             expectToBeFailure(result)
         }
     }
 
     func test_cancel_cancelsDownload() {
         imageRetriever.didFinishCallback = false
-        subject.fetchImage() { result in }
+        subject.fetchImage { _ in }
 
         subject.cancel()
 

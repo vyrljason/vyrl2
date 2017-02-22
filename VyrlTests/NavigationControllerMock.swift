@@ -12,6 +12,7 @@ final class NavigationControllerMock: UINavigationController {
     var popped = false
     var poppedToRoot = false
     var dismissed = false
+    var pushed: UIViewController?
 
     override func present(_ viewControllerToPresent: UIViewController, animated flag: Bool, completion: (() -> Void)? = nil) {
         expectation?.fulfill()
@@ -32,5 +33,9 @@ final class NavigationControllerMock: UINavigationController {
     override func dismiss(animated flag: Bool, completion: (() -> Void)? = nil) {
         dismissed = true
         completion?()
+    }
+
+    override func pushViewController(_ viewController: UIViewController, animated: Bool) {
+        pushed = viewController
     }
 }

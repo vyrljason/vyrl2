@@ -5,6 +5,14 @@
 @testable import Vyrl
 import XCTest
 
+final class BrandStorePresenterMock: BrandStorePresenting {
+    var didCallPresentStore = false
+
+    func presentStore(for brand: Brand, animated: Bool) {
+        didCallPresentStore = true
+    }
+}
+
 final class DataUpdateListener: DataLoadingEventsListening {
     var willStart = false
     var didFinish = false
@@ -18,9 +26,10 @@ final class DataUpdateListener: DataLoadingEventsListening {
     }
 }
 
-final class BrandsDataSourceMock: NSObject, CollectionViewDataProviding, CollectionViewNibRegistering {
+final class BrandsDataSourceMock: NSObject, BrandsDataProviding {
 
     weak var delegate: CollectionViewHaving & CollectionViewControlling?
+    weak var selectionDelegate: BrandSelecting?
     var didLoad = false
     var didRegisterNibs = false
 
@@ -47,6 +56,7 @@ final class BrandsInteractorTest: XCTestCase {
     var dataSource: BrandsDataSourceMock!
     var dataUpdateListener: DataUpdateListener!
     var emptyCollectionHandler: EmptyCollectionViewHandlerMock!
+    var storePresenter: BrandStorePresenterMock!
     var subject: BrandsInteractor!
 
     override func setUp() {
@@ -55,8 +65,10 @@ final class BrandsInteractorTest: XCTestCase {
         dataSource = BrandsDataSourceMock()
         dataUpdateListener = DataUpdateListener()
         emptyCollectionHandler = EmptyCollectionViewHandlerMock()
+        storePresenter = BrandStorePresenterMock()
         subject = BrandsInteractor(dataSource: dataSource, emptyCollectionHandler: emptyCollectionHandler)
         subject.dataUpdateListener = dataUpdateListener
+        subject.brandStorePresenter = storePresenter
         dataSource.delegate = subject
     }
 
@@ -119,6 +131,13 @@ final class BrandsInteractorTest: XCTestCase {
         subject.refresh()
 
         XCTAssertTrue(collectionView.reloadDidCall)
+    }
 
+    func test_didSelect_callsStorePresenter() {
+        let brand = VyrlFaker.faker.brand()
+
+        subject.didSelect(brand: brand)
+
+        XCTAssertTrue(storePresenter.didCallPresentStore)
     }
 }

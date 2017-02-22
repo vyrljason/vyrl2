@@ -8,12 +8,17 @@ private enum Constants {
     static let cellHeight: CGFloat = 188
 }
 
-final class BrandsDataSource: NSObject {
+protocol BrandsDataProviding: CollectionViewDataProviding, CollectionViewNibRegistering {
+    weak var selectionDelegate: BrandSelecting? { get set }
+}
+
+final class BrandsDataSource: NSObject, BrandsDataProviding {
 
     fileprivate let repository: BrandsHaving
     fileprivate var items = [Brand]()
 
     weak var delegate: CollectionViewHaving & CollectionViewControlling?
+    weak var selectionDelegate: BrandSelecting?
 
     init(repository: BrandsHaving) {
         self.repository = repository
@@ -21,14 +26,14 @@ final class BrandsDataSource: NSObject {
     }
 }
 
-extension BrandsDataSource: CollectionViewNibRegistering {
+extension BrandsDataSource {
     func registerNibs() {
         guard let collectionView = delegate?.collectionView else { return }
         BrandCell.register(to: collectionView)
     }
 }
 
-extension BrandsDataSource: CollectionViewDataProviding {
+extension BrandsDataSource {
     func loadData() {
         repository.brands { [weak self] result in
             guard let `self` = self else { return }
@@ -41,7 +46,7 @@ extension BrandsDataSource: CollectionViewDataProviding {
     }
 }
 
-extension BrandsDataSource: UICollectionViewDataSource {
+extension BrandsDataSource {
 
     fileprivate func prepare(cell: BrandCell, using brand: Brand) {
         cell.render(BrandRenderable(brand: brand))
@@ -64,6 +69,10 @@ extension BrandsDataSource: UICollectionViewDataSource {
 }
 extension BrandsDataSource: UICollectionViewDelegateFlowLayout {
 
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        selectionDelegate?.didSelect(brand: items[indexPath.row])
+    }
+    
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {

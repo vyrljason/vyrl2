@@ -34,8 +34,7 @@ final class ImageRetrieverAdapter: ImageRetrieving {
 
     @discardableResult
     func retrieveImage(with url: URL, callback: @escaping ImageRetrieverCallback) -> ImageRetrievingTask {
-        return imageRetriever.retrieveImage(with: url, options: nil, progressBlock: nil) {
-            (image, error, cache, url) in
+        return imageRetriever.retrieveImage(with: url, options: nil, progressBlock: nil) { (image, error, _, _) in
             if let image = image {
                 callback(.success(image))
                 return

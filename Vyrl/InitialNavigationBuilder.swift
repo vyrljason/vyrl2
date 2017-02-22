@@ -12,8 +12,8 @@ final class InitialNavigationBuilder {
     }
 
     var interactor: InitialNavigationInteracting & NavigationDelegateHaving = InitialNavigationInteractor()
-    var mainView: UIViewController = BrandsViewControllerFactory.make()
-    var mainNavigation: UINavigationController = UINavigationController()
+    var mainNavigation: NavigationControlling = BrandsNavigation(brandsFactory: BrandsControllerFactory.self, brandStoreFactory: BrandStoreControllerFactory.self,
+                                                            navigationController: UINavigationController())
     var leftMenuInteractor: LeftMenuInteractor = LeftMenuInteractor()
     var cart: UIViewController = UIViewController()
     var chat: UIViewController = UIViewController()
@@ -28,9 +28,8 @@ final class InitialNavigationBuilder {
         cart.title = Constants.cartTitle
 
         let navigation = InitialNavigation(interactor: interactor,
-                                           mainView: mainView,
-                                           mainNavigation: mainNavigation,
                                            leftMenu: leftMenu,
+                                           mainNavigation: mainNavigation,
                                            cart: cart,
                                            chat: chat,
                                            window: window)
