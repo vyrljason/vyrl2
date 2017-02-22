@@ -8,7 +8,7 @@ protocol BrandStorePresenting: class {
     func presentStore(for brand: Brand, animated: Bool)
 }
 
-final class BrandsNavigation: NavigationHaving {
+final class BrandsNavigation: NavigationControlling {
 
     let navigationController: UINavigationController
     fileprivate let brandsFactory: BrandsControllerMaking.Type
@@ -26,14 +26,6 @@ final class BrandsNavigation: NavigationHaving {
     private func initializeNavigation() {
         let mainViewController: BrandsViewController = brandsFactory.make(storePresenter: self)
         navigationController.viewControllers = [mainViewController]
-    }
-
-    func resetNavigation() {
-        navigationController.popViewController(animated: true)
-    }
-
-    func dismissModalFlow() {
-        navigationController.dismiss(animated: true, completion: nil)
     }
 }
 

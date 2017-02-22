@@ -6,7 +6,7 @@ import XCTest
 import SlideMenuControllerSwift
 @testable import Vyrl
 
-final class NavigationProviderMock: NavigationHaving {
+final class NavigationProviderMock: NavigationControlling {
 
     let navigationController: UINavigationController
 
@@ -17,12 +17,13 @@ final class NavigationProviderMock: NavigationHaving {
         self.navigationController = navigationController
     }
 
-    func resetNavigation() {
-        didResetNavigation = true
+    func dismiss(animated: Bool) {
+        didDismissModal = true
     }
 
-    func dismissModalFlow() {
-        didDismissModal = true
+    func goToFirst(animated: Bool) {
+        didResetNavigation = true
+
     }
 }
 

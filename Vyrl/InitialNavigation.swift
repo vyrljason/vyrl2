@@ -29,7 +29,7 @@ final class InitialNavigation {
         static let closeTitle: String = NSLocalizedString("Close", comment: "")
     }
 
-    fileprivate var mainNavigation: NavigationHaving
+    fileprivate var mainNavigation: NavigationControlling
     private let window: WindowProtocol
     fileprivate var slideMenu: SlideMenuController!
     private let leftMenu: UIViewController
@@ -40,7 +40,7 @@ final class InitialNavigation {
     // swiftlint:disable function_parameter_count
     init(interactor: InitialNavigationInteracting & NavigationDelegateHaving,
          leftMenu: UIViewController,
-         mainNavigation: NavigationHaving,
+         mainNavigation: NavigationControlling,
          cart: UIViewController,
          chat: UIViewController,
          window: WindowProtocol) {
@@ -123,13 +123,13 @@ final class InitialNavigation {
         viewController.navigationItem.leftBarButtonItem = close
         let navigation = UINavigationController(rootViewController: viewController)
         navigation.render(Constants.navigationBarRenderable)
-        mainNavigation.navigationController.present(navigation, animated: true, completion: nil)
+        mainNavigation.present(navigation, animated: true)
     }
 }
 
 extension InitialNavigation: HomeScreenPresenting {
     func showHome() {
-        mainNavigation.resetNavigation()
+        mainNavigation.goToFirst(animated: true)
         slideMenu.closeLeft()
     }
 }
@@ -148,6 +148,6 @@ extension InitialNavigation: InitialNavigationControlling {
     }
 
     func dismissModal() {
-        mainNavigation.dismissModalFlow()
+        mainNavigation.dismiss(animated: true)
     }
 }

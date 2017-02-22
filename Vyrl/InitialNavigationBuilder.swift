@@ -12,7 +12,7 @@ final class InitialNavigationBuilder {
     }
 
     var interactor: InitialNavigationInteracting & NavigationDelegateHaving = InitialNavigationInteractor()
-    var mainNavigation: NavigationHaving = BrandsNavigation(brandsFactory: BrandsControllerFactory.self, brandStoreFactory: BrandStoreControllerFactory.self,
+    var mainNavigation: NavigationControlling = BrandsNavigation(brandsFactory: BrandsControllerFactory.self, brandStoreFactory: BrandStoreControllerFactory.self,
                                                             navigationController: UINavigationController())
     var leftMenuInteractor: LeftMenuInteractor = LeftMenuInteractor()
     var cart: UIViewController = UIViewController()
