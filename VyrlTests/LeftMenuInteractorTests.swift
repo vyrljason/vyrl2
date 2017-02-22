@@ -8,13 +8,15 @@ import SlideMenuControllerSwift
 
 final class LeftMenuInteractorTests: XCTestCase {
 
-    var homeScreenPresentingMock: HomeScreenPresentingMock!
-    var subject: LeftMenuInteractor!
+    private var homeScreenPresentingMock: HomeScreenPresentingMock!
+    private var subject: LeftMenuInteractor!
+    private var dataSource: DataSourceMock!
 
     override func setUp() {
         super.setUp()
         homeScreenPresentingMock = HomeScreenPresentingMock()
-        subject = LeftMenuInteractor()
+        dataSource = DataSourceMock()
+        subject = LeftMenuInteractor(dataSource: dataSource)
         subject.delegate = homeScreenPresentingMock
     }
 

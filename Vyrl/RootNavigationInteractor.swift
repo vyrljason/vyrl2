@@ -4,7 +4,7 @@
 
 import Foundation
 
-@objc protocol InitialNavigationInteracting: class {
+@objc protocol RootNavigationInteracting: class {
     func didTapChat()
     func didTapCart()
     func didTapMenu()
@@ -12,12 +12,12 @@ import Foundation
 }
 
 protocol NavigationDelegateHaving: class {
-    weak var delegate: InitialNavigationControlling? { get set }
+    weak var delegate: RootNavigationControlling? { get set }
 }
 
-final class InitialNavigationInteractor: InitialNavigationInteracting, NavigationDelegateHaving {
+final class RootNavigationInteractor: RootNavigationInteracting, NavigationDelegateHaving {
 
-    weak var delegate: InitialNavigationControlling?
+    weak var delegate: RootNavigationControlling?
 
     @objc func didTapChat() {
         delegate?.showChat()
