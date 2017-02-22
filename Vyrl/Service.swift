@@ -14,7 +14,7 @@ protocol Fetching {
     func fetch(completion: @escaping (Result<Model, APIResponseError>) -> Void)
 }
 
-final class Service<Resource: Fetching>  {
+final class Service<Resource: Fetching> {
 
     private let resource: Resource
 

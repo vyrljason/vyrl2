@@ -4,7 +4,6 @@
 
 import UIKit
 
-
 final class InitialNavigationBuilder {
 
     private enum Constants {
@@ -20,17 +19,15 @@ final class InitialNavigationBuilder {
     var cart: UIViewController = UIViewController()
     var chat: UIViewController = UIViewController()
     var window: WindowProtocol = UIWindow()
-    var repository = Service<CategoriesResourceMock>(resource: CategoriesResourceMock())
+    var leftMenuInteractor = LeftMenuInteractorFactory.make()
+    lazy var leftMenu: UIViewController = { return LeftMenuViewController(interactor: self.leftMenuInteractor) }()
 
     func build() -> InitialNavigation {
 
-        chat.title = Constants.chatTitle
-        cart.title = Constants.cartTitle
-
-        let categoriesDataSource: CategoriesDataSource = CategoriesDataSource(repository: repository,
-                                                                              emptyTableHandler: EmptyCollectionViewHandler())
-        let leftMenuInteractor: LeftMenuInteractor = LeftMenuInteractor(dataSource: categoriesDataSource)
-        let leftMenu: UIViewController = LeftMenuViewController(interactor: leftMenuInteractor)
+        chat.title = Constants.chatTitle    // FIXME: REMOVE
+        cart.title = Constants.cartTitle    // FIXME: REMOVE
+        chat.view.backgroundColor = .white  // FIXME: REMOVE
+        cart.view.backgroundColor = .white  // FIXME: REMOVE
 
         let navigation = InitialNavigation(interactor: interactor,
                                            leftMenu: leftMenu,
