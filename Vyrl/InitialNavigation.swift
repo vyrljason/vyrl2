@@ -29,10 +29,9 @@ final class InitialNavigation {
         static let closeTitle: String = NSLocalizedString("Close", comment: "")
     }
 
+    fileprivate var mainNavigation: NavigationControlling
     private let window: WindowProtocol
     fileprivate var slideMenu: SlideMenuController!
-    private let mainView: UIViewController
-    fileprivate var mainNavigation: UINavigationController!
     private let leftMenu: UIViewController
     fileprivate let cart: UIViewController
     fileprivate let chat: UIViewController
@@ -40,14 +39,12 @@ final class InitialNavigation {
 
     // swiftlint:disable function_parameter_count
     init(interactor: InitialNavigationInteracting & NavigationDelegateHaving,
-         mainView: UIViewController,
-         mainNavigation: UINavigationController,
          leftMenu: UIViewController,
+         mainNavigation: NavigationControlling,
          cart: UIViewController,
          chat: UIViewController,
          window: WindowProtocol) {
         self.interactor = interactor
-        self.mainView = mainView
         self.mainNavigation = mainNavigation
         self.leftMenu = leftMenu
         self.cart = cart
@@ -62,7 +59,6 @@ final class InitialNavigation {
     }
 
     private func presentSlideMenu() {
-        setUpNavigationItems(in: mainView)
         setUpMainNavigationController()
         createAndPresentSlideMenu()
     }
@@ -93,15 +89,16 @@ final class InitialNavigation {
     }
 
     private func createAndPresentSlideMenu() {
-        slideMenu = SlideMenuController(mainViewController: mainNavigation,
+        slideMenu = SlideMenuController(mainViewController: mainNavigation.navigationController,
                                         leftMenuViewController: leftMenu)
         window.rootViewController = slideMenu
         makeWindowKeyAndVisible()
     }
 
     private func setUpMainNavigationController() {
-        mainNavigation.viewControllers = [mainView]
-        mainNavigation.render(Constants.navigationBarRenderable)
+        guard let topViewController = mainNavigation.navigationController.topViewController else { return }
+        setUpNavigationItems(in: topViewController)
+        mainNavigation.navigationController.render(Constants.navigationBarRenderable)
     }
 
     private func setUpSlideMenuOptions() {
@@ -126,13 +123,13 @@ final class InitialNavigation {
         viewController.navigationItem.leftBarButtonItem = close
         let navigation = UINavigationController(rootViewController: viewController)
         navigation.render(Constants.navigationBarRenderable)
-        mainNavigation.present(navigation, animated: true, completion: nil)
+        mainNavigation.present(navigation, animated: true)
     }
 }
 
 extension InitialNavigation: HomeScreenPresenting {
     func showHome() {
-        mainNavigation.popToRootViewController(animated: true)
+        mainNavigation.goToFirst(animated: true)
         slideMenu.closeLeft()
     }
 }
@@ -151,6 +148,6 @@ extension InitialNavigation: InitialNavigationControlling {
     }
 
     func dismissModal() {
-        mainNavigation.dismiss(animated: true, completion: nil)
+        mainNavigation.dismiss(animated: true)
     }
 }

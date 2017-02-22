@@ -8,22 +8,29 @@ fileprivate struct Constants {
     static let baseCellHeight: CGFloat  = 44.0
 }
 
-protocol BrandsInteracting: CollectionViewHaving, CollectionViewControlling, CollectionViewUsing {
+protocol BrandsInteracting: CollectionViewHaving, CollectionViewControlling, CollectionViewUsing, BrandSelecting {
     weak var dataUpdateListener: DataLoadingEventsListening? { get set }
+    weak var brandStorePresenter: BrandStorePresenting? { get set }
+}
+
+protocol BrandSelecting: class {
+    func didSelect(brand: Brand)
 }
 
 final class BrandsInteractor: BrandsInteracting {
 
-    fileprivate let dataSource: CollectionViewNibRegistering & CollectionViewDataProviding
+    fileprivate let dataSource: BrandsDataProviding
     fileprivate let emptyCollectionHandler: EmptyCollectionViewHandling
     weak var collectionView: UICollectionView?
     weak var dataUpdateListener: DataLoadingEventsListening?
+    weak var brandStorePresenter: BrandStorePresenting?
 
-    init(dataSource: CollectionViewNibRegistering & CollectionViewDataProviding,
+    init(dataSource: BrandsDataProviding,
          emptyCollectionHandler: EmptyCollectionViewHandling) {
         self.dataSource = dataSource
         self.emptyCollectionHandler = emptyCollectionHandler
         dataSource.delegate = self
+        dataSource.selectionDelegate = self
     }
 
     func loadData() {
@@ -40,6 +47,10 @@ final class BrandsInteractor: BrandsInteracting {
         default: ()
         }
         reloadData()
+    }
+
+    func didSelect(brand: Brand) {
+        brandStorePresenter?.presentStore(for: brand, animated: true)
     }
 
     fileprivate func reloadData() {

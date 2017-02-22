@@ -8,7 +8,7 @@ protocol BrandStoreMaking {
     static func make(brand: Brand) -> BrandStoreViewController
 }
 
-enum BrandStoreViewControllerFactory: BrandStoreMaking {
+enum BrandStoreControllerFactory: BrandStoreMaking {
     static func make(brand: Brand) -> BrandStoreViewController {
         let interactor = BrandStoreInteractor()
         let viewController = BrandStoreViewController(interactor: interactor)
