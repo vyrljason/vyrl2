@@ -14,8 +14,6 @@ final class InitialNavigationBuilder {
     var interactor: InitialNavigationInteracting & NavigationDelegateHaving = InitialNavigationInteractor()
     var mainNavigation: NavigationControlling = BrandsNavigation(brandsFactory: BrandsControllerFactory.self, brandStoreFactory: BrandStoreControllerFactory.self,
                                                             navigationController: UINavigationController())
-    var mainNavigation: UINavigationController = UINavigationController()
-    var leftMenuInteractor: LeftMenuInteractor = LeftMenuInteractor()
     var cart: UIViewController = UIViewController()
     var chat: UIViewController = UIViewController()
     var window: WindowProtocol = UIWindow()
@@ -35,9 +33,7 @@ final class InitialNavigationBuilder {
                                            cart: cart,
                                            chat: chat,
                                            window: window)
-
         leftMenuInteractor.delegate = navigation
-
         return navigation
     }
 }
