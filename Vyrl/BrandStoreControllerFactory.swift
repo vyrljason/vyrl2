@@ -10,7 +10,8 @@ protocol BrandStoreMaking {
 
 enum BrandStoreControllerFactory: BrandStoreMaking {
     static func make(brand: Brand) -> BrandStoreViewController {
-        let interactor = BrandStoreInteractor()
+        let dataSource = BrandStoreDataSource(brand: brand)
+        let interactor = BrandStoreInteractor(dataSource: dataSource)
         let viewController = BrandStoreViewController(interactor: interactor)
         return viewController
     }

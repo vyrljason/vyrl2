@@ -9,9 +9,16 @@ final class BrandStoreViewController: UIViewController, HavingNib {
 
     fileprivate let interactor: BrandStoreInteracting
     
+    @IBOutlet fileprivate weak var brandStoreCollection: UICollectionView!
+    
     init(interactor: BrandStoreInteracting) {
         self.interactor = interactor
         super.init(nibName: BrandStoreViewController.nibName, bundle: nil)
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        interactor.use(brandStoreCollection)
     }
     
     required init?(coder aDecoder: NSCoder) {

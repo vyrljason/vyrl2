@@ -4,10 +4,23 @@
 
 import UIKit
 
-protocol BrandStoreInteracting {
+protocol BrandStoreInteracting: CollectionViewHaving, CollectionViewUsing {
     
 }
 
 final class BrandStoreInteractor: BrandStoreInteracting {
     
+    fileprivate let dataSource: CollectionViewNibRegistering // & CollectionViewDataProviding
+    weak var collectionView: UICollectionView?
+    
+    init(dataSource: CollectionViewNibRegistering /* & CollectionViewDataProviding */) {
+        self.dataSource = dataSource
+    }
+}
+
+extension BrandStoreInteractor: CollectionViewUsing {
+    func use(_ collectionView: UICollectionView) {
+        self.collectionView = collectionView
+        self.dataSource.registerNibs()
+    }
 }
