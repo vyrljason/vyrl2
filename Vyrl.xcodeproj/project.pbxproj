@@ -59,6 +59,9 @@
 		850A80CD1E5DC7F900E684A3 /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850A80CC1E5DC7F900E684A3 /* APIError.swift */; };
 		850A80CF1E5DCABA00E684A3 /* JSONSerializationProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850A80CE1E5DCABA00E684A3 /* JSONSerializationProtocol.swift */; };
 		850A80D11E5DCBAF00E684A3 /* DataToModelJSONDeserializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850A80D01E5DCBAF00E684A3 /* DataToModelJSONDeserializer.swift */; };
+		850A80D31E5DE69200E684A3 /* APICredentialsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850A80D21E5DE69200E684A3 /* APICredentialsProvider.swift */; };
+		850A80D61E5DE83200E684A3 /* CredentialsStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850A80D51E5DE83200E684A3 /* CredentialsStorage.swift */; };
+		850A80D81E5DEB2B00E684A3 /* KeychainProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850A80D71E5DEB2B00E684A3 /* KeychainProtocol.swift */; };
 		852ACD3A1E55DB0F00219E90 /* BrandsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852ACD391E55DB0F00219E90 /* BrandsViewController.swift */; };
 		852ACD3C1E55DB1E00219E90 /* BrandsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 852ACD3B1E55DB1E00219E90 /* BrandsViewController.xib */; };
 		852ACD401E55DB8400219E90 /* HavingNib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852ACD3F1E55DB8400219E90 /* HavingNib.swift */; };
@@ -185,6 +188,9 @@
 		850A80CC1E5DC7F900E684A3 /* APIError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
 		850A80CE1E5DCABA00E684A3 /* JSONSerializationProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONSerializationProtocol.swift; sourceTree = "<group>"; };
 		850A80D01E5DCBAF00E684A3 /* DataToModelJSONDeserializer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataToModelJSONDeserializer.swift; sourceTree = "<group>"; };
+		850A80D21E5DE69200E684A3 /* APICredentialsProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APICredentialsProvider.swift; sourceTree = "<group>"; };
+		850A80D51E5DE83200E684A3 /* CredentialsStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CredentialsStorage.swift; sourceTree = "<group>"; };
+		850A80D71E5DEB2B00E684A3 /* KeychainProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeychainProtocol.swift; sourceTree = "<group>"; };
 		852ACD391E55DB0F00219E90 /* BrandsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrandsViewController.swift; sourceTree = "<group>"; };
 		852ACD3B1E55DB1E00219E90 /* BrandsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BrandsViewController.xib; sourceTree = "<group>"; };
 		852ACD3F1E55DB8400219E90 /* HavingNib.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HavingNib.swift; sourceTree = "<group>"; };
@@ -415,6 +421,7 @@
 		1ADAF7F81E54605D00155D9F /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				850A80D41E5DE7B500E684A3 /* Authorization */,
 				850A80AC1E5D977200E684A3 /* Networking */,
 				1A859C111E575E230013EB09 /* RootNavigation */,
 				852ACD351E55DAE800219E90 /* Brands */,
@@ -535,6 +542,7 @@
 				850A80BE1E5DA94100E684A3 /* HTTPClient.swift */,
 				850A80AD1E5D977C00E684A3 /* APIConfiguration.swift */,
 				850A80C51E5DAA1E00E684A3 /* AuthorizationResources.swift */,
+				850A80D21E5DE69200E684A3 /* APICredentialsProvider.swift */,
 			);
 			name = Networking;
 			sourceTree = "<group>";
@@ -577,6 +585,15 @@
 				850A80D01E5DCBAF00E684A3 /* DataToModelJSONDeserializer.swift */,
 			);
 			name = Deserializing;
+			sourceTree = "<group>";
+		};
+		850A80D41E5DE7B500E684A3 /* Authorization */ = {
+			isa = PBXGroup;
+			children = (
+				850A80D71E5DEB2B00E684A3 /* KeychainProtocol.swift */,
+				850A80D51E5DE83200E684A3 /* CredentialsStorage.swift */,
+			);
+			name = Authorization;
 			sourceTree = "<group>";
 		};
 		852ACD351E55DAE800219E90 /* Brands */ = {
@@ -1137,6 +1154,7 @@
 				1A1FA93C1E5D950A007EB61D /* CategoryCell.swift in Sources */,
 				1A859C151E575E7E0013EB09 /* RootNavigationBuilder.swift in Sources */,
 				850A80BB1E5DA92800E684A3 /* APIEndpoint.swift in Sources */,
+				850A80D81E5DEB2B00E684A3 /* KeychainProtocol.swift in Sources */,
 				850A80A71E5D927300E684A3 /* DictionaryConvertible.swift in Sources */,
 				858D64471E58A4C000CFDD4C /* CollectionViewRefreshing.swift in Sources */,
 				858D63E51E55F1E000CFDD4C /* ImageRetriever.swift in Sources */,
@@ -1145,9 +1163,11 @@
 				852ACD3A1E55DB0F00219E90 /* BrandsViewController.swift in Sources */,
 				1A69C6A61E56008100134EF5 /* NavigationBar.swift in Sources */,
 				852ACD451E55DCDC00219E90 /* ReusableView.swift in Sources */,
+				850A80D61E5DE83200E684A3 /* CredentialsStorage.swift in Sources */,
 				1A69C6A01E55DC8C00134EF5 /* LeftMenuViewController.swift in Sources */,
 				858D64181E5722C900CFDD4C /* BrandsResourceMock.swift in Sources */,
 				858D63E01E55F19A00CFDD4C /* ImageFetcher.swift in Sources */,
+				850A80D31E5DE69200E684A3 /* APICredentialsProvider.swift in Sources */,
 				858D64141E57121600CFDD4C /* BrandsRenderable.swift in Sources */,
 				852ACD471E55DCF200219E90 /* UIView+ReusableView.swift in Sources */,
 				1A859C0E1E5756C50013EB09 /* UIFont.swift in Sources */,

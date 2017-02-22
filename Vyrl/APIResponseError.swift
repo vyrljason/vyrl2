@@ -45,7 +45,7 @@ extension APIResponseError {
         switch statusCode {
         case .accessDenied:
             self = .accessDenied(nil)
-        case .failure:
+        default:
             self = .unexpectedFailure
         }
     }

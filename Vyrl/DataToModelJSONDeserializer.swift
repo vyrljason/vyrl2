@@ -12,7 +12,7 @@ final class DataToModelJSONDeserializer: DataToModelDeserializing {
         jsonSerializationClass =  jsonSerializator
     }
 
-    public func deserialize<Model: Decodable>(data: Data, model: Model.Type) throws -> Model {
+    func deserialize<Model: Decodable>(data: Data, model: Model.Type) throws -> Model {
         let json = try jsonSerializationClass.JSONObjectWithData(data, options: JSONSerialization.ReadingOptions())
         let model = try model.decode(json)
         return model
