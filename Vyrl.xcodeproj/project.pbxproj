@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1A1FA9381E5D93BA007EB61D /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A1FA9371E5D93BA007EB61D /* Category.swift */; };
+		1A1FA93A1E5D94FE007EB61D /* CategoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A1FA9391E5D94FE007EB61D /* CategoryCell.xib */; };
+		1A1FA93C1E5D950A007EB61D /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A1FA93B1E5D950A007EB61D /* CategoryCell.swift */; };
+		1A1FA93F1E5D9815007EB61D /* CategoryCellRenderable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A1FA93E1E5D9815007EB61D /* CategoryCellRenderable.swift */; };
+		1A1FA9421E5DA887007EB61D /* CategoriesDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A1FA9411E5DA887007EB61D /* CategoriesDataSource.swift */; };
+		1A1FA9451E5DABE4007EB61D /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A1FA9441E5DABE4007EB61D /* Service.swift */; };
+		1A1FA9481E5DD024007EB61D /* CategoriesResourceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A1FA9471E5DD024007EB61D /* CategoriesResourceMock.swift */; };
 		1A69C6A01E55DC8C00134EF5 /* LeftMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A69C69F1E55DC8C00134EF5 /* LeftMenuViewController.swift */; };
 		1A69C6A21E55F79D00134EF5 /* LeftMenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A69C6A11E55F79D00134EF5 /* LeftMenuViewController.xib */; };
 		1A69C6A41E55FF0000134EF5 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A69C6A31E55FF0000134EF5 /* UIColor.swift */; };
@@ -97,6 +104,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1A1FA9371E5D93BA007EB61D /* Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		1A1FA9391E5D94FE007EB61D /* CategoryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CategoryCell.xib; sourceTree = "<group>"; };
+		1A1FA93B1E5D950A007EB61D /* CategoryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
+		1A1FA93E1E5D9815007EB61D /* CategoryCellRenderable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryCellRenderable.swift; sourceTree = "<group>"; };
+		1A1FA9411E5DA887007EB61D /* CategoriesDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoriesDataSource.swift; sourceTree = "<group>"; };
+		1A1FA9441E5DABE4007EB61D /* Service.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
+		1A1FA9471E5DD024007EB61D /* CategoriesResourceMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoriesResourceMock.swift; sourceTree = "<group>"; };
 		1A2766098374FF4C447FC4D5 /* Pods-VyrlTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VyrlTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-VyrlTests/Pods-VyrlTests.release.xcconfig"; sourceTree = "<group>"; };
 		1A69C69F1E55DC8C00134EF5 /* LeftMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftMenuViewController.swift; sourceTree = "<group>"; };
 		1A69C6A11E55F79D00134EF5 /* LeftMenuViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LeftMenuViewController.xib; sourceTree = "<group>"; };
@@ -204,11 +218,53 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1A1FA9361E5D936C007EB61D /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				1A1FA9371E5D93BA007EB61D /* Category.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		1A1FA93D1E5D96FF007EB61D /* Renderables */ = {
+			isa = PBXGroup;
+			children = (
+				1A1FA93E1E5D9815007EB61D /* CategoryCellRenderable.swift */,
+			);
+			name = Renderables;
+			sourceTree = "<group>";
+		};
+		1A1FA9401E5D9871007EB61D /* DataSources */ = {
+			isa = PBXGroup;
+			children = (
+				1A1FA9411E5DA887007EB61D /* CategoriesDataSource.swift */,
+			);
+			name = DataSources;
+			sourceTree = "<group>";
+		};
+		1A1FA9431E5DABC9007EB61D /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				1A1FA9471E5DD024007EB61D /* CategoriesResourceMock.swift */,
+			);
+			name = Services;
+			sourceTree = "<group>";
+		};
+		1A1FA9461E5DB05E007EB61D /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				1A1FA9441E5DABE4007EB61D /* Service.swift */,
+			);
+			name = Networking;
+			sourceTree = "<group>";
+		};
 		1A69C69E1E55DC7B00134EF5 /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				1A69C69F1E55DC8C00134EF5 /* LeftMenuViewController.swift */,
 				1A69C6A11E55F79D00134EF5 /* LeftMenuViewController.xib */,
+				1A1FA93B1E5D950A007EB61D /* CategoryCell.swift */,
+				1A1FA9391E5D94FE007EB61D /* CategoryCell.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -318,7 +374,11 @@
 		1ADAF7F91E54606600155D9F /* LeftMenu */ = {
 			isa = PBXGroup;
 			children = (
+				1A1FA9431E5DABC9007EB61D /* Services */,
+				1A1FA9401E5D9871007EB61D /* DataSources */,
+				1A1FA9361E5D936C007EB61D /* Models */,
 				1A859C1D1E58CF4A0013EB09 /* Interactors */,
+				1A1FA93D1E5D96FF007EB61D /* Renderables */,
 				1A69C69E1E55DC7B00134EF5 /* Views */,
 			);
 			name = LeftMenu;
@@ -455,6 +515,7 @@
 		852ACD3D1E55DB6B00219E90 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				1A1FA9461E5DB05E007EB61D /* Networking */,
 				852ACD3E1E55DB7400219E90 /* Protocols */,
 				858D64191E57268300CFDD4C /* Mock */,
 				858D64431E587D3400CFDD4C /* Extensions */,
@@ -769,8 +830,8 @@
 				TargetAttributes = {
 					1ADAF7C31E545F3C00155D9F = {
 						CreatedOnToolsVersion = 8.2;
-						DevelopmentTeam = WW89T5YHE3;
-						ProvisioningStyle = Automatic;
+						DevelopmentTeam = 2FUQCB4MRE;
+						ProvisioningStyle = Manual;
 					};
 					1ADAF7D71E545F3C00155D9F = {
 						CreatedOnToolsVersion = 8.2;
@@ -812,6 +873,7 @@
 				850A80B01E5D990C00E684A3 /* Configuration.plist in Resources */,
 				852ACD3C1E55DB1E00219E90 /* BrandsViewController.xib in Resources */,
 				31FEB5AB1E5C3A4800C5E41D /* BrandStoreViewController.xib in Resources */,
+				1A1FA93A1E5D94FE007EB61D /* CategoryCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -959,14 +1021,18 @@
 				858D640B1E560F0100CFDD4C /* CollectionViewHaving.swift in Sources */,
 				858D641E1E572C4300CFDD4C /* APIResponseError.swift in Sources */,
 				858D63EA1E55F24C00CFDD4C /* Result.swift in Sources */,
+				1A1FA9381E5D93BA007EB61D /* Category.swift in Sources */,
 				858D64011E56082500CFDD4C /* BrandsInteractor.swift in Sources */,
 				853771961E5C425B00E693AD /* BrandsNavigation.swift in Sources */,
 				1A859C101E575E180013EB09 /* InitialNavigationInteractor.swift in Sources */,
 				858D641B1E57268F00CFDD4C /* VyrlFaker.swift in Sources */,
+				1A1FA9481E5DD024007EB61D /* CategoriesResourceMock.swift in Sources */,
 				31FEB5AA1E5C3A4800C5E41D /* BrandStoreViewController.swift in Sources */,
 				31FEB5A31E5C37A100C5E41D /* BrandStoreInteractor.swift in Sources */,
+				1A1FA93F1E5D9815007EB61D /* CategoryCellRenderable.swift in Sources */,
 				858D64071E5608CA00CFDD4C /* BrandsService.swift in Sources */,
 				858D63E71E55F21800CFDD4C /* ServiceLocator.swift in Sources */,
+				1A1FA93C1E5D950A007EB61D /* CategoryCell.swift in Sources */,
 				1A859C151E575E7E0013EB09 /* InitialNavigationBuilder.swift in Sources */,
 				858D64471E58A4C000CFDD4C /* CollectionViewRefreshing.swift in Sources */,
 				858D63E51E55F1E000CFDD4C /* ImageRetriever.swift in Sources */,
@@ -983,9 +1049,11 @@
 				852ACD471E55DCF200219E90 /* UIView+ReusableView.swift in Sources */,
 				1A859C0E1E5756C50013EB09 /* UIFont.swift in Sources */,
 				1A69C6A81E560F4800134EF5 /* WindowProtocol.swift in Sources */,
+				1A1FA9451E5DABE4007EB61D /* Service.swift in Sources */,
 				858D64451E587D3F00CFDD4C /* DispatchQueue+OnMain.swift in Sources */,
 				858D644A1E58A67200CFDD4C /* EmptyCollectionViewHandler.swift in Sources */,
 				1ADAF7F61E545FA300155D9F /* InitialNavigation.swift in Sources */,
+				1A1FA9421E5DA887007EB61D /* CategoriesDataSource.swift in Sources */,
 				850A80AE1E5D977C00E684A3 /* APIConfiguration.swift in Sources */,
 				1A69C6A41E55FF0000134EF5 /* UIColor.swift in Sources */,
 				858D64201E5734A800CFDD4C /* CollectionViewUsing.swift in Sources */,
@@ -1145,7 +1213,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEVELOPMENT_TEAM = WW89T5YHE3;
+				DEVELOPMENT_TEAM = 2FUQCB4MRE;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"$(inherited)",
 					"COCOAPODS=1",
@@ -1155,6 +1223,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = io.govyrl.vyrl.ios.main.brand.dev;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "91533694-4455-409f-9221-f1ea0c3fe65e";
+				PROVISIONING_PROFILE_SPECIFIER = Wildcard;
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -1165,7 +1235,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = WW89T5YHE3;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Vyrl/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

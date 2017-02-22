@@ -6,13 +6,33 @@ import UIKit
 
 @objc protocol LeftMenuInteracting: class {
     func didTapHome()
+    func use(_ collectionView: UICollectionView)
 }
 
-final class LeftMenuInteractor: LeftMenuInteracting {
+protocol CategorySelectionHandling: class {
+    func didSelect(category: Category)
+}
+
+final class LeftMenuInteractor: LeftMenuInteracting, CategorySelectionHandling {
 
     weak var delegate: HomeScreenPresenting?
+    
+    private let dataSource: CollectionViewUsing & CategoriesSelectionDelegateHaving & UICollectionViewDelegate & UICollectionViewDataSource
+
+    init(dataSource: CollectionViewUsing & CategoriesSelectionDelegateHaving & UICollectionViewDelegate & UICollectionViewDataSource) {
+        self.dataSource = dataSource
+        dataSource.delegate = self
+    }
 
     @objc func didTapHome() {
         delegate?.showHome()
+    }
+
+    func use(_ collectionView: UICollectionView) {
+        dataSource.use(collectionView)
+    }
+
+    func didSelect(category: Category) {
+        delegate?.showHome() // FIXME: show filtered Brands
     }
 }
