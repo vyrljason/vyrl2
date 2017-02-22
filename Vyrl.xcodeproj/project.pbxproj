@@ -31,6 +31,11 @@
 		31FEB5A61E5C392A00C5E41D /* BrandStoreViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31FEB5A51E5C392A00C5E41D /* BrandStoreViewControllerFactory.swift */; };
 		31FEB5AA1E5C3A4800C5E41D /* BrandStoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31FEB5A81E5C3A4800C5E41D /* BrandStoreViewController.swift */; };
 		31FEB5AB1E5C3A4800C5E41D /* BrandStoreViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31FEB5A91E5C3A4800C5E41D /* BrandStoreViewController.xib */; };
+		850A80AE1E5D977C00E684A3 /* APIConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850A80AD1E5D977C00E684A3 /* APIConfiguration.swift */; };
+		850A80B01E5D990C00E684A3 /* Configuration.plist in Resources */ = {isa = PBXBuildFile; fileRef = 850A80AF1E5D990C00E684A3 /* Configuration.plist */; };
+		850A80B31E5D9EA800E684A3 /* APIConfigurationTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850A80B21E5D9EA800E684A3 /* APIConfigurationTest.swift */; };
+		850A80B61E5D9ED600E684A3 /* EmptyTestConfiguration.plist in Resources */ = {isa = PBXBuildFile; fileRef = 850A80B41E5D9ED600E684A3 /* EmptyTestConfiguration.plist */; };
+		850A80B71E5D9ED600E684A3 /* TestConfiguration.plist in Resources */ = {isa = PBXBuildFile; fileRef = 850A80B51E5D9ED600E684A3 /* TestConfiguration.plist */; };
 		852ACD3A1E55DB0F00219E90 /* BrandsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852ACD391E55DB0F00219E90 /* BrandsViewController.swift */; };
 		852ACD3C1E55DB1E00219E90 /* BrandsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 852ACD3B1E55DB1E00219E90 /* BrandsViewController.xib */; };
 		852ACD401E55DB8400219E90 /* HavingNib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852ACD3F1E55DB8400219E90 /* HavingNib.swift */; };
@@ -122,6 +127,11 @@
 		3553ABBDC82B1A7C9E6385AE /* Pods_VyrlTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VyrlTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D5C69B512EC5560D5FAF6DF /* Pods-Vyrl.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Vyrl.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Vyrl/Pods-Vyrl.debug.xcconfig"; sourceTree = "<group>"; };
 		850740CC1E55E71E00E2F65B /* Brand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Brand.swift; sourceTree = "<group>"; };
+		850A80AD1E5D977C00E684A3 /* APIConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIConfiguration.swift; sourceTree = "<group>"; };
+		850A80AF1E5D990C00E684A3 /* Configuration.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Configuration.plist; sourceTree = "<group>"; };
+		850A80B21E5D9EA800E684A3 /* APIConfigurationTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIConfigurationTest.swift; sourceTree = "<group>"; };
+		850A80B41E5D9ED600E684A3 /* EmptyTestConfiguration.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = EmptyTestConfiguration.plist; sourceTree = "<group>"; };
+		850A80B51E5D9ED600E684A3 /* TestConfiguration.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = TestConfiguration.plist; sourceTree = "<group>"; };
 		852ACD391E55DB0F00219E90 /* BrandsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrandsViewController.swift; sourceTree = "<group>"; };
 		852ACD3B1E55DB1E00219E90 /* BrandsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BrandsViewController.xib; sourceTree = "<group>"; };
 		852ACD3F1E55DB8400219E90 /* HavingNib.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HavingNib.swift; sourceTree = "<group>"; };
@@ -271,7 +281,7 @@
 				858D63F41E55FF7100CFDD4C /* Helpers */,
 				858D63EC1E55F68C00CFDD4C /* Common */,
 				1ADAF7FA1E54647E00155D9F /* Mocks */,
-				1ADAF7DE1E545F3C00155D9F /* Info.plist */,
+				850A80B81E5D9ED800E684A3 /* Resources */,
 			);
 			path = VyrlTests;
 			sourceTree = "<group>";
@@ -279,6 +289,7 @@
 		1ADAF7F71E54604300155D9F /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				850A80AF1E5D990C00E684A3 /* Configuration.plist */,
 				1ADAF7D01E545F3C00155D9F /* LaunchScreen.storyboard */,
 				1ADAF7CE1E545F3C00155D9F /* Assets.xcassets */,
 				858D64151E57130500CFDD4C /* Localizable.strings */,
@@ -289,6 +300,7 @@
 		1ADAF7F81E54605D00155D9F /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				850A80AC1E5D977200E684A3 /* Networking */,
 				1A859C111E575E230013EB09 /* InitialNavigation */,
 				852ACD351E55DAE800219E90 /* Brands */,
 				3169C3431E5C295C00545989 /* BrandStore */,
@@ -379,6 +391,32 @@
 				850740CC1E55E71E00E2F65B /* Brand.swift */,
 			);
 			name = Model;
+			sourceTree = "<group>";
+		};
+		850A80AC1E5D977200E684A3 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				850A80AD1E5D977C00E684A3 /* APIConfiguration.swift */,
+			);
+			name = Networking;
+			sourceTree = "<group>";
+		};
+		850A80B11E5D9E9C00E684A3 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				850A80B21E5D9EA800E684A3 /* APIConfigurationTest.swift */,
+			);
+			name = Networking;
+			sourceTree = "<group>";
+		};
+		850A80B81E5D9ED800E684A3 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				1ADAF7DE1E545F3C00155D9F /* Info.plist */,
+				850A80B41E5D9ED600E684A3 /* EmptyTestConfiguration.plist */,
+				850A80B51E5D9ED600E684A3 /* TestConfiguration.plist */,
+			);
+			name = Resources;
 			sourceTree = "<group>";
 		};
 		852ACD351E55DAE800219E90 /* Brands */ = {
@@ -560,6 +598,7 @@
 		858D64211E573D2700CFDD4C /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				850A80B11E5D9E9C00E684A3 /* Networking */,
 				1AF49CCF1E59F22700FE7857 /* LeftMenu */,
 				1AF49CCE1E59E85500FE7857 /* InitialNavigation */,
 				858D64221E573D2C00CFDD4C /* Brands */,
@@ -761,6 +800,7 @@
 				852ACD4D1E55DE1500219E90 /* BrandCell.xib in Resources */,
 				1ADAF7CF1E545F3C00155D9F /* Assets.xcassets in Resources */,
 				1A69C6A21E55F79D00134EF5 /* LeftMenuViewController.xib in Resources */,
+				850A80B01E5D990C00E684A3 /* Configuration.plist in Resources */,
 				852ACD3C1E55DB1E00219E90 /* BrandsViewController.xib in Resources */,
 				31FEB5AB1E5C3A4800C5E41D /* BrandStoreViewController.xib in Resources */,
 			);
@@ -770,6 +810,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				850A80B61E5D9ED600E684A3 /* EmptyTestConfiguration.plist in Resources */,
+				850A80B71E5D9ED600E684A3 /* TestConfiguration.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -934,6 +976,7 @@
 				858D64451E587D3F00CFDD4C /* DispatchQueue+OnMain.swift in Sources */,
 				858D644A1E58A67200CFDD4C /* EmptyCollectionViewHandler.swift in Sources */,
 				1ADAF7F61E545FA300155D9F /* InitialNavigation.swift in Sources */,
+				850A80AE1E5D977C00E684A3 /* APIConfiguration.swift in Sources */,
 				1A69C6A41E55FF0000134EF5 /* UIColor.swift in Sources */,
 				858D64201E5734A800CFDD4C /* CollectionViewUsing.swift in Sources */,
 				858D64051E56089B00CFDD4C /* BrandsDataSource.swift in Sources */,
@@ -958,6 +1001,7 @@
 				1ADAF7FC1E54648A00155D9F /* WindowMock.swift in Sources */,
 				858D64311E574B5C00CFDD4C /* BrandCellSnapshotTest.swift in Sources */,
 				858D63F61E55FF8600CFDD4C /* CustomAssertions.swift in Sources */,
+				850A80B31E5D9EA800E684A3 /* APIConfigurationTest.swift in Sources */,
 				858D63F91E56030300CFDD4C /* DownloadingImageViewTest.swift in Sources */,
 				85437AA31E58D4E200551D2D /* EmptyCollectionViewHandlerTest.swift in Sources */,
 				858D643C1E5751A400CFDD4C /* BrandsServiceTest.swift in Sources */,
