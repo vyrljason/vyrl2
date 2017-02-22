@@ -21,27 +21,35 @@ enum APIResponseError: Error {
 }
 
 extension APIResponseError {
+
     init(statusCode: StatusCode, data: Data? = nil, error: Error? = nil) {
         if let data = data, let apiError = try? data.deserialize(model: APIError.self) {
-            switch statusCode {
-            case .accessDenied:
-                self = .accessDenied(apiError)
-            default:
-                self = .apiRequestError(apiError)
-            }
-            return
+            self.init(statusCode: statusCode, apiError: apiError)
+        } else if let error = error {
+            self.init(error: error)
+        } else {
+            self.init(statusCode: statusCode)
         }
+    }
 
-        if let error = error as? NSError, Constants.connectionProblemURLCodes.contains(error.code) {
+    private init(statusCode: StatusCode, apiError: APIError) {
+        switch statusCode {
+        case .accessDenied:
+            self = .accessDenied(apiError)
+        default:
+            self = .apiRequestError(apiError)
+        }
+    }
+
+    private init(error: Error) {
+        if Constants.connectionProblemURLCodes.contains((error as NSError).code) {
             self = .connectionProblem
-            return
-        }
-
-        if let error = error {
+        } else {
             self = .httpResponse(error)
-            return
         }
+    }
 
+    private init(statusCode: StatusCode) {
         switch statusCode {
         case .accessDenied:
             self = .accessDenied(nil)

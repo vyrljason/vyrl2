@@ -10,11 +10,10 @@ protocol APICredentialsProviding {
 
 final class APICredentialsProvider: APICredentialsProviding {
 
-    private let storage: OAuthCredentialsStoring
+    private let storage: CredentialsStoring
 
-    init(storage: OAuthCredentialsStoring = OAuthCredentialsStorage(type: .user)) {
-        self.serverStorage = serverStorage
-        self.userStorage = userStorage
+    init(storage: CredentialsStoring) {
+        self.storage = storage
     }
 
     var userAccessToken: String? {

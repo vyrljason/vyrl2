@@ -16,7 +16,7 @@ extension AuthorizationType {
     }
 }
 
-protocol APIEndpoint: DictionaryConvertible {
+protocol APIEndpoint {
     var path: String { get }
     var authorization: AuthorizationType { get }
     var method: HTTPMethod { get }
