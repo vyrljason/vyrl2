@@ -6,23 +6,34 @@ import UIKit
 
 final class BrandStoreDataSource: NSObject {
     fileprivate let brand: Brand
+    fileprivate let service: ProductsProviding
+    fileprivate var products = [Product]()
     
     weak var delegate: CollectionViewHaving & CollectionViewControlling?
     
-    init(brand: Brand) {
+    init(brand: Brand,
+         service: ProductsProviding) {
         self.brand = brand
+        self.service = service
     }
 }
 
 extension BrandStoreDataSource: UICollectionViewDataSource {
 
-    fileprivate func prepare(header: BrandStoreHeaderRendering, using brand: Brand) {
-        let renderable = BrandStoreHeaderRenderable(brand: brand)
+    private func prepare(header: BrandStoreHeaderRendering) {
+        let renderable = BrandStoreHeaderRenderable(brand: self.brand)
         header.render(renderable)
     }
     
-    public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        return BrandStoreCell() //stub
+    private func prepare(cell: BrandStoreCell, using product: Product) {
+        let renderable = BrandStoreCellRenderable(product: product)
+        cell.render(renderable)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell: BrandStoreCell = collectionView.dequeueCell(at: indexPath)
+        prepare(cell: cell, using: self.products[indexPath.row])
+        return cell
     }
 
     func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -30,12 +41,12 @@ extension BrandStoreDataSource: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 0
+        return self.products.count
     }
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         let header: BrandStoreHeader = collectionView.dequeueHeader(at: indexPath)
-        prepare(header: header, using: self.brand)
+        prepare(header: header)
         return header
     }
 }
@@ -46,11 +57,18 @@ extension BrandStoreDataSource: CollectionViewNibRegistering {
             return
         }
         BrandStoreHeader.registerHeader(to: collectionView)
+        BrandStoreCell.register(to: collectionView)
     }
 }
 
 extension BrandStoreDataSource: CollectionViewDataProviding {
     func loadData() {
-        self.delegate?.updateCollection(with: .empty)
+        self.service.get { [weak self] result in
+            guard let `self` = self else { return }
+            self.products = result.map(success: { $0 }, failure: { _ in return [] })
+            DispatchQueue.onMainThread {
+                self.delegate?.updateCollection(with: result.map(success: { $0.isEmpty ? .empty : .someData }, failure: { _ in return .error }))
+            }
+        }
     }
 }
