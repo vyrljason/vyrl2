@@ -7,4 +7,5 @@ import Foundation
 public enum APIResponseError: Error {
     case unexpectedFailure
     case connectionProblem
+    case error(NSError)
 }

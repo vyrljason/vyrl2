@@ -5,7 +5,7 @@
 @testable import Vyrl
 import UIKit
 
-final class InitialNavigationControllingMock: InitialNavigationControlling {
+final class RootNavigationControllingMock: RootNavigationControlling {
 
     var showMenuCalled: Bool = false
     var showChatCalled: Bool = false

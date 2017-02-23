@@ -5,11 +5,9 @@
 import Foundation
 import Fakery
 
-protocol BrandsFetching {
-    func brands(completion: @escaping BrandsAPIResultClosure)
-}
+final class BrandsResourceMock: Fetching {
 
-final class BrandsResourceMock: BrandsFetching {
+    typealias Model = [Brand]
 
     private let brands: [Brand]
     var success = true
@@ -18,7 +16,7 @@ final class BrandsResourceMock: BrandsFetching {
         brands = (0..<amount).map { _ in VyrlFaker.faker.brand() }
     }
 
-    func brands(completion: @escaping BrandsAPIResultClosure) {
+    func fetch(completion: @escaping (Result<[Brand], APIResponseError>) -> Void) {
         if success {
             completion(.success(brands))
         } else {

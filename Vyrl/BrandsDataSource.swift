@@ -14,14 +14,14 @@ protocol BrandsDataProviding: CollectionViewDataProviding, CollectionViewNibRegi
 
 final class BrandsDataSource: NSObject, BrandsDataProviding {
 
-    fileprivate let repository: BrandsHaving
+    fileprivate let service: BrandsProviding
     fileprivate var items = [Brand]()
 
     weak var delegate: CollectionViewHaving & CollectionViewControlling?
     weak var selectionDelegate: BrandSelecting?
 
-    init(repository: BrandsHaving) {
-        self.repository = repository
+    init(service: BrandsProviding) {
+        self.service = service
         super.init()
     }
 }
@@ -35,7 +35,7 @@ extension BrandsDataSource {
 
 extension BrandsDataSource {
     func loadData() {
-        repository.brands { [weak self] result in
+        service.get { [weak self] result in
             guard let `self` = self else { return }
             self.items = result.map(success: { $0 }, failure: { _ in return [] })
             DispatchQueue.onMainThread {

@@ -5,7 +5,7 @@
 import UIKit
 import SlideMenuControllerSwift
 
-protocol InitialNavigationControlling: class {
+protocol RootNavigationControlling: class {
     func showMenu()
     func showChat()
     func showCart()
@@ -16,7 +16,11 @@ protocol HomeScreenPresenting: class {
     func showHome()
 }
 
-final class InitialNavigation {
+protocol CategoryPresenting: class {
+    func show(_ category: Category)
+}
+
+final class RootNavigation {
 
     private enum Constants {
         static let menuWidthRatio: CGFloat = 0.8
@@ -35,10 +39,10 @@ final class InitialNavigation {
     private let leftMenu: UIViewController
     fileprivate let cart: UIViewController
     fileprivate let chat: UIViewController
-    private let interactor: InitialNavigationInteracting & NavigationDelegateHaving
+    private let interactor: RootNavigationInteracting & NavigationDelegateHaving
 
     // swiftlint:disable function_parameter_count
-    init(interactor: InitialNavigationInteracting & NavigationDelegateHaving,
+    init(interactor: RootNavigationInteracting & NavigationDelegateHaving,
          leftMenu: UIViewController,
          mainNavigation: NavigationControlling,
          cart: UIViewController,
@@ -69,7 +73,7 @@ final class InitialNavigation {
         let menuButton = UIBarButtonItem(title: "Menu",
                                          style: .plain,
                                          target: interactor,
-                                         action: #selector(InitialNavigationInteracting.didTapMenu))
+                                         action: #selector(RootNavigationInteracting.didTapMenu))
 
         viewController.navigationItem.leftBarButtonItem = menuButton
 
@@ -77,13 +81,13 @@ final class InitialNavigation {
         let chat = UIBarButtonItem(title: "Chat",
                                    style: .plain,
                                    target: interactor,
-                                   action: #selector(InitialNavigationInteracting.didTapChat))
+                                   action: #selector(RootNavigationInteracting.didTapChat))
 
         // This is temporary - icon will be used.
         let cart = UIBarButtonItem(title: "Cart",
                                    style: .plain,
                                    target: interactor,
-                                   action: #selector(InitialNavigationInteracting.didTapCart))
+                                   action: #selector(RootNavigationInteracting.didTapCart))
 
         viewController.navigationItem.rightBarButtonItems = [chat, cart]
     }
@@ -119,7 +123,7 @@ final class InitialNavigation {
         let close = UIBarButtonItem(title: Constants.closeTitle,
                                     style: .done,
                                     target: interactor,
-                                    action: #selector(InitialNavigationInteracting.didTapClose))
+                                    action: #selector(RootNavigationInteracting.didTapClose))
         viewController.navigationItem.leftBarButtonItem = close
         let navigation = UINavigationController(rootViewController: viewController)
         navigation.render(Constants.navigationBarRenderable)
@@ -127,14 +131,22 @@ final class InitialNavigation {
     }
 }
 
-extension InitialNavigation: HomeScreenPresenting {
+extension RootNavigation: HomeScreenPresenting {
     func showHome() {
         mainNavigation.goToFirst(animated: true)
         slideMenu.closeLeft()
     }
 }
 
-extension InitialNavigation: InitialNavigationControlling {
+extension RootNavigation: CategoryPresenting {
+    func show(_ category: Category) {
+        mainNavigation.goToFirst(animated: true) // FIXME: show brands for category
+        // (https://taiga.neoteric.eu/project/mpaprocki-vyrl-mobile/us/73?kanban-status=427)
+        slideMenu.closeLeft()
+    }
+}
+
+extension RootNavigation: RootNavigationControlling {
     func showMenu() {
         slideMenu.openLeft()
     }

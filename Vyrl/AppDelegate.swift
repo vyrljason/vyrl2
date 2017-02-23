@@ -11,12 +11,12 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     
-    private let initialNavigation = InitialNavigationBuilder().build()
+    private let rootNavigation = RootNavigationBuilder().build()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         initializeAnalytics()
         setUpAPIConfiguration()
-        initialNavigation.showInitialViewController()
+        rootNavigation.showInitialViewController()
         return true
     }
 

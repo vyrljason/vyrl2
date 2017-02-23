@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -11,6 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LeftMenuViewController" customModule="Vyrl" customModuleProvider="target">
             <connections>
+                <outlet property="collectionView" destination="puu-xC-rYI" id="Lnp-ha-F1e"/>
                 <outlet property="homeButton" destination="IJe-wT-f19" id="G1e-B0-GTl"/>
                 <outlet property="view" destination="iN0-l3-epB" id="twT-NE-PPx"/>
             </connections>
@@ -37,11 +38,35 @@
                         <constraint firstItem="IJe-wT-f19" firstAttribute="centerY" secondItem="XVq-l7-7y5" secondAttribute="centerY" id="cyS-Oe-nz2"/>
                     </constraints>
                 </view>
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" canCancelContentTouches="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="puu-xC-rYI">
+                    <rect key="frame" x="0.0" y="64" width="375" height="559"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="qfr-0v-5RN">
+                        <size key="itemSize" width="50" height="50"/>
+                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    </collectionViewFlowLayout>
+                </collectionView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uvC-nK-fIw">
+                    <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                    <color key="backgroundColor" red="0.60392156860000001" green="0.1176470588" blue="0.1450980392" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="Jnx-WI-suk"/>
+                    </constraints>
+                </view>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
+                <constraint firstAttribute="bottom" secondItem="uvC-nK-fIw" secondAttribute="bottom" id="1cp-8l-rjk"/>
+                <constraint firstItem="uvC-nK-fIw" firstAttribute="top" secondItem="puu-xC-rYI" secondAttribute="bottom" id="3Za-GH-eEN"/>
+                <constraint firstAttribute="trailing" secondItem="puu-xC-rYI" secondAttribute="trailing" id="6un-uJ-gbg"/>
+                <constraint firstItem="puu-xC-rYI" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="8Aj-vl-HZn"/>
                 <constraint firstAttribute="trailing" secondItem="XVq-l7-7y5" secondAttribute="trailing" id="8mb-hd-g1s"/>
+                <constraint firstItem="uvC-nK-fIw" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="E6l-cd-3aV"/>
                 <constraint firstItem="XVq-l7-7y5" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="My6-dr-oNT"/>
+                <constraint firstAttribute="trailing" secondItem="uvC-nK-fIw" secondAttribute="trailing" id="QpH-oO-Rqe"/>
+                <constraint firstItem="puu-xC-rYI" firstAttribute="top" secondItem="XVq-l7-7y5" secondAttribute="bottom" id="YrT-4t-dzH"/>
                 <constraint firstItem="XVq-l7-7y5" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="r65-Lq-0Mv"/>
             </constraints>
             <nil key="simulatedBottomBarMetrics"/>

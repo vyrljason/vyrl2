@@ -5,20 +5,20 @@
 @testable import Vyrl
 import XCTest
 
-final class BrandsServiceTests: XCTestCase {
+final class CategoriesServiceTests: XCTestCase {
 
-    var resource: BrandsResourceMock!
-    var service: Service<BrandsResourceMock>!
-    var subject: BrandsService!
+    var resource: CategoriesResourceMock!
+    var service: Service<CategoriesResourceMock>!
+    var subject: CategoriesService!
 
     override func setUp() {
         super.setUp()
-        resource = BrandsResourceMock(amount: 1)
-        service = Service<BrandsResourceMock>(resource: resource)
-        subject = BrandsService(resource: service)
+        resource = CategoriesResourceMock()
+        service = Service<CategoriesResourceMock>(resource: resource)
+        subject = CategoriesService(resource: service)
     }
 
-    func test_get_whenSuccess_returnsBrands() {
+    func test_get_whenSuccess_returnsCollection() {
         resource.success = true
 
         subject.get { result in

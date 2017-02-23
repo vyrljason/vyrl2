@@ -6,29 +6,8 @@ import XCTest
 import SlideMenuControllerSwift
 @testable import Vyrl
 
-final class NavigationProviderMock: NavigationControlling {
-
-    let navigationController: UINavigationController
-
-    var didResetNavigation = false
-    var didDismissModal = false
-    
-    init(navigationController: UINavigationController) {
-        self.navigationController = navigationController
-    }
-
-    func dismiss(animated: Bool) {
-        didDismissModal = true
-    }
-
-    func goToFirst(animated: Bool) {
-        didResetNavigation = true
-
-    }
-}
-
-final class InitialNavigationTests: XCTestCase {
-    private var subject: InitialNavigation!
+final class RootNavigationTests: XCTestCase {
+    private var subject: RootNavigation!
     private var window: WindowMock!
     private var navigationProvider: NavigationProviderMock!
     private var brandsNavigationController: NavigationControllerMock!
@@ -36,19 +15,21 @@ final class InitialNavigationTests: XCTestCase {
     private var cart: UIViewController!
     private var chat: UIViewController!
     private var leftMenu: LeftMenuViewController!
-    private var interactor: InitialNavigationInteractor!
+    private var interactor: RootNavigationInteractor!
+    private var dataSource: DataSourceMock!
 
     override func setUp() {
         super.setUp()
         window = WindowMock()
         chat = UIViewController()
         cart = UIViewController()
-        leftMenu = LeftMenuViewController(interactor: LeftMenuInteractor())
-        interactor = InitialNavigationInteractor()
+        dataSource = DataSourceMock()
+        leftMenu = LeftMenuViewController(interactor: LeftMenuInteractor(dataSource: dataSource))
+        interactor = RootNavigationInteractor()
         brandsNavigationController = NavigationControllerMock()
         navigationProvider = NavigationProviderMock(navigationController: brandsNavigationController)
 
-        let builder = InitialNavigationBuilder()
+        let builder = RootNavigationBuilder()
         builder.interactor = interactor
         builder.leftMenu = leftMenu
         builder.cart = cart
