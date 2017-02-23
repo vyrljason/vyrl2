@@ -15,7 +15,6 @@ final class ResourceConfigurator: APIResourceConfiguring {
     let httpClient: APIResourceControlling
 
     init(configuration: APIConfiguration,
-         session: URLSessionProtocol,
          sessionManager: SessionManager,
          responseHandler: APIResponseHandling,
          credentialsProvider: APICredentialsProviding) {
