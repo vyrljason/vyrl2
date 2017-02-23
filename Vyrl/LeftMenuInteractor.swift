@@ -16,7 +16,7 @@ protocol CategorySelectionHandling: class {
 
 final class LeftMenuInteractor: LeftMenuInteracting, CategorySelectionHandling {
 
-    weak var delegate: HomeScreenPresenting & CategoryPresenting?
+    weak var delegate: HomeScreenPresenting & CategoryPresenting & AccountScreenPresenting?
     
     private let dataSource: CollectionViewUsing & CategoriesSelectionDelegateHaving & UICollectionViewDelegate & UICollectionViewDataSource
 
@@ -30,7 +30,7 @@ final class LeftMenuInteractor: LeftMenuInteracting, CategorySelectionHandling {
     }
 
     @objc func didTapAccount() {
-        delegate?.showHome() // FIXME: Show account
+        delegate?.showAccount()
     }
 
     func use(_ collectionView: UICollectionView) {

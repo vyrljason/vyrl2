@@ -23,6 +23,8 @@
 		1A1FA9591E5F10DC007EB61D /* LeftMenuViewControllerSnapshotTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A1FA9581E5F10DC007EB61D /* LeftMenuViewControllerSnapshotTest.swift */; };
 		1A1FA95B1E5F13D7007EB61D /* LeftMenuInteractingMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A1FA95A1E5F13D7007EB61D /* LeftMenuInteractingMock.swift */; };
 		1A1FA95D1E5F173A007EB61D /* CategoryCellSnapshotTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A1FA95C1E5F173A007EB61D /* CategoryCellSnapshotTest.swift */; };
+		1A1FA9611E5F2E55007EB61D /* AccountViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A1FA9601E5F2E55007EB61D /* AccountViewControllerFactory.swift */; };
+		1A1FA9641E5F4D19007EB61D /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A1FA9631E5F4D19007EB61D /* AccountViewController.swift */; };
 		1A69C6A01E55DC8C00134EF5 /* LeftMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A69C69F1E55DC8C00134EF5 /* LeftMenuViewController.swift */; };
 		1A69C6A21E55F79D00134EF5 /* LeftMenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A69C6A11E55F79D00134EF5 /* LeftMenuViewController.xib */; };
 		1A69C6A41E55FF0000134EF5 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A69C6A31E55FF0000134EF5 /* UIColor.swift */; };
@@ -32,7 +34,7 @@
 		1A859C101E575E180013EB09 /* RootNavigationInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A859C0F1E575E180013EB09 /* RootNavigationInteractor.swift */; };
 		1A859C151E575E7E0013EB09 /* RootNavigationBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A859C141E575E7E0013EB09 /* RootNavigationBuilder.swift */; };
 		1A859C171E58999A0013EB09 /* RootNavigationInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A859C161E58999A0013EB09 /* RootNavigationInteractorTests.swift */; };
-		1A859C191E5899D80013EB09 /* InitialNavigationControllingMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A859C181E5899D80013EB09 /* InitialNavigationControllingMock.swift */; };
+		1A859C191E5899D80013EB09 /* RootNavigationControllingMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A859C181E5899D80013EB09 /* RootNavigationControllingMock.swift */; };
 		1A859C1B1E58A5620013EB09 /* NavigationControllerMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A859C1A1E58A5620013EB09 /* NavigationControllerMock.swift */; };
 		1A859C4B1E58D1950013EB09 /* LeftMenuInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A859C4A1E58D1950013EB09 /* LeftMenuInteractor.swift */; };
 		1ADAF7C81E545F3C00155D9F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ADAF7C71E545F3C00155D9F /* AppDelegate.swift */; };
@@ -162,6 +164,8 @@
 		1A1FA9581E5F10DC007EB61D /* LeftMenuViewControllerSnapshotTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftMenuViewControllerSnapshotTest.swift; sourceTree = "<group>"; };
 		1A1FA95A1E5F13D7007EB61D /* LeftMenuInteractingMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftMenuInteractingMock.swift; sourceTree = "<group>"; };
 		1A1FA95C1E5F173A007EB61D /* CategoryCellSnapshotTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryCellSnapshotTest.swift; sourceTree = "<group>"; };
+		1A1FA9601E5F2E55007EB61D /* AccountViewControllerFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountViewControllerFactory.swift; sourceTree = "<group>"; };
+		1A1FA9631E5F4D19007EB61D /* AccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
 		1A2766098374FF4C447FC4D5 /* Pods-VyrlTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VyrlTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-VyrlTests/Pods-VyrlTests.release.xcconfig"; sourceTree = "<group>"; };
 		1A69C69F1E55DC8C00134EF5 /* LeftMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftMenuViewController.swift; sourceTree = "<group>"; };
 		1A69C6A11E55F79D00134EF5 /* LeftMenuViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LeftMenuViewController.xib; sourceTree = "<group>"; };
@@ -172,7 +176,7 @@
 		1A859C0F1E575E180013EB09 /* RootNavigationInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootNavigationInteractor.swift; sourceTree = "<group>"; };
 		1A859C141E575E7E0013EB09 /* RootNavigationBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootNavigationBuilder.swift; sourceTree = "<group>"; };
 		1A859C161E58999A0013EB09 /* RootNavigationInteractorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootNavigationInteractorTests.swift; sourceTree = "<group>"; };
-		1A859C181E5899D80013EB09 /* InitialNavigationControllingMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InitialNavigationControllingMock.swift; sourceTree = "<group>"; };
+		1A859C181E5899D80013EB09 /* RootNavigationControllingMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootNavigationControllingMock.swift; sourceTree = "<group>"; };
 		1A859C1A1E58A5620013EB09 /* NavigationControllerMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationControllerMock.swift; sourceTree = "<group>"; };
 		1A859C4A1E58D1950013EB09 /* LeftMenuInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftMenuInteractor.swift; sourceTree = "<group>"; };
 		1AA1C43D9EC44CB342D10427 /* Pods_Vyrl.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Vyrl.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -359,6 +363,31 @@
 			name = Service;
 			sourceTree = "<group>";
 		};
+		1A1FA95E1E5F2E3B007EB61D /* Account */ = {
+			isa = PBXGroup;
+			children = (
+				1A1FA9621E5F4D0B007EB61D /* Views */,
+				1A1FA95F1E5F2E44007EB61D /* Factories */,
+			);
+			name = Account;
+			sourceTree = "<group>";
+		};
+		1A1FA95F1E5F2E44007EB61D /* Factories */ = {
+			isa = PBXGroup;
+			children = (
+				1A1FA9601E5F2E55007EB61D /* AccountViewControllerFactory.swift */,
+			);
+			name = Factories;
+			sourceTree = "<group>";
+		};
+		1A1FA9621E5F4D0B007EB61D /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				1A1FA9631E5F4D19007EB61D /* AccountViewController.swift */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
 		1A69C69E1E55DC7B00134EF5 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -464,6 +493,7 @@
 			isa = PBXGroup;
 			children = (
 				850A80C91E5DC17B00E684A3 /* Deserializing */,
+				1A1FA95E1E5F2E3B007EB61D /* Account */,
 				850A80D41E5DE7B500E684A3 /* Authorization */,
 				850A80AC1E5D977200E684A3 /* Networking */,
 				1A859C111E575E230013EB09 /* RootNavigation */,
@@ -494,7 +524,7 @@
 				1ADAF7FB1E54648A00155D9F /* WindowMock.swift */,
 				858D63F01E55F6D600CFDD4C /* ImageRetrieverMock.swift */,
 				858D63FA1E56037600CFDD4C /* ImageFetcherMock.swift */,
-				1A859C181E5899D80013EB09 /* InitialNavigationControllingMock.swift */,
+				1A859C181E5899D80013EB09 /* RootNavigationControllingMock.swift */,
 				858D64411E5755FC00CFDD4C /* CollectionViewMock.swift */,
 				1A859C1A1E58A5620013EB09 /* NavigationControllerMock.swift */,
 				1AF49CD21E59F44A00FE7857 /* HomeScreenPresentingMock.swift */,
@@ -1300,6 +1330,8 @@
 				1ADAF7F61E545FA300155D9F /* RootNavigation.swift in Sources */,
 				1A1FA9421E5DA887007EB61D /* CategoriesDataSource.swift in Sources */,
 				850A80AE1E5D977C00E684A3 /* APIConfiguration.swift in Sources */,
+				1A1FA9611E5F2E55007EB61D /* AccountViewControllerFactory.swift in Sources */,
+				1A1FA9641E5F4D19007EB61D /* AccountViewController.swift in Sources */,
 				1A69C6A41E55FF0000134EF5 /* UIColor.swift in Sources */,
 				850A80BF1E5DA94100E684A3 /* HTTPClient.swift in Sources */,
 				858D64201E5734A800CFDD4C /* CollectionViewUsing.swift in Sources */,
@@ -1316,7 +1348,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1A859C191E5899D80013EB09 /* InitialNavigationControllingMock.swift in Sources */,
+				1A859C191E5899D80013EB09 /* RootNavigationControllingMock.swift in Sources */,
 				858D63F11E55F6D600CFDD4C /* ImageRetrieverMock.swift in Sources */,
 				853771981E5C46AB00E693AD /* BrandsNavigationTest.swift in Sources */,
 				1A859C171E58999A0013EB09 /* RootNavigationInteractorTests.swift in Sources */,

@@ -16,6 +16,10 @@ protocol HomeScreenPresenting: class {
     func showHome()
 }
 
+protocol AccountScreenPresenting: class {
+    func showAccount()
+}
+
 protocol CategoryPresenting: class {
     func show(_ category: Category)
 }
@@ -39,6 +43,7 @@ final class RootNavigation {
     private let leftMenu: UIViewController
     fileprivate let cart: UIViewController
     fileprivate let chat: UIViewController
+    fileprivate let accountMaking: AccountViewControllerMaking.Type
     private let interactor: RootNavigationInteracting & NavigationDelegateHaving
 
     // swiftlint:disable function_parameter_count
@@ -47,12 +52,14 @@ final class RootNavigation {
          mainNavigation: NavigationControlling,
          cart: UIViewController,
          chat: UIViewController,
+         accountMaking: AccountViewControllerMaking.Type,
          window: WindowProtocol) {
         self.interactor = interactor
         self.mainNavigation = mainNavigation
         self.leftMenu = leftMenu
         self.cart = cart
         self.chat = chat
+        self.accountMaking = accountMaking
         self.window = window
         interactor.delegate = self
     }
@@ -142,6 +149,14 @@ extension RootNavigation: CategoryPresenting {
     func show(_ category: Category) {
         mainNavigation.goToFirst(animated: true) // FIXME: show brands for category
         // (https://taiga.neoteric.eu/project/mpaprocki-vyrl-mobile/us/73?kanban-status=427)
+        slideMenu.closeLeft()
+    }
+}
+
+extension RootNavigation: AccountScreenPresenting {
+    func showAccount() {
+        let account = accountMaking.make()
+        presentModally(account)
         slideMenu.closeLeft()
     }
 }
