@@ -95,7 +95,7 @@ final class APIResponseHandlerTest: XCTestCase {
 
     func test_handle_whenResponseIsFailureWithAccessDeniedError_callsCompletionWithAccessDeniedError() {
         let error = NSError(domain: "error", code: NSURLErrorUnknown, userInfo: nil)
-        let expectedError = APIResponseError.accessDenied(nil)
+        let expectedError = APIResponseError.accessDenied(APIError(error: error))
         let dataResponse = DataResponseMock.dataForValid(error: error, statusCode: 403)
 
         let expectation = self.expectation(description: "to eventually be true")

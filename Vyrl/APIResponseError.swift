@@ -12,7 +12,7 @@ private struct Constants {
 
 enum APIResponseError: Error {
     case connectionProblem
-    case accessDenied(APIError?)
+    case accessDenied(APIError)
     case apiRequestError(APIError)
     case unexpectedFailure(Error)
     case modelDeserializationFailure(Error)
@@ -55,7 +55,7 @@ extension APIResponseError {
     private init(statusCode: StatusCode, error: Error) {
         switch statusCode {
         case .accessDenied:
-            self = .accessDenied(nil)
+            self = .accessDenied(APIError(error: error as NSError))
         default:
             if Constants.connectionProblemURLCodes.contains((error as NSError).code) {
                 self = .connectionProblem
