@@ -6,22 +6,31 @@ import Foundation
 import Alamofire
 import Decodable
 
-protocol APICredentialsProviding {
-    var userAccessToken: String? { get }
+extension HTTPClient {
+    static func test() {
+        let _ = SessionManager()
+    }
 }
 
-final class HTTPClient {
+protocol APIResourceControlling {
+    func call<Model: Decodable>(endpoint: APIEndpoint, completion: @escaping (Result<Model, APIResponseError>) -> Void)
+}
+
+final class HTTPClient: APIResourceControlling {
 
     private let manager: SessionManager
     private let apiConfiguration: APIConfiguration
     private let credentialsProvider: APICredentialsProviding
+    private let responseHandler: APIResponseHandling
 
     init(manager: Alamofire.SessionManager,
          apiConfiguration: APIConfiguration,
-         credentialsProvider: APICredentialsProviding) {
+         credentialsProvider: APICredentialsProviding,
+         responseHandler: APIResponseHandling) {
         self.manager = manager
         self.apiConfiguration = apiConfiguration
         self.credentialsProvider = credentialsProvider
+        self.responseHandler = responseHandler
     }
 
     func call<Model: Decodable>(endpoint: APIEndpoint, completion: @escaping (Result<Model, APIResponseError>) -> Void) {
@@ -31,37 +40,11 @@ final class HTTPClient {
                         parameters: endpoint.parameters,
                         encoding: endpoint.encoding,
                         headers: headersFor(authorizationType: endpoint.authorization)).responseJSON { response in
-                            guard let httpResponse = response.response else {
-                                fatalError("Unexpected error while finishing network request - no proper HTTP response nor expected error object")
-                            }
-                            let statusCode = StatusCode(rawValue: httpResponse.statusCode)
-                            if case .ok = statusCode {
-                                DispatchQueue.main.async {
-                                    switch response.result {
-                                    case .failure(let error):
-                                        completion(.failure(APIResponseError(statusCode: statusCode, data: response.data, error: error)))
-                                    case .success(let json):
-                                        do {
-                                            let deserializer = JSONToModelDeserializer()
-                                            let deserializedModel = try deserializer.deserialize(json: json, model: Model.self)
-                                            completion(.success(deserializedModel))
-                                        } catch {
-                                            completion(.failure(.modelDeserializationFailure(error)))
-                                        }
-                                    }
-                                }
-                            } else {
-                                completion(.failure(APIResponseError(statusCode: statusCode, data: response.data)))
-                            }
+                            self.responseHandler.handle(response: response, completion: completion)
         }
     }
 
     private func headersFor(authorizationType: AuthorizationType) -> [String: String] {
-        switch authorizationType {
-        case .none: return [:]
-        case .user:
-            guard let accessToken = credentialsProvider.userAccessToken else { return [:] }
-            return [authorizationType.headerKey: accessToken]
-        }
+        return authorizationType.requestHeader(with: credentialsProvider.userAccessToken)
     }
 }

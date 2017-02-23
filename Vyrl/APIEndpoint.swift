@@ -6,13 +6,19 @@ import Decodable
 import Alamofire
 
 enum AuthorizationType {
+    private enum Constants {
+        static let userHeaderPrefix = "Bearer"
+    }
     case none
     case user
-}
 
-extension AuthorizationType {
-    var headerKey: String {
-        return "Authorization"
+    func requestHeader(with token: String?) -> [String: String] {
+        switch self {
+        case .none: return [:]
+        case .user:
+            guard let token = token else { return [:] }
+            return [String(describing: HTTPHeaderField.Authorization): Constants.userHeaderPrefix + " " + token]
+        }
     }
 }
 
