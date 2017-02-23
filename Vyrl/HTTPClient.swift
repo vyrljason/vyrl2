@@ -6,12 +6,6 @@ import Foundation
 import Alamofire
 import Decodable
 
-extension HTTPClient {
-    static func test() {
-        let _ = SessionManager()
-    }
-}
-
 protocol APIResourceControlling {
     func call<Model: Decodable>(endpoint: APIEndpoint, completion: @escaping (Result<Model, APIResponseError>) -> Void)
 }
