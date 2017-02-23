@@ -10,4 +10,5 @@ import Kingfisher
 
 struct ServiceLocator {
     static var imageRetriever: ImageRetrieving = ImageRetrieverAdapter(imageRetriever: KingfisherManager.shared)
+    static var apiConfiguration: APIConfigurationHaving!
 }
