@@ -6,6 +6,7 @@ import UIKit
 
 @objc protocol LeftMenuInteracting: class {
     func didTapHome()
+    func didTapAccount()
     func use(_ collectionView: UICollectionView)
 }
 
@@ -26,6 +27,10 @@ final class LeftMenuInteractor: LeftMenuInteracting, CategorySelectionHandling {
 
     @objc func didTapHome() {
         delegate?.showHome()
+    }
+
+    @objc func didTapAccount() {
+        delegate?.showHome() // FIXME: Show account
     }
 
     func use(_ collectionView: UICollectionView) {

@@ -11,6 +11,7 @@ final class LeftMenuViewController: UIViewController, HavingNib {
     private let interactor: LeftMenuInteracting
 
     @IBOutlet private var homeButton: UIButton!
+    @IBOutlet private var accountButton: UIButton!
     @IBOutlet private var collectionView: UICollectionView!
 
     init(interactor: LeftMenuInteracting) {
@@ -20,6 +21,7 @@ final class LeftMenuViewController: UIViewController, HavingNib {
 
     override func viewDidLoad() {
         homeButton.addTarget(interactor, action: #selector(LeftMenuInteracting.didTapHome), for: .touchUpInside)
+        accountButton.addTarget(interactor, action: #selector(LeftMenuInteracting.didTapAccount), for: .touchUpInside)
         interactor.use(collectionView)
     }
 

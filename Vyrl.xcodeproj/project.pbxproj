@@ -20,6 +20,8 @@
 		1A1FA9511E5E2668007EB61D /* CategoriesDataSourceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A1FA9501E5E2668007EB61D /* CategoriesDataSourceTests.swift */; };
 		1A1FA9531E5ED670007EB61D /* CategoriesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A1FA9521E5ED670007EB61D /* CategoriesService.swift */; };
 		1A1FA9571E5EE0D2007EB61D /* CategoriesServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A1FA9561E5EE0D2007EB61D /* CategoriesServiceTests.swift */; };
+		1A1FA9591E5F10DC007EB61D /* LeftMenuViewControllerSnapshotTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A1FA9581E5F10DC007EB61D /* LeftMenuViewControllerSnapshotTest.swift */; };
+		1A1FA95B1E5F13D7007EB61D /* LeftMenuInteractingMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A1FA95A1E5F13D7007EB61D /* LeftMenuInteractingMock.swift */; };
 		1A69C6A01E55DC8C00134EF5 /* LeftMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A69C69F1E55DC8C00134EF5 /* LeftMenuViewController.swift */; };
 		1A69C6A21E55F79D00134EF5 /* LeftMenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A69C6A11E55F79D00134EF5 /* LeftMenuViewController.xib */; };
 		1A69C6A41E55FF0000134EF5 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A69C6A31E55FF0000134EF5 /* UIColor.swift */; };
@@ -156,6 +158,8 @@
 		1A1FA9501E5E2668007EB61D /* CategoriesDataSourceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoriesDataSourceTests.swift; sourceTree = "<group>"; };
 		1A1FA9521E5ED670007EB61D /* CategoriesService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoriesService.swift; sourceTree = "<group>"; };
 		1A1FA9561E5EE0D2007EB61D /* CategoriesServiceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoriesServiceTests.swift; sourceTree = "<group>"; };
+		1A1FA9581E5F10DC007EB61D /* LeftMenuViewControllerSnapshotTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftMenuViewControllerSnapshotTest.swift; sourceTree = "<group>"; };
+		1A1FA95A1E5F13D7007EB61D /* LeftMenuInteractingMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftMenuInteractingMock.swift; sourceTree = "<group>"; };
 		1A2766098374FF4C447FC4D5 /* Pods-VyrlTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VyrlTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-VyrlTests/Pods-VyrlTests.release.xcconfig"; sourceTree = "<group>"; };
 		1A69C69F1E55DC8C00134EF5 /* LeftMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftMenuViewController.swift; sourceTree = "<group>"; };
 		1A69C6A11E55F79D00134EF5 /* LeftMenuViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LeftMenuViewController.xib; sourceTree = "<group>"; };
@@ -497,6 +501,7 @@
 				1A1FA94E1E5E23C3007EB61D /* NavigationProviderMock.swift */,
 				850A80E11E5E145000E684A3 /* JSONSerializationMock.swift */,
 				850A80E71E5E183000E684A3 /* MockUser.swift */,
+				1A1FA95A1E5F13D7007EB61D /* LeftMenuInteractingMock.swift */,
 				850A80FF1E5EFECD00E684A3 /* DataResponseMock.swift */,
 			);
 			name = Mocks;
@@ -913,6 +918,7 @@
 			children = (
 				858D64321E574B7800CFDD4C /* Utils */,
 				858D64301E574B5C00CFDD4C /* BrandCellSnapshotTest.swift */,
+				1A1FA9581E5F10DC007EB61D /* LeftMenuViewControllerSnapshotTest.swift */,
 			);
 			name = SnapshotTest;
 			sourceTree = "<group>";
@@ -1328,10 +1334,12 @@
 				850A80FE1E5EF97E00E684A3 /* APIResponseHandlerTest.swift in Sources */,
 				858D63F61E55FF8600CFDD4C /* CustomAssertions.swift in Sources */,
 				850A80B31E5D9EA800E684A3 /* APIConfigurationTest.swift in Sources */,
+				1A1FA9591E5F10DC007EB61D /* LeftMenuViewControllerSnapshotTest.swift in Sources */,
 				858D63F91E56030300CFDD4C /* DownloadingImageViewTest.swift in Sources */,
 				85437AA31E58D4E200551D2D /* EmptyCollectionViewHandlerTest.swift in Sources */,
 				858D643C1E5751A400CFDD4C /* BrandsServiceTest.swift in Sources */,
 				1AF49CD31E59F44A00FE7857 /* HomeScreenPresentingMock.swift in Sources */,
+				1A1FA95B1E5F13D7007EB61D /* LeftMenuInteractingMock.swift in Sources */,
 				858D64401E57538A00CFDD4C /* BrandsInteractorTest.swift in Sources */,
 				850A81001E5EFECD00E684A3 /* DataResponseMock.swift in Sources */,
 				850A80E01E5E140200E684A3 /* JSONModelDeserializerTest.swift in Sources */,
