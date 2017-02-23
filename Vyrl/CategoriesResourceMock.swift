@@ -19,7 +19,7 @@ final class CategoriesResourceMock: Fetching {
         if success {
             completion(.success(categories))
         } else {
-            completion(.failure(.unexpectedFailure))
+            completion(.failure(.unexpectedFailure(NSError(domain: "error", code: NSURLErrorUnknown, userInfo: nil))))
         }
     }
 }
