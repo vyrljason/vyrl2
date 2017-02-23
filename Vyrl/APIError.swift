@@ -18,9 +18,18 @@ struct APIError {
 }
 
 extension APIError: Decodable {
-    public static func decode(_ json: Any) throws -> APIError {
+    static func decode(_ json: Any) throws -> APIError {
         return try self.init(statusCode: json => KeyPath(JSONKeys.error) => KeyPath(JSONKeys.statusCode),
                              name: json => KeyPath(JSONKeys.error) => KeyPath(JSONKeys.name),
                              message: json => KeyPath(JSONKeys.error) => KeyPath(JSONKeys.message))
+    }
+}
+
+extension APIError: DictionaryConvertible {
+    var dictionaryRepresentation: [String: Any] {
+        let apiErrorDictionary: [String: Any] = [JSONKeys.statusCode: statusCode,
+                                                 JSONKeys.name: name,
+                                                 JSONKeys.message: message]
+        return [JSONKeys.error: apiErrorDictionary]
     }
 }

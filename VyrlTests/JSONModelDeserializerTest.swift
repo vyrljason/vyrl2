@@ -19,10 +19,7 @@ final class JSONModelDeserializerTest: XCTestCase {
         serializator.nextError = NSError(domain: "test_error", code: 444, userInfo: nil)
         let subject = JSONModelDeserializer(serializator: serializator)
 
-        do {
-            let _: MockUser = try subject.deserialize(data: data, model: MockUser.self)
-            XCTFail("Model shouldn't be created when error occurs")
-        } catch { }
+        XCTAssertThrowsError(try subject.deserialize(data: data, model: MockUser.self))
     }
 
     func test_deserializeModel_WithModelData_ReturnModelInstance() {

@@ -10,12 +10,12 @@ protocol APIResourceConfiguring {
 
 final class ResourceConfigurator: APIResourceConfiguring {
 
-    private let configuration: APIConfiguration
+    private let configuration: APIConfigurationHaving
     private let responseHandler: APIResponseHandling
     let httpClient: APIResourceControlling
 
-    init(configuration: APIConfiguration,
-         sessionManager: SessionManager,
+    init(configuration: APIConfigurationHaving,
+         sessionManager: SessionManaging,
          responseHandler: APIResponseHandling,
          credentialsProvider: APICredentialsProviding) {
         self.configuration = configuration

@@ -3,7 +3,6 @@
 //
 
 import Foundation
-import Alamofire
 import Decodable
 
 protocol APIResourceControlling {
@@ -12,13 +11,13 @@ protocol APIResourceControlling {
 
 final class HTTPClient: APIResourceControlling {
 
-    private let manager: SessionManager
-    private let apiConfiguration: APIConfiguration
+    private let manager: SessionManaging
+    private let apiConfiguration: APIConfigurationHaving
     private let credentialsProvider: APICredentialsProviding
     private let responseHandler: APIResponseHandling
 
-    init(manager: Alamofire.SessionManager,
-         apiConfiguration: APIConfiguration,
+    init(manager: SessionManaging,
+         apiConfiguration: APIConfigurationHaving,
          credentialsProvider: APICredentialsProviding,
          responseHandler: APIResponseHandling) {
         self.manager = manager
@@ -33,12 +32,12 @@ final class HTTPClient: APIResourceControlling {
                         method: endpoint.method.alamofireMethod,
                         parameters: endpoint.parameters,
                         encoding: endpoint.encoding,
-                        headers: headersFor(authorizationType: endpoint.authorization)).responseJSON { response in
+                        headers: headerFor(authorizationType: endpoint.authorization)).responseJSON { response in
                             self.responseHandler.handle(response: response, completion: completion)
         }
     }
 
-    private func headersFor(authorizationType: AuthorizationType) -> [String: String] {
+    private func headerFor(authorizationType: AuthorizationType) -> [String: String] {
         return authorizationType.requestHeader(with: credentialsProvider.userAccessToken)
     }
 }

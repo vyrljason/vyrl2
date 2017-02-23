@@ -11,24 +11,35 @@ private struct Constants {
 }
 
 enum APIResponseError: Error {
-    case unexpectedFailure
     case connectionProblem
     case accessDenied(APIError?)
     case apiRequestError(APIError)
-    case httpResponse(Error)
+    case unexpectedFailure(Error)
     case modelDeserializationFailure(Error)
-    case jsonDecodingFailure(Error)
+}
+
+extension APIResponseError: Equatable { }
+
+func == (lhs: APIResponseError, rhs: APIResponseError) -> Bool {
+    switch(lhs, rhs) {
+    case (.connectionProblem, .connectionProblem),
+         (.accessDenied, .accessDenied),
+         (.apiRequestError, .apiRequestError),
+         (.unexpectedFailure, .unexpectedFailure),
+         (.modelDeserializationFailure, .modelDeserializationFailure):
+        return true
+    default:
+        return false
+    }
 }
 
 extension APIResponseError {
 
-    init(statusCode: StatusCode, data: Data? = nil, error: Error? = nil) {
+    init(statusCode: StatusCode, error: Error, data: Data? = nil) {
         if let data = data, let apiError = try? data.deserialize(model: APIError.self) {
             self.init(statusCode: statusCode, apiError: apiError)
-        } else if let error = error {
-            self.init(error: error)
         } else {
-            self.init(statusCode: statusCode)
+            self.init(statusCode: statusCode, error: error)
         }
     }
 
@@ -41,20 +52,16 @@ extension APIResponseError {
         }
     }
 
-    private init(error: Error) {
-        if Constants.connectionProblemURLCodes.contains((error as NSError).code) {
-            self = .connectionProblem
-        } else {
-            self = .httpResponse(error)
-        }
-    }
-
-    private init(statusCode: StatusCode) {
+    private init(statusCode: StatusCode, error: Error) {
         switch statusCode {
         case .accessDenied:
             self = .accessDenied(nil)
         default:
-            self = .unexpectedFailure
+            if Constants.connectionProblemURLCodes.contains((error as NSError).code) {
+                self = .connectionProblem
+            } else {
+                self = .unexpectedFailure(error)
+            }
         }
     }
 }

@@ -43,14 +43,12 @@ enum HTTPHeaderField: String, CustomStringConvertible {
 enum StatusCode: Int {
     case ok
     case accessDenied
-    case notFound
     case failure
 
     public init(rawValue: Int) {
         switch rawValue {
         case 200...299: self = .ok
         case 401, 403: self = .accessDenied
-        case 404: self = .notFound
         default: self = .failure
         }
     }

@@ -77,6 +77,10 @@
 		850A80F71E5EDC9E00E684A3 /* URLSessionDataTaskProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850A80F61E5EDC9E00E684A3 /* URLSessionDataTaskProtocol.swift */; };
 		850A80F91E5EE88F00E684A3 /* ResourceConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850A80F81E5EE88F00E684A3 /* ResourceConfigurator.swift */; };
 		850A80FB1E5EE8DF00E684A3 /* APIResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850A80FA1E5EE8DF00E684A3 /* APIResource.swift */; };
+		850A80FE1E5EF97E00E684A3 /* APIResponseHandlerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850A80FD1E5EF97E00E684A3 /* APIResponseHandlerTest.swift */; };
+		850A81001E5EFECD00E684A3 /* DataResponseMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850A80FF1E5EFECD00E684A3 /* DataResponseMock.swift */; };
+		850A81041E5F1FCF00E684A3 /* SessionManaging.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850A81031E5F1FCF00E684A3 /* SessionManaging.swift */; };
+		850A81061E5F219C00E684A3 /* HTTPClientTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850A81051E5F219C00E684A3 /* HTTPClientTest.swift */; };
 		852ACD3A1E55DB0F00219E90 /* BrandsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852ACD391E55DB0F00219E90 /* BrandsViewController.swift */; };
 		852ACD3C1E55DB1E00219E90 /* BrandsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 852ACD3B1E55DB1E00219E90 /* BrandsViewController.xib */; };
 		852ACD401E55DB8400219E90 /* HavingNib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852ACD3F1E55DB8400219E90 /* HavingNib.swift */; };
@@ -184,11 +188,7 @@
 		3553ABBDC82B1A7C9E6385AE /* Pods_VyrlTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VyrlTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D5C69B512EC5560D5FAF6DF /* Pods-Vyrl.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Vyrl.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Vyrl/Pods-Vyrl.debug.xcconfig"; sourceTree = "<group>"; };
 		850740CC1E55E71E00E2F65B /* Brand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Brand.swift; sourceTree = "<group>"; };
-		850A80A11E5D87D500E684A3 /* HTTPClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
-		850A80A41E5D925100E684A3 /* APIEndpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIEndpoint.swift; sourceTree = "<group>"; };
 		850A80A61E5D927300E684A3 /* DictionaryConvertible.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DictionaryConvertible.swift; sourceTree = "<group>"; };
-		850A80A81E5D92FB00E684A3 /* NetworkEnums.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkEnums.swift; sourceTree = "<group>"; };
-		850A80AA1E5D95D800E684A3 /* RequestBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestBuilder.swift; sourceTree = "<group>"; };
 		850A80AD1E5D977C00E684A3 /* APIConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIConfiguration.swift; sourceTree = "<group>"; };
 		850A80AF1E5D990C00E684A3 /* Configuration.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Configuration.plist; sourceTree = "<group>"; };
 		850A80B21E5D9EA800E684A3 /* APIConfigurationTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIConfigurationTest.swift; sourceTree = "<group>"; };
@@ -221,6 +221,10 @@
 		850A80F61E5EDC9E00E684A3 /* URLSessionDataTaskProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLSessionDataTaskProtocol.swift; sourceTree = "<group>"; };
 		850A80F81E5EE88F00E684A3 /* ResourceConfigurator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResourceConfigurator.swift; sourceTree = "<group>"; };
 		850A80FA1E5EE8DF00E684A3 /* APIResource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIResource.swift; sourceTree = "<group>"; };
+		850A80FD1E5EF97E00E684A3 /* APIResponseHandlerTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIResponseHandlerTest.swift; sourceTree = "<group>"; };
+		850A80FF1E5EFECD00E684A3 /* DataResponseMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataResponseMock.swift; sourceTree = "<group>"; };
+		850A81031E5F1FCF00E684A3 /* SessionManaging.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionManaging.swift; sourceTree = "<group>"; };
+		850A81051E5F219C00E684A3 /* HTTPClientTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPClientTest.swift; sourceTree = "<group>"; };
 		852ACD391E55DB0F00219E90 /* BrandsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrandsViewController.swift; sourceTree = "<group>"; };
 		852ACD3B1E55DB1E00219E90 /* BrandsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BrandsViewController.xib; sourceTree = "<group>"; };
 		852ACD3F1E55DB8400219E90 /* HavingNib.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HavingNib.swift; sourceTree = "<group>"; };
@@ -491,6 +495,7 @@
 				1A1FA94E1E5E23C3007EB61D /* NavigationProviderMock.swift */,
 				850A80E11E5E145000E684A3 /* JSONSerializationMock.swift */,
 				850A80E71E5E183000E684A3 /* MockUser.swift */,
+				850A80FF1E5EFECD00E684A3 /* DataResponseMock.swift */,
 			);
 			name = Mocks;
 			sourceTree = "<group>";
@@ -557,14 +562,6 @@
 			name = Model;
 			sourceTree = "<group>";
 		};
-		850A80A31E5D924600E684A3 /* Endpoints */ = {
-			isa = PBXGroup;
-			children = (
-				850A80A41E5D925100E684A3 /* APIEndpoint.swift */,
-			);
-			name = Endpoints;
-			sourceTree = "<group>";
-		};
 		850A80AC1E5D977200E684A3 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
@@ -584,10 +581,8 @@
 			isa = PBXGroup;
 			children = (
 				850A80B21E5D9EA800E684A3 /* APIConfigurationTest.swift */,
-				850A80A31E5D924600E684A3 /* Endpoints */,
-				850A80A11E5D87D500E684A3 /* HTTPClient.swift */,
-				850A80A81E5D92FB00E684A3 /* NetworkEnums.swift */,
-				850A80AA1E5D95D800E684A3 /* RequestBuilder.swift */,
+				850A80FD1E5EF97E00E684A3 /* APIResponseHandlerTest.swift */,
+				850A81051E5F219C00E684A3 /* HTTPClientTest.swift */,
 			);
 			name = Networking;
 			sourceTree = "<group>";
@@ -669,13 +664,14 @@
 			name = Resources;
 			sourceTree = "<group>";
 		};
-		850A80F51E5EDC8200E684A3 /* URLSession */ = {
+		850A80F51E5EDC8200E684A3 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
 				850A80F31E5EDC6E00E684A3 /* URLSessionProtocol.swift */,
 				850A80F61E5EDC9E00E684A3 /* URLSessionDataTaskProtocol.swift */,
+				850A81031E5F1FCF00E684A3 /* SessionManaging.swift */,
 			);
-			name = URLSession;
+			name = Networking;
 			sourceTree = "<group>";
 		};
 		852ACD351E55DAE800219E90 /* Brands */ = {
@@ -723,7 +719,7 @@
 		852ACD3E1E55DB7400219E90 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
-				850A80F51E5EDC8200E684A3 /* URLSession */,
+				850A80F51E5EDC8200E684A3 /* Networking */,
 				852ACD3F1E55DB8400219E90 /* HavingNib.swift */,
 				852ACD441E55DCDC00219E90 /* ReusableView.swift */,
 				858D64081E560EBC00CFDD4C /* CollectionViewControlling.swift */,
@@ -1220,6 +1216,7 @@
 				858D63DE1E55F18100CFDD4C /* DownloadingImageView.swift in Sources */,
 				850A80CD1E5DC7F900E684A3 /* APIError.swift in Sources */,
 				858D640B1E560F0100CFDD4C /* CollectionViewHaving.swift in Sources */,
+				850A81041E5F1FCF00E684A3 /* SessionManaging.swift in Sources */,
 				858D641E1E572C4300CFDD4C /* APIResponseError.swift in Sources */,
 				850A80F71E5EDC9E00E684A3 /* URLSessionDataTaskProtocol.swift in Sources */,
 				850A80ED1E5E200C00E684A3 /* APIResponseHandler.swift in Sources */,
@@ -1297,6 +1294,7 @@
 				1A859C171E58999A0013EB09 /* RootNavigationInteractorTests.swift in Sources */,
 				1A1FA94F1E5E23C3007EB61D /* NavigationProviderMock.swift in Sources */,
 				850A80E21E5E145000E684A3 /* JSONSerializationMock.swift in Sources */,
+				850A81061E5F219C00E684A3 /* HTTPClientTest.swift in Sources */,
 				858D63FB1E56037600CFDD4C /* ImageFetcherMock.swift in Sources */,
 				1A1FA9511E5E2668007EB61D /* CategoriesDataSourceTests.swift in Sources */,
 				1AF49CD11E59F24A00FE7857 /* LeftMenuInteractorTests.swift in Sources */,
@@ -1308,6 +1306,7 @@
 				1ADAF7FC1E54648A00155D9F /* WindowMock.swift in Sources */,
 				858D64311E574B5C00CFDD4C /* BrandCellSnapshotTest.swift in Sources */,
 				1A1FA94D1E5E238C007EB61D /* DataSourceMock.swift in Sources */,
+				850A80FE1E5EF97E00E684A3 /* APIResponseHandlerTest.swift in Sources */,
 				858D63F61E55FF8600CFDD4C /* CustomAssertions.swift in Sources */,
 				850A80B31E5D9EA800E684A3 /* APIConfigurationTest.swift in Sources */,
 				858D63F91E56030300CFDD4C /* DownloadingImageViewTest.swift in Sources */,
@@ -1315,6 +1314,7 @@
 				858D643C1E5751A400CFDD4C /* BrandsServiceTest.swift in Sources */,
 				1AF49CD31E59F44A00FE7857 /* HomeScreenPresentingMock.swift in Sources */,
 				858D64401E57538A00CFDD4C /* BrandsInteractorTest.swift in Sources */,
+				850A81001E5EFECD00E684A3 /* DataResponseMock.swift in Sources */,
 				850A80E01E5E140200E684A3 /* JSONModelDeserializerTest.swift in Sources */,
 				850A80E61E5E171500E684A3 /* JSONToModelDeserializerTest.swift in Sources */,
 				850A80DD1E5E122C00E684A3 /* APICredentialsProviderTest.swift in Sources */,

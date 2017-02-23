@@ -20,23 +20,20 @@ final class APIResponseHandler: APIResponseHandling {
         guard let httpResponse = response.response else {
             fatalError("Unexpected error while finishing network request - no proper HTTP response nor expected error object")
         }
-        let statusCode = StatusCode(rawValue: httpResponse.statusCode)
-        if case .ok = statusCode {
-            DispatchQueue.main.async {
-                switch response.result {
-                case .success(let json):
-                    do {
-                        let deserializedModel = try self.jsonDeserializer.deserialize(json: json, model: Model.self)
-                        completion(.success(deserializedModel))
-                    } catch {
-                        completion(.failure(.modelDeserializationFailure(error)))
-                    }
-                case .failure(let error):
-                    completion(.failure(APIResponseError(statusCode: statusCode, data: response.data, error: error)))
+        DispatchQueue.onMainThread {
+            switch response.result {
+            case .success(let json):
+                do {
+                    let deserializedModel = try self.jsonDeserializer.deserialize(json: json, model: Model.self)
+                    completion(.success(deserializedModel))
+                } catch {
+                    completion(.failure(.modelDeserializationFailure(error)))
                 }
+            case .failure(let error):
+                completion(.failure(APIResponseError(statusCode: StatusCode(rawValue: httpResponse.statusCode),
+                                                     error: error,
+                                                     data: response.data)))
             }
-        } else {
-            completion(.failure(APIResponseError(statusCode: statusCode, data: response.data)))
         }
     }
 }

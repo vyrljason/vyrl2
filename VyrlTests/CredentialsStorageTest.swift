@@ -55,7 +55,7 @@ final class CredentialsStorageTest: XCTestCase {
     }
 
     func test_save_credentials_setsAccessToken() {
-        let credentials = AuthorizationCredentials(accessToken: accessToken, expiresIn: 0, tokenType: .Bearer)
+        let credentials = AuthorizationCredentials(accessToken: accessToken, expiresIn: 0, tokenType: "Bearer")
 
         subject.save(credentials: credentials)
 

@@ -5,8 +5,8 @@
 import Foundation
 
 enum ConfigurationMode: String, CustomStringConvertible {
-    case Staging
-    case Production
+    case staging
+    case production
 
     var description: String {
         return self.rawValue
@@ -38,7 +38,7 @@ final class APIConfiguration: APIConfigurationHaving {
 
     init(bundle: Bundle = Bundle.main,
          plistName: String = ConfigurationKeys.configurationFile,
-         mode: ConfigurationMode = .Staging) throws {
+         mode: ConfigurationMode = .staging) throws {
         guard let resourcePath = bundle.path(forResource: plistName,
                                              ofType: ConfigurationKeys.defaultFileType),
             let baseConfiguration = NSDictionary(contentsOfFile: resourcePath) as? [String: Any],

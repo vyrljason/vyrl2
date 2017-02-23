@@ -17,10 +17,7 @@ final class JSONToModelDeserializerTest: XCTestCase {
     func test_deserialize_WithModelDecodingError_ThrowsError() {
         let invalidJSON = ["usernadsdsme": "test_user", "email": "email@email.com"]
 
-        do {
-            let _: MockUser = try subject.deserialize(json: invalidJSON, model: MockUser.self)
-            XCTFail("Model shouldn't be created when error occurs")
-        } catch { }
+        XCTAssertThrowsError(try subject.deserialize(json: invalidJSON, model: MockUser.self))
     }
 
     func test_deserialize_WithModelData_ReturnModelInstance() {
