@@ -17,6 +17,13 @@ extension Faker {
                coverImageURL: URL = URL(string: VyrlFaker.faker.internet.url())!) -> Brand {
         return Brand(id: id, name: name, description: description, submissionsCount: submissionsCount, coverImageURL: coverImageURL)
     }
+    
+    func product(id: String = VyrlFaker.faker.lorem.characters(amount: 20),
+                 name: String = VyrlFaker.faker.commerce.productName(),
+                 retailPrice: Double = VyrlFaker.faker.commerce.price()
+                 ) -> Product {
+        return Product(id: id, name: name, retailPrice: retailPrice)
+    }
 }
 
 extension Internet {
