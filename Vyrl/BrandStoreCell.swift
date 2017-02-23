@@ -22,6 +22,7 @@ final class BrandStoreCell: UICollectionViewCell, HavingNib, BrandStoreCellRende
     override func awakeFromNib() {
         super.awakeFromNib()
         setupBorder()
+        setupLabels()
     }
     
     func render(_ renderable: BrandStoreCellRenderable) {
@@ -32,5 +33,10 @@ final class BrandStoreCell: UICollectionViewCell, HavingNib, BrandStoreCellRende
     fileprivate func setupBorder() {
         self.imageContainer.layer.borderWidth = Constants.borderWidth
         self.imageContainer.layer.borderColor = UIColor.productBorderColor.cgColor
+    }
+    
+    fileprivate func setupLabels() {
+        self.name.textColor = UIColor.productTextColor
+        self.price.textColor = UIColor.productTextColor
     }
 }

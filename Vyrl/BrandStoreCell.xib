@@ -26,10 +26,10 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1z2-gU-Y3D" userLabel="Image container">
-                        <rect key="frame" x="0.0" y="0.0" width="175" height="116.5"/>
+                        <rect key="frame" x="0.0" y="0.0" width="175" height="117"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="DWl-hH-kNI">
-                                <rect key="frame" x="8" y="18" width="159" height="80.5"/>
+                                <rect key="frame" x="8" y="18" width="159" height="81"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -42,7 +42,7 @@
                         </constraints>
                     </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="752" text="Best product ever" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I58-Hm-0xg">
-                        <rect key="frame" x="8" y="119.5" width="159" height="20.5"/>
+                        <rect key="frame" x="8" y="120" width="159" height="20"/>
                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
