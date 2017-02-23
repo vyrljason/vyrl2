@@ -18,11 +18,11 @@ extension BrandStoreDataSource: UICollectionViewDataSource {
 
     fileprivate func prepare(header: BrandStoreHeaderRendering, using brand: Brand) {
         let renderable = BrandStoreHeaderRenderable(title: brand.name, textCollapsed: brand.name, textExpanded: nil)
-        header.render(_: renderable)
+        header.render(renderable)
     }
     
     public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        return UICollectionViewCell(frame: CGRect(x: 0, y: 0, width: 100, height: 100)) //stub
+        return BrandStoreCell() //stub
     }
 
     func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -45,7 +45,7 @@ extension BrandStoreDataSource: CollectionViewNibRegistering {
         guard let collectionView = delegate?.collectionView else {
             return
         }
-        BrandStoreHeader.registerAsHeader(to: collectionView)
+        BrandStoreHeader.registerHeader(to: collectionView)
     }
 }
 

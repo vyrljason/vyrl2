@@ -24,3 +24,9 @@ extension HavingNib where Self: ReusableView, Self: UIView {
         collectionView?.register(nib(), forCellWithReuseIdentifier: reusableIdentifier)
     }
 }
+
+extension HavingNib where Self: UICollectionReusableView, Self: ReusableView {
+    static func registerHeader(to collectionView: UICollectionView) {
+        collectionView.register(nib(), forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: reusableIdentifier)
+    }
+}

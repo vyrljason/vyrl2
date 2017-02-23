@@ -1,8 +1,4 @@
 //
-//  BrandStoreHeader.swift
-//  Vyrl
-//
-//  Created by Kamil Ziętek on 21.02.2017.
 //  Copyright © 2017 Vyrl. All rights reserved.
 //
 
@@ -23,9 +19,5 @@ final class BrandStoreHeader: UICollectionReusableView, ReusableView, HavingNib,
     func render(_ renderable: BrandStoreHeaderRenderable) {
         self.header.text = renderable.title
         self.descriptionLabel.text = renderable.textCollapsed
-    }
-    
-    static func registerAsHeader(to collectionView: UICollectionView?) {
-        collectionView?.register(nib(), forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: reusableIdentifier)
     }
 }

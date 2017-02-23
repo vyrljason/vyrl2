@@ -4,9 +4,7 @@
 
 import UIKit
 
-protocol BrandStoreInteracting: CollectionViewHaving, CollectionViewUsing, CollectionViewControlling {
-    
-}
+protocol BrandStoreInteracting: CollectionViewHaving, CollectionViewUsing, CollectionViewControlling { }
 
 final class BrandStoreInteractor: BrandStoreInteracting {
     
@@ -17,17 +15,15 @@ final class BrandStoreInteractor: BrandStoreInteracting {
         self.dataSource = dataSource
         self.dataSource.delegate = self
     }
-    
+}
+
+extension BrandStoreInteractor: CollectionViewControlling {
     func updateCollection(with result: DataFetchResult) {
-        reloadData()
+        collectionView?.reloadData()
     }
     
     func loadData() {
         self.dataSource.loadData()
-    }
-    
-    fileprivate func reloadData() {
-        collectionView?.reloadData()
     }
 }
 
