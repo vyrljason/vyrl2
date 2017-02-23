@@ -5,7 +5,12 @@
 import XCTest
 @testable import Vyrl
 
-final class BrandStoreInteractorMock: BrandStoreInteracting { }
+final class BrandStoreInteractorMock: BrandStoreInteracting {
+    var collectionView: UICollectionView?
+    func use(_ collectionView: UICollectionView) { }
+    func updateCollection(with result: DataFetchResult) { }
+    func loadData() { }
+}
 
 final class BrandsInteractorMock: BrandsInteracting, CollectionViewRefreshing {
     var collectionView: UICollectionView?
