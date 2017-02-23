@@ -29,10 +29,10 @@ final class APIConfigurationTest: XCTestCase {
         do {
             stagingConfiguration = try APIConfiguration(bundle: Bundle(for: type(of: self)),
                                                         plistName: Constants.testConfigurationFilename,
-                                                        mode: .staging)
+                                                        mode: .Staging)
             productionConfiguration = try APIConfiguration(bundle: Bundle(for: type(of: self)),
                                                            plistName: Constants.testConfigurationFilename,
-                                                           mode: .production)
+                                                           mode: .Production)
         } catch {
             XCTFail()
         }

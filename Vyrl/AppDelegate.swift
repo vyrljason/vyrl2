@@ -27,14 +27,6 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
 
     private func setUpAPIConfiguration() {
         guard let apiConfiguration = try? APIConfiguration() else { fatalError("Couldn't retrieve API configuration") }
-        let manager = SessionManager()
-        let jsonDeserializer = JSONToModelDeserializer()
-        let responseHandler = APIResponseHandler(jsonDeserializer: jsonDeserializer)
-        let credentialsStorage = CredentialsStorage()
-        let credentialsProvider = APICredentialsProvider(storage: credentialsStorage)
-        let resourceConfigurator = ResourceConfigurator(configuration: apiConfiguration,
-                                                        sessionManager: manager, responseHandler: responseHandler, credentialsProvider: credentialsProvider)
-        ServiceLocator.resourceConfigurator = resourceConfigurator
-        
+        ServiceLocator.resourceConfigurator = ResourceConfiguratorFactory.make(using: apiConfiguration)
     }
 }

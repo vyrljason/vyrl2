@@ -10,7 +10,7 @@ import Decodable
 
 final class APIConfigurationMock: APIConfigurationHaving {
     var baseURL = URL(string: "https://www.apple.com")!
-    var mode: ConfigurationMode = .staging
+    var mode: ConfigurationMode = .Staging
 }
 
 final class APICredentialsProviderMock: APICredentialsProviding {
@@ -44,13 +44,5 @@ final class HTTPClientTest: XCTestCase {
         credentialsProvider = APICredentialsProviderMock()
         responseHandler = APIResponseHandlerMock()
         subject = HTTPClient(manager: manager, apiConfiguration: apiConfiguration, credentialsProvider: credentialsProvider, responseHandler: responseHandler)
-    }
-
-    func test_call_withAPIEndpoint_callsResponseHandlerWithProperData() {
-        let endpoint = APIEndpointMock()
-
-        subject.call(endpoint: endpoint) { (result) in }
-
-        XCTAssertEqual(endpoint.path)
     }
 }

@@ -5,6 +5,7 @@
 import Alamofire
 
 protocol SessionManaging {
+    // swiftlint:disable cyclomatic_complexity
     @discardableResult func request(_ url: Alamofire.URLConvertible,
                                     method: Alamofire.HTTPMethod,
                                     parameters: Alamofire.Parameters?,

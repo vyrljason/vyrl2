@@ -20,7 +20,7 @@ final class BrandsResourceMock: Fetching {
         if success {
             completion(.success(brands))
         } else {
-            completion(.failure(.unexpectedFailure(NSError())))
+            completion(.failure(.unexpectedFailure(NSError(domain: "error", code: NSURLErrorUnknown, userInfo: nil))))
         }
     }
 }
