@@ -10,7 +10,6 @@ private enum Constants {
 
 protocol CredentialsStoring: class {
     var accessToken: String? { get set }
-    func clear()
 }
 
 final class CredentialsStorage: CredentialsStoring {
@@ -28,10 +27,6 @@ final class CredentialsStorage: CredentialsStoring {
 
     init(keychain: KeychainProtocol = Keychain(service: Constants.serviceName)) {
         self.keychain = keychain
-    }
-
-    func clear() {
-        keychain[KeychainKey.accessTokenUser] = nil
     }
 }
 

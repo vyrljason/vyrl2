@@ -46,14 +46,6 @@ final class CredentialsStorageTest: XCTestCase {
         XCTAssertEqual(accessToken, subject.accessToken)
     }
 
-    func test_removeAll_ClearsTokens() {
-        subject.accessToken = accessToken
-
-        subject.clear()
-
-        XCTAssertNil(subject.accessToken)
-    }
-
     func test_save_credentials_setsAccessToken() {
         let credentials = AuthorizationCredentials(accessToken: accessToken, expiresIn: 0, tokenType: "Bearer")
 
