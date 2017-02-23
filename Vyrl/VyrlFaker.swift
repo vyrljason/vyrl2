@@ -12,9 +12,10 @@ final class VyrlFaker {
 extension Faker {
     func brand(id: String = VyrlFaker.faker.lorem.characters(amount: 20),
                name: String = VyrlFaker.faker.company.name(),
+               description: String = VyrlFaker.faker.lorem.sentences(amount: 3),
                submissionsCount: Int = VyrlFaker.faker.number.randomInt(),
                coverImageURL: URL = URL(string: VyrlFaker.faker.internet.url())!) -> Brand {
-        return Brand(id: id, name: name, submissionsCount: submissionsCount, coverImageURL: coverImageURL)
+        return Brand(id: id, name: name, description: description, submissionsCount: submissionsCount, coverImageURL: coverImageURL)
     }
 }
 

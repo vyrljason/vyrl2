@@ -17,7 +17,7 @@ final class BrandStoreDataSource: NSObject {
 extension BrandStoreDataSource: UICollectionViewDataSource {
 
     fileprivate func prepare(header: BrandStoreHeaderRendering, using brand: Brand) {
-        let renderable = BrandStoreHeaderRenderable(title: brand.name, textCollapsed: brand.name, textExpanded: nil)
+        let renderable = BrandStoreHeaderRenderable(brand: brand)
         header.render(renderable)
     }
     
