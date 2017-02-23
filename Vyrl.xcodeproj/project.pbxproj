@@ -22,6 +22,7 @@
 		1A1FA9571E5EE0D2007EB61D /* CategoriesServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A1FA9561E5EE0D2007EB61D /* CategoriesServiceTests.swift */; };
 		1A1FA9591E5F10DC007EB61D /* LeftMenuViewControllerSnapshotTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A1FA9581E5F10DC007EB61D /* LeftMenuViewControllerSnapshotTest.swift */; };
 		1A1FA95B1E5F13D7007EB61D /* LeftMenuInteractingMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A1FA95A1E5F13D7007EB61D /* LeftMenuInteractingMock.swift */; };
+		1A1FA95D1E5F173A007EB61D /* CategoryCellSnapshotTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A1FA95C1E5F173A007EB61D /* CategoryCellSnapshotTest.swift */; };
 		1A69C6A01E55DC8C00134EF5 /* LeftMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A69C69F1E55DC8C00134EF5 /* LeftMenuViewController.swift */; };
 		1A69C6A21E55F79D00134EF5 /* LeftMenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A69C6A11E55F79D00134EF5 /* LeftMenuViewController.xib */; };
 		1A69C6A41E55FF0000134EF5 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A69C6A31E55FF0000134EF5 /* UIColor.swift */; };
@@ -160,6 +161,7 @@
 		1A1FA9561E5EE0D2007EB61D /* CategoriesServiceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoriesServiceTests.swift; sourceTree = "<group>"; };
 		1A1FA9581E5F10DC007EB61D /* LeftMenuViewControllerSnapshotTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftMenuViewControllerSnapshotTest.swift; sourceTree = "<group>"; };
 		1A1FA95A1E5F13D7007EB61D /* LeftMenuInteractingMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftMenuInteractingMock.swift; sourceTree = "<group>"; };
+		1A1FA95C1E5F173A007EB61D /* CategoryCellSnapshotTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryCellSnapshotTest.swift; sourceTree = "<group>"; };
 		1A2766098374FF4C447FC4D5 /* Pods-VyrlTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VyrlTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-VyrlTests/Pods-VyrlTests.release.xcconfig"; sourceTree = "<group>"; };
 		1A69C69F1E55DC8C00134EF5 /* LeftMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftMenuViewController.swift; sourceTree = "<group>"; };
 		1A69C6A11E55F79D00134EF5 /* LeftMenuViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LeftMenuViewController.xib; sourceTree = "<group>"; };
@@ -919,6 +921,7 @@
 				858D64321E574B7800CFDD4C /* Utils */,
 				858D64301E574B5C00CFDD4C /* BrandCellSnapshotTest.swift */,
 				1A1FA9581E5F10DC007EB61D /* LeftMenuViewControllerSnapshotTest.swift */,
+				1A1FA95C1E5F173A007EB61D /* CategoryCellSnapshotTest.swift */,
 			);
 			name = SnapshotTest;
 			sourceTree = "<group>";
@@ -1350,6 +1353,7 @@
 				1A1FA9571E5EE0D2007EB61D /* CategoriesServiceTests.swift in Sources */,
 				850A80E81E5E183000E684A3 /* MockUser.swift in Sources */,
 				85437AA51E58D7C200551D2D /* EmptyCollectionViewHandlerMock.swift in Sources */,
+				1A1FA95D1E5F173A007EB61D /* CategoryCellSnapshotTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
