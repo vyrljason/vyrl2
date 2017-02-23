@@ -14,7 +14,7 @@ protocol CategoriesSelectionDelegateHaving: class {
 
 final class CategoriesDataSource: NSObject, CategoriesSelectionDelegateHaving {
 
-    fileprivate let repository: Service<CategoriesResourceMock>
+    fileprivate let service: CategoriesProviding
     fileprivate var items = [Category]()
     fileprivate let emptyTableHandler: EmptyCollectionViewHandling
 
@@ -22,14 +22,14 @@ final class CategoriesDataSource: NSObject, CategoriesSelectionDelegateHaving {
 
     fileprivate weak var collectionView: UICollectionView?
 
-    init(repository: Service<CategoriesResourceMock>, emptyTableHandler: EmptyCollectionViewHandling) {
-        self.repository = repository
+    init(service: CategoriesProviding, emptyTableHandler: EmptyCollectionViewHandling) {
+        self.service = service
         self.emptyTableHandler = emptyTableHandler
         super.init()
     }
 
     fileprivate func loadData() {
-        repository.get { [weak self] result in
+        service.get { [weak self] result in
             guard let `self` = self else { return }
             self.items = result.map(success: { $0 }, failure: { _ in return [] })
             if let mode: EmptyCollectionMode = result.map(success: { $0.isEmpty ? .noData : nil },

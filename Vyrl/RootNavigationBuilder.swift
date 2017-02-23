@@ -28,11 +28,11 @@ final class RootNavigationBuilder {
         cart.view.backgroundColor = .white  // FIXME: REMOVE
 
         let navigation = RootNavigation(interactor: interactor,
-                                           leftMenu: leftMenu,
-                                           mainNavigation: mainNavigation,
-                                           cart: cart,
-                                           chat: chat,
-                                           window: window)
+                                        leftMenu: leftMenu,
+                                        mainNavigation: mainNavigation,
+                                        cart: cart,
+                                        chat: chat,
+                                        window: window)
         leftMenuInteractor.delegate = navigation
         return navigation
     }

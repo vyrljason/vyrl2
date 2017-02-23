@@ -16,6 +16,10 @@ protocol HomeScreenPresenting: class {
     func showHome()
 }
 
+protocol CategoryPresenting: class {
+    func show(_ category: Category)
+}
+
 final class RootNavigation {
 
     private enum Constants {
@@ -130,6 +134,14 @@ final class RootNavigation {
 extension RootNavigation: HomeScreenPresenting {
     func showHome() {
         mainNavigation.goToFirst(animated: true)
+        slideMenu.closeLeft()
+    }
+}
+
+extension RootNavigation: CategoryPresenting {
+    func show(_ category: Category) {
+        mainNavigation.goToFirst(animated: true) // FIXME: show brands for category
+        // (https://taiga.neoteric.eu/project/mpaprocki-vyrl-mobile/us/73?kanban-status=427)
         slideMenu.closeLeft()
     }
 }

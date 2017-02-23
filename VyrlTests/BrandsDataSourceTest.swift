@@ -12,14 +12,15 @@ final class BrandSelectionMock: BrandSelecting {
         didSelectCalled = true
     }
 }
-final class BrandsServiceMock: BrandsHaving {
+
+final class BrandsServiceMock: BrandsProviding {
 
     var brands: [Brand] = (0..<5).map { _ in VyrlFaker.faker.brand() }
-    let error: BrandsError = .unknown
+    let error: ServiceError = .unknown
     var success = true
     var isResponseEmpty: Bool = false
 
-    func brands(completion: @escaping BrandsResultClosure) {
+    func get(completion: @escaping (Result<[Brand], ServiceError>) -> Void) {
         if success {
             completion(.success(isResponseEmpty ? [] : brands))
         } else {
@@ -58,7 +59,7 @@ final class BrandsDataSourceTest: XCTestCase {
         interactor = CollectionInteractorMock()
         interactor.collectionView = collectionView
 
-        subject = BrandsDataSource(repository: service)
+        subject = BrandsDataSource(service: service)
         subject.delegate = interactor
         subject.selectionDelegate = brandSelection
     }

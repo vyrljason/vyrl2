@@ -6,8 +6,9 @@ import Foundation
 
 enum LeftMenuInteractorFactory {
     static func make() -> LeftMenuInteractor {
-        let repository = Service<CategoriesResourceMock>(resource: CategoriesResourceMock())
-        let categoriesDataSource: CategoriesDataSource = CategoriesDataSource(repository: repository,
+        let resource = Service<CategoriesResourceMock>(resource: CategoriesResourceMock())
+        let service = CategoriesService(resource: resource)
+        let categoriesDataSource: CategoriesDataSource = CategoriesDataSource(service: service,
                                                                               emptyTableHandler: EmptyCollectionViewHandler())
         return LeftMenuInteractor(dataSource: categoriesDataSource)
     }

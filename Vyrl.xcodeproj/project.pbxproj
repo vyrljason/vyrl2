@@ -17,6 +17,9 @@
 		1A1FA94B1E5DF3E0007EB61D /* LeftMenuInteractorFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A1FA94A1E5DF3E0007EB61D /* LeftMenuInteractorFactory.swift */; };
 		1A1FA94D1E5E238C007EB61D /* DataSourceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A1FA94C1E5E238C007EB61D /* DataSourceMock.swift */; };
 		1A1FA94F1E5E23C3007EB61D /* NavigationProviderMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A1FA94E1E5E23C3007EB61D /* NavigationProviderMock.swift */; };
+		1A1FA9511E5E2668007EB61D /* CategoriesDataSourceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A1FA9501E5E2668007EB61D /* CategoriesDataSourceTests.swift */; };
+		1A1FA9531E5ED670007EB61D /* CategoriesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A1FA9521E5ED670007EB61D /* CategoriesService.swift */; };
+		1A1FA9571E5EE0D2007EB61D /* CategoriesServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A1FA9561E5EE0D2007EB61D /* CategoriesServiceTests.swift */; };
 		1A69C6A01E55DC8C00134EF5 /* LeftMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A69C69F1E55DC8C00134EF5 /* LeftMenuViewController.swift */; };
 		1A69C6A21E55F79D00134EF5 /* LeftMenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A69C6A11E55F79D00134EF5 /* LeftMenuViewController.xib */; };
 		1A69C6A41E55FF0000134EF5 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A69C6A31E55FF0000134EF5 /* UIColor.swift */; };
@@ -117,6 +120,9 @@
 		1A1FA94A1E5DF3E0007EB61D /* LeftMenuInteractorFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftMenuInteractorFactory.swift; sourceTree = "<group>"; };
 		1A1FA94C1E5E238C007EB61D /* DataSourceMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataSourceMock.swift; sourceTree = "<group>"; };
 		1A1FA94E1E5E23C3007EB61D /* NavigationProviderMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationProviderMock.swift; sourceTree = "<group>"; };
+		1A1FA9501E5E2668007EB61D /* CategoriesDataSourceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoriesDataSourceTests.swift; sourceTree = "<group>"; };
+		1A1FA9521E5ED670007EB61D /* CategoriesService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoriesService.swift; sourceTree = "<group>"; };
+		1A1FA9561E5EE0D2007EB61D /* CategoriesServiceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoriesServiceTests.swift; sourceTree = "<group>"; };
 		1A2766098374FF4C447FC4D5 /* Pods-VyrlTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VyrlTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-VyrlTests/Pods-VyrlTests.release.xcconfig"; sourceTree = "<group>"; };
 		1A69C69F1E55DC8C00134EF5 /* LeftMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftMenuViewController.swift; sourceTree = "<group>"; };
 		1A69C6A11E55F79D00134EF5 /* LeftMenuViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LeftMenuViewController.xib; sourceTree = "<group>"; };
@@ -252,6 +258,7 @@
 			isa = PBXGroup;
 			children = (
 				1A1FA9471E5DD024007EB61D /* CategoriesResourceMock.swift */,
+				1A1FA9521E5ED670007EB61D /* CategoriesService.swift */,
 			);
 			name = Services;
 			sourceTree = "<group>";
@@ -270,6 +277,14 @@
 				1A1FA94A1E5DF3E0007EB61D /* LeftMenuInteractorFactory.swift */,
 			);
 			name = Factories;
+			sourceTree = "<group>";
+		};
+		1A1FA9541E5EE0BC007EB61D /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				1A1FA9561E5EE0D2007EB61D /* CategoriesServiceTests.swift */,
+			);
+			name = Service;
 			sourceTree = "<group>";
 		};
 		1A69C69E1E55DC7B00134EF5 /* Views */ = {
@@ -428,7 +443,9 @@
 		1AF49CCF1E59F22700FE7857 /* LeftMenu */ = {
 			isa = PBXGroup;
 			children = (
+				1A1FA9541E5EE0BC007EB61D /* Service */,
 				1AF49CD01E59F24A00FE7857 /* LeftMenuInteractorTests.swift */,
+				1A1FA9501E5E2668007EB61D /* CategoriesDataSourceTests.swift */,
 			);
 			name = LeftMenu;
 			sourceTree = "<group>";
@@ -1044,6 +1061,7 @@
 				853771961E5C425B00E693AD /* BrandsNavigation.swift in Sources */,
 				1A859C101E575E180013EB09 /* RootNavigationInteractor.swift in Sources */,
 				858D641B1E57268F00CFDD4C /* VyrlFaker.swift in Sources */,
+				1A1FA9531E5ED670007EB61D /* CategoriesService.swift in Sources */,
 				1A1FA9481E5DD024007EB61D /* CategoriesResourceMock.swift in Sources */,
 				31FEB5AA1E5C3A4800C5E41D /* BrandStoreViewController.swift in Sources */,
 				31FEB5A31E5C37A100C5E41D /* BrandStoreInteractor.swift in Sources */,
@@ -1092,6 +1110,7 @@
 				1A859C171E58999A0013EB09 /* RootNavigationInteractorTests.swift in Sources */,
 				1A1FA94F1E5E23C3007EB61D /* NavigationProviderMock.swift in Sources */,
 				858D63FB1E56037600CFDD4C /* ImageFetcherMock.swift in Sources */,
+				1A1FA9511E5E2668007EB61D /* CategoriesDataSourceTests.swift in Sources */,
 				1AF49CD11E59F24A00FE7857 /* LeftMenuInteractorTests.swift in Sources */,
 				1ADAF7DD1E545F3C00155D9F /* RootNavigationTests.swift in Sources */,
 				858D63EF1E55F6A800CFDD4C /* ImageFetcherTest.swift in Sources */,
@@ -1109,6 +1128,7 @@
 				858D64401E57538A00CFDD4C /* BrandsInteractorTest.swift in Sources */,
 				1A859C1B1E58A5620013EB09 /* NavigationControllerMock.swift in Sources */,
 				858D64341E574B8800CFDD4C /* SnapshotTestCase.swift in Sources */,
+				1A1FA9571E5EE0D2007EB61D /* CategoriesServiceTests.swift in Sources */,
 				85437AA51E58D7C200551D2D /* EmptyCollectionViewHandlerMock.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

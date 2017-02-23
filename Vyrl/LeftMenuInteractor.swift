@@ -15,7 +15,7 @@ protocol CategorySelectionHandling: class {
 
 final class LeftMenuInteractor: LeftMenuInteracting, CategorySelectionHandling {
 
-    weak var delegate: HomeScreenPresenting?
+    weak var delegate: HomeScreenPresenting & CategoryPresenting?
     
     private let dataSource: CollectionViewUsing & CategoriesSelectionDelegateHaving & UICollectionViewDelegate & UICollectionViewDataSource
 
@@ -33,6 +33,6 @@ final class LeftMenuInteractor: LeftMenuInteracting, CategorySelectionHandling {
     }
 
     func didSelect(category: Category) {
-        delegate?.showHome() // FIXME: show filtered Brands
+        delegate?.show(category)
     }
 }

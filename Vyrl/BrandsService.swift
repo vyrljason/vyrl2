@@ -8,30 +8,19 @@ enum BrandsError: Error {
     case unknown
 }
 
-typealias BrandsResultClosure = (Result<[Brand], BrandsError>) -> Void
-typealias BrandsAPIResultClosure = (Result<[Brand], APIResponseError>) -> Void
-
-protocol BrandsHaving {
-    func brands(completion: @escaping BrandsResultClosure)
+protocol BrandsProviding {
+    func get(completion: @escaping (Result<[Brand], ServiceError>) -> Void)
 }
 
-final class BrandsService: BrandsHaving {
+final class BrandsService: BrandsProviding {
 
-    let resource: BrandsFetching
+    private let resource: Service<BrandsResourceMock>
 
-    init(resource: BrandsFetching) {
+    init(resource: Service<BrandsResourceMock>) {
         self.resource = resource
     }
 
-    func brands(completion: @escaping BrandsResultClosure) {
-        resource.brands { result in
-            switch result {
-            case .success(let newBrands):
-                completion(.success(newBrands))
-            case .failure:
-                completion(.failure(.unknown))
-            }
-        }
+    func get(completion: @escaping (Result<[Brand], ServiceError>) -> Void) {
+        resource.get(completion: completion)
     }
-    
 }
