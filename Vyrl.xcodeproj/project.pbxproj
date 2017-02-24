@@ -45,6 +45,7 @@
 		3168A2801E5F052600C65434 /* BrandStoreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3168A27F1E5F052600C65434 /* BrandStoreService.swift */; };
 		3169B9AC1E5F3672005F8A94 /* BrandStoreCellRenderable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3169B9AB1E5F3672005F8A94 /* BrandStoreCellRenderable.swift */; };
 		3169B9AE1E603B84005F8A94 /* BrandStoreCellSnapshotTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3169B9AD1E603B84005F8A94 /* BrandStoreCellSnapshotTest.swift */; };
+		3169B9B21E604A23005F8A94 /* BrandStoreServiceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3169B9B11E604A23005F8A94 /* BrandStoreServiceTest.swift */; };
 		31FEB5A31E5C37A100C5E41D /* BrandStoreInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31FEB5A21E5C37A100C5E41D /* BrandStoreInteractor.swift */; };
 		31FEB5A61E5C392A00C5E41D /* BrandStoreControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31FEB5A51E5C392A00C5E41D /* BrandStoreControllerFactory.swift */; };
 		31FEB5AA1E5C3A4800C5E41D /* BrandStoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31FEB5A81E5C3A4800C5E41D /* BrandStoreViewController.swift */; };
@@ -165,6 +166,7 @@
 		3168A27F1E5F052600C65434 /* BrandStoreService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrandStoreService.swift; sourceTree = "<group>"; };
 		3169B9AB1E5F3672005F8A94 /* BrandStoreCellRenderable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrandStoreCellRenderable.swift; sourceTree = "<group>"; };
 		3169B9AD1E603B84005F8A94 /* BrandStoreCellSnapshotTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrandStoreCellSnapshotTest.swift; sourceTree = "<group>"; };
+		3169B9B11E604A23005F8A94 /* BrandStoreServiceTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrandStoreServiceTest.swift; sourceTree = "<group>"; };
 		31FEB5A21E5C37A100C5E41D /* BrandStoreInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrandStoreInteractor.swift; sourceTree = "<group>"; };
 		31FEB5A51E5C392A00C5E41D /* BrandStoreControllerFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrandStoreControllerFactory.swift; sourceTree = "<group>"; };
 		31FEB5A81E5C3A4800C5E41D /* BrandStoreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrandStoreViewController.swift; sourceTree = "<group>"; };
@@ -489,6 +491,22 @@
 			name = Model;
 			sourceTree = "<group>";
 		};
+		3169B9AF1E6049FB005F8A94 /* BrandStore */ = {
+			isa = PBXGroup;
+			children = (
+				3169B9B01E604A14005F8A94 /* Service */,
+			);
+			name = BrandStore;
+			sourceTree = "<group>";
+		};
+		3169B9B01E604A14005F8A94 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				3169B9B11E604A23005F8A94 /* BrandStoreServiceTest.swift */,
+			);
+			name = Service;
+			sourceTree = "<group>";
+		};
 		3169C3431E5C295C00545989 /* BrandStore */ = {
 			isa = PBXGroup;
 			children = (
@@ -769,6 +787,7 @@
 				1AF49CCF1E59F22700FE7857 /* LeftMenu */,
 				1AF49CCE1E59E85500FE7857 /* RootNavigation */,
 				858D64221E573D2C00CFDD4C /* Brands */,
+				3169B9AF1E6049FB005F8A94 /* BrandStore */,
 			);
 			name = Modules;
 			sourceTree = "<group>";
@@ -1194,6 +1213,7 @@
 				1ADAF7FC1E54648A00155D9F /* WindowMock.swift in Sources */,
 				858D64311E574B5C00CFDD4C /* BrandCellSnapshotTest.swift in Sources */,
 				1A1FA94D1E5E238C007EB61D /* DataSourceMock.swift in Sources */,
+				3169B9B21E604A23005F8A94 /* BrandStoreServiceTest.swift in Sources */,
 				858D63F61E55FF8600CFDD4C /* CustomAssertions.swift in Sources */,
 				850A80B31E5D9EA800E684A3 /* APIConfigurationTest.swift in Sources */,
 				3169B9AE1E603B84005F8A94 /* BrandStoreCellSnapshotTest.swift in Sources */,
