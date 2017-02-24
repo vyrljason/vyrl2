@@ -23,13 +23,13 @@ protocol BrandsFilteringByCategory: class {
 
 final class BrandsInteractor: BrandsInteracting {
 
-    fileprivate let dataSource: BrandsDataProviding & LoadingBrandsFilteredByCategory
+    fileprivate let dataSource: BrandsDataProviding & BrandsFilteredByCategoryProviding
     fileprivate let emptyCollectionHandler: EmptyCollectionViewHandling
     weak var collectionView: UICollectionView?
     weak var dataUpdateListener: DataLoadingEventsListening?
     weak var brandStorePresenter: BrandStorePresenting?
 
-    init(dataSource: BrandsDataProviding & LoadingBrandsFilteredByCategory,
+    init(dataSource: BrandsDataProviding & BrandsFilteredByCategoryProviding,
          emptyCollectionHandler: EmptyCollectionViewHandling) {
         self.dataSource = dataSource
         self.emptyCollectionHandler = emptyCollectionHandler

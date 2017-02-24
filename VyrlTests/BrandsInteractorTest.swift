@@ -26,7 +26,7 @@ final class DataUpdateListener: DataLoadingEventsListening {
     }
 }
 
-final class BrandsDataSourceMock: NSObject, BrandsDataProviding, LoadingBrandsFilteredByCategory {
+final class BrandsDataSourceMock: NSObject, BrandsDataProviding, BrandsFilteredByCategoryProviding {
 
     weak var delegate: CollectionViewHaving & CollectionViewControlling?
     weak var selectionDelegate: BrandSelecting?

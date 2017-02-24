@@ -12,7 +12,7 @@ protocol BrandsDataProviding: CollectionViewDataProviding, CollectionViewNibRegi
     weak var selectionDelegate: BrandSelecting? { get set }
 }
 
-protocol LoadingBrandsFilteredByCategory {
+protocol BrandsFilteredByCategoryProviding {
     func loadData(filteredBy category: Category?)
 }
 
@@ -41,7 +41,7 @@ extension BrandsDataSource {
     }
 }
 
-extension BrandsDataSource: LoadingBrandsFilteredByCategory {
+extension BrandsDataSource: BrandsFilteredByCategoryProviding {
     func loadData(filteredBy category: Category?) {
         service.get { [weak self] result in
             guard let `self` = self else { return }
