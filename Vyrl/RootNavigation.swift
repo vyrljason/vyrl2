@@ -43,7 +43,7 @@ final class RootNavigation {
     private let leftMenu: UIViewController
     fileprivate let cart: UIViewController
     fileprivate let chat: UIViewController
-    fileprivate let accountMaking: AccountViewControllerMaking.Type
+    fileprivate let accountMaker: AccountViewControllerMaking.Type
     private let interactor: RootNavigationInteracting & NavigationDelegateHaving
 
     // swiftlint:disable function_parameter_count
@@ -52,14 +52,14 @@ final class RootNavigation {
          mainNavigation: NavigationControlling,
          cart: UIViewController,
          chat: UIViewController,
-         accountMaking: AccountViewControllerMaking.Type,
+         accountMaker: AccountViewControllerMaking.Type,
          window: WindowProtocol) {
         self.interactor = interactor
         self.mainNavigation = mainNavigation
         self.leftMenu = leftMenu
         self.cart = cart
         self.chat = chat
-        self.accountMaking = accountMaking
+        self.accountMaker = accountMaker
         self.window = window
         interactor.delegate = self
     }
@@ -155,7 +155,7 @@ extension RootNavigation: CategoryPresenting {
 
 extension RootNavigation: AccountScreenPresenting {
     func showAccount() {
-        let account = accountMaking.make()
+        let account = accountMaker.make()
         presentModally(account)
         slideMenu.closeLeft()
     }
