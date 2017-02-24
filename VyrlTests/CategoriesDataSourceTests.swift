@@ -28,7 +28,7 @@ final class CategoriesDataSourceTests: XCTestCase {
 
         collectionView = CollectionViewMock()
         service = CategoryServiceMock()
-        emptyHandler = EmptyCollectionViewHandler()
+        emptyHandler = EmptyCollectionViewHandler(modeToRenderable: [:])
         service = CategoryServiceMock()
 
         subject = CategoriesDataSource(service: service, emptyTableHandler: emptyHandler)
