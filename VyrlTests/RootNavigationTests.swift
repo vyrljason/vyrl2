@@ -63,6 +63,18 @@ final class RootNavigationTests: XCTestCase {
         XCTAssertTrue(navigation.viewControllers.first === mainView)
     }
 
+    func test_showAccount_slideMenuHasCorrectViewControllers() {
+        subject.showInitialViewController()
+        subject.showAccount()
+
+        guard let navigation = brandsNavigationController.presented as? UINavigationController else {
+            XCTFail()
+            return
+        }
+
+        XCTAssertTrue(navigation.viewControllers.first! is AccountViewController)
+    }
+
     func test_showCart_showsCart() {
         subject.showInitialViewController()
         subject.showCart()

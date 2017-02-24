@@ -17,6 +17,7 @@ final class RootNavigationBuilder {
     var cart: UIViewController = UIViewController()
     var chat: UIViewController = UIViewController()
     var window: WindowProtocol = UIWindow()
+    var accountMaker: AccountViewControllerMaking.Type = AccountViewControllerFactory.self
     var leftMenuInteractor = LeftMenuInteractorFactory.make()
     lazy var leftMenu: UIViewController = { return LeftMenuViewController(interactor: self.leftMenuInteractor) }()
 
@@ -32,6 +33,7 @@ final class RootNavigationBuilder {
                                         mainNavigation: mainNavigation,
                                         cart: cart,
                                         chat: chat,
+                                        accountMaker: accountMaker,
                                         window: window)
         leftMenuInteractor.delegate = navigation
         return navigation

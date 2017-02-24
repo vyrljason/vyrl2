@@ -20,7 +20,7 @@ final class LeftMenuInteractorTests: XCTestCase {
         subject.delegate = homeScreenPresentingMock
     }
 
-    func test_showHome_calledShowHome() {
+    func test_didTapHome_calledShowHome() {
         subject.didTapHome()
 
         XCTAssertTrue(homeScreenPresentingMock.showHomeCalled)
@@ -31,6 +31,12 @@ final class LeftMenuInteractorTests: XCTestCase {
         subject.didSelect(category: category)
 
         XCTAssertEqual(homeScreenPresentingMock.category?.id, category.id)
+    }
+
+    func test_didTapAccount_calledShowHome() {
+        subject.didTapAccount()
+
+        XCTAssertTrue(homeScreenPresentingMock.showAccountCalled)
     }
 
     func test_use_usingCollectionView() {
