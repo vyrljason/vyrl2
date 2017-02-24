@@ -46,6 +46,8 @@ final class RootNavigation {
     fileprivate let accountMaker: AccountViewControllerMaking.Type
     private let interactor: RootNavigationInteracting & NavigationDelegateHaving
 
+    weak var brandsFiltering: BrandsFilteringByCategory?
+
     // swiftlint:disable function_parameter_count
     init(interactor: RootNavigationInteracting & NavigationDelegateHaving,
          leftMenu: UIViewController,
@@ -148,7 +150,7 @@ extension RootNavigation: HomeScreenPresenting {
 extension RootNavigation: CategoryPresenting {
     func show(_ category: Category) {
         mainNavigation.goToFirst(animated: true) // FIXME: show brands for category
-        // (https://taiga.neoteric.eu/project/mpaprocki-vyrl-mobile/us/73?kanban-status=427)
+        brandsFiltering?.filterBrands(by: category)
         slideMenu.closeLeft()
     }
 }

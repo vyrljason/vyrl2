@@ -12,8 +12,11 @@ final class RootNavigationBuilder {
     }
 
     var interactor: RootNavigationInteracting & NavigationDelegateHaving = RootNavigationInteractor()
-    var mainNavigation: NavigationControlling = BrandsNavigation(brandsFactory: BrandsControllerFactory.self, brandStoreFactory: BrandStoreControllerFactory.self,
-                                                            navigationController: UINavigationController())
+    var brandsInteractor = BrandsInteractorFactory.make()
+    lazy var mainNavigation: NavigationControlling = { BrandsNavigation(brandsInteractor: self.brandsInteractor,
+                                                                        brandsFactory: BrandsControllerFactory.self,
+                                                                        brandStoreFactory: BrandStoreControllerFactory.self,
+                                                                        navigationController: UINavigationController()) }()
     var cart: UIViewController = UIViewController()
     var chat: UIViewController = UIViewController()
     var window: WindowProtocol = UIWindow()
@@ -35,7 +38,9 @@ final class RootNavigationBuilder {
                                         chat: chat,
                                         accountMaker: accountMaker,
                                         window: window)
+
         leftMenuInteractor.delegate = navigation
+        navigation.brandsFiltering = brandsInteractor
         return navigation
     }
 }
