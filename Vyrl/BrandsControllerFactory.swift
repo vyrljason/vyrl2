@@ -5,7 +5,7 @@
 import UIKit
 
 protocol BrandsControllerMaking {
-    static func make(storePresenter: BrandStorePresenting) -> BrandsViewController
+    static func make(storePresenter: BrandStorePresenting, interactor: BrandsInteracting & CollectionViewRefreshing) -> BrandsViewController
 }
 
 protocol BrandsInteractorMaking {
@@ -43,6 +43,7 @@ enum BrandsInteractorFactory: BrandsInteractorMaking {
 }
 
 enum BrandsControllerFactory: BrandsControllerMaking {
+    static func make(storePresenter: BrandStorePresenting, interactor: BrandsInteracting & CollectionViewRefreshing) -> BrandsViewController {
         interactor.brandStorePresenter = storePresenter
         let viewController = BrandsViewController(interactor: interactor)
         interactor.dataUpdateListener = viewController

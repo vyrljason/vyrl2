@@ -26,7 +26,7 @@ final class DataUpdateListener: DataLoadingEventsListening {
     }
 }
 
-final class BrandsDataSourceMock: NSObject, BrandsDataProviding {
+final class BrandsDataSourceMock: NSObject, BrandsDataProviding, LoadingBrandsFilteredByCategory {
 
     weak var delegate: CollectionViewHaving & CollectionViewControlling?
     weak var selectionDelegate: BrandSelecting?
@@ -34,6 +34,10 @@ final class BrandsDataSourceMock: NSObject, BrandsDataProviding {
     var didRegisterNibs = false
 
     func loadData() {
+        didLoad = true
+    }
+
+    func loadData(filteredBy category: Vyrl.Category?) {
         didLoad = true
     }
 
