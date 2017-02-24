@@ -43,6 +43,9 @@
 		1ADAF7DD1E545F3C00155D9F /* RootNavigationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ADAF7DC1E545F3C00155D9F /* RootNavigationTests.swift */; };
 		1ADAF7F61E545FA300155D9F /* RootNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ADAF7F51E545FA300155D9F /* RootNavigation.swift */; };
 		1ADAF7FC1E54648A00155D9F /* WindowMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ADAF7FB1E54648A00155D9F /* WindowMock.swift */; };
+		1AEBB9721E608A9B00113DC9 /* CartInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AEBB96E1E60884800113DC9 /* CartInteractor.swift */; };
+		1AEBB9731E608A9E00113DC9 /* CartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AEBB96A1E60880500113DC9 /* CartViewController.swift */; };
+		1AEBB9741E608AA300113DC9 /* CartViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1AEBB9701E608A6C00113DC9 /* CartViewController.xib */; };
 		1AF49CD11E59F24A00FE7857 /* LeftMenuInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AF49CD01E59F24A00FE7857 /* LeftMenuInteractorTests.swift */; };
 		1AF49CD31E59F44A00FE7857 /* HomeScreenPresentingMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AF49CD21E59F44A00FE7857 /* HomeScreenPresentingMock.swift */; };
 		31FEB5A31E5C37A100C5E41D /* BrandStoreInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31FEB5A21E5C37A100C5E41D /* BrandStoreInteractor.swift */; };
@@ -210,6 +213,9 @@
 		1ADAF7DE1E545F3C00155D9F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1ADAF7F51E545FA300155D9F /* RootNavigation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootNavigation.swift; sourceTree = "<group>"; };
 		1ADAF7FB1E54648A00155D9F /* WindowMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WindowMock.swift; sourceTree = "<group>"; };
+		1AEBB96A1E60880500113DC9 /* CartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CartViewController.swift; path = VyrlTests/CartViewController.swift; sourceTree = SOURCE_ROOT; };
+		1AEBB96E1E60884800113DC9 /* CartInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CartInteractor.swift; path = VyrlTests/CartInteractor.swift; sourceTree = SOURCE_ROOT; };
+		1AEBB9701E608A6C00113DC9 /* CartViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CartViewController.xib; path = VyrlTests/CartViewController.xib; sourceTree = SOURCE_ROOT; };
 		1AF49CD01E59F24A00FE7857 /* LeftMenuInteractorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftMenuInteractorTests.swift; sourceTree = "<group>"; };
 		1AF49CD21E59F44A00FE7857 /* HomeScreenPresentingMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeScreenPresentingMock.swift; sourceTree = "<group>"; };
 		31FEB5A21E5C37A100C5E41D /* BrandStoreInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrandStoreInteractor.swift; sourceTree = "<group>"; };
@@ -536,6 +542,7 @@
 			isa = PBXGroup;
 			children = (
 				853859A11E607DA40098D1EB /* Models */,
+				1AEBB9691E6087F200113DC9 /* Cart */,
 				850A80C91E5DC17B00E684A3 /* Deserializing */,
 				1A1FA95E1E5F2E3B007EB61D /* Account */,
 				850A80D41E5DE7B500E684A3 /* Authorization */,
@@ -586,6 +593,35 @@
 			);
 			name = Mocks;
 			sourceTree = "<group>";
+		};
+		1AEBB9691E6087F200113DC9 /* Cart */ = {
+			isa = PBXGroup;
+			children = (
+				1AEBB96D1E60883400113DC9 /* Interactors */,
+				1AEBB96E1E60884800113DC9 /* CartInteractor.swift */,
+				1AEBB96C1E60882C00113DC9 /* Views */,
+				1AEBB96A1E60880500113DC9 /* CartViewController.swift */,
+				1AEBB9701E608A6C00113DC9 /* CartViewController.xib */,
+			);
+			name = Cart;
+			path = VyrlTests;
+			sourceTree = SOURCE_ROOT;
+		};
+		1AEBB96C1E60882C00113DC9 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Views;
+			path = VyrlTests;
+			sourceTree = SOURCE_ROOT;
+		};
+		1AEBB96D1E60883400113DC9 /* Interactors */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Interactors;
+			path = VyrlTests;
+			sourceTree = SOURCE_ROOT;
 		};
 		1AF49CCE1E59E85500FE7857 /* RootNavigation */ = {
 			isa = PBXGroup;
@@ -1214,6 +1250,7 @@
 				850A80B01E5D990C00E684A3 /* Configuration.plist in Resources */,
 				852ACD3C1E55DB1E00219E90 /* BrandsViewController.xib in Resources */,
 				31FEB5AB1E5C3A4800C5E41D /* BrandStoreViewController.xib in Resources */,
+				1AEBB9741E608AA300113DC9 /* CartViewController.xib in Resources */,
 				1A1FA93A1E5D94FE007EB61D /* CategoryCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1427,6 +1464,7 @@
 				858D64451E587D3F00CFDD4C /* DispatchQueue+OnMain.swift in Sources */,
 				850A810A1E5F2B4B00E684A3 /* ResourceConfiguratorFactory.swift in Sources */,
 				850A80F21E5E269F00E684A3 /* UserCredentials.swift in Sources */,
+				1AEBB9721E608A9B00113DC9 /* CartInteractor.swift in Sources */,
 				858D644A1E58A67200CFDD4C /* EmptyCollectionViewHandler.swift in Sources */,
 				1ADAF7F61E545FA300155D9F /* RootNavigation.swift in Sources */,
 				1A1FA9421E5DA887007EB61D /* CategoriesDataSource.swift in Sources */,
@@ -1435,6 +1473,7 @@
 				1A1FA9641E5F4D19007EB61D /* AccountViewController.swift in Sources */,
 				1A69C6A41E55FF0000134EF5 /* UIColor.swift in Sources */,
 				850A80BF1E5DA94100E684A3 /* HTTPClient.swift in Sources */,
+				1AEBB9731E608A9E00113DC9 /* CartViewController.swift in Sources */,
 				858D64201E5734A800CFDD4C /* CollectionViewUsing.swift in Sources */,
 				858D64051E56089B00CFDD4C /* BrandsDataSource.swift in Sources */,
 				858D64091E560EBC00CFDD4C /* CollectionViewControlling.swift in Sources */,
