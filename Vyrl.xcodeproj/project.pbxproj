@@ -46,6 +46,8 @@
 		3169B9AC1E5F3672005F8A94 /* BrandStoreCellRenderable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3169B9AB1E5F3672005F8A94 /* BrandStoreCellRenderable.swift */; };
 		3169B9AE1E603B84005F8A94 /* BrandStoreCellSnapshotTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3169B9AD1E603B84005F8A94 /* BrandStoreCellSnapshotTest.swift */; };
 		3169B9B21E604A23005F8A94 /* BrandStoreServiceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3169B9B11E604A23005F8A94 /* BrandStoreServiceTest.swift */; };
+		3169B9B51E606A5C005F8A94 /* BrandStoreDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3169B9B41E606A5C005F8A94 /* BrandStoreDataSource.swift */; };
+		3169B9B81E6086D6005F8A94 /* BrandStoreInteractorTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3169B9B71E6086D6005F8A94 /* BrandStoreInteractorTest.swift */; };
 		31FEB5A31E5C37A100C5E41D /* BrandStoreInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31FEB5A21E5C37A100C5E41D /* BrandStoreInteractor.swift */; };
 		31FEB5A61E5C392A00C5E41D /* BrandStoreControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31FEB5A51E5C392A00C5E41D /* BrandStoreControllerFactory.swift */; };
 		31FEB5AA1E5C3A4800C5E41D /* BrandStoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31FEB5A81E5C3A4800C5E41D /* BrandStoreViewController.swift */; };
@@ -167,6 +169,8 @@
 		3169B9AB1E5F3672005F8A94 /* BrandStoreCellRenderable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrandStoreCellRenderable.swift; sourceTree = "<group>"; };
 		3169B9AD1E603B84005F8A94 /* BrandStoreCellSnapshotTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrandStoreCellSnapshotTest.swift; sourceTree = "<group>"; };
 		3169B9B11E604A23005F8A94 /* BrandStoreServiceTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrandStoreServiceTest.swift; sourceTree = "<group>"; };
+		3169B9B41E606A5C005F8A94 /* BrandStoreDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrandStoreDataSource.swift; sourceTree = "<group>"; };
+		3169B9B71E6086D6005F8A94 /* BrandStoreInteractorTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrandStoreInteractorTest.swift; sourceTree = "<group>"; };
 		31FEB5A21E5C37A100C5E41D /* BrandStoreInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrandStoreInteractor.swift; sourceTree = "<group>"; };
 		31FEB5A51E5C392A00C5E41D /* BrandStoreControllerFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrandStoreControllerFactory.swift; sourceTree = "<group>"; };
 		31FEB5A81E5C3A4800C5E41D /* BrandStoreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrandStoreViewController.swift; sourceTree = "<group>"; };
@@ -494,6 +498,8 @@
 		3169B9AF1E6049FB005F8A94 /* BrandStore */ = {
 			isa = PBXGroup;
 			children = (
+				3169B9B31E606929005F8A94 /* DataSource */,
+				3169B9B61E6086A5005F8A94 /* Interactor */,
 				3169B9B01E604A14005F8A94 /* Service */,
 			);
 			name = BrandStore;
@@ -505,6 +511,22 @@
 				3169B9B11E604A23005F8A94 /* BrandStoreServiceTest.swift */,
 			);
 			name = Service;
+			sourceTree = "<group>";
+		};
+		3169B9B31E606929005F8A94 /* DataSource */ = {
+			isa = PBXGroup;
+			children = (
+				3169B9B41E606A5C005F8A94 /* BrandStoreDataSource.swift */,
+			);
+			name = DataSource;
+			sourceTree = "<group>";
+		};
+		3169B9B61E6086A5005F8A94 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				3169B9B71E6086D6005F8A94 /* BrandStoreInteractorTest.swift */,
+			);
+			name = Interactor;
 			sourceTree = "<group>";
 		};
 		3169C3431E5C295C00545989 /* BrandStore */ = {
@@ -1199,6 +1221,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1A859C191E5899D80013EB09 /* InitialNavigationControllingMock.swift in Sources */,
+				3169B9B51E606A5C005F8A94 /* BrandStoreDataSource.swift in Sources */,
 				858D63F11E55F6D600CFDD4C /* ImageRetrieverMock.swift in Sources */,
 				853771981E5C46AB00E693AD /* BrandsNavigationTest.swift in Sources */,
 				1A859C171E58999A0013EB09 /* RootNavigationInteractorTests.swift in Sources */,
@@ -1219,6 +1242,7 @@
 				3169B9AE1E603B84005F8A94 /* BrandStoreCellSnapshotTest.swift in Sources */,
 				858D63F91E56030300CFDD4C /* DownloadingImageViewTest.swift in Sources */,
 				85437AA31E58D4E200551D2D /* EmptyCollectionViewHandlerTest.swift in Sources */,
+				3169B9B81E6086D6005F8A94 /* BrandStoreInteractorTest.swift in Sources */,
 				858D643C1E5751A400CFDD4C /* BrandsServiceTest.swift in Sources */,
 				1AF49CD31E59F44A00FE7857 /* HomeScreenPresentingMock.swift in Sources */,
 				858D64401E57538A00CFDD4C /* BrandsInteractorTest.swift in Sources */,

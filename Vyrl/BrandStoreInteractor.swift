@@ -19,7 +19,6 @@ final class BrandStoreInteractor: BrandStoreInteracting {
 
 extension BrandStoreInteractor: CollectionViewControlling {
     func updateCollection(with result: DataFetchResult) {
-        // TODO: empty collection handler
         collectionView?.reloadData()
     }
     
