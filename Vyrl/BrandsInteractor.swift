@@ -75,7 +75,7 @@ extension BrandsInteractor: CollectionViewUsing {
         self.collectionView?.dataSource = dataSource
         self.collectionView?.delegate = dataSource
         emptyCollectionHandler.use(collectionView)
-        dataSource.registerNibs()
+        dataSource.registerNibs(in: collectionView)
     }
 }
 

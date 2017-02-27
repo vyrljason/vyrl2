@@ -35,8 +35,7 @@ final class BrandsDataSource: NSObject, BrandsDataProviding {
 }
 
 extension BrandsDataSource {
-    func registerNibs() {
-        guard let collectionView = delegate?.collectionView else { return }
+    func registerNibs(in collectionView: UICollectionView) {
         BrandCell.register(to: collectionView)
     }
 }

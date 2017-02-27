@@ -43,8 +43,7 @@ final class CategoriesDataSource: NSObject, CategoriesSelectionDelegateHaving {
 }
 
 extension CategoriesDataSource: CollectionViewNibRegistering {
-    func registerNibs() {
-        guard let collectionView = collectionView else { return }
+    func registerNibs(in collectionView: UICollectionView) {
         CategoryCell.register(to: collectionView)
     }
 }
@@ -55,7 +54,7 @@ extension CategoriesDataSource: CollectionViewUsing {
         collectionView.dataSource = self
         collectionView.delegate = self
         emptyTableHandler.use(collectionView)
-        registerNibs()
+        registerNibs(in: collectionView)
         loadData()
     }
 }
@@ -87,6 +86,7 @@ extension CategoriesDataSource: UICollectionViewDataSource {
         return cell
     }
 }
+
 extension CategoriesDataSource: UICollectionViewDelegateFlowLayout {
 
     func collectionView(_ collectionView: UICollectionView,
