@@ -14,6 +14,6 @@ struct BrandStoreCellRenderable {
     }
     
     static func currency(for amount: Double) -> String {
-        return "$"+String(amount) // TODO: Proper formatting
+        return "$"+String(amount)
     }
 }

@@ -8,10 +8,10 @@ protocol BrandStoreInteracting: CollectionViewHaving, CollectionViewUsing, Colle
 
 final class BrandStoreInteractor: BrandStoreInteracting {
     
-    fileprivate let dataSource: CollectionViewNibRegistering & CollectionViewDataProviding
+    fileprivate let dataSource: CollectionViewNibRegistering & CollectionViewDataProviding & CollectionViewUsing
     weak var collectionView: UICollectionView?
     
-    init(dataSource: CollectionViewNibRegistering & CollectionViewDataProviding) {
+    init(dataSource: CollectionViewNibRegistering & CollectionViewDataProviding & CollectionViewUsing) {
         self.dataSource = dataSource
         self.dataSource.delegate = self
     }
@@ -33,5 +33,6 @@ extension BrandStoreInteractor: CollectionViewUsing {
         self.collectionView?.dataSource = self.dataSource
         self.collectionView?.delegate = self.dataSource
         self.dataSource.registerNibs()
+        self.dataSource.use(collectionView)
     }
 }

@@ -8,6 +8,11 @@ import Fakery
 
 // MARK: - Mocks
 
+final class FlowLayoutHandlerMock: BrandStoreFlowLayoutHandling {
+    var headerSize: CGSize = CGSize.zero
+    func use(_ collectionView: UICollectionView) { }
+}
+
 final class ServiceMock: ProductsProviding {
     var success = true
     var isResponseEmpty = false
@@ -37,6 +42,7 @@ final class InteractorMock: CollectionViewHaving, CollectionViewControlling {
 
 final class BrandStoreDataSourceTest: XCTestCase {
     var brand: Brand!
+    var flowLayoutHandlerMock = FlowLayoutHandlerMock()
     var collectionViewMock = CollectionViewMock()
     var serviceMock = ServiceMock()
     var interactorMock = InteractorMock()
@@ -46,7 +52,7 @@ final class BrandStoreDataSourceTest: XCTestCase {
         super.setUp()
         brand = VyrlFaker.faker.brand()
         interactorMock.collectionView = collectionViewMock
-        subject = BrandStoreDataSource(brand: brand, service: serviceMock)
+        subject = BrandStoreDataSource(brand: brand, service: serviceMock, flowLayoutHandler: flowLayoutHandlerMock)
         subject.delegate = interactorMock
     }
     

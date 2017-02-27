@@ -10,22 +10,29 @@ final class BrandStoreDataSource: NSObject {
     fileprivate var products = [Product]()
     fileprivate var cellSize: CGSize?
     fileprivate var headerHeight: CGFloat?
-    
+    fileprivate var flowLayoutHandler: BrandStoreFlowLayoutHandling
     weak var delegate: CollectionViewHaving & CollectionViewControlling?
     
     init(brand: Brand,
-         service: ProductsProviding) {
+         service: ProductsProviding,
+         flowLayoutHandler: BrandStoreFlowLayoutHandling) {
         self.brand = brand
         self.service = service
+        self.flowLayoutHandler = flowLayoutHandler
     }
-    
-    fileprivate func prepare(cell: BrandStoreCell, using product: Product) {
-        let renderable = BrandStoreCellRenderable(product: product)
-        cell.render(renderable)
+}
+
+extension BrandStoreDataSource: CollectionViewUsing {
+    func use(_ collectionView: UICollectionView) {
+        flowLayoutHandler.use(collectionView)
     }
 }
 
 extension BrandStoreDataSource: UICollectionViewDataSource {
+    private func prepare(cell: BrandStoreCell, using product: Product) {
+        let renderable = BrandStoreCellRenderable(product: product)
+        cell.render(renderable)
+    }
     
     private func prepare(header: BrandStoreHeaderRendering) {
         let renderable = BrandStoreHeaderRenderable(brand: self.brand)
@@ -48,7 +55,7 @@ extension BrandStoreDataSource: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         let header: BrandStoreHeader = collectionView.dequeueHeader(at: indexPath)
-        header.delegate = self
+        header.delegate = self.flowLayoutHandler
         prepare(header: header)
         return header
     }
@@ -78,62 +85,11 @@ extension BrandStoreDataSource: CollectionViewDataProviding {
 
 extension BrandStoreDataSource: UICollectionViewDelegateFlowLayout {
     
-    private func fallbackWidth() -> CGFloat {
-        return UIScreen.main.bounds.width * 0.45
-    }
-    
-    private func calculateWidth() -> CGFloat {
-        guard let flowLayout = (delegate?.collectionView?.collectionViewLayout) as? UICollectionViewFlowLayout else {
-            return fallbackWidth()
-        }
-        let columns: CGFloat = 2
-        let space = (flowLayout.sectionInset.left + flowLayout.sectionInset.right)*0.5 + flowLayout.minimumInteritemSpacing*0.5
-        let width: CGFloat = UIScreen.main.bounds.width / columns - space
-        return width
-    }
-
-    private func calculateHeight() -> CGFloat {
-        let cell: BrandStoreCell = BrandStoreCell.fromNib()
-        let product: Product = Product(id: "id", name: "Template", retailPrice: 123)
-        prepare(cell: cell, using: product)
-        cell.sizeToFit()
-        return cell.frame.height
-    }
-    
-    private func calculateItemSize() -> CGSize {
-        guard let flowLayout = (delegate?.collectionView?.collectionViewLayout) as? UICollectionViewFlowLayout else {
-            return CGSize(width: 175, height: 170) // sane fallback
-        }
-        let columns = 2
-        let space = (flowLayout.sectionInset.left + flowLayout.sectionInset.right)*0.5 + flowLayout.minimumInteritemSpacing*0.5
-        let width: CGFloat = UIScreen.main.bounds.width / CGFloat(columns) - space
-        let height: CGFloat = calculateHeight()
-        return CGSize(width: width, height: height)
-    }
-    
     public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        if cellSize == nil {
-            cellSize = calculateItemSize()
-        }
-        return cellSize!
+        return self.flowLayoutHandler.itemSize
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-        guard let targetHeight = headerHeight else {
-            return CGSize(width: 100, height: 180)
-        }
-        return CGSize(width: 100, height: targetHeight)
-    }
-}
-
-extension BrandStoreDataSource: BrandStoreHeaderDelegate {
-    func didChangeHeight(height: CGFloat) {
-        headerHeight = height
-        guard let flowLayout = (delegate?.collectionView?.collectionViewLayout) as? UICollectionViewFlowLayout else {
-            return
-        }
-        delegate?.collectionView?.performBatchUpdates({
-            flowLayout.invalidateLayout()
-        }, completion: nil)
+        return self.flowLayoutHandler.headerSize
     }
 }

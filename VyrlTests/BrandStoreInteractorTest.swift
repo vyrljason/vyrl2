@@ -7,10 +7,11 @@ import XCTest
 
 // MARK: - Mocks
 
-final class BrandStoreDataSourceMock: NSObject, CollectionViewDataProviding, CollectionViewNibRegistering {
+final class BrandStoreDataSourceMock: NSObject, CollectionViewDataProviding, CollectionViewNibRegistering, CollectionViewUsing {
     weak var delegate: CollectionViewHaving & CollectionViewControlling?
     var didRegisterNibs = false
     var didLoadData = false
+    var didUseCollectionView = false
     
     func registerNibs() {
         didRegisterNibs = true
@@ -18,6 +19,10 @@ final class BrandStoreDataSourceMock: NSObject, CollectionViewDataProviding, Col
     
     func loadData() {
         didLoadData = true
+    }
+    
+    func use(_ collectionView: UICollectionView) {
+        didUseCollectionView = true
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -53,6 +58,12 @@ final class BrandStoreInteractorTest: XCTest {
         
         XCTAssertTrue(collectionViewMock.didSetDelegation)
         XCTAssertTrue(collectionViewMock.dataSourceDidSet)
+    }
+    
+    func test_use_setsCollectionViewOnDataSource() {
+        subject.use(collectionViewMock)
+        
+        XCTAssertTrue(dataSourceMock.didUseCollectionView)
     }
     
     func test_loadData_callsDataSourceLoadData() {

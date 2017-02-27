@@ -9,7 +9,7 @@ protocol BrandStoreHeaderRendering {
 }
 
 protocol BrandStoreHeaderDelegate: class {
-    func didChangeHeight(height: CGFloat)
+    func headerDidChangeHeight(height: CGFloat)
 }
 
 final class BrandStoreHeader: UICollectionReusableView, ReusableView, HavingNib, BrandStoreHeaderRendering {
@@ -59,7 +59,7 @@ final class BrandStoreHeader: UICollectionReusableView, ReusableView, HavingNib,
     
     fileprivate func notifyAboutHeightChange() {
         let totalHeight: CGFloat = 71 + 37 + self.descriptionLabel.targetHeight()
-        delegate?.didChangeHeight(height: totalHeight)
+        delegate?.headerDidChangeHeight(height: totalHeight)
     }
     
     override func layoutSubviews() {
