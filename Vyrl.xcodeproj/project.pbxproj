@@ -48,6 +48,7 @@
 		3169B9B21E604A23005F8A94 /* BrandStoreServiceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3169B9B11E604A23005F8A94 /* BrandStoreServiceTest.swift */; };
 		3169B9B51E606A5C005F8A94 /* BrandStoreDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3169B9B41E606A5C005F8A94 /* BrandStoreDataSource.swift */; };
 		3169B9B81E6086D6005F8A94 /* BrandStoreInteractorTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3169B9B71E6086D6005F8A94 /* BrandStoreInteractorTest.swift */; };
+		3169B9BE1E63A4CB005F8A94 /* CollapsableLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3169B9BD1E63A4CB005F8A94 /* CollapsableLabel.swift */; };
 		31FEB5A31E5C37A100C5E41D /* BrandStoreInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31FEB5A21E5C37A100C5E41D /* BrandStoreInteractor.swift */; };
 		31FEB5A61E5C392A00C5E41D /* BrandStoreControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31FEB5A51E5C392A00C5E41D /* BrandStoreControllerFactory.swift */; };
 		31FEB5AA1E5C3A4800C5E41D /* BrandStoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31FEB5A81E5C3A4800C5E41D /* BrandStoreViewController.swift */; };
@@ -171,6 +172,7 @@
 		3169B9B11E604A23005F8A94 /* BrandStoreServiceTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrandStoreServiceTest.swift; sourceTree = "<group>"; };
 		3169B9B41E606A5C005F8A94 /* BrandStoreDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrandStoreDataSource.swift; sourceTree = "<group>"; };
 		3169B9B71E6086D6005F8A94 /* BrandStoreInteractorTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrandStoreInteractorTest.swift; sourceTree = "<group>"; };
+		3169B9BD1E63A4CB005F8A94 /* CollapsableLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollapsableLabel.swift; sourceTree = "<group>"; };
 		31FEB5A21E5C37A100C5E41D /* BrandStoreInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrandStoreInteractor.swift; sourceTree = "<group>"; };
 		31FEB5A51E5C392A00C5E41D /* BrandStoreControllerFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrandStoreControllerFactory.swift; sourceTree = "<group>"; };
 		31FEB5A81E5C3A4800C5E41D /* BrandStoreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrandStoreViewController.swift; sourceTree = "<group>"; };
@@ -691,6 +693,7 @@
 				1A69C6A71E560F4800134EF5 /* WindowProtocol.swift */,
 				1A859C0D1E5756C50013EB09 /* UIFont.swift */,
 				858D63DD1E55F18100CFDD4C /* DownloadingImageView.swift */,
+				3169B9BD1E63A4CB005F8A94 /* CollapsableLabel.swift */,
 			);
 			name = UserInterface;
 			sourceTree = "<group>";
@@ -1205,6 +1208,7 @@
 				858D644A1E58A67200CFDD4C /* EmptyCollectionViewHandler.swift in Sources */,
 				1ADAF7F61E545FA300155D9F /* RootNavigation.swift in Sources */,
 				1A1FA9421E5DA887007EB61D /* CategoriesDataSource.swift in Sources */,
+				3169B9BE1E63A4CB005F8A94 /* CollapsableLabel.swift in Sources */,
 				850A80AE1E5D977C00E684A3 /* APIConfiguration.swift in Sources */,
 				1A69C6A41E55FF0000134EF5 /* UIColor.swift in Sources */,
 				858D64201E5734A800CFDD4C /* CollectionViewUsing.swift in Sources */,

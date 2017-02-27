@@ -12,26 +12,30 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <collectionReusableView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="BrandStoreHeader" id="7cr-Vt-TYt" customClass="BrandStoreHeader" customModule="Vyrl" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="180"/>
+            <rect key="frame" x="0.0" y="0.0" width="375" height="129"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="AYM-jr-P2k">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="180"/>
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="129"/>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Brand Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YgW-4H-jyg">
-                    <rect key="frame" x="124.5" y="10" width="126" height="28.5"/>
+                    <rect key="frame" x="125" y="10" width="126" height="29"/>
                     <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="24"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Resizable description" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1t7-fK-KAx">
-                    <rect key="frame" x="18" y="71" width="339" height="72"/>
+                <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Resizable description" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1t7-fK-KAx" customClass="CollapsableLabel" customModule="Vyrl" customModuleProvider="target">
+                    <rect key="frame" x="18" y="71" width="339" height="21"/>
+                    <gestureRecognizers/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="72" id="JdT-3v-kwC"/>
+                        <constraint firstAttribute="height" constant="21" id="fEg-lW-xLS"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
+                    <connections>
+                        <outlet property="height" destination="fEg-lW-xLS" id="jfp-N0-4DI"/>
+                    </connections>
                 </label>
             </subviews>
             <color key="backgroundColor" red="1" green="0.72941176470000002" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -49,11 +53,10 @@
             </constraints>
             <connections>
                 <outlet property="backgroundImage" destination="AYM-jr-P2k" id="0Yt-iN-AN5"/>
-                <outlet property="descriptionHeight" destination="JdT-3v-kwC" id="bP5-ik-CQc"/>
                 <outlet property="descriptionLabel" destination="1t7-fK-KAx" id="DLE-Rx-l0D"/>
                 <outlet property="header" destination="YgW-4H-jyg" id="pwM-TL-Xll"/>
             </connections>
-            <point key="canvasLocation" x="36" y="-430"/>
+            <point key="canvasLocation" x="35.5" y="-448.5"/>
         </collectionReusableView>
     </objects>
 </document>
