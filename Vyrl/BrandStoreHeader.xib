@@ -38,7 +38,6 @@
                     </connections>
                 </textView>
             </subviews>
-            <color key="backgroundColor" red="1" green="0.72941176470000002" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="0hZ-j0-mJL" secondAttribute="bottom" constant="37" id="2am-Es-X1f"/>
                 <constraint firstItem="AYM-jr-P2k" firstAttribute="leading" secondItem="7cr-Vt-TYt" secondAttribute="leading" id="3SJ-yr-F8K"/>

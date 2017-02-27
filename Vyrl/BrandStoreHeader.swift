@@ -25,6 +25,17 @@ final class BrandStoreHeader: UICollectionReusableView, ReusableView, HavingNib,
         super.awakeFromNib()
         setupGestureRecognizers()
         setupDimming()
+        setupDescriptionLabel()
+    }
+    
+    fileprivate func setupDimming() {
+        let dimming = CALayer()
+        dimmingLayer = dimming
+        dimming.backgroundColor = UIColor.init(white: 0, alpha: 0.8).cgColor
+        backgroundImage.layer.addSublayer(dimming)
+    }
+    
+    fileprivate func setupDescriptionLabel() {
         self.descriptionLabel.isScrollEnabled = false
         self.descriptionLabel.textContainer.lineBreakMode = .byTruncatingTail
     }
@@ -51,19 +62,12 @@ final class BrandStoreHeader: UICollectionReusableView, ReusableView, HavingNib,
         delegate?.didChangeHeight(height: totalHeight)
     }
     
-    fileprivate func setupDimming() {
-        let dimming = CALayer()
-        dimmingLayer = dimming
-        dimming.backgroundColor = UIColor.init(white: 0, alpha: 0.8).cgColor
-        backgroundImage.layer.addSublayer(dimming)
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        resizeDimmingLayer()
     }
     
     fileprivate func resizeDimmingLayer() {
         dimmingLayer?.frame = backgroundImage.layer.bounds
-    }
-    
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        resizeDimmingLayer()
     }
 }

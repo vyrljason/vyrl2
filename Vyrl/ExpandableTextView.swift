@@ -13,9 +13,20 @@ final class ExpandableTextView: UITextView {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        heightConstraint?.isActive = false
         contractedHeight = (heightConstraint?.constant)!
     }
     
+    public func toggleExpand() {
+        isExpanded = !isExpanded
+        refreshHeight()
+    }
+    
+    public func targetHeight() -> CGFloat {
+        let expanded = max(expandedHeight, contractedHeight)
+        return isExpanded ? expanded : contractedHeight
+    }
+
     override var attributedText: NSAttributedString! {
         didSet {
             refreshHeight()
@@ -28,18 +39,7 @@ final class ExpandableTextView: UITextView {
         }
     }
     
-    func toggleExpand() {
-        isExpanded = !isExpanded
-        refreshHeight()
-    }
-    
-    func targetHeight() -> CGFloat {
-        return isExpanded ? expandedHeight : contractedHeight
-    }
-    
     fileprivate func refreshHeight() {
         expandedHeight = sizeThatFits(CGSize(width: frame.width, height: CGFloat(MAXFLOAT))).height
-        heightConstraint?.constant = targetHeight()
-        superview?.layoutIfNeeded()
     }
 }
