@@ -5,12 +5,16 @@
 import UIKit
 
 protocol BrandsControllerMaking {
-    static func make(storePresenter: BrandStorePresenting) -> BrandsViewController
+    static func make(storePresenter: BrandStorePresenting, interactor: BrandsInteracting & CollectionViewRefreshing) -> BrandsViewController
 }
 
-enum BrandsControllerFactory: BrandsControllerMaking {
+protocol BrandsInteractorMaking {
+    static func make() -> BrandsInteractor
+}
 
-    private enum Constants {
+enum BrandsInteractorFactory: BrandsInteractorMaking {
+
+   private enum Constants {
         static let titleAttributes: [String: Any] = [:] //This should be adjusted by the final design
         static let descriptionAttributes: [String: Any] = [:] //This should be adjusted by the final design
         static let noDataTitle = NSLocalizedString("No brands", comment: "")
@@ -19,9 +23,8 @@ enum BrandsControllerFactory: BrandsControllerMaking {
         static let networkingErrorDescription = NSLocalizedString("Pull down to refresh.", comment: "")
     }
 
-    static func make(storePresenter: BrandStorePresenting) -> BrandsViewController {
-
-        let noBrands = EmptyCollectionRenderable(title: NSAttributedString(string: Constants.noDataTitle,
+    static func make() -> BrandsInteractor {
+       let noBrands = EmptyCollectionRenderable(title: NSAttributedString(string: Constants.noDataTitle,
                                                                            attributes: Constants.titleAttributes),
                                                  description: NSAttributedString(string: Constants.noDataDescription,
                                                                                  attributes: Constants.descriptionAttributes))
@@ -35,7 +38,12 @@ enum BrandsControllerFactory: BrandsControllerMaking {
         let dataSource = BrandsDataSource(service: service)
         let modeMap: [EmptyCollectionMode : EmptyCollectionRenderable] = [ .error : brandsError, .noData : noBrands ]
         let emptyCollectionHandler = EmptyCollectionViewHandler(modeToRenderable: modeMap)
-        let interactor = BrandsInteractor(dataSource: dataSource, emptyCollectionHandler: emptyCollectionHandler)
+        return BrandsInteractor(dataSource: dataSource, emptyCollectionHandler: emptyCollectionHandler)
+    }
+}
+
+enum BrandsControllerFactory: BrandsControllerMaking {
+    static func make(storePresenter: BrandStorePresenting, interactor: BrandsInteracting & CollectionViewRefreshing) -> BrandsViewController {
         interactor.brandStorePresenter = storePresenter
         let viewController = BrandsViewController(interactor: interactor)
         interactor.dataUpdateListener = viewController
