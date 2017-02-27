@@ -1,0 +1,6 @@
+framework module Pods_Vyrl {
+  umbrella header "Pods-Vyrl-umbrella.h"
+
+  export *
+  module * { export * }
+}
