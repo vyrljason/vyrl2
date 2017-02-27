@@ -8,24 +8,30 @@ protocol BrandStoreHeaderRendering {
     func render(_ renderable: BrandStoreHeaderRenderable)
 }
 
+protocol BrandStoreHeaderDelegate: class {
+    func didChangeHeight(height: CGFloat)
+}
+
 final class BrandStoreHeader: UICollectionReusableView, ReusableView, HavingNib, BrandStoreHeaderRendering {
     static let nibName = "BrandStoreHeader"
     
     @IBOutlet private weak var header: UILabel!
-    @IBOutlet private weak var descriptionLabel: CollapsableLabel!
+    @IBOutlet private weak var descriptionLabel: ExpandableTextView!
     @IBOutlet private weak var backgroundImage: UIImageView!
+    weak var delegate: BrandStoreHeaderDelegate?
     private var dimmingLayer: CALayer?
     
     override func awakeFromNib() {
         super.awakeFromNib()
         setupGestureRecognizers()
         setupDimming()
+        self.descriptionLabel.isScrollEnabled = false
+        self.descriptionLabel.textContainer.lineBreakMode = .byTruncatingTail
     }
     
     func render(_ renderable: BrandStoreHeaderRenderable) {
         self.header.text = renderable.title
-        self.descriptionLabel.text = renderable.textCollapsed
-        descriptionLabel.updateHeight()
+        self.descriptionLabel.text = renderable.textCollapsed + renderable.textCollapsed + renderable.textCollapsed
     }
 
     fileprivate func setupGestureRecognizers() {
@@ -35,8 +41,14 @@ final class BrandStoreHeader: UICollectionReusableView, ReusableView, HavingNib,
     
     func tapAction(_ sender: UITapGestureRecognizer) {
         if sender.state == .ended {
-            descriptionLabel.toggleCollapse()
+            descriptionLabel.toggleExpand()
+            notifyAboutHeightChange()
         }
+    }
+    
+    fileprivate func notifyAboutHeightChange() {
+        let totalHeight: CGFloat = 71 + 37 + self.descriptionLabel.targetHeight()
+        delegate?.didChangeHeight(height: totalHeight)
     }
     
     fileprivate func setupDimming() {

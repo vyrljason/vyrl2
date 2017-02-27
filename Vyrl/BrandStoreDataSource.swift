@@ -9,6 +9,7 @@ final class BrandStoreDataSource: NSObject {
     fileprivate let service: ProductsProviding
     fileprivate var products = [Product]()
     fileprivate var cellSize: CGSize?
+    fileprivate var headerHeight: CGFloat?
     
     weak var delegate: CollectionViewHaving & CollectionViewControlling?
     
@@ -47,6 +48,7 @@ extension BrandStoreDataSource: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         let header: BrandStoreHeader = collectionView.dequeueHeader(at: indexPath)
+        header.delegate = self
         prepare(header: header)
         return header
     }
@@ -114,5 +116,24 @@ extension BrandStoreDataSource: UICollectionViewDelegateFlowLayout {
             cellSize = calculateItemSize()
         }
         return cellSize!
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+        guard let targetHeight = headerHeight else {
+            return CGSize(width: 100, height: 180)
+        }
+        return CGSize(width: 100, height: targetHeight)
+    }
+}
+
+extension BrandStoreDataSource: BrandStoreHeaderDelegate {
+    func didChangeHeight(height: CGFloat) {
+        headerHeight = height
+        guard let flowLayout = (delegate?.collectionView?.collectionViewLayout) as? UICollectionViewFlowLayout else {
+            return
+        }
+        delegate?.collectionView?.performBatchUpdates({
+            flowLayout.invalidateLayout()
+        }, completion: nil)
     }
 }
