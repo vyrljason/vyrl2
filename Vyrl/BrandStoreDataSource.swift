@@ -8,6 +8,7 @@ final class BrandStoreDataSource: NSObject {
     fileprivate let brand: Brand
     fileprivate let service: ProductsProviding
     fileprivate var products = [Product]()
+    fileprivate var cellSize: CGSize?
     
     weak var delegate: CollectionViewHaving & CollectionViewControlling?
     
@@ -16,18 +17,18 @@ final class BrandStoreDataSource: NSObject {
         self.brand = brand
         self.service = service
     }
+    
+    fileprivate func prepare(cell: BrandStoreCell, using product: Product) {
+        let renderable = BrandStoreCellRenderable(product: product)
+        cell.render(renderable)
+    }
 }
 
 extension BrandStoreDataSource: UICollectionViewDataSource {
-
+    
     private func prepare(header: BrandStoreHeaderRendering) {
         let renderable = BrandStoreHeaderRenderable(brand: self.brand)
         header.render(renderable)
-    }
-    
-    private func prepare(cell: BrandStoreCell, using product: Product) {
-        let renderable = BrandStoreCellRenderable(product: product)
-        cell.render(renderable)
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -70,5 +71,48 @@ extension BrandStoreDataSource: CollectionViewDataProviding {
                 self.delegate?.updateCollection(with: result.map(success: { $0.isEmpty ? .empty : .someData }, failure: { _ in return .error }))
             }
         }
+    }
+}
+
+extension BrandStoreDataSource: UICollectionViewDelegateFlowLayout {
+    
+    private func fallbackWidth() -> CGFloat {
+        return UIScreen.main.bounds.width * 0.45
+    }
+    
+    private func calculateWidth() -> CGFloat {
+        guard let flowLayout = (delegate?.collectionView?.collectionViewLayout) as? UICollectionViewFlowLayout else {
+            return fallbackWidth()
+        }
+        let columns: CGFloat = 2
+        let space = (flowLayout.sectionInset.left + flowLayout.sectionInset.right)*0.5 + flowLayout.minimumInteritemSpacing*0.5
+        let width: CGFloat = UIScreen.main.bounds.width / columns - space
+        return width
+    }
+
+    private func calculateHeight() -> CGFloat {
+        let cell: BrandStoreCell = BrandStoreCell.fromNib()
+        let product: Product = Product(id: "id", name: "Template", retailPrice: 123)
+        prepare(cell: cell, using: product)
+        cell.sizeToFit()
+        return cell.frame.height
+    }
+    
+    private func calculateItemSize() -> CGSize {
+        guard let flowLayout = (delegate?.collectionView?.collectionViewLayout) as? UICollectionViewFlowLayout else {
+            return CGSize(width: 175, height: 170) // sane fallback
+        }
+        let columns = 2
+        let space = (flowLayout.sectionInset.left + flowLayout.sectionInset.right)*0.5 + flowLayout.minimumInteritemSpacing*0.5
+        let width: CGFloat = UIScreen.main.bounds.width / CGFloat(columns) - space
+        let height: CGFloat = calculateHeight()
+        return CGSize(width: width, height: height)
+    }
+    
+    public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        if cellSize == nil {
+            cellSize = calculateItemSize()
+        }
+        return cellSize!
     }
 }
