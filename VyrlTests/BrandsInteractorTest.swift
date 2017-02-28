@@ -43,7 +43,7 @@ final class BrandsDataSourceMock: NSObject, BrandsDataProviding, BrandsFilteredB
         didLoad = true
     }
 
-    func registerNibs() {
+    func registerNibs(in collectionView: UICollectionView) {
         didRegisterNibs = true
     }
 

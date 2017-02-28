@@ -31,6 +31,7 @@
 		1A3121641E6471EB00F71925 /* CartDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3121631E6471EB00F71925 /* CartDataSource.swift */; };
 		1A3121661E64720000F71925 /* CartStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3121651E64720000F71925 /* CartStorage.swift */; };
 		1A3121681E6473D300F71925 /* ProductService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3121671E6473D300F71925 /* ProductService.swift */; };
+		1A31216B1E659E0E00F71925 /* CartInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A31216A1E659E0E00F71925 /* CartInteractorTests.swift */; };
 		1A69C6A01E55DC8C00134EF5 /* LeftMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A69C69F1E55DC8C00134EF5 /* LeftMenuViewController.swift */; };
 		1A69C6A21E55F79D00134EF5 /* LeftMenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A69C6A11E55F79D00134EF5 /* LeftMenuViewController.xib */; };
 		1A69C6A41E55FF0000134EF5 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A69C6A31E55FF0000134EF5 /* UIColor.swift */; };
@@ -202,6 +203,7 @@
 		1A3121631E6471EB00F71925 /* CartDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CartDataSource.swift; sourceTree = "<group>"; };
 		1A3121651E64720000F71925 /* CartStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CartStorage.swift; sourceTree = "<group>"; };
 		1A3121671E6473D300F71925 /* ProductService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductService.swift; sourceTree = "<group>"; };
+		1A31216A1E659E0E00F71925 /* CartInteractorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CartInteractorTests.swift; sourceTree = "<group>"; };
 		1A69C69F1E55DC8C00134EF5 /* LeftMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftMenuViewController.swift; sourceTree = "<group>"; };
 		1A69C6A11E55F79D00134EF5 /* LeftMenuViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LeftMenuViewController.xib; sourceTree = "<group>"; };
 		1A69C6A31E55FF0000134EF5 /* UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
@@ -464,6 +466,14 @@
 				1A3121611E646C9100F71925 /* CartViewControllerFactory.swift */,
 			);
 			name = Factories;
+			sourceTree = "<group>";
+		};
+		1A3121691E659E0000F71925 /* Cart */ = {
+			isa = PBXGroup;
+			children = (
+				1A31216A1E659E0E00F71925 /* CartInteractorTests.swift */,
+			);
+			name = Cart;
 			sourceTree = "<group>";
 		};
 		1A69C69E1E55DC7B00134EF5 /* Views */ = {
@@ -1059,6 +1069,7 @@
 		858D64211E573D2700CFDD4C /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				1A3121691E659E0000F71925 /* Cart */,
 				85CA3FCE1E6439DF00D43805 /* Resources */,
 				850A80DE1E5E13ED00E684A3 /* Deserialization */,
 				850A80D91E5E0DD900E684A3 /* Authorization */,
@@ -1538,6 +1549,7 @@
 				1A1FA94F1E5E23C3007EB61D /* NavigationProviderMock.swift in Sources */,
 				850A80E21E5E145000E684A3 /* JSONSerializationMock.swift in Sources */,
 				850A81061E5F219C00E684A3 /* HTTPClientTest.swift in Sources */,
+				1A31216B1E659E0E00F71925 /* CartInteractorTests.swift in Sources */,
 				85CA3FCB1E6431B500D43805 /* APIEndpointMock.swift in Sources */,
 				858D63FB1E56037600CFDD4C /* ImageFetcherMock.swift in Sources */,
 				1A1FA9511E5E2668007EB61D /* CategoriesDataSourceTests.swift in Sources */,
