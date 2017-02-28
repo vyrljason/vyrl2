@@ -12,6 +12,10 @@ protocol BrandsDataProviding: CollectionViewDataProviding, CollectionViewNibRegi
     weak var selectionDelegate: BrandSelecting? { get set }
 }
 
+protocol BrandsFilteredByCategoryProviding {
+    func loadData(filteredBy category: Category?)
+}
+
 final class BrandsDataSource: NSObject, BrandsDataProviding {
 
     fileprivate let service: BrandsProviding
@@ -24,17 +28,20 @@ final class BrandsDataSource: NSObject, BrandsDataProviding {
         self.service = service
         super.init()
     }
-}
 
-extension BrandsDataSource {
-    func registerNibs() {
-        guard let collectionView = delegate?.collectionView else { return }
-        BrandCell.register(to: collectionView)
+    func loadData() {
+        loadData(filteredBy: nil)
     }
 }
 
 extension BrandsDataSource {
-    func loadData() {
+    func registerNibs(in collectionView: UICollectionView) {
+        BrandCell.register(to: collectionView)
+    }
+}
+
+extension BrandsDataSource: BrandsFilteredByCategoryProviding {
+    func loadData(filteredBy category: Category?) {
         service.get { [weak self] result in
             guard let `self` = self else { return }
             self.items = result.map(success: { $0 }, failure: { _ in return [] })

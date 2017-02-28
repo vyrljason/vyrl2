@@ -24,8 +24,8 @@ final class BrandsInteractorMock: BrandsInteracting, CollectionViewRefreshing {
 }
 
 final class BrandsFactoryMock: BrandsControllerMaking {
-    static func make(storePresenter: BrandStorePresenting) -> BrandsViewController {
-        return BrandsViewController(interactor: BrandsInteractorMock())
+    static func make(storePresenter: BrandStorePresenting, interactor: BrandsInteracting & CollectionViewRefreshing) -> BrandsViewController {
+        return BrandsViewController(interactor: interactor)
     }
 }
 
@@ -43,7 +43,10 @@ final class BrandsNavigationTest: XCTestCase {
     override func setUp() {
         super.setUp()
         navigationController = NavigationControllerMock()
-        subject = BrandsNavigation(brandsFactory: BrandsFactoryMock.self, brandStoreFactory: BrandStoreFactoryMock.self, navigationController: navigationController)
+        subject = BrandsNavigation(brandsInteractor: BrandsInteractorMock(),
+                                   brandsFactory: BrandsFactoryMock.self,
+                                   brandStoreFactory: BrandStoreFactoryMock.self,
+                                   navigationController: navigationController)
 
     }
 

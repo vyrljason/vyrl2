@@ -5,46 +5,28 @@
 import Foundation
 import DZNEmptyDataSet
 
-private enum Constants {
-    static let titleAttributes: [String: Any] = [:] //This should be adjusted by the final design
-    static let descriptionAttributes: [String: Any] = [:] //This should be adjusted by the final design
-    static let noDataTitle = NSLocalizedString("No brands", comment: "")
-    static let networkingErrorTitle = NSLocalizedString("Something went wrong", comment: "")
-    static let noDataDescription = NSLocalizedString("Sorry, there are no brands at the moment.", comment: "")
-    static let networkingErrorDescription = NSLocalizedString("Pull down to refresh.", comment: "")
-}
-
 enum EmptyCollectionMode {
     case noData
     case error
-
-    var title: NSAttributedString {
-        switch self {
-        case .noData:
-            return NSAttributedString(string: Constants.noDataTitle, attributes: Constants.titleAttributes)
-        case .error:
-            return NSAttributedString(string: Constants.networkingErrorTitle, attributes: Constants.titleAttributes)
-        }
-    }
-
-    var description: NSAttributedString {
-        switch self {
-        case .noData:
-            return NSAttributedString(string: Constants.noDataDescription, attributes: Constants.descriptionAttributes)
-        case .error:
-            return NSAttributedString(string: Constants.networkingErrorDescription, attributes: Constants.descriptionAttributes)
-        }
-    }
 }
 
 protocol EmptyCollectionViewHandling: CollectionViewUsing {
     func configure(with mode: EmptyCollectionMode)
 }
 
+struct EmptyCollectionRenderable {
+    let title: NSAttributedString
+    let description: NSAttributedString
+}
+
 final class EmptyCollectionViewHandler: NSObject, DZNEmptyDataSetSource, DZNEmptyDataSetDelegate, EmptyCollectionViewHandling {
     private weak var collectionView: UICollectionView?
-    private var titleText: NSAttributedString?
-    private var descriptionText: NSAttributedString?
+    private var renderable: EmptyCollectionRenderable?
+    private let modeToRenderable: [EmptyCollectionMode: EmptyCollectionRenderable]
+
+    init(modeToRenderable: [EmptyCollectionMode: EmptyCollectionRenderable]) {
+        self.modeToRenderable = modeToRenderable
+    }
 
     func use(_ collectionView: UICollectionView) {
         self.collectionView = collectionView
@@ -53,20 +35,20 @@ final class EmptyCollectionViewHandler: NSObject, DZNEmptyDataSetSource, DZNEmpt
     }
 
     func configure(with mode: EmptyCollectionMode) {
-        titleText = mode.title
-        descriptionText = mode.description
+        renderable = modeToRenderable[mode]
+        collectionView?.reloadEmptyDataSet()
     }
 
     func title(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
-        return titleText
+        return renderable?.title
     }
 
     func description(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
-        return descriptionText
+        return renderable?.description
     }
 
     func emptyDataSetShouldDisplay(_ scrollView: UIScrollView!) -> Bool {
-        return titleText != nil && descriptionText != nil
+        return renderable != nil
     }
 
     func emptyDataSetShouldAllowScroll(_ scrollView: UIScrollView!) -> Bool {

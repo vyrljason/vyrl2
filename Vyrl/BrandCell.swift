@@ -20,7 +20,7 @@ final class BrandCell: UICollectionViewCell, HavingNib, BrandRendering, BrandCov
     @IBOutlet private weak var submissionsCount: UILabel!
     @IBOutlet private weak var name: UILabel!
 
-    fileprivate let placeholder = UIImage() //TODO: replace with real placeholder
+    fileprivate let placeholder = #imageLiteral(resourceName: "leica") //TODO: replace with real placeholder
 
     override func awakeFromNib() {
         super.awakeFromNib()

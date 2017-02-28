@@ -16,6 +16,10 @@ protocol HomeScreenPresenting: class {
     func showHome()
 }
 
+protocol AccountScreenPresenting: class {
+    func showAccount()
+}
+
 protocol CategoryPresenting: class {
     func show(_ category: Category)
 }
@@ -39,7 +43,10 @@ final class RootNavigation {
     private let leftMenu: UIViewController
     fileprivate let cart: UIViewController
     fileprivate let chat: UIViewController
+    fileprivate let accountMaker: AccountViewControllerMaking.Type
     private let interactor: RootNavigationInteracting & NavigationDelegateHaving
+
+    weak var brandsFiltering: BrandsFilteringByCategory?
 
     // swiftlint:disable function_parameter_count
     init(interactor: RootNavigationInteracting & NavigationDelegateHaving,
@@ -47,12 +54,14 @@ final class RootNavigation {
          mainNavigation: NavigationControlling,
          cart: UIViewController,
          chat: UIViewController,
+         accountMaker: AccountViewControllerMaking.Type,
          window: WindowProtocol) {
         self.interactor = interactor
         self.mainNavigation = mainNavigation
         self.leftMenu = leftMenu
         self.cart = cart
         self.chat = chat
+        self.accountMaker = accountMaker
         self.window = window
         interactor.delegate = self
     }
@@ -141,7 +150,15 @@ extension RootNavigation: HomeScreenPresenting {
 extension RootNavigation: CategoryPresenting {
     func show(_ category: Category) {
         mainNavigation.goToFirst(animated: true) // FIXME: show brands for category
-        // (https://taiga.neoteric.eu/project/mpaprocki-vyrl-mobile/us/73?kanban-status=427)
+        brandsFiltering?.filterBrands(by: category)
+        slideMenu.closeLeft()
+    }
+}
+
+extension RootNavigation: AccountScreenPresenting {
+    func showAccount() {
+        let account = accountMaker.make()
+        presentModally(account)
         slideMenu.closeLeft()
     }
 }

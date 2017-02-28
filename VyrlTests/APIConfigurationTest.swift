@@ -7,9 +7,10 @@ import XCTest
 
 final class APIConfigurationTest: XCTestCase {
     private enum DictionaryKeys {
-        static let Staging = "Staging"
-        static let Production = "Production"
-        static let BaseURL = "BaseURL"
+        static let staging = "Staging"
+        static let production = "Production"
+        static let mainBaseURL = "MainBaseURL"
+        static let influencersBaseURL = "InfluencersBaseURL"
     }
     private enum Constants {
         static let testConfigurationFilename = "TestConfiguration"
@@ -39,25 +40,39 @@ final class APIConfigurationTest: XCTestCase {
         guard let filepath = Bundle(for: type(of: self)).path(forResource: Constants.testConfigurationFilename,
                                                           ofType: Constants.fileType) else { XCTFail(); return }
         let plistDictionary = NSDictionary(contentsOfFile: filepath)
-        plistStaging = plistDictionary?[DictionaryKeys.Staging] as? [String: String]
-        plistProduction = plistDictionary?[DictionaryKeys.Production] as? [String: String]
+        plistStaging = plistDictionary?[DictionaryKeys.staging] as? [String: String]
+        plistProduction = plistDictionary?[DictionaryKeys.production] as? [String: String]
     }
 
-    func test_baseURL_WhenModeIsStagingReturnValue() {
-        guard let baseURLString = plistStaging?[DictionaryKeys.BaseURL] else { XCTFail(); return }
-        let expectedResult = URL(string: baseURLString)
+    func test_mainBaseURL_WhenModeIsStagingReturnValue() {
+        guard let mainBaseURLString = plistStaging?[DictionaryKeys.mainBaseURL] else { XCTFail(); return }
+        let expectedResult = URL(string: mainBaseURLString)
 
-        XCTAssertEqual(stagingConfiguration?.baseURL, expectedResult)
+        XCTAssertEqual(stagingConfiguration?.mainBaseURL, expectedResult)
     }
 
-    func test_baseURL_whenModeIsProduction_ReturnValue() {
-        guard let baseURLString = plistProduction?[DictionaryKeys.BaseURL] else { XCTFail(); return }
-        let expectedResult = URL(string: baseURLString)
+    func test_mainBaseURL_whenModeIsProduction_ReturnValue() {
+        guard let mainBaseURLString = plistProduction?[DictionaryKeys.mainBaseURL] else { XCTFail(); return }
+        let expectedResult = URL(string: mainBaseURLString)
 
-        XCTAssertEqual(productionConfiguration?.baseURL, expectedResult)
+        XCTAssertEqual(productionConfiguration?.mainBaseURL, expectedResult)
     }
 
-    func test_init_WithNoBaseURL_throwsError() {
+    func test_influencersBaseURL_WhenModeIsStagingReturnValue() {
+        guard let influencersBaseURLString = plistStaging?[DictionaryKeys.influencersBaseURL] else { XCTFail(); return }
+        let expectedResult = URL(string: influencersBaseURLString)
+
+        XCTAssertEqual(stagingConfiguration?.influencersBaseURL, expectedResult)
+    }
+
+    func test_influencersBaseURL_whenModeIsProduction_ReturnValue() {
+        guard let influencersBaseURLString = plistProduction?[DictionaryKeys.influencersBaseURL] else { XCTFail(); return }
+        let expectedResult = URL(string: influencersBaseURLString)
+
+        XCTAssertEqual(productionConfiguration?.influencersBaseURL, expectedResult)
+    }
+
+    func test_init_WithNoMainBaseURL_throwsError() {
         XCTAssertThrowsError(try APIConfiguration(bundle: Bundle(for: type(of: self)), plistName: Constants.emptyConfigurationFilename))
     }
 

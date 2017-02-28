@@ -32,8 +32,8 @@ func expect<ResultType: ResultProtocol, ErrorType>(_ result: ResultType, toBeErr
 
 func expectToBeSuccess<ResultType: ResultProtocol>(_ result: ResultType, file: StaticString = #file, line: UInt = #line) {
     result.on(success: { _ in },
-                failure: { _ in
-                    XCTFail(file: file, line: line)
+              failure: { _ in
+                XCTFail(file: file, line: line)
     })
 }
 

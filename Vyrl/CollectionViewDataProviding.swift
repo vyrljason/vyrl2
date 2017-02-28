@@ -10,5 +10,5 @@ protocol CollectionViewDataProviding: class, UICollectionViewDataSource, UIColle
 }
 
 protocol CollectionViewNibRegistering {
-    func registerNibs()
+    func registerNibs(in collectionView: UICollectionView)
 }

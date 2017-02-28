@@ -17,15 +17,19 @@ protocol BrandSelecting: class {
     func didSelect(brand: Brand)
 }
 
+protocol BrandsFilteringByCategory: class {
+    func filterBrands(by: Category)
+}
+
 final class BrandsInteractor: BrandsInteracting {
 
-    fileprivate let dataSource: BrandsDataProviding
+    fileprivate let dataSource: BrandsDataProviding & BrandsFilteredByCategoryProviding
     fileprivate let emptyCollectionHandler: EmptyCollectionViewHandling
     weak var collectionView: UICollectionView?
     weak var dataUpdateListener: DataLoadingEventsListening?
     weak var brandStorePresenter: BrandStorePresenting?
 
-    init(dataSource: BrandsDataProviding,
+    init(dataSource: BrandsDataProviding & BrandsFilteredByCategoryProviding,
          emptyCollectionHandler: EmptyCollectionViewHandling) {
         self.dataSource = dataSource
         self.emptyCollectionHandler = emptyCollectionHandler
@@ -59,13 +63,19 @@ final class BrandsInteractor: BrandsInteracting {
     }
 }
 
+extension BrandsInteractor: BrandsFilteringByCategory {
+    func filterBrands(by category: Category) {
+        dataSource.loadData(filteredBy: category)
+    }
+}
+
 extension BrandsInteractor: CollectionViewUsing {
     func use(_ collectionView: UICollectionView) {
         self.collectionView = collectionView
         self.collectionView?.dataSource = dataSource
         self.collectionView?.delegate = dataSource
         emptyCollectionHandler.use(collectionView)
-        dataSource.registerNibs()
+        dataSource.registerNibs(in: collectionView)
     }
 }
 

@@ -11,10 +11,14 @@ final class EmptyCollectionViewHandlerTest: XCTestCase {
     var collectionView: CollectionViewMock!
     var subject: EmptyCollectionViewHandler!
 
+    let noDataRenderable = EmptyCollectionRenderable(title: NSAttributedString(string: "noDataTitle"),
+                                                     description: NSAttributedString(string: "noDataDescription"))
+
     override func setUp() {
         super.setUp()
         collectionView = CollectionViewMock()
-        subject = EmptyCollectionViewHandler()
+
+        subject = EmptyCollectionViewHandler(modeToRenderable: [.noData: noDataRenderable])
     }
 
     func test_use_setsEmptyDataSetDelegateAndSource() {
@@ -44,15 +48,15 @@ final class EmptyCollectionViewHandlerTest: XCTestCase {
 
         subject.configure(with: mode)
 
-        XCTAssertEqual(subject.title(forEmptyDataSet: collectionView), mode.title)
+        XCTAssertEqual(subject.title(forEmptyDataSet: collectionView), noDataRenderable.title)
     }
 
     func test_configure_setsDescriptionUsingMode() {
         let mode: EmptyCollectionMode = .noData
         subject.use(collectionView)
 
-        subject.configure(with: .noData)
+        subject.configure(with: mode)
 
-        XCTAssertEqual(subject.description(forEmptyDataSet: collectionView), mode.description)
+        XCTAssertEqual(subject.description(forEmptyDataSet: collectionView), noDataRenderable.description)
     }
 }

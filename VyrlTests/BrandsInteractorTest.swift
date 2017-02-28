@@ -26,18 +26,24 @@ final class DataUpdateListener: DataLoadingEventsListening {
     }
 }
 
-final class BrandsDataSourceMock: NSObject, BrandsDataProviding {
+final class BrandsDataSourceMock: NSObject, BrandsDataProviding, BrandsFilteredByCategoryProviding {
 
     weak var delegate: CollectionViewHaving & CollectionViewControlling?
     weak var selectionDelegate: BrandSelecting?
     var didLoad = false
+    var category: Vyrl.Category?
     var didRegisterNibs = false
 
     func loadData() {
         didLoad = true
     }
 
-    func registerNibs() {
+    func loadData(filteredBy category: Vyrl.Category?) {
+        self.category = category
+        didLoad = true
+    }
+
+    func registerNibs(in collectionView: UICollectionView) {
         didRegisterNibs = true
     }
 
@@ -85,6 +91,14 @@ final class BrandsInteractorTest: XCTestCase {
         subject.loadData()
 
         XCTAssertTrue(dataSource.didLoad)
+    }
+
+    func test_loadDataWithFilter_calledfilteredBy() {
+        let category = Vyrl.Category(id: "0", name: "")
+        subject.filterBrands(by: category)
+
+        XCTAssertTrue(dataSource.didLoad)
+        XCTAssertEqual(dataSource.category?.id, category.id)
     }
 
     func test_loadData_informsThatDataLoadWillStart() {

@@ -11,6 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LeftMenuViewController" customModule="Vyrl" customModuleProvider="target">
             <connections>
+                <outlet property="accountButton" destination="hfJ-Qp-ZxW" id="QrK-K1-TDJ"/>
                 <outlet property="collectionView" destination="puu-xC-rYI" id="Lnp-ha-F1e"/>
                 <outlet property="homeButton" destination="IJe-wT-f19" id="G1e-B0-GTl"/>
                 <outlet property="view" destination="iN0-l3-epB" id="twT-NE-PPx"/>
@@ -50,9 +51,21 @@
                 </collectionView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uvC-nK-fIw">
                     <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hfJ-Qp-ZxW">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                            <state key="normal" title="ACCOUNT">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                        </button>
+                    </subviews>
                     <color key="backgroundColor" red="0.60392156860000001" green="0.1176470588" blue="0.1450980392" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
+                        <constraint firstItem="hfJ-Qp-ZxW" firstAttribute="top" secondItem="uvC-nK-fIw" secondAttribute="top" id="BLb-lp-RtD"/>
+                        <constraint firstAttribute="bottom" secondItem="hfJ-Qp-ZxW" secondAttribute="bottom" id="Cu6-Nc-7cm"/>
                         <constraint firstAttribute="height" constant="44" id="Jnx-WI-suk"/>
+                        <constraint firstAttribute="trailing" secondItem="hfJ-Qp-ZxW" secondAttribute="trailing" id="KP7-nj-sJK"/>
+                        <constraint firstItem="hfJ-Qp-ZxW" firstAttribute="leading" secondItem="uvC-nK-fIw" secondAttribute="leading" id="hbS-mO-6bd"/>
                     </constraints>
                 </view>
             </subviews>

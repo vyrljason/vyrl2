@@ -4,13 +4,17 @@
 <dict>
 	<key>Staging</key>
 	<dict>
-		<key>BaseURL</key>
+		<key>MainBaseURL</key>
 		<string>http://test.com</string>
+		<key>InfluencersBaseURL</key>
+		<string>http://influencers.test.com</string>
 	</dict>
 	<key>Production</key>
 	<dict>
-		<key>BaseURL</key>
+		<key>MainBaseURL</key>
 		<string>http://production.com</string>
+		<key>InfluencersBaseURL</key>
+		<string>http://influencers.test.com</string>
 	</dict>
 </dict>
 </plist>

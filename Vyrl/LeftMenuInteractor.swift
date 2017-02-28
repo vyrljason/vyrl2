@@ -6,6 +6,7 @@ import UIKit
 
 @objc protocol LeftMenuInteracting: class {
     func didTapHome()
+    func didTapAccount()
     func use(_ collectionView: UICollectionView)
 }
 
@@ -15,7 +16,7 @@ protocol CategorySelectionHandling: class {
 
 final class LeftMenuInteractor: LeftMenuInteracting, CategorySelectionHandling {
 
-    weak var delegate: HomeScreenPresenting & CategoryPresenting?
+    weak var delegate: HomeScreenPresenting & CategoryPresenting & AccountScreenPresenting?
     
     private let dataSource: CollectionViewUsing & CategoriesSelectionDelegateHaving & UICollectionViewDelegate & UICollectionViewDataSource
 
@@ -26,6 +27,10 @@ final class LeftMenuInteractor: LeftMenuInteracting, CategorySelectionHandling {
 
     @objc func didTapHome() {
         delegate?.showHome()
+    }
+
+    @objc func didTapAccount() {
+        delegate?.showAccount()
     }
 
     func use(_ collectionView: UICollectionView) {
