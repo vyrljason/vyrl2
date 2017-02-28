@@ -13,7 +13,7 @@ final class BrandStoreDataSourceMock: NSObject, CollectionViewDataProviding, Col
     var didLoadData = false
     var didUseCollectionView = false
     
-    func registerNibs() {
+    func registerNibs(in collectionView: UICollectionView) {
         didRegisterNibs = true
     }
     
