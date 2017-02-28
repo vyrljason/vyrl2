@@ -36,7 +36,7 @@ final class BrandStoreDataSourceMock: NSObject, CollectionViewDataProviding, Col
 
 // MARK: - Tests
 
-final class BrandStoreInteractorTest: XCTest {
+final class BrandStoreInteractorTest: XCTestCase {
     
     var subject: BrandStoreInteractor!
     var dataSourceMock: BrandStoreDataSourceMock!
@@ -58,6 +58,7 @@ final class BrandStoreInteractorTest: XCTest {
         
         XCTAssertTrue(collectionViewMock.didSetDelegation)
         XCTAssertTrue(collectionViewMock.dataSourceDidSet)
+        XCTAssertTrue(dataSourceMock.didUseCollectionView)
     }
     
     func test_use_setsCollectionViewOnDataSource() {

@@ -9,8 +9,26 @@ import Fakery
 // MARK: - Mocks
 
 final class FlowLayoutHandlerMock: BrandStoreFlowLayoutHandling {
-    var headerSize: CGSize = CGSize.zero
-    func use(_ collectionView: UICollectionView) { }
+    var didGetHeaderSize: Bool = false
+    var didGetItemSize: Bool = false
+    var didUseCollectionView: Bool = false
+    var didCallBrandStoreHeaderDel: Bool = false
+    
+    var headerSize: CGSize {
+        didGetHeaderSize = true
+        return CGSize.zero
+    }
+    var itemSize: CGSize {
+        didGetItemSize = true
+        return CGSize.zero
+    }
+    
+    func use(_ collectionView: UICollectionView) {
+        didUseCollectionView = true
+    }
+    func headerDidChangeHeight(height: CGFloat) {
+        didCallBrandStoreHeaderDel = true
+    }
 }
 
 final class ServiceMock: ProductsProviding {
@@ -95,6 +113,30 @@ final class BrandStoreDataSourceTest: XCTestCase {
         let itemCount: Int = subject.collectionView(interactorMock.collectionView!, numberOfItemsInSection: 0)
         
         XCTAssertEqual(itemCount, expectedItemCount)
+    }
+    
+    func test_flowLayoutDelegate_queryItemSize() {
+        let anyLayout = UICollectionViewFlowLayout()
+        let anyItem = IndexPath(item: 0, section: 0)
+        let returnedSize = subject.collectionView(collectionViewMock, layout: anyLayout, sizeForItemAt: anyItem)
+        
+        XCTAssertTrue(flowLayoutHandlerMock.didGetItemSize)
+        XCTAssertEqual(returnedSize, CGSize.zero)
+    }
+    
+    func test_flowLayoutDelegate_queryHeaderSize() {
+        let anyLayout = UICollectionViewFlowLayout()
+        let anySection: Int = 0
+        let returnedSize = subject.collectionView(collectionViewMock, layout: anyLayout, referenceSizeForHeaderInSection: anySection)
+        
+        XCTAssertTrue(flowLayoutHandlerMock.didGetHeaderSize)
+        XCTAssertEqual(returnedSize, CGSize.zero)
+    }
+    
+    func test_useCollectionView() {
+        subject.use(collectionViewMock)
+        
+        XCTAssertTrue(flowLayoutHandlerMock.didUseCollectionView)
     }
 }
 
