@@ -12,20 +12,30 @@ protocol BrandStoreHeaderDelegate: class {
     func headerDidChangeHeight(height: CGFloat)
 }
 
-final class BrandStoreHeader: UICollectionReusableView, ReusableView, HavingNib, BrandStoreHeaderRendering {
+protocol BrandStoreHeaderImageFetching {
+    func set(coverImageFetcher imageFetcher: ImageFetching)
+}
+
+final class BrandStoreHeader: UICollectionReusableView, ReusableView, HavingNib, BrandStoreHeaderRendering, BrandStoreHeaderImageFetching {
     static let nibName = "BrandStoreHeader"
     
     @IBOutlet private weak var header: UILabel!
     @IBOutlet private weak var descriptionLabel: ExpandableTextView!
-    @IBOutlet private weak var backgroundImage: UIImageView!
+    @IBOutlet private weak var backgroundImage: DownloadingImageView!
     weak var delegate: BrandStoreHeaderDelegate?
     private var dimmingLayer: CALayer?
+    fileprivate let placeholder = UIImage()
     
     override func awakeFromNib() {
         super.awakeFromNib()
         setupGestureRecognizers()
         setupDimming()
         setupDescriptionLabel()
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        backgroundImage.cancelImageFetching()
     }
     
     fileprivate func setupDimming() {
@@ -43,6 +53,10 @@ final class BrandStoreHeader: UICollectionReusableView, ReusableView, HavingNib,
     func render(_ renderable: BrandStoreHeaderRenderable) {
         self.header.text = renderable.title
         self.descriptionLabel.text = renderable.textCollapsed + renderable.textCollapsed + renderable.textCollapsed
+    }
+    
+    func set(coverImageFetcher imageFetcher: ImageFetching) {
+        backgroundImage.fetchImage(using: imageFetcher, placeholder: placeholder)
     }
 
     fileprivate func setupGestureRecognizers() {

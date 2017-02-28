@@ -28,7 +28,7 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1z2-gU-Y3D" userLabel="Image container">
                         <rect key="frame" x="0.0" y="0.0" width="175" height="117"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="DWl-hH-kNI">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="DWl-hH-kNI" customClass="DownloadingImageView" customModule="Vyrl" customModuleProvider="target">
                                 <rect key="frame" x="8" y="18" width="159" height="81"/>
                             </imageView>
                         </subviews>
@@ -64,7 +64,7 @@
             </constraints>
             <size key="customSize" width="138" height="176"/>
             <connections>
-                <outlet property="image" destination="DWl-hH-kNI" id="ZKZ-HW-2P5"/>
+                <outlet property="image" destination="DWl-hH-kNI" id="cLA-F8-4tB"/>
                 <outlet property="imageContainer" destination="1z2-gU-Y3D" id="UNS-7V-xkB"/>
                 <outlet property="name" destination="I58-Hm-0xg" id="YFG-gO-nYW"/>
                 <outlet property="price" destination="7OC-TU-yUp" id="YfJ-hM-ehU"/>

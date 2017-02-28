@@ -14,6 +14,7 @@ struct Product {
     let id: String
     let name: String
     let retailPrice: Double
+    let imageUrls: [String] = [] //not mapped
 }
 
 extension Product: Decodable {

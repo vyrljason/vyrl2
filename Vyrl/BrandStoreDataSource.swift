@@ -29,14 +29,19 @@ extension BrandStoreDataSource: CollectionViewUsing {
 }
 
 extension BrandStoreDataSource: UICollectionViewDataSource {
-    private func prepare(cell: BrandStoreCell, using product: Product) {
+    private func prepare(cell: BrandStoreCellRendering & BrandStoreProductImageFetching, using product: Product) {
         let renderable = BrandStoreCellRenderable(product: product)
         cell.render(renderable)
+        guard let urlString: String = product.imageUrls.first, let url: URL = URL(string: urlString) else {
+            return
+        }
+        cell.set(iconImageFetcher: ImageFetcher(url: url))
     }
     
-    private func prepare(header: BrandStoreHeaderRendering) {
+    private func prepare(header: BrandStoreHeaderRendering & BrandStoreHeaderImageFetching) {
         let renderable = BrandStoreHeaderRenderable(brand: self.brand)
         header.render(renderable)
+        header.set(coverImageFetcher: ImageFetcher(url: brand.coverImageURL))
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

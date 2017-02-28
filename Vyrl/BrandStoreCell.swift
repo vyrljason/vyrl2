@@ -8,7 +8,11 @@ protocol BrandStoreCellRendering {
     func render(_ renderable: BrandStoreCellRenderable)
 }
 
-final class BrandStoreCell: UICollectionViewCell, HavingNib, BrandStoreCellRendering {
+protocol BrandStoreProductImageFetching {
+    func set(iconImageFetcher imageFetcher: ImageFetching)
+}
+
+final class BrandStoreCell: UICollectionViewCell, HavingNib, BrandStoreCellRendering, BrandStoreProductImageFetching {
     fileprivate struct Constants {
         static let borderWidth: CGFloat = 1.0
     }
@@ -16,8 +20,10 @@ final class BrandStoreCell: UICollectionViewCell, HavingNib, BrandStoreCellRende
     
     @IBOutlet private weak var name: UILabel!
     @IBOutlet private weak var price: UILabel!
-    @IBOutlet private weak var image: UIImageView!
+    @IBOutlet private weak var image: DownloadingImageView!
     @IBOutlet private weak var imageContainer: UIView!
+    
+    fileprivate let placeholder = UIImage()
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -25,9 +31,18 @@ final class BrandStoreCell: UICollectionViewCell, HavingNib, BrandStoreCellRende
         setupLabels()
     }
     
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        image.cancelImageFetching()
+    }
+    
     func render(_ renderable: BrandStoreCellRenderable) {
         self.name.text = renderable.name
         self.price.text = renderable.price
+    }
+    
+    func set(iconImageFetcher imageFetcher: ImageFetching) {
+        image.fetchImage(using: imageFetcher, placeholder: self.placeholder)
     }
     
     fileprivate func setupBorder() {

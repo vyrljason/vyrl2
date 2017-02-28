@@ -15,7 +15,7 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="180"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="AYM-jr-P2k">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="AYM-jr-P2k" customClass="DownloadingImageView" customModule="Vyrl" customModuleProvider="target">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="180"/>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Brand Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YgW-4H-jyg">
@@ -51,7 +51,7 @@
                 <constraint firstAttribute="bottom" secondItem="AYM-jr-P2k" secondAttribute="bottom" id="vCx-7g-bYq"/>
             </constraints>
             <connections>
-                <outlet property="backgroundImage" destination="AYM-jr-P2k" id="0Yt-iN-AN5"/>
+                <outlet property="backgroundImage" destination="AYM-jr-P2k" id="IeQ-5g-zIq"/>
                 <outlet property="descriptionLabel" destination="0hZ-j0-mJL" id="6kL-Di-Tth"/>
                 <outlet property="header" destination="YgW-4H-jyg" id="pwM-TL-Xll"/>
             </connections>
