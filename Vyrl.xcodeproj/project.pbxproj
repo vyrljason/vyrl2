@@ -51,6 +51,7 @@
 		3169B9CC1E64C7C1005F8A94 /* BrandStoreFlowLayoutHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3169B9CB1E64C7C1005F8A94 /* BrandStoreFlowLayoutHandler.swift */; };
 		3169B9CE1E64F503005F8A94 /* BrandStoreFlowLayoutHandlerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3169B9CD1E64F503005F8A94 /* BrandStoreFlowLayoutHandlerTest.swift */; };
 		3169B9D01E64FB73005F8A94 /* BrandStoreDataSourceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3169B9CF1E64FB73005F8A94 /* BrandStoreDataSourceTest.swift */; };
+		3169B9D21E650EFC005F8A94 /* BrandStoreHeaderSnapshotTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3169B9D11E650EFC005F8A94 /* BrandStoreHeaderSnapshotTest.swift */; };
 		31FEB5A31E5C37A100C5E41D /* BrandStoreInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31FEB5A21E5C37A100C5E41D /* BrandStoreInteractor.swift */; };
 		31FEB5A61E5C392A00C5E41D /* BrandStoreControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31FEB5A51E5C392A00C5E41D /* BrandStoreControllerFactory.swift */; };
 		31FEB5AA1E5C3A4800C5E41D /* BrandStoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31FEB5A81E5C3A4800C5E41D /* BrandStoreViewController.swift */; };
@@ -177,6 +178,7 @@
 		3169B9CB1E64C7C1005F8A94 /* BrandStoreFlowLayoutHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrandStoreFlowLayoutHandler.swift; sourceTree = "<group>"; };
 		3169B9CD1E64F503005F8A94 /* BrandStoreFlowLayoutHandlerTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrandStoreFlowLayoutHandlerTest.swift; sourceTree = "<group>"; };
 		3169B9CF1E64FB73005F8A94 /* BrandStoreDataSourceTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrandStoreDataSourceTest.swift; sourceTree = "<group>"; };
+		3169B9D11E650EFC005F8A94 /* BrandStoreHeaderSnapshotTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrandStoreHeaderSnapshotTest.swift; sourceTree = "<group>"; };
 		31FEB5A21E5C37A100C5E41D /* BrandStoreInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrandStoreInteractor.swift; sourceTree = "<group>"; };
 		31FEB5A51E5C392A00C5E41D /* BrandStoreControllerFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrandStoreControllerFactory.swift; sourceTree = "<group>"; };
 		31FEB5A81E5C3A4800C5E41D /* BrandStoreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrandStoreViewController.swift; sourceTree = "<group>"; };
@@ -849,6 +851,7 @@
 				858D64321E574B7800CFDD4C /* Utils */,
 				858D64301E574B5C00CFDD4C /* BrandCellSnapshotTest.swift */,
 				3169B9AD1E603B84005F8A94 /* BrandStoreCellSnapshotTest.swift */,
+				3169B9D11E650EFC005F8A94 /* BrandStoreHeaderSnapshotTest.swift */,
 			);
 			name = SnapshotTest;
 			sourceTree = "<group>";
@@ -1249,6 +1252,7 @@
 				1A1FA94D1E5E238C007EB61D /* DataSourceMock.swift in Sources */,
 				3169B9B21E604A23005F8A94 /* BrandStoreServiceTest.swift in Sources */,
 				858D63F61E55FF8600CFDD4C /* CustomAssertions.swift in Sources */,
+				3169B9D21E650EFC005F8A94 /* BrandStoreHeaderSnapshotTest.swift in Sources */,
 				850A80B31E5D9EA800E684A3 /* APIConfigurationTest.swift in Sources */,
 				3169B9AE1E603B84005F8A94 /* BrandStoreCellSnapshotTest.swift in Sources */,
 				858D63F91E56030300CFDD4C /* DownloadingImageViewTest.swift in Sources */,
