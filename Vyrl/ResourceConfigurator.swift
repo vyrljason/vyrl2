@@ -5,21 +5,21 @@
 import Alamofire
 
 protocol APIResourceConfiguring {
-    var httpClient: APIResourceControlling { get }
+    var resourceController: APIResourceControlling { get }
 }
 
 final class ResourceConfigurator: APIResourceConfiguring {
 
     private let configuration: APIConfigurationHaving
     private let responseHandler: APIResponseHandling
-    let httpClient: APIResourceControlling
+    let resourceController: APIResourceControlling
 
     init(configuration: APIConfigurationHaving,
          sessionManager: SessionManaging,
          responseHandler: APIResponseHandling,
-         credentialsProvider: APICredentialsProviding) {
+         headersProvider: HTTPHeadersProviding) {
         self.configuration = configuration
         self.responseHandler = responseHandler
-        self.httpClient = HTTPClient(manager: sessionManager, apiConfiguration: configuration, credentialsProvider: credentialsProvider, responseHandler: responseHandler)
+        self.resourceController = HTTPClient(manager: sessionManager, apiConfiguration: configuration, headersProvider: headersProvider, responseHandler: responseHandler)
     }
 }

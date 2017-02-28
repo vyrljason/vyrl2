@@ -26,12 +26,26 @@ protocol APIEndpoint {
     var path: String { get }
     var authorization: AuthorizationType { get }
     var method: HTTPMethod { get }
-    var modelClass: Decodable.Type? { get }
     var parameters: [String: Any]? { get }
+    var api: APIType { get }
 }
 
 extension APIEndpoint {
     var encoding: Alamofire.ParameterEncoding {
         return JSONEncoding()
+    }
+}
+
+enum APIType {
+    case main
+    case influencers
+}
+
+extension APIType {
+    func baseURL(using configuration: APIConfigurationHaving) -> URL {
+        switch self {
+        case .main: return configuration.mainBaseURL
+        case .influencers: return configuration.influencersBaseURL
+        }
     }
 }

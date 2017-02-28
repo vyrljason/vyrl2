@@ -10,10 +10,10 @@ final class DataResponseMock: DataResponseProtocol {
     var request: URLRequest?
     var response: HTTPURLResponse?
     var data: Data?
-    var result: Alamofire.Result<Any>
+    var jsonResult: Alamofire.Result<Any>
 
     init(result: Alamofire.Result<Any>) {
-        self.result = result
+        self.jsonResult = result
     }
 
     static func dataWith(json: [String: Any],

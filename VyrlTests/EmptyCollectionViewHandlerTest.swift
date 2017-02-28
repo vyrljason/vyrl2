@@ -18,7 +18,7 @@ final class EmptyCollectionViewHandlerTest: XCTestCase {
         super.setUp()
         collectionView = CollectionViewMock()
 
-        subject = EmptyCollectionViewHandler(modeToRenderable: [.noData : noDataRenderable])
+        subject = EmptyCollectionViewHandler(modeToRenderable: [.noData: noDataRenderable])
     }
 
     func test_use_setsEmptyDataSetDelegateAndSource() {

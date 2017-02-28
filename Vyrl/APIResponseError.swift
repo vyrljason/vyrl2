@@ -3,6 +3,7 @@
 //
 
 import Foundation
+import Decodable
 
 private struct Constants {
     static let connectionProblemURLCodes = [NSURLErrorCancelled, NSURLErrorCannotFindHost,
@@ -15,7 +16,7 @@ enum APIResponseError: Error {
     case accessDenied(APIError)
     case apiRequestError(APIError)
     case unexpectedFailure(Error)
-    case modelDeserializationFailure(Error)
+    case modelDeserializationFailure(DecodingError)
 }
 
 extension APIResponseError: Equatable { }
@@ -53,15 +54,17 @@ extension APIResponseError {
     }
 
     private init(statusCode: StatusCode, error: Error) {
-        switch statusCode {
-        case .accessDenied:
+        if case .accessDenied = statusCode {
             self = .accessDenied(APIError(error: error as NSError))
+            return 
+        }
+        switch error {
+        case let decodingError as DecodingError:
+            self = .modelDeserializationFailure(decodingError)
+        case let connectionError where Constants.connectionProblemURLCodes.contains((connectionError as NSError).code):
+            self = .connectionProblem
         default:
-            if Constants.connectionProblemURLCodes.contains((error as NSError).code) {
-                self = .connectionProblem
-            } else {
-                self = .unexpectedFailure(error)
-            }
+            self = .unexpectedFailure(error)
         }
     }
 }

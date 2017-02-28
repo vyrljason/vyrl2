@@ -16,25 +16,29 @@ enum ConfigurationMode: String, CustomStringConvertible {
 enum ConfigurationError: Error {
     case noConfigurationFile
     case noBaseURL
+    case noAlternativeBaseURL
 }
 
 protocol APIConfigurationHaving {
-    var baseURL: URL { get }
+    var mainBaseURL: URL { get }
+    var influencersBaseURL: URL { get }
     var mode: ConfigurationMode { get }
 }
 
 final class APIConfiguration: APIConfigurationHaving {
 
     private struct ConfigurationKeys {
-        static let configurationFile    = "Configuration"
-        static let baseURL              = "BaseURL"
-        static let defaultFileType      = "plist"
+        static let configurationFile = "Configuration"
+        static let mainBaseURL = "MainBaseURL"
+        static let influencersBaseURL = "InfluencersBaseURL"
+        static let defaultFileType = "plist"
     }
 
     private let configuration: [String: String]
 
     let mode: ConfigurationMode
-    let baseURL: URL
+    let mainBaseURL: URL
+    let influencersBaseURL: URL
 
     init(bundle: Bundle = Bundle.main,
          plistName: String = ConfigurationKeys.configurationFile,
@@ -46,9 +50,13 @@ final class APIConfiguration: APIConfigurationHaving {
 
         self.configuration = configuration
         self.mode = mode
-        guard let baseURLString = configuration[ConfigurationKeys.baseURL], let baseURL = URL(string: baseURLString) else {
+        guard let mainBaseURLString = configuration[ConfigurationKeys.mainBaseURL], let mainBaseURL = URL(string: mainBaseURLString) else {
             throw ConfigurationError.noBaseURL
         }
-        self.baseURL = baseURL
+        self.mainBaseURL = mainBaseURL
+        guard let influencersBaseURLString = configuration[ConfigurationKeys.influencersBaseURL], let influencersBaseURL = URL(string: influencersBaseURLString) else {
+            throw ConfigurationError.noAlternativeBaseURL
+        }
+        self.influencersBaseURL = influencersBaseURL
     }
 }

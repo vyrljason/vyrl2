@@ -10,22 +10,22 @@ struct UserCredentials {
         static let Password = "password"
     }
 
-    let email: String
+    let username: String
     let password: String
 }
 
 func == (lhs: UserCredentials, rhs: UserCredentials) -> Bool {
-    return lhs.email == rhs.email && lhs.password == rhs.password
+    return lhs.username == rhs.username && lhs.password == rhs.password
 }
 
 extension UserCredentials: Hashable {
     var hashValue: Int {
-        return email.hashValue ^ password.hashValue
+        return username.hashValue ^ password.hashValue
     }
 }
 
 extension UserCredentials : DictionaryConvertible {
     var dictionaryRepresentation: [String: Any] {
-        return [JSONKeys.Username: email, JSONKeys.Password: password]
+        return [JSONKeys.Username: username, JSONKeys.Password: password]
     }
 }

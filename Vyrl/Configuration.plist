@@ -4,12 +4,16 @@
 <dict>
 	<key>Staging</key>
 	<dict>
-		<key>BaseURL</key>
+		<key>InfluencersBaseURL</key>
+		<string>https://api-dev.govyrl.io</string>
+		<key>MainBaseURL</key>
 		<string>http://34.248.237.253/api</string>
 	</dict>
 	<key>Production</key>
 	<dict>
-		<key>BaseURL</key>
+		<key>InfluencersBaseURL</key>
+		<string></string>
+		<key>MainBaseURL</key>
 		<string></string>
 	</dict>
 </dict>

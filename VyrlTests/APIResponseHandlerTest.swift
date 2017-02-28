@@ -9,7 +9,7 @@ import Decodable
 final class JSONToModelDeserializerMock: JSONToModelDeserializing {
 
     var success = true
-    var error = NSError()
+    var error = DecodingError.missingKey("key", DecodingError.Metadata.init(object: ""))
 
     func deserialize<Model: Decodable>(json: Any, model: Model.Type) throws -> Model {
         if success {
@@ -51,11 +51,12 @@ final class APIResponseHandlerTest: XCTestCase {
         let validJSON = ["username": "test_user", "email": "email@email.com"]
         let dataResponse = DataResponseMock.dataWith(json: validJSON)
         jsonDeserializer.success = false
+        let expectedError = APIResponseError.modelDeserializationFailure(jsonDeserializer.error)
 
         let expectation = self.expectation(description: "to eventually be true")
 
         subject.handle(response: dataResponse) { (result: Result<MockUser, APIResponseError>) in
-            expect(result, toBeErrorWith: APIResponseError.modelDeserializationFailure(self.jsonDeserializer.error))
+            expect(result, toBeErrorWith: expectedError)
             expectation.fulfill()
         }
 

@@ -97,6 +97,17 @@
 		852ACD4D1E55DE1500219E90 /* BrandCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 852ACD4C1E55DE1500219E90 /* BrandCell.xib */; };
 		853771961E5C425B00E693AD /* BrandsNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853771951E5C425B00E693AD /* BrandsNavigation.swift */; };
 		853771981E5C46AB00E693AD /* BrandsNavigationTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853771971E5C46AB00E693AD /* BrandsNavigationTest.swift */; };
+		853859951E6029050098D1EB /* RegisterEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853859941E6029050098D1EB /* RegisterEndpoint.swift */; };
+		853859981E602BFD0098D1EB /* UserRegistrationRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853859971E602BFD0098D1EB /* UserRegistrationRequest.swift */; };
+		8538599A1E606BFD0098D1EB /* VyrlServerTrustPolicyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853859991E606BFD0098D1EB /* VyrlServerTrustPolicyManager.swift */; };
+		8538599C1E606DA90098D1EB /* Dictionary+Operations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8538599B1E606DA90098D1EB /* Dictionary+Operations.swift */; };
+		8538599E1E6073740098D1EB /* dergodaddy.crt in Resources */ = {isa = PBXBuildFile; fileRef = 8538599D1E60734C0098D1EB /* dergodaddy.crt */; };
+		853859A01E6076570098D1EB /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8538599F1E6076570098D1EB /* UserProfile.swift */; };
+		853859A31E607DB00098D1EB /* Industry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853859A21E607DB00098D1EB /* Industry.swift */; };
+		853859A51E607E270098D1EB /* SocialNetworkProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853859A41E607E270098D1EB /* SocialNetworkProfile.swift */; };
+		853859A71E607E420098D1EB /* UserSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853859A61E607E420098D1EB /* UserSettings.swift */; };
+		853859A91E607F450098D1EB /* DiscoveryFilterSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853859A81E607F450098D1EB /* DiscoveryFilterSettings.swift */; };
+		853859AB1E6085650098D1EB /* IndustryId.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853859AA1E6085650098D1EB /* IndustryId.swift */; };
 		85437AA31E58D4E200551D2D /* EmptyCollectionViewHandlerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85437AA21E58D4E200551D2D /* EmptyCollectionViewHandlerTest.swift */; };
 		85437AA51E58D7C200551D2D /* EmptyCollectionViewHandlerMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85437AA41E58D7C200551D2D /* EmptyCollectionViewHandlerMock.swift */; };
 		858D63DE1E55F18100CFDD4C /* DownloadingImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858D63DD1E55F18100CFDD4C /* DownloadingImageView.swift */; };
@@ -132,6 +143,15 @@
 		858D64451E587D3F00CFDD4C /* DispatchQueue+OnMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858D64441E587D3F00CFDD4C /* DispatchQueue+OnMain.swift */; };
 		858D64471E58A4C000CFDD4C /* CollectionViewRefreshing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858D64461E58A4C000CFDD4C /* CollectionViewRefreshing.swift */; };
 		858D644A1E58A67200CFDD4C /* EmptyCollectionViewHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858D64491E58A67200CFDD4C /* EmptyCollectionViewHandler.swift */; };
+		85CA3FC31E642E2C00D43805 /* Bundle+AppVersion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85CA3FC21E642E2C00D43805 /* Bundle+AppVersion.swift */; };
+		85CA3FC51E642EB500D43805 /* HTTPHeadersProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85CA3FC41E642EB500D43805 /* HTTPHeadersProvider.swift */; };
+		85CA3FC71E6430A800D43805 /* HTTPHeadersProviderTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85CA3FC61E6430A800D43805 /* HTTPHeadersProviderTest.swift */; };
+		85CA3FC91E64319200D43805 /* APICredentialsProviderMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85CA3FC81E64319200D43805 /* APICredentialsProviderMock.swift */; };
+		85CA3FCB1E6431B500D43805 /* APIEndpointMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85CA3FCA1E6431B500D43805 /* APIEndpointMock.swift */; };
+		85CA3FCD1E6431CF00D43805 /* APIConfigurationMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85CA3FCC1E6431CF00D43805 /* APIConfigurationMock.swift */; };
+		85CA3FD01E6439EE00D43805 /* AuthorizationResourcesTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85CA3FCF1E6439EE00D43805 /* AuthorizationResourcesTest.swift */; };
+		85CA3FD21E64635600D43805 /* SessionManagerMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85CA3FD11E64635600D43805 /* SessionManagerMock.swift */; };
+		85CA3FD51E646FE700D43805 /* BaseResourcesTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85CA3FD41E646FE700D43805 /* BaseResourcesTest.swift */; };
 		85FA7A281E5C730800491EED /* NavigationHaving.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FA7A271E5C730800491EED /* NavigationHaving.swift */; };
 		A4256F0E1E675A7BB6AE21F5 /* Pods_Vyrl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AA1C43D9EC44CB342D10427 /* Pods_Vyrl.framework */; };
 		BDDF0A4F0C2F3D7D482551AB /* Pods_VyrlTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3553ABBDC82B1A7C9E6385AE /* Pods_VyrlTests.framework */; };
@@ -247,6 +267,17 @@
 		852ACD4C1E55DE1500219E90 /* BrandCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BrandCell.xib; sourceTree = "<group>"; };
 		853771951E5C425B00E693AD /* BrandsNavigation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrandsNavigation.swift; sourceTree = "<group>"; };
 		853771971E5C46AB00E693AD /* BrandsNavigationTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrandsNavigationTest.swift; sourceTree = "<group>"; };
+		853859941E6029050098D1EB /* RegisterEndpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterEndpoint.swift; sourceTree = "<group>"; };
+		853859971E602BFD0098D1EB /* UserRegistrationRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserRegistrationRequest.swift; sourceTree = "<group>"; };
+		853859991E606BFD0098D1EB /* VyrlServerTrustPolicyManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VyrlServerTrustPolicyManager.swift; sourceTree = "<group>"; };
+		8538599B1E606DA90098D1EB /* Dictionary+Operations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Dictionary+Operations.swift"; sourceTree = "<group>"; };
+		8538599D1E60734C0098D1EB /* dergodaddy.crt */ = {isa = PBXFileReference; lastKnownFileType = file; path = dergodaddy.crt; sourceTree = "<group>"; };
+		8538599F1E6076570098D1EB /* UserProfile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
+		853859A21E607DB00098D1EB /* Industry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Industry.swift; sourceTree = "<group>"; };
+		853859A41E607E270098D1EB /* SocialNetworkProfile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocialNetworkProfile.swift; sourceTree = "<group>"; };
+		853859A61E607E420098D1EB /* UserSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSettings.swift; sourceTree = "<group>"; };
+		853859A81E607F450098D1EB /* DiscoveryFilterSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscoveryFilterSettings.swift; sourceTree = "<group>"; };
+		853859AA1E6085650098D1EB /* IndustryId.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IndustryId.swift; sourceTree = "<group>"; };
 		85437AA21E58D4E200551D2D /* EmptyCollectionViewHandlerTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmptyCollectionViewHandlerTest.swift; sourceTree = "<group>"; };
 		85437AA41E58D7C200551D2D /* EmptyCollectionViewHandlerMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmptyCollectionViewHandlerMock.swift; sourceTree = "<group>"; };
 		858D63DD1E55F18100CFDD4C /* DownloadingImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DownloadingImageView.swift; sourceTree = "<group>"; };
@@ -281,6 +312,15 @@
 		858D64441E587D3F00CFDD4C /* DispatchQueue+OnMain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DispatchQueue+OnMain.swift"; sourceTree = "<group>"; };
 		858D64461E58A4C000CFDD4C /* CollectionViewRefreshing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewRefreshing.swift; sourceTree = "<group>"; };
 		858D64491E58A67200CFDD4C /* EmptyCollectionViewHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmptyCollectionViewHandler.swift; sourceTree = "<group>"; };
+		85CA3FC21E642E2C00D43805 /* Bundle+AppVersion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Bundle+AppVersion.swift"; sourceTree = "<group>"; };
+		85CA3FC41E642EB500D43805 /* HTTPHeadersProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPHeadersProvider.swift; sourceTree = "<group>"; };
+		85CA3FC61E6430A800D43805 /* HTTPHeadersProviderTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPHeadersProviderTest.swift; sourceTree = "<group>"; };
+		85CA3FC81E64319200D43805 /* APICredentialsProviderMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APICredentialsProviderMock.swift; sourceTree = "<group>"; };
+		85CA3FCA1E6431B500D43805 /* APIEndpointMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIEndpointMock.swift; sourceTree = "<group>"; };
+		85CA3FCC1E6431CF00D43805 /* APIConfigurationMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIConfigurationMock.swift; sourceTree = "<group>"; };
+		85CA3FCF1E6439EE00D43805 /* AuthorizationResourcesTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthorizationResourcesTest.swift; sourceTree = "<group>"; };
+		85CA3FD11E64635600D43805 /* SessionManagerMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionManagerMock.swift; sourceTree = "<group>"; };
+		85CA3FD41E646FE700D43805 /* BaseResourcesTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseResourcesTest.swift; sourceTree = "<group>"; };
 		85FA7A271E5C730800491EED /* NavigationHaving.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationHaving.swift; sourceTree = "<group>"; };
 		BD1309C018727D87342F7FE2 /* Pods-VyrlTests.ad hoc.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VyrlTests.ad hoc.xcconfig"; path = "Pods/Target Support Files/Pods-VyrlTests/Pods-VyrlTests.ad hoc.xcconfig"; sourceTree = "<group>"; };
 		D1CA9B6CB49B011CC24AABEF /* Pods-Vyrl.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Vyrl.release.xcconfig"; path = "Pods/Target Support Files/Pods-Vyrl/Pods-Vyrl.release.xcconfig"; sourceTree = "<group>"; };
@@ -462,7 +502,6 @@
 				1ADAF7F81E54605D00155D9F /* Modules */,
 				852ACD3D1E55DB6B00219E90 /* Common */,
 				1ADAF7F71E54604300155D9F /* Resources */,
-				1ADAF7D31E545F3C00155D9F /* Info.plist */,
 			);
 			path = Vyrl;
 			sourceTree = "<group>";
@@ -483,10 +522,12 @@
 		1ADAF7F71E54604300155D9F /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				8538599D1E60734C0098D1EB /* dergodaddy.crt */,
 				850A80AF1E5D990C00E684A3 /* Configuration.plist */,
 				1ADAF7D01E545F3C00155D9F /* LaunchScreen.storyboard */,
 				1ADAF7CE1E545F3C00155D9F /* Assets.xcassets */,
 				858D64151E57130500CFDD4C /* Localizable.strings */,
+				1ADAF7D31E545F3C00155D9F /* Info.plist */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -494,6 +535,7 @@
 		1ADAF7F81E54605D00155D9F /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				853859A11E607DA40098D1EB /* Models */,
 				850A80C91E5DC17B00E684A3 /* Deserializing */,
 				1A1FA95E1E5F2E3B007EB61D /* Account */,
 				850A80D41E5DE7B500E684A3 /* Authorization */,
@@ -537,6 +579,10 @@
 				850A80E71E5E183000E684A3 /* MockUser.swift */,
 				1A1FA95A1E5F13D7007EB61D /* LeftMenuInteractingMock.swift */,
 				850A80FF1E5EFECD00E684A3 /* DataResponseMock.swift */,
+				85CA3FC81E64319200D43805 /* APICredentialsProviderMock.swift */,
+				85CA3FCA1E6431B500D43805 /* APIEndpointMock.swift */,
+				85CA3FCC1E6431CF00D43805 /* APIConfigurationMock.swift */,
+				85CA3FD11E64635600D43805 /* SessionManagerMock.swift */,
 			);
 			name = Mocks;
 			sourceTree = "<group>";
@@ -607,6 +653,7 @@
 			isa = PBXGroup;
 			children = (
 				850A80BE1E5DA94100E684A3 /* HTTPClient.swift */,
+				853859961E602BD00098D1EB /* Request */,
 				850A81081E5F2B3E00E684A3 /* Factories */,
 				850A81071E5F2B2900E684A3 /* Other */,
 				850A80EE1E5E264800E684A3 /* Resources */,
@@ -623,6 +670,7 @@
 				850A80B21E5D9EA800E684A3 /* APIConfigurationTest.swift */,
 				850A80FD1E5EF97E00E684A3 /* APIResponseHandlerTest.swift */,
 				850A81051E5F219C00E684A3 /* HTTPClientTest.swift */,
+				85CA3FC61E6430A800D43805 /* HTTPHeadersProviderTest.swift */,
 			);
 			name = Networking;
 			sourceTree = "<group>";
@@ -642,6 +690,7 @@
 			children = (
 				850A80BA1E5DA92800E684A3 /* APIEndpoint.swift */,
 				850A80C71E5DAB3200E684A3 /* LoginEndpoint.swift */,
+				853859941E6029050098D1EB /* RegisterEndpoint.swift */,
 			);
 			name = APIEndpoints;
 			sourceTree = "<group>";
@@ -717,9 +766,11 @@
 		850A81071E5F2B2900E684A3 /* Other */ = {
 			isa = PBXGroup;
 			children = (
+				85CA3FC41E642EB500D43805 /* HTTPHeadersProvider.swift */,
 				850A80F81E5EE88F00E684A3 /* ResourceConfigurator.swift */,
 				850A80AD1E5D977C00E684A3 /* APIConfiguration.swift */,
 				850A80C01E5DA94800E684A3 /* NetworkEnums.swift */,
+				853859991E606BFD0098D1EB /* VyrlServerTrustPolicyManager.swift */,
 			);
 			name = Other;
 			sourceTree = "<group>";
@@ -762,11 +813,11 @@
 		852ACD3D1E55DB6B00219E90 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				858D63E61E55F21800CFDD4C /* ServiceLocator.swift */,
 				1A1FA9461E5DB05E007EB61D /* Networking */,
 				852ACD3E1E55DB7400219E90 /* Protocols */,
 				858D64191E57268300CFDD4C /* Mock */,
 				858D64431E587D3400CFDD4C /* Extensions */,
-				858D63E61E55F21800CFDD4C /* ServiceLocator.swift */,
 				858D63E81E55F24200CFDD4C /* Result */,
 				858D63E31E55F1C200CFDD4C /* ImageRetrieving */,
 				852ACD411E55DC8300219E90 /* UserInterface */,
@@ -804,6 +855,27 @@
 				858D63DD1E55F18100CFDD4C /* DownloadingImageView.swift */,
 			);
 			name = UserInterface;
+			sourceTree = "<group>";
+		};
+		853859961E602BD00098D1EB /* Request */ = {
+			isa = PBXGroup;
+			children = (
+				853859971E602BFD0098D1EB /* UserRegistrationRequest.swift */,
+			);
+			name = Request;
+			sourceTree = "<group>";
+		};
+		853859A11E607DA40098D1EB /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				853859A21E607DB00098D1EB /* Industry.swift */,
+				853859AA1E6085650098D1EB /* IndustryId.swift */,
+				853859A41E607E270098D1EB /* SocialNetworkProfile.swift */,
+				853859A61E607E420098D1EB /* UserSettings.swift */,
+				853859A81E607F450098D1EB /* DiscoveryFilterSettings.swift */,
+				8538599F1E6076570098D1EB /* UserProfile.swift */,
+			);
+			name = Models;
 			sourceTree = "<group>";
 		};
 		85437AA11E58C86900551D2D /* Other */ = {
@@ -917,6 +989,7 @@
 		858D64211E573D2700CFDD4C /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				85CA3FCE1E6439DF00D43805 /* Resources */,
 				850A80DE1E5E13ED00E684A3 /* Deserialization */,
 				850A80D91E5E0DD900E684A3 /* Authorization */,
 				850A80B11E5D9E9C00E684A3 /* Networking */,
@@ -994,6 +1067,8 @@
 			isa = PBXGroup;
 			children = (
 				858D64441E587D3F00CFDD4C /* DispatchQueue+OnMain.swift */,
+				8538599B1E606DA90098D1EB /* Dictionary+Operations.swift */,
+				85CA3FC21E642E2C00D43805 /* Bundle+AppVersion.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -1004,6 +1079,15 @@
 				858D64491E58A67200CFDD4C /* EmptyCollectionViewHandler.swift */,
 			);
 			name = Other;
+			sourceTree = "<group>";
+		};
+		85CA3FCE1E6439DF00D43805 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				85CA3FCF1E6439EE00D43805 /* AuthorizationResourcesTest.swift */,
+				85CA3FD41E646FE700D43805 /* BaseResourcesTest.swift */,
+			);
+			name = Resources;
 			sourceTree = "<group>";
 		};
 		A04E77D5729CEC243AC965C5 /* Pods */ = {
@@ -1041,8 +1125,8 @@
 				1ADAF7C21E545F3C00155D9F /* Resources */,
 				0BB35FF182BF64C4DD68148D /* [CP] Embed Pods Frameworks */,
 				03FF94D2C1F697618F8693D8 /* [CP] Copy Pods Resources */,
-				1ADAF7FD1E549FCF00155D9F /* ShellScript */,
-				B22BC1051E54C77700C4519C /* ShellScript */,
+				1ADAF7FD1E549FCF00155D9F /* SwiftLint */,
+				B22BC1051E54C77700C4519C /* Fabric */,
 			);
 			buildRules = (
 			);
@@ -1121,6 +1205,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8538599E1E6073740098D1EB /* dergodaddy.crt in Resources */,
 				1ADAF7D21E545F3C00155D9F /* LaunchScreen.storyboard in Resources */,
 				858D64161E57130500CFDD4C /* Localizable.strings in Resources */,
 				852ACD4D1E55DE1500219E90 /* BrandCell.xib in Resources */,
@@ -1175,13 +1260,14 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Vyrl/Pods-Vyrl-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		1ADAF7FD1E549FCF00155D9F /* ShellScript */ = {
+		1ADAF7FD1E549FCF00155D9F /* SwiftLint */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
+			name = SwiftLint;
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1233,13 +1319,14 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-VyrlTests/Pods-VyrlTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		B22BC1051E54C77700C4519C /* ShellScript */ = {
+		B22BC1051E54C77700C4519C /* Fabric */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
+			name = Fabric;
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1271,19 +1358,25 @@
 				850A810C1E5F2BF300E684A3 /* Deserializable.swift in Sources */,
 				850A80B91E5DA90C00E684A3 /* BrandStoreControllerFactory.swift in Sources */,
 				858D63FC1E56057F00CFDD4C /* Brand.swift in Sources */,
+				853859AB1E6085650098D1EB /* IndustryId.swift in Sources */,
 				850A80EB1E5E1FFA00E684A3 /* DataResponseProtocol.swift in Sources */,
 				852ACD401E55DB8400219E90 /* HavingNib.swift in Sources */,
+				85CA3FC31E642E2C00D43805 /* Bundle+AppVersion.swift in Sources */,
 				858D64231E57473100CFDD4C /* CollectionViewDataProviding.swift in Sources */,
 				852ACD431E55DC9600219E90 /* UIView+NibHaving.swift in Sources */,
 				1ADAF7C81E545F3C00155D9F /* AppDelegate.swift in Sources */,
 				858D63DE1E55F18100CFDD4C /* DownloadingImageView.swift in Sources */,
 				850A80CD1E5DC7F900E684A3 /* APIError.swift in Sources */,
 				858D640B1E560F0100CFDD4C /* CollectionViewHaving.swift in Sources */,
+				853859A91E607F450098D1EB /* DiscoveryFilterSettings.swift in Sources */,
 				850A81041E5F1FCF00E684A3 /* SessionManaging.swift in Sources */,
+				85CA3FC51E642EB500D43805 /* HTTPHeadersProvider.swift in Sources */,
+				853859A01E6076570098D1EB /* UserProfile.swift in Sources */,
 				858D641E1E572C4300CFDD4C /* APIResponseError.swift in Sources */,
 				850A80F71E5EDC9E00E684A3 /* URLSessionDataTaskProtocol.swift in Sources */,
 				850A80ED1E5E200C00E684A3 /* APIResponseHandler.swift in Sources */,
 				858D63EA1E55F24C00CFDD4C /* Result.swift in Sources */,
+				8538599C1E606DA90098D1EB /* Dictionary+Operations.swift in Sources */,
 				1A1FA9381E5D93BA007EB61D /* Category.swift in Sources */,
 				858D64011E56082500CFDD4C /* BrandsInteractor.swift in Sources */,
 				1A1FA94B1E5DF3E0007EB61D /* LeftMenuInteractorFactory.swift in Sources */,
@@ -1303,8 +1396,11 @@
 				1A859C151E575E7E0013EB09 /* RootNavigationBuilder.swift in Sources */,
 				850A80F01E5E268300E684A3 /* AuthorizationCredentials.swift in Sources */,
 				850A80BB1E5DA92800E684A3 /* APIEndpoint.swift in Sources */,
+				853859A71E607E420098D1EB /* UserSettings.swift in Sources */,
+				853859981E602BFD0098D1EB /* UserRegistrationRequest.swift in Sources */,
 				850A80F41E5EDC6E00E684A3 /* URLSessionProtocol.swift in Sources */,
 				850A80D81E5DEB2B00E684A3 /* KeychainProtocol.swift in Sources */,
+				853859A51E607E270098D1EB /* SocialNetworkProfile.swift in Sources */,
 				850A80A71E5D927300E684A3 /* DictionaryConvertible.swift in Sources */,
 				850A80E41E5E16E500E684A3 /* JSONToModelDeserializer.swift in Sources */,
 				858D64471E58A4C000CFDD4C /* CollectionViewRefreshing.swift in Sources */,
@@ -1327,6 +1423,7 @@
 				1A1FA9451E5DABE4007EB61D /* Service.swift in Sources */,
 				850A80FB1E5EE8DF00E684A3 /* APIResource.swift in Sources */,
 				850A80F91E5EE88F00E684A3 /* ResourceConfigurator.swift in Sources */,
+				853859A31E607DB00098D1EB /* Industry.swift in Sources */,
 				858D64451E587D3F00CFDD4C /* DispatchQueue+OnMain.swift in Sources */,
 				850A810A1E5F2B4B00E684A3 /* ResourceConfiguratorFactory.swift in Sources */,
 				850A80F21E5E269F00E684A3 /* UserCredentials.swift in Sources */,
@@ -1341,6 +1438,8 @@
 				858D64201E5734A800CFDD4C /* CollectionViewUsing.swift in Sources */,
 				858D64051E56089B00CFDD4C /* BrandsDataSource.swift in Sources */,
 				858D64091E560EBC00CFDD4C /* CollectionViewControlling.swift in Sources */,
+				8538599A1E606BFD0098D1EB /* VyrlServerTrustPolicyManager.swift in Sources */,
+				853859951E6029050098D1EB /* RegisterEndpoint.swift in Sources */,
 				850A80C61E5DAA1E00E684A3 /* AuthorizationResources.swift in Sources */,
 				85FA7A281E5C730800491EED /* NavigationHaving.swift in Sources */,
 				858D64261E5747D600CFDD4C /* BrandsControllerFactory.swift in Sources */,
@@ -1353,17 +1452,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				1A859C191E5899D80013EB09 /* RootNavigationControllingMock.swift in Sources */,
+				85CA3FD51E646FE700D43805 /* BaseResourcesTest.swift in Sources */,
 				858D63F11E55F6D600CFDD4C /* ImageRetrieverMock.swift in Sources */,
 				853771981E5C46AB00E693AD /* BrandsNavigationTest.swift in Sources */,
 				1A859C171E58999A0013EB09 /* RootNavigationInteractorTests.swift in Sources */,
 				1A1FA94F1E5E23C3007EB61D /* NavigationProviderMock.swift in Sources */,
 				850A80E21E5E145000E684A3 /* JSONSerializationMock.swift in Sources */,
 				850A81061E5F219C00E684A3 /* HTTPClientTest.swift in Sources */,
+				85CA3FCB1E6431B500D43805 /* APIEndpointMock.swift in Sources */,
 				858D63FB1E56037600CFDD4C /* ImageFetcherMock.swift in Sources */,
 				1A1FA9511E5E2668007EB61D /* CategoriesDataSourceTests.swift in Sources */,
 				1AF49CD11E59F24A00FE7857 /* LeftMenuInteractorTests.swift in Sources */,
 				1ADAF7DD1E545F3C00155D9F /* RootNavigationTests.swift in Sources */,
 				850A80DB1E5E0DE600E684A3 /* CredentialsStorageTest.swift in Sources */,
+				85CA3FD01E6439EE00D43805 /* AuthorizationResourcesTest.swift in Sources */,
 				858D63EF1E55F6A800CFDD4C /* ImageFetcherTest.swift in Sources */,
 				858D64421E5755FC00CFDD4C /* CollectionViewMock.swift in Sources */,
 				858D643E1E5752FD00CFDD4C /* BrandsDataSourceTest.swift in Sources */,
@@ -1376,7 +1478,9 @@
 				1A1FA9591E5F10DC007EB61D /* LeftMenuViewControllerSnapshotTest.swift in Sources */,
 				858D63F91E56030300CFDD4C /* DownloadingImageViewTest.swift in Sources */,
 				85437AA31E58D4E200551D2D /* EmptyCollectionViewHandlerTest.swift in Sources */,
+				85CA3FC91E64319200D43805 /* APICredentialsProviderMock.swift in Sources */,
 				858D643C1E5751A400CFDD4C /* BrandsServiceTest.swift in Sources */,
+				85CA3FCD1E6431CF00D43805 /* APIConfigurationMock.swift in Sources */,
 				1AF49CD31E59F44A00FE7857 /* HomeScreenPresentingMock.swift in Sources */,
 				1A1FA95B1E5F13D7007EB61D /* LeftMenuInteractingMock.swift in Sources */,
 				858D64401E57538A00CFDD4C /* BrandsInteractorTest.swift in Sources */,
@@ -1388,7 +1492,9 @@
 				858D64341E574B8800CFDD4C /* SnapshotTestCase.swift in Sources */,
 				1A1FA9571E5EE0D2007EB61D /* CategoriesServiceTests.swift in Sources */,
 				850A80E81E5E183000E684A3 /* MockUser.swift in Sources */,
+				85CA3FD21E64635600D43805 /* SessionManagerMock.swift in Sources */,
 				85437AA51E58D7C200551D2D /* EmptyCollectionViewHandlerMock.swift in Sources */,
+				85CA3FC71E6430A800D43805 /* HTTPHeadersProviderTest.swift in Sources */,
 				1A1FA95D1E5F173A007EB61D /* CategoryCellSnapshotTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

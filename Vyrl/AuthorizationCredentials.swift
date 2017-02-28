@@ -17,7 +17,7 @@ struct AuthorizationCredentials {
 }
 
 extension AuthorizationCredentials : Decodable {
-    public static func decode(_ json: Any) throws -> AuthorizationCredentials {
+    static func decode(_ json: Any) throws -> AuthorizationCredentials {
         return try self.init(accessToken: json => KeyPath(JSONKeys.AccessToken),
                              expiresIn: json => KeyPath(JSONKeys.ExpiresIn),
                              tokenType: json => KeyPath(JSONKeys.TokenType))

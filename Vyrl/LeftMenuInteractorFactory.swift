@@ -26,7 +26,7 @@ enum LeftMenuInteractorFactory {
                                               description: NSAttributedString(string: Constants.networkingErrorDescription,
                                                                               attributes: Constants.descriptionAttributes))
 
-        let modeMap: [EmptyCollectionMode : EmptyCollectionRenderable] = [ .error : error, .noData : noData ]
+        let modeMap: [EmptyCollectionMode : EmptyCollectionRenderable] = [ .error: error, .noData: noData ]
         let emptyCollectionHandler = EmptyCollectionViewHandler(modeToRenderable: modeMap)
         let resource = Service<CategoriesResourceMock>(resource: CategoriesResourceMock())
         let service = CategoriesService(resource: resource)

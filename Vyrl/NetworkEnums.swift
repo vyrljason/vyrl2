@@ -29,17 +29,6 @@ extension Vyrl.HTTPMethod {
     }
 }
 
-enum HTTPHeaderField: String, CustomStringConvertible {
-    case Accept
-    case ContentType = "Content-Type"
-    case UserAgent = "User-Agent"
-    case Authorization
-
-    var description: String {
-        return self.rawValue
-    }
-}
-
 enum StatusCode: Int {
     case ok
     case accessDenied

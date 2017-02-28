@@ -8,6 +8,7 @@ struct APIError {
     fileprivate enum JSONKeys {
         static let error = "error"
         static let statusCode = "statusCode"
+        static let legacyAPIstatusCode = "status"
         static let name = "name"
         static let message = "message"
     }
@@ -19,10 +20,17 @@ struct APIError {
 
 extension APIError: Decodable {
     static func decode(_ json: Any) throws -> APIError {
-        let errorDictionary = try json => KeyPath(JSONKeys.error)
-        return try self.init(statusCode: errorDictionary => KeyPath(JSONKeys.statusCode),
-                             name: errorDictionary => KeyPath(JSONKeys.name),
-                             message: errorDictionary => KeyPath(JSONKeys.message))
+        if let legacyAPIStatusCode: Int = try json =>? OptionalKeyPath(stringLiteral: JSONKeys.legacyAPIstatusCode) {
+            let errorDictionary = try json => KeyPath(JSONKeys.error)
+            return try self.init(statusCode: legacyAPIStatusCode,
+                                 name: errorDictionary => KeyPath(JSONKeys.name),
+                                 message: errorDictionary => KeyPath(JSONKeys.message))
+        } else {
+            let errorDictionary = try json => KeyPath(JSONKeys.error)
+            return try self.init(statusCode: errorDictionary => KeyPath(JSONKeys.statusCode),
+                                 name: errorDictionary => KeyPath(JSONKeys.name),
+                                 message: errorDictionary => KeyPath(JSONKeys.message))
+        }
     }
 }
 

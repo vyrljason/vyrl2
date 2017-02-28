@@ -36,7 +36,7 @@ enum BrandsInteractorFactory: BrandsInteractorMaking {
         let resource = Service<BrandsResourceMock>(resource: BrandsResourceMock(amount: 30))
         let service = BrandsService(resource: resource)
         let dataSource = BrandsDataSource(service: service)
-        let modeMap: [EmptyCollectionMode : EmptyCollectionRenderable] = [ .error : brandsError, .noData : noBrands ]
+        let modeMap: [EmptyCollectionMode : EmptyCollectionRenderable] = [ .error: brandsError, .noData: noBrands ]
         let emptyCollectionHandler = EmptyCollectionViewHandler(modeToRenderable: modeMap)
         return BrandsInteractor(dataSource: dataSource, emptyCollectionHandler: emptyCollectionHandler)
     }

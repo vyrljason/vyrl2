@@ -5,19 +5,25 @@
 import Foundation
 
 protocol UserAuthorizationInterface: APIResource {
-    func login(using credentials: UserCredentials, completion: @escaping (Result<Brand, APIResponseError>) -> Void)
+    func signIn(using credentials: UserCredentials, completion: @escaping (Result<UserProfile, APIResponseError>) -> Void)
+    func registerUser(using request: UserRegistrationRequest, completion: @escaping (Result<UserProfile, APIResponseError>) -> Void)
 }
 
 final class UserAuthorizationResources: UserAuthorizationInterface {
 
-    private let httpClient: APIResourceControlling
+    private let controller: APIResourceControlling
 
-    init(configurator: APIResourceConfiguring) {
-        self.httpClient = configurator.httpClient
+    init(controller: APIResourceControlling) {
+        self.controller = controller
     }
 
-    func login(using credentials: UserCredentials, completion: @escaping (Result<Brand, APIResponseError>) -> Void) {
+    func signIn(using credentials: UserCredentials, completion: @escaping (Result<UserProfile, APIResponseError>) -> Void) {
         let endpoint = LoginEndpoint(userCredentials: credentials)
-        httpClient.call(endpoint: endpoint, completion: completion)
+        controller.call(endpoint: endpoint, completion: completion)
+    }
+
+    func registerUser(using request: UserRegistrationRequest, completion: @escaping (Result<UserProfile, APIResponseError>) -> Void) {
+        let endpoint = RegisterEndpoint(request: request)
+        controller.call(endpoint: endpoint, completion: completion)
     }
 }

@@ -5,5 +5,5 @@
 import Foundation
 
 protocol APIResource {
-    init(configurator: APIResourceConfiguring)
+    init(controller: APIResourceControlling)
 }

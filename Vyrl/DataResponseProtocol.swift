@@ -5,14 +5,15 @@
 import Alamofire
 
 protocol DataResponseProtocol {
+    associatedtype Value
     var request: URLRequest? { get }
     var response: HTTPURLResponse? { get }
     var data: Data? { get }
-    var result: Alamofire.Result<Any> { get }
+    var jsonResult: Alamofire.Result<Value> { get }
 }
 
 extension DataResponse: DataResponseProtocol {
-    var result: Alamofire.Result<Any> {
-        return self.result
+    internal var jsonResult: Alamofire.Result<Value> {
+        return result
     }
 }

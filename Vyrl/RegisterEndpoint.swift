@@ -4,14 +4,14 @@
 
 import Decodable
 
-struct LoginEndpoint: APIEndpoint {
-    let path = "/auth/local"
+struct RegisterEndpoint: APIEndpoint {
+    let path = "/auth/local/register"
     let authorization: AuthorizationType = .none
     let method: HTTPMethod = .post
     let parameters: [String: Any]?
     let api: APIType = .influencers
 
-    init(userCredentials: UserCredentials) {
-        parameters = userCredentials.dictionaryRepresentation
+    init(request: UserRegistrationRequest) {
+        parameters = request.dictionaryRepresentation
     }
 }
