@@ -65,10 +65,7 @@ extension BrandStoreDataSource: UICollectionViewDataSource {
 }
 
 extension BrandStoreDataSource: CollectionViewNibRegistering {
-    func registerNibs() {
-        guard let collectionView = delegate?.collectionView else {
-            return
-        }
+    func registerNibs(in collectionView: UICollectionView) {
         BrandStoreHeader.registerHeader(to: collectionView)
         BrandStoreCell.register(to: collectionView)
     }

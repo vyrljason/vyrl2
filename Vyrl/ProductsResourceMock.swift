@@ -20,7 +20,8 @@ final class ProductsResourceMock: Fetching {
         if success {
             completion(.success(self.products))
         } else {
-            completion(.failure(.unexpectedFailure))
+            let error = NSError(domain: "error", code: NSURLErrorUnknown, userInfo: nil)
+            completion(.failure(.unexpectedFailure(error)))
         }
     }
 }

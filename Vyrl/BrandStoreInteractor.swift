@@ -32,7 +32,7 @@ extension BrandStoreInteractor: CollectionViewUsing {
         self.collectionView = collectionView
         self.collectionView?.dataSource = dataSource
         self.collectionView?.delegate = dataSource
-        dataSource.registerNibs()
+        dataSource.registerNibs(in: collectionView)
         dataSource.use(collectionView)
     }
 }
