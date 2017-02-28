@@ -18,23 +18,27 @@
                 <rect key="frame" x="0.0" y="0.0" width="386" height="188"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="i14-ha-zyw" customClass="DownloadingImageView" customModule="Vyrl" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="386" height="140"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                    </imageView>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ITW-a2-O8z">
                         <rect key="frame" x="0.0" y="140" width="393" height="48"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="GoPro" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zlu-BV-AdR">
-                                <rect key="frame" x="20" y="4" width="48" height="20.5"/>
+                                <rect key="frame" x="20" y="14" width="48" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="900" verticalCompressionResistancePriority="900" text="submissions" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sVY-8c-HzD">
-                                <rect key="frame" x="278" y="4" width="95" height="20.5"/>
+                                <rect key="frame" x="278" y="14" width="95" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" text="42" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="44s-s9-dz3">
-                                <rect key="frame" x="251.5" y="4" width="20.5" height="21"/>
+                                <rect key="frame" x="251.5" y="14" width="20.5" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.60392156862745094" green="0.11764705882352941" blue="0.14509803921568626" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -43,19 +47,15 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="44s-s9-dz3" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Zlu-BV-AdR" secondAttribute="trailing" constant="4" id="3Yd-kv-moT"/>
+                            <constraint firstItem="44s-s9-dz3" firstAttribute="centerY" secondItem="Zlu-BV-AdR" secondAttribute="centerY" id="6YH-Uf-n7o"/>
                             <constraint firstItem="44s-s9-dz3" firstAttribute="centerY" secondItem="sVY-8c-HzD" secondAttribute="centerY" id="A6A-Tk-f6b"/>
-                            <constraint firstItem="sVY-8c-HzD" firstAttribute="top" secondItem="ITW-a2-O8z" secondAttribute="top" constant="4" id="Qkx-EA-P6g"/>
+                            <constraint firstItem="Zlu-BV-AdR" firstAttribute="centerY" secondItem="ITW-a2-O8z" secondAttribute="centerY" id="Qvi-q5-l39"/>
                             <constraint firstItem="Zlu-BV-AdR" firstAttribute="leading" secondItem="ITW-a2-O8z" secondAttribute="leading" constant="20" id="RKK-yn-pgq"/>
                             <constraint firstAttribute="height" constant="48" id="Ra9-IU-SH9"/>
                             <constraint firstAttribute="trailing" secondItem="sVY-8c-HzD" secondAttribute="trailing" constant="20" id="WRu-CB-0Mm"/>
-                            <constraint firstItem="Zlu-BV-AdR" firstAttribute="top" secondItem="ITW-a2-O8z" secondAttribute="top" constant="4" id="ds9-pL-2fa"/>
                             <constraint firstItem="sVY-8c-HzD" firstAttribute="leading" secondItem="44s-s9-dz3" secondAttribute="trailing" constant="6" id="nj4-Tf-Oe5"/>
                         </constraints>
                     </view>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="i14-ha-zyw" customClass="DownloadingImageView" customModule="Vyrl" customModuleProvider="target">
-                        <rect key="frame" x="0.0" y="0.0" width="386" height="140"/>
-                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                    </imageView>
                 </subviews>
             </view>
             <constraints>

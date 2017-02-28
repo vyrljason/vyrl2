@@ -36,6 +36,7 @@ final class EmptyCollectionViewHandler: NSObject, DZNEmptyDataSetSource, DZNEmpt
 
     func configure(with mode: EmptyCollectionMode) {
         renderable = modeToRenderable[mode]
+        collectionView?.reloadEmptyDataSet()
     }
 
     func title(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {

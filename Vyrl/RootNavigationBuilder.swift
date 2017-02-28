@@ -8,7 +8,6 @@ final class RootNavigationBuilder {
 
     private enum Constants {
         static let chatTitle = NSLocalizedString("CHAT", comment: "")
-        static let cartTitle = NSLocalizedString("YOUR CART", comment: "")
     }
 
     var interactor: RootNavigationInteracting & NavigationDelegateHaving = RootNavigationInteractor()
@@ -17,7 +16,7 @@ final class RootNavigationBuilder {
                                                                         brandsFactory: BrandsControllerFactory.self,
                                                                         brandStoreFactory: BrandStoreControllerFactory.self,
                                                                         navigationController: UINavigationController()) }()
-    var cart: UIViewController = UIViewController()
+    var cart: UIViewController = CartViewControllerFactory.make()
     var chat: UIViewController = UIViewController()
     var window: WindowProtocol = UIWindow()
     var accountMaker: AccountViewControllerMaking.Type = AccountViewControllerFactory.self
@@ -27,9 +26,7 @@ final class RootNavigationBuilder {
     func build() -> RootNavigation {
 
         chat.title = Constants.chatTitle    // FIXME: REMOVE
-        cart.title = Constants.cartTitle    // FIXME: REMOVE
         chat.view.backgroundColor = .white  // FIXME: REMOVE
-        cart.view.backgroundColor = .white  // FIXME: REMOVE
 
         let navigation = RootNavigation(interactor: interactor,
                                         leftMenu: leftMenu,
