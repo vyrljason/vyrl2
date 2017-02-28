@@ -4,6 +4,19 @@
 
 import UIKit
 
+struct Product {
+    let title: String
+    let subTitle: String
+    let price: String
+    let url: URL?
+}
+
+extension Product {
+    var cartItemRenderable: CartItemCellRenderable {
+        return CartItemCellRenderable(title: title, subTitle: subTitle, price: price)
+    }
+}
+
 protocol CartDataProviding: CollectionViewNibRegistering, UICollectionViewDelegate, UICollectionViewDataSource {
     weak var delegate: EmptyCollectionViewHandling? { get set }
     func loadData()
@@ -17,10 +30,12 @@ final class CartDataSource: NSObject, CartDataProviding {
 
     weak var delegate: EmptyCollectionViewHandling?
 
-    fileprivate let cartStorage: CartStoraging
+    fileprivate let cartStorage: CartStoring
+    fileprivate let productProvider: ProductProviding
 
-    init(cartStorage: CartStoraging) {
+    init(cartStorage: CartStoring, productProvider: ProductProviding) {
         self.cartStorage = cartStorage
+        self.productProvider = productProvider
     }
 
     func loadData() {
@@ -41,6 +56,17 @@ extension CartDataSource: UICollectionViewDelegate, UICollectionViewDataSource {
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell: CartItemCell = collectionView.dequeueCell(at: indexPath)
+        let item: CartItem = cartStorage.items[indexPath.row]
+
+        // THIS IS TEMPORARY
+        productProvider.get(productId: item.id) { result in
+            switch result {
+            case .success(let product):
+                cell.render(product.cartItemRenderable)
+            default: ()
+            }
+        }
+
         return cell
     }
 }

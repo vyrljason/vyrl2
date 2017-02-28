@@ -9,6 +9,7 @@ final class CollectionViewMock: UICollectionView {
     var didSetDelegation = false
     var dataSourceDidSet = false
     var reloadDidCall = false
+    var didRegisterNib = false
 
     init() {
         super.init(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
@@ -32,5 +33,9 @@ final class CollectionViewMock: UICollectionView {
 
     override func reloadData() {
         reloadDidCall = true
+    }
+
+    override func register(_ nib: UINib?, forCellWithReuseIdentifier identifier: String) {
+        didRegisterNib = true
     }
 }
