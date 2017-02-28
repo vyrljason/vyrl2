@@ -9,18 +9,21 @@ struct Product {
         static let id = "id"
         static let name = "name"
         static let retailPrice = "retailValue"
+        static let imageIds = "imageIds"
     }
     
     let id: String
     let name: String
     let retailPrice: Double
-    let imageUrls: [String] = [] //not mapped
+    let imageUrls: [String]
 }
 
 extension Product: Decodable {
     static func decode(_ json: Any) throws -> Product {
         return try self.init(id: json => KeyPath(JSONKeys.id),
                              name: json => KeyPath(JSONKeys.name),
-                             retailPrice: json => KeyPath(JSONKeys.retailPrice))
+                             retailPrice: json => KeyPath(JSONKeys.retailPrice),
+                             imageUrls: json => KeyPath(JSONKeys.imageIds)
+        )
     }
 }

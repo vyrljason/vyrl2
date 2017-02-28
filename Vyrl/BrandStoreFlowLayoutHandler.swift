@@ -8,6 +8,7 @@ fileprivate struct Constants {
     static let xibHeight = 180
     static let ignoredWidth = 100
     static let fallbackItemSize = CGSize(width: 175, height: 170)
+    static let columns = 2
 }
 
 protocol BrandStoreFlowLayoutHandling: CollectionViewUsing, BrandStoreHeaderDelegate {
@@ -37,35 +38,30 @@ final class BrandStoreFlowLayoutHandler: BrandStoreFlowLayoutHandling {
     
     fileprivate func calculateItemSize() -> CGSize {
         guard let flowLayout = (collectionView?.collectionViewLayout) as? UICollectionViewFlowLayout else {
-            return CGSize(width: 175, height: 170) // sane fallback
+            let fallbackItemSize = CGSize(width: 175, height: 170)
+            return fallbackItemSize
         }
-        let columns = 2
-        let space = (flowLayout.sectionInset.left + flowLayout.sectionInset.right)*0.5 + flowLayout.minimumInteritemSpacing*0.5
-        let width: CGFloat = UIScreen.main.bounds.width / CGFloat(columns) - space
+        let width: CGFloat = calculateWidth(for: flowLayout)
         let height: CGFloat = calculateHeight()
         return CGSize(width: width, height: height)
     }
     
     fileprivate func calculateHeight() -> CGFloat {
         let cell: BrandStoreCell = BrandStoreCell.fromNib()
-        let product: Product = Product(id: "id", name: "Template", retailPrice: 123)
+        let product: Product = Product(id: "id", name: "Template", retailPrice: 123, imageUrls: [])
         let renderable = BrandStoreCellRenderable(product: product)
         cell.render(renderable)
         cell.sizeToFit()
         return cell.frame.height
     }
     
-    fileprivate func calculateWidth() -> CGFloat {
-        guard let flowLayout = (collectionView?.collectionViewLayout) as? UICollectionViewFlowLayout else {
-            return fallbackWidth()
-        }
-        let columns: CGFloat = 2
-        let space = (flowLayout.sectionInset.left + flowLayout.sectionInset.right)*0.5 + flowLayout.minimumInteritemSpacing*0.5
-        let width: CGFloat = UIScreen.main.bounds.width / columns - space
+    fileprivate func calculateWidth(for flowLayout: UICollectionViewFlowLayout) -> CGFloat {
+        let columnsAsFloat: CGFloat = CGFloat(Constants.columns)
+        let insetFractionPerColumn: CGFloat = (flowLayout.sectionInset.left + flowLayout.sectionInset.right) / columnsAsFloat
+        let spacingFractionPerColumn: CGFloat = (flowLayout.minimumInteritemSpacing * CGFloat(Constants.columns - 1)) / columnsAsFloat
+        let reservedForSeparators = insetFractionPerColumn + spacingFractionPerColumn
+        let availableSpacePerColumn = UIScreen.main.bounds.width / columnsAsFloat
+        let width: CGFloat = availableSpacePerColumn - reservedForSeparators
         return width
-    }
-    
-    fileprivate func fallbackWidth() -> CGFloat {
-        return UIScreen.main.bounds.width * 0.45
     }
 }

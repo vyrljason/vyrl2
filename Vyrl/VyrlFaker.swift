@@ -22,7 +22,7 @@ extension Faker {
                  name: String = VyrlFaker.faker.commerce.productName(),
                  retailPrice: Double = VyrlFaker.faker.commerce.price()
                  ) -> Product {
-        return Product(id: id, name: name, retailPrice: retailPrice)
+        return Product(id: id, name: name, retailPrice: retailPrice, imageUrls: [])
     }
 }
 

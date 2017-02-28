@@ -23,16 +23,16 @@ extension BrandStoreInteractor: CollectionViewControlling {
     }
     
     func loadData() {
-        self.dataSource.loadData()
+        dataSource.loadData()
     }
 }
 
 extension BrandStoreInteractor: CollectionViewUsing {
     func use(_ collectionView: UICollectionView) {
         self.collectionView = collectionView
-        self.collectionView?.dataSource = self.dataSource
-        self.collectionView?.delegate = self.dataSource
-        self.dataSource.registerNibs()
-        self.dataSource.use(collectionView)
+        self.collectionView?.dataSource = dataSource
+        self.collectionView?.delegate = dataSource
+        dataSource.registerNibs()
+        dataSource.use(collectionView)
     }
 }

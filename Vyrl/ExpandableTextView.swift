@@ -14,7 +14,7 @@ final class ExpandableTextView: UITextView {
     override func awakeFromNib() {
         super.awakeFromNib()
         heightConstraint?.isActive = false
-        contractedHeight = (heightConstraint?.constant)!
+        contractedHeight = heightConstraint?.constant ?? 0
     }
     
     public func toggleExpand() {

@@ -26,11 +26,11 @@ final class BrandStoreDataSourceMock: NSObject, CollectionViewDataProviding, Col
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 1 // to reviewer: Is there a way to implement this as an extension of the UICollectionViewDataSource protocol? Tried with no success.
+        return 1
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        return UICollectionViewCell() // to reviewer: Is there a way to implement this as an extension of the UICollectionViewDataSource protocol? Tried with no success.
+        return UICollectionViewCell()
     }
 }
 

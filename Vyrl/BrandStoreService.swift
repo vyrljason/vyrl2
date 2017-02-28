@@ -17,6 +17,6 @@ final class BrandStoreService: ProductsProviding {
     }
     
     func get(completion: @escaping (Result<[Product], ServiceError>) -> Void) {
-        self.resource.get(completion: completion)
+        resource.get(completion: completion)
     }
 }

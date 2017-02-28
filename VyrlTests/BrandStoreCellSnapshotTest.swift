@@ -19,7 +19,8 @@ final class BrandStoreCellSnapshotTest: SnapshotTestCase {
         view.frame = CGRect(x: 0, y: 0, width: 175, height: 170)
         let product = Product(id: "id",
                               name: "Very bright and looong lens",
-                              retailPrice: 20999.99)
+                              retailPrice: 20999.99,
+                              imageUrls: [])
         let renderable = BrandStoreCellRenderable(product: product)
         view.render(renderable)
         

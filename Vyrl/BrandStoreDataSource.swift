@@ -8,8 +8,6 @@ final class BrandStoreDataSource: NSObject {
     fileprivate let brand: Brand
     fileprivate let service: ProductsProviding
     fileprivate var products = [Product]()
-    fileprivate var cellSize: CGSize?
-    fileprivate var headerHeight: CGFloat?
     fileprivate var flowLayoutHandler: BrandStoreFlowLayoutHandling
     weak var delegate: CollectionViewHaving & CollectionViewControlling?
     
@@ -39,14 +37,14 @@ extension BrandStoreDataSource: UICollectionViewDataSource {
     }
     
     private func prepare(header: BrandStoreHeaderRendering & BrandStoreHeaderImageFetching) {
-        let renderable = BrandStoreHeaderRenderable(brand: self.brand)
+        let renderable = BrandStoreHeaderRenderable(brand: brand)
         header.render(renderable)
         header.set(coverImageFetcher: ImageFetcher(url: brand.coverImageURL))
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell: BrandStoreCell = collectionView.dequeueCell(at: indexPath)
-        prepare(cell: cell, using: self.products[indexPath.row])
+        prepare(cell: cell, using: products[indexPath.row])
         return cell
     }
 
@@ -60,7 +58,7 @@ extension BrandStoreDataSource: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         let header: BrandStoreHeader = collectionView.dequeueHeader(at: indexPath)
-        header.delegate = self.flowLayoutHandler
+        header.delegate = flowLayoutHandler
         prepare(header: header)
         return header
     }
@@ -78,7 +76,7 @@ extension BrandStoreDataSource: CollectionViewNibRegistering {
 
 extension BrandStoreDataSource: CollectionViewDataProviding {
     func loadData() {
-        self.service.get { [weak self] result in
+        service.get { [weak self] result in
             guard let `self` = self else { return }
             self.products = result.map(success: { $0 }, failure: { _ in return [] })
             DispatchQueue.onMainThread {
@@ -90,11 +88,11 @@ extension BrandStoreDataSource: CollectionViewDataProviding {
 
 extension BrandStoreDataSource: UICollectionViewDelegateFlowLayout {
     
-    public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return self.flowLayoutHandler.itemSize
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return flowLayoutHandler.itemSize
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-        return self.flowLayoutHandler.headerSize
+        return flowLayoutHandler.headerSize
     }
 }

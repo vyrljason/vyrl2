@@ -22,6 +22,8 @@ final class BrandStoreHeader: UICollectionReusableView, ReusableView, HavingNib,
     @IBOutlet private weak var header: UILabel!
     @IBOutlet private weak var descriptionLabel: ExpandableTextView!
     @IBOutlet private weak var backgroundImage: DownloadingImageView!
+    @IBOutlet private weak var descriptionTopConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var descriptionBottomConstraint: NSLayoutConstraint!
     weak var delegate: BrandStoreHeaderDelegate?
     private var dimmingLayer: CALayer?
     fileprivate let placeholder = UIImage()
@@ -41,18 +43,18 @@ final class BrandStoreHeader: UICollectionReusableView, ReusableView, HavingNib,
     fileprivate func setupDimming() {
         let dimming = CALayer()
         dimmingLayer = dimming
-        dimming.backgroundColor = UIColor.init(white: 0, alpha: 0.8).cgColor
+        dimming.backgroundColor = UIColor.dimmingBlack.cgColor
         backgroundImage.layer.addSublayer(dimming)
     }
     
     fileprivate func setupDescriptionLabel() {
-        self.descriptionLabel.isScrollEnabled = false
-        self.descriptionLabel.textContainer.lineBreakMode = .byTruncatingTail
+        descriptionLabel.isScrollEnabled = false
+        descriptionLabel.textContainer.lineBreakMode = .byTruncatingTail
     }
     
     func render(_ renderable: BrandStoreHeaderRenderable) {
-        self.header.text = renderable.title
-        self.descriptionLabel.text = renderable.textCollapsed + renderable.textCollapsed + renderable.textCollapsed
+        header.text = renderable.title
+        descriptionLabel.text = renderable.textCollapsed
     }
     
     func set(coverImageFetcher imageFetcher: ImageFetching) {
@@ -60,7 +62,7 @@ final class BrandStoreHeader: UICollectionReusableView, ReusableView, HavingNib,
     }
 
     fileprivate func setupGestureRecognizers() {
-        let tap = UITapGestureRecognizer(target: self, action: #selector(self.tapAction(_ :)))
+        let tap = UITapGestureRecognizer(target: self, action: #selector(tapAction(_ :)))
         descriptionLabel.addGestureRecognizer(tap)
     }
     
@@ -72,7 +74,8 @@ final class BrandStoreHeader: UICollectionReusableView, ReusableView, HavingNib,
     }
     
     fileprivate func notifyAboutHeightChange() {
-        let totalHeight: CGFloat = 71 + 37 + self.descriptionLabel.targetHeight()
+        let verticalSpace: CGFloat = descriptionTopConstraint.constant + descriptionBottomConstraint.constant
+        let totalHeight: CGFloat = verticalSpace + descriptionLabel.targetHeight()
         delegate?.headerDidChangeHeight(height: totalHeight)
     }
     

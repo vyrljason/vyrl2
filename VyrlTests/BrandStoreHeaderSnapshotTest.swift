@@ -18,7 +18,7 @@ final class BrandStoreHeaderSnapshotTest: SnapshotTestCase {
         let view = BrandStoreHeader.fromNib(translatesAutoresizingMaskIntoConstraints: true)
         view.frame = CGRect(x: 0, y: 0, width: 375, height: 180)
         let brand = Brand(id: "id", name: "GoPro",
-                          description: "We make the World's Most Versatile Camera.",
+                          description: "We make the World's Most Versatile Camera. This text is very long to show word wrapping at the end. This text is very long to show word wrapping at the end. This text is very long to show word wrapping at the end.",
                           submissionsCount: 3423,
                           coverImageURL: URL(string: "https://www.apple.com")!)
         let renderable = BrandStoreHeaderRenderable(brand: brand)
