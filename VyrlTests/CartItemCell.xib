@@ -18,7 +18,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="473" height="156"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" image="leica" translatesAutoresizingMaskIntoConstraints="NO" id="xGR-UI-qzR" customClass="DownloadingImageView" customModule="Vyrl" customModuleProvider="target">
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" image="leica" translatesAutoresizingMaskIntoConstraints="NO" id="xGR-UI-qzR" customClass="DownloadingImageView" customModule="Vyrl" customModuleProvider="target">
                         <rect key="frame" x="18" y="30" width="120" height="96"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="120" id="j2w-bj-F6M"/>
