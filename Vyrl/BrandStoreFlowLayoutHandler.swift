@@ -48,7 +48,7 @@ final class BrandStoreFlowLayoutHandler: BrandStoreFlowLayoutHandling {
     
     fileprivate func calculateHeight() -> CGFloat {
         let cell: BrandStoreCell = BrandStoreCell.fromNib()
-        let product: Product = Product(id: "id", name: "Template", retailPrice: 123, imageUrls: [])
+        let product: Product = Product(id: "id", name: "Template", description: "", brandId: "", retailPrice: 123, imageUrls: [])
         let renderable = BrandStoreCellRenderable(product: product)
         cell.render(renderable)
         cell.sizeToFit()

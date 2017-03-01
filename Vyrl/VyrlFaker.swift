@@ -20,9 +20,11 @@ extension Faker {
     
     func product(id: String = VyrlFaker.faker.lorem.characters(amount: 20),
                  name: String = VyrlFaker.faker.commerce.productName(),
+                 description: String = VyrlFaker.faker.company.catchPhrase(),
+                 brandId: String = String(VyrlFaker.faker.number.randomInt()),
                  retailPrice: Double = VyrlFaker.faker.commerce.price()
                  ) -> Product {
-        return Product(id: id, name: name, retailPrice: retailPrice, imageUrls: [])
+        return Product(id: id, name: name, description: description, brandId: brandId, retailPrice: retailPrice, imageUrls: [])
     }
 }
 

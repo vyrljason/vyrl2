@@ -4,22 +4,6 @@
 
 import UIKit
 
-extension Product {
-    var cartItemRenderable: CartItemCellRenderable {
-        return CartItemCellRenderable(title: name, subTitle: "", price: asDollars(retailPrice))
-    }
-
-    private func asDollars(_ value: Double) -> String {
-        let formatter = NumberFormatter()
-        formatter.currencyCode = "USD"
-        formatter.currencySymbol = "$"
-        formatter.minimumFractionDigits = 0
-        formatter.maximumFractionDigits = 2
-        formatter.numberStyle = .currencyAccounting
-        return formatter.string(from: NSNumber(value: value)) ?? "$\(value)"
-    }
-}
-
 protocol CartDataProviding: CollectionViewNibRegistering, UICollectionViewDelegate, UICollectionViewDataSource {
     weak var delegate: EmptyCollectionViewHandling? { get set }
     func loadData()

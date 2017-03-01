@@ -10,6 +10,14 @@ struct CartItemCellRenderable {
     let price: String
 }
 
+extension Product {
+    var cartItemRenderable: CartItemCellRenderable {
+        return CartItemCellRenderable(title: name,
+                                      subTitle: description,
+                                      price: retailPrice.asMoneyWithDecimals)
+    }
+}
+
 protocol CartItemCellRendering {
     func render(_ renderable: CartItemCellRenderable)
 }
@@ -18,6 +26,8 @@ final class CartItemCell: UICollectionViewCell, HavingNib, CartItemCellRendering
 
     private enum Constants {
         static let placeholder: UIImage = #imageLiteral(resourceName: "leica")
+        static let borderWidth: CGFloat = 1.0
+        static let borderColor: CGColor = #colorLiteral(red: 0.8705882353, green: 0.8705882353, blue: 0.8705882353, alpha: 1).cgColor
     }
 
     static let nibName = "CartItemCell"
@@ -30,8 +40,8 @@ final class CartItemCell: UICollectionViewCell, HavingNib, CartItemCellRendering
     override func awakeFromNib() {
         super.awakeFromNib()
 
-        image.layer.borderWidth = 1.0
-        image.layer.borderColor = #colorLiteral(red: 0.8705882353, green: 0.8705882353, blue: 0.8705882353, alpha: 1).cgColor
+        image.layer.borderWidth = Constants.borderWidth
+        image.layer.borderColor = Constants.borderColor
     }
 
     func render(_ renderable: CartItemCellRenderable) {

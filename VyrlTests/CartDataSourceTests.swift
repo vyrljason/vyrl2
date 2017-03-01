@@ -16,6 +16,8 @@ final class ProductProvidingMock: ProductProviding {
 
     var mockedProduct: Product? = Product(id: "",
                                           name: "Leica",
+                                          description: "Custom-made by Jony Ive and Marc Newson",
+                                          brandId: "",
                                           retailPrice: 1_805_000,
                                           imageUrls: [])
 
