@@ -7,8 +7,19 @@ import XCTest
 
 // MARK: - Mocks
 
-final class BrandStoreDataSourceMock: NSObject, CollectionViewDataProviding, CollectionViewNibRegistering, CollectionViewUsing {
-    weak var delegate: CollectionViewHaving & CollectionViewControlling?
+final class ProductDetailsPresenterMock: ProductDetailsPresenting {
+    var didCallPresentProductDetails = false
+    var productArgument: Product?
+    
+    func presentProductDetails(for product: Product, animated: Bool) {
+        didCallPresentProductDetails = true
+        productArgument = product
+    }
+}
+
+final class BrandStoreDataSourceMock: NSObject, BrandStoreDataProviding {
+    weak var collectionViewControllingDelegate: CollectionViewHaving & CollectionViewControlling?
+    weak var selectionDelegate: ProductSelecting?
     var didRegisterNibs = false
     var didLoadData = false
     var didUseCollectionView = false
@@ -41,10 +52,13 @@ final class BrandStoreInteractorTest: XCTestCase {
     var subject: BrandStoreInteractor!
     var dataSourceMock: BrandStoreDataSourceMock!
     var collectionViewMock = CollectionViewMock()
+    var presenterMock = ProductDetailsPresenterMock()
     
     override func setUp() {
+        presenterMock = ProductDetailsPresenterMock()
         dataSourceMock = BrandStoreDataSourceMock()
         subject = BrandStoreInteractor(dataSource: dataSourceMock)
+        subject.productDetailsPresenter = presenterMock
     }
     
     func test_use_registersNibs() {
@@ -82,6 +96,19 @@ final class BrandStoreInteractorTest: XCTestCase {
             subject.updateCollection(with: result)
             XCTAssertTrue(collectionViewMock.reloadDidCall)
         }
+    }
+    
+    func test_didSelect_callsStorePresenter() {
+        let product = VyrlFaker.faker.product()
+        
+        subject.didSelect(product: product)
+        
+        XCTAssertTrue(presenterMock.didCallPresentProductDetails)
+        guard let presenterArgument: Product = presenterMock.productArgument else {
+            XCTAssertTrue(false)
+            return
+        }
+        XCTAssertEqual(presenterArgument.id, product.id)
     }
 }
 

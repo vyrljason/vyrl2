@@ -4,16 +4,24 @@
 
 import UIKit
 
-protocol BrandStoreInteracting: CollectionViewHaving, CollectionViewUsing, CollectionViewControlling { }
+protocol BrandStoreInteracting: CollectionViewHaving, CollectionViewUsing, CollectionViewControlling, ProductSelecting {
+    weak var productDetailsPresenter: ProductDetailsPresenting? { get set }
+}
+
+protocol ProductSelecting: class {
+    func didSelect(product: Product)
+}
 
 final class BrandStoreInteractor: BrandStoreInteracting {
     
-    fileprivate let dataSource: CollectionViewNibRegistering & CollectionViewDataProviding & CollectionViewUsing
+    fileprivate let dataSource: BrandStoreDataProviding
     weak var collectionView: UICollectionView?
+    weak var productDetailsPresenter: ProductDetailsPresenting?
     
-    init(dataSource: CollectionViewNibRegistering & CollectionViewDataProviding & CollectionViewUsing) {
+    init(dataSource: BrandStoreDataProviding) {
         self.dataSource = dataSource
-        self.dataSource.delegate = self
+        self.dataSource.collectionViewControllingDelegate = self
+        self.dataSource.selectionDelegate = self
     }
 }
 
@@ -34,5 +42,11 @@ extension BrandStoreInteractor: CollectionViewUsing {
         self.collectionView?.delegate = dataSource
         dataSource.registerNibs(in: collectionView)
         dataSource.use(collectionView)
+    }
+}
+
+extension BrandStoreInteractor: ProductSelecting {
+    func didSelect(product: Product) {
+        productDetailsPresenter?.presentProductDetails(for: product, animated: true)
     }
 }

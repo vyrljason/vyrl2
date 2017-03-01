@@ -46,14 +46,21 @@ final class ServiceMock: ProductsProviding {
     }
 }
 
-final class InteractorMock: CollectionViewHaving, CollectionViewControlling {
+final class InteractorMock: CollectionViewHaving, CollectionViewControlling, ProductSelecting {
     var collectionView: UICollectionView?
     var updateResult: DataFetchResult?
+    var calledDidSelect: Bool = false
+    var productArgument: Product?
     
     func updateCollection(with result: DataFetchResult) {
         updateResult = result
     }
     func loadData() { }
+    
+    func didSelect(product: Product) {
+        calledDidSelect = true
+        productArgument = product
+    }
 }
 
 // MARK: - Tests
@@ -71,7 +78,8 @@ final class BrandStoreDataSourceTest: XCTestCase {
         brand = VyrlFaker.faker.brand()
         interactorMock.collectionView = collectionViewMock
         subject = BrandStoreDataSource(brand: brand, service: serviceMock, flowLayoutHandler: flowLayoutHandlerMock)
-        subject.delegate = interactorMock
+        subject.collectionViewControllingDelegate = interactorMock
+        subject.selectionDelegate = interactorMock
     }
     
     func test_whenServiceReturnsNonEmptyData_updatesDelegate() {
@@ -137,6 +145,21 @@ final class BrandStoreDataSourceTest: XCTestCase {
         subject.use(collectionViewMock)
         
         XCTAssertTrue(flowLayoutHandlerMock.didUseCollectionView)
+    }
+    
+    func test_onItemSelect_callSelectDelegate() {
+        let indexPath = IndexPath(item: 0, section: 0)
+        subject.loadData()
+        
+        subject.collectionView(collectionViewMock, didSelectItemAt: indexPath)
+        
+        XCTAssertTrue(interactorMock.calledDidSelect)
+        guard let argument: Product = interactorMock.productArgument else {
+            XCTAssertTrue(false)
+            return
+        }
+        XCTAssertEqual(argument.id, serviceMock.products[0].id)
+        
     }
 }
 
