@@ -77,6 +77,12 @@
 		31EF22E71E664C180073F624 /* ProductDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31EF22E51E664C180073F624 /* ProductDetailsViewController.swift */; };
 		31EF22E81E664C180073F624 /* ProductDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31EF22E61E664C180073F624 /* ProductDetailsViewController.xib */; };
 		31EF22EA1E664C670073F624 /* ProductDetailsControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31EF22E91E664C670073F624 /* ProductDetailsControllerFactory.swift */; };
+		31EF22EF1E676E380073F624 /* ProductDetailsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31EF22EE1E676E380073F624 /* ProductDetailsInteractor.swift */; };
+		31EF22F11E67742C0073F624 /* TableViewDataProviding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31EF22F01E67742C0073F624 /* TableViewDataProviding.swift */; };
+		31EF22F31E6779780073F624 /* TableViewUsing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31EF22F21E6779780073F624 /* TableViewUsing.swift */; };
+		31EF22F51E677E310073F624 /* TableViewHaving.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31EF22F41E677E310073F624 /* TableViewHaving.swift */; };
+		31EF22F71E677EB80073F624 /* TableViewControlling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31EF22F61E677EB80073F624 /* TableViewControlling.swift */; };
+		31EF22FD1E6784BA0073F624 /* ProductDetailsInteractorTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31EF22FC1E6784BA0073F624 /* ProductDetailsInteractorTest.swift */; };
 		31FEB5A31E5C37A100C5E41D /* BrandStoreInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31FEB5A21E5C37A100C5E41D /* BrandStoreInteractor.swift */; };
 		31FEB5AA1E5C3A4800C5E41D /* BrandStoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31FEB5A81E5C3A4800C5E41D /* BrandStoreViewController.swift */; };
 		31FEB5AB1E5C3A4800C5E41D /* BrandStoreViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31FEB5A91E5C3A4800C5E41D /* BrandStoreViewController.xib */; };
@@ -302,6 +308,12 @@
 		31EF22E51E664C180073F624 /* ProductDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductDetailsViewController.swift; sourceTree = "<group>"; };
 		31EF22E61E664C180073F624 /* ProductDetailsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProductDetailsViewController.xib; sourceTree = "<group>"; };
 		31EF22E91E664C670073F624 /* ProductDetailsControllerFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductDetailsControllerFactory.swift; sourceTree = "<group>"; };
+		31EF22EE1E676E380073F624 /* ProductDetailsInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductDetailsInteractor.swift; sourceTree = "<group>"; };
+		31EF22F01E67742C0073F624 /* TableViewDataProviding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewDataProviding.swift; sourceTree = "<group>"; };
+		31EF22F21E6779780073F624 /* TableViewUsing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewUsing.swift; sourceTree = "<group>"; };
+		31EF22F41E677E310073F624 /* TableViewHaving.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewHaving.swift; sourceTree = "<group>"; };
+		31EF22F61E677EB80073F624 /* TableViewControlling.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewControlling.swift; sourceTree = "<group>"; };
+		31EF22FC1E6784BA0073F624 /* ProductDetailsInteractorTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductDetailsInteractorTest.swift; sourceTree = "<group>"; };
 		31FEB5A21E5C37A100C5E41D /* BrandStoreInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrandStoreInteractor.swift; sourceTree = "<group>"; };
 		31FEB5A51E5C392A00C5E41D /* BrandStoreControllerFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrandStoreControllerFactory.swift; sourceTree = "<group>"; };
 		31FEB5A81E5C3A4800C5E41D /* BrandStoreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrandStoreViewController.swift; sourceTree = "<group>"; };
@@ -874,6 +886,9 @@
 			isa = PBXGroup;
 			children = (
 				31EF22E41E664B310073F624 /* Factories */,
+				31EF22ED1E672C9C0073F624 /* Renderable */,
+				31EF22EC1E672C8B0073F624 /* DataSource */,
+				31EF22EB1E672C840073F624 /* Interactor */,
 				31EF22E31E664B280073F624 /* Views */,
 			);
 			name = ProductDetails;
@@ -894,6 +909,44 @@
 				31EF22E91E664C670073F624 /* ProductDetailsControllerFactory.swift */,
 			);
 			name = Factories;
+			sourceTree = "<group>";
+		};
+		31EF22EB1E672C840073F624 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				31EF22EE1E676E380073F624 /* ProductDetailsInteractor.swift */,
+			);
+			name = Interactor;
+			sourceTree = "<group>";
+		};
+		31EF22EC1E672C8B0073F624 /* DataSource */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = DataSource;
+			sourceTree = "<group>";
+		};
+		31EF22ED1E672C9C0073F624 /* Renderable */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Renderable;
+			sourceTree = "<group>";
+		};
+		31EF22F81E67845A0073F624 /* ProductDetails */ = {
+			isa = PBXGroup;
+			children = (
+				31EF22F91E67846D0073F624 /* Interactor */,
+			);
+			name = ProductDetails;
+			sourceTree = "<group>";
+		};
+		31EF22F91E67846D0073F624 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				31EF22FC1E6784BA0073F624 /* ProductDetailsInteractorTest.swift */,
+			);
+			name = Interactor;
 			sourceTree = "<group>";
 		};
 		31FEB5A11E5C376E00C5E41D /* Interactor */ = {
@@ -1138,6 +1191,10 @@
 				858D64101E570E4C00CFDD4C /* CollectionViewDataProviding.swift */,
 				858D641F1E5734A800CFDD4C /* CollectionViewUsing.swift */,
 				858D64461E58A4C000CFDD4C /* CollectionViewRefreshing.swift */,
+				31EF22F01E67742C0073F624 /* TableViewDataProviding.swift */,
+				31EF22F61E677EB80073F624 /* TableViewControlling.swift */,
+				31EF22F41E677E310073F624 /* TableViewHaving.swift */,
+				31EF22F21E6779780073F624 /* TableViewUsing.swift */,
 				85FA7A271E5C730800491EED /* NavigationHaving.swift */,
 				850A80A61E5D927300E684A3 /* DictionaryConvertible.swift */,
 				850A80CE1E5DCABA00E684A3 /* JSONSerializationProtocol.swift */,
@@ -1309,6 +1366,7 @@
 				1AF49CCE1E59E85500FE7857 /* RootNavigation */,
 				858D64221E573D2C00CFDD4C /* Brands */,
 				3169B9AF1E6049FB005F8A94 /* BrandStore */,
+				31EF22F81E67845A0073F624 /* ProductDetails */,
 			);
 			name = Modules;
 			sourceTree = "<group>";
@@ -1778,9 +1836,11 @@
 				850A80CD1E5DC7F900E684A3 /* APIError.swift in Sources */,
 				1A3121641E6471EB00F71925 /* CartDataSource.swift in Sources */,
 				85B0A8361E670273002093BA /* UIBezierPath+StyleKit.swift in Sources */,
+				31EF22F31E6779780073F624 /* TableViewUsing.swift in Sources */,
 				858D640B1E560F0100CFDD4C /* CollectionViewHaving.swift in Sources */,
 				853859A91E607F450098D1EB /* DiscoveryFilterSettings.swift in Sources */,
 				850A81041E5F1FCF00E684A3 /* SessionManaging.swift in Sources */,
+				31EF22EF1E676E380073F624 /* ProductDetailsInteractor.swift in Sources */,
 				85CA3FC51E642EB500D43805 /* HTTPHeadersProvider.swift in Sources */,
 				853859A01E6076570098D1EB /* UserProfile.swift in Sources */,
 				858D641E1E572C4300CFDD4C /* APIResponseError.swift in Sources */,
@@ -1799,6 +1859,7 @@
 				1A1FA94B1E5DF3E0007EB61D /* LeftMenuInteractorFactory.swift in Sources */,
 				850A80CF1E5DCABA00E684A3 /* JSONSerializationProtocol.swift in Sources */,
 				85CA3FF11E648A3400D43805 /* FormField.swift in Sources */,
+				31EF22F11E67742C0073F624 /* TableViewDataProviding.swift in Sources */,
 				853771961E5C425B00E693AD /* BrandsNavigation.swift in Sources */,
 				1A859C101E575E180013EB09 /* RootNavigationInteractor.swift in Sources */,
 				850A80C81E5DAB3200E684A3 /* LoginEndpoint.swift in Sources */,
@@ -1814,6 +1875,7 @@
 				858D63E71E55F21800CFDD4C /* ServiceLocator.swift in Sources */,
 				1A1FA93C1E5D950A007EB61D /* CategoryCell.swift in Sources */,
 				1A859C151E575E7E0013EB09 /* RootNavigationBuilder.swift in Sources */,
+				31EF22F71E677EB80073F624 /* TableViewControlling.swift in Sources */,
 				850A80F01E5E268300E684A3 /* AuthorizationCredentials.swift in Sources */,
 				850A80BB1E5DA92800E684A3 /* APIEndpoint.swift in Sources */,
 				853859A71E607E420098D1EB /* UserSettings.swift in Sources */,
@@ -1863,6 +1925,7 @@
 				850A810A1E5F2B4B00E684A3 /* ResourceConfiguratorFactory.swift in Sources */,
 				850A80F21E5E269F00E684A3 /* UserCredentials.swift in Sources */,
 				1AEBB9721E608A9B00113DC9 /* CartInteractor.swift in Sources */,
+				31EF22F51E677E310073F624 /* TableViewHaving.swift in Sources */,
 				858D644A1E58A67200CFDD4C /* EmptyCollectionViewHandler.swift in Sources */,
 				31EF22E71E664C180073F624 /* ProductDetailsViewController.swift in Sources */,
 				1ADAF7F61E545FA300155D9F /* RootNavigation.swift in Sources */,
@@ -1926,6 +1989,7 @@
 				858D63F61E55FF8600CFDD4C /* CustomAssertions.swift in Sources */,
 				3169B9D21E650EFC005F8A94 /* BrandStoreHeaderSnapshotTest.swift in Sources */,
 				850A80B31E5D9EA800E684A3 /* APIConfigurationTest.swift in Sources */,
+				31EF22FD1E6784BA0073F624 /* ProductDetailsInteractorTest.swift in Sources */,
 				3169B9AE1E603B84005F8A94 /* BrandStoreCellSnapshotTest.swift in Sources */,
 				1A1FA9591E5F10DC007EB61D /* LeftMenuViewControllerSnapshotTest.swift in Sources */,
 				85B0A8341E66B63B002093BA /* LoginServiceMock.swift in Sources */,

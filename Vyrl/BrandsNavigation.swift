@@ -49,7 +49,7 @@ extension BrandsNavigation: BrandStorePresenting {
 
 extension BrandsNavigation: ProductDetailsPresenting {
     func presentProductDetails(for product: Product, animated: Bool = true) {
-        let viewController = productDetailsFactory.make(brand: product)
+        let viewController = productDetailsFactory.make(product: product)
         navigationController.pushViewController(viewController, animated: animated)
     }
 }
