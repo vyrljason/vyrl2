@@ -17,14 +17,18 @@ final class RootNavigationTests: XCTestCase {
     private var leftMenu: LeftMenuViewController!
     private var interactor: RootNavigationInteractor!
     private var dataSource: DataSourceMock!
+    private var credentialsProvider: APICredentialsProviderMock!
+    private var leftMenuInteractor: LeftMenuInteractor!
 
     override func setUp() {
         super.setUp()
         window = WindowMock()
         chat = UIViewController()
         cart = UIViewController()
+        credentialsProvider = APICredentialsProviderMock()
         dataSource = DataSourceMock()
-        leftMenu = LeftMenuViewController(interactor: LeftMenuInteractor(dataSource: dataSource))
+        leftMenuInteractor = LeftMenuInteractor(dataSource: dataSource, credentialsProvider: credentialsProvider)
+        leftMenu = LeftMenuViewController(interactor: leftMenuInteractor)
         interactor = RootNavigationInteractor()
         brandsNavigationController = NavigationControllerMock()
         navigationProvider = NavigationProviderMock(navigationController: brandsNavigationController)
@@ -36,17 +40,32 @@ final class RootNavigationTests: XCTestCase {
         builder.chat = chat
         builder.window = window
         builder.mainNavigation = navigationProvider
+        builder.credentialsProvider = credentialsProvider
 
         subject = builder.build()
     }
 
-    func test_showInitialViewController_showsSlideMenuController() {
-        subject.showInitialViewController()
+    func test_showInitialViewController_whenUserIsLoggedIn_showsSlideMenuController() {
+        credentialsProvider.userAccessToken = "token"
+        subject.showInitialViewController(animated: false)
         XCTAssertTrue(window.setRootViewController! is SlideMenuController)
     }
 
-    func test_showInitialViewController_slideMenuHasCorrectViewControllers() {
-        subject.showInitialViewController()
+    func test_showInitialViewController_whenUserIsNotLoggedIn_showsLoginViewController() {
+        credentialsProvider.userAccessToken = nil
+        subject.showInitialViewController(animated: false)
+
+        if let navigationController = window.setRootViewController as? UINavigationController {
+            XCTAssertTrue(navigationController.topViewController is LoginViewController)
+        } else {
+            XCTFail()
+        }
+    }
+
+    func test_showInitialViewController_whenUserIsLoggedIn_slideMenuHasCorrectViewControllers() {
+        credentialsProvider.userAccessToken = "token"
+
+        subject.showInitialViewController(animated: false)
 
         guard let menu = window.setRootViewController as? SlideMenuController else {
             XCTFail()

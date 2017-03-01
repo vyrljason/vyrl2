@@ -7,6 +7,7 @@ import UIKit
 @objc protocol LeftMenuInteracting: class {
     func didTapHome()
     func didTapAccount()
+    func didTapLogout()
     func use(_ collectionView: UICollectionView)
 }
 
@@ -16,12 +17,14 @@ protocol CategorySelectionHandling: class {
 
 final class LeftMenuInteractor: LeftMenuInteracting, CategorySelectionHandling {
 
-    weak var delegate: HomeScreenPresenting & CategoryPresenting & AccountScreenPresenting?
+    weak var delegate: HomeScreenPresenting & CategoryPresenting & AccountScreenPresenting & AuthorizationScreenPresenting?
     
     private let dataSource: CollectionViewUsing & CategoriesSelectionDelegateHaving & UICollectionViewDelegate & UICollectionViewDataSource
-
-    init(dataSource: CollectionViewUsing & CategoriesSelectionDelegateHaving & UICollectionViewDelegate & UICollectionViewDataSource) {
+    private let credentialsProvider: APICredentialsProviding
+    init(dataSource: CollectionViewUsing & CategoriesSelectionDelegateHaving & UICollectionViewDelegate & UICollectionViewDataSource,
+         credentialsProvider: APICredentialsProviding) {
         self.dataSource = dataSource
+        self.credentialsProvider = credentialsProvider
         dataSource.delegate = self
     }
 
@@ -39,5 +42,10 @@ final class LeftMenuInteractor: LeftMenuInteracting, CategorySelectionHandling {
 
     func didSelect(category: Category) {
         delegate?.show(category)
+    }
+
+    func didTapLogout() {
+        credentialsProvider.clear()
+        delegate?.showAuthorization()
     }
 }

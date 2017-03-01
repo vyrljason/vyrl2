@@ -10,6 +10,7 @@ final class LeftMenuInteractingMock: LeftMenuInteracting {
     var collectionView: UICollectionView?
     var didTapHomeCalled = false
     var didTapAccountCalled = false
+    var didTapLogoutCalled = false
 
     func didTapHome() {
         didTapHomeCalled = true
@@ -17,6 +18,10 @@ final class LeftMenuInteractingMock: LeftMenuInteracting {
 
     func didTapAccount() {
         didTapAccountCalled = true
+    }
+
+    func didTapLogout() {
+        didTapLogoutCalled = true
     }
 
     func use(_ collectionView: UICollectionView) {

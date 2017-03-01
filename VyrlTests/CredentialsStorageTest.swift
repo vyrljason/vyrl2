@@ -46,11 +46,12 @@ final class CredentialsStorageTest: XCTestCase {
         XCTAssertEqual(accessToken, subject.accessToken)
     }
 
-    func test_save_credentials_setsAccessToken() {
-        let credentials = AuthorizationCredentials(accessToken: accessToken, expiresIn: 0, tokenType: "Bearer")
+    func test_save_setsAccessToken() {
+        let token = "token"
+        let userProfile = VyrlFaker.faker.userProfile(token: token)
 
-        subject.save(credentials: credentials)
+        subject.saveToken(using: userProfile)
 
-        XCTAssertEqual(subject.accessToken, credentials.accessToken)
+        XCTAssertEqual(subject.accessToken, token)
     }
 }

@@ -11,12 +11,14 @@ final class LeftMenuInteractorTests: XCTestCase {
     private var homeScreenPresentingMock: HomeScreenPresentingMock!
     private var dataSource: DataSourceMock!
     private var subject: LeftMenuInteractor!
+    private var credentialsProvider: APICredentialsProviderMock!
 
     override func setUp() {
         super.setUp()
         homeScreenPresentingMock = HomeScreenPresentingMock()
         dataSource = DataSourceMock()
-        subject = LeftMenuInteractor(dataSource: dataSource)
+        credentialsProvider = APICredentialsProviderMock()
+        subject = LeftMenuInteractor(dataSource: dataSource, credentialsProvider: credentialsProvider)
         subject.delegate = homeScreenPresentingMock
     }
 
@@ -45,5 +47,13 @@ final class LeftMenuInteractorTests: XCTestCase {
         subject.use(collectionView)
 
         XCTAssertTrue(dataSource.collectionView === collectionView)
+    }
+
+    func test_didTapLogout_calledShowAuthorizationAndCallsClear() {
+        subject.didTapLogout()
+
+        XCTAssertTrue(homeScreenPresentingMock.showAuthorizationCalled)
+        XCTAssertTrue(credentialsProvider.didCallClear)
+
     }
 }

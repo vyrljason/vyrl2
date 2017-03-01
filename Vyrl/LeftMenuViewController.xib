@@ -14,6 +14,7 @@
                 <outlet property="accountButton" destination="hfJ-Qp-ZxW" id="QrK-K1-TDJ"/>
                 <outlet property="collectionView" destination="puu-xC-rYI" id="Lnp-ha-F1e"/>
                 <outlet property="homeButton" destination="IJe-wT-f19" id="G1e-B0-GTl"/>
+                <outlet property="logoutButton" destination="I3Q-Pe-fKJ" id="U07-vA-sco"/>
                 <outlet property="view" destination="iN0-l3-epB" id="twT-NE-PPx"/>
             </connections>
         </placeholder>
@@ -40,7 +41,7 @@
                     </constraints>
                 </view>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" canCancelContentTouches="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="puu-xC-rYI">
-                    <rect key="frame" x="0.0" y="64" width="375" height="559"/>
+                    <rect key="frame" x="0.0" y="64" width="375" height="514"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="qfr-0v-5RN">
                         <size key="itemSize" width="50" height="50"/>
@@ -50,22 +51,36 @@
                     </collectionViewFlowLayout>
                 </collectionView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uvC-nK-fIw">
-                    <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                    <rect key="frame" x="0.0" y="578" width="375" height="89"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hfJ-Qp-ZxW">
                             <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                            <color key="backgroundColor" red="0.60392156860000001" green="0.1176470588" blue="0.1450980392" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="44" id="R9R-k0-h9z"/>
+                            </constraints>
                             <state key="normal" title="ACCOUNT">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
                         </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I3Q-Pe-fKJ">
+                            <rect key="frame" x="0.0" y="45" width="375" height="44"/>
+                            <color key="backgroundColor" red="0.60392156860000001" green="0.1176470588" blue="0.1450980392" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <state key="normal" title="Log out">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                        </button>
                     </subviews>
-                    <color key="backgroundColor" red="0.60392156860000001" green="0.1176470588" blue="0.1450980392" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
+                        <constraint firstAttribute="trailing" secondItem="I3Q-Pe-fKJ" secondAttribute="trailing" id="9q6-sN-TUf"/>
                         <constraint firstItem="hfJ-Qp-ZxW" firstAttribute="top" secondItem="uvC-nK-fIw" secondAttribute="top" id="BLb-lp-RtD"/>
-                        <constraint firstAttribute="bottom" secondItem="hfJ-Qp-ZxW" secondAttribute="bottom" id="Cu6-Nc-7cm"/>
-                        <constraint firstAttribute="height" constant="44" id="Jnx-WI-suk"/>
+                        <constraint firstAttribute="height" constant="89" id="Jnx-WI-suk"/>
                         <constraint firstAttribute="trailing" secondItem="hfJ-Qp-ZxW" secondAttribute="trailing" id="KP7-nj-sJK"/>
                         <constraint firstItem="hfJ-Qp-ZxW" firstAttribute="leading" secondItem="uvC-nK-fIw" secondAttribute="leading" id="hbS-mO-6bd"/>
+                        <constraint firstAttribute="bottom" secondItem="I3Q-Pe-fKJ" secondAttribute="bottom" id="hp9-iD-Ngp"/>
+                        <constraint firstItem="I3Q-Pe-fKJ" firstAttribute="height" secondItem="hfJ-Qp-ZxW" secondAttribute="height" id="rU5-Yi-06K"/>
+                        <constraint firstItem="I3Q-Pe-fKJ" firstAttribute="leading" secondItem="uvC-nK-fIw" secondAttribute="leading" id="tO0-FV-K89"/>
                     </constraints>
                 </view>
             </subviews>

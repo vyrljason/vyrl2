@@ -7,4 +7,9 @@ import Foundation
 
 final class APICredentialsProviderMock: APICredentialsProviding {
     var userAccessToken: String?
+    var didCallClear = false
+    
+    func clear() {
+        didCallClear = true
+    }
 }

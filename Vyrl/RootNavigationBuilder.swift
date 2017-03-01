@@ -22,7 +22,9 @@ final class RootNavigationBuilder {
     var window: WindowProtocol = UIWindow()
     var accountMaker: AccountViewControllerMaking.Type = AccountViewControllerFactory.self
     var leftMenuInteractor = LeftMenuInteractorFactory.make()
+    var loginControllerMaker: LoginControllerMaking.Type = LoginControllerFactory.self
     lazy var leftMenu: UIViewController = { return LeftMenuViewController(interactor: self.leftMenuInteractor) }()
+    var credentialsProvider: APICredentialsProviding = APICredentialsProvider(storage: CredentialsStorage())
 
     func build() -> RootNavigation {
 
@@ -35,8 +37,9 @@ final class RootNavigationBuilder {
                                         cart: cart,
                                         chat: chat,
                                         accountMaker: accountMaker,
-                                        window: window)
-
+                                        window: window,
+                                        credentialsProvider: credentialsProvider,
+                                        loginControllerMaker: loginControllerMaker)
         leftMenuInteractor.delegate = navigation
         navigation.brandsFiltering = brandsInteractor
         return navigation

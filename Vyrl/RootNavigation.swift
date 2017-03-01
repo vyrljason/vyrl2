@@ -5,11 +5,23 @@
 import UIKit
 import SlideMenuControllerSwift
 
+protocol MainNavigationPresenting: class {
+    func presentMainNavigation(animated: Bool)
+}
+
+protocol AuthorizationFlowPresenting: class {
+    func presentAuthorizationNavigation(animated: Bool)
+}
+
 protocol RootNavigationControlling: class {
     func showMenu()
     func showChat()
     func showCart()
     func dismissModal()
+}
+
+protocol AuthorizationScreenPresenting {
+    func showAuthorization()
 }
 
 protocol HomeScreenPresenting: class {
@@ -26,25 +38,28 @@ protocol CategoryPresenting: class {
 
 final class RootNavigation {
 
-    private enum Constants {
+    fileprivate enum Constants {
         static let menuWidthRatio: CGFloat = 0.8
         static let contentViewScale: CGFloat = 1.0
-        static let titleImage: UIImage = UIImage()
+        static let titleImage: UIImage = StyleKit.navigationBarLogo
         static let navigationBarRenderable = NavigationBarRenderable(tintColor: .white,
                                                                      titleFont: .titleFont,
                                                                      backgroundColor: .rouge,
                                                                      translucent: false)
         static let closeTitle: String = NSLocalizedString("Close", comment: "")
+        static let animationDuration: TimeInterval = 0.3
     }
 
     fileprivate var mainNavigation: NavigationControlling
-    private let window: WindowProtocol
+    fileprivate let window: WindowProtocol
     fileprivate var slideMenu: SlideMenuController!
-    private let leftMenu: UIViewController
+    fileprivate let leftMenu: UIViewController
     fileprivate let cart: UIViewController
     fileprivate let chat: UIViewController
     fileprivate let accountMaker: AccountViewControllerMaking.Type
-    private let interactor: RootNavigationInteracting & NavigationDelegateHaving
+    fileprivate let interactor: RootNavigationInteracting & NavigationDelegateHaving
+    fileprivate let credentialsProvider: APICredentialsProviding
+    fileprivate let loginControllerMaker: LoginControllerMaking.Type
 
     weak var brandsFiltering: BrandsFilteringByCategory?
 
@@ -55,7 +70,9 @@ final class RootNavigation {
          cart: UIViewController,
          chat: UIViewController,
          accountMaker: AccountViewControllerMaking.Type,
-         window: WindowProtocol) {
+         window: WindowProtocol,
+         credentialsProvider: APICredentialsProviding,
+         loginControllerMaker: LoginControllerMaking.Type) {
         self.interactor = interactor
         self.mainNavigation = mainNavigation
         self.leftMenu = leftMenu
@@ -63,18 +80,102 @@ final class RootNavigation {
         self.chat = chat
         self.accountMaker = accountMaker
         self.window = window
+        self.credentialsProvider = credentialsProvider
+        self.loginControllerMaker = loginControllerMaker
         interactor.delegate = self
+        setUpSlideMenu()
     }
 
-    func showInitialViewController() {
+    private func setUpSlideMenu() {
         setUpSlideMenuOptions()
-        presentSlideMenu()
+        slideMenu = SlideMenuController(mainViewController: mainNavigation.navigationController,
+                                        leftMenuViewController: leftMenu)
     }
 
-    private func presentSlideMenu() {
-        setUpMainNavigationController()
-        createAndPresentSlideMenu()
+    fileprivate func presentModally(_ viewController: UIViewController) {
+        viewController.modalTransitionStyle = .coverVertical
+        viewController.modalPresentationStyle = .fullScreen
+        let close = UIBarButtonItem(title: Constants.closeTitle,
+                                    style: .done,
+                                    target: interactor,
+                                    action: #selector(RootNavigationInteracting.didTapClose))
+        viewController.navigationItem.leftBarButtonItem = close
+        let navigation = UINavigationController(rootViewController: viewController)
+        navigation.render(Constants.navigationBarRenderable)
+        mainNavigation.present(navigation, animated: true)
     }
+
+    fileprivate func transition(to controller: UIViewController, animated: Bool = true) {
+        guard let window = window as? UIView else { return }
+        let switchAction = {
+            self.window.rootViewController = controller
+            self.makeWindowKeyAndVisible()
+        }
+        if animated {
+            UIView.transition(with: window,
+                              duration: Constants.animationDuration,
+                              options: .transitionCrossDissolve,
+                              animations: {
+                                switchAction()
+            }, completion: nil)
+        } else {
+            switchAction()
+        }
+
+    }
+
+    fileprivate func makeWindowKeyAndVisible() {
+        if !window.isKeyWindow {
+            window.makeKeyAndVisible()
+        }
+    }
+
+    private func setUpSlideMenuOptions() {
+        SlideMenuOptions.leftViewWidth = UIScreen.main.bounds.size.width * Constants.menuWidthRatio
+        SlideMenuOptions.contentViewScale = Constants.contentViewScale
+        SlideMenuOptions.contentViewDrag = true
+    }
+}
+
+extension RootNavigation {
+    func showInitialViewController(animated: Bool = true) {
+        if credentialsProvider.userAccessToken != nil {
+            presentMainNavigation(animated: animated)
+        } else {
+            presentAuthorizationNavigation(animated: animated)
+        }
+    }
+}
+
+extension RootNavigation: AuthorizationFlowPresenting {
+    func presentAuthorizationNavigation(animated: Bool) {
+        let viewController = loginControllerMaker.make(using: self)
+        viewController.render(NavigationItemRenderable(titleImage: Constants.titleImage))
+        let authorizationNavigation = UINavigationController(rootViewController: viewController)
+        authorizationNavigation.render(Constants.navigationBarRenderable)
+
+        transition(to: authorizationNavigation, animated: animated)
+    }
+}
+
+extension RootNavigation: AuthorizationListener {
+    func didFinishAuthorizing() {
+        presentMainNavigation(animated: true)
+    }
+}
+
+extension RootNavigation: MainNavigationPresenting {
+    func presentMainNavigation(animated: Bool) {
+        setUpMainNavigationController()
+        transition(to: slideMenu, animated: animated)
+    }
+
+    private func setUpMainNavigationController() {
+        guard let topViewController = mainNavigation.navigationController.topViewController else { return }
+        setUpNavigationItems(in: topViewController)
+        mainNavigation.navigationController.render(Constants.navigationBarRenderable)
+    }
+
     private func setUpNavigationItems(in viewController: UIViewController) {
         viewController.render(NavigationItemRenderable(titleImage: Constants.titleImage))
 
@@ -100,44 +201,6 @@ final class RootNavigation {
 
         viewController.navigationItem.rightBarButtonItems = [chat, cart]
     }
-
-    private func createAndPresentSlideMenu() {
-        slideMenu = SlideMenuController(mainViewController: mainNavigation.navigationController,
-                                        leftMenuViewController: leftMenu)
-        window.rootViewController = slideMenu
-        makeWindowKeyAndVisible()
-    }
-
-    private func setUpMainNavigationController() {
-        guard let topViewController = mainNavigation.navigationController.topViewController else { return }
-        setUpNavigationItems(in: topViewController)
-        mainNavigation.navigationController.render(Constants.navigationBarRenderable)
-    }
-
-    private func setUpSlideMenuOptions() {
-        SlideMenuOptions.leftViewWidth = UIScreen.main.bounds.size.width * Constants.menuWidthRatio
-        SlideMenuOptions.contentViewScale = Constants.contentViewScale
-        SlideMenuOptions.contentViewDrag = true
-    }
-
-    private func makeWindowKeyAndVisible() {
-        if !window.isKeyWindow {
-            window.makeKeyAndVisible()
-        }
-    }
-
-    fileprivate func presentModally(_ viewController: UIViewController) {
-        viewController.modalTransitionStyle = .coverVertical
-        viewController.modalPresentationStyle = .fullScreen
-        let close = UIBarButtonItem(title: Constants.closeTitle,
-                                    style: .done,
-                                    target: interactor,
-                                    action: #selector(RootNavigationInteracting.didTapClose))
-        viewController.navigationItem.leftBarButtonItem = close
-        let navigation = UINavigationController(rootViewController: viewController)
-        navigation.render(Constants.navigationBarRenderable)
-        mainNavigation.present(navigation, animated: true)
-    }
 }
 
 extension RootNavigation: HomeScreenPresenting {
@@ -160,6 +223,13 @@ extension RootNavigation: AccountScreenPresenting {
         let account = accountMaker.make()
         presentModally(account)
         slideMenu.closeLeft()
+    }
+}
+
+extension RootNavigation: AuthorizationScreenPresenting {
+    func showAuthorization() {
+        slideMenu.closeLeft()
+        presentAuthorizationNavigation(animated: true)
     }
 }
 

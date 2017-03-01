@@ -4,10 +4,11 @@
 
 @testable import Vyrl
 
-final class HomeScreenPresentingMock: HomeScreenPresenting, CategoryPresenting, AccountScreenPresenting {
+final class HomeScreenPresentingMock: HomeScreenPresenting, CategoryPresenting, AccountScreenPresenting, AuthorizationScreenPresenting {
 
     var showHomeCalled = false
     var showAccountCalled = false
+    var showAuthorizationCalled = false
     var category: Vyrl.Category?
 
     func showHome() {
@@ -20,5 +21,9 @@ final class HomeScreenPresentingMock: HomeScreenPresenting, CategoryPresenting, 
 
     func showAccount() {
         showAccountCalled = true
+    }
+
+    func showAuthorization() {
+        showAuthorizationCalled = true
     }
 }

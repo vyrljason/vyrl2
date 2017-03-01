@@ -25,9 +25,11 @@ final class CartViewControllerFactory {
                                                                         attributes: Constants.titleAttributes),
                                               description: NSAttributedString(string: Constants.networkingErrorDescription,
                                                                               attributes: Constants.descriptionAttributes))
-        let storage = CartStorage()
-        let dataSource = CartDataSource(cartStorage: storage)
-        let emptyCollectionHandler = EmptyCollectionViewHandler(modeToRenderable: [ .error : error, .noData : noData ])
+        let storage = CartStorage(userDefaults: UserDefaults.standard)
+        storage.add(item: CartItem(id: "", addedAt: Date()))
+        let productProvider = ProductProviderMock()
+        let dataSource = CartDataSource(cartStorage: storage, productProvider: productProvider)
+        let emptyCollectionHandler = EmptyCollectionViewHandler(modeToRenderable: [ .error: error, .noData: noData ])
         let interactor = CartInteractor(dataSource: dataSource, emptyCollectionHandler: emptyCollectionHandler)
         let viewController = CartViewController(interactor: interactor)
         return viewController
