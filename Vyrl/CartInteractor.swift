@@ -5,6 +5,7 @@
 import UIKit
 
 protocol CartInteracting: class, CollectionViewUsing {
+    weak var projector: CartSummaryRendering? { get set }
     func viewDidAppear()
 }
 
@@ -13,10 +14,13 @@ final class CartInteractor: CartInteracting {
     fileprivate let dataSource: CartDataProviding
     fileprivate let emptyCollectionHandler: EmptyCollectionViewHandling
 
+    weak var projector: CartSummaryRendering?
+
     init(dataSource: CartDataProviding, emptyCollectionHandler: EmptyCollectionViewHandling) {
         self.dataSource = dataSource
         self.emptyCollectionHandler = emptyCollectionHandler
-        dataSource.delegate = emptyCollectionHandler
+        dataSource.emptyCollectionDelegate = emptyCollectionHandler
+        dataSource.summaryDelegate = self
     }
 
     func viewDidAppear() {
@@ -30,5 +34,13 @@ extension CartInteractor: CollectionViewUsing {
         collectionView.delegate = dataSource
         emptyCollectionHandler.use(collectionView)
         dataSource.registerNibs(in: collectionView)
+        dataSource.reloadingDelegate = collectionView
+    }
+}
+
+extension CartInteractor: SummaryUpdateHandling {
+    func didUpdate(summary: CartSummary) {
+        let renderable = CartSummaryRenderable(from: summary)
+        projector?.render(renderable)
     }
 }

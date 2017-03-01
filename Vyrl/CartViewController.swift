@@ -8,27 +8,39 @@ struct CartSummaryRenderable {
     let summary: String
     let price: String
     let summaryVisible: Bool
+
+    init(from model: CartSummary) {
+        summaryVisible = model.productsCount > 0
+        price = model.value.asMoneyWithDecimals
+        let summaryFormat = NSLocalizedString("cart.summaryFormat", comment: "") as NSString
+        summary = NSString(format: summaryFormat, model.productsCount, model.brandsCount) as String
+    }
+}
+
+protocol CartSummaryRendering: class {
+    func render(_ renderable: CartSummaryRenderable)
 }
 
 final class CartViewController: UIViewController, HavingNib {
 
     private enum Constants {
-        static let title = NSLocalizedString("YOUR CART", comment: "")
+        static let title = NSLocalizedString("cart.title", comment: "")
     }
 
     static var nibName: String = "CartViewController"
 
     private let interactor: CartInteracting
 
-    @IBOutlet private weak var collectionView: UICollectionView!
-    @IBOutlet private weak var summaryLabel: UILabel!
-    @IBOutlet private weak var price: UILabel!
-    @IBOutlet private weak var summaryView: UIView!
+    @IBOutlet fileprivate weak var collectionView: UICollectionView!
+    @IBOutlet fileprivate weak var summaryLabel: UILabel!
+    @IBOutlet fileprivate weak var price: UILabel!
+    @IBOutlet fileprivate weak var summaryView: UIView!
 
     init(interactor: CartInteracting) {
         self.interactor = interactor
         super.init(nibName: CartViewController.nibName, bundle: nil)
         title = Constants.title
+        interactor.projector = self
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -43,9 +55,11 @@ final class CartViewController: UIViewController, HavingNib {
         super.viewDidAppear(true)
         interactor.viewDidAppear()
     }
+}
 
+extension CartViewController: CartSummaryRendering {
     func render(_ renderable: CartSummaryRenderable) {
-        summaryView.isHidden = renderable.summaryVisible
+        summaryView.isHidden = !renderable.summaryVisible
         price.text = renderable.price
         summaryLabel.text = renderable.summary
     }

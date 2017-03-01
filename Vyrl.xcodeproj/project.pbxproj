@@ -38,6 +38,8 @@
 		1A3121781E66205C00F71925 /* AsyncAssertions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3121771E66205C00F71925 /* AsyncAssertions.swift */; };
 		1A31217A1E66260D00F71925 /* CartItemCellSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3121791E66260D00F71925 /* CartItemCellSnapshotTests.swift */; };
 		1A31217C1E66E9CE00F71925 /* ObjectStoring.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A31217B1E66E9CE00F71925 /* ObjectStoring.swift */; };
+		1A50C1A11E67293E0002A6DC /* CartDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A50C1A01E67293E0002A6DC /* CartDataSource.swift */; };
+		1A50C1A31E6729650002A6DC /* ReloadingData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A50C1A21E6729650002A6DC /* ReloadingData.swift */; };
 		1A69C6A01E55DC8C00134EF5 /* LeftMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A69C69F1E55DC8C00134EF5 /* LeftMenuViewController.swift */; };
 		1A69C6A21E55F79D00134EF5 /* LeftMenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A69C6A11E55F79D00134EF5 /* LeftMenuViewController.xib */; };
 		1A69C6A41E55FF0000134EF5 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A69C6A31E55FF0000134EF5 /* UIColor.swift */; };
@@ -258,6 +260,8 @@
 		1A3121771E66205C00F71925 /* AsyncAssertions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AsyncAssertions.swift; sourceTree = "<group>"; };
 		1A3121791E66260D00F71925 /* CartItemCellSnapshotTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CartItemCellSnapshotTests.swift; sourceTree = "<group>"; };
 		1A31217B1E66E9CE00F71925 /* ObjectStoring.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObjectStoring.swift; sourceTree = "<group>"; };
+		1A50C1A01E67293E0002A6DC /* CartDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CartDataSource.swift; sourceTree = "<group>"; };
+		1A50C1A21E6729650002A6DC /* ReloadingData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReloadingData.swift; sourceTree = "<group>"; };
 		1A69C69F1E55DC8C00134EF5 /* LeftMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftMenuViewController.swift; sourceTree = "<group>"; };
 		1A69C6A11E55F79D00134EF5 /* LeftMenuViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LeftMenuViewController.xib; sourceTree = "<group>"; };
 		1A69C6A31E55FF0000134EF5 /* UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
@@ -549,6 +553,7 @@
 		1A31215F1E6451D600F71925 /* DataSources */ = {
 			isa = PBXGroup;
 			children = (
+				1A50C1A01E67293E0002A6DC /* CartDataSource.swift */,
 				1A3121631E6471EB00F71925 /* Vyrl */,
 				1A3121651E64720000F71925 /* CartStorage.swift */,
 			);
@@ -761,7 +766,7 @@
 				1AEBB96C1E60882C00113DC9 /* Views */,
 			);
 			name = Cart;
-			path = VyrlTests;
+			path = Vyrl;
 			sourceTree = SOURCE_ROOT;
 		};
 		1AEBB96C1E60882C00113DC9 /* Views */ = {
@@ -1130,6 +1135,7 @@
 		852ACD3E1E55DB7400219E90 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
+				1A50C1A21E6729650002A6DC /* ReloadingData.swift */,
 				850A80F51E5EDC8200E684A3 /* Networking */,
 				852ACD3F1E55DB8400219E90 /* HavingNib.swift */,
 				852ACD441E55DCDC00219E90 /* ReusableView.swift */,
@@ -1774,6 +1780,7 @@
 				852ACD431E55DC9600219E90 /* UIView+NibHaving.swift in Sources */,
 				1ADAF7C81E545F3C00155D9F /* AppDelegate.swift in Sources */,
 				3168A2801E5F052600C65434 /* BrandStoreService.swift in Sources */,
+				1A50C1A11E67293E0002A6DC /* CartDataSource.swift in Sources */,
 				858D63DE1E55F18100CFDD4C /* DownloadingImageView.swift in Sources */,
 				850A80CD1E5DC7F900E684A3 /* APIError.swift in Sources */,
 				1A3121641E6471EB00F71925 /* Vyrl in Sources */,
@@ -1884,6 +1891,7 @@
 				8538599A1E606BFD0098D1EB /* VyrlServerTrustPolicyManager.swift in Sources */,
 				853859951E6029050098D1EB /* RegisterEndpoint.swift in Sources */,
 				850A80C61E5DAA1E00E684A3 /* AuthorizationResources.swift in Sources */,
+				1A50C1A31E6729650002A6DC /* ReloadingData.swift in Sources */,
 				85FA7A281E5C730800491EED /* NavigationHaving.swift in Sources */,
 				858D64261E5747D600CFDD4C /* BrandsControllerFactory.swift in Sources */,
 				850A80C11E5DA94800E684A3 /* NetworkEnums.swift in Sources */,
