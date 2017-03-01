@@ -9,9 +9,11 @@ import XCTest
 
 final class ProductDetailsPresenterMock: ProductDetailsPresenting {
     var didCallPresentProductDetails = false
+    var productArgument: Product?
     
     func presentProductDetails(for product: Product, animated: Bool) {
         didCallPresentProductDetails = true
+        productArgument = product
     }
 }
 
@@ -41,8 +43,6 @@ final class BrandStoreDataSourceMock: NSObject, BrandStoreDataProviding {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         return UICollectionViewCell()
     }
-    
-    func didSelect(product: Product) { }
 }
 
 // MARK: - Tests
@@ -104,6 +104,11 @@ final class BrandStoreInteractorTest: XCTestCase {
         subject.didSelect(product: product)
         
         XCTAssertTrue(presenterMock.didCallPresentProductDetails)
+        guard let presenterArgument: Product = presenterMock.productArgument else {
+            XCTAssertTrue(false)
+            return
+        }
+        XCTAssertEqual(presenterArgument.id, product.id)
     }
 }
 

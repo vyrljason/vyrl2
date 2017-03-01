@@ -50,6 +50,7 @@ final class InteractorMock: CollectionViewHaving, CollectionViewControlling, Pro
     var collectionView: UICollectionView?
     var updateResult: DataFetchResult?
     var calledDidSelect: Bool = false
+    var productArgument: Product?
     
     func updateCollection(with result: DataFetchResult) {
         updateResult = result
@@ -58,6 +59,7 @@ final class InteractorMock: CollectionViewHaving, CollectionViewControlling, Pro
     
     func didSelect(product: Product) {
         calledDidSelect = true
+        productArgument = product
     }
 }
 
@@ -152,6 +154,12 @@ final class BrandStoreDataSourceTest: XCTestCase {
         subject.collectionView(collectionViewMock, didSelectItemAt: indexPath)
         
         XCTAssertTrue(interactorMock.calledDidSelect)
+        guard let argument: Product = interactorMock.productArgument else {
+            XCTAssertTrue(false)
+            return
+        }
+        XCTAssertEqual(argument.id, serviceMock.products[0].id)
+        
     }
 }
 

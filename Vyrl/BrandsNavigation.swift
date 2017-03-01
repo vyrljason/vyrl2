@@ -42,14 +42,14 @@ final class BrandsNavigation: NavigationControlling {
 
 extension BrandsNavigation: BrandStorePresenting {
     func presentStore(for brand: Brand, animated: Bool = true) {
-        let vc = brandStoreFactory.make(brand: brand, presenter: self)
-        navigationController.pushViewController(vc, animated: animated)
+        let viewController = brandStoreFactory.make(brand: brand, presenter: self)
+        navigationController.pushViewController(viewController, animated: animated)
     }
 }
 
 extension BrandsNavigation: ProductDetailsPresenting {
     func presentProductDetails(for product: Product, animated: Bool = true) {
-        let vc = productDetailsFactory.make(brand: product)
-        navigationController.pushViewController(vc, animated: animated)
+        let viewController = productDetailsFactory.make(brand: product)
+        navigationController.pushViewController(viewController, animated: animated)
     }
 }
