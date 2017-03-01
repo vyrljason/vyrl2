@@ -32,7 +32,7 @@ final class BrandsFactoryMock: BrandsControllerMaking {
 }
 
 final class BrandStoreFactoryMock: BrandStoreMaking {
-    static func make(brand: Brand) -> BrandStoreViewController {
+    static func make(brand: Brand, presenter: ProductDetailsPresenting) -> BrandStoreViewController {
         return BrandStoreViewController(interactor: BrandStoreInteractorMock())
     }
 }

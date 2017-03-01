@@ -7,6 +7,14 @@ import XCTest
 
 // MARK: - Mocks
 
+final class ProductDetailsPresenterMock: ProductDetailsPresenting {
+    var didCallPresentProductDetails = false
+    
+    func presentProductDetails(for product: Product, animated: Bool) {
+        didCallPresentProductDetails = true
+    }
+}
+
 final class BrandStoreDataSourceMock: NSObject, BrandStoreDataProviding {
     weak var delegate: CollectionViewHaving & CollectionViewControlling?
     weak var selectionDelegate: ProductSelecting?
@@ -44,10 +52,13 @@ final class BrandStoreInteractorTest: XCTestCase {
     var subject: BrandStoreInteractor!
     var dataSourceMock: BrandStoreDataSourceMock!
     var collectionViewMock = CollectionViewMock()
+    var presenterMock = ProductDetailsPresenterMock()
     
     override func setUp() {
+        presenterMock = ProductDetailsPresenterMock()
         dataSourceMock = BrandStoreDataSourceMock()
         subject = BrandStoreInteractor(dataSource: dataSourceMock)
+        subject.productDetailsPresenter = presenterMock
     }
     
     func test_use_registersNibs() {
@@ -85,6 +96,14 @@ final class BrandStoreInteractorTest: XCTestCase {
             subject.updateCollection(with: result)
             XCTAssertTrue(collectionViewMock.reloadDidCall)
         }
+    }
+    
+    func test_didSelect_callsStorePresenter() {
+        let product = VyrlFaker.faker.product()
+        
+        subject.didSelect(product: product)
+        
+        XCTAssertTrue(presenterMock.didCallPresentProductDetails)
     }
 }
 
