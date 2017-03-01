@@ -5,7 +5,7 @@
 import UIKit
 
 protocol CollectionViewDataProviding: class, UICollectionViewDataSource, UICollectionViewDelegate {
-    weak var delegate: CollectionViewHaving & CollectionViewControlling? { get set }
+    weak var collectionViewControllingDelegate: CollectionViewHaving & CollectionViewControlling? { get set }
     func loadData()
 }
 

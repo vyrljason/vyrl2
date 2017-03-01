@@ -60,7 +60,7 @@ final class BrandsDataSourceTest: XCTestCase {
         interactor.collectionView = collectionView
 
         subject = BrandsDataSource(service: service)
-        subject.delegate = interactor
+        subject.collectionViewControllingDelegate = interactor
         subject.selectionDelegate = brandSelection
     }
 

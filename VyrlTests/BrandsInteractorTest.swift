@@ -28,7 +28,7 @@ final class DataUpdateListener: DataLoadingEventsListening {
 
 final class BrandsDataSourceMock: NSObject, BrandsDataProviding, BrandsFilteredByCategoryProviding {
 
-    weak var delegate: CollectionViewHaving & CollectionViewControlling?
+    weak var collectionViewControllingDelegate: CollectionViewHaving & CollectionViewControlling?
     weak var selectionDelegate: BrandSelecting?
     var didLoad = false
     var category: Vyrl.Category?
@@ -75,7 +75,7 @@ final class BrandsInteractorTest: XCTestCase {
         subject = BrandsInteractor(dataSource: dataSource, emptyCollectionHandler: emptyCollectionHandler)
         subject.dataUpdateListener = dataUpdateListener
         subject.brandStorePresenter = storePresenter
-        dataSource.delegate = subject
+        dataSource.collectionViewControllingDelegate = subject
     }
 
     func test_use_setsDelegateDataSourceAndRegisterNibs() {

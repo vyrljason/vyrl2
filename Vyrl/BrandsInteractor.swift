@@ -33,7 +33,7 @@ final class BrandsInteractor: BrandsInteracting {
          emptyCollectionHandler: EmptyCollectionViewHandling) {
         self.dataSource = dataSource
         self.emptyCollectionHandler = emptyCollectionHandler
-        dataSource.delegate = self
+        dataSource.collectionViewControllingDelegate = self
         dataSource.selectionDelegate = self
     }
 

@@ -21,7 +21,7 @@ final class BrandsDataSource: NSObject, BrandsDataProviding {
     fileprivate let service: BrandsProviding
     fileprivate var items = [Brand]()
 
-    weak var delegate: CollectionViewHaving & CollectionViewControlling?
+    weak var collectionViewControllingDelegate: CollectionViewHaving & CollectionViewControlling?
     weak var selectionDelegate: BrandSelecting?
 
     init(service: BrandsProviding) {
@@ -46,7 +46,7 @@ extension BrandsDataSource: BrandsFilteredByCategoryProviding {
             guard let `self` = self else { return }
             self.items = result.map(success: { $0 }, failure: { _ in return [] })
             DispatchQueue.onMainThread {
-                self.delegate?.updateCollection(with: result.map(success: { $0 .isEmpty ? .empty : .someData },
+                self.collectionViewControllingDelegate?.updateCollection(with: result.map(success: { $0 .isEmpty ? .empty : .someData },
                                                                  failure: { _ in .error }))
             }
         }
@@ -83,7 +83,7 @@ extension BrandsDataSource: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: delegate?.collectionView?.bounds.width ?? 0, height: Constants.cellHeight)
+        return CGSize(width: collectionViewControllingDelegate?.collectionView?.bounds.width ?? 0, height: Constants.cellHeight)
     }
 
     func collectionView(_ collectionView: UICollectionView,

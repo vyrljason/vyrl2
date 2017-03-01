@@ -13,7 +13,7 @@ final class BrandStoreDataSource: NSObject, BrandStoreDataProviding {
     fileprivate let service: ProductsProviding
     fileprivate var products = [Product]()
     fileprivate var flowLayoutHandler: BrandStoreFlowLayoutHandling
-    weak var delegate: CollectionViewHaving & CollectionViewControlling?
+    weak var collectionViewControllingDelegate: CollectionViewHaving & CollectionViewControlling?
     weak var selectionDelegate: ProductSelecting?
     
     init(brand: Brand,
@@ -82,7 +82,7 @@ extension BrandStoreDataSource: CollectionViewDataProviding {
             guard let `self` = self else { return }
             self.products = result.map(success: { $0 }, failure: { _ in return [] })
             DispatchQueue.onMainThread {
-                self.delegate?.updateCollection(with: result.map(success: { $0.isEmpty ? .empty : .someData }, failure: { _ in return .error }))
+                self.collectionViewControllingDelegate?.updateCollection(with: result.map(success: { $0.isEmpty ? .empty : .someData }, failure: { _ in return .error }))
             }
         }
     }

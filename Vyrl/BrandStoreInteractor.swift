@@ -20,7 +20,7 @@ final class BrandStoreInteractor: BrandStoreInteracting {
     
     init(dataSource: BrandStoreDataProviding) {
         self.dataSource = dataSource
-        self.dataSource.delegate = self
+        self.dataSource.collectionViewControllingDelegate = self
         self.dataSource.selectionDelegate = self
     }
 }

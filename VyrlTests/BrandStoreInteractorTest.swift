@@ -18,7 +18,7 @@ final class ProductDetailsPresenterMock: ProductDetailsPresenting {
 }
 
 final class BrandStoreDataSourceMock: NSObject, BrandStoreDataProviding {
-    weak var delegate: CollectionViewHaving & CollectionViewControlling?
+    weak var collectionViewControllingDelegate: CollectionViewHaving & CollectionViewControlling?
     weak var selectionDelegate: ProductSelecting?
     var didRegisterNibs = false
     var didLoadData = false

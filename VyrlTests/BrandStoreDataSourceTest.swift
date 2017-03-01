@@ -78,7 +78,7 @@ final class BrandStoreDataSourceTest: XCTestCase {
         brand = VyrlFaker.faker.brand()
         interactorMock.collectionView = collectionViewMock
         subject = BrandStoreDataSource(brand: brand, service: serviceMock, flowLayoutHandler: flowLayoutHandlerMock)
-        subject.delegate = interactorMock
+        subject.collectionViewControllingDelegate = interactorMock
         subject.selectionDelegate = interactorMock
     }
     
