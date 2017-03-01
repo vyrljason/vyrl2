@@ -4,7 +4,7 @@
 
 import Foundation
 
-struct CartItem {
+struct CartItem: DictionaryConvertible {
 
     private enum Constants {
         static let idKey: String = "CartItem.id"
@@ -14,12 +14,12 @@ struct CartItem {
     let id: String
     let addedAt: Date
 
-    public init(id: String, addedAt: Date) {
+    init(id: String, addedAt: Date) {
         self.id = id
         self.addedAt = addedAt
     }
 
-    public init?(from dictionary: [String : AnyObject]) {
+    init?(from dictionary: [String : Any]) {
         guard let id = dictionary[Constants.idKey] as? String,
             let addedAt = dictionary[Constants.addedAtKey] as? Date else {
                 return nil
@@ -29,7 +29,7 @@ struct CartItem {
         self.addedAt = addedAt
     }
 
-    var dictionaryRepresentation: [String : AnyObject] {
+    var dictionaryRepresentation: [String : Any] {
         var dictionary: Dictionary = [String : AnyObject]()
         dictionary[Constants.idKey] = id as AnyObject?
         dictionary[Constants.addedAtKey] = addedAt as AnyObject?

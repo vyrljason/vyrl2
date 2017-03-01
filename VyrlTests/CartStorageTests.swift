@@ -30,19 +30,19 @@ final class CartStorageTests: XCTestCase {
     }
 
     func test_addItem_addedToDefaults() {
-        subject.add(item: CartItem(id: "0", addedAt: Date()))
+        subject.add(item: VyrlFaker.faker.cartItem())
 
         expectToEventuallyBeTrue({ return self.userDefaults.object != nil }(), timeout: 0.5)
     }
 
     func test_addItem_added() {
-        subject.add(item: CartItem(id: "0", addedAt: Date()))
+        subject.add(item: VyrlFaker.faker.cartItem())
 
         XCTAssertEqual(subject.items.count, 1)
     }
 
     func test_addItem_then_remove_zeroItems() {
-        let item = CartItem(id: "0", addedAt: Date())
+        let item = VyrlFaker.faker.cartItem()
         subject.add(item: item)
         subject.remove(item: item)
 

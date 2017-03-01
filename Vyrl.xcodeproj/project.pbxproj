@@ -37,6 +37,7 @@
 		1A3121761E65E22900F71925 /* CartStorageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3121751E65E22900F71925 /* CartStorageTests.swift */; };
 		1A3121781E66205C00F71925 /* AsyncAssertions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3121771E66205C00F71925 /* AsyncAssertions.swift */; };
 		1A31217A1E66260D00F71925 /* CartItemCellSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3121791E66260D00F71925 /* CartItemCellSnapshotTests.swift */; };
+		1A31217C1E66E9CE00F71925 /* ObjectStoring.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A31217B1E66E9CE00F71925 /* ObjectStoring.swift */; };
 		1A69C6A01E55DC8C00134EF5 /* LeftMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A69C69F1E55DC8C00134EF5 /* LeftMenuViewController.swift */; };
 		1A69C6A21E55F79D00134EF5 /* LeftMenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A69C6A11E55F79D00134EF5 /* LeftMenuViewController.xib */; };
 		1A69C6A41E55FF0000134EF5 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A69C6A31E55FF0000134EF5 /* UIColor.swift */; };
@@ -233,6 +234,7 @@
 		1A3121751E65E22900F71925 /* CartStorageTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CartStorageTests.swift; sourceTree = "<group>"; };
 		1A3121771E66205C00F71925 /* AsyncAssertions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AsyncAssertions.swift; sourceTree = "<group>"; };
 		1A3121791E66260D00F71925 /* CartItemCellSnapshotTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CartItemCellSnapshotTests.swift; sourceTree = "<group>"; };
+		1A31217B1E66E9CE00F71925 /* ObjectStoring.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObjectStoring.swift; sourceTree = "<group>"; };
 		1A69C69F1E55DC8C00134EF5 /* LeftMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftMenuViewController.swift; sourceTree = "<group>"; };
 		1A69C6A11E55F79D00134EF5 /* LeftMenuViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LeftMenuViewController.xib; sourceTree = "<group>"; };
 		1A69C6A31E55FF0000134EF5 /* UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
@@ -1064,6 +1066,7 @@
 				85FA7A271E5C730800491EED /* NavigationHaving.swift */,
 				850A80A61E5D927300E684A3 /* DictionaryConvertible.swift */,
 				850A80CE1E5DCABA00E684A3 /* JSONSerializationProtocol.swift */,
+				1A31217B1E66E9CE00F71925 /* ObjectStoring.swift */,
 			);
 			name = Protocols;
 			sourceTree = "<group>";
@@ -1665,6 +1668,7 @@
 				852ACD471E55DCF200219E90 /* UIView+ReusableView.swift in Sources */,
 				1A859C0E1E5756C50013EB09 /* UIFont.swift in Sources */,
 				850A80D11E5DCBAF00E684A3 /* JSONModelDeserializer.swift in Sources */,
+				1A31217C1E66E9CE00F71925 /* ObjectStoring.swift in Sources */,
 				1A69C6A81E560F4800134EF5 /* WindowProtocol.swift in Sources */,
 				1A31216E1E65CA1A00F71925 /* CartItem.swift in Sources */,
 				1A1FA9451E5DABE4007EB61D /* Service.swift in Sources */,

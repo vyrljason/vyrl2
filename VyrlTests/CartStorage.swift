@@ -10,14 +10,8 @@ protocol CartStoring: class {
     var items: [CartItem] { get }
 }
 
-protocol ObjectStoring {
-    func set(_ value: Any?, forKey defaultName: String)
-    func object(forKey defaultName: String) -> Any?
-}
-
-extension UserDefaults: ObjectStoring { }
-
 final class CartStorage: CartStoring {
+    
     private enum Constants {
         static let defaultsKey: String = "CartStorageCartItems"
         static let accessQueueLabel: String = "SynchronizedCartStorageAccess"
@@ -49,7 +43,7 @@ final class CartStorage: CartStoring {
     init(userDefaults: ObjectStoring) {
         self.userDefaults = userDefaults
 
-        guard let array = userDefaults.object(forKey: Constants.defaultsKey) as? [[String : AnyObject]] else {
+        guard let array = userDefaults.object(forKey: Constants.defaultsKey) as? [[String : Any]] else {
             _items = []
             return
         }

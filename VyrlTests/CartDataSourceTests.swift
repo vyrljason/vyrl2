@@ -14,12 +14,7 @@ final class CartStoringMock: CartStoring {
 
 final class ProductProvidingMock: ProductProviding {
 
-    var mockedProduct: Product? = Product(id: "",
-                                          name: "Leica",
-                                          description: "Custom-made by Jony Ive and Marc Newson",
-                                          brandId: "",
-                                          retailPrice: 1_805_000,
-                                          imageUrls: [])
+    var mockedProduct: Product? = VyrlFaker.faker.product()
 
     func get(productId: String, completion: @escaping (Result<Product, ProductProvidingEror>) -> Void) {
         switch mockedProduct {
@@ -65,7 +60,7 @@ final class CartDataSourceTests: XCTestCase {
     }
 
     func test_loadData_numberOfItemsInSection_One() {
-        cartStorage.items = [CartItem(id: "", addedAt: Date())]
+        cartStorage.items = [VyrlFaker.faker.cartItem()]
 
         XCTAssertEqual(subject.collectionView(collectionView, numberOfItemsInSection: 0), 1)
     }

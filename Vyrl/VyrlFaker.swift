@@ -26,6 +26,12 @@ extension Faker {
                  ) -> Product {
         return Product(id: id, name: name, description: description, brandId: brandId, retailPrice: retailPrice, imageUrls: [])
     }
+
+    func cartItem(id: String = VyrlFaker.faker.lorem.characters(amount: 20),
+                 addedAt: Date = Date()
+        ) -> CartItem {
+        return CartItem(id: id, addedAt: addedAt)
+    }
 }
 
 extension Internet {
