@@ -1,8 +1,9 @@
-/* 
-  Localizable.strings
-  Vyrl
-
-  Copyright © 2017 Vyrl. All rights reserved.
-*/
-
 "brand.submissionName" = "submissions";
+"validation.error.usernameEmpty" = "Username cannot be empty";
+"validation.error.passwordEmpty" = "Password cannot be empty";
+"validation.error.passwordInvalid" = "Password format is invalid";
+"login.error.invalidPassword.message" = "Incorrect password... Please try again.";
+"login.error.invalidUsername.message" = "Username doesn't exist";
+"login.error.unknown.message" = "Something ham jammed while attempting to log in. Please try again.";
+"login.error.title" = "Error";
+"general.button.alert.ok" = "OK";

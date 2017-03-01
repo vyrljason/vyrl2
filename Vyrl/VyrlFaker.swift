@@ -39,3 +39,61 @@ extension Internet {
         return "https://\(domainName())/\(username())"
     }
 }
+
+extension Faker {
+
+    func userSettings(id: Int = VyrlFaker.faker.number.randomInt(),
+                      user: Int = VyrlFaker.faker.number.randomInt(),
+                      isAdmin: Bool = false,
+                      isBrand: Bool = false,
+                      isInfluencer: Bool = false,
+                      brandRequestClosed: Bool = false,
+                      brandStatusRequested: Bool = false,
+                      chatRequestsEnabled: Bool = false,
+                      emailNotificationsEnabled: Bool = false,
+                      pushNotificationsenabled: Bool = false) -> UserSettings {
+        return UserSettings(id: id,
+                            user: user,
+                            isAdmin: isAdmin,
+                            isBrand: isBrand,
+                            isInfluencer: isInfluencer,
+                            brandRequestClosed: brandRequestClosed,
+                            brandStatusRequested: brandStatusRequested,
+                            chatRequestsEnabled: chatRequestsEnabled,
+                            emailNotificationsEnabled: emailNotificationsEnabled,
+                            pushNotificationsEnabled: pushNotificationsenabled)
+    }
+
+    func socialNetworkProfile(username: String = VyrlFaker.faker.company.name()) -> SocialNetworkProfile {
+        return SocialNetworkProfile(username: username)
+    }
+
+    func userProfile(id: Int = VyrlFaker.faker.number.randomInt(),
+                     avatar: URL = URL(string: VyrlFaker.faker.internet.url())!,
+                     bio: String = VyrlFaker.faker.lorem.characters(amount: 20),
+                     discoveryFeedImage: URL = URL(string: VyrlFaker.faker.internet.url())!,
+                     email: String = VyrlFaker.faker.internet.email(),
+                     fullName: String = VyrlFaker.faker.company.name(),
+                     pendingEmail: String = VyrlFaker.faker.internet.email(),
+                     isPlatformConfirmed: Bool = false,
+                     tagline: String = VyrlFaker.faker.lorem.characters(amount: 20),
+                     token: String = VyrlFaker.faker.lorem.characters(amount: 20),
+                     username: String = VyrlFaker.faker.company.name(),
+                     settings: UserSettings = VyrlFaker.faker.userSettings(),
+                     instagramProfile: SocialNetworkProfile = VyrlFaker.faker.socialNetworkProfile(),
+                     industries: [Industry] = []) -> UserProfile {
+        return UserProfile(id: id,
+                           avatar: avatar,
+                           bio: bio,
+                           discoveryFeedImage: discoveryFeedImage,
+                           email: email, fullName: fullName,
+                           pendingEmail: pendingEmail,
+                           isPlatformConfirmed: isPlatformConfirmed,
+                           tagline: tagline,
+                           token: token,
+                           username: username,
+                           settings: settings,
+                           instagramProfile: instagramProfile,
+                           industries: industries)
+    }
+}

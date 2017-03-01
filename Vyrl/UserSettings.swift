@@ -26,7 +26,7 @@ struct UserSettings {
     let brandStatusRequested: Bool
     let chatRequestsEnabled: Bool
     let emailNotificationsEnabled: Bool
-    let pushNotificationsenabled: Bool
+    let pushNotificationsEnabled: Bool
 }
 
 extension UserSettings: Decodable {
@@ -40,6 +40,6 @@ extension UserSettings: Decodable {
                              brandStatusRequested: json => KeyPath(JSONKeys.brandStatusRequested),
                              chatRequestsEnabled: json => KeyPath(JSONKeys.enableChatRequests),
                              emailNotificationsEnabled: json => KeyPath(JSONKeys.enableEmailNotifications),
-                             pushNotificationsenabled: json => KeyPath(JSONKeys.enablePushNotifications))
+                             pushNotificationsEnabled: json => KeyPath(JSONKeys.enablePushNotifications))
     }
 }

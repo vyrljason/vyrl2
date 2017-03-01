@@ -29,7 +29,7 @@ final class CartViewControllerFactory {
         storage.add(item: CartItem(id: "", addedAt: Date()))
         let productProvider = ProductProviderMock()
         let dataSource = CartDataSource(cartStorage: storage, productProvider: productProvider)
-        let emptyCollectionHandler = EmptyCollectionViewHandler(modeToRenderable: [ .error : error, .noData : noData ])
+        let emptyCollectionHandler = EmptyCollectionViewHandler(modeToRenderable: [ .error: error, .noData: noData ])
         let interactor = CartInteractor(dataSource: dataSource, emptyCollectionHandler: emptyCollectionHandler)
         let viewController = CartViewController(interactor: interactor)
         return viewController

@@ -52,7 +52,7 @@ final class CartStorage: CartStoring {
     }
 
     func add(item: CartItem) {
-        items = items + [item]
+        items += [item]
     }
 
     func remove(item: CartItem) {

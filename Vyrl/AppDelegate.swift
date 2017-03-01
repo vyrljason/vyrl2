@@ -17,7 +17,7 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         initializeAnalytics()
         setUpAPIConfiguration()
-        rootNavigation.showInitialViewController()
+        rootNavigation.showInitialViewController(animated: false)
         return true
     }
 
