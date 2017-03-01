@@ -7,27 +7,29 @@ import XCTest
 
 final class CartDataProvidingMock: NSObject, CartDataProviding {
 
-        weak var delegate: EmptyCollectionViewHandling?
+    weak var emptyCollectionDelegate: EmptyCollectionViewHandling?
+    weak var reloadingDelegate: ReloadingData?
+    weak var summaryDelegate: SummaryUpdateHandling?
 
-        var didLoad = false
-        var didRegisterNibs = false
+    var didLoad = false
+    var didRegisterNibs = false
 
-        func loadData() {
-            didLoad = true
-        }
-
-        func registerNibs(in collectionView: UICollectionView) {
-            didRegisterNibs = true
-        }
-
-        func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-            return 1
-        }
-
-        func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-            return UICollectionViewCell()
-        }
+    func loadData() {
+        didLoad = true
     }
+
+    func registerNibs(in collectionView: UICollectionView) {
+        didRegisterNibs = true
+    }
+
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 1
+    }
+
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        return UICollectionViewCell()
+    }
+}
 
 final class CartInteractorTests: XCTestCase {
 
@@ -49,7 +51,7 @@ final class CartInteractorTests: XCTestCase {
     func test_init_didSetDelegate() {
         subject.viewDidAppear()
 
-        XCTAssertTrue(dataSourceMock.delegate === emptyCollectionHandler)
+        XCTAssertTrue(dataSourceMock.emptyCollectionDelegate === emptyCollectionHandler)
     }
 
     func test_viewDidLoad_madeDataSourceLoadData() {

@@ -4,9 +4,29 @@
 
 import UIKit
 
+struct CartSummary {
+    let productsCount: Int
+    let brandsCount: Int
+    let value: Double
+}
+
+protocol SummaryUpdateHandling: class {
+    func didUpdate(summary: CartSummary)
+}
+
 protocol CartDataProviding: CollectionViewNibRegistering, UICollectionViewDelegate, UICollectionViewDataSource {
-    weak var delegate: EmptyCollectionViewHandling? { get set }
+    weak var emptyCollectionDelegate: EmptyCollectionViewHandling? { get set }
+    weak var reloadingDelegate: ReloadingData? { get set }
+    weak var summaryDelegate: SummaryUpdateHandling? { get set }
     func loadData()
+}
+
+extension CartSummary {
+    init(products: [Product]) {
+        value = products.reduce(0.0, { return $0 + $1.retailPrice })
+        brandsCount = Set(products.map({ $0.brandId })).count
+        productsCount = products.count
+    }
 }
 
 final class CartDataSource: NSObject, CartDataProviding {
@@ -15,7 +35,9 @@ final class CartDataSource: NSObject, CartDataProviding {
         static let cellHeight: CGFloat = 122
     }
 
-    weak var delegate: EmptyCollectionViewHandling?
+    weak var emptyCollectionDelegate: EmptyCollectionViewHandling?
+    weak var reloadingDelegate: ReloadingData?
+    weak var summaryDelegate: SummaryUpdateHandling?
 
     fileprivate let cartStorage: CartStoring
     fileprivate let productProvider: ProductProviding
@@ -28,14 +50,17 @@ final class CartDataSource: NSObject, CartDataProviding {
 
     func loadData() {
         guard !cartStorage.items.isEmpty else {
-            delegate?.configure(with: .noData)
+            emptyCollectionDelegate?.configure(with: .noData)
             return
         }
 
         let productsIds: [String] = cartStorage.items.map({ $0.id })
 
         productProvider.get(productsIds: productsIds) { [weak self] result in
-            self?.products = result.map(success: { return $0 }, failure: { return [] })
+            let products = result.map(success: { return $0 }, failure: { _ in return [] })
+            self?.products = products
+            self?.reloadingDelegate?.reloadData()
+            self?.summaryDelegate?.didUpdate(summary: CartSummary(products: products))
         }
     }
 
@@ -46,16 +71,14 @@ final class CartDataSource: NSObject, CartDataProviding {
 
 extension CartDataSource: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return cartStorage.items.count
+        return products.count
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell: CartItemCell = collectionView.dequeueCell(at: indexPath)
-        let item: CartItem = cartStorage.items[indexPath.row]
+        let product = products[indexPath.row]
 
-        // THIS IS TEMPORARY
-        // cell.render(product.cartItemRenderable)
-
+        cell.render(product.cartItemRenderable)
 
         return cell
     }

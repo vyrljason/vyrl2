@@ -7,7 +7,7 @@ import UIKit
 final class RootNavigationBuilder {
 
     private enum Constants {
-        static let chatTitle = NSLocalizedString("CHAT", comment: "")
+        static let chatTitle = NSLocalizedString("chat.title", comment: "")
     }
 
     var interactor: RootNavigationInteracting & NavigationDelegateHaving = RootNavigationInteractor()
