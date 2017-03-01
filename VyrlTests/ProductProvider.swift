@@ -10,11 +10,11 @@ enum ProductProvidingEror: Error {
 }
 
 protocol ProductProviding {
-    func get(productId: String, completion: @escaping (Result<Product, ProductProvidingEror>) -> Void)
+    func get(productsIds: [String], completion: @escaping (Result<[Product], ProductProvidingEror>) -> Void)
 }
 
 final class ProductProviderMock: ProductProviding {
-    func get(productId: String, completion: @escaping (Result<Product, ProductProvidingEror>) -> Void) {
+    func get(productsIds: [String], completion: @escaping (Result<[Product], ProductProvidingEror>) -> Void) {
         completion(.success(VyrlFaker.faker.product()))
     }
 }

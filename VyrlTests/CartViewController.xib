@@ -12,6 +12,9 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CartViewController" customModule="Vyrl">
             <connections>
                 <outlet property="collectionView" destination="bKE-nN-iXA" id="7cX-Hm-vU1"/>
+                <outlet property="price" destination="jZ6-go-j5D" id="C6y-SW-LUa"/>
+                <outlet property="summaryLabel" destination="5KX-Ze-zjj" id="M5Y-dN-V5i"/>
+                <outlet property="summaryView" destination="zE7-dY-15I" id="RWg-61-rQY"/>
                 <outlet property="view" destination="iN0-l3-epB" id="VdJ-k8-fye"/>
             </connections>
         </placeholder>
@@ -32,9 +35,38 @@
                 </collectionView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zE7-dY-15I">
                     <rect key="frame" x="0.0" y="549" width="375" height="59"/>
-                    <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5KX-Ze-zjj">
+                            <rect key="frame" x="48" y="9" width="122" height="41"/>
+                            <string key="text">3 products from
+2 companies</string>
+                            <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
+                            <color key="textColor" red="0.53725490196078429" green="0.53725490196078429" blue="0.53725490196078429" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" text="$100,00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jZ6-go-j5D">
+                            <rect key="frame" x="281.5" y="15" width="52.5" height="17"/>
+                            <fontDescription key="fontDescription" type="system" weight="light" pointSize="14"/>
+                            <color key="textColor" red="0.29019607843137252" green="0.29019607843137252" blue="0.29019607843137252" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="in retail value" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SPe-U5-XU9">
+                            <rect key="frame" x="271" y="32" width="63" height="12"/>
+                            <fontDescription key="fontDescription" type="system" weight="light" pointSize="10"/>
+                            <color key="textColor" red="0.60784313725490191" green="0.60784313725490191" blue="0.60784313725490191" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" red="0.95294117647058818" green="0.95294117647058818" blue="0.95294117647058818" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="59" id="1Mn-G6-7Ua"/>
+                        <constraint firstAttribute="bottom" secondItem="SPe-U5-XU9" secondAttribute="bottom" constant="15" id="7O4-FU-k8l"/>
+                        <constraint firstItem="5KX-Ze-zjj" firstAttribute="leading" secondItem="zE7-dY-15I" secondAttribute="leading" constant="48" id="9AH-md-MCZ"/>
+                        <constraint firstAttribute="trailing" secondItem="jZ6-go-j5D" secondAttribute="trailing" constant="41" id="Gnz-0B-dBx"/>
+                        <constraint firstItem="jZ6-go-j5D" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="5KX-Ze-zjj" secondAttribute="trailing" constant="15" id="K4t-ZD-dGL"/>
+                        <constraint firstAttribute="trailing" secondItem="SPe-U5-XU9" secondAttribute="trailing" constant="41" id="ea1-hl-dsa"/>
+                        <constraint firstItem="5KX-Ze-zjj" firstAttribute="centerY" secondItem="zE7-dY-15I" secondAttribute="centerY" id="hSz-5W-6Fy"/>
+                        <constraint firstItem="jZ6-go-j5D" firstAttribute="top" secondItem="zE7-dY-15I" secondAttribute="top" constant="15" id="zqT-0m-HfV"/>
                     </constraints>
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gRI-u0-LrH">

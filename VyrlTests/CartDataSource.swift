@@ -19,6 +19,7 @@ final class CartDataSource: NSObject, CartDataProviding {
 
     fileprivate let cartStorage: CartStoring
     fileprivate let productProvider: ProductProviding
+    fileprivate var products: [Product] = []
 
     init(cartStorage: CartStoring, productProvider: ProductProviding) {
         self.cartStorage = cartStorage
@@ -26,8 +27,15 @@ final class CartDataSource: NSObject, CartDataProviding {
     }
 
     func loadData() {
-        if cartStorage.items.isEmpty {
+        guard !cartStorage.items.isEmpty else {
             delegate?.configure(with: .noData)
+            return
+        }
+
+        let productsIds: [String] = cartStorage.items.map({ $0.id })
+
+        productProvider.get(productsIds: productsIds) { [weak self] result in
+            self?.products = result.map(success: { return $0 }, failure: { return [] })
         }
     }
 
@@ -46,13 +54,8 @@ extension CartDataSource: UICollectionViewDelegate, UICollectionViewDataSource {
         let item: CartItem = cartStorage.items[indexPath.row]
 
         // THIS IS TEMPORARY
-        productProvider.get(productId: item.id) { result in
-            switch result {
-            case .success(let product):
-                cell.render(product.cartItemRenderable)
-            default: ()
-            }
-        }
+        // cell.render(product.cartItemRenderable)
+
 
         return cell
     }

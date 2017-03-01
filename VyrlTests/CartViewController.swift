@@ -4,6 +4,12 @@
 
 import UIKit
 
+struct CartSummaryRenderable {
+    let summary: String
+    let price: String
+    let summaryVisible: Bool
+}
+
 final class CartViewController: UIViewController, HavingNib {
 
     private enum Constants {
@@ -13,7 +19,11 @@ final class CartViewController: UIViewController, HavingNib {
     static var nibName: String = "CartViewController"
 
     private let interactor: CartInteracting
+
     @IBOutlet private weak var collectionView: UICollectionView!
+    @IBOutlet private weak var summaryLabel: UILabel!
+    @IBOutlet private weak var price: UILabel!
+    @IBOutlet private weak var summaryView: UIView!
 
     init(interactor: CartInteracting) {
         self.interactor = interactor
@@ -27,11 +37,16 @@ final class CartViewController: UIViewController, HavingNib {
 
     override func viewDidLoad() {
         interactor.use(collectionView)
-
     }
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
         interactor.viewDidAppear()
+    }
+
+    func render(_ renderable: CartSummaryRenderable) {
+        summaryView.isHidden = renderable.summaryVisible
+        price.text = renderable.price
+        summaryLabel.text = renderable.summary
     }
 }
