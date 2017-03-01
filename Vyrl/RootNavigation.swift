@@ -20,6 +20,10 @@ protocol RootNavigationControlling: class {
     func dismissModal()
 }
 
+protocol AuthorizationScreenPresenting {
+    func showAuthorization()
+}
+
 protocol HomeScreenPresenting: class {
     func showHome()
 }
@@ -43,7 +47,7 @@ final class RootNavigation {
                                                                      backgroundColor: .rouge,
                                                                      translucent: false)
         static let closeTitle: String = NSLocalizedString("Close", comment: "")
-        static let animationDuration: TimeInterval = 0.5
+        static let animationDuration: TimeInterval = 0.3
     }
 
     fileprivate var mainNavigation: NavigationControlling
@@ -101,14 +105,23 @@ final class RootNavigation {
         mainNavigation.present(navigation, animated: true)
     }
 
-    fileprivate func animateTransition(using action: @escaping () -> Void) {
+    fileprivate func transition(to controller: UIViewController, animated: Bool = true) {
         guard let window = window as? UIView else { return }
-        UIView.transition(with: window,
-                          duration: Constants.animationDuration,
-                          options: .transitionCrossDissolve,
-                          animations: {
-                            action()
-        }, completion: nil)
+        let switchAction = {
+            self.window.rootViewController = controller
+            self.makeWindowKeyAndVisible()
+        }
+        if animated {
+            UIView.transition(with: window,
+                              duration: Constants.animationDuration,
+                              options: .transitionCrossDissolve,
+                              animations: {
+                                switchAction()
+            }, completion: nil)
+        } else {
+            switchAction()
+        }
+
     }
 
     fileprivate func makeWindowKeyAndVisible() {
@@ -136,22 +149,12 @@ extension RootNavigation {
 
 extension RootNavigation: AuthorizationFlowPresenting {
     func presentAuthorizationNavigation(animated: Bool) {
-        if animated {
-            animateTransition {
-                self.presentLoginView()
-            }
-        } else {
-            self.presentLoginView()
-        }
-    }
-
-    private func presentLoginView() {
         let viewController = loginControllerMaker.make(using: self)
         viewController.render(NavigationItemRenderable(titleImage: Constants.titleImage))
         let authorizationNavigation = UINavigationController(rootViewController: viewController)
         authorizationNavigation.render(Constants.navigationBarRenderable)
-        window.rootViewController = authorizationNavigation
-        makeWindowKeyAndVisible()
+
+        transition(to: authorizationNavigation, animated: animated)
     }
 }
 
@@ -163,19 +166,8 @@ extension RootNavigation: AuthorizationListener {
 
 extension RootNavigation: MainNavigationPresenting {
     func presentMainNavigation(animated: Bool) {
-        if animated {
-            animateTransition {
-                self.presentSlideMenu()
-            }
-        } else {
-            self.presentSlideMenu()
-        }
-    }
-
-    private func presentSlideMenu() {
         setUpMainNavigationController()
-        window.rootViewController = slideMenu
-        makeWindowKeyAndVisible()
+        transition(to: slideMenu, animated: animated)
     }
 
     private func setUpMainNavigationController() {
@@ -231,6 +223,13 @@ extension RootNavigation: AccountScreenPresenting {
         let account = accountMaker.make()
         presentModally(account)
         slideMenu.closeLeft()
+    }
+}
+
+extension RootNavigation: AuthorizationScreenPresenting {
+    func showAuthorization() {
+        slideMenu.closeLeft()
+        presentAuthorizationNavigation(animated: true)
     }
 }
 

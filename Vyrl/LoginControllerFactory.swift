@@ -13,7 +13,8 @@ enum LoginControllerFactory: LoginControllerMaking {
         let resourceController = ServiceLocator.resourceConfigurator.resourceController
         let resource = UserLoginResource(controller: resourceController)
         let service = LoginService(resource: resource)
-        let interactor = LoginInteractor(service: service)
+        let credentialsStorage = CredentialsStorage()
+        let interactor = LoginInteractor(service: service, credentialsStorage: credentialsStorage)
         let controller = LoginViewController(interactor: interactor, formMaker: LoginFormFactory.self)
         interactor.presenter = controller
         interactor.listener = listener

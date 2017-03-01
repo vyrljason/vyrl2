@@ -30,8 +30,10 @@ enum LeftMenuInteractorFactory {
         let emptyCollectionHandler = EmptyCollectionViewHandler(modeToRenderable: modeMap)
         let resource = Service<CategoriesResourceMock>(resource: CategoriesResourceMock())
         let service = CategoriesService(resource: resource)
+        let credentialsStorage = CredentialsStorage()
+        let credentialsProvider = APICredentialsProvider(storage: credentialsStorage)
         let categoriesDataSource: CategoriesDataSource = CategoriesDataSource(service: service,
                                                                               emptyTableHandler: emptyCollectionHandler)
-        return LeftMenuInteractor(dataSource: categoriesDataSource)
+        return LeftMenuInteractor(dataSource: categoriesDataSource, credentialsProvider: credentialsProvider)
     }
 }

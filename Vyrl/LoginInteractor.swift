@@ -17,11 +17,13 @@ final class LoginInteractor: LoginInteracting {
 
     fileprivate var form: LoginFormInteracting?
     fileprivate let service: UserLoginProviding
+    fileprivate let credentialsStorage: CredentialsStoring
     weak var presenter: ErrorPresenting & ViewActivityPresenting?
     weak var listener: AuthorizationListener?
 
-    init(service: UserLoginProviding) {
+    init(service: UserLoginProviding, credentialsStorage: CredentialsStoring) {
         self.service = service
+        self.credentialsStorage = credentialsStorage
     }
 
     func didPrepare(form: LoginFormInteracting) {
@@ -43,7 +45,8 @@ extension LoginInteractor: FormActionDelegate {
         service.login(using: credentials) { [weak self] result in
             guard let `self` = self else { return }
             self.presenter?.dismiss()
-            result.on(success: { _ in
+            result.on(success: { userProfile in
+                self.credentialsStorage.saveToken(using: userProfile)
                 self.listener?.didFinishAuthorizing()
             }, failure: { error in
                 self.presenter?.presentError(title: error.title, message: error.message)

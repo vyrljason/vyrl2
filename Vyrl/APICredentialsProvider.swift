@@ -6,6 +6,7 @@ import Foundation
 
 protocol APICredentialsProviding {
     var userAccessToken: String? { get }
+    func clear()
 }
 
 final class APICredentialsProvider: APICredentialsProviding {
@@ -18,5 +19,9 @@ final class APICredentialsProvider: APICredentialsProviding {
 
     var userAccessToken: String? {
         return storage.accessToken
+    }
+
+    func clear() {
+        storage.accessToken = nil
     }
 }

@@ -31,7 +31,7 @@ final class CredentialsStorage: CredentialsStoring {
 }
 
 extension CredentialsStoring {
-    func save(credentials: AuthorizationCredentials) {
-        accessToken = credentials.accessToken
+    func saveToken(using userProfile: UserProfile) {
+        accessToken = userProfile.token
     }
 }

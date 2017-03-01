@@ -7,10 +7,6 @@ import XCTest
 
 final class CredentialStorageMock: CredentialsStoring {
     var accessToken: String?
-
-    func clear() {
-        accessToken = nil
-    }
 }
 
 final class APICredentialsProviderTest: XCTestCase {
@@ -32,7 +28,8 @@ final class APICredentialsProviderTest: XCTestCase {
 
     func test_serverAccessToken_whenTokenIsCleared_returnsNil() {
         storage.accessToken = accessToken
-        storage.clear()
+
+        subject.clear()
 
         XCTAssertNil(subject.userAccessToken)
     }

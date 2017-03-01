@@ -50,6 +50,7 @@ final class LoginInteractorTest: XCTestCase {
     private var subject: LoginInteractor!
     private var formItem: FormItem!
     private var listener: AuthorizationListenerMock!
+    private var credentialsStorage: CredentialStorageMock!
 
     override func setUp() {
         super.setUp()
@@ -57,8 +58,9 @@ final class LoginInteractorTest: XCTestCase {
         presenter = LoginPresenterMock()
         form = LoginFormMock()
         listener = AuthorizationListenerMock()
+        credentialsStorage = CredentialStorageMock()
         formItem = FormItem(field: .username, textField: MockTextField())
-        subject = LoginInteractor(service: service)
+        subject = LoginInteractor(service: service, credentialsStorage: credentialsStorage)
         subject.presenter = presenter
         subject.listener = listener
     }
@@ -88,6 +90,15 @@ final class LoginInteractorTest: XCTestCase {
 
         XCTAssertTrue(service.didCalledService)
         XCTAssertEqual(service.credentials, form.result)
+    }
+
+    func test_didTapAction_whenFormIsValid_savesCredentials() {
+        subject.didPrepare(form: form)
+        form.result = UserCredentials(username: "username", password: "password")
+
+        subject.didTapAction()
+
+        XCTAssertEqual(service.result.token, credentialsStorage.accessToken)
     }
 
     func test_didTapAction_whenFormIsValid_whenServiceReturnsFailure_PresentsError() {

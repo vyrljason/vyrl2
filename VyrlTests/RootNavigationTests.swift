@@ -18,6 +18,7 @@ final class RootNavigationTests: XCTestCase {
     private var interactor: RootNavigationInteractor!
     private var dataSource: DataSourceMock!
     private var credentialsProvider: APICredentialsProviderMock!
+    private var leftMenuInteractor: LeftMenuInteractor!
 
     override func setUp() {
         super.setUp()
@@ -26,7 +27,8 @@ final class RootNavigationTests: XCTestCase {
         cart = UIViewController()
         credentialsProvider = APICredentialsProviderMock()
         dataSource = DataSourceMock()
-        leftMenu = LeftMenuViewController(interactor: LeftMenuInteractor(dataSource: dataSource))
+        leftMenuInteractor = LeftMenuInteractor(dataSource: dataSource, credentialsProvider: credentialsProvider)
+        leftMenu = LeftMenuViewController(interactor: leftMenuInteractor)
         interactor = RootNavigationInteractor()
         brandsNavigationController = NavigationControllerMock()
         navigationProvider = NavigationProviderMock(navigationController: brandsNavigationController)
