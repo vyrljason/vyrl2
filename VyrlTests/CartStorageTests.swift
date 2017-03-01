@@ -32,7 +32,7 @@ final class CartStorageTests: XCTestCase {
     func test_addItem_addedToDefaults() {
         subject.add(item: CartItem(id: "0", addedAt: Date()))
 
-        expectToEventuallyBeTrue({ return self.userDefaults.object != nil }(), timeout: 0.1)
+        expectToEventuallyBeTrue({ return self.userDefaults.object != nil }(), timeout: 0.5)
     }
 
     func test_addItem_added() {

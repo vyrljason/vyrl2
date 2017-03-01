@@ -4,16 +4,19 @@
 
 import UIKit
 
-struct Product {
-    let title: String
-    let subTitle: String
-    let price: String
-    let url: URL?
-}
-
 extension Product {
     var cartItemRenderable: CartItemCellRenderable {
-        return CartItemCellRenderable(title: title, subTitle: subTitle, price: price)
+        return CartItemCellRenderable(title: name, subTitle: "", price: asDollars(retailPrice))
+    }
+
+    private func asDollars(_ value: Double) -> String {
+        let formatter = NumberFormatter()
+        formatter.currencyCode = "USD"
+        formatter.currencySymbol = "$"
+        formatter.minimumFractionDigits = 0
+        formatter.maximumFractionDigits = 2
+        formatter.numberStyle = .currencyAccounting
+        return formatter.string(from: NSNumber(value: value)) ?? "$\(value)"
     }
 }
 

@@ -14,10 +14,10 @@ final class CartStoringMock: CartStoring {
 
 final class ProductProvidingMock: ProductProviding {
 
-    var mockedProduct: Product? = Product(title: "Leica",
-                                         subTitle: "Custom-made by Jony Ive and Marc Newson",
-                                         price: "$1,805,000",
-                                         url: nil)
+    var mockedProduct: Product? = Product(id: "",
+                                          name: "Leica",
+                                          retailPrice: 1_805_000,
+                                          imageUrls: [])
 
     func get(productId: String, completion: @escaping (Result<Product, ProductProvidingEror>) -> Void) {
         switch mockedProduct {

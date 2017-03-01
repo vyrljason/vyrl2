@@ -14,10 +14,10 @@ protocol ProductProviding {
 
 final class ProductProviderMock: ProductProviding {
 
-    let mockedProduct: Product = Product(title: "Leica",
-                                         subTitle: "Custom-made by Jony Ive and Marc Newson",
-                                         price: "$1,805,000",
-                                         url: nil)
+    let mockedProduct: Product = Product(id: "",
+                                         name: "Leica",
+                                         retailPrice: 1_805_000,
+                                         imageUrls: [])
 
     func get(productId: String, completion: @escaping (Result<Product, ProductProvidingEror>) -> Void) {
         completion(.success(mockedProduct))
