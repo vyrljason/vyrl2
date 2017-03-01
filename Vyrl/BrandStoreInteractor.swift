@@ -4,7 +4,9 @@
 
 import UIKit
 
-protocol BrandStoreInteracting: CollectionViewHaving, CollectionViewUsing, CollectionViewControlling, ProductSelecting { }
+protocol BrandStoreInteracting: CollectionViewHaving, CollectionViewUsing, CollectionViewControlling, ProductSelecting {
+    weak var productDetailsPresenter: ProductDetailsPresenting? { get set }
+}
 
 protocol ProductSelecting: class {
     func didSelect(product: Product)
@@ -14,6 +16,7 @@ final class BrandStoreInteractor: BrandStoreInteracting {
     
     fileprivate let dataSource: BrandStoreDataProviding
     weak var collectionView: UICollectionView?
+    weak var productDetailsPresenter: ProductDetailsPresenting?
     
     init(dataSource: BrandStoreDataProviding) {
         self.dataSource = dataSource
@@ -44,7 +47,6 @@ extension BrandStoreInteractor: CollectionViewUsing {
 
 extension BrandStoreInteractor: ProductSelecting {
     func didSelect(product: Product) {
-        print("Did select product")
-        // TODO: tests
+        productDetailsPresenter?.presentProductDetails(for: product, animated: true)
     }
 }

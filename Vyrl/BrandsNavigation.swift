@@ -8,20 +8,27 @@ protocol BrandStorePresenting: class {
     func presentStore(for brand: Brand, animated: Bool)
 }
 
+protocol ProductDetailsPresenting: class {
+    func presentProductDetails(for product: Product, animated: Bool)
+}
+
 final class BrandsNavigation: NavigationControlling {
 
     let navigationController: UINavigationController
     fileprivate let brandsFactory: BrandsControllerMaking.Type
     fileprivate let brandStoreFactory: BrandStoreMaking.Type
+    fileprivate let productDetailsFactory: ProductDetailsMaking.Type
     fileprivate let brandsInteractor: BrandsInteracting & CollectionViewRefreshing
 
     init(brandsInteractor: BrandsInteracting & CollectionViewRefreshing,
          brandsFactory: BrandsControllerMaking.Type,
          brandStoreFactory: BrandStoreMaking.Type,
+         productDetailsFactory: ProductDetailsMaking.Type,
          navigationController: UINavigationController) {
         self.brandsInteractor = brandsInteractor
         self.brandStoreFactory = brandStoreFactory
         self.brandsFactory = brandsFactory
+        self.productDetailsFactory = productDetailsFactory
         self.navigationController = navigationController
         initializeNavigation()
     }
@@ -35,7 +42,14 @@ final class BrandsNavigation: NavigationControlling {
 
 extension BrandsNavigation: BrandStorePresenting {
     func presentStore(for brand: Brand, animated: Bool = true) {
-        let vc = brandStoreFactory.make(brand: brand)
+        let vc = brandStoreFactory.make(brand: brand, presenter: self)
+        navigationController.pushViewController(vc, animated: animated)
+    }
+}
+
+extension BrandsNavigation: ProductDetailsPresenting {
+    func presentProductDetails(for product: Product, animated: Bool = true) {
+        let vc = productDetailsFactory.make(brand: product)
         navigationController.pushViewController(vc, animated: animated)
     }
 }

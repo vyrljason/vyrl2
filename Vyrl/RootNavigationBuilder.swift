@@ -15,6 +15,7 @@ final class RootNavigationBuilder {
     lazy var mainNavigation: NavigationControlling = { BrandsNavigation(brandsInteractor: self.brandsInteractor,
                                                                         brandsFactory: BrandsControllerFactory.self,
                                                                         brandStoreFactory: BrandStoreControllerFactory.self,
+                                                                        productDetailsFactory: ProductDetailsControllerFactory.self,
                                                                         navigationController: UINavigationController()) }()
     var cart: UIViewController = CartViewControllerFactory.make()
     var chat: UIViewController = UIViewController()

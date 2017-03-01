@@ -7,6 +7,7 @@ import XCTest
 
 final class BrandStoreInteractorMock: BrandStoreInteracting {
     var collectionView: UICollectionView?
+    weak var productDetailsPresenter: ProductDetailsPresenting?
     func use(_ collectionView: UICollectionView) { }
     func updateCollection(with result: DataFetchResult) { }
     func loadData() { }
@@ -36,6 +37,12 @@ final class BrandStoreFactoryMock: BrandStoreMaking {
     }
 }
 
+final class ProductDetailsFactoryMock: ProductDetailsMaking {
+    static func make(brand: Product) -> ProductDetailsViewController {
+        return ProductDetailsViewController()
+    }
+}
+
 final class BrandsNavigationTest: XCTestCase {
 
     private var navigationController: NavigationControllerMock!
@@ -47,6 +54,7 @@ final class BrandsNavigationTest: XCTestCase {
         subject = BrandsNavigation(brandsInteractor: BrandsInteractorMock(),
                                    brandsFactory: BrandsFactoryMock.self,
                                    brandStoreFactory: BrandStoreFactoryMock.self,
+                                   productDetailsFactory: ProductDetailsFactoryMock.self,
                                    navigationController: navigationController)
 
     }
@@ -57,5 +65,13 @@ final class BrandsNavigationTest: XCTestCase {
         subject.presentStore(for: brand, animated: false)
 
         XCTAssertTrue(navigationController.pushed is BrandStoreViewController)
+    }
+    
+    func test_presentProductDetails_pushesProductDetailsViewController() {
+        let product = VyrlFaker.faker.product()
+        
+        subject.presentProductDetails(for: product, animated: false)
+        
+        XCTAssertTrue(navigationController.pushed is ProductDetailsViewController)
     }
 }
