@@ -10,6 +10,7 @@ final class BrandStoreInteractorMock: BrandStoreInteracting {
     func use(_ collectionView: UICollectionView) { }
     func updateCollection(with result: DataFetchResult) { }
     func loadData() { }
+    func didSelect(product: Product) { }
 }
 
 final class BrandsInteractorMock: BrandsInteracting, CollectionViewRefreshing {

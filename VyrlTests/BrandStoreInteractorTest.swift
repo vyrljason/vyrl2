@@ -7,13 +7,14 @@ import XCTest
 
 // MARK: - Mocks
 
-final class BrandStoreDataSourceMock: NSObject, CollectionViewDataProviding, CollectionViewNibRegistering, CollectionViewUsing {
+final class BrandStoreDataSourceMock: NSObject, BrandStoreDataProviding {
     weak var delegate: CollectionViewHaving & CollectionViewControlling?
+    weak var selectionDelegate: ProductSelecting?
     var didRegisterNibs = false
     var didLoadData = false
     var didUseCollectionView = false
     
-    func registerNibs() {
+    func registerNibs(in collectionView: UICollectionView) {
         didRegisterNibs = true
     }
     
@@ -32,6 +33,8 @@ final class BrandStoreDataSourceMock: NSObject, CollectionViewDataProviding, Col
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         return UICollectionViewCell()
     }
+    
+    func didSelect(product: Product) { }
 }
 
 // MARK: - Tests

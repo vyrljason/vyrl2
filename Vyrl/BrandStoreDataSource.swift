@@ -4,12 +4,17 @@
 
 import UIKit
 
-final class BrandStoreDataSource: NSObject {
+protocol BrandStoreDataProviding: CollectionViewNibRegistering, CollectionViewDataProviding, CollectionViewUsing {
+    weak var selectionDelegate: ProductSelecting? { get set }
+}
+
+final class BrandStoreDataSource: NSObject, BrandStoreDataProviding {
     fileprivate let brand: Brand
     fileprivate let service: ProductsProviding
     fileprivate var products = [Product]()
     fileprivate var flowLayoutHandler: BrandStoreFlowLayoutHandling
     weak var delegate: CollectionViewHaving & CollectionViewControlling?
+    weak var selectionDelegate: ProductSelecting?
     
     init(brand: Brand,
          service: ProductsProviding,
@@ -80,6 +85,13 @@ extension BrandStoreDataSource: CollectionViewDataProviding {
                 self.delegate?.updateCollection(with: result.map(success: { $0.isEmpty ? .empty : .someData }, failure: { _ in return .error }))
             }
         }
+    }
+}
+
+extension BrandStoreDataSource: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let selectedProduct = products[indexPath.item]
+        selectionDelegate?.didSelect(product: selectedProduct)
     }
 }
 
