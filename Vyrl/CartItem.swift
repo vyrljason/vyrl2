@@ -30,7 +30,7 @@ struct CartItem: DictionaryConvertible {
     }
 
     var dictionaryRepresentation: [String : Any] {
-        var dictionary: Dictionary = [String : AnyObject]()
+        var dictionary: Dictionary = [String: AnyObject]()
         dictionary[Constants.idKey] = id as AnyObject?
         dictionary[Constants.addedAtKey] = addedAt as AnyObject?
         return dictionary
@@ -38,7 +38,7 @@ struct CartItem: DictionaryConvertible {
 }
 
 extension CartItem: Equatable {
-    static func ==(lhs: CartItem, rhs: CartItem) -> Bool {
+    static func == (lhs: CartItem, rhs: CartItem) -> Bool {
         return lhs.id == rhs.id && lhs.addedAt == rhs.addedAt
     }
 }

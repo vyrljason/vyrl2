@@ -2,7 +2,7 @@
 //  Copyright © 2017 Vyrl. All rights reserved.
 //
 
-import Foundation
+import Alamofire
 @testable import Vyrl
 
 struct APIEndpointMock: APIEndpoint {
@@ -11,4 +11,5 @@ struct APIEndpointMock: APIEndpoint {
     var method: Vyrl.HTTPMethod = .get
     var parameters: [String: Any]?
     var api: APIType = .main
+    var encoding: ParameterEncoding = URLEncoding()
 }

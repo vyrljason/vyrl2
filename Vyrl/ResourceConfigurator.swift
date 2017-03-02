@@ -17,9 +17,9 @@ final class ResourceConfigurator: APIResourceConfiguring {
     init(configuration: APIConfigurationHaving,
          sessionManager: SessionManaging,
          responseHandler: APIResponseHandling,
-         headersProvider: HTTPHeadersProviding) {
+         requestDataProvider: RequestDataProviding) {
         self.configuration = configuration
         self.responseHandler = responseHandler
-        self.resourceController = HTTPClient(manager: sessionManager, apiConfiguration: configuration, headersProvider: headersProvider, responseHandler: responseHandler)
+        self.resourceController = HTTPClient(manager: sessionManager, apiConfiguration: configuration, requestDataProvider: requestDataProvider, responseHandler: responseHandler)
     }
 }

@@ -2,7 +2,6 @@
 //  Copyright © 2017 Vyrl. All rights reserved.
 //
 
-import Decodable
 import Alamofire
 
 enum AuthorizationType {
@@ -17,7 +16,7 @@ enum AuthorizationType {
         case .none: return [:]
         case .user:
             guard let token = token else { return [:] }
-            return [String(describing: HTTPHeaderField.Authorization): Constants.userHeaderPrefix + " " + token]
+            return [String(describing: HTTPHeaderField.authorization): Constants.userHeaderPrefix + " " + token]
         }
     }
 }
@@ -28,12 +27,7 @@ protocol APIEndpoint {
     var method: HTTPMethod { get }
     var parameters: [String: Any]? { get }
     var api: APIType { get }
-}
-
-extension APIEndpoint {
-    var encoding: Alamofire.ParameterEncoding {
-        return JSONEncoding()
-    }
+    var encoding: Alamofire.ParameterEncoding { get }
 }
 
 enum APIType {

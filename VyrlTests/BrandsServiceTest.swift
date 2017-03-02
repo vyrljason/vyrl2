@@ -7,19 +7,22 @@ import XCTest
 
 final class BrandsServiceTests: XCTestCase {
 
-    var resource: BrandsResourceMock!
-    var service: Service<BrandsResourceMock>!
+    var resourceController: APIResourceControllerMock<Brands>!
+    var resource: BrandsResource!
+    var service: Service<BrandsResource>!
     var subject: BrandsService!
 
     override func setUp() {
         super.setUp()
-        resource = BrandsResourceMock(amount: 1)
-        service = Service<BrandsResourceMock>(resource: resource)
+        resourceController = APIResourceControllerMock<Brands>()
+        resourceController.result = Brands(brands: [])
+        resource = BrandsResource(controller: resourceController)
+        service = Service<BrandsResource>(resource: resource)
         subject = BrandsService(resource: service)
     }
 
     func test_get_whenSuccess_returnsBrands() {
-        resource.success = true
+        resourceController.success = true
 
         var wasCalled = false
         subject.get { result in
@@ -30,7 +33,7 @@ final class BrandsServiceTests: XCTestCase {
     }
 
     func test_get_whenFailure_returnsError() {
-        resource.success = false
+        resourceController.success = false
 
         var wasCalled = false
         subject.get { result in

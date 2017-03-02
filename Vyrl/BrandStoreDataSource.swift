@@ -44,7 +44,8 @@ extension BrandStoreDataSource: UICollectionViewDataSource {
     private func prepare(header: BrandStoreHeaderRendering & BrandStoreHeaderImageFetching) {
         let renderable = BrandStoreHeaderRenderable(brand: brand)
         header.render(renderable)
-        header.set(coverImageFetcher: ImageFetcher(url: brand.coverImageURL))
+        guard let coverURL = brand.coverImageURL else { return }
+        header.set(coverImageFetcher: ImageFetcher(url: coverURL))
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

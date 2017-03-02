@@ -56,7 +56,6 @@ extension CartDataSource: UICollectionViewDelegate, UICollectionViewDataSource {
         // THIS IS TEMPORARY
         // cell.render(product.cartItemRenderable)
 
-
         return cell
     }
 }

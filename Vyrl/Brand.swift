@@ -17,18 +17,15 @@ struct Brand {
     let name: String
     let description: String
     let submissionsCount: Int
-    let coverImageURL: URL
+    let coverImageURL: URL?
 }
 
 extension Brand: Decodable {
     static func decode(_ json: Any) throws -> Brand {
-        guard let coverImageURL = try URL(string: json => KeyPath(JSONKeys.coverImageURL)) else {
-            throw DecodingError.typeMismatch(expected: URL.self, actual: String.self, DecodingError.Metadata(object: JSONKeys.coverImageURL))
-        }
         return try self.init(id: json => KeyPath(JSONKeys.id),
                              name: json => KeyPath(JSONKeys.name),
                              description: json => KeyPath(JSONKeys.description),
-                             submissionsCount: json => KeyPath(JSONKeys.submissionsCount),
-                             coverImageURL: coverImageURL)
+                             submissionsCount: json =>? OptionalKeyPath(stringLiteral: JSONKeys.submissionsCount) ?? 0,
+                             coverImageURL: URL(string: json => KeyPath(JSONKeys.coverImageURL)))
     }
 }

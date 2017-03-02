@@ -18,22 +18,20 @@ final class APIResponseHandler: APIResponseHandling {
     }
 
     func handle<Model: Decodable, ResponseType: DataResponseProtocol>(response: ResponseType, completion: @escaping (Result<Model, APIResponseError>) -> Void) {
-        guard let httpResponse = response.response else {
-            fatalError("Unexpected error while finishing network request - no proper HTTP response nor expected error object")
-        }
         DispatchQueue.onMainThread {
+            let statusCode: StatusCode? = StatusCode(httpStatusCode: response.response?.statusCode)
             switch response.jsonResult {
             case .success(let json):
                 do {
                     let deserializedModel = try self.jsonDeserializer.deserialize(json: json, model: Model.self)
                     completion(.success(deserializedModel))
                 } catch {
-                    completion(.failure(APIResponseError(statusCode: StatusCode(rawValue: httpResponse.statusCode),
+                    completion(.failure(APIResponseError(statusCode: statusCode,
                                                          error: error,
                                                          data: response.data)))
                 }
             case .failure(let error):
-                completion(.failure(APIResponseError(statusCode: StatusCode(rawValue: httpResponse.statusCode),
+                completion(.failure(APIResponseError(statusCode: statusCode,
                                                      error: error,
                                                      data: response.data)))
             }

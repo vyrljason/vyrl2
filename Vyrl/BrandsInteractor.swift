@@ -79,8 +79,8 @@ extension BrandsInteractor: CollectionViewUsing {
     }
 }
 
-extension BrandsInteractor: CollectionViewRefreshing {
-    func refresh() {
-        reloadData()
+extension BrandsInteractor: DataRefreshing {
+    func refreshData() {
+        loadData()
     }
 }

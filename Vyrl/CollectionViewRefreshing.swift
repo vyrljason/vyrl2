@@ -4,6 +4,6 @@
 
 import Foundation
 
-@objc protocol CollectionViewRefreshing: class {
-    func refresh()
+@objc protocol DataRefreshing: class {
+    func refreshData()
 }

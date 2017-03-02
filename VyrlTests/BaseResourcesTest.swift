@@ -11,7 +11,7 @@ class BaseAPIResourceTest: XCTestCase {
 
     var credentialsProvider: APICredentialsProviderMock!
     var apiConfiguration: APIConfigurationMock!
-    var headersProvider: HTTPHeadersProvider!
+    var requestDataProvider: RequestDataProvider!
     var responseHandler: APIResponseHandler!
     var controller: HTTPClient!
     var sessionManager: SessionManagerMock!
@@ -21,11 +21,11 @@ class BaseAPIResourceTest: XCTestCase {
         apiConfiguration = APIConfigurationMock()
         credentialsProvider = APICredentialsProviderMock()
         credentialsProvider.userAccessToken = "token"
-        headersProvider = HTTPHeadersProvider(credentialsProvider: credentialsProvider)
+        requestDataProvider = RequestDataProvider(credentialsProvider: credentialsProvider)
         responseHandler = APIResponseHandler(jsonDeserializer: JSONToModelDeserializer())
         sessionManager = SessionManagerMock()
         sessionManager.startRequestsImmediately = false
-        controller = HTTPClient(manager: sessionManager, apiConfiguration: apiConfiguration, headersProvider: headersProvider, responseHandler: responseHandler)
+        controller = HTTPClient(manager: sessionManager, apiConfiguration: apiConfiguration, requestDataProvider: requestDataProvider, responseHandler: responseHandler)
     }
 
     func assertDidCallTo(_ endpoint: APIEndpoint, file: StaticString = #file, line: UInt = #line) {

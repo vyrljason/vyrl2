@@ -14,11 +14,11 @@ final class BrandStoreInteractorMock: BrandStoreInteracting {
     func didSelect(product: Product) { }
 }
 
-final class BrandsInteractorMock: BrandsInteracting, CollectionViewRefreshing {
+final class BrandsInteractorMock: BrandsInteracting, DataRefreshing {
     var collectionView: UICollectionView?
     weak var dataUpdateListener: DataLoadingEventsListening?
     weak var brandStorePresenter: BrandStorePresenting?
-    func refresh() { }
+    func refreshData() { }
     func updateCollection(with result: DataFetchResult) { }
     func loadData() { }
     func use(_ collectionView: UICollectionView) { }
@@ -34,7 +34,7 @@ final class ProductDetailsInteractorMock: ProductDetailsInteracting {
 }
 
 final class BrandsFactoryMock: BrandsControllerMaking {
-    static func make(storePresenter: BrandStorePresenting, interactor: BrandsInteracting & CollectionViewRefreshing) -> BrandsViewController {
+    static func make(storePresenter: BrandStorePresenting, interactor: BrandsInteracting & DataRefreshing) -> BrandsViewController {
         return BrandsViewController(interactor: interactor)
     }
 }

@@ -139,12 +139,12 @@ final class BrandsInteractorTest: XCTestCase {
         XCTAssertEqual(emptyCollectionHandler.currentMode, .error)
     }
 
-    func test_refresh_reloadsCollectionVie() {
+    func test_refresh_reloadsDataFromDataSource() {
         subject.use(collectionView)
 
-        subject.refresh()
+        subject.refreshData()
 
-        XCTAssertTrue(collectionView.reloadDidCall)
+        XCTAssertTrue(dataSource.didLoad)
     }
 
     func test_didSelect_callsStorePresenter() {

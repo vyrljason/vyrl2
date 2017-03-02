@@ -12,12 +12,12 @@ protocol DataLoadingEventsListening: class {
 final class BrandsViewController: UIViewController, HavingNib {
     static let nibName: String = "BrandsViewController"
 
-    fileprivate let interactor: BrandsInteracting & CollectionViewRefreshing
+    fileprivate let interactor: BrandsInteracting & DataRefreshing
 
     @IBOutlet fileprivate weak var brandsCollection: UICollectionView!
     fileprivate let refreshControl = UIRefreshControl()
 
-    init(interactor: BrandsInteracting & CollectionViewRefreshing) {
+    init(interactor: BrandsInteracting & DataRefreshing) {
         self.interactor = interactor
         super.init(nibName: BrandsViewController.nibName, bundle: nil)
     }
@@ -41,7 +41,7 @@ final class BrandsViewController: UIViewController, HavingNib {
 extension BrandsViewController {
     fileprivate func setUpRefresh() {
         refreshControl.tintColor = UIColor.rouge
-        refreshControl.addTarget(interactor, action: #selector(CollectionViewRefreshing.refresh), for: .valueChanged)
+        refreshControl.addTarget(interactor, action: #selector(DataRefreshing.refreshData), for: .valueChanged)
         brandsCollection.addSubview(refreshControl)
     }
 }
