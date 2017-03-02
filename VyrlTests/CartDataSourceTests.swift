@@ -8,8 +8,13 @@ import XCTest
 final class CartStoringMock: CartStoring {
     var items: [CartItem] = []
 
-    func add(item: CartItem) { }
-    func remove(item: CartItem) { }
+    func add(item: CartItem) {
+        items.append(item)
+    }
+    
+    func remove(item: CartItem) {
+        items = items.filter({ $0.id != item.id })
+    }
 }
 
 final class ProductProvidingMock: ProductProviding {
@@ -40,20 +45,20 @@ final class CartDataSourceTests: XCTestCase {
     var subject: CartDataSource!
     var cartStorage: CartStoringMock!
     var productProvider: ProductProvidingMock!
-    var collectionView: CollectionViewMock!
-    var emptyCollectionViewHandlerMock: EmptyCollectionViewHandlerMock!
+    var tableView: TableViewMock!
+    var emptyTableMock: EmptyTableViewHandlerMock!
     var summaryDelegate: SummaryUpdateHandlingMock!
 
     override func setUp() {
         super.setUp()
         cartStorage = CartStoringMock()
         productProvider = ProductProvidingMock()
-        collectionView = CollectionViewMock()
-        emptyCollectionViewHandlerMock = EmptyCollectionViewHandlerMock()
+        tableView = TableViewMock()
+        emptyTableMock = EmptyTableViewHandlerMock()
         summaryDelegate = SummaryUpdateHandlingMock()
 
         subject = CartDataSource(cartStorage: cartStorage, productProvider: productProvider)
-        subject.emptyCollectionDelegate = emptyCollectionViewHandlerMock
+        subject.emptyTableDelegate = emptyTableMock
         subject.summaryDelegate = summaryDelegate
     }
 
@@ -62,13 +67,13 @@ final class CartDataSourceTests: XCTestCase {
 
         subject.loadData()
 
-        XCTAssertEqual(emptyCollectionViewHandlerMock.currentMode, .noData)
+        XCTAssertEqual(emptyTableMock.currentMode, .noData)
     }
 
     func test_registerNibs_didRegisterNib() {
-        subject.registerNibs(in: collectionView)
+        subject.use(tableView)
 
-        XCTAssertTrue(collectionView.didRegisterNib)
+        XCTAssertTrue(tableView.didRegisterNib)
     }
 
     func test_loadData_dataPresent_notifedSummaryDelegate() {
@@ -86,6 +91,18 @@ final class CartDataSourceTests: XCTestCase {
 
         subject.loadData()
 
-        XCTAssertEqual(subject.collectionView(collectionView, numberOfItemsInSection: 0), 1)
+        XCTAssertEqual(subject.tableView(tableView, numberOfRowsInSection: 0), 1)
+    }
+
+    func test_remove_removed() {
+        let item = VyrlFaker.faker.cartItem()
+        cartStorage.items = [item]
+        productProvider.mockedProducts = [VyrlFaker.faker.product(id: item.id)]
+
+        subject.loadData()
+
+        subject.tableView(tableView, commit: .delete, forRowAt: IndexPath(row: 0, section: 0))
+
+        XCTAssertTrue(cartStorage.items.isEmpty)
     }
 }

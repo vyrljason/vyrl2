@@ -11,7 +11,7 @@ fileprivate struct Constants {
 
 fileprivate let moneyWithDecimalDigits: NumberFormatter! = {
     let formatter = NumberFormatter()
-    formatter.maximumFractionDigits = 2
+    formatter.maximumFractionDigits = 0
     formatter.numberStyle = .currency
     formatter.currencySymbol = Constants.currencySymbol
     formatter.locale = Constants.locale

@@ -7,51 +7,51 @@ import XCTest
 
 final class CartDataProvidingMock: NSObject, CartDataProviding {
 
-    weak var emptyCollectionDelegate: EmptyCollectionViewHandling?
+    weak var emptyTableDelegate: EmptyTableViewHandling?
     weak var reloadingDelegate: ReloadingData?
     weak var summaryDelegate: SummaryUpdateHandling?
 
     var didLoad = false
-    var didRegisterNibs = false
+    var didCallUseTableView = false
 
     func loadData() {
         didLoad = true
     }
 
-    func registerNibs(in collectionView: UICollectionView) {
-        didRegisterNibs = true
+    func use(_ tableView: UITableView) {
+        didCallUseTableView = true
     }
 
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 1
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 0
     }
 
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        return UICollectionViewCell()
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        return UITableViewCell()
     }
 }
 
 final class CartInteractorTests: XCTestCase {
 
     var subject: CartInteractor!
-    var emptyCollectionHandler: EmptyCollectionViewHandlerMock!
+    var emptyTableHandler: EmptyTableViewHandlerMock!
     var dataSourceMock: CartDataProvidingMock!
-    var collectionView: CollectionViewMock!
+    var tableView: TableViewMock!
 
     override func setUp() {
         super.setUp()
 
-        emptyCollectionHandler = EmptyCollectionViewHandlerMock()
+        emptyTableHandler = EmptyTableViewHandlerMock()
         dataSourceMock = CartDataProvidingMock()
-        collectionView = CollectionViewMock()
+        tableView = TableViewMock()
 
-        subject = CartInteractor(dataSource: dataSourceMock, emptyCollectionHandler: emptyCollectionHandler)
+        subject = CartInteractor(dataSource: dataSourceMock, emptyTableHandler: emptyTableHandler)
     }
 
     func test_init_didSetDelegate() {
         subject.viewDidAppear()
 
-        XCTAssertTrue(dataSourceMock.emptyCollectionDelegate === emptyCollectionHandler)
+        XCTAssertTrue(dataSourceMock.emptyTableDelegate === emptyTableHandler)
     }
 
     func test_viewDidLoad_madeDataSourceLoadData() {
@@ -60,22 +60,15 @@ final class CartInteractorTests: XCTestCase {
         XCTAssertTrue(dataSourceMock.didLoad)
     }
 
-    func test_use_madeDataSourceUseCollectionView() {
-        subject.use(collectionView)
-
-        XCTAssertTrue(collectionView.delegate === dataSourceMock)
-        XCTAssertTrue(collectionView.dataSource === dataSourceMock)
-    }
-
     func test_use_madeEmptyCollectionHandlerUseCollectionView() {
-        subject.use(collectionView)
+        subject.use(tableView)
 
-        XCTAssertTrue(emptyCollectionHandler.useDidCall)
+        XCTAssertTrue(emptyTableHandler.useDidCall)
     }
 
-    func test_use_didRegisterNibs() {
-        subject.use(collectionView)
+    func test_use_didUse() {
+        subject.use(tableView)
 
-        XCTAssertTrue(dataSourceMock.didRegisterNibs)
+        XCTAssertTrue(dataSourceMock.didCallUseTableView)
     }
 }

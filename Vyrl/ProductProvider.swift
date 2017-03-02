@@ -16,8 +16,8 @@ protocol ProductProviding {
 final class ProductProviderMock: ProductProviding {
     func get(productsIds: [String], completion: @escaping (Result<[Product], ProductProvidingEror>) -> Void) {
         var products: [Product] = []
-        productsIds.forEach { _ in
-            products.append(VyrlFaker.faker.product())
+        productsIds.forEach { id in
+            products.append(VyrlFaker.faker.product(id: id))
         }
         completion(.success(products))
     }

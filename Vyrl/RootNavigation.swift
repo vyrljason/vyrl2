@@ -48,6 +48,7 @@ final class RootNavigation {
                                                                      translucent: false)
         static let closeTitle: String = NSLocalizedString("Close", comment: "")
         static let animationDuration: TimeInterval = 0.3
+        static let leftButtonNegativeSpace: CGFloat = -8
     }
 
     fileprivate var mainNavigation: NavigationControlling
@@ -179,27 +180,21 @@ extension RootNavigation: MainNavigationPresenting {
     private func setUpNavigationItems(in viewController: UIViewController) {
         viewController.render(NavigationItemRenderable(titleImage: Constants.titleImage))
 
-        // This is temporary - icon will be used.
-        let menuButton = UIBarButtonItem(title: "Menu",
+        let menuButton = UIBarButtonItem(image: #imageLiteral(resourceName: "burger"),
                                          style: .plain,
                                          target: interactor,
                                          action: #selector(RootNavigationInteracting.didTapMenu))
+        let negativeButton = UIBarButtonItem(barButtonSystemItem: .fixedSpace, target: nil, action: nil)
+        negativeButton.width = Constants.leftButtonNegativeSpace
 
-        viewController.navigationItem.leftBarButtonItem = menuButton
-
-        // This is temporary - icon will be used.
-        let chat = UIBarButtonItem(title: "Chat",
-                                   style: .plain,
-                                   target: interactor,
-                                   action: #selector(RootNavigationInteracting.didTapChat))
-
-        // This is temporary - icon will be used.
-        let cart = UIBarButtonItem(title: "Cart",
+        let cart = UIBarButtonItem(image: #imageLiteral(resourceName: "iosCartIconNav"),
                                    style: .plain,
                                    target: interactor,
                                    action: #selector(RootNavigationInteracting.didTapCart))
 
-        viewController.navigationItem.rightBarButtonItems = [chat, cart]
+        viewController.navigationItem.leftBarButtonItems = [negativeButton, menuButton]
+        viewController.navigationItem.rightBarButtonItems = [cart]
+
     }
 }
 

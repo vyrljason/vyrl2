@@ -31,10 +31,11 @@ final class CartViewController: UIViewController, HavingNib {
 
     private let interactor: CartInteracting
 
-    @IBOutlet fileprivate weak var collectionView: UICollectionView!
     @IBOutlet fileprivate weak var summaryLabel: UILabel!
     @IBOutlet fileprivate weak var price: UILabel!
     @IBOutlet fileprivate weak var summaryView: UIView!
+    @IBOutlet fileprivate weak var tableView: UITableView!
+    @IBOutlet fileprivate weak var requestButton: UIButton!
 
     init(interactor: CartInteracting) {
         self.interactor = interactor
@@ -48,11 +49,17 @@ final class CartViewController: UIViewController, HavingNib {
     }
 
     override func viewDidLoad() {
-        interactor.use(collectionView)
+        interactor.use(tableView)
+        navigationItem.rightBarButtonItem = editButtonItem
+    }
+
+    override func setEditing(_ editing: Bool, animated: Bool) {
+        super.setEditing(editing, animated: animated)
+        tableView.setEditing(editing, animated: animated)
     }
 
     override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(true)
+        super.viewDidAppear(animated)
         interactor.viewDidAppear()
     }
 }
@@ -60,6 +67,7 @@ final class CartViewController: UIViewController, HavingNib {
 extension CartViewController: CartSummaryRendering {
     func render(_ renderable: CartSummaryRenderable) {
         summaryView.isHidden = !renderable.summaryVisible
+        requestButton.isHidden = !renderable.summaryVisible
         price.text = renderable.price
         summaryLabel.text = renderable.summary
     }

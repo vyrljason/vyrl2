@@ -8,4 +8,5 @@ protocol ReloadingData: class {
     func reloadData()
 }
 
+extension UITableView: ReloadingData { }
 extension UICollectionView: ReloadingData { }

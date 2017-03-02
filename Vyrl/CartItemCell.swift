@@ -22,7 +22,7 @@ protocol CartItemCellRendering {
     func render(_ renderable: CartItemCellRenderable)
 }
 
-final class CartItemCell: UICollectionViewCell, HavingNib, CartItemCellRendering {
+final class CartItemCell: UITableViewCell, HavingNib, CartItemCellRendering {
 
     private enum Constants {
         static let placeholder: UIImage = #imageLiteral(resourceName: "leica")
@@ -35,14 +35,7 @@ final class CartItemCell: UICollectionViewCell, HavingNib, CartItemCellRendering
     @IBOutlet private weak var title: UILabel!
     @IBOutlet private weak var subTitle: UILabel!
     @IBOutlet private weak var price: UILabel!
-    @IBOutlet private weak var image: DownloadingImageView!
-
-    override func awakeFromNib() {
-        super.awakeFromNib()
-
-        image.layer.borderWidth = Constants.borderWidth
-        image.layer.borderColor = Constants.borderColor
-    }
+    @IBOutlet private weak var productImage: DownloadingImageView!
 
     func render(_ renderable: CartItemCellRenderable) {
         title.text = renderable.title
@@ -51,6 +44,6 @@ final class CartItemCell: UICollectionViewCell, HavingNib, CartItemCellRendering
     }
 
     func set(imageFetcher: ImageFetching) {
-        image.fetchImage(using: imageFetcher, placeholder: Constants.placeholder)
+        productImage.fetchImage(using: imageFetcher, placeholder: Constants.placeholder)
     }
 }

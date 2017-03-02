@@ -4,7 +4,6 @@
 
 @testable import Vyrl
 import XCTest
-import FBSnapshotTestCase
 
 final class CenteredWithDetailTableCellTest: SnapshotTestCase {
     

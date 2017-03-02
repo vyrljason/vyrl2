@@ -15,7 +15,7 @@ final class CartItemCellSnapshotTest: SnapshotTestCase {
 
     func testViewCorrect() {
         let view = CartItemCell.fromNib(translatesAutoresizingMaskIntoConstraints: true)
-        view.frame = CGRect(x: 0, y: 0, width: 375, height: 122)
+        view.frame = CGRect(x: 0, y: 0, width: 375, height: 120)
 
         let cartItemRenderable: CartItemCellRenderable = CartItemCellRenderable(title: "Leica",
                                                                                 subTitle: "Custom-made by Jony Ive and Marc Newson",
