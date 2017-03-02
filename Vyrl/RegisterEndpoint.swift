@@ -2,7 +2,7 @@
 //  Copyright © 2017 Vyrl. All rights reserved.
 //
 
-import Decodable
+import Alamofire
 
 struct RegisterEndpoint: APIEndpoint {
     let path = "/auth/local/register"
@@ -10,6 +10,7 @@ struct RegisterEndpoint: APIEndpoint {
     let method: HTTPMethod = .post
     let parameters: [String: Any]?
     let api: APIType = .influencers
+    let encoding: ParameterEncoding = JSONEncoding()
 
     init(request: UserRegistrationRequest) {
         parameters = request.dictionaryRepresentation

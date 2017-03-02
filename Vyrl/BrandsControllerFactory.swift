@@ -5,7 +5,7 @@
 import UIKit
 
 protocol BrandsControllerMaking {
-    static func make(storePresenter: BrandStorePresenting, interactor: BrandsInteracting & CollectionViewRefreshing) -> BrandsViewController
+    static func make(storePresenter: BrandStorePresenting, interactor: BrandsInteracting & DataRefreshing) -> BrandsViewController
 }
 
 protocol BrandsInteractorMaking {
@@ -33,7 +33,8 @@ enum BrandsInteractorFactory: BrandsInteractorMaking {
                                                     description: NSAttributedString(string: Constants.networkingErrorDescription,
                                                                                     attributes: Constants.descriptionAttributes))
 
-        let resource = Service<BrandsResourceMock>(resource: BrandsResourceMock(amount: 30))
+        let resourceController = ServiceLocator.resourceConfigurator.resourceController
+        let resource = Service<BrandsResource>(resource: BrandsResource(controller: resourceController))
         let service = BrandsService(resource: resource)
         let dataSource = BrandsDataSource(service: service)
         let modeMap: [EmptyCollectionMode : EmptyCollectionRenderable] = [ .error: brandsError, .noData: noBrands ]
@@ -43,7 +44,7 @@ enum BrandsInteractorFactory: BrandsInteractorMaking {
 }
 
 enum BrandsControllerFactory: BrandsControllerMaking {
-    static func make(storePresenter: BrandStorePresenting, interactor: BrandsInteracting & CollectionViewRefreshing) -> BrandsViewController {
+    static func make(storePresenter: BrandStorePresenting, interactor: BrandsInteracting & DataRefreshing) -> BrandsViewController {
         interactor.brandStorePresenter = storePresenter
         let viewController = BrandsViewController(interactor: interactor)
         interactor.dataUpdateListener = viewController

@@ -10,15 +10,18 @@ import Alamofire
 @UIApplicationMain
 final class AppDelegate: UIResponder, UIApplicationDelegate {
 
-    var window: UIWindow?
-
-    private let rootNavigation = RootNavigationBuilder().build()
+    private var rootNavigation: RootNavigation!
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         initializeAnalytics()
         setUpAPIConfiguration()
-        rootNavigation.showInitialViewController(animated: false)
+        setUpRootNavigation()
         return true
+    }
+
+    private func setUpRootNavigation() {
+        rootNavigation = RootNavigationBuilder().build()
+        rootNavigation?.showInitialViewController(animated: false)
     }
 
     private func initializeAnalytics() {

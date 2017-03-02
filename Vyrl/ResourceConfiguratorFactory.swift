@@ -12,9 +12,9 @@ enum ResourceConfiguratorFactory {
         let responseHandler = APIResponseHandler(jsonDeserializer: jsonDeserializer)
         let credentialsStorage = CredentialsStorage()
         let credentialsProvider = APICredentialsProvider(storage: credentialsStorage)
-        let headersProvider = HTTPHeadersProvider(credentialsProvider: credentialsProvider)
+        let requestDataProvider = RequestDataProvider(credentialsProvider: credentialsProvider)
         let resourceConfigurator = ResourceConfigurator(configuration: apiConfiguration,
-                                                        sessionManager: manager, responseHandler: responseHandler, headersProvider: headersProvider)
+                                                        sessionManager: manager, responseHandler: responseHandler, requestDataProvider: requestDataProvider)
         return resourceConfigurator
     }
 }

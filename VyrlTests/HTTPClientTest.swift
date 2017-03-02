@@ -8,11 +8,16 @@ import Alamofire
 import Decodable
 @testable import Vyrl
 
-final class HTTPHeadersProviderMock: HTTPHeadersProviding {
+final class RequestDataProviderMock: RequestDataProviding {
     var headers: [String: String] = [:]
+    var parmeters: [String: Any]? = [:]
 
-    func headersFor(endpoint: APIEndpoint) -> [String : String] {
+    func headers(for endpoint: APIEndpoint) -> [String : String] {
         return headers
+    }
+
+    func parameters(for endpoint: APIEndpoint) -> [String : Any]? {
+        return parmeters
     }
 }
 
@@ -25,15 +30,15 @@ final class HTTPClientTest: XCTestCase {
     private var subject: HTTPClient!
     private var manager: SessionManager!
     private var apiConfiguration: APIConfigurationMock!
-    private var headersProvider: HTTPHeadersProviderMock!
+    private var requestDataProvider: RequestDataProviderMock!
     private var responseHandler: APIResponseHandlerMock!
 
     override func setUp() {
         super.setUp()
         manager = SessionManager()
         apiConfiguration = APIConfigurationMock()
-        headersProvider = HTTPHeadersProviderMock()
+        requestDataProvider = RequestDataProviderMock()
         responseHandler = APIResponseHandlerMock()
-        subject = HTTPClient(manager: manager, apiConfiguration: apiConfiguration, headersProvider: headersProvider, responseHandler: responseHandler)
+        subject = HTTPClient(manager: manager, apiConfiguration: apiConfiguration, requestDataProvider: requestDataProvider, responseHandler: responseHandler)
     }
 }

@@ -57,7 +57,8 @@ extension BrandsDataSource {
 
     fileprivate func prepare(cell: BrandCell, using brand: Brand) {
         cell.render(BrandRenderable(brand: brand))
-        cell.set(coverImageFetcher: ImageFetcher(url: brand.coverImageURL))
+        guard let coverURL = brand.coverImageURL else { return }
+        cell.set(coverImageFetcher: ImageFetcher(url: coverURL))
     }
 
     func numberOfSections(in collectionView: UICollectionView) -> Int {

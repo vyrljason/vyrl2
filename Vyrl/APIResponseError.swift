@@ -36,7 +36,11 @@ func == (lhs: APIResponseError, rhs: APIResponseError) -> Bool {
 
 extension APIResponseError {
 
-    init(statusCode: StatusCode, error: Error, data: Data? = nil) {
+    init(statusCode: StatusCode?, error: Error, data: Data? = nil) {
+        guard let statusCode = statusCode else {
+            self.init(error: error)
+            return
+        }
         if let data = data, let apiError = try? data.deserialize(model: APIError.self) {
             self.init(statusCode: statusCode, apiError: apiError)
         } else {
@@ -55,9 +59,13 @@ extension APIResponseError {
 
     private init(statusCode: StatusCode, error: Error) {
         if case .accessDenied = statusCode {
-            self = .accessDenied(APIError(error: error as NSError))
-            return 
+            self.init(statusCode: statusCode, apiError: APIError(error: error as NSError))
+        } else {
+            self.init(error: error)
         }
+    }
+
+    private init(error: Error) {
         switch error {
         case let decodingError as DecodingError:
             self = .modelDeserializationFailure(decodingError)

@@ -18,9 +18,9 @@ final class BrandsNavigation: NavigationControlling {
     fileprivate let brandsFactory: BrandsControllerMaking.Type
     fileprivate let brandStoreFactory: BrandStoreMaking.Type
     fileprivate let productDetailsFactory: ProductDetailsMaking.Type
-    fileprivate let brandsInteractor: BrandsInteracting & CollectionViewRefreshing
+    fileprivate let brandsInteractor: BrandsInteracting & DataRefreshing
 
-    init(brandsInteractor: BrandsInteracting & CollectionViewRefreshing,
+    init(brandsInteractor: BrandsInteracting & DataRefreshing,
          brandsFactory: BrandsControllerMaking.Type,
          brandStoreFactory: BrandStoreMaking.Type,
          productDetailsFactory: ProductDetailsMaking.Type,
