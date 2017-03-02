@@ -32,7 +32,7 @@ extension CartSummary {
 final class CartDataSource: NSObject, CartDataProviding {
 
     fileprivate enum Constants {
-        static let cellHeight: CGFloat = 122
+        static let cellHeight: CGFloat = 120
     }
 
     weak var emptyCollectionDelegate: EmptyCollectionViewHandling?
@@ -67,34 +67,44 @@ final class CartDataSource: NSObject, CartDataProviding {
     func registerNibs(in collectionView: UICollectionView) {
         CartItemCell.register(to: collectionView)
     }
+
+    fileprivate func removeItem(at index: Int) {
+        let product = products[index]
+        if let itemToRemove = cartStorage.items.filter({ $0.id == product.id }).first {
+            cartStorage.remove(item: itemToRemove)
+            products.remove(at: index)
+        }
+    }
 }
 
-extension CartDataSource: UICollectionViewDelegate, UICollectionViewDataSource {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+extension CartDataSource: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return products.count
     }
 
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell: CartItemCell = collectionView.dequeueCell(at: indexPath)
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell: CartItemCell = tableView.dequeueCell(at: indexPath)
         let product = products[indexPath.row]
 
         cell.render(product.cartItemRenderable)
 
         return cell
     }
-}
 
-extension CartDataSource: UICollectionViewDelegateFlowLayout {
-
-    func collectionView(_ collectionView: UICollectionView,
-                        layout collectionViewLayout: UICollectionViewLayout,
-                        sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: collectionView.bounds.width, height: Constants.cellHeight)
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
     }
 
-    func collectionView(_ collectionView: UICollectionView,
-                        layout collectionViewLayout: UICollectionViewLayout,
-                        insetForSectionAt section: Int) -> UIEdgeInsets {
-        return .zero
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return Constants.cellHeight
+    }
+
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            tableView.beginUpdates()
+            removeItem(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+            tableView.endUpdates()
+        }
     }
 }

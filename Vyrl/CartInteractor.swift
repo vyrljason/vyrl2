@@ -29,12 +29,12 @@ final class CartInteractor: CartInteracting {
 }
 
 extension CartInteractor: CollectionViewUsing {
-    func use(_ collectionView: UICollectionView) {
-        collectionView.dataSource = dataSource
-        collectionView.delegate = dataSource
-        emptyCollectionHandler.use(collectionView)
-        dataSource.registerNibs(in: collectionView)
-        dataSource.reloadingDelegate = collectionView
+    func use(_ tableView: UITableView) {
+        tableView.dataSource = dataSource
+        tableView.delegate = dataSource
+        emptyCollectionHandler.use(tableView)
+        dataSource.registerNibs(in: tableView)
+        dataSource.reloadingDelegate = tableView
     }
 }
 

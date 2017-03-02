@@ -9,12 +9,12 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CartViewController" customModule="Vyrl">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CartViewController" customModule="Vyrl" customModuleProvider="target">
             <connections>
-                <outlet property="collectionView" destination="bKE-nN-iXA" id="7cX-Hm-vU1"/>
                 <outlet property="price" destination="jZ6-go-j5D" id="C6y-SW-LUa"/>
                 <outlet property="summaryLabel" destination="5KX-Ze-zjj" id="M5Y-dN-V5i"/>
                 <outlet property="summaryView" destination="zE7-dY-15I" id="RWg-61-rQY"/>
+                <outlet property="tableView" destination="UGD-ja-cAM" id="EBu-SK-p2E"/>
                 <outlet property="view" destination="iN0-l3-epB" id="VdJ-k8-fye"/>
             </connections>
         </placeholder>
@@ -23,16 +23,6 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="bKE-nN-iXA">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="549"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="RvU-cZ-pDx">
-                        <size key="itemSize" width="50" height="50"/>
-                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                    </collectionViewFlowLayout>
-                </collectionView>
                 <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zE7-dY-15I">
                     <rect key="frame" x="0.0" y="549" width="375" height="59"/>
                     <subviews>
@@ -75,24 +65,28 @@
                     <constraints>
                         <constraint firstAttribute="height" constant="59" id="eIx-z0-tkM"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
                     <state key="normal" title="Request product(s)">
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                 </button>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="UGD-ja-cAM">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="549"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </tableView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="zE7-dY-15I" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="1O3-Sw-xaa"/>
+                <constraint firstItem="UGD-ja-cAM" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="7jN-Vv-oXg"/>
                 <constraint firstAttribute="bottom" secondItem="gRI-u0-LrH" secondAttribute="bottom" id="Bco-eq-g2m"/>
-                <constraint firstAttribute="trailing" secondItem="bKE-nN-iXA" secondAttribute="trailing" id="GmT-ut-tHc"/>
-                <constraint firstItem="zE7-dY-15I" firstAttribute="top" secondItem="bKE-nN-iXA" secondAttribute="bottom" id="KSi-MM-Yvh"/>
                 <constraint firstAttribute="trailing" secondItem="gRI-u0-LrH" secondAttribute="trailing" id="acE-5T-FUG"/>
-                <constraint firstItem="bKE-nN-iXA" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="cw3-TS-Ex2"/>
+                <constraint firstAttribute="trailing" secondItem="UGD-ja-cAM" secondAttribute="trailing" id="h2o-3M-b7i"/>
                 <constraint firstAttribute="trailing" secondItem="zE7-dY-15I" secondAttribute="trailing" id="i4P-7O-q9r"/>
                 <constraint firstItem="gRI-u0-LrH" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="j7a-lg-BYZ"/>
                 <constraint firstItem="gRI-u0-LrH" firstAttribute="top" secondItem="zE7-dY-15I" secondAttribute="bottom" id="kci-M1-V2s"/>
-                <constraint firstItem="bKE-nN-iXA" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="q1X-Ka-gIq"/>
+                <constraint firstItem="zE7-dY-15I" firstAttribute="top" secondItem="UGD-ja-cAM" secondAttribute="bottom" id="mMU-0n-gim"/>
+                <constraint firstItem="UGD-ja-cAM" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="sR7-c6-4OS"/>
             </constraints>
             <point key="canvasLocation" x="-3.5" y="54.5"/>
         </view>
