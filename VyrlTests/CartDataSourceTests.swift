@@ -8,8 +8,13 @@ import XCTest
 final class CartStoringMock: CartStoring {
     var items: [CartItem] = []
 
-    func add(item: CartItem) { }
-    func remove(item: CartItem) { }
+    func add(item: CartItem) {
+        items.append(item)
+    }
+    
+    func remove(item: CartItem) {
+        items = items.filter({ $0.id != item.id })
+    }
 }
 
 final class ProductProvidingMock: ProductProviding {
@@ -87,5 +92,17 @@ final class CartDataSourceTests: XCTestCase {
         subject.loadData()
 
         XCTAssertEqual(subject.tableView(tableView, numberOfRowsInSection: 0), 1)
+    }
+
+    func test_remove_removed() {
+        let item = VyrlFaker.faker.cartItem()
+        cartStorage.items = [item]
+        productProvider.mockedProducts = [VyrlFaker.faker.product(id: item.id)]
+
+        subject.loadData()
+
+        subject.tableView(tableView, commit: .delete, forRowAt: IndexPath(row: 0, section: 0))
+
+        XCTAssertTrue(cartStorage.items.isEmpty)
     }
 }
