@@ -4,21 +4,26 @@
 
 import UIKit
 
-protocol ProductDetailsDataProviding: TableViewNibRegistering, TableViewDataProviding {
-    
-}
+protocol ProductDetailsDataProviding: TableViewUsing, TableViewDataProviding { }
 
 final class ProductDetailsDataSource: NSObject, ProductDetailsDataProviding {
-    let product: Product
-    weak var tableView: UITableView?
-    weak var tableViewControllingDelegate: TableViewHaving & TableViewControlling?
+    fileprivate let product: Product
+    weak var tableViewControllingDelegate: TableViewControlling?
     
     init(product: Product) {
         self.product = product
     }
 }
 
-extension ProductDetailsDataSource: TableViewNibRegistering {
+extension ProductDetailsDataSource: TableViewUsing {
+    func use(_ tableView: UITableView) {
+        registerNibs(in: tableView)
+        tableView.delegate = self
+        tableView.dataSource = self
+    }
+}
+
+extension ProductDetailsDataSource: NibRegisteringInTableView {
     func registerNibs(in tableView: UITableView) {
         CenteredWithDetailTableCell.register(to: tableView)
     }

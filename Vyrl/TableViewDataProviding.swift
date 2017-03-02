@@ -5,10 +5,10 @@
 import UIKit
 
 protocol TableViewDataProviding: class, UITableViewDataSource, UITableViewDelegate {
-    weak var tableViewControllingDelegate: TableViewHaving & TableViewControlling? { get set }
+    weak var tableViewControllingDelegate: TableViewControlling? { get set }
     func loadTableData()
 }
 
-protocol TableViewNibRegistering {
+protocol NibRegisteringInTableView {
     func registerNibs(in tableView: UITableView)
 }

@@ -4,26 +4,28 @@
 
 import UIKit
 
-protocol ProductDetailsInteracting: TableViewHaving, TableViewUsing, TableViewControlling {
-    
+protocol ProductDetailsInteracting: TableViewUsing, TableViewControlling {
+    func viewWillAppear(_ animated: Bool)
 }
 
 final class ProductDetailsInteractor: ProductDetailsInteracting {
-    weak var tableView: UITableView?
+    fileprivate weak var tableView: UITableView?
     var dataSource: ProductDetailsDataProviding
     
     init(dataSource: ProductDetailsDataProviding) {
         self.dataSource = dataSource
         dataSource.tableViewControllingDelegate = self
     }
+    
+    func viewWillAppear(_ animated: Bool) {
+        loadTableData()
+    }
 }
 
 extension ProductDetailsInteractor: TableViewUsing {
     func use(_ tableView: UITableView) {
         self.tableView = tableView
-        tableView.delegate = dataSource
-        tableView.dataSource = dataSource
-        dataSource.registerNibs(in: tableView)
+        dataSource.use(tableView)
     }
 }
 

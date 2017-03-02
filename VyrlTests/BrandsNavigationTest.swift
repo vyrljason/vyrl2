@@ -30,6 +30,7 @@ final class ProductDetailsInteractorMock: ProductDetailsInteracting {
     func use(_ tableView: UITableView) { }
     func updateTable(with result: DataFetchResult) { }
     func loadTableData() { }
+    func viewWillAppear(_ animated: Bool) { }
 }
 
 final class BrandsFactoryMock: BrandsControllerMaking {

@@ -11,10 +11,12 @@ final class ProductDetailsDataSourceMock: NSObject, ProductDetailsDataProviding 
     var didUseTableView: Bool = false
     var didUseLoadTableData: Bool = false
     var didUseRegisterNibs: Bool = false
-    weak var tableViewControllingDelegate: TableViewHaving & TableViewControlling?
+    var usedTableArgument: UITableView?
+    weak var tableViewControllingDelegate: TableViewControlling?
     
     func use(_ tableView: UITableView) {
         didUseTableView = true
+        usedTableArgument = tableView
     }
     
     func registerNibs(in tableView: UITableView) {
@@ -64,20 +66,23 @@ final class ProductDetailsInteractorTest: XCTestCase {
     
     func test_loadTableData_reloadsDataSource() {
         subject.loadTableData()
+        
         XCTAssertTrue(dataSource.didUseLoadTableData)
     }
     
-    func test_use_registersNibs() {
-        subject.use(tableViewMock)
-        XCTAssertTrue(dataSource.didUseRegisterNibs)
+    func test_onViewWillAppear_loadsTableData() {
+        let anyValue: Bool = false
+        
+        subject.viewWillAppear(anyValue)
+        
+        XCTAssertTrue(dataSource.didUseLoadTableData)
     }
     
-    func test_use_forwardsTableDataSourceAndDelegate_toDataSourceObject() {
+    func test_use_forwardsUseToDataSource() {
         subject.use(tableViewMock)
-        XCTAssertTrue(tableViewMock.didSetDataSource)
-        XCTAssertTrue(tableViewMock.dataSource === dataSource)
-        XCTAssertTrue(tableViewMock.didSetDelegation)
-        XCTAssertTrue(tableViewMock.delegate === dataSource)
+        
+        XCTAssertTrue(dataSource.didUseTableView)
+        XCTAssertTrue(dataSource.usedTableArgument === tableViewMock)
     }
 }
 

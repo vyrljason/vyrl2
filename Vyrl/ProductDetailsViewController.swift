@@ -21,12 +21,11 @@ final class ProductDetailsViewController: UITableViewController, HavingNib {
     }
     
     override func viewDidLoad() {
-        super.viewDidLoad()
         interactor.use(productDetailsTableView)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        interactor.loadTableData()
+        interactor.viewWillAppear(animated)
     }
 }

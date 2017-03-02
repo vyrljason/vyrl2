@@ -1,8 +1,4 @@
 //
-//  CenteredWithDetailTableCell.swift
-//  Vyrl
-//
-//  Created by Kamil Ziętek on 02.03.2017.
 //  Copyright © 2017 Vyrl. All rights reserved.
 //
 
