@@ -29,3 +29,15 @@ extension UICollectionView {
         return header
     }
 }
+
+extension UITableViewCell: ReusableView {}
+
+extension UITableView {
+    func dequeueCell<Cell: UITableViewCell>(at indexPath: IndexPath) -> Cell where Cell: ReusableView {
+        let cellIdentifier = Cell.reusableIdentifier
+        guard let cell = dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? Cell else {
+            return Cell()
+        }
+        return cell
+    }
+}

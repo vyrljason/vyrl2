@@ -20,7 +20,7 @@ final class ProductDetailsDataSource: NSObject, ProductDetailsDataProviding {
 
 extension ProductDetailsDataSource: TableViewNibRegistering {
     func registerNibs(in tableView: UITableView) {
-        // something like: BrandStoreHeader.registerHeader(to: collectionView)
+        CenteredWithDetailTableCell.register(to: tableView)
     }
 }
 
@@ -36,10 +36,17 @@ extension ProductDetailsDataSource: TableViewDataProviding {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
+        let cell: CenteredWithDetailTableCell = tableView.dequeueCell(at: indexPath)
+        prepare(cell: cell, for: self.product)
+        return cell
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+        return 1
+    }
+    
+    fileprivate func prepare(cell: CenteredWithDetailTableCell, for product: Product) {
+        let renderable = NamePriceTableCellRenderable(product: product)
+        cell.render(renderable)
     }
 }
