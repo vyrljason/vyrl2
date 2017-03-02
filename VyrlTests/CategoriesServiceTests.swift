@@ -7,19 +7,22 @@ import XCTest
 
 final class CategoriesServiceTests: XCTestCase {
 
-    var resource: CategoriesResourceMock!
-    var service: Service<CategoriesResourceMock>!
+    var resourceController: APIResourceControllerMock<Categories>!
+    var resource: CategoriesResource!
+    var service: Service<CategoriesResource>!
     var subject: CategoriesService!
 
     override func setUp() {
         super.setUp()
-        resource = CategoriesResourceMock()
-        service = Service<CategoriesResourceMock>(resource: resource)
+        resourceController = APIResourceControllerMock<Categories>()
+        resourceController.result = Categories(categories: [])
+        resource = CategoriesResource(controller: resourceController)
+        service = Service<CategoriesResource>(resource: resource)
         subject = CategoriesService(resource: service)
     }
 
     func test_get_whenSuccess_returnsCollection() {
-        resource.success = true
+        resourceController.success = true
 
         subject.get { result in
             expectToBeSuccess(result)
@@ -27,7 +30,7 @@ final class CategoriesServiceTests: XCTestCase {
     }
 
     func test_get_whenFailure_returnsError() {
-        resource.success = false
+        resourceController.success = false
 
         subject.get { result in
             expectToBeFailure(result)

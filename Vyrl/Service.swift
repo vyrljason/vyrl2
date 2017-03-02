@@ -4,11 +4,6 @@
 
 import Foundation
 
-enum ServiceError: Error {
-    case unknown
-    case apiResponseError(APIResponseError)
-}
-
 protocol Fetching {
     associatedtype Model
     func fetch(completion: @escaping (Result<Model, APIResponseError>) -> Void)

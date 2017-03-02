@@ -9,7 +9,7 @@ final class BrandsServiceTests: XCTestCase {
 
     var resourceController: APIResourceControllerMock<Brands>!
     var resource: BrandsResource!
-    var service: Service<BrandsResource>!
+    var service: ParameterizedService<BrandsResource>!
     var subject: BrandsService!
 
     override func setUp() {
@@ -17,26 +17,37 @@ final class BrandsServiceTests: XCTestCase {
         resourceController = APIResourceControllerMock<Brands>()
         resourceController.result = Brands(brands: [])
         resource = BrandsResource(controller: resourceController)
-        service = Service<BrandsResource>(resource: resource)
+        service = ParameterizedService<BrandsResource>(resource: resource)
         subject = BrandsService(resource: service)
     }
 
-    func test_get_whenSuccess_returnsBrands() {
+    func test_getFilteredBrands_withNoCategory_whenSuccess_returnsBrands() {
         resourceController.success = true
 
         var wasCalled = false
-        subject.get { result in
+        subject.getFilteredBrands { result in
             wasCalled = true
             expectToBeSuccess(result)
         }
         XCTAssertTrue(wasCalled)
     }
 
-    func test_get_whenFailure_returnsError() {
+    func test_getFilteredBrands_withCategory_whenSuccess_returnsBrands() {
+        resourceController.success = true
+        let category = VyrlFaker.faker.category()
+        var wasCalled = false
+        subject.getFilteredBrands(for: category) { result in
+            wasCalled = true
+            expectToBeSuccess(result)
+        }
+        XCTAssertTrue(wasCalled)
+    }
+
+    func test_getFilteredBrands_whenFailure_returnsError() {
         resourceController.success = false
 
         var wasCalled = false
-        subject.get { result in
+        subject.getFilteredBrands { result in
             wasCalled = true
             expectToBeFailure(result)
         }

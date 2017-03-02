@@ -18,13 +18,14 @@ protocol BrandSelecting: class {
 }
 
 protocol BrandsFilteringByCategory: class {
-    func filterBrands(by: Category)
+    func filterBrands(by: Category?)
 }
 
 final class BrandsInteractor: BrandsInteracting {
 
     fileprivate let dataSource: BrandsDataProviding & BrandsFilteredByCategoryProviding
     fileprivate let emptyCollectionHandler: EmptyCollectionViewHandling
+    fileprivate var category: Category?
     weak var collectionView: UICollectionView?
     weak var dataUpdateListener: DataLoadingEventsListening?
     weak var brandStorePresenter: BrandStorePresenting?
@@ -39,7 +40,7 @@ final class BrandsInteractor: BrandsInteracting {
 
     func loadData() {
         dataUpdateListener?.willStartDataLoading()
-        dataSource.loadData()
+        dataSource.loadData(filteredBy: category)
     }
 
     func updateCollection(with result: DataFetchResult) {
@@ -64,8 +65,9 @@ final class BrandsInteractor: BrandsInteracting {
 }
 
 extension BrandsInteractor: BrandsFilteringByCategory {
-    func filterBrands(by category: Category) {
-        dataSource.loadData(filteredBy: category)
+    func filterBrands(by category: Category?) {
+        self.category = category
+        loadData()
     }
 }
 

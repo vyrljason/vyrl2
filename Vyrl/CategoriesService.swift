@@ -10,13 +10,15 @@ protocol CategoriesProviding {
 
 final class CategoriesService: CategoriesProviding {
 
-    private let resource: Service<CategoriesResourceMock>
+    private let resource: Service<CategoriesResource>
 
-    init(resource: Service<CategoriesResourceMock>) {
+    init(resource: Service<CategoriesResource>) {
         self.resource = resource
     }
 
     func get(completion: @escaping (Result<[Category], ServiceError>) -> Void) {
-        resource.get(completion: completion)
+        resource.get { (result) in
+            completion(result.map(success: { .success($0.categories) }, failure: { .failure($0) }))
+        }
     }
 }

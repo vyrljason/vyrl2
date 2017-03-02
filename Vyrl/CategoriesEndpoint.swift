@@ -4,15 +4,12 @@
 
 import Alamofire
 
-struct BrandsEndpoint: APIEndpoint {
-    let path = "/brands"
+struct CategoriesEndpoint: APIEndpoint {
+    let path = "/categories"
     let authorization: AuthorizationType = .user
     let method: HTTPMethod = .get
-    let parameters: [String: Any]?
+    let parameters: [String: Any]? = nil
     let api: APIType = .main
     let encoding: ParameterEncoding = URLEncoding()
 
-    init(request: BrandsRequest?) {
-        parameters = request?.dictionaryRepresentation
-    }
 }

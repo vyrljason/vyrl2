@@ -10,6 +10,7 @@ import Alamofire
 final class BrandsResourceTest: BaseAPIResourceTest {
 
     private var subject: BrandsResource!
+    private var request: BrandsRequest?
 
     override func setUp() {
         super.setUp()
@@ -17,9 +18,9 @@ final class BrandsResourceTest: BaseAPIResourceTest {
     }
 
     func test_login_callProperEndpoint() {
-        let endpoint = BrandsEndpoint()
+        let endpoint = BrandsEndpoint(request: request)
 
-        subject.fetch { _ in }
+        subject.fetchFiltered(using: request) { _ in }
 
         assertDidCallTo(endpoint)
     }

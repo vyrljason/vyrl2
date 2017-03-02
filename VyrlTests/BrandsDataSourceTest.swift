@@ -19,8 +19,10 @@ final class BrandsServiceMock: BrandsProviding {
     let error: ServiceError = .unknown
     var success = true
     var isResponseEmpty: Bool = false
+    var category: Vyrl.Category?
 
-    func get(completion: @escaping (Result<[Brand], ServiceError>) -> Void) {
+    func getFilteredBrands(for category: Vyrl.Category?, completion: @escaping (Result<[Brand], ServiceError>) -> Void) {
+        self.category = category
         if success {
             completion(.success(isResponseEmpty ? [] : brands))
         } else {
@@ -70,6 +72,15 @@ final class BrandsDataSourceTest: XCTestCase {
         subject.loadData()
 
         XCTAssertEqual(subject.collectionView(interactor.collectionView!, numberOfItemsInSection: 1), service.brands.count)
+    }
+
+    func test_loadDataFilteredBy_callsServiceUsingThisCategory() {
+        service.success = true
+        let category = VyrlFaker.faker.category()
+
+        subject.loadData(filteredBy: category)
+
+        XCTAssertEqual(service.category, category)
     }
 
     func test_loadData_whenServiceReturnsNonEmptyDataSuccess_InformsDelegate() {

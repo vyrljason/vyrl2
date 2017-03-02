@@ -5,20 +5,21 @@
 import Foundation
 
 protocol BrandsProviding {
-    func get(completion: @escaping (Result<[Brand], ServiceError>) -> Void)
+    func getFilteredBrands(for category: Category?, completion: @escaping (Result<[Brand], ServiceError>) -> Void)
 }
 
 final class BrandsService: BrandsProviding {
 
-    private let resource: Service<BrandsResource>
+    private let resource: ParameterizedService<BrandsResource>
 
-    init(resource: Service<BrandsResource>) {
+    init(resource: ParameterizedService<BrandsResource>) {
         self.resource = resource
     }
 
-    func get(completion: @escaping (Result<[Brand], ServiceError>) -> Void) {
-        resource.get { (result) in
+    func getFilteredBrands(for category: Category? = nil, completion: @escaping (Result<[Brand], ServiceError>) -> Void) {
+        resource.get(using: BrandsRequest(category: category)) { result in
             completion(result.map(success: { .success($0.brands) }, failure: { .failure($0) }))
         }
     }
+
 }

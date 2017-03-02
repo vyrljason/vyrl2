@@ -34,7 +34,7 @@ enum BrandsInteractorFactory: BrandsInteractorMaking {
                                                                                     attributes: Constants.descriptionAttributes))
 
         let resourceController = ServiceLocator.resourceConfigurator.resourceController
-        let resource = Service<BrandsResource>(resource: BrandsResource(controller: resourceController))
+        let resource = ParameterizedService<BrandsResource>(resource: BrandsResource(controller: resourceController))
         let service = BrandsService(resource: resource)
         let dataSource = BrandsDataSource(service: service)
         let modeMap: [EmptyCollectionMode : EmptyCollectionRenderable] = [ .error: brandsError, .noData: noBrands ]

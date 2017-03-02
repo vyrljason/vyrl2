@@ -201,13 +201,14 @@ extension RootNavigation: MainNavigationPresenting {
 extension RootNavigation: HomeScreenPresenting {
     func showHome() {
         mainNavigation.goToFirst(animated: true)
+        brandsFiltering?.filterBrands(by: nil)
         slideMenu.closeLeft()
     }
 }
 
 extension RootNavigation: CategoryPresenting {
     func show(_ category: Category) {
-        mainNavigation.goToFirst(animated: true) // FIXME: show brands for category
+        mainNavigation.goToFirst(animated: true)
         brandsFiltering?.filterBrands(by: category)
         slideMenu.closeLeft()
     }

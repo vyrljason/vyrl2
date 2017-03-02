@@ -42,7 +42,7 @@ extension BrandsDataSource {
 
 extension BrandsDataSource: BrandsFilteredByCategoryProviding {
     func loadData(filteredBy category: Category?) {
-        service.get { [weak self] result in
+        service.getFilteredBrands(for: category) { [weak self] result in
             guard let `self` = self else { return }
             self.items = result.map(success: { $0 }, failure: { _ in return [] })
             DispatchQueue.onMainThread {

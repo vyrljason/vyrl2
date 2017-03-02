@@ -21,3 +21,9 @@ extension Category: Decodable {
                              name: json => KeyPath(JSONKeys.name))
     }
 }
+
+extension Category: Equatable { }
+
+func == (lhs: Category, rhs: Category) -> Bool {
+    return lhs.id == rhs.id && lhs.name == rhs.name
+}

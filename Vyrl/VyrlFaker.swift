@@ -39,6 +39,13 @@ extension Internet {
 }
 
 extension Faker {
+    func category(id: String = VyrlFaker.faker.lorem.characters(amount: 20),
+                  name: String = VyrlFaker.faker.company.catchPhrase()) -> Category {
+        return Category(id: id, name: name)
+    }
+}
+
+extension Faker {
 
     func userSettings(id: Int = VyrlFaker.faker.number.randomInt(),
                       user: Int = VyrlFaker.faker.number.randomInt(),
