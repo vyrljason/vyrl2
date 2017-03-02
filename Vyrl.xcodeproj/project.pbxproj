@@ -52,6 +52,7 @@
 		1A859C1B1E58A5620013EB09 /* NavigationControllerMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A859C1A1E58A5620013EB09 /* NavigationControllerMock.swift */; };
 		1A859C4B1E58D1950013EB09 /* LeftMenuInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A859C4A1E58D1950013EB09 /* LeftMenuInteractor.swift */; };
 		1AA7FA8E1E672D08001C0B6F /* CartSummarySnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AA7FA8D1E672D08001C0B6F /* CartSummarySnapshotTests.swift */; };
+		1AA7FA901E686F32001C0B6F /* EmptyTableViewHandlerMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AA7FA8F1E686F32001C0B6F /* EmptyTableViewHandlerMock.swift */; };
 		1ADAF7C81E545F3C00155D9F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ADAF7C71E545F3C00155D9F /* AppDelegate.swift */; };
 		1ADAF7CF1E545F3C00155D9F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1ADAF7CE1E545F3C00155D9F /* Assets.xcassets */; };
 		1ADAF7D21E545F3C00155D9F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1ADAF7D01E545F3C00155D9F /* LaunchScreen.storyboard */; };
@@ -293,6 +294,7 @@
 		1A859C4A1E58D1950013EB09 /* LeftMenuInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftMenuInteractor.swift; sourceTree = "<group>"; };
 		1AA1C43D9EC44CB342D10427 /* Pods_Vyrl.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Vyrl.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1AA7FA8D1E672D08001C0B6F /* CartSummarySnapshotTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CartSummarySnapshotTests.swift; sourceTree = "<group>"; };
+		1AA7FA8F1E686F32001C0B6F /* EmptyTableViewHandlerMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmptyTableViewHandlerMock.swift; sourceTree = "<group>"; };
 		1ADAF7C41E545F3C00155D9F /* Vyrl.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Vyrl.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1ADAF7C71E545F3C00155D9F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1ADAF7CE1E545F3C00155D9F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -787,6 +789,7 @@
 				85CA3FCC1E6431CF00D43805 /* APIConfigurationMock.swift */,
 				85CA3FD11E64635600D43805 /* SessionManagerMock.swift */,
 				85B0A8331E66B63B002093BA /* LoginServiceMock.swift */,
+				1AA7FA8F1E686F32001C0B6F /* EmptyTableViewHandlerMock.swift */,
 				85B0A8421E672ED0002093BA /* HTTPClientMock.swift */,
 			);
 			name = Mocks;
@@ -2042,6 +2045,7 @@
 				858D63FB1E56037600CFDD4C /* ImageFetcherMock.swift in Sources */,
 				85B0A8451E67334A002093BA /* BrandsResourceTest.swift in Sources */,
 				1A1FA9511E5E2668007EB61D /* CategoriesDataSourceTests.swift in Sources */,
+				1AA7FA901E686F32001C0B6F /* EmptyTableViewHandlerMock.swift in Sources */,
 				3169B9CE1E64F503005F8A94 /* BrandStoreFlowLayoutHandlerTest.swift in Sources */,
 				1AF49CD11E59F24A00FE7857 /* LeftMenuInteractorTests.swift in Sources */,
 				1ADAF7DD1E545F3C00155D9F /* RootNavigationTests.swift in Sources */,

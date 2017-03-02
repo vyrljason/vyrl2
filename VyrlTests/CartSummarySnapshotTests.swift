@@ -9,7 +9,7 @@ final class CartInteractingMock: CartInteracting {
     weak var projector: CartSummaryRendering?
 
     func viewDidAppear() { }
-    func use(_ collectionView: UICollectionView) { }
+    func use(_ tableView: UITableView) { }
 }
 
 final class CartSummarySnapshotTest: SnapshotTestCase {
