@@ -26,6 +26,7 @@ final class BrandsInteractorMock: BrandsInteracting, CollectionViewRefreshing {
 }
 
 final class ProductDetailsInteractorMock: ProductDetailsInteracting {
+    weak var tableView: UITableView?
     func use(_ tableView: UITableView) { }
     func updateTable(with result: DataFetchResult) { }
     func loadTableData() { }

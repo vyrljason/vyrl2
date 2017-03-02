@@ -7,4 +7,3 @@ import UIKit
 protocol TableViewUsing: class {
     func use(_ tableView: UITableView)
 }
-

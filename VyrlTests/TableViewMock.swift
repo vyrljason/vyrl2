@@ -7,8 +7,8 @@ import UIKit
 final class TableViewMock: UITableView {
     
     var didSetDelegation = false
-    var dataSourceDidSet = false
-    var reloadDidCall = false
+    var didSetDataSource = false
+    var didCallReload = false
     var didRegisterNib = false
     
     init() {
@@ -27,12 +27,12 @@ final class TableViewMock: UITableView {
     
     override var dataSource: UITableViewDataSource? {
         didSet {
-            dataSourceDidSet = true
+            didSetDataSource = true
         }
     }
     
     override func reloadData() {
-        reloadDidCall = true
+        didCallReload = true
     }
     
     override func register(_ nib: UINib?, forCellReuseIdentifier identifier: String) {

@@ -6,6 +6,7 @@ import UIKit
 
 protocol TableViewDataProviding: class, UITableViewDataSource, UITableViewDelegate {
     weak var tableViewControllingDelegate: TableViewHaving & TableViewControlling? { get set }
+    func loadTableData()
 }
 
 protocol TableViewNibRegistering {

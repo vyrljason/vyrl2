@@ -5,5 +5,5 @@
 import UIKit
 
 protocol TableViewHaving: class {
-    var collectionView: UITableView? { get }
+    var tableView: UITableView? { get }
 }
