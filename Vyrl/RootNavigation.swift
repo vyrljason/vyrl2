@@ -179,8 +179,7 @@ extension RootNavigation: MainNavigationPresenting {
     private func setUpNavigationItems(in viewController: UIViewController) {
         viewController.render(NavigationItemRenderable(titleImage: Constants.titleImage))
 
-        // This is temporary - icon will be used.
-        let menuButton = UIBarButtonItem(title: "Menu",
+        let menuButton = UIBarButtonItem(image: #imageLiteral(resourceName: "burger"),
                                          style: .plain,
                                          target: interactor,
                                          action: #selector(RootNavigationInteracting.didTapMenu))
@@ -193,8 +192,7 @@ extension RootNavigation: MainNavigationPresenting {
                                    target: interactor,
                                    action: #selector(RootNavigationInteracting.didTapChat))
 
-        // This is temporary - icon will be used.
-        let cart = UIBarButtonItem(title: "Cart",
+        let cart = UIBarButtonItem(image: #imageLiteral(resourceName: "iosCartIconNav"),
                                    style: .plain,
                                    target: interactor,
                                    action: #selector(RootNavigationInteracting.didTapCart))
