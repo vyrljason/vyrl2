@@ -9,10 +9,10 @@ final class CartViewControllerFactory {
     private enum Constants {
         static let titleAttributes: [String: Any] = [:] //This should be adjusted by the final design
         static let descriptionAttributes: [String: Any] = [:] //This should be adjusted by the final design
-        static let noDataTitle = NSLocalizedString("No products in cart", comment: "")
-        static let noDataDescription = NSLocalizedString("Add some products", comment: "")
-        static let networkingErrorTitle = NSLocalizedString("Something went wrong", comment: "")
-        static let networkingErrorDescription = NSLocalizedString("Please contact the administrator", comment: "")
+        static let noDataTitle = NSLocalizedString("cart.noProducts.title", comment: "")
+        static let noDataDescription = NSLocalizedString("cart.noProducts.description", comment: "")
+        static let networkingErrorTitle = NSLocalizedString("cart.error.title", comment: "")
+        static let networkingErrorDescription = NSLocalizedString("cart.error.description", comment: "")
     }
 
     static func make() -> CartViewController {

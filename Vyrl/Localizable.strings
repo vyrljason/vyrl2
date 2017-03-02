@@ -1,4 +1,11 @@
 "brand.submissionName" = "submissions";
+"cart.title" = "YOUR CART";
+"cart.summaryFormat" = "%d products from\n%d companies";
+"cart.noProducts.title" = "No products in cart";
+"cart.noProducts.description" = "Add some products";
+"cart.error.title" = "Something went wrong";
+"cart.error.description" = "Please contact the administrator";
+"chat.title" = "CHAT";
 "validation.error.usernameEmpty" = "Username cannot be empty";
 "validation.error.passwordEmpty" = "Password cannot be empty";
 "validation.error.passwordInvalid" = "Password format is invalid";

@@ -14,15 +14,24 @@ final class CartStoringMock: CartStoring {
 
 final class ProductProvidingMock: ProductProviding {
 
-    var mockedProduct: Product? = VyrlFaker.faker.product()
+    var mockedProducts: [Product]? = [VyrlFaker.faker.product()]
 
-    func get(productId: String, completion: @escaping (Result<Product, ProductProvidingEror>) -> Void) {
-        switch mockedProduct {
-        case .some(let product):
-            completion(.success(product))
+    func get(productsIds: [String], completion: @escaping (Result<[Product], ProductProvidingEror>) -> Void) {
+        switch mockedProducts {
+        case .some(let products):
+            completion(.success(products))
         case .none:
             completion(.failure(.unknown))
         }
+    }
+}
+
+final class SummaryUpdateHandlingMock: SummaryUpdateHandling {
+
+    var summary: CartSummary?
+
+    func didUpdate(summary: CartSummary) {
+        self.summary = summary
     }
 }
 
@@ -33,6 +42,7 @@ final class CartDataSourceTests: XCTestCase {
     var productProvider: ProductProvidingMock!
     var collectionView: CollectionViewMock!
     var emptyCollectionViewHandlerMock: EmptyCollectionViewHandlerMock!
+    var summaryDelegate: SummaryUpdateHandlingMock!
 
     override func setUp() {
         super.setUp()
@@ -40,27 +50,41 @@ final class CartDataSourceTests: XCTestCase {
         productProvider = ProductProvidingMock()
         collectionView = CollectionViewMock()
         emptyCollectionViewHandlerMock = EmptyCollectionViewHandlerMock()
+        summaryDelegate = SummaryUpdateHandlingMock()
 
         subject = CartDataSource(cartStorage: cartStorage, productProvider: productProvider)
-        subject.delegate = emptyCollectionViewHandlerMock
+        subject.emptyCollectionDelegate = emptyCollectionViewHandlerMock
+        subject.summaryDelegate = summaryDelegate
     }
 
     func test_loadData_noData_noDataMode() {
-        subject.loadData()
-
         cartStorage.items = []
+
+        subject.loadData()
 
         XCTAssertEqual(emptyCollectionViewHandlerMock.currentMode, .noData)
     }
 
-    func test_loadData_registerNibs_didRegisterNib() {
+    func test_registerNibs_didRegisterNib() {
         subject.registerNibs(in: collectionView)
 
         XCTAssertTrue(collectionView.didRegisterNib)
     }
 
+    func test_loadData_dataPresent_notifedSummaryDelegate() {
+        let item = VyrlFaker.faker.cartItem()
+        cartStorage.items = [item]
+
+        subject.loadData()
+
+        XCTAssertEqual(summaryDelegate.summary?.productsCount, 1)
+        XCTAssertEqual(summaryDelegate.summary?.brandsCount, 1)
+    }
+
     func test_loadData_numberOfItemsInSection_One() {
         cartStorage.items = [VyrlFaker.faker.cartItem()]
+
+        subject.loadData()
 
         XCTAssertEqual(subject.collectionView(collectionView, numberOfItemsInSection: 0), 1)
     }
