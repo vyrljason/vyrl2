@@ -5,11 +5,13 @@
 import UIKit
 
 protocol ProductDetailsMaking {
-    static func make(brand: Product) -> ProductDetailsViewController
+    static func make(product: Product) -> ProductDetailsViewController
 }
 
 enum ProductDetailsControllerFactory: ProductDetailsMaking {
-    static func make(brand: Product) -> ProductDetailsViewController {
-        return ProductDetailsViewController()
+    static func make(product: Product) -> ProductDetailsViewController {
+        let dataSource = ProductDetailsDataSource(product: product)
+        let interactor = ProductDetailsInteractor(dataSource: dataSource)
+        return ProductDetailsViewController(interactor: interactor)
     }
 }

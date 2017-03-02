@@ -4,9 +4,9 @@
 
 import Foundation
 
-struct BrandStoreCellRenderable {
-    let name: String
-    let price: String
+struct NamePriceTableCellRenderable {
+    var name: String
+    var price: String
     
     init(product: Product) {
         name = product.name

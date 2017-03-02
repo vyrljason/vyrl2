@@ -25,6 +25,14 @@ final class BrandsInteractorMock: BrandsInteracting, DataRefreshing {
     func didSelect(brand: Brand) { }
 }
 
+final class ProductDetailsInteractorMock: ProductDetailsInteracting {
+    weak var tableView: UITableView?
+    func use(_ tableView: UITableView) { }
+    func updateTable(with result: DataFetchResult) { }
+    func loadTableData() { }
+    func viewWillAppear(_ animated: Bool) { }
+}
+
 final class BrandsFactoryMock: BrandsControllerMaking {
     static func make(storePresenter: BrandStorePresenting, interactor: BrandsInteracting & DataRefreshing) -> BrandsViewController {
         return BrandsViewController(interactor: interactor)
@@ -38,8 +46,8 @@ final class BrandStoreFactoryMock: BrandStoreMaking {
 }
 
 final class ProductDetailsFactoryMock: ProductDetailsMaking {
-    static func make(brand: Product) -> ProductDetailsViewController {
-        return ProductDetailsViewController()
+    static func make(product brand: Product) -> ProductDetailsViewController {
+        return ProductDetailsViewController(interactor: ProductDetailsInteractorMock())
     }
 }
 
