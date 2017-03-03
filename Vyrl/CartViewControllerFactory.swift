@@ -25,7 +25,7 @@ final class CartViewControllerFactory {
                                                                         attributes: Constants.titleAttributes),
                                               description: NSAttributedString(string: Constants.networkingErrorDescription,
                                                                               attributes: Constants.descriptionAttributes))
-        let storage = CartStorage(userDefaults: UserDefaults.standard)
+        let storage = ServiceLocator.cartStorage
         let resourceController = ServiceLocator.resourceConfigurator.resourceController
         let resource = ParameterizedService<ProductsResource>(resource: ProductsResource(controller: resourceController))
         let service = ProductsService(resource: resource)
