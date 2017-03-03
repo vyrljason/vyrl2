@@ -26,9 +26,10 @@ final class CartViewControllerFactory {
                                               description: NSAttributedString(string: Constants.networkingErrorDescription,
                                                                               attributes: Constants.descriptionAttributes))
         let storage = CartStorage(userDefaults: UserDefaults.standard)
-        storage.add(item: CartItem(productId: "", addedAt: Date(), productVariants: [VyrlFaker.faker.productVariant()]))
-        let productProvider = ProductProviderMock()
-        let dataSource = CartDataSource(cartStorage: storage, productProvider: productProvider)
+        let resourceController = ServiceLocator.resourceConfigurator.resourceController
+        let resource = ParameterizedService<ProductsResource>(resource: ProductsResource(controller: resourceController))
+        let service = ProductsService(resource: resource)
+        let dataSource = CartDataSource(cartStorage: storage, service: service)
         let emptyTablenHandler = EmptyTableViewHandler(modeToRenderable: [ .error: error, .noData: noData ])
         let interactor = CartInteractor(dataSource: dataSource, emptyTableHandler: emptyTablenHandler)
         interactor.cartNavigation = cartNavigation

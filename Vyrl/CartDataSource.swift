@@ -49,12 +49,12 @@ final class CartDataSource: NSObject, CartDataProviding {
     weak var guidelinesDelegate: GuidelinesPresenting?
 
     fileprivate let cartStorage: CartStoring
-    fileprivate let productProvider: ProductProviding
+    fileprivate let service: ProductsWithIdsProviding
     fileprivate var products: [Product] = []
 
-    init(cartStorage: CartStoring, productProvider: ProductProviding) {
+    init(cartStorage: CartStoring, service: ProductsWithIdsProviding) {
         self.cartStorage = cartStorage
-        self.productProvider = productProvider
+        self.service = service
     }
 
     var cartData: CartData {
@@ -69,7 +69,7 @@ final class CartDataSource: NSObject, CartDataProviding {
 
         let productsIds: [String] = cartStorage.items.map({ $0.productId })
 
-        productProvider.get(productsIds: productsIds) { [weak self] result in
+        service.getProducts(with: productsIds) { [weak self] result in
             let products = result.map(success: { return $0 }, failure: { _ in return [] })
             self?.products = products
             self?.reloadingDelegate?.reloadData()
@@ -110,11 +110,14 @@ extension CartDataSource: UITableViewDelegate, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: CartItemCell = tableView.dequeueCell(at: indexPath)
-        let product = products[indexPath.row]
-
-        cell.render(product.cartItemRenderable)
-
+        prepare(cell: cell, using: products[indexPath.row])
         return cell
+    }
+
+    fileprivate func prepare(cell: CartItemCell, using product: Product) {
+        cell.render(product.cartItemRenderable)
+        guard let imageURL = product.images.first?.url else { return }
+        cell.set(imageFetcher: ImageFetcher(url: imageURL))
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

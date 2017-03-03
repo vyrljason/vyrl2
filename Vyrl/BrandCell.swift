@@ -24,6 +24,7 @@ final class BrandCell: UICollectionViewCell, HavingNib, BrandRendering, BrandCov
 
     override func awakeFromNib() {
         super.awakeFromNib()
+        coverImage.image = placeholder
     }
 
     override func prepareForReuse() {

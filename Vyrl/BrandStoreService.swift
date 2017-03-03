@@ -4,11 +4,11 @@
 
 import Foundation
 
-protocol ProductsProviding {
+protocol BrandProductsProviding {
     func getProducts(for brand: Brand, completion: @escaping (Result<[Product], ServiceError>) -> Void)
 }
 
-final class BrandStoreService: ProductsProviding {
+final class BrandStoreService: BrandProductsProviding {
     
     private let resource: ParameterizedService<ProductsResource>
     

@@ -37,6 +37,16 @@ final class CartItemCell: UITableViewCell, HavingNib, CartItemCellRendering {
     @IBOutlet private weak var price: UILabel!
     @IBOutlet private weak var productImage: DownloadingImageView!
 
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        productImage.image = Constants.placeholder
+    }
+
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        productImage.cancelImageFetching(using: Constants.placeholder)
+    }
+
     func render(_ renderable: CartItemCellRenderable) {
         title.text = renderable.title
         subTitle.text = renderable.subTitle

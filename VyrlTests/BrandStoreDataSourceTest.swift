@@ -29,7 +29,7 @@ final class FlowLayoutHandlerMock: BrandStoreFlowLayoutHandling {
     }
 }
 
-final class ServiceMock: ProductsProviding {
+final class ServiceMock: BrandProductsProviding {
     var success = true
     var isResponseEmpty = false
     var products: [Product] = Array(repeating: VyrlFaker.faker.product(), count: 5)

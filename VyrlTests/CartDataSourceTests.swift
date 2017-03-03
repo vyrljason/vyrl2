@@ -17,11 +17,11 @@ final class CartStoringMock: CartStoring {
     }
 }
 
-final class ProductProvidingMock: ProductProviding {
+final class ProductsServiceMock: ProductsWithIdsProviding {
 
     var mockedProducts: [Product]? = [VyrlFaker.faker.product()]
 
-    func get(productsIds: [String], completion: @escaping (Result<[Product], ProductProvidingEror>) -> Void) {
+    func getProducts(with productsIds: [String], completion: @escaping (Result<[Product], ServiceError>) -> Void) {
         switch mockedProducts {
         case .some(let products):
             completion(.success(products))
@@ -44,7 +44,7 @@ final class CartDataSourceTests: XCTestCase {
 
     var subject: CartDataSource!
     var cartStorage: CartStoringMock!
-    var productProvider: ProductProvidingMock!
+    var service: ProductsServiceMock!
     var tableView: TableViewMock!
     var emptyTableMock: EmptyTableViewHandlerMock!
     var summaryDelegate: SummaryUpdateHandlingMock!
@@ -52,12 +52,12 @@ final class CartDataSourceTests: XCTestCase {
     override func setUp() {
         super.setUp()
         cartStorage = CartStoringMock()
-        productProvider = ProductProvidingMock()
+        service = ProductsServiceMock()
         tableView = TableViewMock()
         emptyTableMock = EmptyTableViewHandlerMock()
         summaryDelegate = SummaryUpdateHandlingMock()
 
-        subject = CartDataSource(cartStorage: cartStorage, productProvider: productProvider)
+        subject = CartDataSource(cartStorage: cartStorage, service: service)
         subject.emptyTableDelegate = emptyTableMock
         subject.summaryDelegate = summaryDelegate
     }
@@ -97,7 +97,7 @@ final class CartDataSourceTests: XCTestCase {
     func test_remove_removed() {
         let item = VyrlFaker.faker.cartItem()
         cartStorage.items = [item]
-        productProvider.mockedProducts = [VyrlFaker.faker.product(id: item.productId)]
+        service.mockedProducts = [VyrlFaker.faker.product(id: item.productId)]
 
         subject.loadData()
 

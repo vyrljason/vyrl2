@@ -10,14 +10,14 @@ protocol BrandStoreDataProviding: CollectionViewNibRegistering, CollectionViewDa
 
 final class BrandStoreDataSource: NSObject, BrandStoreDataProviding {
     fileprivate let brand: Brand
-    fileprivate let service: ProductsProviding
+    fileprivate let service: BrandProductsProviding
     fileprivate var products = [Product]()
     fileprivate var flowLayoutHandler: BrandStoreFlowLayoutHandling
     weak var collectionViewControllingDelegate: CollectionViewHaving & CollectionViewControlling?
     weak var selectionDelegate: ProductSelecting?
 
     init(brand: Brand,
-         service: ProductsProviding,
+         service: BrandProductsProviding,
          flowLayoutHandler: BrandStoreFlowLayoutHandling) {
         self.brand = brand
         self.service = service
