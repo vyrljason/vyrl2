@@ -67,6 +67,7 @@
 		1AA7FAB11E69CB2F001C0B6F /* OrderProposalService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AA7FAB01E69CB2F001C0B6F /* OrderProposalService.swift */; };
 		1AA7FAB51E69CB3E001C0B6F /* OrderProposalEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AA7FAB31E69CB3E001C0B6F /* OrderProposalEndpoint.swift */; };
 		1AA7FAB61E69CB3E001C0B6F /* OrderProposalResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AA7FAB41E69CB3E001C0B6F /* OrderProposalResource.swift */; };
+		1AA7FAB81E69D5A4001C0B6F /* ConfirmationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1AA7FAB71E69D5A4001C0B6F /* ConfirmationViewController.xib */; };
 		1ADAF7C81E545F3C00155D9F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ADAF7C71E545F3C00155D9F /* AppDelegate.swift */; };
 		1ADAF7CF1E545F3C00155D9F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1ADAF7CE1E545F3C00155D9F /* Assets.xcassets */; };
 		1ADAF7D21E545F3C00155D9F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1ADAF7D01E545F3C00155D9F /* LaunchScreen.storyboard */; };
@@ -357,6 +358,7 @@
 		1AA7FAB01E69CB2F001C0B6F /* OrderProposalService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderProposalService.swift; sourceTree = "<group>"; };
 		1AA7FAB31E69CB3E001C0B6F /* OrderProposalEndpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderProposalEndpoint.swift; sourceTree = "<group>"; };
 		1AA7FAB41E69CB3E001C0B6F /* OrderProposalResource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderProposalResource.swift; sourceTree = "<group>"; };
+		1AA7FAB71E69D5A4001C0B6F /* ConfirmationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ConfirmationViewController.xib; sourceTree = "<group>"; };
 		1ADAF7C41E545F3C00155D9F /* Vyrl.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Vyrl.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1ADAF7C71E545F3C00155D9F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1ADAF7CE1E545F3C00155D9F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -938,6 +940,7 @@
 				1A31215D1E641CFB00F71925 /* CartItemCell.xib */,
 				1AA7FAA31E697747001C0B6F /* CheckoutViewController.swift */,
 				1AA7FAA51E69783F001C0B6F /* CheckoutViewController.xib */,
+				1AA7FAB71E69D5A4001C0B6F /* ConfirmationViewController.xib */,
 			);
 			name = Views;
 			path = Vyrl;
@@ -1978,6 +1981,7 @@
 				1ADAF7CF1E545F3C00155D9F /* Assets.xcassets in Resources */,
 				31EF22E81E664C180073F624 /* ProductDetailsViewController.xib in Resources */,
 				1A69C6A21E55F79D00134EF5 /* LeftMenuViewController.xib in Resources */,
+				1AA7FAB81E69D5A4001C0B6F /* ConfirmationViewController.xib in Resources */,
 				850A80B01E5D990C00E684A3 /* Configuration.plist in Resources */,
 				852ACD3C1E55DB1E00219E90 /* BrandsViewController.xib in Resources */,
 				1AA7FA9C1E687FE7001C0B6F /* InfoView.xib in Resources */,
