@@ -11,4 +11,5 @@ extension UIColor {
     static let dimmingBlack: UIColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0.7)
     static let dullWhite: UIColor = #colorLiteral(red: 0.9782002568, green: 0.9782230258, blue: 0.9782107472, alpha: 1)
     static let dullBlack: UIColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0.12)
+    static let greyishBrown: UIColor = #colorLiteral(red: 0.2901960784, green: 0.2901960784, blue: 0.2901960784, alpha: 1)
 }

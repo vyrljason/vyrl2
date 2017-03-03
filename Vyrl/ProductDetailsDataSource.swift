@@ -4,14 +4,54 @@
 
 import UIKit
 
-protocol ProductDetailsDataProviding: TableViewUsing, TableViewDataProviding { }
+enum ProductDetailsSections: Int {
+    case Gallery = 0
+    case NameAndPrice
+    case Description
+    case Variants
+    case ContentGuidelines
+    case Cart
+    
+    static func count() -> Int {
+        let lastValue = ProductDetailsSections.Cart
+        return lastValue.rawValue + 1
+    }
+}
+
+protocol ProductDetailsDataAccessing: class {
+    var product: Product { get }
+    weak var interactor: ProductDetailsInteracting? { get set }
+}
+
+protocol ProductDetailsDataProviding: TableViewUsing, TableViewDataProviding, ProductDetailsDataAccessing {
+}
 
 final class ProductDetailsDataSource: NSObject, ProductDetailsDataProviding {
-    fileprivate let product: Product
     weak var tableViewControllingDelegate: TableViewControlling?
+    weak var interactor: ProductDetailsInteracting?
+    let product: Product
+    fileprivate var emptyRenderer: SectionRenderer
+    fileprivate var rendererMap: [Int:SectionRenderer]
     
-    init(product: Product) {
+    init(product: Product, renderers: [Int:SectionRenderer]) {
         self.product = product
+        emptyRenderer = EmptyRenderer()
+        rendererMap = renderers
+        super.init()
+        setupSections()
+    }
+    
+    private func setupSections() {
+        emptyRenderer.dataAccessor = self
+        for (_, var renderer) in rendererMap {
+            renderer.dataAccessor = self
+        }
+
+    }
+    
+    fileprivate func getRenderer(for section: Int) -> SectionRenderer {
+        guard let renderer = rendererMap[section] else { return emptyRenderer }
+        return renderer
     }
 }
 
@@ -25,7 +65,9 @@ extension ProductDetailsDataSource: TableViewUsing {
 
 extension ProductDetailsDataSource: NibRegisteringInTableView {
     func registerNibs(in tableView: UITableView) {
-        CenteredWithDetailTableCell.register(to: tableView)
+        for (_, renderer) in rendererMap {
+            renderer.registerNibs(in: tableView)
+        }
     }
 }
 
@@ -37,21 +79,27 @@ extension ProductDetailsDataSource: TableViewDataProviding {
             guard let `self` = self else { return }
             self.tableViewControllingDelegate?.updateTable(with: .empty)
         }
-        
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell: CenteredWithDetailTableCell = tableView.dequeueCell(at: indexPath)
-        prepare(cell: cell, for: self.product)
-        return cell
+        let renderer = getRenderer(for: indexPath.section)
+        return renderer.tableView(tableView, cellFor: indexPath)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return getRenderer(for: section).rows()
     }
     
-    fileprivate func prepare(cell: CenteredWithDetailTableCell, for product: Product) {
-        let renderable = NamePriceTableCellRenderable(product: product)
-        cell.render(renderable)
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return ProductDetailsSections.count()
+    }
+    
+    func tableView(_ tableView: UITableView, shouldHighlightRowAt indexPath: IndexPath) -> Bool {
+        return getRenderer(for: indexPath.section).shouldHighlight(row: indexPath.row)
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        getRenderer(for: indexPath.section).didSelectRow(row: indexPath.row)
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 }

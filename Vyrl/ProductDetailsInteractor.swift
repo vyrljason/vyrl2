@@ -6,6 +6,7 @@ import UIKit
 
 protocol ProductDetailsInteracting: TableViewUsing, TableViewControlling {
     func viewWillAppear(_ animated: Bool)
+    func addToCart()
 }
 
 final class ProductDetailsInteractor: ProductDetailsInteracting {
@@ -15,11 +16,14 @@ final class ProductDetailsInteractor: ProductDetailsInteracting {
     init(dataSource: ProductDetailsDataProviding) {
         self.dataSource = dataSource
         dataSource.tableViewControllingDelegate = self
+        dataSource.interactor = self
     }
     
     func viewWillAppear(_ animated: Bool) {
         loadTableData()
     }
+    
+    func addToCart() { }
 }
 
 extension ProductDetailsInteractor: TableViewUsing {

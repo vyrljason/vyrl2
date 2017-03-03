@@ -99,6 +99,11 @@
 		31EF230F1E67B6410073F624 /* NamePriceTableCellRenderable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31EF230E1E67B6410073F624 /* NamePriceTableCellRenderable.swift */; };
 		31EF23111E67BDFD0073F624 /* CenteredWithDetailTableCellTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31EF23101E67BDFD0073F624 /* CenteredWithDetailTableCellTest.swift */; };
 		31EF23141E6860540073F624 /* ProductDetailsDataSourceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31EF23131E6860540073F624 /* ProductDetailsDataSourceTest.swift */; };
+		31EF231B1E68AD810073F624 /* AddToCartTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31EF23191E68AD810073F624 /* AddToCartTableCell.swift */; };
+		31EF231C1E68AD810073F624 /* AddToCartTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31EF231A1E68AD810073F624 /* AddToCartTableCell.xib */; };
+		31EF231E1E68BD700073F624 /* AddToCartTableCellRenderable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31EF231D1E68BD700073F624 /* AddToCartTableCellRenderable.swift */; };
+		31EF23221E690D5B0073F624 /* ProductDetailsSectionSpecifics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31EF23211E690D5B0073F624 /* ProductDetailsSectionSpecifics.swift */; };
+		31EF23241E691F2E0073F624 /* AddToCartTableCellTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31EF23231E691F2E0073F624 /* AddToCartTableCellTest.swift */; };
 		31FEB5A31E5C37A100C5E41D /* BrandStoreInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31FEB5A21E5C37A100C5E41D /* BrandStoreInteractor.swift */; };
 		31FEB5AA1E5C3A4800C5E41D /* BrandStoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31FEB5A81E5C3A4800C5E41D /* BrandStoreViewController.swift */; };
 		31FEB5AB1E5C3A4800C5E41D /* BrandStoreViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31FEB5A91E5C3A4800C5E41D /* BrandStoreViewController.xib */; };
@@ -366,6 +371,11 @@
 		31EF230E1E67B6410073F624 /* NamePriceTableCellRenderable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NamePriceTableCellRenderable.swift; sourceTree = "<group>"; };
 		31EF23101E67BDFD0073F624 /* CenteredWithDetailTableCellTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CenteredWithDetailTableCellTest.swift; sourceTree = "<group>"; };
 		31EF23131E6860540073F624 /* ProductDetailsDataSourceTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductDetailsDataSourceTest.swift; sourceTree = "<group>"; };
+		31EF23191E68AD810073F624 /* AddToCartTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddToCartTableCell.swift; sourceTree = "<group>"; };
+		31EF231A1E68AD810073F624 /* AddToCartTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddToCartTableCell.xib; sourceTree = "<group>"; };
+		31EF231D1E68BD700073F624 /* AddToCartTableCellRenderable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddToCartTableCellRenderable.swift; sourceTree = "<group>"; };
+		31EF23211E690D5B0073F624 /* ProductDetailsSectionSpecifics.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductDetailsSectionSpecifics.swift; sourceTree = "<group>"; };
+		31EF23231E691F2E0073F624 /* AddToCartTableCellTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddToCartTableCellTest.swift; sourceTree = "<group>"; };
 		31FEB5A21E5C37A100C5E41D /* BrandStoreInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrandStoreInteractor.swift; sourceTree = "<group>"; };
 		31FEB5A51E5C392A00C5E41D /* BrandStoreControllerFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrandStoreControllerFactory.swift; sourceTree = "<group>"; };
 		31FEB5A81E5C3A4800C5E41D /* BrandStoreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrandStoreViewController.swift; sourceTree = "<group>"; };
@@ -989,6 +999,8 @@
 				31EF22E61E664C180073F624 /* ProductDetailsViewController.xib */,
 				31EF230A1E67AF5F0073F624 /* CenteredWithDetailTableCell.swift */,
 				31EF230B1E67AF5F0073F624 /* CenteredWithDetailTableCell.xib */,
+				31EF23191E68AD810073F624 /* AddToCartTableCell.swift */,
+				31EF231A1E68AD810073F624 /* AddToCartTableCell.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -1013,6 +1025,7 @@
 			isa = PBXGroup;
 			children = (
 				31EF23001E6791BB0073F624 /* ProductDetailsDataSource.swift */,
+				31EF23211E690D5B0073F624 /* ProductDetailsSectionSpecifics.swift */,
 			);
 			name = DataSource;
 			sourceTree = "<group>";
@@ -1021,6 +1034,7 @@
 			isa = PBXGroup;
 			children = (
 				31EF230E1E67B6410073F624 /* NamePriceTableCellRenderable.swift */,
+				31EF231D1E68BD700073F624 /* AddToCartTableCellRenderable.swift */,
 			);
 			name = Renderable;
 			sourceTree = "<group>";
@@ -1550,6 +1564,7 @@
 				3169B9AD1E603B84005F8A94 /* BrandStoreCellSnapshotTest.swift */,
 				3169B9D11E650EFC005F8A94 /* BrandStoreHeaderSnapshotTest.swift */,
 				31EF23101E67BDFD0073F624 /* CenteredWithDetailTableCellTest.swift */,
+				31EF23231E691F2E0073F624 /* AddToCartTableCellTest.swift */,
 				1A1FA9581E5F10DC007EB61D /* LeftMenuViewControllerSnapshotTest.swift */,
 				1A1FA95C1E5F173A007EB61D /* CategoryCellSnapshotTest.swift */,
 				1A3121791E66260D00F71925 /* CartItemCellSnapshotTests.swift */,
@@ -1833,6 +1848,7 @@
 				8538599E1E6073740098D1EB /* dergodaddy.crt in Resources */,
 				1ADAF7D21E545F3C00155D9F /* LaunchScreen.storyboard in Resources */,
 				85CA3FE51E647A5400D43805 /* LoginViewController.xib in Resources */,
+				31EF231C1E68AD810073F624 /* AddToCartTableCell.xib in Resources */,
 				858D64161E57130500CFDD4C /* Localizable.strings in Resources */,
 				31FEB5B21E5CBE4800C5E41D /* BrandStoreHeader.xib in Resources */,
 				31FEB5B91E5D952600C5E41D /* BrandStoreCell.xib in Resources */,
@@ -1992,6 +2008,7 @@
 				85B0A83B1E670BBC002093BA /* BrandsResource.swift in Sources */,
 				850A80B91E5DA90C00E684A3 /* BrandStoreControllerFactory.swift in Sources */,
 				858D63FC1E56057F00CFDD4C /* Brand.swift in Sources */,
+				31EF23221E690D5B0073F624 /* ProductDetailsSectionSpecifics.swift in Sources */,
 				853859AB1E6085650098D1EB /* IndustryId.swift in Sources */,
 				8554BE6C1E68049800E05A37 /* Categories.swift in Sources */,
 				850A80EB1E5E1FFA00E684A3 /* DataResponseProtocol.swift in Sources */,
@@ -2050,6 +2067,7 @@
 				31FEB5B51E5D0FA300C5E41D /* BrandStoreDataSource.swift in Sources */,
 				85CA3FE81E647C4500D43805 /* LoginResources.swift in Sources */,
 				858D63E71E55F21800CFDD4C /* ServiceLocator.swift in Sources */,
+				31EF231B1E68AD810073F624 /* AddToCartTableCell.swift in Sources */,
 				1A1FA93C1E5D950A007EB61D /* CategoryCell.swift in Sources */,
 				8554BE891E68731D00E05A37 /* OrderProposal.swift in Sources */,
 				1A859C151E575E7E0013EB09 /* RootNavigationBuilder.swift in Sources */,
@@ -2083,6 +2101,7 @@
 				858D64181E5722C900CFDD4C /* BrandsResourceMock.swift in Sources */,
 				858D63E01E55F19A00CFDD4C /* ImageFetcher.swift in Sources */,
 				850A80D31E5DE69200E684A3 /* APICredentialsProvider.swift in Sources */,
+				31EF231E1E68BD700073F624 /* AddToCartTableCellRenderable.swift in Sources */,
 				858D64141E57121600CFDD4C /* BrandsRenderable.swift in Sources */,
 				3168A27E1E5EF6F100C65434 /* Product.swift in Sources */,
 				31FEB5B81E5D952600C5E41D /* BrandStoreCell.swift in Sources */,
@@ -2181,6 +2200,7 @@
 				31EF22FF1E678C450073F624 /* TableViewMock.swift in Sources */,
 				858D64421E5755FC00CFDD4C /* CollectionViewMock.swift in Sources */,
 				858D643E1E5752FD00CFDD4C /* BrandsDataSourceTest.swift in Sources */,
+				31EF23241E691F2E0073F624 /* AddToCartTableCellTest.swift in Sources */,
 				1ADAF7FC1E54648A00155D9F /* WindowMock.swift in Sources */,
 				858D64311E574B5C00CFDD4C /* BrandCellSnapshotTest.swift in Sources */,
 				1A1FA94D1E5E238C007EB61D /* DataSourceMock.swift in Sources */,

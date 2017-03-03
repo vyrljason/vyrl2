@@ -10,7 +10,11 @@ protocol ProductDetailsMaking {
 
 enum ProductDetailsControllerFactory: ProductDetailsMaking {
     static func make(product: Product) -> ProductDetailsViewController {
-        let dataSource = ProductDetailsDataSource(product: product)
+        let sections: [Int:SectionRenderer] = [
+            ProductDetailsSections.NameAndPrice.rawValue: NameAndPriceRenderer(),
+            ProductDetailsSections.Cart.rawValue: AddToCartRenderer()
+        ]
+        let dataSource = ProductDetailsDataSource(product: product, renderers: sections)
         let interactor = ProductDetailsInteractor(dataSource: dataSource)
         return ProductDetailsViewController(interactor: interactor)
     }

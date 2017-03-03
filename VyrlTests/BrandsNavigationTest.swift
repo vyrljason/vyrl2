@@ -31,6 +31,7 @@ final class ProductDetailsInteractorMock: ProductDetailsInteracting {
     func updateTable(with result: DataFetchResult) { }
     func loadTableData() { }
     func viewWillAppear(_ animated: Bool) { }
+    func addToCart() { }
 }
 
 final class BrandsFactoryMock: BrandsControllerMaking {

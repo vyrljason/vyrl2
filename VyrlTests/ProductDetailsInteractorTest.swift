@@ -4,6 +4,7 @@
 
 @testable import Vyrl
 import XCTest
+import Fakery
 
 // MARK: - Mocks
 
@@ -13,6 +14,8 @@ final class ProductDetailsDataSourceMock: NSObject, ProductDetailsDataProviding 
     var didUseRegisterNibs: Bool = false
     var usedTableArgument: UITableView?
     weak var tableViewControllingDelegate: TableViewControlling?
+    var product: Product = VyrlFaker.faker.product()
+    weak var interactor: ProductDetailsInteracting?
     
     func use(_ tableView: UITableView) {
         didUseTableView = true

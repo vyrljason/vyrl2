@@ -8,6 +8,31 @@ import Fakery
 
 // MARK - Mocks
 
+class RendererMock: SectionRenderer {
+    var didCallRegisterNibs: Bool = false
+    var usedRegisterNibsArgument: UITableView?
+    weak var dataAccessor: ProductDetailsDataAccessing!
+    
+    func rows() -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, cellFor indexPath: IndexPath) -> UITableViewCell {
+        return UITableViewCell()
+    }
+    
+    func shouldHighlight(row: Int) -> Bool {
+        return false
+    }
+    
+    func registerNibs(in tableView: UITableView) {
+        didCallRegisterNibs = true
+        usedRegisterNibsArgument = tableView
+    }
+    
+    func didSelectRow(row: Int) { }
+}
+
 // MARK - Tests
 
 final class ProductDetailsDataSourceTest: XCTestCase {
@@ -15,16 +40,19 @@ final class ProductDetailsDataSourceTest: XCTestCase {
     var product = VyrlFaker.faker.product()
     var tableViewMock: TableViewMock!
     var subject: ProductDetailsDataSource!
+    var rendererMock: RendererMock!
     
     override func setUp() {
+        rendererMock = RendererMock()
         tableViewMock = TableViewMock()
-        subject = ProductDetailsDataSource(product: product)
+        subject = ProductDetailsDataSource(product: product, renderers: [0: rendererMock])
     }
     
     func test_use_registersNibs() {
         subject.use(tableViewMock)
         
-        XCTAssertTrue(tableViewMock.didRegisterNib)
+        XCTAssertTrue(rendererMock.didCallRegisterNibs)
+        XCTAssertTrue(rendererMock.usedRegisterNibsArgument === tableViewMock)
     }
     
     func test_use_setsDelegateAndDataSource_onTableView() {
