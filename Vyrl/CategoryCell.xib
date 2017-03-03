@@ -12,26 +12,27 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <collectionViewCell opaque="NO" clipsSubviews="YES" contentMode="center" reuseIdentifier="CategoryCell" id="rF2-kL-abl" customClass="CategoryCell" customModule="Vyrl">
-            <rect key="frame" x="0.0" y="0.0" width="502" height="85"/>
+            <rect key="frame" x="0.0" y="0.0" width="502" height="48"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                <rect key="frame" x="0.0" y="0.0" width="502" height="85"/>
+                <rect key="frame" x="0.0" y="0.0" width="502" height="48"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Category Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f18-TE-tYc">
-                        <rect key="frame" x="0.0" y="0.0" width="502" height="85"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="21"/>
-                        <nil key="textColor"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Category Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f18-TE-tYc">
+                        <rect key="frame" x="23" y="0.0" width="479" height="48"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
             </view>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <color key="backgroundColor" red="0.14901960780000001" green="0.14901960780000001" blue="0.14901960780000001" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstItem="f18-TE-tYc" firstAttribute="top" secondItem="rF2-kL-abl" secondAttribute="top" id="5qc-JW-vLL"/>
                 <constraint firstAttribute="trailing" secondItem="f18-TE-tYc" secondAttribute="trailing" id="AnG-N0-S4n"/>
                 <constraint firstAttribute="bottom" secondItem="f18-TE-tYc" secondAttribute="bottom" id="Dlm-xC-DSu"/>
-                <constraint firstItem="f18-TE-tYc" firstAttribute="leading" secondItem="rF2-kL-abl" secondAttribute="leading" id="KAH-JE-YZQ"/>
+                <constraint firstItem="f18-TE-tYc" firstAttribute="leading" secondItem="rF2-kL-abl" secondAttribute="leading" constant="23" id="KAH-JE-YZQ"/>
             </constraints>
             <size key="customSize" width="502" height="85"/>
             <connections>

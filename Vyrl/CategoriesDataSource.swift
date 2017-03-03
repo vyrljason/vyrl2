@@ -5,7 +5,7 @@
 import UIKit
 
 private enum Constants {
-    static let cellHeight: CGFloat = 44.0
+    static let cellHeight: CGFloat = 48.0
 }
 
 protocol CategoriesSelectionDelegateHaving: class {

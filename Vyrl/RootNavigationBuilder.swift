@@ -28,9 +28,6 @@ final class RootNavigationBuilder {
 
     func build() -> RootNavigation {
 
-        chat.title = Constants.chatTitle    // FIXME: REMOVE
-        chat.view.backgroundColor = .white  // FIXME: REMOVE
-
         let navigation = RootNavigation(interactor: interactor,
                                         leftMenu: leftMenu,
                                         mainNavigation: mainNavigation,
