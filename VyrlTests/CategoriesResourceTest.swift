@@ -16,7 +16,7 @@ final class CategoriesResourceTest: BaseAPIResourceTest {
         subject = CategoriesResource(controller: controller)
     }
 
-    func test_login_callProperEndpoint() {
+    func test_fetch_callProperEndpoint() {
         let endpoint = CategoriesEndpoint()
 
         subject.fetch { _ in }

@@ -37,3 +37,18 @@ extension ProductVariant: DictionaryConvertible {
                 JSONKeys.value: value]
     }
 }
+
+extension ProductVariant: StorageItemProtocol {
+    init?(from dictionary: [String : AnyObject]) {
+        guard let name = dictionary[JSONKeys.name] as? String,
+            let value = dictionary[JSONKeys.value] as? String else {
+                return nil
+        }
+        self.name = name
+        self.value = value
+    }
+
+    var storableRepresentation: [String: AnyObject] {
+        return dictionaryRepresentation as [String: AnyObject]
+    }
+}

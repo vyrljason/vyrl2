@@ -30,10 +30,10 @@ class BaseAPIResourceTest: XCTestCase {
 
     func assertDidCallTo(_ endpoint: APIEndpoint, file: StaticString = #file, line: UInt = #line) {
         var parsedParameters: Data? = nil
-        if let parameters = endpoint.parameters {
+        if let parameters = endpoint.parameters, endpoint.authorization == .none {
             parsedParameters = try? JSONSerialization.data(withJSONObject: parameters, options: JSONSerialization.WritingOptions())
             XCTAssertNotNil(parsedParameters)
-            XCTAssertEqual(sessionManager.lastRequest?.httpBody, parsedParameters)
+            XCTAssertEqual(sessionManager.lastRequest?.httpBody, parsedParameters, file: file, line: line)
         }
         XCTAssertEqual(sessionManager.lastRequest?.url?.host, endpoint.api.baseURL(using: apiConfiguration).host, file: file, line: line)
         XCTAssertEqual(sessionManager.lastRequest?.url?.path, endpoint.path, file: file, line: line)

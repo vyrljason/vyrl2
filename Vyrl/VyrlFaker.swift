@@ -40,9 +40,15 @@ extension Faker {
                        variants: variants)
     }
 
-    func cartItem(id: String = VyrlFaker.faker.lorem.characters(amount: 20),
-                  addedAt: Date = Date()) -> CartItem {
-        return CartItem(id: id, addedAt: addedAt)
+    func productVariant(name: String = VyrlFaker.faker.lorem.characters(amount: 20),
+                        value: String = VyrlFaker.faker.lorem.characters(amount: 20)) -> ProductVariant {
+        return ProductVariant(name: name, value: value)
+    }
+
+    func cartItem(productId: String = VyrlFaker.faker.lorem.characters(amount: 20),
+                  addedAt: Date = Date(),
+                  productVariants: [ProductVariant] = [VyrlFaker.faker.productVariant(), VyrlFaker.faker.productVariant()]) -> CartItem {
+        return CartItem(productId: productId, addedAt: addedAt, productVariants: productVariants)
     }
 }
 
@@ -117,17 +123,45 @@ extension Faker {
 }
 
 extension Faker {
-    func shippingAddress(street: String = VyrlFaker.faker.address.streetName(),
+    func shippingAddress(id: String = VyrlFaker.faker.lorem.characters(amount: 20),
+                         street: String = VyrlFaker.faker.address.streetName(),
                          apartment: String = VyrlFaker.faker.address.buildingNumber(),
                          city: String = VyrlFaker.faker.address.city(),
                          state: String = VyrlFaker.faker.address.state(),
                          zipCode: String = VyrlFaker.faker.address.postcode(),
                          country: String = VyrlFaker.faker.address.county()) -> ShippingAddress {
-        return ShippingAddress(street: street,
+        return ShippingAddress(id: id,
+                               street: street,
                                apartment: apartment,
                                city: city,
                                state: state,
                                zipCode: zipCode,
                                country: country)
+    }
+
+    func contactInfo(id: String = VyrlFaker.faker.lorem.characters(amount: 20),
+                     email: String = VyrlFaker.faker.internet.email(),
+                     phone: String = VyrlFaker.faker.phoneNumber.phoneNumber()) -> ContactInfo {
+        return ContactInfo(id: id, email: email, phone: phone)
+    }
+}
+
+extension Faker {
+    func order(id: String = VyrlFaker.faker.lorem.characters(amount: 20),
+               brandId: String = VyrlFaker.faker.lorem.characters(amount: 20),
+               influencerId: Double = VyrlFaker.faker.number.randomDouble(),
+               lastModified: Date = Date(),
+               status: OrderStatus = .requested,
+               orderValue: Double = VyrlFaker.faker.number.randomDouble(),
+               shippingAddress: ShippingAddress = VyrlFaker.faker.shippingAddress(),
+               productList: [Product] = [VyrlFaker.faker.product(), VyrlFaker.faker.product()]) -> Order {
+        return Order(id: id,
+                     brandId: brandId,
+                     influencerId: influencerId,
+                     lastModified: lastModified,
+                     status: status,
+                     orderValue: orderValue,
+                     shippingAddress: shippingAddress,
+                     productList: productList)
     }
 }

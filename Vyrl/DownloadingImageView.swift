@@ -11,7 +11,7 @@ private struct Constants {
 
 protocol DownloadableImageRendering {
     func fetchImage(using imageFetcher: ImageFetching, placeholder: UIImage?, animated: Bool)
-    func cancelImageFetching()
+    func cancelImageFetching(using placeholder: UIImage?)
 }
 
 final class DownloadingImageView: UIImageView, DownloadableImageRendering {
@@ -39,7 +39,8 @@ final class DownloadingImageView: UIImageView, DownloadableImageRendering {
         }
     }
 
-    func cancelImageFetching() {
+    func cancelImageFetching(using placeholder: UIImage?) {
+        image = placeholder
         imageFetcher?.cancel()
     }
 }

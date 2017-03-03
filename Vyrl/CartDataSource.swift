@@ -57,7 +57,7 @@ final class CartDataSource: NSObject, CartDataProviding {
             return
         }
 
-        let productsIds: [String] = cartStorage.items.map({ $0.id })
+        let productsIds: [String] = cartStorage.items.map({ $0.productId })
 
         productProvider.get(productsIds: productsIds) { [weak self] result in
             let products = result.map(success: { return $0 }, failure: { _ in return [] })
@@ -69,7 +69,7 @@ final class CartDataSource: NSObject, CartDataProviding {
 
     fileprivate func removeItem(at index: Int) {
         let product = products[index]
-        if let itemToRemove = cartStorage.items.filter({ $0.id == product.id }).first {
+        if let itemToRemove = cartStorage.items.filter({ $0.productId == product.id }).first {
             cartStorage.remove(item: itemToRemove)
             products.remove(at: index)
             summaryDelegate?.didUpdate(summary: CartSummary(products: products))

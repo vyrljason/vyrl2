@@ -37,7 +37,7 @@ final class BrandStoreHeader: UICollectionReusableView, ReusableView, HavingNib,
     
     override func prepareForReuse() {
         super.prepareForReuse()
-        backgroundImage.cancelImageFetching()
+        backgroundImage.cancelImageFetching(using: placeholder)
     }
     
     fileprivate func setupDimming() {

@@ -28,7 +28,7 @@ final class BrandCell: UICollectionViewCell, HavingNib, BrandRendering, BrandCov
 
     override func prepareForReuse() {
         super.prepareForReuse()
-        coverImage.cancelImageFetching()
+        coverImage.cancelImageFetching(using: placeholder)
     }
 
     func render(_ renderable: BrandRenderable) {

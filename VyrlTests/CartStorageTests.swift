@@ -50,8 +50,8 @@ final class CartStorageTests: XCTestCase {
     }
 
     func test_addItem_sorted() {
-        let item0 = CartItem(id: "0", addedAt: Date(timeIntervalSince1970: 3600))
-        let item1 = CartItem(id: "1", addedAt: Date(timeIntervalSince1970: 0))
+        let item0 = CartItem(productId: "0", addedAt: Date(timeIntervalSince1970: 3600), productVariants: [])
+        let item1 = CartItem(productId: "1", addedAt: Date(timeIntervalSince1970: 0), productVariants: [])
 
         subject.add(item: item0)
         subject.add(item: item1)

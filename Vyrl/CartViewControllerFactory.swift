@@ -26,7 +26,7 @@ final class CartViewControllerFactory {
                                               description: NSAttributedString(string: Constants.networkingErrorDescription,
                                                                               attributes: Constants.descriptionAttributes))
         let storage = CartStorage(userDefaults: UserDefaults.standard)
-        storage.add(item: CartItem(id: "", addedAt: Date()))
+        storage.add(item: CartItem(productId: "", addedAt: Date(), productVariants: [VyrlFaker.faker.productVariant()]))
         let productProvider = ProductProviderMock()
         let dataSource = CartDataSource(cartStorage: storage, productProvider: productProvider)
         let emptyTablenHandler = EmptyTableViewHandler(modeToRenderable: [ .error: error, .noData: noData ])

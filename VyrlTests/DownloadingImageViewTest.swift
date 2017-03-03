@@ -46,8 +46,16 @@ final class DownloadingImageViewTest: XCTestCase {
     func test_cancelImageFetching_cancelsImageFetching() {
         subject.fetchImage(using: imageFetcher)
 
-        subject.cancelImageFetching()
+        subject.cancelImageFetching(using: nil)
 
         XCTAssertTrue(imageFetcher.didCancel)
+    }
+
+    func test_cancelImageFetching_withPlaceholder_setsPlaceholder() {
+        subject.fetchImage(using: imageFetcher)
+
+        subject.cancelImageFetching(using: placeholder)
+
+        XCTAssertEqual(subject.image, placeholder)
     }
 }

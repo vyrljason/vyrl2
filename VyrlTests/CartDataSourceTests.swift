@@ -13,7 +13,7 @@ final class CartStoringMock: CartStoring {
     }
     
     func remove(item: CartItem) {
-        items = items.filter({ $0.id != item.id })
+        items = items.filter({ $0.productId != item.productId })
     }
 }
 
@@ -97,7 +97,7 @@ final class CartDataSourceTests: XCTestCase {
     func test_remove_removed() {
         let item = VyrlFaker.faker.cartItem()
         cartStorage.items = [item]
-        productProvider.mockedProducts = [VyrlFaker.faker.product(id: item.id)]
+        productProvider.mockedProducts = [VyrlFaker.faker.product(id: item.productId)]
 
         subject.loadData()
 

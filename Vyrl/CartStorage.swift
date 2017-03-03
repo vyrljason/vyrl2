@@ -25,7 +25,7 @@ final class CartStorage: CartStoring {
         get {
             var returnValue: [CartItem]!
             accessQueue.sync {
-                guard let array = userDefaults.object(forKey: Constants.defaultsKey) as? [[String : Any]] else {
+                guard let array = userDefaults.object(forKey: Constants.defaultsKey) as? [[String : AnyObject]] else {
                     returnValue = []
                     return
                 }
@@ -37,7 +37,7 @@ final class CartStorage: CartStoring {
         set {
             accessQueue.async(flags: .barrier) {
                 let items = newValue.sorted(by: { $0.addedAt > $1.addedAt })
-                self.userDefaults.set(items.map({ $0.dictionaryRepresentation }),
+                self.userDefaults.set(items.map({ $0.storableRepresentation }),
                                       forKey: Constants.defaultsKey)
             }
         }

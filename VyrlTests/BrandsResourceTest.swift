@@ -17,7 +17,7 @@ final class BrandsResourceTest: BaseAPIResourceTest {
         subject = BrandsResource(controller: controller)
     }
 
-    func test_login_callProperEndpoint() {
+    func test_fetchFiltered_callProperEndpoint() {
         let endpoint = BrandsEndpoint(request: request)
 
         subject.fetchFiltered(using: request) { _ in }
