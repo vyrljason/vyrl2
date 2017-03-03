@@ -53,6 +53,12 @@
 		1A859C4B1E58D1950013EB09 /* LeftMenuInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A859C4A1E58D1950013EB09 /* LeftMenuInteractor.swift */; };
 		1AA7FA8E1E672D08001C0B6F /* CartSummarySnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AA7FA8D1E672D08001C0B6F /* CartSummarySnapshotTests.swift */; };
 		1AA7FA901E686F32001C0B6F /* EmptyTableViewHandlerMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AA7FA8F1E686F32001C0B6F /* EmptyTableViewHandlerMock.swift */; };
+		1AA7FA9A1E687FE7001C0B6F /* InfoViewProjector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AA7FA971E687FE7001C0B6F /* InfoViewProjector.swift */; };
+		1AA7FA9B1E687FE7001C0B6F /* InfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AA7FA981E687FE7001C0B6F /* InfoView.swift */; };
+		1AA7FA9C1E687FE7001C0B6F /* InfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1AA7FA991E687FE7001C0B6F /* InfoView.xib */; };
+		1AA7FA9E1E6883F7001C0B6F /* AutoexpandableTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AA7FA9D1E6883F7001C0B6F /* AutoexpandableTextView.swift */; };
+		1AA7FAA01E6885FE001C0B6F /* Autolayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AA7FA9F1E6885FE001C0B6F /* Autolayout.swift */; };
+		1AA7FAA21E68C0AD001C0B6F /* InfoViewSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AA7FAA11E68C0AD001C0B6F /* InfoViewSnapshotTests.swift */; };
 		1ADAF7C81E545F3C00155D9F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ADAF7C71E545F3C00155D9F /* AppDelegate.swift */; };
 		1ADAF7CF1E545F3C00155D9F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1ADAF7CE1E545F3C00155D9F /* Assets.xcassets */; };
 		1ADAF7D21E545F3C00155D9F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1ADAF7D01E545F3C00155D9F /* LaunchScreen.storyboard */; };
@@ -302,6 +308,12 @@
 		1AA1C43D9EC44CB342D10427 /* Pods_Vyrl.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Vyrl.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1AA7FA8D1E672D08001C0B6F /* CartSummarySnapshotTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CartSummarySnapshotTests.swift; sourceTree = "<group>"; };
 		1AA7FA8F1E686F32001C0B6F /* EmptyTableViewHandlerMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmptyTableViewHandlerMock.swift; sourceTree = "<group>"; };
+		1AA7FA971E687FE7001C0B6F /* InfoViewProjector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoViewProjector.swift; sourceTree = "<group>"; };
+		1AA7FA981E687FE7001C0B6F /* InfoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoView.swift; sourceTree = "<group>"; };
+		1AA7FA991E687FE7001C0B6F /* InfoView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InfoView.xib; sourceTree = "<group>"; };
+		1AA7FA9D1E6883F7001C0B6F /* AutoexpandableTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoexpandableTextView.swift; sourceTree = "<group>"; };
+		1AA7FA9F1E6885FE001C0B6F /* Autolayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Autolayout.swift; sourceTree = "<group>"; };
+		1AA7FAA11E68C0AD001C0B6F /* InfoViewSnapshotTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoViewSnapshotTests.swift; sourceTree = "<group>"; };
 		1ADAF7C41E545F3C00155D9F /* Vyrl.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Vyrl.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1ADAF7C71E545F3C00155D9F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1ADAF7CE1E545F3C00155D9F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -828,13 +840,16 @@
 		1AEBB96C1E60882C00113DC9 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				1AA7FA971E687FE7001C0B6F /* InfoViewProjector.swift */,
+				1AA7FA981E687FE7001C0B6F /* InfoView.swift */,
+				1AA7FA991E687FE7001C0B6F /* InfoView.xib */,
 				1AEBB96A1E60880500113DC9 /* CartViewController.swift */,
 				1AEBB9701E608A6C00113DC9 /* CartViewController.xib */,
 				1A31215B1E641CE400F71925 /* CartItemCell.swift */,
 				1A31215D1E641CFB00F71925 /* CartItemCell.xib */,
 			);
 			name = Views;
-			path = VyrlTests;
+			path = Vyrl;
 			sourceTree = SOURCE_ROOT;
 		};
 		1AEBB96D1E60883400113DC9 /* Interactors */ = {
@@ -843,7 +858,7 @@
 				1AEBB96E1E60884800113DC9 /* CartInteractor.swift */,
 			);
 			name = Interactors;
-			path = VyrlTests;
+			path = Vyrl;
 			sourceTree = SOURCE_ROOT;
 		};
 		1AF49CCE1E59E85500FE7857 /* RootNavigation */ = {
@@ -1285,6 +1300,8 @@
 				85B0A8251E65F335002093BA /* UIAlertController+Ok.swift */,
 				85B0A8351E670273002093BA /* UIBezierPath+StyleKit.swift */,
 				85B0A8371E6703A2002093BA /* CALayer+BottomBorder.swift */,
+				1AA7FA9D1E6883F7001C0B6F /* AutoexpandableTextView.swift */,
+				1AA7FA9F1E6885FE001C0B6F /* Autolayout.swift */,
 			);
 			name = UserInterface;
 			sourceTree = "<group>";
@@ -1503,6 +1520,7 @@
 				1A1FA95C1E5F173A007EB61D /* CategoryCellSnapshotTest.swift */,
 				1A3121791E66260D00F71925 /* CartItemCellSnapshotTests.swift */,
 				1AA7FA8D1E672D08001C0B6F /* CartSummarySnapshotTests.swift */,
+				1AA7FAA11E68C0AD001C0B6F /* InfoViewSnapshotTests.swift */,
 			);
 			name = SnapshotTest;
 			sourceTree = "<group>";
@@ -1790,6 +1808,7 @@
 				1A69C6A21E55F79D00134EF5 /* LeftMenuViewController.xib in Resources */,
 				850A80B01E5D990C00E684A3 /* Configuration.plist in Resources */,
 				852ACD3C1E55DB1E00219E90 /* BrandsViewController.xib in Resources */,
+				1AA7FA9C1E687FE7001C0B6F /* InfoView.xib in Resources */,
 				31FEB5AB1E5C3A4800C5E41D /* BrandStoreViewController.xib in Resources */,
 				1A31215E1E641CFB00F71925 /* CartItemCell.xib in Resources */,
 				1AEBB9741E608AA300113DC9 /* CartViewController.xib in Resources */,
@@ -1956,9 +1975,11 @@
 				85B0A8361E670273002093BA /* UIBezierPath+StyleKit.swift in Sources */,
 				31EF22F31E6779780073F624 /* TableViewUsing.swift in Sources */,
 				858D640B1E560F0100CFDD4C /* CollectionViewHaving.swift in Sources */,
+				1AA7FA9A1E687FE7001C0B6F /* InfoViewProjector.swift in Sources */,
 				853859A91E607F450098D1EB /* DiscoveryFilterSettings.swift in Sources */,
 				850A81041E5F1FCF00E684A3 /* SessionManaging.swift in Sources */,
 				31EF22EF1E676E380073F624 /* ProductDetailsInteractor.swift in Sources */,
+				1AA7FA9E1E6883F7001C0B6F /* AutoexpandableTextView.swift in Sources */,
 				85CA3FC51E642EB500D43805 /* RequestDataProvider.swift in Sources */,
 				8554BE6F1E6804E600E05A37 /* CategoriesEndpoint.swift in Sources */,
 				853859A01E6076570098D1EB /* UserProfile.swift in Sources */,
@@ -1985,6 +2006,7 @@
 				850A80C81E5DAB3200E684A3 /* LoginEndpoint.swift in Sources */,
 				858D641B1E57268F00CFDD4C /* VyrlFaker.swift in Sources */,
 				1A1FA9531E5ED670007EB61D /* CategoriesService.swift in Sources */,
+				1AA7FA9B1E687FE7001C0B6F /* InfoView.swift in Sources */,
 				1A1FA9481E5DD024007EB61D /* CategoriesResourceMock.swift in Sources */,
 				31FEB5AA1E5C3A4800C5E41D /* BrandStoreViewController.swift in Sources */,
 				31FEB5A31E5C37A100C5E41D /* BrandStoreInteractor.swift in Sources */,
@@ -2070,6 +2092,7 @@
 				858D64051E56089B00CFDD4C /* BrandsDataSource.swift in Sources */,
 				858D64091E560EBC00CFDD4C /* CollectionViewControlling.swift in Sources */,
 				8538599A1E606BFD0098D1EB /* VyrlServerTrustPolicyManager.swift in Sources */,
+				1AA7FAA01E6885FE001C0B6F /* Autolayout.swift in Sources */,
 				853859951E6029050098D1EB /* RegisterEndpoint.swift in Sources */,
 				8554BE761E682AC900E05A37 /* ParametrizedService.swift in Sources */,
 				8554BE7A1E68457C00E05A37 /* BrandsRequest.swift in Sources */,
@@ -2104,6 +2127,7 @@
 				858D63FB1E56037600CFDD4C /* ImageFetcherMock.swift in Sources */,
 				85B0A8451E67334A002093BA /* BrandsResourceTest.swift in Sources */,
 				1A1FA9511E5E2668007EB61D /* CategoriesDataSourceTests.swift in Sources */,
+				1AA7FAA21E68C0AD001C0B6F /* InfoViewSnapshotTests.swift in Sources */,
 				1AA7FA901E686F32001C0B6F /* EmptyTableViewHandlerMock.swift in Sources */,
 				3169B9CE1E64F503005F8A94 /* BrandStoreFlowLayoutHandlerTest.swift in Sources */,
 				1AF49CD11E59F24A00FE7857 /* LeftMenuInteractorTests.swift in Sources */,

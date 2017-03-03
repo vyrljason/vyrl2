@@ -6,4 +6,5 @@ import UIKit
 
 extension UIFont {
     static let titleFont: UIFont = UIFont.systemFont(ofSize: 14.0, weight: UIFontWeightRegular)
+    static let infoViewText: UIFont = UIFont.systemFont(ofSize: 14.0, weight: UIFontWeightLight)
 }

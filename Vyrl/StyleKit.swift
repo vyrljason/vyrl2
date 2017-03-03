@@ -16,6 +16,9 @@ final class StyleKit {
         static var navigationBarLogo: UIImage?
     }
 
+    static let infoViewAttributes: [String : Any] = [NSFontAttributeName : UIFont.infoViewText,
+                                                     NSForegroundColorAttributeName: #colorLiteral(red: 0.3621281683, green: 0.3621373773, blue: 0.3621324301, alpha: 1)]
+
     class var navigationBarLogo: UIImage {
         if let logo = Cache.navigationBarLogo { return logo }
 

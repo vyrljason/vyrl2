@@ -18,6 +18,7 @@ protocol CartDataProviding: TableViewUsing, UITableViewDelegate, UITableViewData
     weak var emptyTableDelegate: EmptyTableViewHandling? { get set }
     weak var reloadingDelegate: ReloadingData? { get set }
     weak var summaryDelegate: SummaryUpdateHandling? { get set }
+    weak var guidelinesDelegate: GuidelinesPresenting? { get set }
     func loadData()
 }
 
@@ -39,6 +40,7 @@ final class CartDataSource: NSObject, CartDataProviding {
     weak var emptyTableDelegate: EmptyTableViewHandling?
     weak var reloadingDelegate: ReloadingData?
     weak var summaryDelegate: SummaryUpdateHandling?
+    weak var guidelinesDelegate: GuidelinesPresenting?
 
     fileprivate let cartStorage: CartStoring
     fileprivate let productProvider: ProductProviding
@@ -103,6 +105,12 @@ extension CartDataSource: UITableViewDelegate, UITableViewDataSource {
         cell.render(product.cartItemRenderable)
 
         return cell
+    }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let product = products[indexPath.row]
+        guidelinesDelegate?.showGuidelines(for: product)
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {

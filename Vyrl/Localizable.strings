@@ -14,3 +14,5 @@
 "login.error.unknown.message" = "Something ham jammed while attempting to log in. Please try again.";
 "login.error.title" = "Error";
 "general.button.alert.ok" = "OK";
+"cart.guidelines.title" = "Content guidelines";
+"cart.guidelines.buttonTitle" = "Done";

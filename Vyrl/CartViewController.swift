@@ -62,6 +62,11 @@ final class CartViewController: UIViewController, HavingNib {
         super.viewDidAppear(animated)
         interactor.viewDidAppear()
     }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        setEditing(false, animated: false)
+    }
 }
 
 extension CartViewController: CartSummaryRendering {

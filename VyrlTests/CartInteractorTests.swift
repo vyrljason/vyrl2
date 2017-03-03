@@ -10,6 +10,7 @@ final class CartDataProvidingMock: NSObject, CartDataProviding {
     weak var emptyTableDelegate: EmptyTableViewHandling?
     weak var reloadingDelegate: ReloadingData?
     weak var summaryDelegate: SummaryUpdateHandling?
+    weak var guidelinesDelegate: GuidelinesPresenting? 
 
     var didLoad = false
     var didCallUseTableView = false

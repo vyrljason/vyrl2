@@ -6,10 +6,16 @@
 import XCTest
 
 final class CartInteractingMock: CartInteracting {
-    weak var projector: CartSummaryRendering?
+    weak var projector: CartSummaryRendering & ViewContainer & LayoutGuideHaving?
+
+    var product: Product?
 
     func viewDidAppear() { }
     func use(_ tableView: UITableView) { }
+    
+    func showGuidelines(for product: Product) {
+        self.product = product
+    }
 }
 
 final class CartSummarySnapshotTest: SnapshotTestCase {
