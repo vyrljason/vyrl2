@@ -15,11 +15,15 @@ final class ProductDetailsInteractor: ProductDetailsInteracting {
     var dataSource: ProductDetailsDataProviding
     var variantHandler: VariantHandling
     let product: Product
+    private let cartStorage: CartStoring
     
-    init(dataSource: ProductDetailsDataProviding, variantHandler: VariantHandling, product: Product) {
+    init(dataSource: ProductDetailsDataProviding,
+         variantHandler: VariantHandling,
+         product: Product, cartStorage: CartStoring = ServiceLocator.cartStorage) {
         self.product = product
         self.variantHandler = variantHandler
         self.dataSource = dataSource
+        self.cartStorage = cartStorage
         self.variantHandler.delegate = self
         dataSource.tableViewControllingDelegate = self
         dataSource.interactor = self
@@ -29,7 +33,10 @@ final class ProductDetailsInteractor: ProductDetailsInteracting {
         loadTableData()
     }
     
-    func addToCart() { }
+    func addToCart() {
+        let cartItem = CartItem(productId: product.id, addedAt: Date(), productVariants: variantHandler.selectedVariants)
+        cartStorage.add(item: cartItem)
+    }
     
     func selectFromVariants(_ variants: ProductVariants) {
         variantHandler.pickFromVariants(variants: variants)
