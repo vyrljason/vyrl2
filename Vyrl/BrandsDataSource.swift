@@ -5,7 +5,7 @@
 import UIKit
 
 private enum Constants {
-    static let cellHeight: CGFloat = 188
+    static let cellHeight: CGFloat = 226
 }
 
 protocol BrandsDataProviding: CollectionViewDataProviding, CollectionViewNibRegistering {
@@ -91,5 +91,13 @@ extension BrandsDataSource: UICollectionViewDelegateFlowLayout {
                         layout collectionViewLayout: UICollectionViewLayout,
                         insetForSectionAt section: Int) -> UIEdgeInsets {
         return .zero
+    }
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 0
+    }
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 0
     }
 }

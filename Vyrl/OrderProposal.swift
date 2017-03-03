@@ -11,6 +11,12 @@ struct OrderProposal {
     }
     let shippingAddress: ShippingAddress
     let products: [CartItem]
+
+    init(products: [CartItem],
+         shippingAddress: ShippingAddress = VyrlFaker.faker.shippingAddress()) { //FIXME: Remove default value
+        self.products = products
+        self.shippingAddress = shippingAddress
+    }
 }
 
 extension OrderProposal: DictionaryConvertible {

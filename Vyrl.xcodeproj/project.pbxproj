@@ -842,6 +842,8 @@
 		1AEBB9691E6087F200113DC9 /* Cart */ = {
 			isa = PBXGroup;
 			children = (
+				8554BE911E6969EF00E05A37 /* Resources */,
+				8554BE901E6969E500E05A37 /* Services */,
 				1A31216F1E65CB1A00F71925 /* Providers */,
 				1A31216C1E65CA0E00F71925 /* Models */,
 				1A3121601E646C7C00F71925 /* Factories */,

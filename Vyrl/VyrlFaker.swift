@@ -60,7 +60,6 @@ extension Faker {
 }
 
 extension Faker {
-
     func userSettings(id: Int = VyrlFaker.faker.number.randomInt(),
                       user: Int = VyrlFaker.faker.number.randomInt(),
                       isAdmin: Bool = false,
@@ -114,5 +113,21 @@ extension Faker {
                            settings: settings,
                            instagramProfile: instagramProfile,
                            industries: industries)
+    }
+}
+
+extension Faker {
+    func shippingAddress(street: String = VyrlFaker.faker.address.streetName(),
+                         apartment: String = VyrlFaker.faker.address.buildingNumber(),
+                         city: String = VyrlFaker.faker.address.city(),
+                         state: String = VyrlFaker.faker.address.state(),
+                         zipCode: String = VyrlFaker.faker.address.postcode(),
+                         country: String = VyrlFaker.faker.address.county()) -> ShippingAddress {
+        return ShippingAddress(street: street,
+                               apartment: apartment,
+                               city: city,
+                               state: state,
+                               zipCode: zipCode,
+                               country: country)
     }
 }

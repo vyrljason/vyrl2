@@ -23,7 +23,7 @@ final class BrandStoreCell: UICollectionViewCell, HavingNib, BrandStoreCellRende
     @IBOutlet private weak var image: DownloadingImageView!
     @IBOutlet private weak var imageContainer: UIView!
     
-    fileprivate let placeholder = UIImage()
+    fileprivate let placeholder = #imageLiteral(resourceName: "photoPlaceholderSmall")
     
     override func awakeFromNib() {
         super.awakeFromNib()

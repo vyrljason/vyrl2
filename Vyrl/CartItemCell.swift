@@ -25,7 +25,7 @@ protocol CartItemCellRendering {
 final class CartItemCell: UITableViewCell, HavingNib, CartItemCellRendering {
 
     private enum Constants {
-        static let placeholder: UIImage = #imageLiteral(resourceName: "leica")
+        static let placeholder: UIImage = #imageLiteral(resourceName: "photoPlaceholderSmall")
         static let borderWidth: CGFloat = 1.0
         static let borderColor: CGColor = #colorLiteral(red: 0.8705882353, green: 0.8705882353, blue: 0.8705882353, alpha: 1).cgColor
     }

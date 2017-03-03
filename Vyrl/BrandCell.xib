@@ -18,28 +18,28 @@
                 <rect key="frame" x="0.0" y="0.0" width="386" height="188"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="i14-ha-zyw" customClass="DownloadingImageView" customModule="Vyrl" customModuleProvider="target">
-                        <rect key="frame" x="0.0" y="0.0" width="386" height="140"/>
-                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="photoPlaceholderBig" translatesAutoresizingMaskIntoConstraints="NO" id="i14-ha-zyw" customClass="DownloadingImageView" customModule="Vyrl" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="386" height="150"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </imageView>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ITW-a2-O8z">
-                        <rect key="frame" x="0.0" y="140" width="393" height="48"/>
+                        <rect key="frame" x="0.0" y="150" width="386" height="38"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="GoPro" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zlu-BV-AdR">
-                                <rect key="frame" x="20" y="14" width="48" height="20.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <rect key="frame" x="12" y="0.5" width="46.5" height="38"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="900" verticalCompressionResistancePriority="900" text="submissions" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sVY-8c-HzD">
-                                <rect key="frame" x="278" y="14" width="95" height="20.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
+                                <rect key="frame" x="295" y="0.5" width="79" height="38"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="14"/>
+                                <color key="textColor" red="0.29019607843137252" green="0.29019607843137252" blue="0.29019607843137252" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" text="42" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="44s-s9-dz3">
-                                <rect key="frame" x="251.5" y="14" width="20.5" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <rect key="frame" x="271" y="1" width="18" height="38"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
                                 <color key="textColor" red="0.60392156862745094" green="0.11764705882352941" blue="0.14509803921568626" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -50,10 +50,13 @@
                             <constraint firstItem="44s-s9-dz3" firstAttribute="centerY" secondItem="Zlu-BV-AdR" secondAttribute="centerY" id="6YH-Uf-n7o"/>
                             <constraint firstItem="44s-s9-dz3" firstAttribute="centerY" secondItem="sVY-8c-HzD" secondAttribute="centerY" id="A6A-Tk-f6b"/>
                             <constraint firstItem="Zlu-BV-AdR" firstAttribute="centerY" secondItem="ITW-a2-O8z" secondAttribute="centerY" id="Qvi-q5-l39"/>
-                            <constraint firstItem="Zlu-BV-AdR" firstAttribute="leading" secondItem="ITW-a2-O8z" secondAttribute="leading" constant="20" id="RKK-yn-pgq"/>
-                            <constraint firstAttribute="height" constant="48" id="Ra9-IU-SH9"/>
-                            <constraint firstAttribute="trailing" secondItem="sVY-8c-HzD" secondAttribute="trailing" constant="20" id="WRu-CB-0Mm"/>
+                            <constraint firstItem="Zlu-BV-AdR" firstAttribute="leading" secondItem="ITW-a2-O8z" secondAttribute="leading" constant="12" id="RKK-yn-pgq"/>
+                            <constraint firstAttribute="height" constant="38" id="Ra9-IU-SH9"/>
+                            <constraint firstAttribute="trailing" secondItem="sVY-8c-HzD" secondAttribute="trailing" constant="12" id="WRu-CB-0Mm"/>
+                            <constraint firstItem="44s-s9-dz3" firstAttribute="height" secondItem="ITW-a2-O8z" secondAttribute="height" id="jK6-Kv-MLm"/>
+                            <constraint firstItem="Zlu-BV-AdR" firstAttribute="height" secondItem="ITW-a2-O8z" secondAttribute="height" id="lNi-c2-uyR"/>
                             <constraint firstItem="sVY-8c-HzD" firstAttribute="leading" secondItem="44s-s9-dz3" secondAttribute="trailing" constant="6" id="nj4-Tf-Oe5"/>
+                            <constraint firstItem="sVY-8c-HzD" firstAttribute="height" secondItem="ITW-a2-O8z" secondAttribute="height" id="wSf-Nz-KmV"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -62,7 +65,7 @@
                 <constraint firstAttribute="trailing" secondItem="i14-ha-zyw" secondAttribute="trailing" id="1gw-x1-Znn"/>
                 <constraint firstItem="i14-ha-zyw" firstAttribute="top" secondItem="Kc3-hu-jTj" secondAttribute="top" id="dmz-SM-aKL"/>
                 <constraint firstItem="ITW-a2-O8z" firstAttribute="top" secondItem="i14-ha-zyw" secondAttribute="bottom" id="e9l-dp-Bra"/>
-                <constraint firstAttribute="trailing" secondItem="ITW-a2-O8z" secondAttribute="trailing" constant="-7" id="fk9-7Z-Wbn"/>
+                <constraint firstAttribute="trailing" secondItem="ITW-a2-O8z" secondAttribute="trailing" id="fk9-7Z-Wbn"/>
                 <constraint firstItem="ITW-a2-O8z" firstAttribute="leading" secondItem="Kc3-hu-jTj" secondAttribute="leading" id="hVz-te-2O8"/>
                 <constraint firstItem="i14-ha-zyw" firstAttribute="leading" secondItem="Kc3-hu-jTj" secondAttribute="leading" id="paU-Vy-Dpj"/>
                 <constraint firstAttribute="bottom" secondItem="ITW-a2-O8z" secondAttribute="bottom" id="rxA-Oj-yuX"/>
@@ -77,4 +80,7 @@
             <point key="canvasLocation" x="-494" y="22"/>
         </collectionViewCell>
     </objects>
+    <resources>
+        <image name="photoPlaceholderBig" width="375" height="375"/>
+    </resources>
 </document>

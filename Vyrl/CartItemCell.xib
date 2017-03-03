@@ -20,7 +20,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="473" height="119"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" image="leica" translatesAutoresizingMaskIntoConstraints="NO" id="itC-us-4Pj" customClass="DownloadingImageView" customModule="Vyrl" customModuleProvider="target">
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" image="photoPlaceholderSmall" translatesAutoresizingMaskIntoConstraints="NO" id="itC-us-4Pj" customClass="DownloadingImageView" customModule="Vyrl" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="120" height="120"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="itC-us-4Pj" secondAttribute="height" multiplier="1:1" id="Ok0-8S-0Fa"/>
@@ -79,6 +79,6 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="leica" width="500" height="385"/>
+        <image name="photoPlaceholderSmall" width="160" height="160"/>
     </resources>
 </document>
