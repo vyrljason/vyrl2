@@ -6,31 +6,38 @@
 import XCTest
 
 final class BrandStoreServiceTest: XCTestCase {
-    
-    var subject: BrandStoreService!
-    var resource: ProductsResourceMock!
-    
+
+    private var resourceController: APIResourceControllerMock<Products>!
+    private var subject: BrandStoreService!
+    private var resource: ProductsResource!
+    private var brand: Brand!
+
     override func setUp() {
         super.setUp()
-        resource = ProductsResourceMock(amount: 1)
-        let service = Service<ProductsResourceMock>(resource: resource)
+        brand = VyrlFaker.faker.brand()
+        resourceController = APIResourceControllerMock<Products>()
+        resourceController.result = Products(products: [])
+        resource = ProductsResource(controller: resourceController)
+        let service = ParameterizedService<ProductsResource>(resource: resource)
         subject = BrandStoreService(resource: service)
     }
     
-    func test_get_whenSuccess_returnsProducts() {
-        resource.success = true
+    func test_getProducts_whenSuccess_returnsBrands() {
+        resourceController.success = true
+
         var wasCalled = false
-        subject.get { result in
+        subject.getProducts(for: brand) { result in
             wasCalled = true
             expectToBeSuccess(result)
         }
         XCTAssertTrue(wasCalled)
     }
-    
-    func test_get_whenFailure_returnsError() {
-        resource.success = false
+
+    func test_getProducts_whenFailure_returnsError() {
+        resourceController.success = false
+
         var wasCalled = false
-        subject.get { result in
+        subject.getProducts(for: brand) { result in
             wasCalled = true
             expectToBeFailure(result)
         }

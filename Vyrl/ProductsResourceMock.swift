@@ -5,18 +5,18 @@
 import Foundation
 import Fakery
 
-final class ProductsResourceMock: Fetching {
+final class ProductsResourceMock: FetchingWithParameters {
     
-    typealias Model = [Product]
-    
-    private let products: [Product]
+    typealias Model = Products
+    typealias Parameters = ProductsRequest
+    private let products: Products
     var success = true
     
     init(amount: Int) {
-        self.products = (0..<amount).map { _ in VyrlFaker.faker.product() }
+        self.products = Products(products: (0..<amount).map { _ in VyrlFaker.faker.product() })
     }
-    
-    func fetch(completion: @escaping (Result<[Product], APIResponseError>) -> Void) {
+
+    func fetchFiltered(using parameters: ProductsRequest?, completion: @escaping (Result<Products, APIResponseError>) -> Void) {
         if success {
             completion(.success(self.products))
         } else {

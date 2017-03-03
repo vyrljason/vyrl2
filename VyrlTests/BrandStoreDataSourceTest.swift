@@ -6,8 +6,6 @@
 import XCTest
 import Fakery
 
-// MARK: - Mocks
-
 final class FlowLayoutHandlerMock: BrandStoreFlowLayoutHandling {
     var didGetHeaderSize: Bool = false
     var didGetItemSize: Bool = false
@@ -36,8 +34,10 @@ final class ServiceMock: ProductsProviding {
     var isResponseEmpty = false
     var products: [Product] = Array(repeating: VyrlFaker.faker.product(), count: 5)
     let error: ServiceError = .unknown
-    
-    func get(completion: @escaping (Result<[Product], ServiceError>) -> Void) {
+    var brand: Brand?
+
+    func getProducts(for brand: Brand, completion: @escaping (Result<[Product], ServiceError>) -> Void) {
+        self.brand = brand
         if success {
             completion(.success( isResponseEmpty ? [] : products ))
         } else {
@@ -62,8 +62,6 @@ final class InteractorMock: CollectionViewHaving, CollectionViewControlling, Pro
         productArgument = product
     }
 }
-
-// MARK: - Tests
 
 final class BrandStoreDataSourceTest: XCTestCase {
     var brand: Brand!
@@ -155,12 +153,9 @@ final class BrandStoreDataSourceTest: XCTestCase {
         
         XCTAssertTrue(interactorMock.calledDidSelect)
         guard let argument: Product = interactorMock.productArgument else {
-            XCTAssertTrue(false)
+            XCTFail()
             return
         }
         XCTAssertEqual(argument.id, serviceMock.products[0].id)
-        
     }
 }
-
-// MARK: - End

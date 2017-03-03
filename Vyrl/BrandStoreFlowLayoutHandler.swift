@@ -20,12 +20,12 @@ final class BrandStoreFlowLayoutHandler: BrandStoreFlowLayoutHandling {
     weak var collectionView: UICollectionView?
     var headerSize: CGSize = CGSize(width: Constants.ignoredWidth, height: Constants.xibHeight)
     var itemSize: CGSize = Constants.fallbackItemSize
-    
+
     func use(_ collectionView: UICollectionView) {
         self.collectionView = collectionView
         itemSize = calculateItemSize()
     }
-    
+
     func headerDidChangeHeight(height: CGFloat) {
         headerSize.height = height
         guard let flowLayout = (collectionView?.collectionViewLayout) as? UICollectionViewFlowLayout else {
@@ -35,7 +35,7 @@ final class BrandStoreFlowLayoutHandler: BrandStoreFlowLayoutHandling {
             flowLayout.invalidateLayout()
         }, completion: nil)
     }
-    
+
     fileprivate func calculateItemSize() -> CGSize {
         guard let flowLayout = (collectionView?.collectionViewLayout) as? UICollectionViewFlowLayout else {
             let fallbackItemSize = CGSize(width: 175, height: 170)
@@ -45,16 +45,25 @@ final class BrandStoreFlowLayoutHandler: BrandStoreFlowLayoutHandling {
         let height: CGFloat = calculateHeight()
         return CGSize(width: width, height: height)
     }
-    
+
     fileprivate func calculateHeight() -> CGFloat {
         let cell: BrandStoreCell = BrandStoreCell.fromNib()
-        let product: Product = Product(id: "id", name: "Template", description: "", brandId: "", retailPrice: 123, imageUrls: [])
+        let product: Product = Product(id: "id",
+                                       name: "name",
+                                       description: "description",
+                                       category: "category",
+                                       brandId: "brandId",
+                                       retailPrice: 123,
+                                       isAdditionalGuidelines: true,
+                                       additionalGuidelines: "guidelines",
+                                       images: [],
+                                       variants: [])
         let renderable = BrandStoreCellRenderable(product: product)
         cell.render(renderable)
         cell.sizeToFit()
         return cell.frame.height
     }
-    
+
     fileprivate func calculateWidth(for flowLayout: UICollectionViewFlowLayout) -> CGFloat {
         let columnsAsFloat: CGFloat = CGFloat(Constants.columns)
         let insetFractionPerColumn: CGFloat = (flowLayout.sectionInset.left + flowLayout.sectionInset.right) / columnsAsFloat

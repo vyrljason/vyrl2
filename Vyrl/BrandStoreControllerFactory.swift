@@ -10,7 +10,8 @@ protocol BrandStoreMaking {
 
 enum BrandStoreControllerFactory: BrandStoreMaking {
     static func make(brand: Brand, presenter: ProductDetailsPresenting) -> BrandStoreViewController {
-        let resource = Service<ProductsResourceMock>(resource: ProductsResourceMock(amount: 15))
+        let resourceController = ServiceLocator.resourceConfigurator.resourceController
+        let resource = ParameterizedService<ProductsResource>(resource: ProductsResource(controller: resourceController))
         let service = BrandStoreService(resource: resource)
         let flowHandler = BrandStoreFlowLayoutHandler()
         let dataSource = BrandStoreDataSource(brand: brand, service: service, flowLayoutHandler: flowHandler)

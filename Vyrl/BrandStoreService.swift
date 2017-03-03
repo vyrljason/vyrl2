@@ -5,18 +5,20 @@
 import Foundation
 
 protocol ProductsProviding {
-    func get(completion: @escaping (Result<[Product], ServiceError>) -> Void)
+    func getProducts(for brand: Brand, completion: @escaping (Result<[Product], ServiceError>) -> Void)
 }
 
 final class BrandStoreService: ProductsProviding {
     
-    private let resource: Service<ProductsResourceMock>
+    private let resource: ParameterizedService<ProductsResource>
     
-    init(resource: Service<ProductsResourceMock>) {
+    init(resource: ParameterizedService<ProductsResource>) {
         self.resource = resource
     }
-    
-    func get(completion: @escaping (Result<[Product], ServiceError>) -> Void) {
-        resource.get(completion: completion)
+
+    func getProducts(for brand: Brand, completion: @escaping (Result<[Product], ServiceError>) -> Void) {
+        resource.get(using: ProductsRequest(brand: brand)) { result in
+            completion(result.map(success: { .success($0.products) }, failure: { .failure($0) }))
+        }
     }
 }

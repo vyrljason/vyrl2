@@ -21,9 +21,23 @@ extension Faker {
     func product(id: String = VyrlFaker.faker.lorem.characters(amount: 20),
                  name: String = VyrlFaker.faker.commerce.productName(),
                  description: String = VyrlFaker.faker.company.catchPhrase(),
+                 category: String = VyrlFaker.faker.lorem.characters(amount: 20),
                  brandId: String = String(VyrlFaker.faker.number.randomInt()),
-                 retailPrice: Double = VyrlFaker.faker.commerce.price()) -> Product {
-        return Product(id: id, name: name, description: description, brandId: brandId, retailPrice: retailPrice, imageUrls: [])
+                 retailPrice: Double = VyrlFaker.faker.commerce.price(),
+                 isAdditionalGuidelines: Bool = false,
+                 additionalGuidelines: String = VyrlFaker.faker.lorem.characters(amount: 200),
+                 images: [ProductImage] = [],
+                 variants: [ProductVariants] = []) -> Product {
+        return Product(id: id,
+                       name: name,
+                       description: description,
+                       category: category,
+                       brandId: brandId,
+                       retailPrice: retailPrice,
+                       isAdditionalGuidelines: isAdditionalGuidelines,
+                       additionalGuidelines: additionalGuidelines,
+                       images: images,
+                       variants: variants)
     }
 
     func cartItem(id: String = VyrlFaker.faker.lorem.characters(amount: 20),

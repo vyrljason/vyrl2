@@ -20,9 +20,13 @@ final class BrandStoreCellSnapshotTest: SnapshotTestCase {
         let product = Product(id: "id",
                               name: "Very bright and looong lens",
                               description: "Description",
+                              category: "category",
                               brandId: "",
                               retailPrice: 20999.99,
-                              imageUrls: [])
+                              isAdditionalGuidelines: true,
+                              additionalGuidelines: "guidelines",
+                              images: [],
+                              variants: [])
         let renderable = BrandStoreCellRenderable(product: product)
         view.render(renderable)
         
