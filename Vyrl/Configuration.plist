@@ -7,7 +7,7 @@
 		<key>InfluencersBaseURL</key>
 		<string>https://api-dev.govyrl.io</string>
 		<key>MainBaseURL</key>
-		<string>http://34.248.237.253/api</string>
+		<string>http://54.193.54.182/api</string>
 	</dict>
 	<key>Production</key>
 	<dict>
