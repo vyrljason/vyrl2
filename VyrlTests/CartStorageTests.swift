@@ -26,7 +26,7 @@ final class CartStorageTests: XCTestCase {
         super.setUp()
 
         userDefaults = UserDefaultsMock()
-        subject = CartStorage(userDefaults: userDefaults)
+        subject = CartStorage(objectsStorage: userDefaults)
     }
 
     func test_addItem_addedToDefaults() {
