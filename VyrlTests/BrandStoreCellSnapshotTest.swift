@@ -16,7 +16,7 @@ final class BrandStoreCellSnapshotTest: SnapshotTestCase {
     
     func testViewCorrect() {
         let view = BrandStoreCell.fromNib(translatesAutoresizingMaskIntoConstraints: true)
-        view.frame = CGRect(x: 0, y: 0, width: 175, height: 170)
+        view.frame = CGRect(x: 0, y: 0, width: 187, height: 259)
         let product = Product(id: "id",
                               name: "Very bright and looong lens",
                               description: "Description",

@@ -13,9 +13,7 @@ protocol BrandStoreProductImageFetching {
 }
 
 final class BrandStoreCell: UICollectionViewCell, HavingNib, BrandStoreCellRendering, BrandStoreProductImageFetching {
-    fileprivate struct Constants {
-        static let borderWidth: CGFloat = 1.0
-    }
+
     static let nibName = "BrandStoreCell"
     
     @IBOutlet private weak var name: UILabel!
@@ -24,12 +22,6 @@ final class BrandStoreCell: UICollectionViewCell, HavingNib, BrandStoreCellRende
     @IBOutlet private weak var imageContainer: UIView!
     
     fileprivate let placeholder = #imageLiteral(resourceName: "photoPlaceholderSmall")
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        setupBorder()
-        setupLabels()
-    }
     
     override func prepareForReuse() {
         super.prepareForReuse()
@@ -43,15 +35,5 @@ final class BrandStoreCell: UICollectionViewCell, HavingNib, BrandStoreCellRende
     
     func set(iconImageFetcher imageFetcher: ImageFetching) {
         image.fetchImage(using: imageFetcher, placeholder: self.placeholder)
-    }
-    
-    fileprivate func setupBorder() {
-        self.imageContainer.layer.borderWidth = Constants.borderWidth
-        self.imageContainer.layer.borderColor = UIColor.productBorderColor.cgColor
-    }
-    
-    fileprivate func setupLabels() {
-        self.name.textColor = UIColor.productTextColor
-        self.price.textColor = UIColor.productTextColor
     }
 }

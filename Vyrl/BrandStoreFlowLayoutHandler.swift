@@ -5,9 +5,9 @@
 import UIKit
 
 fileprivate struct Constants {
-    static let xibHeight = 180
+    static let xibHeight = 247
     static let ignoredWidth = 100
-    static let fallbackItemSize = CGSize(width: 175, height: 170)
+    static let fallbackItemSize = CGSize(width: 175, height: 247)
     static let columns = 2
 }
 
@@ -38,7 +38,7 @@ final class BrandStoreFlowLayoutHandler: BrandStoreFlowLayoutHandling {
 
     fileprivate func calculateItemSize() -> CGSize {
         guard let flowLayout = (collectionView?.collectionViewLayout) as? UICollectionViewFlowLayout else {
-            let fallbackItemSize = CGSize(width: 175, height: 170)
+            let fallbackItemSize = Constants.fallbackItemSize
             return fallbackItemSize
         }
         let width: CGFloat = calculateWidth(for: flowLayout)
