@@ -67,6 +67,10 @@ final class CartViewController: UIViewController, HavingNib {
         super.viewWillDisappear(animated)
         setEditing(false, animated: false)
     }
+
+    @IBAction private func didTapRequest() {
+        interactor.didTapRequest()
+    }
 }
 
 extension CartViewController: CartSummaryRendering {

@@ -14,6 +14,7 @@ final class CartDataProvidingMock: NSObject, CartDataProviding {
 
     var didLoad = false
     var didCallUseTableView = false
+    var cartData: CartData = CartData(products: [VyrlFaker.faker.product()], cartItems: [VyrlFaker.faker.cartItem()])
 
     func loadData() {
         didLoad = true
@@ -32,12 +33,23 @@ final class CartDataProvidingMock: NSObject, CartDataProviding {
     }
 }
 
+final class CartNavigatingMock: CartNavigating {
+    weak var cartNavigationController: UINavigationController?
+    var cart: CartViewController!
+    var cartData: CartData?
+
+    func pushCheckout(with cartData: CartData) {
+        self.cartData = cartData
+    }
+}
+
 final class CartInteractorTests: XCTestCase {
 
     var subject: CartInteractor!
     var emptyTableHandler: EmptyTableViewHandlerMock!
     var dataSourceMock: CartDataProvidingMock!
     var tableView: TableViewMock!
+    var cartNavigation: CartNavigatingMock!
 
     override func setUp() {
         super.setUp()
@@ -45,8 +57,10 @@ final class CartInteractorTests: XCTestCase {
         emptyTableHandler = EmptyTableViewHandlerMock()
         dataSourceMock = CartDataProvidingMock()
         tableView = TableViewMock()
+        cartNavigation = CartNavigatingMock()
 
         subject = CartInteractor(dataSource: dataSourceMock, emptyTableHandler: emptyTableHandler)
+        subject.cartNavigation = cartNavigation
     }
 
     func test_init_didSetDelegate() {
@@ -71,5 +85,13 @@ final class CartInteractorTests: XCTestCase {
         subject.use(tableView)
 
         XCTAssertTrue(dataSourceMock.didCallUseTableView)
+    }
+
+    func test_didTapRequest_didShowChexkout() {
+        subject.viewDidAppear()
+
+        subject.didTapRequest()
+
+        XCTAssertNotNil(cartNavigation.cartData)
     }
 }

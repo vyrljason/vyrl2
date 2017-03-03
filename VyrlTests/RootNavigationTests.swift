@@ -10,9 +10,9 @@ final class RootNavigationTests: XCTestCase {
     private var subject: RootNavigation!
     private var window: WindowMock!
     private var navigationProvider: NavigationProviderMock!
-    private var brandsNavigationController: NavigationControllerMock!
+    private var navigationController: NavigationControllerMock!
     private var mainView: UIViewController!
-    private var cart: UIViewController!
+    private var cart: CartNavigating!
     private var chat: UIViewController!
     private var leftMenu: LeftMenuViewController!
     private var interactor: RootNavigationInteractor!
@@ -24,14 +24,14 @@ final class RootNavigationTests: XCTestCase {
         super.setUp()
         window = WindowMock()
         chat = UIViewController()
-        cart = UIViewController()
+        cart = CartNavigationBuilder().build()
         credentialsProvider = APICredentialsProviderMock()
         dataSource = DataSourceMock()
         leftMenuInteractor = LeftMenuInteractor(dataSource: dataSource, credentialsProvider: credentialsProvider)
         leftMenu = LeftMenuViewController(interactor: leftMenuInteractor)
         interactor = RootNavigationInteractor()
-        brandsNavigationController = NavigationControllerMock()
-        navigationProvider = NavigationProviderMock(navigationController: brandsNavigationController)
+        navigationController = NavigationControllerMock()
+        navigationProvider = NavigationProviderMock(navigationController: navigationController)
 
         let builder = RootNavigationBuilder()
         builder.interactor = interactor
@@ -86,7 +86,7 @@ final class RootNavigationTests: XCTestCase {
         subject.showInitialViewController()
         subject.showAccount()
 
-        guard let navigation = brandsNavigationController.presented as? UINavigationController else {
+        guard let navigation = navigationController.presented as? UINavigationController else {
             XCTFail()
             return
         }
@@ -98,19 +98,19 @@ final class RootNavigationTests: XCTestCase {
         subject.showInitialViewController()
         subject.showCart()
 
-        guard let navigation = brandsNavigationController.presented as? UINavigationController else {
+        guard let navigation = navigationController.presented as? UINavigationController else {
             XCTFail()
             return
         }
 
-        XCTAssertTrue(navigation.viewControllers.first === cart)
+        XCTAssertTrue(navigation.viewControllers.first is CartViewController)
     }
 
     func test_showChat_showsChat() {
         subject.showInitialViewController()
         subject.showChat()
 
-        guard let navigation = brandsNavigationController.presented as? UINavigationController else {
+        guard let navigation = navigationController.presented as? UINavigationController else {
             XCTFail()
             return
         }

@@ -1,6 +1,9 @@
 "brand.submissionName" = "submissions";
-"cart.title" = "YOUR CART";
+"cart.title" = "Cart";
 "cart.summaryFormat" = "%d products from\n%d companies";
+"checkout.summaryHeadFormat" = "%d products from %d companies will count as";
+"checkout.summarySubHeadFormat" = "%d order requests";
+"checkout.title" = "Checkout";
 "cart.noProducts.title" = "No products in cart";
 "cart.noProducts.description" = "Add some products";
 "cart.error.title" = "Something went wrong";

@@ -16,8 +16,11 @@ protocol AuthorizationFlowPresenting: class {
 protocol RootNavigationControlling: class {
     func showMenu()
     func showChat()
-    func showCart()
     func dismissModal()
+}
+
+protocol CartPresenting: class {
+    func showCart()
 }
 
 protocol AuthorizationScreenPresenting {
@@ -51,11 +54,11 @@ final class RootNavigation {
         static let leftButtonNegativeSpace: CGFloat = -8
     }
 
+    fileprivate var cart: CartNavigating
     fileprivate var mainNavigation: NavigationControlling
     fileprivate let window: WindowProtocol
     fileprivate var slideMenu: SlideMenuController!
     fileprivate let leftMenu: UIViewController
-    fileprivate let cart: UIViewController
     fileprivate let chat: UIViewController
     fileprivate let accountMaker: AccountViewControllerMaking.Type
     fileprivate let interactor: RootNavigationInteracting & NavigationDelegateHaving
@@ -68,7 +71,7 @@ final class RootNavigation {
     init(interactor: RootNavigationInteracting & NavigationDelegateHaving,
          leftMenu: UIViewController,
          mainNavigation: NavigationControlling,
-         cart: UIViewController,
+         cart: CartNavigating,
          chat: UIViewController,
          accountMaker: AccountViewControllerMaking.Type,
          window: WindowProtocol,
@@ -93,7 +96,7 @@ final class RootNavigation {
                                         leftMenuViewController: leftMenu)
     }
 
-    fileprivate func presentModally(_ viewController: UIViewController) {
+    @discardableResult fileprivate func presentModally(_ viewController: UIViewController) -> UINavigationController {
         viewController.modalTransitionStyle = .coverVertical
         viewController.modalPresentationStyle = .fullScreen
         let close = UIBarButtonItem(title: Constants.closeTitle,
@@ -104,6 +107,7 @@ final class RootNavigation {
         let navigation = UINavigationController(rootViewController: viewController)
         navigation.render(Constants.navigationBarRenderable)
         mainNavigation.present(navigation, animated: true)
+        return navigation
     }
 
     fileprivate func transition(to controller: UIViewController, animated: Bool = true) {
@@ -229,6 +233,13 @@ extension RootNavigation: AuthorizationScreenPresenting {
     }
 }
 
+extension RootNavigation: CartPresenting {
+    func showCart() {
+        let navigation = presentModally(cart.cart)
+        cart.cartNavigationController = navigation
+    }
+}
+
 extension RootNavigation: RootNavigationControlling {
     func showMenu() {
         slideMenu.openLeft()
@@ -236,10 +247,6 @@ extension RootNavigation: RootNavigationControlling {
 
     func showChat() {
         presentModally(chat)
-    }
-
-    func showCart() {
-        presentModally(cart)
     }
 
     func dismissModal() {

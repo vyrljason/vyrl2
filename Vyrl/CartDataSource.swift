@@ -14,11 +14,17 @@ protocol SummaryUpdateHandling: class {
     func didUpdate(summary: CartSummary)
 }
 
+struct CartData {
+    let products: [Product]
+    let cartItems: [CartItem]
+}
+
 protocol CartDataProviding: TableViewUsing, UITableViewDelegate, UITableViewDataSource {
     weak var emptyTableDelegate: EmptyTableViewHandling? { get set }
     weak var reloadingDelegate: ReloadingData? { get set }
     weak var summaryDelegate: SummaryUpdateHandling? { get set }
     weak var guidelinesDelegate: GuidelinesPresenting? { get set }
+    var cartData: CartData { get }
     func loadData()
 }
 
@@ -49,6 +55,10 @@ final class CartDataSource: NSObject, CartDataProviding {
     init(cartStorage: CartStoring, productProvider: ProductProviding) {
         self.cartStorage = cartStorage
         self.productProvider = productProvider
+    }
+
+    var cartData: CartData {
+        return CartData(products: products, cartItems: cartStorage.items)
     }
 
     func loadData() {

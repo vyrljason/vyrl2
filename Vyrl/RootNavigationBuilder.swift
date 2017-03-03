@@ -17,7 +17,7 @@ final class RootNavigationBuilder {
                                                                         brandStoreFactory: BrandStoreControllerFactory.self,
                                                                         productDetailsFactory: ProductDetailsControllerFactory.self,
                                                                         navigationController: UINavigationController()) }()
-    var cart: UIViewController = CartViewControllerFactory.make()
+    var cart: CartNavigating = CartNavigationBuilder().build()
     var chat: UIViewController = UIViewController()
     var window: WindowProtocol = UIWindow()
     var accountMaker: AccountViewControllerMaking.Type = AccountViewControllerFactory.self

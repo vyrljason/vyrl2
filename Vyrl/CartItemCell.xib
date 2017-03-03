@@ -13,7 +13,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" shouldIndentWhileEditing="NO" rowHeight="118" id="jUA-qf-6MI" customClass="CartItemCell" customModule="Vyrl" customModuleProvider="target">
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" shouldIndentWhileEditing="NO" rowHeight="121" id="jUA-qf-6MI" customClass="CartItemCell" customModule="Vyrl" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="473" height="120"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="jUA-qf-6MI" id="OOp-kg-dBc">
@@ -58,7 +58,7 @@
                     <constraint firstItem="v36-k3-Fmh" firstAttribute="leading" secondItem="KJj-iu-9fi" secondAttribute="trailing" constant="5" id="Ag9-2U-f0s"/>
                     <constraint firstAttribute="trailingMargin" secondItem="ITa-4f-9it" secondAttribute="trailing" constant="11" id="JR7-Rn-lfc"/>
                     <constraint firstItem="ITa-4f-9it" firstAttribute="top" secondItem="OOp-kg-dBc" secondAttribute="topMargin" constant="14" id="KN0-nZ-QAa"/>
-                    <constraint firstItem="KJj-iu-9fi" firstAttribute="top" relation="greaterThanOrEqual" secondItem="Xsg-p9-nQg" secondAttribute="bottom" constant="11" id="O2h-vU-b9x"/>
+                    <constraint firstItem="KJj-iu-9fi" firstAttribute="top" relation="greaterThanOrEqual" secondItem="Xsg-p9-nQg" secondAttribute="bottom" constant="8" id="O2h-vU-b9x"/>
                     <constraint firstItem="itC-us-4Pj" firstAttribute="top" secondItem="OOp-kg-dBc" secondAttribute="top" id="ULM-tT-5He"/>
                     <constraint firstAttribute="bottom" secondItem="v36-k3-Fmh" secondAttribute="bottom" constant="11" id="XAl-aA-LNC"/>
                     <constraint firstItem="ITa-4f-9it" firstAttribute="leading" secondItem="itC-us-4Pj" secondAttribute="trailing" constant="12" id="ePF-nl-w0C"/>
@@ -69,6 +69,7 @@
                     <constraint firstItem="KJj-iu-9fi" firstAttribute="baseline" secondItem="v36-k3-Fmh" secondAttribute="baseline" id="yNR-fb-8oM"/>
                 </constraints>
             </tableViewCellContentView>
+            <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
             <connections>
                 <outlet property="price" destination="v36-k3-Fmh" id="Knj-CR-Vhc"/>
                 <outlet property="productImage" destination="itC-us-4Pj" id="NAv-r9-yyS"/>

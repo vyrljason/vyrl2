@@ -12,12 +12,12 @@ import Foundation
 }
 
 protocol NavigationDelegateHaving: class {
-    weak var delegate: RootNavigationControlling? { get set }
+    weak var delegate: RootNavigationControlling & CartPresenting? { get set }
 }
 
 final class RootNavigationInteractor: RootNavigationInteracting, NavigationDelegateHaving {
 
-    weak var delegate: RootNavigationControlling?
+    weak var delegate: RootNavigationControlling & CartPresenting?
 
     @objc func didTapChat() {
         delegate?.showChat()

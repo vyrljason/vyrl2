@@ -16,6 +16,10 @@ final class CartInteractingMock: CartInteracting {
     func showGuidelines(for product: Product) {
         self.product = product
     }
+
+    func didTapRequest() {
+        
+    }
 }
 
 final class CartSummarySnapshotTest: SnapshotTestCase {

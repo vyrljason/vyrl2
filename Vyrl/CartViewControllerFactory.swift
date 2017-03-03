@@ -15,7 +15,7 @@ final class CartViewControllerFactory {
         static let networkingErrorDescription = NSLocalizedString("cart.error.description", comment: "")
     }
 
-    static func make() -> CartViewController {
+    static func make(cartNavigation: CartNavigating) -> CartViewController {
 
         let noData = EmptyCollectionRenderable(title: NSAttributedString(string: Constants.noDataTitle,
                                                                          attributes: Constants.titleAttributes),
@@ -31,6 +31,7 @@ final class CartViewControllerFactory {
         let dataSource = CartDataSource(cartStorage: storage, productProvider: productProvider)
         let emptyTablenHandler = EmptyTableViewHandler(modeToRenderable: [ .error: error, .noData: noData ])
         let interactor = CartInteractor(dataSource: dataSource, emptyTableHandler: emptyTablenHandler)
+        interactor.cartNavigation = cartNavigation
         let viewController = CartViewController(interactor: interactor)
         return viewController
     }
