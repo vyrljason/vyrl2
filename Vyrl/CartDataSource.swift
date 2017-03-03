@@ -70,10 +70,17 @@ final class CartDataSource: NSObject, CartDataProviding {
         let productsIds: [String] = cartStorage.items.map({ $0.productId })
 
         service.getProducts(with: productsIds) { [weak self] result in
+            guard let `self` = self else {
+                return
+            }
             let products = result.map(success: { return $0 }, failure: { _ in return [] })
-            self?.products = products
-            self?.reloadingDelegate?.reloadData()
-            self?.summaryDelegate?.didUpdate(summary: CartSummary(products: products))
+            self.products = products
+            guard !products.isEmpty else {
+                self.emptyTableDelegate?.configure(with: .noData)
+                return
+            }
+            self.reloadingDelegate?.reloadData()
+            self.summaryDelegate?.didUpdate(summary: CartSummary(products: products))
         }
     }
 
