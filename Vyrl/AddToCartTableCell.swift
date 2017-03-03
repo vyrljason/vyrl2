@@ -8,7 +8,7 @@ protocol AddToCartTableCellRendering {
     func render(_ renderable: AddToCartTableCellRenderable)
 }
 
-final class AddToCartTableCell: UITableViewCell, HavingNib {
+final class AddToCartTableCell: UITableViewCell, AddToCartTableCellRendering, HavingNib {
     static let nibName = "AddToCartTableCell"
     
     func render(_ renderable: AddToCartTableCellRenderable) {

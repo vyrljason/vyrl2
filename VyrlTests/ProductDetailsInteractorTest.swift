@@ -8,6 +8,19 @@ import Fakery
 
 // MARK: - Mocks
 
+final class VariantHandlerMock: VariantHandling {
+    var selectedVariants: [ProductVariant]
+    weak var delegate: VariantHandlerDelegate?
+    var allVariants: [ProductVariants]
+    func pickFromVariants(variants: ProductVariants) { }
+    func variantsCount() -> Int { return 0 }
+    
+    init() {
+        allVariants = []
+        selectedVariants = []
+    }
+}
+
 final class ProductDetailsDataSourceMock: NSObject, ProductDetailsDataProviding {
     var didUseTableView: Bool = false
     var didUseLoadTableData: Bool = false
@@ -46,10 +59,14 @@ final class ProductDetailsInteractorTest: XCTestCase {
     var subject: ProductDetailsInteractor!
     var tableViewMock = TableViewMock()
     var dataSource: ProductDetailsDataSourceMock!
+    var variantHandlerMock: VariantHandlerMock!
+    var product: Product!
 
     override func setUp() {
+        product = VyrlFaker.faker.product()
+        variantHandlerMock = VariantHandlerMock()
         dataSource = ProductDetailsDataSourceMock()
-        subject = ProductDetailsInteractor(dataSource: dataSource)
+        subject = ProductDetailsInteractor(dataSource: dataSource, variantHandler:variantHandlerMock, product: product)
     }
     
     func test_onInit_setsTableViewDataProvidingDelegate() {

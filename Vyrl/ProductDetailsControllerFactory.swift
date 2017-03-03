@@ -10,12 +10,14 @@ protocol ProductDetailsMaking {
 
 enum ProductDetailsControllerFactory: ProductDetailsMaking {
     static func make(product: Product) -> ProductDetailsViewController {
+        let variantHandler = VariantHandler(allVariants: product.variants)
         let sections: [Int:SectionRenderer] = [
             ProductDetailsSections.NameAndPrice.rawValue: NameAndPriceRenderer(),
+            ProductDetailsSections.Variants.rawValue: VariantsRenderer(variantHandler: variantHandler),
             ProductDetailsSections.Cart.rawValue: AddToCartRenderer()
         ]
         let dataSource = ProductDetailsDataSource(product: product, renderers: sections)
-        let interactor = ProductDetailsInteractor(dataSource: dataSource)
+        let interactor = ProductDetailsInteractor(dataSource: dataSource, variantHandler: variantHandler, product: product)
         return ProductDetailsViewController(interactor: interactor)
     }
 }

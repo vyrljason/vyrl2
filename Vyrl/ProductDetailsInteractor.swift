@@ -4,17 +4,23 @@
 
 import UIKit
 
-protocol ProductDetailsInteracting: TableViewUsing, TableViewControlling {
+protocol ProductDetailsInteracting: TableViewUsing, TableViewControlling, VariantHandlerDelegate {
     func viewWillAppear(_ animated: Bool)
     func addToCart()
+    func selectFromVariants(_ variants: ProductVariants)
 }
 
 final class ProductDetailsInteractor: ProductDetailsInteracting {
     fileprivate weak var tableView: UITableView?
     var dataSource: ProductDetailsDataProviding
+    var variantHandler: VariantHandling
+    let product: Product
     
-    init(dataSource: ProductDetailsDataProviding) {
+    init(dataSource: ProductDetailsDataProviding, variantHandler: VariantHandling, product: Product) {
+        self.product = product
+        self.variantHandler = variantHandler
         self.dataSource = dataSource
+        self.variantHandler.delegate = self
         dataSource.tableViewControllingDelegate = self
         dataSource.interactor = self
     }
@@ -24,6 +30,15 @@ final class ProductDetailsInteractor: ProductDetailsInteracting {
     }
     
     func addToCart() { }
+    
+    func selectFromVariants(_ variants: ProductVariants) {
+        variantHandler.pickFromVariants(variants: variants)
+    }
+    
+    func reloadVariants() {
+        let variantsIndex: IndexSet = IndexSet(integer: ProductDetailsSections.Variants.rawValue)
+        tableView?.reloadSections(variantsIndex, with: .none)
+    }
 }
 
 extension ProductDetailsInteractor: TableViewUsing {
