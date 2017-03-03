@@ -27,7 +27,7 @@
                     </label>
                 </subviews>
             </view>
-            <color key="backgroundColor" red="0.14901960780000001" green="0.14901960780000001" blue="0.14901960780000001" alpha="1" colorSpace="calibratedRGB"/>
+            <color key="backgroundColor" red="0.14901960784313725" green="0.14901960784313725" blue="0.14901960784313725" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="f18-TE-tYc" firstAttribute="top" secondItem="rF2-kL-abl" secondAttribute="top" id="5qc-JW-vLL"/>
                 <constraint firstAttribute="trailing" secondItem="f18-TE-tYc" secondAttribute="trailing" id="AnG-N0-S4n"/>
