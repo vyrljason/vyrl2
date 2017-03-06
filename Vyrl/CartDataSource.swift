@@ -24,6 +24,7 @@ protocol CartDataProviding: TableViewUsing, UITableViewDelegate, UITableViewData
     weak var reloadingDelegate: ReloadingData? { get set }
     weak var summaryDelegate: SummaryUpdateHandling? { get set }
     weak var guidelinesDelegate: GuidelinesPresenting? { get set }
+    weak var loadingDelegate: DataLoadingEventsListening? { get set}
     var cartData: CartData { get }
     func loadData()
 }
@@ -47,6 +48,7 @@ final class CartDataSource: NSObject, CartDataProviding {
     weak var reloadingDelegate: ReloadingData?
     weak var summaryDelegate: SummaryUpdateHandling?
     weak var guidelinesDelegate: GuidelinesPresenting?
+    weak var loadingDelegate: DataLoadingEventsListening?
 
     fileprivate let cartStorage: CartStoring
     fileprivate let service: ProductsWithIdsProviding
@@ -64,15 +66,18 @@ final class CartDataSource: NSObject, CartDataProviding {
     func loadData() {
         guard !cartStorage.items.isEmpty else {
             emptyTableDelegate?.configure(with: .noData)
+            loadingDelegate?.didFinishDataLoading()
             return
         }
 
         let productsIds: [String] = cartStorage.items.map({ $0.productId })
 
+        loadingDelegate?.willStartDataLoading()
         service.getProducts(with: productsIds) { [weak self] result in
             guard let `self` = self else {
                 return
             }
+            self.loadingDelegate?.didFinishDataLoading()
             let products = result.map(success: { return $0 }, failure: { _ in return [] })
             self.products = products
             guard !products.isEmpty else {

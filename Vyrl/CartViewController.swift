@@ -29,7 +29,7 @@ final class CartViewController: UIViewController, HavingNib {
 
     static var nibName: String = "CartViewController"
 
-    private let interactor: CartInteracting
+    fileprivate let interactor: CartInteracting & DataRefreshing
 
     @IBOutlet fileprivate weak var summaryLabel: UILabel!
     @IBOutlet fileprivate weak var price: UILabel!
@@ -37,11 +37,14 @@ final class CartViewController: UIViewController, HavingNib {
     @IBOutlet fileprivate weak var tableView: UITableView!
     @IBOutlet fileprivate weak var requestButton: UIButton!
 
-    init(interactor: CartInteracting) {
+    fileprivate let refreshControl = UIRefreshControl()
+
+    init(interactor: CartInteracting & DataRefreshing) {
         self.interactor = interactor
         super.init(nibName: CartViewController.nibName, bundle: nil)
         title = Constants.title
         interactor.projector = self
+        automaticallyAdjustsScrollViewInsets = false
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -50,6 +53,7 @@ final class CartViewController: UIViewController, HavingNib {
 
     override func viewDidLoad() {
         interactor.use(tableView)
+        setUpRefresh()
         navigationItem.rightBarButtonItem = editButtonItem
     }
 
@@ -79,5 +83,24 @@ extension CartViewController: CartSummaryRendering {
         requestButton.isHidden = !renderable.summaryVisible
         price.text = renderable.price
         summaryLabel.text = renderable.summary
+    }
+}
+
+extension CartViewController {
+    fileprivate func setUpRefresh() {
+        refreshControl.tintColor = UIColor.rouge
+        refreshControl.addTarget(interactor, action: #selector(DataRefreshing.refreshData), for: .valueChanged)
+        refreshControl.translatesAutoresizingMaskIntoConstraints = false
+        tableView.addSubview(refreshControl)
+    }
+}
+
+extension CartViewController: DataLoadingEventsListening {
+    func willStartDataLoading() {
+        refreshControl.beginRefreshing()
+    }
+
+    func didFinishDataLoading() {
+        refreshControl.endRefreshing()
     }
 }

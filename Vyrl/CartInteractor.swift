@@ -5,7 +5,7 @@
 import UIKit
 
 protocol CartInteracting: class, TableViewUsing {
-    weak var projector: CartSummaryRendering & ViewContainer & LayoutGuideHaving? { get set }
+    weak var projector: CartSummaryRendering & ViewContainer & LayoutGuideHaving & DataLoadingEventsListening? { get set }
     func viewDidAppear()
     func didTapRequest()
 }
@@ -25,7 +25,11 @@ final class CartInteractor: CartInteracting {
     fileprivate let emptyTableHandler: EmptyTableViewHandling
 
     weak var cartNavigation: CartNavigating?
-    weak var projector: CartSummaryRendering & ViewContainer & LayoutGuideHaving?
+    weak var projector: CartSummaryRendering & ViewContainer & LayoutGuideHaving & DataLoadingEventsListening? {
+        didSet {
+            dataSource.loadingDelegate = projector
+        }
+    }
 
     init(dataSource: CartDataProviding, emptyTableHandler: EmptyTableViewHandling) {
         self.dataSource = dataSource
@@ -42,6 +46,12 @@ final class CartInteractor: CartInteracting {
     func didTapRequest() {
         let cartData = dataSource.cartData
         cartNavigation?.pushCheckout(with: cartData)
+    }
+}
+
+extension CartInteractor: DataRefreshing {
+    func refreshData() {
+        dataSource.loadData()
     }
 }
 
