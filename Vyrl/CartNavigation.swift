@@ -8,6 +8,7 @@ protocol CartNavigating: class {
     weak var cartNavigationController: UINavigationController? { get set }
     var cart: CartViewController! { get }
     func pushCheckout(with cartData: CartData)
+    func pushConfirmation()
 }
 
 final class CartNavigationBuilder {
