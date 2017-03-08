@@ -13,7 +13,9 @@ enum ProductDetailsControllerFactory: ProductDetailsMaking {
         let variantHandler = VariantHandler(allVariants: product.variants)
         let sections: [Int:SectionRenderer] = [
             ProductDetailsSections.NameAndPrice.rawValue: NameAndPriceRenderer(),
+            ProductDetailsSections.Description.rawValue: DescriptionRenderer(),
             ProductDetailsSections.Variants.rawValue: VariantsRenderer(variantHandler: variantHandler),
+            ProductDetailsSections.ContentGuidelines.rawValue: ContentGuidelinesRenderer(),
             ProductDetailsSections.Cart.rawValue: AddToCartRenderer()
         ]
         let dataSource = ProductDetailsDataSource(product: product, renderers: sections)

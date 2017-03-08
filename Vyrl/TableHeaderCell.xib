@@ -33,9 +33,10 @@
                 </subviews>
                 <constraints>
                     <constraint firstItem="Kym-Cu-ruj" firstAttribute="baseline" secondItem="kMp-cw-lil" secondAttribute="baseline" id="0g1-Vn-ZPd"/>
-                    <constraint firstItem="kMp-cw-lil" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="11" id="EQu-m8-Zd2"/>
-                    <constraint firstItem="kMp-cw-lil" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="Wcv-Vg-0Ej"/>
+                    <constraint firstItem="kMp-cw-lil" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="12" id="EQu-m8-Zd2"/>
                     <constraint firstItem="Kym-Cu-ruj" firstAttribute="leading" secondItem="kMp-cw-lil" secondAttribute="trailing" id="XtX-wn-oGa"/>
+                    <constraint firstItem="kMp-cw-lil" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="7.5" id="ZPb-Jj-zGu"/>
+                    <constraint firstAttribute="bottom" secondItem="kMp-cw-lil" secondAttribute="bottom" constant="6.5" id="pEH-TG-vSI"/>
                 </constraints>
             </tableViewCellContentView>
             <color key="backgroundColor" red="0.90980392156862744" green="0.90980392156862744" blue="0.90980392156862744" alpha="1" colorSpace="calibratedRGB"/>

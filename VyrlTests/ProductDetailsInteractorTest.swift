@@ -10,10 +10,10 @@ import Fakery
 
 final class VariantHandlerMock: VariantHandling {
     var selectedVariants: [ProductVariant]
-    weak var delegate: VariantHandlerDelegate?
     var allVariants: [ProductVariants]
-    func pickFromVariants(variants: ProductVariants) { }
+    func pickedVariant(variantName: String, variantValue: String) { }
     func variantsCount() -> Int { return 0 }
+    func selectedVariant(for name: String) -> String? { return nil }
     
     init() {
         allVariants = []

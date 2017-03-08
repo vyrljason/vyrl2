@@ -20,6 +20,6 @@ class TableHeaderCell: UITableViewCell, HavingNib, TableHeaderCellRendering {
     
     func render(_ renderable: TableHeaderRenderable) {
         headerLabel.text = renderable.text
-        asterisk.isHidden = renderable.mandatory
+        asterisk.isHidden = !renderable.mandatory
     }
 }

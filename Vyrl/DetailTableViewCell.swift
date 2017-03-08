@@ -12,7 +12,7 @@ class DetailTableViewCell: UITableViewCell, HavingNib, DetailTableCellRendering 
     static let nibName = "DetailTableViewCell"
     
     @IBOutlet var name: UILabel!
-    @IBOutlet var detail: UILabel!
+    @IBOutlet var detail: UITextField!
     @IBOutlet var asterisk: UILabel!
     
     func render(_ renderable: DetailTableCellRenderable) {

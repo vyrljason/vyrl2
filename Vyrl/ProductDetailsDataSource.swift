@@ -99,7 +99,7 @@ extension ProductDetailsDataSource: TableViewDataProviding {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        getRenderer(for: indexPath.section).didSelectRow(row: indexPath.row)
+        getRenderer(for: indexPath.section).didSelect(table: tableView, indexPath: indexPath)
         tableView.deselectRow(at: indexPath, animated: true)
     }
 }

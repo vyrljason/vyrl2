@@ -30,7 +30,7 @@ class RendererMock: SectionRenderer {
         usedRegisterNibsArgument = tableView
     }
     
-    func didSelectRow(row: Int) { }
+    func didSelect(table: UITableView, indexPath: IndexPath) { }
 }
 
 // MARK - Tests

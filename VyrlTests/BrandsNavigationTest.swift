@@ -32,8 +32,7 @@ final class ProductDetailsInteractorMock: ProductDetailsInteracting {
     func loadTableData() { }
     func viewWillAppear(_ animated: Bool) { }
     func addToCart() { }
-    func selectFromVariants(_ variants: ProductVariants) { }
-    func reloadVariants() { }
+    func selectFromVariants(_ variants: ProductVariants, on textfield: UITextField) { }
 }
 
 final class BrandsFactoryMock: BrandsControllerMaking {

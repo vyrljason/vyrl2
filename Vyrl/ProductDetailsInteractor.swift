@@ -4,10 +4,14 @@
 
 import UIKit
 
-protocol ProductDetailsInteracting: TableViewUsing, TableViewControlling, VariantHandlerDelegate {
+fileprivate struct Constants {
+    static let estimatedRowHeight: CGFloat = 48.0
+}
+
+protocol ProductDetailsInteracting: TableViewUsing, TableViewControlling {
     func viewWillAppear(_ animated: Bool)
     func addToCart()
-    func selectFromVariants(_ variants: ProductVariants)
+    func selectFromVariants(_ variants: ProductVariants, on textfield: UITextField)
 }
 
 final class ProductDetailsInteractor: ProductDetailsInteracting {
@@ -15,6 +19,7 @@ final class ProductDetailsInteractor: ProductDetailsInteracting {
     var dataSource: ProductDetailsDataProviding
     var variantHandler: VariantHandling
     let product: Product
+    let picker: PickerPresenting
     private let cartStorage: CartStoring
     
     init(dataSource: ProductDetailsDataProviding,
@@ -24,7 +29,7 @@ final class ProductDetailsInteractor: ProductDetailsInteracting {
         self.variantHandler = variantHandler
         self.dataSource = dataSource
         self.cartStorage = cartStorage
-        self.variantHandler.delegate = self
+        self.picker = PickerPresenter()
         dataSource.tableViewControllingDelegate = self
         dataSource.interactor = self
     }
@@ -38,20 +43,25 @@ final class ProductDetailsInteractor: ProductDetailsInteracting {
         cartStorage.add(item: cartItem)
     }
     
-    func selectFromVariants(_ variants: ProductVariants) {
-        variantHandler.pickFromVariants(variants: variants)
-    }
-    
-    func reloadVariants() {
-        let variantsIndex: IndexSet = IndexSet(integer: ProductDetailsSections.Variants.rawValue)
-        tableView?.reloadSections(variantsIndex, with: .none)
+    func selectFromVariants(_ variants: ProductVariants, on textfield: UITextField) {
+        let selectedVariant = self.variantHandler.selectedVariant(for: variants.name)
+        picker.showPicker(within: textfield, with: variants.values, defaultValue: selectedVariant) { [weak self] result in
+            self?.variantHandler.pickedVariant(variantName: variants.name, variantValue: result)
+            textfield.text = result
+        }
     }
 }
 
 extension ProductDetailsInteractor: TableViewUsing {
     func use(_ tableView: UITableView) {
         self.tableView = tableView
+        setupCellSizing(tableView: tableView)
         dataSource.use(tableView)
+    }
+    
+    private func setupCellSizing(tableView: UITableView) {
+        tableView.estimatedRowHeight = Constants.estimatedRowHeight
+        tableView.rowHeight = UITableViewAutomaticDimension
     }
 }
 

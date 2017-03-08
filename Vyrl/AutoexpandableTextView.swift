@@ -14,6 +14,12 @@ final class AutoexpandableTextView: UITextView {
             updateHeight()
         }
     }
+    
+    override var text: String! {
+        didSet {
+            updateHeight()
+        }
+    }
 
     override func awakeFromNib() {
         super.awakeFromNib()

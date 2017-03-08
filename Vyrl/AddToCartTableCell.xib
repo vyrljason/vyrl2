@@ -47,7 +47,8 @@
                     </view>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="6rC-Ms-Q5y" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="Pny-eW-9hB"/>
+                    <constraint firstItem="6rC-Ms-Q5y" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="13" id="If5-yR-WLl"/>
+                    <constraint firstAttribute="bottom" secondItem="6rC-Ms-Q5y" secondAttribute="bottom" constant="14" id="r8o-hH-579"/>
                     <constraint firstItem="6rC-Ms-Q5y" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="zCc-KU-RSG"/>
                 </constraints>
             </tableViewCellContentView>

@@ -4,22 +4,17 @@
 
 import Foundation
 
-protocol VariantHandlerDelegate: class {
-    func reloadVariants()
-}
-
 protocol VariantHandling {
     var selectedVariants: [ProductVariant] { get }
-    var delegate: VariantHandlerDelegate? { get set }
-    func pickFromVariants(variants: ProductVariants)
-    func variantsCount() -> Int
     var allVariants: [ProductVariants] { get }
+    func pickedVariant(variantName: String, variantValue: String)
+    func variantsCount() -> Int
+    func selectedVariant(for name: String) -> String?
 }
 
 final class VariantHandler: VariantHandling {
     var selectedVariants: [ProductVariant]
     let allVariants: [ProductVariants]
-    weak var delegate: VariantHandlerDelegate?
     
     init(allVariants: [ProductVariants]) {
         self.allVariants = allVariants
@@ -36,13 +31,9 @@ final class VariantHandler: VariantHandling {
         return selectedVariants.count
     }
     
-    func pickFromVariants(variants: ProductVariants) {
-        // here the picker should be displayed, but we have ugly randomizer instead
-        let randomIndex = Int(arc4random_uniform(UInt32(variants.values.count)))
-        let selectedValue = variants.values[randomIndex]
-        let selected = ProductVariant(name: variants.name, value: selectedValue)
+    func pickedVariant(variantName: String, variantValue: String) {
+        let selected = ProductVariant(name: variantName, value: variantValue)
         selectVariant(inVariant: selected)
-        delegate?.reloadVariants()
     }
     
     private func selectVariant(inVariant: ProductVariant) {
@@ -54,5 +45,9 @@ final class VariantHandler: VariantHandling {
             index += 1
         }
         selectedVariants[index] = inVariant
+    }
+    
+    func selectedVariant(for name: String) -> String? {
+        return selectedVariants.filter { $0.name == name}.map { $0.value }.first
     }
 }
