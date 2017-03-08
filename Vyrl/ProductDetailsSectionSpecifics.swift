@@ -180,3 +180,18 @@ final class DescriptionRenderer: CommonRenderer {
         tableView.endUpdates()
     }
 }
+
+final class GalleryRenderer: CommonRenderer {
+    
+    override func registerNibs(in tableView: UITableView) {
+        SwipeableGalleryTableCell.register(to: tableView)
+    }
+    
+    override func tableView(_ tableView: UITableView, cellFor indexPath: IndexPath) -> UITableViewCell {
+        let cell: SwipeableGalleryTableCell = tableView.dequeueCell(at: indexPath)
+        SwipeableGalleryItemCell.register(to: cell.collectionView)
+        cell.collectionView.dataSource = dataAccessor.interactor?.galleryDataSource
+        return cell
+    }
+    
+}
