@@ -18,7 +18,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="221"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="nKV-MT-VM5">
+                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="nKV-MT-VM5">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="220.5"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -31,16 +31,24 @@
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                     </collectionView>
+                    <pageControl opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" hidesForSinglePage="YES" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="GpK-yl-VVL">
+                        <rect key="frame" x="141" y="183" width="39" height="37"/>
+                        <color key="pageIndicatorTintColor" red="0.61568627450000002" green="0.61568627450000002" blue="0.61568627450000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="currentPageIndicatorTintColor" red="0.2901960784" green="0.2901960784" blue="0.2901960784" alpha="1" colorSpace="calibratedRGB"/>
+                    </pageControl>
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="bottom" secondItem="nKV-MT-VM5" secondAttribute="bottom" id="P0J-ye-sku"/>
                     <constraint firstItem="nKV-MT-VM5" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="U2R-fU-hLE"/>
+                    <constraint firstAttribute="bottom" secondItem="GpK-yl-VVL" secondAttribute="bottom" constant="1" id="ssB-mw-3Nh"/>
+                    <constraint firstItem="GpK-yl-VVL" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="vsX-f5-b4B"/>
                     <constraint firstAttribute="trailing" secondItem="nKV-MT-VM5" secondAttribute="trailing" id="ynn-BO-bB1"/>
                     <constraint firstItem="nKV-MT-VM5" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="zSr-eU-uNW"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
                 <outlet property="collectionView" destination="nKV-MT-VM5" id="uZZ-et-qy3"/>
+                <outlet property="pager" destination="GpK-yl-VVL" id="b8n-9j-gtI"/>
             </connections>
         </tableViewCell>
     </objects>

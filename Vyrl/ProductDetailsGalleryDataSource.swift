@@ -5,7 +5,7 @@
 import UIKit
 
 protocol ProductDetailsGalleryDataProviding: CollectionViewDataProviding {
-    
+    func numberOfImages() -> Int
 }
 
 final class ProductDetailsGalleryDataSource: NSObject, ProductDetailsGalleryDataProviding {
@@ -19,6 +19,10 @@ final class ProductDetailsGalleryDataSource: NSObject, ProductDetailsGalleryData
     weak var collectionViewControllingDelegate: CollectionViewHaving & CollectionViewControlling?
     
     func loadData() { }
+    
+    func numberOfImages() -> Int {
+        return product.images.count
+    }
     
 }
 

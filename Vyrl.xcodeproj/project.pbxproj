@@ -106,6 +106,7 @@
 		31B0793B1E70A7370015C302 /* SwipeableGalleryItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B079391E70A7370015C302 /* SwipeableGalleryItemCell.swift */; };
 		31B0793C1E70A7370015C302 /* SwipeableGalleryItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31B0793A1E70A7370015C302 /* SwipeableGalleryItemCell.xib */; };
 		31B079401E71667B0015C302 /* ProductDetailsGalleryDataSourceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B0793F1E71667B0015C302 /* ProductDetailsGalleryDataSourceTest.swift */; };
+		31B079421E71934A0015C302 /* SwipeableGalleryTableCellRenderable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B079411E71934A0015C302 /* SwipeableGalleryTableCellRenderable.swift */; };
 		31EF22E71E664C180073F624 /* ProductDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31EF22E51E664C180073F624 /* ProductDetailsViewController.swift */; };
 		31EF22E81E664C180073F624 /* ProductDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31EF22E61E664C180073F624 /* ProductDetailsViewController.xib */; };
 		31EF22EA1E664C670073F624 /* ProductDetailsControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31EF22E91E664C670073F624 /* ProductDetailsControllerFactory.swift */; };
@@ -415,6 +416,7 @@
 		31B079391E70A7370015C302 /* SwipeableGalleryItemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwipeableGalleryItemCell.swift; sourceTree = "<group>"; };
 		31B0793A1E70A7370015C302 /* SwipeableGalleryItemCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SwipeableGalleryItemCell.xib; sourceTree = "<group>"; };
 		31B0793F1E71667B0015C302 /* ProductDetailsGalleryDataSourceTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductDetailsGalleryDataSourceTest.swift; sourceTree = "<group>"; };
+		31B079411E71934A0015C302 /* SwipeableGalleryTableCellRenderable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwipeableGalleryTableCellRenderable.swift; sourceTree = "<group>"; };
 		31EF22E51E664C180073F624 /* ProductDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductDetailsViewController.swift; sourceTree = "<group>"; };
 		31EF22E61E664C180073F624 /* ProductDetailsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProductDetailsViewController.xib; sourceTree = "<group>"; };
 		31EF22E91E664C670073F624 /* ProductDetailsControllerFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductDetailsControllerFactory.swift; sourceTree = "<group>"; };
@@ -1146,6 +1148,7 @@
 				31EF23351E69A8CA0073F624 /* TableHeaderRenderable.swift */,
 				313CF7FE1E6E16F4005686F5 /* TextTableCellRenderable.swift */,
 				313CF8041E6E26E7005686F5 /* ExpandableTextTableCellRenderable.swift */,
+				31B079411E71934A0015C302 /* SwipeableGalleryTableCellRenderable.swift */,
 			);
 			name = Renderable;
 			sourceTree = "<group>";
@@ -2292,6 +2295,7 @@
 				31EF230C1E67AF5F0073F624 /* CenteredWithDetailTableCell.swift in Sources */,
 				852ACD471E55DCF200219E90 /* UIView+ReusableView.swift in Sources */,
 				85CA3FE31E64790700D43805 /* LoginControllerFactory.swift in Sources */,
+				31B079421E71934A0015C302 /* SwipeableGalleryTableCellRenderable.swift in Sources */,
 				85B0A8261E65F335002093BA /* UIAlertController+Ok.swift in Sources */,
 				1A859C0E1E5756C50013EB09 /* UIFont.swift in Sources */,
 				85CA3FEC1E64887900D43805 /* String+Password.swift in Sources */,

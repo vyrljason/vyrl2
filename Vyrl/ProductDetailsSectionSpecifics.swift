@@ -183,9 +183,9 @@ final class DescriptionRenderer: CommonRenderer {
 
 final class GalleryRenderer: CommonRenderer {
     
-    let dataProvider: CollectionViewDataProviding
+    let dataProvider: ProductDetailsGalleryDataProviding
     
-    init(dataProvider: CollectionViewDataProviding) {
+    init(dataProvider: ProductDetailsGalleryDataProviding) {
         self.dataProvider = dataProvider
     }
     
@@ -196,7 +196,8 @@ final class GalleryRenderer: CommonRenderer {
     override func tableView(_ tableView: UITableView, cellFor indexPath: IndexPath) -> UITableViewCell {
         let cell: SwipeableGalleryTableCell = tableView.dequeueCell(at: indexPath)
         SwipeableGalleryItemCell.register(to: cell.collectionView)
-        //wywalić data providera z interactora
+        let imageCount = dataProvider.numberOfImages()
+        cell.render(SwipeableGalleryTableCellRenderable(imageCount: imageCount))
         cell.useDataProvider(provider: dataProvider)
         return cell
     }
