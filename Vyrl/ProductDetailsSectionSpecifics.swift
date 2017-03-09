@@ -193,6 +193,10 @@ final class GalleryRenderer: CommonRenderer {
         SwipeableGalleryTableCell.register(to: tableView)
     }
     
+    override func rows() -> Int {
+        return dataProvider.numberOfImages() > 0 ? 1 : 0
+    }
+    
     override func tableView(_ tableView: UITableView, cellFor indexPath: IndexPath) -> UITableViewCell {
         let cell: SwipeableGalleryTableCell = tableView.dequeueCell(at: indexPath)
         SwipeableGalleryItemCell.register(to: cell.collectionView)
