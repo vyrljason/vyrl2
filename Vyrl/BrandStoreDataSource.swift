@@ -4,7 +4,7 @@
 
 import UIKit
 
-protocol BrandStoreDataProviding: CollectionViewNibRegistering, CollectionViewDataProviding, CollectionViewUsing {
+protocol BrandStoreDataProviding: CollectionViewNibRegistering, CollectionViewManaging, CollectionViewUsing {
     weak var selectionDelegate: ProductSelecting? { get set }
 }
 
@@ -77,7 +77,7 @@ extension BrandStoreDataSource: CollectionViewNibRegistering {
     }
 }
 
-extension BrandStoreDataSource: CollectionViewDataProviding {
+extension BrandStoreDataSource: CollectionViewManaging {
     func loadData() {
         service.getProducts(for: brand) { [weak self] result in
             guard let `self` = self else { return }

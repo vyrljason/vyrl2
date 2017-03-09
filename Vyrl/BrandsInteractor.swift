@@ -34,8 +34,8 @@ final class BrandsInteractor: BrandsInteracting {
          emptyCollectionHandler: EmptyCollectionViewHandling) {
         self.dataSource = dataSource
         self.emptyCollectionHandler = emptyCollectionHandler
-        dataSource.collectionViewControllingDelegate = self
-        dataSource.selectionDelegate = self
+        self.dataSource.collectionViewControllingDelegate = self
+        self.dataSource.selectionDelegate = self
     }
 
     func loadData() {

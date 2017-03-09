@@ -8,7 +8,7 @@ private enum Constants {
     static let cellHeight: CGFloat = 226
 }
 
-protocol BrandsDataProviding: CollectionViewDataProviding, CollectionViewNibRegistering {
+protocol BrandsDataProviding: CollectionViewManaging, CollectionViewNibRegistering {
     weak var selectionDelegate: BrandSelecting? { get set }
 }
 

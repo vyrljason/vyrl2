@@ -180,3 +180,29 @@ final class DescriptionRenderer: CommonRenderer {
         tableView.endUpdates()
     }
 }
+
+final class GalleryRenderer: CommonRenderer {
+    
+    let dataProvider: ProductDetailsGalleryDataProviding
+    
+    init(dataProvider: ProductDetailsGalleryDataProviding) {
+        self.dataProvider = dataProvider
+    }
+    
+    override func registerNibs(in tableView: UITableView) {
+        SwipeableGalleryTableCell.register(to: tableView)
+    }
+    
+    override func rows() -> Int {
+        return dataProvider.imagesCount > 0 ? 1 : 0
+    }
+    
+    override func tableView(_ tableView: UITableView, cellFor indexPath: IndexPath) -> UITableViewCell {
+        let cell: SwipeableGalleryTableCell = tableView.dequeueCell(at: indexPath)
+        SwipeableGalleryItemCell.register(to: cell.collectionView)
+        let imageCount = dataProvider.imagesCount
+        cell.render(SwipeableGalleryTableCellRenderable(imageCount: imageCount))
+        cell.useDataProvider(provider: dataProvider)
+        return cell
+    }
+}
