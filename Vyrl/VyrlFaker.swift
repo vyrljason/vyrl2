@@ -165,3 +165,12 @@ extension Faker {
                      productList: productList)
     }
 }
+
+extension Faker {
+    func productImage(id: String = VyrlFaker.faker.lorem.characters(amount: 20),
+                      url: URL = URL(string: VyrlFaker.faker.internet.url())!,
+                      name: String = VyrlFaker.faker.commerce.productName(),
+                      brandId: String = VyrlFaker.faker.lorem.characters(amount: 20)) -> ProductImage {
+        return ProductImage(id: id, url: url, name: name, brandId: brandId)
+    }
+}

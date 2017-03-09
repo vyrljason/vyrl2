@@ -9,6 +9,12 @@ protocol ProductDetailsGalleryDataProviding: CollectionViewDataProviding {
 }
 
 final class ProductDetailsGalleryDataSource: NSObject, ProductDetailsGalleryDataProviding {
+
+    fileprivate let product: Product
+    
+    init(product: Product) {
+        self.product = product
+    }
     
     weak var collectionViewControllingDelegate: CollectionViewHaving & CollectionViewControlling?
     
@@ -19,7 +25,7 @@ final class ProductDetailsGalleryDataSource: NSObject, ProductDetailsGalleryData
 extension ProductDetailsGalleryDataSource: UICollectionViewDataSource {
     
     public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 3
+        return product.images.count
     }
     
     public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

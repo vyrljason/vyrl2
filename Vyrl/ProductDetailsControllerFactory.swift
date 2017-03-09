@@ -11,17 +11,17 @@ protocol ProductDetailsMaking {
 enum ProductDetailsControllerFactory: ProductDetailsMaking {
     static func make(product: Product) -> ProductDetailsViewController {
         let variantHandler = VariantHandler(allVariants: product.variants)
+        let galleryDataSource = ProductDetailsGalleryDataSource(product: product)
         let sections: [Int:SectionRenderer] = [
-            ProductDetailsSections.Gallery.rawValue: GalleryRenderer(),
+            ProductDetailsSections.Gallery.rawValue: GalleryRenderer(dataProvider: galleryDataSource),
             ProductDetailsSections.NameAndPrice.rawValue: NameAndPriceRenderer(),
             ProductDetailsSections.Description.rawValue: DescriptionRenderer(),
             ProductDetailsSections.Variants.rawValue: VariantsRenderer(variantHandler: variantHandler),
             ProductDetailsSections.ContentGuidelines.rawValue: ContentGuidelinesRenderer(),
             ProductDetailsSections.Cart.rawValue: AddToCartRenderer()
         ]
-        let galleryDataSource = ProductDetailsGalleryDataSource()
         let detailsDataSource = ProductDetailsDataSource(product: product, renderers: sections)
-        let interactor = ProductDetailsInteractor(dataSource: detailsDataSource, variantHandler: variantHandler, product: product, galleryDataSource: galleryDataSource)
+        let interactor = ProductDetailsInteractor(dataSource: detailsDataSource, variantHandler: variantHandler, product: product)
         return ProductDetailsViewController(interactor: interactor)
     }
 }

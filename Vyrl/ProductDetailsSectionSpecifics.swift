@@ -183,6 +183,12 @@ final class DescriptionRenderer: CommonRenderer {
 
 final class GalleryRenderer: CommonRenderer {
     
+    let dataProvider: CollectionViewDataProviding
+    
+    init(dataProvider: CollectionViewDataProviding) {
+        self.dataProvider = dataProvider
+    }
+    
     override func registerNibs(in tableView: UITableView) {
         SwipeableGalleryTableCell.register(to: tableView)
     }
@@ -190,7 +196,8 @@ final class GalleryRenderer: CommonRenderer {
     override func tableView(_ tableView: UITableView, cellFor indexPath: IndexPath) -> UITableViewCell {
         let cell: SwipeableGalleryTableCell = tableView.dequeueCell(at: indexPath)
         SwipeableGalleryItemCell.register(to: cell.collectionView)
-        cell.collectionView.dataSource = dataAccessor.interactor?.galleryDataSource
+        //wywalić data providera z interactora
+        cell.useDataProvider(provider: dataProvider)
         return cell
     }
     

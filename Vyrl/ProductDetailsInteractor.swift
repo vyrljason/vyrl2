@@ -9,7 +9,6 @@ fileprivate struct Constants {
 }
 
 protocol ProductDetailsInteracting: TableViewUsing, TableViewControlling {
-    var galleryDataSource: ProductDetailsGalleryDataProviding { get }
     func viewWillAppear(_ animated: Bool)
     func addToCart()
     func selectFromVariants(_ variants: ProductVariants, on textfield: UITextField)
@@ -18,7 +17,6 @@ protocol ProductDetailsInteracting: TableViewUsing, TableViewControlling {
 final class ProductDetailsInteractor: ProductDetailsInteracting {
     fileprivate weak var tableView: UITableView?
     let dataSource: ProductDetailsDataProviding
-    let galleryDataSource: ProductDetailsGalleryDataProviding
     var variantHandler: VariantHandling
     let product: Product
     let picker: PickerPresenting
@@ -26,15 +24,12 @@ final class ProductDetailsInteractor: ProductDetailsInteracting {
     
     init(dataSource: ProductDetailsDataProviding,
          variantHandler: VariantHandling,
-         product: Product, cartStorage: CartStoring = ServiceLocator.cartStorage,
-         galleryDataSource: ProductDetailsGalleryDataSource
-         ) {
+         product: Product, cartStorage: CartStoring = ServiceLocator.cartStorage) {
         self.product = product
         self.variantHandler = variantHandler
         self.dataSource = dataSource
         self.cartStorage = cartStorage
         self.picker = PickerPresenter()
-        self.galleryDataSource = galleryDataSource
         dataSource.tableViewControllingDelegate = self
         dataSource.interactor = self
     }
