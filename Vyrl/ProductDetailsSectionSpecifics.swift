@@ -194,16 +194,15 @@ final class GalleryRenderer: CommonRenderer {
     }
     
     override func rows() -> Int {
-        return dataProvider.numberOfImages() > 0 ? 1 : 0
+        return dataProvider.imagesCount > 0 ? 1 : 0
     }
     
     override func tableView(_ tableView: UITableView, cellFor indexPath: IndexPath) -> UITableViewCell {
         let cell: SwipeableGalleryTableCell = tableView.dequeueCell(at: indexPath)
         SwipeableGalleryItemCell.register(to: cell.collectionView)
-        let imageCount = dataProvider.numberOfImages()
+        let imageCount = dataProvider.imagesCount
         cell.render(SwipeableGalleryTableCellRenderable(imageCount: imageCount))
         cell.useDataProvider(provider: dataProvider)
         return cell
     }
-    
 }

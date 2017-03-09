@@ -5,7 +5,7 @@
 import UIKit
 
 protocol ProductDetailsGalleryDataProviding: CollectionViewDataProviding {
-    func numberOfImages() -> Int
+    var imagesCount: Int { get }
     weak var pagingDelegate: PagerUpdating? { get set }
 }
 
@@ -13,6 +13,9 @@ final class ProductDetailsGalleryDataSource: NSObject, ProductDetailsGalleryData
     
     weak var pagingDelegate: PagerUpdating?
     fileprivate let product: Product
+    var imagesCount: Int {
+        return product.images.count
+    }
     
     init(product: Product) {
         self.product = product
@@ -21,11 +24,6 @@ final class ProductDetailsGalleryDataSource: NSObject, ProductDetailsGalleryData
     weak var collectionViewControllingDelegate: CollectionViewHaving & CollectionViewControlling?
     
     func loadData() { }
-    
-    func numberOfImages() -> Int {
-        return product.images.count
-    }
-    
 }
 
 extension ProductDetailsGalleryDataSource: UIScrollViewDelegate {
@@ -37,18 +35,16 @@ extension ProductDetailsGalleryDataSource: UIScrollViewDelegate {
 extension ProductDetailsGalleryDataSource: UICollectionViewDataSource {
     
     private func prepare(cell: SwipeableGalleryItemCell, for row: Int) {
-        if row > product.images.count {
-            return
-        }
+        guard row < imagesCount else { return }
         let imageData = product.images[row]
         cell.set(galleryImageFetcher: ImageFetcher(url: imageData.url))
     }
     
-    public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return product.images.count
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return imagesCount
     }
     
-    public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell: SwipeableGalleryItemCell = collectionView.dequeueCell(at: indexPath)
         prepare(cell: cell, for: indexPath.row)
         return cell

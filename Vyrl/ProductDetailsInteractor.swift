@@ -16,10 +16,10 @@ protocol ProductDetailsInteracting: TableViewUsing, TableViewControlling {
 
 final class ProductDetailsInteractor: ProductDetailsInteracting {
     fileprivate weak var tableView: UITableView?
-    let dataSource: ProductDetailsDataProviding
-    var variantHandler: VariantHandling
-    let product: Product
-    let picker: PickerPresenting
+    private let product: Product
+    fileprivate let dataSource: ProductDetailsDataProviding
+    private var variantHandler: VariantHandling
+    private let picker: PickerPresenting
     private let cartStorage: CartStoring
     
     init(dataSource: ProductDetailsDataProviding,
