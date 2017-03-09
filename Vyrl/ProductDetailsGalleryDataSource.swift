@@ -6,10 +6,12 @@ import UIKit
 
 protocol ProductDetailsGalleryDataProviding: CollectionViewDataProviding {
     func numberOfImages() -> Int
+    weak var pagingDelegate: PagerUpdating? { get set }
 }
 
 final class ProductDetailsGalleryDataSource: NSObject, ProductDetailsGalleryDataProviding {
-
+    
+    weak var pagingDelegate: PagerUpdating?
     fileprivate let product: Product
     
     init(product: Product) {
@@ -24,6 +26,12 @@ final class ProductDetailsGalleryDataSource: NSObject, ProductDetailsGalleryData
         return product.images.count
     }
     
+}
+
+extension ProductDetailsGalleryDataSource: UIScrollViewDelegate {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        pagingDelegate?.scrollViewDidScroll(scrollView)
+    }
 }
 
 extension ProductDetailsGalleryDataSource: UICollectionViewDataSource {

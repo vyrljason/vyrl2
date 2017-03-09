@@ -5,7 +5,7 @@
 import UIKit
 
 protocol SwipeableGalleryDataProviderUsing {
-    func useDataProvider(provider: UICollectionViewDataSource & UICollectionViewDelegate)
+    func useDataProvider(provider: ProductDetailsGalleryDataProviding)
 }
 
 protocol SwipeableGalleryTableCellRendering {
@@ -17,10 +17,17 @@ final class SwipeableGalleryTableCell: UITableViewCell, HavingNib, SwipeableGall
     
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var pager: UIPageControl!
+    fileprivate var pagerUpdater: PagerUpdater!
     
-    func useDataProvider(provider: UICollectionViewDataSource & UICollectionViewDelegate) {
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        pagerUpdater = PagerUpdater(pager: pager)
+    }
+    
+    func useDataProvider(provider: ProductDetailsGalleryDataProviding) {
         collectionView.dataSource = provider
         collectionView.delegate = provider
+        provider.pagingDelegate = pagerUpdater
     }
     
     func render(_ renderable: SwipeableGalleryTableCellRenderable) {
