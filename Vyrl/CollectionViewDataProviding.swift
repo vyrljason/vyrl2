@@ -4,9 +4,16 @@
 
 import UIKit
 
-protocol CollectionViewDataProviding: class, UICollectionViewDataSource, UICollectionViewDelegate {
-    weak var collectionViewControllingDelegate: CollectionViewHaving & CollectionViewControlling? { get set }
+protocol CollectionViewManaging: CollectionViewDataProviding, CollectionViewDataLoading, CollectionViewControllerProviding { }
+
+protocol CollectionViewDataProviding: class, UICollectionViewDataSource, UICollectionViewDelegate {}
+
+protocol CollectionViewDataLoading {
     func loadData()
+}
+
+protocol CollectionViewControllerProviding {
+    weak var collectionViewControllingDelegate: CollectionViewHaving & CollectionViewControlling? { get set }
 }
 
 protocol CollectionViewNibRegistering {
