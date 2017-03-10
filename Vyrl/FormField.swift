@@ -8,6 +8,12 @@ protocol FormItemProtocol {
     unowned var textField: UITextField { get }
     var field: FormField { get }
     var status: ValidationStatus { get }
+    weak var validityPresenter: ValidityIndicating? { set get }
+    func clearError()
+}
+
+protocol ValidityIndicating: class {
+    func presentValidation(status: ValidationStatus)
 }
 
 enum ValidationStatus {
@@ -30,11 +36,13 @@ func == (lhs: ValidationStatus, rhs: ValidationStatus) -> Bool {
 enum FormField {
     case username
     case password
+    case nonEmpty
 
     var validator: FormFieldValidating {
         switch self {
         case .username: return UsernameValidation()
         case .password: return PasswordValidation()
+        case .nonEmpty: return NonEmptyValidation()
         }
     }
 }
@@ -43,19 +51,33 @@ final class FormItem: FormItemProtocol {
 
     let field: FormField
     private(set) unowned var textField: UITextField
+    weak var validityPresenter: ValidityIndicating?
 
     var status: ValidationStatus {
         let formValidator = FormFieldValidator(validation: field.validator)
+        let status: ValidationStatus
         if let errorMessage = formValidator.validationError(value: textField.text) {
-            return .invalid(errorMessage: errorMessage)
+            status = .invalid(errorMessage: errorMessage)
         } else {
-            return .valid
+            status = .valid
         }
+        validityPresenter?.presentValidation(status: status)
+        return status
     }
 
     init(field: FormField, textField: UITextField) {
         self.field = field
         self.textField = textField
+    }
+
+    init(field: FormField = .nonEmpty, formView: FormView) {
+        self.field = field
+        self.textField = formView.value
+        self.validityPresenter = formView
+    }
+
+    func clearError() {
+        validityPresenter?.presentValidation(status: .valid)
     }
 }
 

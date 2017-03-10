@@ -19,3 +19,5 @@
 "general.button.alert.ok" = "OK";
 "cart.guidelines.title" = "Content guidelines";
 "cart.guidelines.buttonTitle" = "Done";
+"shippingAddress.error.invalid" = "Required fields cannot be empty";
+"validation.error.textFieldEmpty" = "Field cannot be empty";

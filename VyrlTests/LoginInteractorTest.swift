@@ -12,7 +12,7 @@ final class LoginFormMock: LoginFormInteracting {
 }
 
 protocol LoginInteracting: class, FormActionDelegate {
-    weak var presenter: ErrorPresenting & ViewActivityPresenting? { get set }
+    weak var presenter: ErrorAlertPresenting & ViewActivityPresenting? { get set }
     func didPrepare(form: LoginFormInteracting)
 }
 
@@ -24,7 +24,7 @@ final class AuthorizationListenerMock: AuthorizationListener {
     }
 }
 
-final class LoginPresenterMock: ErrorPresenting, ViewActivityPresenting {
+final class LoginPresenterMock: ErrorAlertPresenting, ViewActivityPresenting {
     var didPresentError = false
     var didPresentActivity = false
     var didDismissActivity = false

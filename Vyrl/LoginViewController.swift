@@ -4,10 +4,6 @@
 
 import UIKit
 
-protocol ErrorPresenting: class {
-    func presentError(title: String?, message: String?)
-}
-
 protocol ViewActivityPresenting {
     func presentActivity()
     func dismiss()
@@ -44,13 +40,6 @@ final class LoginViewController: UIViewController, HavingNib {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         _ = username.becomeFirstResponder()
-    }
-}
-
-extension LoginViewController: ErrorPresenting {
-    func presentError(title: String?, message: String?) {
-        let controller = UIAlertController(title: title, message: message)
-        present(controller, animated: true, completion: nil)
     }
 }
 

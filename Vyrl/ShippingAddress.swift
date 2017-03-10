@@ -46,3 +46,20 @@ extension ShippingAddress: Decodable {
                              country: json =>? OptionalKeyPath(stringLiteral: JSONKeys.country) ?? "")
     }
 }
+
+extension ShippingAddress: CustomStringConvertible {
+    var description: String {
+        return apartment + " " + street + ", " + city + ", " + zipCode
+    }
+}
+
+extension ShippingAddress: Equatable { }
+
+func == (lhs: ShippingAddress, rhs: ShippingAddress) -> Bool {
+    return lhs.street == rhs.street &&
+        lhs.apartment == rhs.apartment &&
+        lhs.city == rhs.city &&
+        lhs.country == rhs.country &&
+        lhs.state == rhs.state &&
+        lhs.id == rhs.id
+}

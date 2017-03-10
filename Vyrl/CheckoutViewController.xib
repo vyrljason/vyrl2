@@ -101,6 +101,9 @@
                                                     <state key="normal" title="Add shipping address" image="add">
                                                         <color key="titleColor" red="0.0" green="0.46274509803921571" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     </state>
+                                                    <connections>
+                                                        <action selector="didTapAddShippingAddress" destination="-1" eventType="touchUpInside" id="lgL-PA-Ha9"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -270,7 +273,7 @@
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="-43.5" y="10.5"/>
+            <point key="canvasLocation" x="-43.5" y="10"/>
         </view>
     </objects>
     <resources>

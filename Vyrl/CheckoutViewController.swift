@@ -23,11 +23,11 @@ extension CheckoutRenderable {
                                                   attributes: StyleKit.infoViewAttributes)
     }
 
-    init(products: [Product], address: String?, contact: String?) {
+    init(products: [Product], address: ShippingAddress?, contact: String?) {
         let summary = CartSummary(products: products)
         summaryHead = NSString(format: Constants.summaryHeadFormat, summary.productsCount, summary.brandsCount) as String
         summarySubHead = NSString(format: Constants.summarySubHeadFormat, summary.brandsCount) as String
-        self.address = address
+        self.address = address?.description
         self.addressButtonVisible = address == nil
         self.contact = contact
         self.agreement = Constants.agreement
@@ -57,7 +57,7 @@ final class CheckoutViewController: UIViewController, HavingNib {
         static let scrollViewInset = UIEdgeInsets(top: 0, left: 0, bottom: 48, right: 0)
     }
 
-    private let interactor: CheckoutInteracting
+    fileprivate let interactor: CheckoutInteracting
 
     static var nibName: String = "CheckoutViewController"
 
@@ -87,5 +87,11 @@ extension CheckoutViewController: CheckoutRendering {
         addressTextContainer.isHidden = renderable.addressButtonVisible
         contact.text = renderable.contact
         agreement.attributedText = renderable.agreement
+    }
+}
+
+extension CheckoutViewController {
+    @IBAction func didTapAddShippingAddress() {
+        interactor.didTapAddShippingAddress()
     }
 }

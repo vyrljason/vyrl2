@@ -14,7 +14,6 @@ private enum Constants {
     static let inqKey = "inq"
 }
 
-
 struct ProductsRequest: DictionaryConvertible {
 
     let brandId: String?
@@ -37,7 +36,7 @@ struct ProductsRequest: DictionaryConvertible {
         }
         if let productIds = productIds {
             return [Constants.filterKey: [Constants.includeKey: [Constants.imagesKey],
-                                          Constants.whereKey: [Constants.idKey: [Constants.inqKey : productIds]]]]
+                                          Constants.whereKey: [Constants.idKey: [Constants.inqKey: productIds]]]]
         }
         return [:]
     }
