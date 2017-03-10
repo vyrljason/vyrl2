@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CheckoutSummaryViewController" customModule="Vyrl" customModuleProvider="target">
+            <connections>
+                <outlet property="view" destination="iN0-l3-epB" id="Qsm-zv-C2F"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="orderIllustration" translatesAutoresizingMaskIntoConstraints="NO" id="INe-nD-EZR">
+                    <rect key="frame" x="87" y="56" width="200" height="120"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="120" id="kZN-Xr-mSF"/>
+                        <constraint firstAttribute="width" constant="200" id="mkC-z9-PDB"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Congratulations!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UYd-fd-YGd">
+                    <rect key="frame" x="166" y="216" width="42" height="21"/>
+                    <fontDescription key="fontDescription" type="system" weight="light" pointSize="24"/>
+                    <color key="textColor" red="0.29019607843137252" green="0.29019607843137252" blue="0.29019607843137252" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Your order has been sent successfuly." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cf5-A6-rjS">
+                    <rect key="frame" x="166" y="260" width="42" height="21"/>
+                    <fontDescription key="fontDescription" type="system" weight="light" pointSize="16"/>
+                    <color key="textColor" red="0.2901960784" green="0.2901960784" blue="0.2901960784" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="•••" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="erI-37-6zo">
+                    <rect key="frame" x="166" y="340" width="42" height="21"/>
+                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
+                    <color key="textColor" red="0.61568627450980395" green="0.61568627450980395" blue="0.61568627450980395" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="You can see current status in collabs section." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hRI-62-6fO">
+                    <rect key="frame" x="166" y="434" width="42" height="21"/>
+                    <fontDescription key="fontDescription" type="system" weight="light" pointSize="16"/>
+                    <color key="textColor" red="0.29019607843137252" green="0.29019607843137252" blue="0.29019607843137252" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rVL-Vo-J0W">
+                    <rect key="frame" x="164" y="553" width="46" height="30"/>
+                    <color key="backgroundColor" red="0.60392156862745094" green="0.11764705882352941" blue="0.14509803921568626" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="48" id="5qf-as-5Rt"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                    <state key="normal" title="Go to collabs">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="didTapGoToCollabs" destination="-1" eventType="touchUpInside" id="u5a-09-aZ8"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="INe-nD-EZR" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="56" id="2oG-kP-Pd9"/>
+                <constraint firstItem="erI-37-6zo" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="3xH-pb-Yr3"/>
+                <constraint firstItem="erI-37-6zo" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="5Ak-2D-Q24"/>
+                <constraint firstItem="UYd-fd-YGd" firstAttribute="top" secondItem="INe-nD-EZR" secondAttribute="bottom" constant="24" id="7Ge-Ct-vP7"/>
+                <constraint firstItem="Cf5-A6-rjS" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="ACb-r4-FO0"/>
+                <constraint firstAttribute="trailing" secondItem="Cf5-A6-rjS" secondAttribute="trailing" constant="10" id="Co7-rl-o5t"/>
+                <constraint firstItem="Cf5-A6-rjS" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="HOj-aA-zZm"/>
+                <constraint firstAttribute="trailing" secondItem="rVL-Vo-J0W" secondAttribute="trailing" id="L7I-Tl-9xq"/>
+                <constraint firstItem="Cf5-A6-rjS" firstAttribute="top" secondItem="UYd-fd-YGd" secondAttribute="bottom" id="MZM-0L-9rg"/>
+                <constraint firstItem="UYd-fd-YGd" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="Pgx-Ub-Qor"/>
+                <constraint firstAttribute="trailing" secondItem="hRI-62-6fO" secondAttribute="trailing" constant="10" id="XZU-ST-HU5"/>
+                <constraint firstItem="hRI-62-6fO" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="ZPF-X3-n3v"/>
+                <constraint firstAttribute="bottom" secondItem="rVL-Vo-J0W" secondAttribute="bottom" id="ZXj-82-DN0"/>
+                <constraint firstItem="hRI-62-6fO" firstAttribute="top" secondItem="erI-37-6zo" secondAttribute="bottom" constant="65" id="eRN-VP-mRj"/>
+                <constraint firstItem="INe-nD-EZR" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="fAD-pX-lOK"/>
+                <constraint firstItem="UYd-fd-YGd" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="fPl-hN-jdq"/>
+                <constraint firstItem="erI-37-6zo" firstAttribute="top" secondItem="Cf5-A6-rjS" secondAttribute="bottom" constant="40" id="ich-WA-HYB"/>
+                <constraint firstItem="hRI-62-6fO" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="k8E-84-vOZ"/>
+                <constraint firstAttribute="trailing" secondItem="UYd-fd-YGd" secondAttribute="trailing" constant="10" id="pOm-k0-OwA"/>
+                <constraint firstAttribute="trailing" secondItem="erI-37-6zo" secondAttribute="trailing" constant="10" id="tjs-T9-dok"/>
+                <constraint firstItem="rVL-Vo-J0W" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="y2b-Vh-7sS"/>
+            </constraints>
+            <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
+            <point key="canvasLocation" x="-1123" y="82"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="orderIllustration" width="200" height="120"/>
+    </resources>
+</document>
