@@ -6,7 +6,7 @@ import Foundation
 
 final class OrderProposalResource: PostingWithParameters, APIResource {
 
-    typealias ResponseModel = Order
+    typealias ResponseModel = Orders
     typealias Parameters = OrderProposal
     private let controller: APIResourceControlling
 
@@ -14,7 +14,7 @@ final class OrderProposalResource: PostingWithParameters, APIResource {
         self.controller = controller
     }
 
-    func post(using parameters: OrderProposal, completion: @escaping (Result<Order, APIResponseError>) -> Void) {
+    func post(using parameters: OrderProposal, completion: @escaping (Result<Orders, APIResponseError>) -> Void) {
         controller.call(endpoint: OrderProposalEndpoint(proposal: parameters), completion: completion)
     }
 }

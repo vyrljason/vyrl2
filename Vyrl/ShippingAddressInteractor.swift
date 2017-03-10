@@ -5,6 +5,7 @@
 import Foundation
 
 protocol ShippingAddressInteracting {
+    weak var listener: ShippingAddressUpdateListening? { get set }
     weak var controller: ShippingAddressControlling? { get set }
     weak var presenter: ErrorAlertPresenting? { get set }
     func didPrepare(form: ShippingFormInteracting)
@@ -14,6 +15,7 @@ protocol ShippingAddressInteracting {
 
 final class ShippingAddressInteractor: ShippingAddressInteracting, FormActionDelegate {
 
+    weak var listener: ShippingAddressUpdateListening?
     weak var controller: ShippingAddressControlling?
     private var form: ShippingFormInteracting?
     weak var presenter: ErrorAlertPresenting?
@@ -34,6 +36,7 @@ final class ShippingAddressInteractor: ShippingAddressInteracting, FormActionDel
             return
         }
         guard let shippingAddress = form.result else { return }
+        listener?.didUpdate(shippingAddress: shippingAddress)
         controller?.finishPresentation(with: shippingAddress)
     }
 }

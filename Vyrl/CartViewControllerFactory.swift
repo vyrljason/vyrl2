@@ -4,7 +4,11 @@
 
 import UIKit
 
-final class CartViewControllerFactory {
+protocol CartControllerMaking {
+    static func make(cartNavigation: CartNavigating) -> CartViewController
+}
+
+final class CartViewControllerFactory: CartControllerMaking {
 
     private enum Constants {
         static let titleAttributes: [String: Any] = [:] //This should be adjusted by the final design

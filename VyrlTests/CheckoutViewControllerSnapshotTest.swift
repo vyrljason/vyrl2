@@ -7,10 +7,12 @@ import XCTest
 
 final class CheckoutInteractorMock: CheckoutInteracting {
     weak var projector: CheckoutRendering?
-    weak var navigation: ShippingAddressViewPresenting?
+    weak var navigation: ShippingAddressViewPresenting & CheckoutSummaryViewPresenting?
+    weak var errorPresenter: ErrorAlertPresenting?
     func viewDidLoad() { }
     func didTapAddShippingAddress() { }
     func didUpdate(shippingAddress: ShippingAddress?) { }
+    func didTapCheckout() { }
 }
 
 final class CheckoutViewControllerSnapshotTest: SnapshotTestCase {

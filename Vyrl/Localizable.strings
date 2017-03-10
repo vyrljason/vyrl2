@@ -21,3 +21,5 @@
 "cart.guidelines.buttonTitle" = "Done";
 "shippingAddress.error.invalid" = "Required fields cannot be empty";
 "validation.error.textFieldEmpty" = "Field cannot be empty";
+"checkout.error.incompleteData" = "Shipping address and contact info are required.";
+"checkout.error.api" = "There was a problem with your checkout, please try again.";

@@ -14,16 +14,22 @@ protocol ShippingAddressViewPresenting: class {
     func showShippingAdressView()
 }
 
+protocol CheckoutSummaryViewPresenting: class {
+    func presentSummaryView()
+}
+
 protocol ShippingAddressControlling: class {
     func finishPresentation(with shippingAddress: ShippingAddress?)
 }
 
 final class CartNavigationBuilder {
 
-    var factory: CartViewControllerFactory.Type = CartViewControllerFactory.self
+    var cartFactory: CartControllerMaking.Type = CartViewControllerFactory.self
+    var checkoutFactory: CheckoutControllerMaking.Type = CheckoutControllerFactory.self
 
     func build() -> CartNavigation {
-        let navigation = CartNavigation(cartFactory: factory,
+        let navigation = CartNavigation(cartFactory: cartFactory,
+                                        checkoutFactory: checkoutFactory,
                                         shippingAddressFactory: ShippingAddressControllerFactory.self)
         return navigation
     }
@@ -32,22 +38,20 @@ final class CartNavigationBuilder {
 final class CartNavigation: CartNavigating {
 
     var cart: CartViewController!
-    fileprivate var shippingAddressFactory: ShippingAddressMaking.Type
-    fileprivate weak var interactor: CheckoutInteracting?
-    
-    init(cartFactory: CartViewControllerFactory.Type,
+    fileprivate let checkoutFactory: CheckoutControllerMaking.Type
+    fileprivate let shippingAddressFactory: ShippingAddressMaking.Type
+    weak var cartNavigationController: UINavigationController?
+
+    init(cartFactory: CartControllerMaking.Type,
+         checkoutFactory: CheckoutControllerMaking.Type,
          shippingAddressFactory: ShippingAddressMaking.Type) {
+        self.checkoutFactory = checkoutFactory
         self.shippingAddressFactory = shippingAddressFactory
         cart = cartFactory.make(cartNavigation: self)
     }
 
-    weak var cartNavigationController: UINavigationController?
-
     func pushCheckout(with cartData: CartData) {
-        let interactor = CheckoutInteractor(cartData: cartData)
-        interactor.navigation = self
-        self.interactor = interactor
-        let checkout = CheckoutViewController(interactor: interactor)
+        let checkout = checkoutFactory.make(navigation: self, cartData: cartData)
         cartNavigationController?.pushViewController(checkout, animated: true)
     }
 }
@@ -64,6 +68,12 @@ extension CartNavigation: ShippingAddressViewPresenting {
 extension CartNavigation: ShippingAddressControlling {
     func finishPresentation(with shippingAddress: ShippingAddress?) {
         cartNavigationController?.dismiss(animated: true, completion: nil)
-        interactor?.didUpdate(shippingAddress: shippingAddress)
     }
 }
+
+extension CartNavigation: CheckoutSummaryViewPresenting {
+    func presentSummaryView() {
+        //FIXME: present summary screen https://taiga.neoteric.eu/project/mpaprocki-vyrl-mobile/us/60
+    }
+}
+

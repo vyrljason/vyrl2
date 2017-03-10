@@ -15,8 +15,8 @@ struct OrderProposal {
     let products: [CartItem]
 
     init(products: [CartItem],
-         shippingAddress: ShippingAddress = VyrlFaker.faker.shippingAddress(), //FIXME: Remove default value
-         contactInfo: ContactInfo = VyrlFaker.faker.contactInfo()) { //FIXME: Remove default value
+         shippingAddress: ShippingAddress,
+         contactInfo: ContactInfo) {
         self.products = products
         self.shippingAddress = shippingAddress
         self.contactInfo = contactInfo

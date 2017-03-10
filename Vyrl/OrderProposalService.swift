@@ -5,7 +5,7 @@
 import Foundation
 
 protocol OrderProposalSending {
-    func send(proposal: OrderProposal, completion: @escaping (Result<Order, ServiceError>) -> Void)
+    func send(proposal: OrderProposal, completion: @escaping (Result<Orders, ServiceError>) -> Void)
 }
 
 final class OrderProposalService: OrderProposalSending {
@@ -15,7 +15,7 @@ final class OrderProposalService: OrderProposalSending {
         self.resource = resource
     }
 
-    func send(proposal: OrderProposal, completion: @escaping (Result<Order, ServiceError>) -> Void) {
+    func send(proposal: OrderProposal, completion: @escaping (Result<Orders, ServiceError>) -> Void) {
         resource.post(using: proposal, completion: completion)
     }
 }

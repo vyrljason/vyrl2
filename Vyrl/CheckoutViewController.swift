@@ -4,37 +4,6 @@
 
 import UIKit
 
-struct CheckoutRenderable {
-    let summaryHead: String
-    let summarySubHead: String
-    let address: String?
-    let addressButtonVisible: Bool
-    let contact: String?
-    let agreement: NSAttributedString
-    let checkoutButtonVisible: Bool
-}
-
-extension CheckoutRenderable {
-
-    private enum Constants {
-        static let summaryHeadFormat = NSLocalizedString("checkout.summaryHeadFormat", comment: "") as NSString
-        static let summarySubHeadFormat = NSLocalizedString("checkout.summarySubHeadFormat", comment: "") as NSString
-        static let agreement = NSAttributedString(string: VyrlFaker.faker.lorem.paragraph(sentencesAmount: 10),
-                                                  attributes: StyleKit.infoViewAttributes)
-    }
-
-    init(products: [Product], address: ShippingAddress?, contact: String?) {
-        let summary = CartSummary(products: products)
-        summaryHead = NSString(format: Constants.summaryHeadFormat, summary.productsCount, summary.brandsCount) as String
-        summarySubHead = NSString(format: Constants.summarySubHeadFormat, summary.brandsCount) as String
-        self.address = address?.description
-        self.addressButtonVisible = address == nil
-        self.contact = contact
-        self.agreement = Constants.agreement
-        self.checkoutButtonVisible = !self.addressButtonVisible
-    }
-}
-
 protocol CheckoutRendering: class {
     func render(_ renderable: CheckoutRenderable)
 }
@@ -91,7 +60,11 @@ extension CheckoutViewController: CheckoutRendering {
 }
 
 extension CheckoutViewController {
-    @IBAction func didTapAddShippingAddress() {
+    @IBAction private func didTapAddShippingAddress() {
         interactor.didTapAddShippingAddress()
+    }
+
+    @IBAction private func didTapCheckout() {
+        interactor.didTapCheckout()
     }
 }

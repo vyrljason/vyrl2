@@ -4,12 +4,22 @@
 
 import UIKit
 
-protocol CheckoutInteracting: class {
+private enum Constants {
+    static let incompleteDataError =  NSLocalizedString("checkout.error.incompleteData", comment: "")
+    static let checkoutError =  NSLocalizedString("checkout.error.api", comment: "")
+}
+
+protocol ShippingAddressUpdateListening: class {
+    func didUpdate(shippingAddress: ShippingAddress?)
+}
+
+protocol CheckoutInteracting: class, ShippingAddressUpdateListening {
     weak var projector: CheckoutRendering? { get set }
-    weak var navigation: ShippingAddressViewPresenting? { get set }
+    weak var navigation: ShippingAddressViewPresenting & CheckoutSummaryViewPresenting? { get set }
+    weak var errorPresenter: ErrorAlertPresenting? { get set }
     func viewDidLoad()
     func didTapAddShippingAddress()
-    func didUpdate(shippingAddress: ShippingAddress?)
+    func didTapCheckout()
 }
 
 final class CheckoutInteractor: CheckoutInteracting {
@@ -17,13 +27,17 @@ final class CheckoutInteractor: CheckoutInteracting {
     fileprivate let cartItems: [CartItem]
     fileprivate let products: [Product]
     fileprivate var shippingAddress: ShippingAddress?
+    fileprivate let contactInfo = VyrlFaker.faker.contactInfo() //FIXME: https://taiga.neoteric.eu/project/mpaprocki-vyrl-mobile/us/112
+    fileprivate let service: OrderProposalSending
 
     weak var projector: CheckoutRendering?
-    weak var navigation: ShippingAddressViewPresenting?
+    weak var navigation: ShippingAddressViewPresenting & CheckoutSummaryViewPresenting?
+    weak var errorPresenter: ErrorAlertPresenting?
 
-    init(cartData: CartData) {
+    init(cartData: CartData, service: OrderProposalSending) {
         cartItems = cartData.cartItems
         products = cartData.products
+        self.service = service
     }
 
     func viewDidLoad() {
@@ -42,7 +56,23 @@ final class CheckoutInteractor: CheckoutInteracting {
     private func refreshRenderable() {
         let renderable = CheckoutRenderable(products: products,
                                             address: shippingAddress,
-                                            contact: "email@some.com\n(12) 123 4456") // TODO: Real contact
+                                            contact: contactInfo)
         projector?.render(renderable)
+    }
+
+    func didTapCheckout() {
+        guard let shippingAddress = shippingAddress else {
+            errorPresenter?.presentError(title: nil, message: Constants.incompleteDataError)
+            return
+        }
+        let orderProposal = OrderProposal(products: cartItems, shippingAddress: shippingAddress, contactInfo: contactInfo)
+        service.send(proposal: orderProposal) { [weak self] result in
+            guard let `self` = self else { return }
+            result.on(success: { _ in
+                self.navigation?.presentSummaryView()
+            }, failure: { _ in
+                self.errorPresenter?.presentError(title: nil, message: Constants.checkoutError)
+            })
+        }
     }
 }

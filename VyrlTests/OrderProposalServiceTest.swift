@@ -7,7 +7,7 @@ import XCTest
 
 final class OrderProposalServiceTest: XCTestCase {
 
-    private var resourceController: APIResourceControllerMock<Order>!
+    private var resourceController: APIResourceControllerMock<Orders>!
     private var subject: OrderProposalService!
     private var resource: OrderProposalResource!
     private var proposal: OrderProposal!
@@ -16,8 +16,8 @@ final class OrderProposalServiceTest: XCTestCase {
         super.setUp()
         let cartItems: [CartItem] = [VyrlFaker.faker.cartItem(), VyrlFaker.faker.cartItem()]
         proposal = OrderProposal(products: cartItems, shippingAddress: VyrlFaker.faker.shippingAddress(), contactInfo: VyrlFaker.faker.contactInfo())
-        resourceController = APIResourceControllerMock<Order>()
-        resourceController.result = VyrlFaker.faker.order()
+        resourceController = APIResourceControllerMock<Orders>()
+        resourceController.result = Orders(orders: [VyrlFaker.faker.order()])
         resource = OrderProposalResource(controller: resourceController)
         let service = PostService<OrderProposalResource>(resource: resource)
         subject = OrderProposalService(resource: service)

@@ -30,3 +30,9 @@ extension ContactInfo: DictionaryConvertible {
                 JSONKeys.phone: phone]
     }
 }
+
+extension ContactInfo: CustomStringConvertible {
+    var description: String {
+        return email + "\n" + phone
+    }
+}
