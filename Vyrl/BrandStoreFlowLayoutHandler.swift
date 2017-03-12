@@ -5,8 +5,8 @@
 import UIKit
 
 fileprivate struct Constants {
-    static let xibHeight = 247
-    static let ignoredWidth = 100
+    static let xibHeaderHeight: CGFloat = 187
+    static let ignoredWidth: CGFloat = 100
     static let fallbackItemSize = CGSize(width: 175, height: 247)
     static let columns = 2
 }
@@ -18,7 +18,7 @@ protocol BrandStoreFlowLayoutHandling: CollectionViewUsing, BrandStoreHeaderDele
 
 final class BrandStoreFlowLayoutHandler: BrandStoreFlowLayoutHandling {
     weak var collectionView: UICollectionView?
-    var headerSize: CGSize = CGSize(width: Constants.ignoredWidth, height: Constants.xibHeight)
+    var headerSize: CGSize = CGSize(width: Constants.ignoredWidth, height: Constants.xibHeaderHeight)
     var itemSize: CGSize = Constants.fallbackItemSize
 
     func use(_ collectionView: UICollectionView) {
@@ -27,7 +27,7 @@ final class BrandStoreFlowLayoutHandler: BrandStoreFlowLayoutHandling {
     }
 
     func headerDidChangeHeight(height: CGFloat) {
-        headerSize.height = height
+        headerSize.height = max(height, Constants.xibHeaderHeight)
         guard let flowLayout = (collectionView?.collectionViewLayout) as? UICollectionViewFlowLayout else {
             return
         }
