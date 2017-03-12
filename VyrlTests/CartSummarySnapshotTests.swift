@@ -10,16 +10,14 @@ final class CartInteractingMock: CartInteracting {
 
     var product: Product?
 
-    func viewDidAppear() { }
     func use(_ tableView: UITableView) { }
     
     func showGuidelines(for product: Product) {
         self.product = product
     }
 
-    func didTapRequest() {
-        
-    }
+    func didTapRequest() { }
+    func viewWillAppear() { }
 }
 
 final class CartSummarySnapshotTest: SnapshotTestCase {

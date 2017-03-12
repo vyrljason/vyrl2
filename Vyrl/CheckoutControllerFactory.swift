@@ -14,7 +14,7 @@ final class CheckoutControllerFactory: CheckoutControllerMaking {
         let resourceController = ServiceLocator.resourceConfigurator.resourceController
         let resource = PostService<OrderProposalResource>(resource: OrderProposalResource(controller: resourceController))
         let service = OrderProposalService(resource: resource)
-        let interactor = CheckoutInteractor(cartData: cartData, service: service)
+        let interactor = CheckoutInteractor(cartData: cartData, service: service, cartStorage: ServiceLocator.cartStorage)
         let viewController = CheckoutViewController(interactor: interactor)
         interactor.errorPresenter = viewController
         interactor.projector = viewController

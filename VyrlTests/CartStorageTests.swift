@@ -59,4 +59,15 @@ final class CartStorageTests: XCTestCase {
         XCTAssertEqual(subject.items.first, item0)
         XCTAssertEqual(subject.items.last, item1)
     }
+
+    func test_clear_removesAllItems() {
+        subject.add(item: VyrlFaker.faker.cartItem())
+        subject.add(item: VyrlFaker.faker.cartItem())
+        subject.add(item: VyrlFaker.faker.cartItem())
+        XCTAssertEqual(subject.items.count, 3)
+
+        subject.clear()
+
+        XCTAssertEqual(subject.items.count, 0)
+    }
 }

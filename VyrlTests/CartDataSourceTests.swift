@@ -5,18 +5,6 @@
 import XCTest
 @testable import Vyrl
 
-final class CartStoringMock: CartStoring {
-    var items: [CartItem] = []
-
-    func add(item: CartItem) {
-        items.append(item)
-    }
-    
-    func remove(item: CartItem) {
-        items = items.filter({ $0.productId != item.productId })
-    }
-}
-
 final class ProductsServiceMock: ProductsWithIdsProviding {
 
     var mockedProducts: [Product]? = [VyrlFaker.faker.product()]
@@ -47,7 +35,7 @@ final class CartDataSourceTests: XCTestCase {
     var service: ProductsServiceMock!
     var tableView: TableViewMock!
     var emptyTableMock: EmptyTableViewHandlerMock!
-    var summaryDelegate: SummaryUpdateHandlingMock!
+    var summaryUpdateHandler: SummaryUpdateHandlingMock!
 
     override func setUp() {
         super.setUp()
@@ -55,11 +43,11 @@ final class CartDataSourceTests: XCTestCase {
         service = ProductsServiceMock()
         tableView = TableViewMock()
         emptyTableMock = EmptyTableViewHandlerMock()
-        summaryDelegate = SummaryUpdateHandlingMock()
+        summaryUpdateHandler = SummaryUpdateHandlingMock()
 
         subject = CartDataSource(cartStorage: cartStorage, service: service)
         subject.emptyTableDelegate = emptyTableMock
-        subject.summaryDelegate = summaryDelegate
+        subject.summaryDelegate = summaryUpdateHandler
     }
 
     func test_loadData_noData_noDataMode() {
@@ -82,8 +70,8 @@ final class CartDataSourceTests: XCTestCase {
 
         subject.loadData()
 
-        XCTAssertEqual(summaryDelegate.summary?.productsCount, 1)
-        XCTAssertEqual(summaryDelegate.summary?.brandsCount, 1)
+        XCTAssertEqual(summaryUpdateHandler.summary?.productsCount, 1)
+        XCTAssertEqual(summaryUpdateHandler.summary?.brandsCount, 1)
     }
 
     func test_loadData_numberOfItemsInSection_One() {

@@ -68,9 +68,9 @@ final class RequestDataProviderTest: XCTestCase {
         endpoint.api = .main
         credentialsProvider.userAccessToken = "token"
 
-        let parameters = subject.parameters(for: endpoint)
+        let headers = subject.headers(for: endpoint)
 
-        XCTAssertNotNil(parameters?[Constants.accessToken])
+        XCTAssertNotNil(headers[HTTPHeaderField.authorization.description])
     }
 
     func test_parametersForEndpoint_whenInfluencersEndpointRequiresAuthorizationButTokenIsNotAvailable_doesntAddAuthorizationHeader() {
@@ -79,9 +79,9 @@ final class RequestDataProviderTest: XCTestCase {
         endpoint.api = .main
         credentialsProvider.userAccessToken = nil
 
-        let parameters = subject.parameters(for: endpoint)
+        let headers = subject.headers(for: endpoint)
 
-        XCTAssertNil(parameters?[Constants.accessToken])
+        XCTAssertNil(headers[HTTPHeaderField.authorization.description])
     }
 
     func test_parametersForEndpoint_whenInfluencersEndpointDoesntRequireAuthorization_doesntAddAuthorizationHeader() {
@@ -89,8 +89,8 @@ final class RequestDataProviderTest: XCTestCase {
         endpoint.api = .main
         credentialsProvider.userAccessToken = "token"
 
-        let parameters = subject.parameters(for: endpoint)
+        let headers = subject.headers(for: endpoint)
 
-        XCTAssertNil(parameters?[Constants.accessToken])
+        XCTAssertNil(headers[HTTPHeaderField.authorization.description])
     }
 }

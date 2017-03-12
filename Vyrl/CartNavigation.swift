@@ -11,11 +11,15 @@ protocol CartNavigating: class {
 }
 
 protocol ShippingAddressViewPresenting: class {
-    func showShippingAdressView()
+    func showShippingAdressView(using listener: ShippingAddressUpdateListening)
 }
 
 protocol CheckoutSummaryViewPresenting: class {
     func presentSummaryView()
+}
+
+protocol CheckoutNavigationDismissing: class {
+    func dismiss(animated: Bool)
 }
 
 protocol ShippingAddressControlling: class {
@@ -26,11 +30,14 @@ final class CartNavigationBuilder {
 
     var cartFactory: CartControllerMaking.Type = CartViewControllerFactory.self
     var checkoutFactory: CheckoutControllerMaking.Type = CheckoutControllerFactory.self
+    var summaryFactory: CheckoutSummaryControllerMaking.Type = CheckoutSummaryControllerFactory.self
+    var shippingAddressFactory: ShippingAddressMaking.Type = ShippingAddressControllerFactory.self
 
     func build() -> CartNavigation {
         let navigation = CartNavigation(cartFactory: cartFactory,
                                         checkoutFactory: checkoutFactory,
-                                        shippingAddressFactory: ShippingAddressControllerFactory.self)
+                                        summaryFactory: summaryFactory,
+                                        shippingAddressFactory: shippingAddressFactory)
         return navigation
     }
 }
@@ -40,13 +47,16 @@ final class CartNavigation: CartNavigating {
     var cart: CartViewController!
     fileprivate let checkoutFactory: CheckoutControllerMaking.Type
     fileprivate let shippingAddressFactory: ShippingAddressMaking.Type
+    fileprivate let summaryFactory: CheckoutSummaryControllerMaking.Type
     weak var cartNavigationController: UINavigationController?
 
     init(cartFactory: CartControllerMaking.Type,
          checkoutFactory: CheckoutControllerMaking.Type,
+         summaryFactory: CheckoutSummaryControllerMaking.Type,
          shippingAddressFactory: ShippingAddressMaking.Type) {
         self.checkoutFactory = checkoutFactory
         self.shippingAddressFactory = shippingAddressFactory
+        self.summaryFactory = summaryFactory
         cart = cartFactory.make(cartNavigation: self)
     }
 
@@ -57,8 +67,8 @@ final class CartNavigation: CartNavigating {
 }
 
 extension CartNavigation: ShippingAddressViewPresenting {
-    func showShippingAdressView() {
-        let viewController = shippingAddressFactory.make(using: self)
+    func showShippingAdressView(using listener: ShippingAddressUpdateListening) {
+        let viewController = shippingAddressFactory.make(controller: self, listener: listener)
         viewController.modalPresentationStyle = .overCurrentContext
         viewController.modalTransitionStyle = .crossDissolve
         cartNavigationController?.present(viewController, animated: true, completion: nil)
@@ -73,6 +83,12 @@ extension CartNavigation: ShippingAddressControlling {
 
 extension CartNavigation: CheckoutSummaryViewPresenting {
     func presentSummaryView() {
-        //FIXME: present summary screen https://taiga.neoteric.eu/project/mpaprocki-vyrl-mobile/us/60
+        let summary = summaryFactory.make(navigation: self)
+        cartNavigationController?.pushViewController(summary, animated: true)
+    }
+}
+extension CartNavigation: CheckoutNavigationDismissing {
+    func dismiss(animated: Bool) {
+        cartNavigationController?.dismiss(animated: animated, completion: nil)
     }
 }

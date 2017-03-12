@@ -315,6 +315,7 @@
 		85CA3FF11E648A3400D43805 /* FormField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85CA3FF01E648A3400D43805 /* FormField.swift */; };
 		85CA3FF31E648A8200D43805 /* FormValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85CA3FF21E648A8200D43805 /* FormValidator.swift */; };
 		85DCFC001E72CC3E0046D0D5 /* CheckoutSummaryControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85DCFBFF1E72CC3E0046D0D5 /* CheckoutSummaryControllerFactory.swift */; };
+		85DCFC121E75B0CD0046D0D5 /* CartStoringMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85DCFC111E75B0CD0046D0D5 /* CartStoringMock.swift */; };
 		85FA7A281E5C730800491EED /* NavigationHaving.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FA7A271E5C730800491EED /* NavigationHaving.swift */; };
 		85FB31E11E65E1C500E2F113 /* StyleKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FB31E01E65E1C500E2F113 /* StyleKit.swift */; };
 		A4256F0E1E675A7BB6AE21F5 /* Pods_Vyrl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AA1C43D9EC44CB342D10427 /* Pods_Vyrl.framework */; };
@@ -648,6 +649,7 @@
 		85CA3FF01E648A3400D43805 /* FormField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormField.swift; sourceTree = "<group>"; };
 		85CA3FF21E648A8200D43805 /* FormValidator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormValidator.swift; sourceTree = "<group>"; };
 		85DCFBFF1E72CC3E0046D0D5 /* CheckoutSummaryControllerFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckoutSummaryControllerFactory.swift; sourceTree = "<group>"; };
+		85DCFC111E75B0CD0046D0D5 /* CartStoringMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CartStoringMock.swift; sourceTree = "<group>"; };
 		85FA7A271E5C730800491EED /* NavigationHaving.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationHaving.swift; sourceTree = "<group>"; };
 		85FB31E01E65E1C500E2F113 /* StyleKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StyleKit.swift; sourceTree = "<group>"; };
 		BD1309C018727D87342F7FE2 /* Pods-VyrlTests.ad hoc.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VyrlTests.ad hoc.xcconfig"; path = "Pods/Target Support Files/Pods-VyrlTests/Pods-VyrlTests.ad hoc.xcconfig"; sourceTree = "<group>"; };
@@ -968,6 +970,7 @@
 				1AA7FA8F1E686F32001C0B6F /* EmptyTableViewHandlerMock.swift */,
 				85B0A8421E672ED0002093BA /* HTTPClientMock.swift */,
 				853A83471E72B67F006EBA8C /* ErrorPresenterMock.swift */,
+				85DCFC111E75B0CD0046D0D5 /* CartStoringMock.swift */,
 			);
 			name = Mocks;
 			sourceTree = "<group>";
@@ -2662,6 +2665,7 @@
 				31B079401E71667B0015C302 /* ProductDetailsGalleryDataSourceTest.swift in Sources */,
 				1AA7FAAE1E69C4CA001C0B6F /* CheckoutViewControllerSnapshotTest.swift in Sources */,
 				85B0A8301E66AEE8002093BA /* LoginFormInteractorTest.swift in Sources */,
+				85DCFC121E75B0CD0046D0D5 /* CartStoringMock.swift in Sources */,
 				85CA3FD21E64635600D43805 /* SessionManagerMock.swift in Sources */,
 				85B0A8321E66AEF5002093BA /* LoginServiceTest.swift in Sources */,
 				85437AA51E58D7C200551D2D /* EmptyCollectionViewHandlerMock.swift in Sources */,

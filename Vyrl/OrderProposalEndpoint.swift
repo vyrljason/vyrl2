@@ -5,7 +5,7 @@
 import Alamofire
 
 struct OrderProposalEndpoint: APIEndpoint {
-    let path = "/order/proposal"
+    let path = "/orders/proposal"
     let authorization: AuthorizationType = .user
     let method: HTTPMethod = .post
     let parameters: [String: Any]?

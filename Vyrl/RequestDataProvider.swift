@@ -51,9 +51,7 @@ final class RequestDataProvider: RequestDataProviding {
 
     func headers(for endpoint: APIEndpoint) -> [String: String] {
         var headers: [String: String] = additionalHeaders
-        if case .influencers = endpoint.api {
-            headers += endpoint.authorization.requestHeader(with: credentialsProvider.userAccessToken)
-        }
+        headers += endpoint.authorization.requestHeader(with: credentialsProvider.userAccessToken, for: endpoint.api)
         return headers
     }
 
@@ -66,12 +64,6 @@ final class RequestDataProvider: RequestDataProviding {
     }
 
     func parameters(for endpoint: APIEndpoint) -> [String: Any]? {
-        var parameters = endpoint.parameters
-        if let accessToken = credentialsProvider.userAccessToken,
-            case .main = endpoint.api,
-            endpoint.authorization == .user {
-            parameters += [Constants.accessToken: accessToken]
-        }
-        return parameters
+        return  endpoint.parameters
     }
 }

@@ -150,18 +150,18 @@ extension Faker {
     func order(id: String = VyrlFaker.faker.lorem.characters(amount: 20),
                brandId: String = VyrlFaker.faker.lorem.characters(amount: 20),
                influencerId: Double = VyrlFaker.faker.number.randomDouble(),
-               lastModified: Date = Date(),
                status: OrderStatus = .requested,
                orderValue: Double = VyrlFaker.faker.number.randomDouble(),
                shippingAddress: ShippingAddress = VyrlFaker.faker.shippingAddress(),
+               contactInfo: ContactInfo = VyrlFaker.faker.contactInfo(),
                productList: [Product] = [VyrlFaker.faker.product(), VyrlFaker.faker.product()]) -> Order {
         return Order(id: id,
                      brandId: brandId,
                      influencerId: influencerId,
-                     lastModified: lastModified,
                      status: status,
                      orderValue: orderValue,
                      shippingAddress: shippingAddress,
+                     contactInfo: contactInfo,
                      productList: productList)
     }
 }
