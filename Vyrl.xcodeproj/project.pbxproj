@@ -316,6 +316,7 @@
 		85CA3FF31E648A8200D43805 /* FormValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85CA3FF21E648A8200D43805 /* FormValidator.swift */; };
 		85DCFC001E72CC3E0046D0D5 /* CheckoutSummaryControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85DCFBFF1E72CC3E0046D0D5 /* CheckoutSummaryControllerFactory.swift */; };
 		85DCFC121E75B0CD0046D0D5 /* CartStoringMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85DCFC111E75B0CD0046D0D5 /* CartStoringMock.swift */; };
+		85DCFC141E75BA110046D0D5 /* CheckoutSummaryViewControllerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85DCFC131E75BA110046D0D5 /* CheckoutSummaryViewControllerTest.swift */; };
 		85FA7A281E5C730800491EED /* NavigationHaving.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FA7A271E5C730800491EED /* NavigationHaving.swift */; };
 		85FB31E11E65E1C500E2F113 /* StyleKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FB31E01E65E1C500E2F113 /* StyleKit.swift */; };
 		A4256F0E1E675A7BB6AE21F5 /* Pods_Vyrl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AA1C43D9EC44CB342D10427 /* Pods_Vyrl.framework */; };
@@ -650,6 +651,7 @@
 		85CA3FF21E648A8200D43805 /* FormValidator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormValidator.swift; sourceTree = "<group>"; };
 		85DCFBFF1E72CC3E0046D0D5 /* CheckoutSummaryControllerFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckoutSummaryControllerFactory.swift; sourceTree = "<group>"; };
 		85DCFC111E75B0CD0046D0D5 /* CartStoringMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CartStoringMock.swift; sourceTree = "<group>"; };
+		85DCFC131E75BA110046D0D5 /* CheckoutSummaryViewControllerTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckoutSummaryViewControllerTest.swift; sourceTree = "<group>"; };
 		85FA7A271E5C730800491EED /* NavigationHaving.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationHaving.swift; sourceTree = "<group>"; };
 		85FB31E01E65E1C500E2F113 /* StyleKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StyleKit.swift; sourceTree = "<group>"; };
 		BD1309C018727D87342F7FE2 /* Pods-VyrlTests.ad hoc.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VyrlTests.ad hoc.xcconfig"; path = "Pods/Target Support Files/Pods-VyrlTests/Pods-VyrlTests.ad hoc.xcconfig"; sourceTree = "<group>"; };
@@ -1930,6 +1932,7 @@
 				1AA7FA8D1E672D08001C0B6F /* CartSummarySnapshotTests.swift */,
 				1AA7FAA11E68C0AD001C0B6F /* InfoViewSnapshotTests.swift */,
 				1AA7FAAD1E69C4CA001C0B6F /* CheckoutViewControllerSnapshotTest.swift */,
+				85DCFC131E75BA110046D0D5 /* CheckoutSummaryViewControllerTest.swift */,
 			);
 			name = SnapshotTest;
 			sourceTree = "<group>";
@@ -2639,6 +2642,7 @@
 				31EF22FD1E6784BA0073F624 /* ProductDetailsInteractorTest.swift in Sources */,
 				3169B9AE1E603B84005F8A94 /* BrandStoreCellSnapshotTest.swift in Sources */,
 				1A1FA9591E5F10DC007EB61D /* LeftMenuViewControllerSnapshotTest.swift in Sources */,
+				85DCFC141E75BA110046D0D5 /* CheckoutSummaryViewControllerTest.swift in Sources */,
 				85B0A8341E66B63B002093BA /* LoginServiceMock.swift in Sources */,
 				858D63F91E56030300CFDD4C /* DownloadingImageViewTest.swift in Sources */,
 				85437AA31E58D4E200551D2D /* EmptyCollectionViewHandlerTest.swift in Sources */,
