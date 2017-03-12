@@ -7,6 +7,7 @@ import UIKit
 fileprivate struct Constants {
     static let variantsHeader: String = NSLocalizedString("Pick variants", comment: "")
     static let contentGuidelines: String = NSLocalizedString("Content guidelines", comment: "")
+    static let headerRowOffset: Int = 1
 }
 
 protocol SectionRenderer: NibRegisteringInTableView {
@@ -52,7 +53,8 @@ final class AddToCartRenderer: CommonRenderer {
     
     override func tableView(_ tableView: UITableView, cellFor indexPath: IndexPath) -> UITableViewCell {
         let cell: AddToCartTableCell = tableView.dequeueCell(at: indexPath)
-        cell.render(AddToCartTableCellRenderable(enabled: true))
+        let isButtonEnabled = dataAccessor.interactor?.allVariantsArePicked ?? false
+        cell.render(AddToCartTableCellRenderable(enabled: isButtonEnabled))
         return cell
     }
     
@@ -92,8 +94,8 @@ final class VariantsRenderer: CommonRenderer {
     }
     
     override func rows() -> Int {
-        let variantsCount = variantHandler.variantsCount()
-        return variantsCount > 0 ? variantsCount + 1 : 0
+        let variantsCount = variantHandler.variantsCount
+        return variantsCount > 0 ? variantsCount + Constants.headerRowOffset : 0
     }
     
     override func tableView(_ tableView: UITableView, cellFor indexPath: IndexPath) -> UITableViewCell {
@@ -103,7 +105,8 @@ final class VariantsRenderer: CommonRenderer {
             return cell
         } else {
             let cell: DetailTableViewCell = tableView.dequeueCell(at: indexPath)
-            cell.render(renderable(for: indexPath))
+            let index = variantIndex(for: indexPath)
+            cell.render(variantHandler.renderable(forIndex: index))
             return cell
         }
     }
@@ -113,16 +116,16 @@ final class VariantsRenderer: CommonRenderer {
     }
     
     override func didSelect(table: UITableView, indexPath: IndexPath) {
-        let variants = variantHandler.allVariants[indexPath.row - 1]
+        let index = variantIndex(for: indexPath)
+        guard let possibleVariants = variantHandler.possibleVariants(forIndex: index) else { return }
         guard let cell = table.cellForRow(at: indexPath) as? DetailTableViewCell else {
             return
         }
-        dataAccessor.interactor?.selectFromVariants(variants, on: cell.detail)
+        dataAccessor.interactor?.selectFromVariants(possibleVariants, on: cell.detail)
     }
     
-    private func renderable(for indexPath: IndexPath) -> DetailTableCellRenderable {
-        let variant = variantHandler.selectedVariants[indexPath.row - 1]
-        return DetailTableCellRenderable(text: variant.name, detail: variant.value, mandatory: true)
+    private func variantIndex(for indexPath: IndexPath) -> Int {
+        return indexPath.row - Constants.headerRowOffset
     }
 }
 

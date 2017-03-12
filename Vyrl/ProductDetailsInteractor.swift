@@ -9,6 +9,7 @@ fileprivate struct Constants {
 }
 
 protocol ProductDetailsInteracting: TableViewUsing, TableViewControlling {
+    var allVariantsArePicked: Bool { get }
     func viewWillAppear(_ animated: Bool)
     func addToCart()
     func selectFromVariants(_ variants: ProductVariants, on textfield: UITextField)
@@ -21,6 +22,10 @@ final class ProductDetailsInteractor: ProductDetailsInteracting {
     private var variantHandler: VariantHandling
     private let picker: PickerPresenting
     private let cartStorage: CartStoring
+    
+    var allVariantsArePicked: Bool {
+        return variantHandler.allVariantsAreSelected
+    }
     
     init(dataSource: ProductDetailsDataProviding,
          variantHandler: VariantHandling,
@@ -39,16 +44,31 @@ final class ProductDetailsInteractor: ProductDetailsInteracting {
     }
     
     func addToCart() {
-        let cartItem = CartItem(productId: product.id, addedAt: Date(), productVariants: variantHandler.selectedVariants)
-        cartStorage.add(item: cartItem)
+        if allVariantsArePicked {
+            let cartItem = CartItem(productId: product.id, addedAt: Date(), productVariants: variantHandler.selectedVariants)
+            cartStorage.add(item: cartItem)
+        } else {
+            let firstVariant = IndexPath(row: 0, section: ProductDetailsSections.Variants.integerValue)
+            tableView?.scrollToRow(at: firstVariant, at: UITableViewScrollPosition.top, animated: true)
+        }
     }
     
     func selectFromVariants(_ variants: ProductVariants, on textfield: UITextField) {
-        let selectedVariant = self.variantHandler.selectedVariant(for: variants.name)
+        let selectedVariant: String? = self.variantHandler.selectedVariantValue(for: variants.name)
         picker.showPicker(within: textfield, with: variants.values, defaultValue: selectedVariant) { [weak self] result in
-            self?.variantHandler.pickedVariant(variantName: variants.name, variantValue: result)
-            textfield.text = result
+            self?.onVariantPick(variantName: variants.name, variantValue: result, textfield: textfield)
         }
+    }
+    
+    private func onVariantPick(variantName: String, variantValue: String, textfield: UITextField) {
+        variantHandler.pickedVariant(variantName: variantName, variantValue: variantValue)
+        textfield.text = variantValue
+        refreshCartButton()
+    }
+    
+    private func refreshCartButton() {
+        let addToCartSection = ProductDetailsSections.Cart.integerValue
+        tableView?.reloadSections(IndexSet(integer: addToCartSection), with: UITableViewRowAnimation.none)
     }
 }
 

@@ -6,48 +6,50 @@ import Foundation
 
 protocol VariantHandling {
     var selectedVariants: [ProductVariant] { get }
-    var allVariants: [ProductVariants] { get }
     func pickedVariant(variantName: String, variantValue: String)
-    func variantsCount() -> Int
-    func selectedVariant(for name: String) -> String?
+    var variantsCount: Int { get }
+    func selectedVariantValue(for name: String) -> String?
+    var allVariantsAreSelected: Bool { get }
+    func renderable(forIndex index: Int) -> DetailTableCellRenderable
+    func possibleVariants(forIndex index: Int) -> ProductVariants?
 }
 
 final class VariantHandler: VariantHandling {
-    var selectedVariants: [ProductVariant]
-    let allVariants: [ProductVariants]
+    private var selected: [String: String] = [:]
+    private let allVariants: [ProductVariants]
     
     init(allVariants: [ProductVariants]) {
         self.allVariants = allVariants
-        selectedVariants = VariantHandler.preselectVariants(allVariants: allVariants)
     }
     
-    private static func preselectVariants(allVariants: [ProductVariants]) -> [ProductVariant] {
-        return allVariants.map {
-            ProductVariant(name: $0.name, value: $0.values.first ?? "")
-        }
+    var allVariantsAreSelected: Bool {
+        return selected.count == allVariants.count
     }
     
-    func variantsCount() -> Int {
-        return selectedVariants.count
+    var selectedVariants: [ProductVariant] {
+        return selected.map { ProductVariant(name: $0, value: $1) }
+    }
+    
+    var variantsCount: Int {
+        return allVariants.count
     }
     
     func pickedVariant(variantName: String, variantValue: String) {
-        let selected = ProductVariant(name: variantName, value: variantValue)
-        selectVariant(inVariant: selected)
+        selected[variantName] = variantValue
     }
     
-    private func selectVariant(inVariant: ProductVariant) {
-        var index: Int = 0
-        for variant in selectedVariants {
-            if variant.name == inVariant.name {
-                break
-            }
-            index += 1
-        }
-        selectedVariants[index] = inVariant
+    func selectedVariantValue(for name: String) -> String? {
+        return selected[name]
     }
     
-    func selectedVariant(for name: String) -> String? {
-        return selectedVariants.filter { $0.name == name}.map { $0.value }.first
+    func renderable(forIndex index: Int) -> DetailTableCellRenderable {
+        let name: String = allVariants[index].name
+        let value: String = selected[name] ?? ""
+        return DetailTableCellRenderable(text: name, detail: value, mandatory: true)
+    }
+    
+    func possibleVariants(forIndex index: Int) -> ProductVariants? {
+        guard index < allVariants.count else { return nil }
+        return allVariants[index]
     }
 }

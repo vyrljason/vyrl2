@@ -9,16 +9,14 @@ import Fakery
 // MARK: - Mocks
 
 final class VariantHandlerMock: VariantHandling {
-    var selectedVariants: [ProductVariant]
-    var allVariants: [ProductVariants]
+    var selectedVariants: [ProductVariant] = []
+    var allVariants: [ProductVariants] = []
     func pickedVariant(variantName: String, variantValue: String) { }
-    func variantsCount() -> Int { return 0 }
-    func selectedVariant(for name: String) -> String? { return nil }
-    
-    init() {
-        allVariants = []
-        selectedVariants = []
-    }
+    var variantsCount: Int = 0
+    func selectedVariantValue(for name: String) -> String? { return nil }
+    var allVariantsAreSelected: Bool = false
+    func renderable(forIndex index: Int) -> DetailTableCellRenderable { return DetailTableCellRenderable() }
+    func possibleVariants(forIndex index: Int) -> ProductVariants? { return nil }
 }
 
 final class ProductDetailsDataSourceMock: NSObject, ProductDetailsDataProviding {

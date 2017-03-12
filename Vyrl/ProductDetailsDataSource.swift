@@ -16,6 +16,10 @@ enum ProductDetailsSections: Int {
         let lastValue = ProductDetailsSections.Cart
         return lastValue.rawValue + 1
     }
+    
+    var integerValue: Int {
+        return rawValue
+    }
 }
 
 protocol ProductDetailsDataAccessing: class {

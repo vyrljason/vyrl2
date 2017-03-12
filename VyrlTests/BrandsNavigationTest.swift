@@ -27,6 +27,7 @@ final class BrandsInteractorMock: BrandsInteracting, DataRefreshing {
 
 final class ProductDetailsInteractorMock: ProductDetailsInteracting {
     weak var tableView: UITableView?
+    var allVariantsArePicked: Bool = false
     func use(_ tableView: UITableView) { }
     func updateTable(with result: DataFetchResult) { }
     func loadTableData() { }

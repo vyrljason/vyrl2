@@ -76,4 +76,3 @@ extension CartNavigation: CheckoutSummaryViewPresenting {
         //FIXME: present summary screen https://taiga.neoteric.eu/project/mpaprocki-vyrl-mobile/us/60
     }
 }
-

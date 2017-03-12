@@ -24,6 +24,7 @@ final class PickerPresenter: NSObject, UIPickerViewDataSource, UIPickerViewDeleg
     
     override init() {
         picker = UIPickerView()
+        picker.backgroundColor = UIColor.white
         super.init()
     }
     
@@ -57,11 +58,15 @@ final class PickerPresenter: NSObject, UIPickerViewDataSource, UIPickerViewDeleg
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         selected = data?[row]
-        onSelection?(selected ?? "")
+        runOnSelection()
     }
     
     func dismissPicker() {
         responder?.resignFirstResponder()
+    }
+    
+    fileprivate func runOnSelection() {
+        onSelection?(selected ?? "")
     }
 }
 
@@ -69,9 +74,10 @@ extension PickerPresenter: PickerPresenting {
     func showPicker(within textField: UITextField, with data: [String], defaultValue: String?, onSelection: @escaping PickerCompletion) {
         setUpPicker(on: textField)
         self.data = data
-        mark(value: defaultValue ?? data.first)
         self.onSelection = onSelection
+        mark(value: defaultValue ?? data.first)
         textField.becomeFirstResponder()
+        runOnSelection()
     }
     
     fileprivate func mark(value: String?) {
