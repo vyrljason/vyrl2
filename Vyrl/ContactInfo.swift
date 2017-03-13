@@ -36,3 +36,11 @@ extension ContactInfo: CustomStringConvertible {
         return email + "\n" + phone
     }
 }
+
+extension ContactInfo: Equatable { }
+
+func == (lhs: ContactInfo, rhs: ContactInfo) -> Bool {
+    return lhs.email == rhs.email &&
+        lhs.phone == rhs.phone &&
+        lhs.id == rhs.id
+}

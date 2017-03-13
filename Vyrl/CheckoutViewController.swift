@@ -54,6 +54,8 @@ extension CheckoutViewController: CheckoutRendering {
         address.text = renderable.address
         addressButtonContainer.isHidden = !renderable.addressButtonVisible
         addressTextContainer.isHidden = renderable.addressButtonVisible
+        contactButtonContainer.isHidden = !renderable.contactButtonVisible
+        contactTextContainer.isHidden = renderable.contactButtonVisible
         contact.text = renderable.contact
         agreement.attributedText = renderable.agreement
     }
@@ -62,6 +64,10 @@ extension CheckoutViewController: CheckoutRendering {
 extension CheckoutViewController {
     @IBAction private func didTapAddShippingAddress() {
         interactor.didTapAddShippingAddress()
+    }
+
+    @IBAction private func didTapContactInfo() {
+        interactor.didTapContactInfo()
     }
 
     @IBAction private func didTapCheckout() {

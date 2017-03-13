@@ -5,11 +5,11 @@
 import UIKit
 
 protocol CheckoutControllerMaking {
-    static func make(navigation: ShippingAddressViewPresenting & CheckoutSummaryViewPresenting, cartData: CartData) -> CheckoutViewController
+    static func make(navigation: ShippingAddressViewPresenting & ContactInfoViewPresenting & CheckoutSummaryViewPresenting, cartData: CartData) -> CheckoutViewController
 }
 
 final class CheckoutControllerFactory: CheckoutControllerMaking {
-    static func make(navigation: ShippingAddressViewPresenting & CheckoutSummaryViewPresenting, cartData: CartData) -> CheckoutViewController {
+    static func make(navigation: ShippingAddressViewPresenting & ContactInfoViewPresenting & CheckoutSummaryViewPresenting, cartData: CartData) -> CheckoutViewController {
 
         let resourceController = ServiceLocator.resourceConfigurator.resourceController
         let resource = PostService<OrderProposalResource>(resource: OrderProposalResource(controller: resourceController))

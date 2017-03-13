@@ -5,49 +5,49 @@
 @testable import Vyrl
 import XCTest
 
-final class ShippingAddresFormMock: ShippingFormInteracting {
+final class ContactInfoFormMock: ContactInfoFormInteracting {
     var fieldsInteractor: FormFieldsInteracting = FormFieldsInteractorMock()
-    var result: ShippingAddress?
+    var result: ContactInfo?
     var status: ValidationStatus = .valid
 }
 
-final class ControllerMock: ShippingAddressControlling {
+final class ContactInfoControllerMock: ContactInfoControlling {
 
-    var shippingAddress: ShippingAddress?
+    var contactInfo: ContactInfo?
     var didCallFinishPresentation = false
 
-    func finishPresentation(with shippingAddress: ShippingAddress?) {
+    func finishPresentation(with contactInfo: ContactInfo?) {
         didCallFinishPresentation = true
-        self.shippingAddress = shippingAddress
+        self.contactInfo = contactInfo
     }
 }
 
-final class ShippingAddressUpdateListenerMock: ShippingAddressUpdateListening {
+final class ContactInfoUpdateListenerMock: ContactInfoUpdateListening {
 
-    var lastShippingAddress: ShippingAddress?
+    var lastContactInfo: ContactInfo?
     var didCallUpdate = false
 
-    func didUpdate(shippingAddress: ShippingAddress?) {
+    func didUpdate(contactInfo: ContactInfo?) {
         didCallUpdate = true
-        lastShippingAddress = shippingAddress
+        lastContactInfo = contactInfo
     }
 }
 
-final class ShippingAddressInteractorTest: XCTestCase {
+final class ContactInfoInteractorTest: XCTestCase {
 
-    private var listener: ShippingAddressUpdateListenerMock!
+    private var listener: ContactInfoUpdateListenerMock!
     private var presenter: ErrorPresenterMock!
-    private var controller: ControllerMock!
-    private var form: ShippingAddresFormMock!
-    private var subject: ShippingAddressInteractor!
+    private var controller: ContactInfoControllerMock!
+    private var form: ContactInfoFormMock!
+    private var subject: ContactInfoInteractor!
 
     override func setUp() {
         super.setUp()
-        listener = ShippingAddressUpdateListenerMock()
+        listener = ContactInfoUpdateListenerMock()
         presenter = ErrorPresenterMock()
-        form = ShippingAddresFormMock()
-        controller = ControllerMock()
-        subject = ShippingAddressInteractor()
+        form = ContactInfoFormMock()
+        controller = ContactInfoControllerMock()
+        subject = ContactInfoInteractor()
         subject.presenter = presenter
         subject.controller = controller
         subject.listener = listener
@@ -57,7 +57,7 @@ final class ShippingAddressInteractorTest: XCTestCase {
         subject.didTapCancel()
 
         XCTAssertTrue(controller.didCallFinishPresentation)
-        XCTAssertNil(controller.shippingAddress)
+        XCTAssertNil(controller.contactInfo)
     }
 
     func test_didTapAction_whenFormIsInvalid_doesntCallServiceAndCallsErrorPresenter() {
@@ -72,11 +72,11 @@ final class ShippingAddressInteractorTest: XCTestCase {
 
     func test_didTapAction_whenFormIsValid_controllerIsCalled() {
         subject.didPrepare(form: form)
-        form.result = VyrlFaker.faker.shippingAddress()
+        form.result = VyrlFaker.faker.contactInfo()
 
         subject.didTapAction()
 
-        XCTAssertEqual(controller.shippingAddress, form.result)
+        XCTAssertEqual(controller.contactInfo, form.result)
     }
 
     func test_didTapAction_whenFormIsInvalid_doesntCallListener() {
@@ -91,11 +91,11 @@ final class ShippingAddressInteractorTest: XCTestCase {
 
     func test_didTapAction_whenFormIsValid_listenerIsCalledWithShippingAddress() {
         subject.didPrepare(form: form)
-        form.result = VyrlFaker.faker.shippingAddress()
+        form.result = VyrlFaker.faker.contactInfo()
 
         subject.didTapAction()
-
+        
         XCTAssertTrue(listener.didCallUpdate)
-        XCTAssertNotNil(listener.lastShippingAddress)
+        XCTAssertNotNil(listener.lastContactInfo)
     }
 }

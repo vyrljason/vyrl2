@@ -4,7 +4,7 @@
 
 import UIKit
 
-protocol FormItemProtocol {
+protocol FormItemProtocol: class {
     unowned var textField: UITextField { get }
     var field: FormField { get }
     var status: ValidationStatus { get }
@@ -37,12 +37,14 @@ enum FormField {
     case username
     case password
     case nonEmpty
+    case email
 
     var validator: FormFieldValidating {
         switch self {
         case .username: return UsernameValidation()
         case .password: return PasswordValidation()
         case .nonEmpty: return NonEmptyValidation()
+        case .email: return EmailValidation()
         }
     }
 }

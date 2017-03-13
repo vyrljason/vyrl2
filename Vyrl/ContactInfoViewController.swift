@@ -4,24 +4,20 @@
 
 import UIKit
 
-final class ShippingAddressViewController: UIViewController, HavingNib {
-    static let nibName: String = "ShippingAddressViewController"
+final class ContactInfoViewController: UIViewController, HavingNib {
+    static let nibName: String = "ContactInfoViewController"
 
-    private let interactor: ShippingAddressInteracting & FormActionDelegate
-    private let formFactory: ShippingAddressFormMaking.Type
+    private let interactor: ContactInfoInteracting & FormActionDelegate
+    private let formFactory: ContactInfoFormMaking.Type
     fileprivate var keyboardHandler: KeyboardHandler!
     @IBOutlet private weak var scrollView: UIScrollView!
-    @IBOutlet private weak var street: FormView!
-    @IBOutlet private weak var apartment: FormView!
-    @IBOutlet private weak var city: FormView!
-    @IBOutlet private weak var state: FormView!
-    @IBOutlet private weak var zip: FormView!
-    @IBOutlet private weak var country: FormView!
+    @IBOutlet private weak var email: FormView!
+    @IBOutlet private weak var phone: FormView!
 
-    init(interactor: ShippingAddressInteracting & FormActionDelegate, formFactory: ShippingAddressFormMaking.Type) {
+    init(interactor: ContactInfoInteracting & FormActionDelegate, formFactory: ContactInfoFormMaking.Type) {
         self.interactor = interactor
         self.formFactory = formFactory
-        super.init(nibName: ShippingAddressViewController.nibName, bundle: nil)
+        super.init(nibName: ContactInfoViewController.nibName, bundle: nil)
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -31,7 +27,7 @@ final class ShippingAddressViewController: UIViewController, HavingNib {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUp(keyboardHandler: KeyboardHandler(scrollView: scrollView, dismissOnTouch: false))
-        let form = formFactory.make(fields: [street, apartment, city, state, zip, country], actionDelegate: interactor)
+        let form = formFactory.make(fields: [email, phone], actionDelegate: interactor)
         interactor.didPrepare(form: form)
     }
 
@@ -41,12 +37,11 @@ final class ShippingAddressViewController: UIViewController, HavingNib {
     }
 
     @IBAction private func didTapDone() {
-        view.endEditing(true)
         interactor.didTapAction()
     }
 }
 
-extension ShippingAddressViewController {
+extension ContactInfoViewController {
     func setUp(keyboardHandler: KeyboardHandler) {
         self.keyboardHandler = keyboardHandler
         keyboardHandler.maximumVisibleY = view.frame.maxY

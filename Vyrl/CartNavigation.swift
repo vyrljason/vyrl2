@@ -10,10 +10,6 @@ protocol CartNavigating: class {
     func pushCheckout(with cartData: CartData)
 }
 
-protocol ShippingAddressViewPresenting: class {
-    func showShippingAdressView(using listener: ShippingAddressUpdateListening)
-}
-
 protocol CheckoutSummaryViewPresenting: class {
     func presentSummaryView()
 }
@@ -22,8 +18,20 @@ protocol CheckoutNavigationDismissing: class {
     func dismiss(animated: Bool)
 }
 
+protocol ShippingAddressViewPresenting: class {
+    func showShippingAdressView(using listener: ShippingAddressUpdateListening)
+}
+
 protocol ShippingAddressControlling: class {
     func finishPresentation(with shippingAddress: ShippingAddress?)
+}
+
+protocol ContactInfoViewPresenting: class {
+    func showContactInfoView(using listener: ContactInfoUpdateListening)
+}
+
+protocol ContactInfoControlling: class {
+    func finishPresentation(with contactInfo: ContactInfo?)
 }
 
 final class CartNavigationBuilder {
@@ -31,13 +39,15 @@ final class CartNavigationBuilder {
     var cartFactory: CartControllerMaking.Type = CartViewControllerFactory.self
     var checkoutFactory: CheckoutControllerMaking.Type = CheckoutControllerFactory.self
     var summaryFactory: CheckoutSummaryControllerMaking.Type = CheckoutSummaryControllerFactory.self
-    var shippingAddressFactory: ShippingAddressMaking.Type = ShippingAddressControllerFactory.self
+    var shippingAddressFactory: ShippingAddressViewMaking.Type = ShippingAddressControllerFactory.self
+    var contactInfoFactory: ContactInfoViewMaking.Type = ContactInfoViewFactory.self
 
     func build() -> CartNavigation {
         let navigation = CartNavigation(cartFactory: cartFactory,
                                         checkoutFactory: checkoutFactory,
                                         summaryFactory: summaryFactory,
-                                        shippingAddressFactory: shippingAddressFactory)
+                                        shippingAddressFactory: shippingAddressFactory,
+                                        contactInfoFactory: contactInfoFactory)
         return navigation
     }
 }
@@ -46,17 +56,21 @@ final class CartNavigation: CartNavigating {
 
     var cart: CartViewController!
     fileprivate let checkoutFactory: CheckoutControllerMaking.Type
-    fileprivate let shippingAddressFactory: ShippingAddressMaking.Type
+    fileprivate let shippingAddressFactory: ShippingAddressViewMaking.Type
     fileprivate let summaryFactory: CheckoutSummaryControllerMaking.Type
+    fileprivate let contactInfoFactory: ContactInfoViewMaking.Type
+
     weak var cartNavigationController: UINavigationController?
 
     init(cartFactory: CartControllerMaking.Type,
          checkoutFactory: CheckoutControllerMaking.Type,
          summaryFactory: CheckoutSummaryControllerMaking.Type,
-         shippingAddressFactory: ShippingAddressMaking.Type) {
+         shippingAddressFactory: ShippingAddressViewMaking.Type,
+         contactInfoFactory: ContactInfoViewMaking.Type) {
         self.checkoutFactory = checkoutFactory
         self.shippingAddressFactory = shippingAddressFactory
         self.summaryFactory = summaryFactory
+        self.contactInfoFactory = contactInfoFactory
         cart = cartFactory.make(cartNavigation: self)
     }
 
@@ -77,6 +91,21 @@ extension CartNavigation: ShippingAddressViewPresenting {
 
 extension CartNavigation: ShippingAddressControlling {
     func finishPresentation(with shippingAddress: ShippingAddress?) {
+        cartNavigationController?.dismiss(animated: true, completion: nil)
+    }
+}
+
+extension CartNavigation: ContactInfoViewPresenting {
+    func showContactInfoView(using listener: ContactInfoUpdateListening) {
+        let viewController = contactInfoFactory.make(controller: self, listener: listener)
+        viewController.modalPresentationStyle = .overCurrentContext
+        viewController.modalTransitionStyle = .crossDissolve
+        cartNavigationController?.present(viewController, animated: true, completion: nil)
+    }
+}
+
+extension CartNavigation: ContactInfoControlling {
+    func finishPresentation(with contactInfo: ContactInfo?) {
         cartNavigationController?.dismiss(animated: true, completion: nil)
     }
 }

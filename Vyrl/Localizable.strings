@@ -12,6 +12,7 @@
 "validation.error.usernameEmpty" = "Username cannot be empty";
 "validation.error.passwordEmpty" = "Password cannot be empty";
 "validation.error.passwordInvalid" = "Password format is invalid";
+"validation.error.invalidEmail" = "E-mail format is invalid";
 "login.error.invalidPassword.message" = "Incorrect password... Please try again.";
 "login.error.invalidUsername.message" = "Username doesn't exist";
 "login.error.unknown.message" = "Something ham jammed while attempting to log in. Please try again.";
@@ -23,3 +24,4 @@
 "validation.error.textFieldEmpty" = "Field cannot be empty";
 "checkout.error.incompleteData" = "Shipping address and contact info are required.";
 "checkout.error.api" = "There was a problem with your checkout, please try again.";
+"contactInfo.error.invalid" = "Valid e-mail and phone number are required";

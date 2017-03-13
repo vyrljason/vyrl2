@@ -13,12 +13,17 @@ protocol ShippingAddressUpdateListening: class {
     func didUpdate(shippingAddress: ShippingAddress?)
 }
 
-protocol CheckoutInteracting: class, ShippingAddressUpdateListening {
+protocol ContactInfoUpdateListening: class {
+    func didUpdate(contactInfo: ContactInfo?)
+}
+
+protocol CheckoutInteracting: class, ShippingAddressUpdateListening, ContactInfoUpdateListening {
     weak var projector: CheckoutRendering? { get set }
-    weak var navigation: ShippingAddressViewPresenting & CheckoutSummaryViewPresenting? { get set }
+    weak var navigation: ShippingAddressViewPresenting & ContactInfoViewPresenting & CheckoutSummaryViewPresenting? { get set }
     weak var errorPresenter: ErrorAlertPresenting? { get set }
     func viewDidLoad()
     func didTapAddShippingAddress()
+    func didTapContactInfo()
     func didTapCheckout()
 }
 
@@ -27,12 +32,12 @@ final class CheckoutInteractor: CheckoutInteracting {
     fileprivate let cartItems: [CartItem]
     fileprivate let products: [Product]
     fileprivate var shippingAddress: ShippingAddress?
-    fileprivate let contactInfo = VyrlFaker.faker.contactInfo() //FIXME: https://taiga.neoteric.eu/project/mpaprocki-vyrl-mobile/us/112
+    fileprivate var contactInfo: ContactInfo?
     fileprivate let service: OrderProposalSending
     fileprivate let cartStorage: CartStoring
 
     weak var projector: CheckoutRendering?
-    weak var navigation: ShippingAddressViewPresenting & CheckoutSummaryViewPresenting?
+    weak var navigation: ShippingAddressViewPresenting & ContactInfoViewPresenting & CheckoutSummaryViewPresenting?
     weak var errorPresenter: ErrorAlertPresenting?
 
     init(cartData: CartData, service: OrderProposalSending, cartStorage: CartStoring) {
@@ -50,8 +55,17 @@ final class CheckoutInteractor: CheckoutInteracting {
         navigation?.showShippingAdressView(using: self)
     }
 
+    func didTapContactInfo() {
+        navigation?.showContactInfoView(using: self)
+    }
+
     func didUpdate(shippingAddress: ShippingAddress?) {
         self.shippingAddress = shippingAddress
+        refreshRenderable()
+    }
+
+    func didUpdate(contactInfo: ContactInfo?) {
+        self.contactInfo = contactInfo
         refreshRenderable()
     }
 
@@ -63,7 +77,7 @@ final class CheckoutInteractor: CheckoutInteracting {
     }
 
     func didTapCheckout() {
-        guard let shippingAddress = shippingAddress else {
+        guard let shippingAddress = shippingAddress, let contactInfo = contactInfo else {
             errorPresenter?.presentError(title: nil, message: Constants.incompleteDataError)
             return
         }

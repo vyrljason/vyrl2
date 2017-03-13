@@ -8,6 +8,7 @@ private enum Constants {
     static let emptyError = NSLocalizedString("validation.error.textFieldEmpty", comment: "")
     static let usernameError = NSLocalizedString("validation.error.usernameEmpty", comment: "")
     static let passwordInvalidError = NSLocalizedString("validation.error.passwordInvalid", comment: "")
+    static let emailError = NSLocalizedString("validation.error.invalidEmail", comment: "")
 }
 
 final class FormFieldValidator {
@@ -51,5 +52,14 @@ struct NonEmptyValidation: FormFieldValidating {
     func validate(value: String?) -> Bool {
         guard let value = value else { return false }
         return value.characters.count > 0
+    }
+}
+
+struct EmailValidation: FormFieldValidating {
+    let validationError: String = Constants.emailError
+
+    func validate(value: String?) -> Bool {
+        guard let value = value else { return false }
+        return value.isEmail
     }
 }

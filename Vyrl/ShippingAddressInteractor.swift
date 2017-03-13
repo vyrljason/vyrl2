@@ -22,7 +22,6 @@ final class ShippingAddressInteractor: ShippingAddressInteracting, FormActionDel
 
     func didPrepare(form: ShippingFormInteracting) {
         self.form = form
-        form.delegate = self
     }
 
     func didTapCancel() {
