@@ -5,6 +5,16 @@
 import XCTest
 @testable import Vyrl
 
+final class MainNavigationDelegateMock: MainNavigationRendering {
+    var didCallSetUpMainNavigationItems: Bool = false
+    var setUpMainNavigationItemsArgument: UIViewController?
+    
+    func setUpMainNavigationItems(in viewController: UIViewController) {
+        didCallSetUpMainNavigationItems = true
+        setUpMainNavigationItemsArgument = viewController
+    }
+}
+
 final class BrandStoreInteractorMock: BrandStoreInteracting {
     var collectionView: UICollectionView?
     weak var productDetailsPresenter: ProductDetailsPresenting?
@@ -56,17 +66,20 @@ final class ProductDetailsFactoryMock: ProductDetailsMaking {
 
 final class BrandsNavigationTest: XCTestCase {
 
+    private var mainNavigationDelegateMock: MainNavigationDelegateMock!
     private var navigationController: NavigationControllerMock!
     private var subject: BrandsNavigation!
 
     override func setUp() {
         super.setUp()
+        mainNavigationDelegateMock = MainNavigationDelegateMock()
         navigationController = NavigationControllerMock()
         subject = BrandsNavigation(brandsInteractor: BrandsInteractorMock(),
                                    brandsFactory: BrandsFactoryMock.self,
                                    brandStoreFactory: BrandStoreFactoryMock.self,
                                    productDetailsFactory: ProductDetailsFactoryMock.self,
                                    navigationController: navigationController)
+        subject.mainNavigationDelegate = mainNavigationDelegateMock
 
     }
 
@@ -84,5 +97,23 @@ final class BrandsNavigationTest: XCTestCase {
         subject.presentProductDetails(for: product, animated: false)
         
         XCTAssertTrue(navigationController.pushed is ProductDetailsViewController)
+    }
+    
+    func test_presentStore_setsMainNavigationItems() {
+        let brand = VyrlFaker.faker.brand()
+        
+        subject.presentStore(for: brand, animated: false)
+        
+        XCTAssertTrue(mainNavigationDelegateMock.didCallSetUpMainNavigationItems)
+        XCTAssertTrue(mainNavigationDelegateMock.setUpMainNavigationItemsArgument is BrandStoreViewController)
+    }
+    
+    func test_presentProductDetails_setsMainNavigationItems() {
+        let product = VyrlFaker.faker.product()
+        
+        subject.presentProductDetails(for: product, animated: false)
+        
+        XCTAssertTrue(mainNavigationDelegateMock.didCallSetUpMainNavigationItems)
+        XCTAssertTrue(mainNavigationDelegateMock.setUpMainNavigationItemsArgument is ProductDetailsViewController)
     }
 }

@@ -108,6 +108,10 @@
 		31B079401E71667B0015C302 /* ProductDetailsGalleryDataSourceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B0793F1E71667B0015C302 /* ProductDetailsGalleryDataSourceTest.swift */; };
 		31B079421E71934A0015C302 /* SwipeableGalleryTableCellRenderable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B079411E71934A0015C302 /* SwipeableGalleryTableCellRenderable.swift */; };
 		31B079441E7199070015C302 /* PagerUpdater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B079431E7199070015C302 /* PagerUpdater.swift */; };
+		31B079461E75A4380015C302 /* ClosureBarButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B079451E75A4380015C302 /* ClosureBarButtonItem.swift */; };
+		31B079481E75A4FD0015C302 /* UIViewController+NoTitleBackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B079471E75A4FD0015C302 /* UIViewController+NoTitleBackButton.swift */; };
+		31B0794A1E76AA150015C302 /* NavigationItemMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B079491E76AA150015C302 /* NavigationItemMock.swift */; };
+		31B0794C1E76B1770015C302 /* ViewControllerMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B0794B1E76B1770015C302 /* ViewControllerMock.swift */; };
 		31EF22E71E664C180073F624 /* ProductDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31EF22E51E664C180073F624 /* ProductDetailsViewController.swift */; };
 		31EF22E81E664C180073F624 /* ProductDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31EF22E61E664C180073F624 /* ProductDetailsViewController.xib */; };
 		31EF22EA1E664C670073F624 /* ProductDetailsControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31EF22E91E664C670073F624 /* ProductDetailsControllerFactory.swift */; };
@@ -441,6 +445,10 @@
 		31B0793F1E71667B0015C302 /* ProductDetailsGalleryDataSourceTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductDetailsGalleryDataSourceTest.swift; sourceTree = "<group>"; };
 		31B079411E71934A0015C302 /* SwipeableGalleryTableCellRenderable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwipeableGalleryTableCellRenderable.swift; sourceTree = "<group>"; };
 		31B079431E7199070015C302 /* PagerUpdater.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PagerUpdater.swift; sourceTree = "<group>"; };
+		31B079451E75A4380015C302 /* ClosureBarButtonItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClosureBarButtonItem.swift; sourceTree = "<group>"; };
+		31B079471E75A4FD0015C302 /* UIViewController+NoTitleBackButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+NoTitleBackButton.swift"; sourceTree = "<group>"; };
+		31B079491E76AA150015C302 /* NavigationItemMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationItemMock.swift; sourceTree = "<group>"; };
+		31B0794B1E76B1770015C302 /* ViewControllerMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerMock.swift; sourceTree = "<group>"; };
 		31EF22E51E664C180073F624 /* ProductDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductDetailsViewController.swift; sourceTree = "<group>"; };
 		31EF22E61E664C180073F624 /* ProductDetailsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProductDetailsViewController.xib; sourceTree = "<group>"; };
 		31EF22E91E664C670073F624 /* ProductDetailsControllerFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductDetailsControllerFactory.swift; sourceTree = "<group>"; };
@@ -972,6 +980,8 @@
 				1AA7FA8F1E686F32001C0B6F /* EmptyTableViewHandlerMock.swift */,
 				85B0A8421E672ED0002093BA /* HTTPClientMock.swift */,
 				853A83471E72B67F006EBA8C /* ErrorPresenterMock.swift */,
+				31B079491E76AA150015C302 /* NavigationItemMock.swift */,
+				31B0794B1E76B1770015C302 /* ViewControllerMock.swift */,
 				85DCFC111E75B0CD0046D0D5 /* CartStoringMock.swift */,
 			);
 			name = Mocks;
@@ -1497,6 +1507,7 @@
 				1AA7FA9D1E6883F7001C0B6F /* AutoexpandableTextView.swift */,
 				1AA7FA9F1E6885FE001C0B6F /* Autolayout.swift */,
 				85B2CD631E6D83C600C4C744 /* KeyboardHandler.swift */,
+				31B079451E75A4380015C302 /* ClosureBarButtonItem.swift */,
 			);
 			name = UserInterface;
 			sourceTree = "<group>";
@@ -1979,6 +1990,7 @@
 				85CA3FEB1E64887900D43805 /* String+Password.swift */,
 				31B0792D1E6F7A650015C302 /* UITextView+RemoveInsets.swift */,
 				853A832E1E7024D0006EBA8C /* Array+Utils.swift */,
+				31B079471E75A4FD0015C302 /* UIViewController+NoTitleBackButton.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -2397,6 +2409,7 @@
 				853859AB1E6085650098D1EB /* IndustryId.swift in Sources */,
 				85DCFC001E72CC3E0046D0D5 /* CheckoutSummaryControllerFactory.swift in Sources */,
 				8554BE6C1E68049800E05A37 /* Categories.swift in Sources */,
+				31B079461E75A4380015C302 /* ClosureBarButtonItem.swift in Sources */,
 				850A80EB1E5E1FFA00E684A3 /* DataResponseProtocol.swift in Sources */,
 				852ACD401E55DB8400219E90 /* HavingNib.swift in Sources */,
 				313CF8021E6E268E005686F5 /* ExpandableTextTableCell.swift in Sources */,
@@ -2511,6 +2524,7 @@
 				853A83431E72A50E006EBA8C /* CheckoutRenderable.swift in Sources */,
 				31EF230C1E67AF5F0073F624 /* CenteredWithDetailTableCell.swift in Sources */,
 				852ACD471E55DCF200219E90 /* UIView+ReusableView.swift in Sources */,
+				31B079481E75A4FD0015C302 /* UIViewController+NoTitleBackButton.swift in Sources */,
 				85CA3FE31E64790700D43805 /* LoginControllerFactory.swift in Sources */,
 				31B079421E71934A0015C302 /* SwipeableGalleryTableCellRenderable.swift in Sources */,
 				85B0A8261E65F335002093BA /* UIAlertController+Ok.swift in Sources */,
@@ -2622,8 +2636,10 @@
 				1AA7FA8E1E672D08001C0B6F /* CartSummarySnapshotTests.swift in Sources */,
 				85CA3FD01E6439EE00D43805 /* AuthorizationResourcesTest.swift in Sources */,
 				858D63EF1E55F6A800CFDD4C /* ImageFetcherTest.swift in Sources */,
+				31B0794A1E76AA150015C302 /* NavigationItemMock.swift in Sources */,
 				31EF22FF1E678C450073F624 /* TableViewMock.swift in Sources */,
 				858D64421E5755FC00CFDD4C /* CollectionViewMock.swift in Sources */,
+				31B0794C1E76B1770015C302 /* ViewControllerMock.swift in Sources */,
 				853A83481E72B67F006EBA8C /* ErrorPresenterMock.swift in Sources */,
 				858D643E1E5752FD00CFDD4C /* BrandsDataSourceTest.swift in Sources */,
 				31EF23241E691F2E0073F624 /* AddToCartTableCellTest.swift in Sources */,

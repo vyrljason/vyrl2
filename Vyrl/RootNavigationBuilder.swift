@@ -12,7 +12,7 @@ final class RootNavigationBuilder {
 
     var interactor: RootNavigationInteracting & NavigationDelegateHaving = RootNavigationInteractor()
     var brandsInteractor = BrandsInteractorFactory.make()
-    lazy var mainNavigation: NavigationControlling = { BrandsNavigation(brandsInteractor: self.brandsInteractor,
+    lazy var mainNavigation: NavigationControlling & BrandsNavigating = { BrandsNavigation(brandsInteractor: self.brandsInteractor,
                                                                         brandsFactory: BrandsControllerFactory.self,
                                                                         brandStoreFactory: BrandStoreControllerFactory.self,
                                                                         productDetailsFactory: ProductDetailsControllerFactory.self,
@@ -39,6 +39,7 @@ final class RootNavigationBuilder {
                                         loginControllerMaker: loginControllerMaker)
         leftMenuInteractor.delegate = navigation
         navigation.brandsFiltering = brandsInteractor
+        mainNavigation.mainNavigationDelegate = navigation
         return navigation
     }
 }

@@ -39,6 +39,10 @@ protocol CategoryPresenting: class {
     func show(_ category: Category)
 }
 
+protocol MainNavigationRendering: class {
+    func setUpMainNavigationItems(in viewController: UIViewController)
+}
+
 final class RootNavigation {
 
     fileprivate enum Constants {
@@ -257,5 +261,24 @@ extension RootNavigation: RootNavigationControlling {
 
     func dismissModal() {
         mainNavigation.dismiss(animated: true)
+    }
+}
+
+extension RootNavigation: MainNavigationRendering {
+    func setUpMainNavigationItems(in viewController: UIViewController) {
+        viewController.renderNoTitleBackButton()
+        
+        let cart = UIBarButtonItem(image: #imageLiteral(resourceName: "iosCartIconNav"),
+                                   style: .plain,
+                                   target: interactor,
+                                   action: #selector(RootNavigationInteracting.didTapCart))
+
+        let chat = UIBarButtonItem(image: #imageLiteral(resourceName: "chat_icon"),
+                                   style: .plain,
+                                   target: interactor,
+                                   action: #selector(RootNavigationInteracting.didTapChat))
+        chat.imageInsets = Constants.secondBarButtonImageInset
+        
+        viewController.navigationItem.rightBarButtonItems = [cart, chat]
     }
 }

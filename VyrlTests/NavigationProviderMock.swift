@@ -5,9 +5,10 @@
 @testable import Vyrl
 import UIKit
 
-final class NavigationProviderMock: NavigationControlling {
+final class NavigationProviderMock: NavigationControlling, BrandsNavigating {
 
     let navigationController: UINavigationController
+    weak var mainNavigationDelegate: MainNavigationRendering?
 
     var didResetNavigation = false
     var didDismissModal = false

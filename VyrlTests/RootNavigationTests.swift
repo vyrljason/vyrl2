@@ -131,4 +131,24 @@ final class RootNavigationTests: XCTestCase {
 
         XCTAssertTrue(navigationProvider.didResetNavigation)
     }
+    
+    func test_setUpMainNavigationItems_customBackButtonOnLeft() {
+        let viewControllerMock = ViewControllerMock()
+        
+        subject.setUpMainNavigationItems(in: viewControllerMock)
+        
+        XCTAssertTrue(viewControllerMock.navigationMock.didSetLeftBarButtonItems)
+        let backButtonWasAdded = viewControllerMock.navigationMock.leftBarButtonItemsArgument?.last is ClosureBarButtonItem
+        XCTAssertTrue(backButtonWasAdded)
+    }
+    
+    func test_setUpMainNavigationItems_hasButtonOnRight() {
+        let viewControllerMock = ViewControllerMock()
+        
+        subject.setUpMainNavigationItems(in: viewControllerMock)
+        
+        XCTAssertTrue(viewControllerMock.navigationMock.didSetRightBarButtonItems)
+        let buttonsOnRight = viewControllerMock.navigationMock.rightBarButtonItemsArgument?.count ?? 0
+        XCTAssertEqual(buttonsOnRight, 2)
+    }
 }

@@ -12,13 +12,18 @@ protocol ProductDetailsPresenting: class {
     func presentProductDetails(for product: Product, animated: Bool)
 }
 
-final class BrandsNavigation: NavigationControlling {
+protocol BrandsNavigating: class {
+    weak var mainNavigationDelegate: MainNavigationRendering? { get set }
+}
+
+final class BrandsNavigation: NavigationControlling, BrandsNavigating {
 
     let navigationController: UINavigationController
     fileprivate let brandsFactory: BrandsControllerMaking.Type
     fileprivate let brandStoreFactory: BrandStoreMaking.Type
     fileprivate let productDetailsFactory: ProductDetailsMaking.Type
     fileprivate let brandsInteractor: BrandsInteracting & DataRefreshing
+    weak var mainNavigationDelegate: MainNavigationRendering?
 
     init(brandsInteractor: BrandsInteracting & DataRefreshing,
          brandsFactory: BrandsControllerMaking.Type,
@@ -43,6 +48,7 @@ final class BrandsNavigation: NavigationControlling {
 extension BrandsNavigation: BrandStorePresenting {
     func presentStore(for brand: Brand, animated: Bool = true) {
         let viewController = brandStoreFactory.make(brand: brand, presenter: self)
+        mainNavigationDelegate?.setUpMainNavigationItems(in: viewController)
         navigationController.pushViewController(viewController, animated: animated)
     }
 }
@@ -50,6 +56,7 @@ extension BrandsNavigation: BrandStorePresenting {
 extension BrandsNavigation: ProductDetailsPresenting {
     func presentProductDetails(for product: Product, animated: Bool = true) {
         let viewController = productDetailsFactory.make(product: product)
+        mainNavigationDelegate?.setUpMainNavigationItems(in: viewController)
         navigationController.pushViewController(viewController, animated: animated)
     }
 }
