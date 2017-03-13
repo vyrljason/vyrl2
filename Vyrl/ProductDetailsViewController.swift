@@ -14,6 +14,7 @@ final class ProductDetailsViewController: UITableViewController, HavingNib {
     init(interactor: ProductDetailsInteracting) {
         self.interactor = interactor
         super.init(nibName: ProductDetailsViewController.nibName, bundle: nil)
+        self.interactor.errorPresenter = self
     }
     
     required init?(coder aDecoder: NSCoder) {

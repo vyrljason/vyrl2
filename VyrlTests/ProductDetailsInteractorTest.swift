@@ -59,12 +59,15 @@ final class ProductDetailsInteractorTest: XCTestCase {
     var dataSource: ProductDetailsDataSourceMock!
     var variantHandlerMock: VariantHandlerMock!
     var product: Product!
+    var errorPresenterMock: ErrorPresenterMock!
 
     override func setUp() {
+        errorPresenterMock = ErrorPresenterMock()
         product = VyrlFaker.faker.product()
         variantHandlerMock = VariantHandlerMock()
         dataSource = ProductDetailsDataSourceMock()
         subject = ProductDetailsInteractor(dataSource: dataSource, variantHandler:variantHandlerMock, product: product)
+        subject.errorPresenter = errorPresenterMock
     }
     
     func test_onInit_setsTableViewDataProvidingDelegate() {
@@ -101,6 +104,12 @@ final class ProductDetailsInteractorTest: XCTestCase {
         
         XCTAssertTrue(dataSource.didUseTableView)
         XCTAssertTrue(dataSource.usedTableArgument === tableViewMock)
+    }
+    
+    func test_addToCart_showAlert_whenNotAllVariantsAreSelected() {
+        subject.addToCart()
+        
+        XCTAssertTrue(errorPresenterMock.didPresentError)
     }
 }
 

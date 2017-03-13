@@ -6,10 +6,12 @@ import UIKit
 
 fileprivate struct Constants {
     static let estimatedRowHeight: CGFloat = 48.0
+    static let variantRequiredAlertText: String = NSLocalizedString("All variants need to be selected.", comment: "")
 }
 
 protocol ProductDetailsInteracting: TableViewUsing, TableViewControlling {
     var allVariantsArePicked: Bool { get }
+    weak var errorPresenter: ErrorAlertPresenting? { get set }
     func viewWillAppear(_ animated: Bool)
     func addToCart()
     func selectFromVariants(_ variants: ProductVariants, on textfield: UITextField)
@@ -22,6 +24,7 @@ final class ProductDetailsInteractor: ProductDetailsInteracting {
     private var variantHandler: VariantHandling
     private let picker: PickerPresenting
     private let cartStorage: CartStoring
+    weak var errorPresenter: ErrorAlertPresenting?
     
     var allVariantsArePicked: Bool {
         return variantHandler.allVariantsAreSelected
@@ -50,6 +53,7 @@ final class ProductDetailsInteractor: ProductDetailsInteracting {
         } else {
             let firstVariant = IndexPath(row: 0, section: ProductDetailsSections.Variants.integerValue)
             tableView?.scrollToRow(at: firstVariant, at: UITableViewScrollPosition.top, animated: true)
+            errorPresenter?.presentError(title: Constants.variantRequiredAlertText, message: nil)
         }
     }
     
