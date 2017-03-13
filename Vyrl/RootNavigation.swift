@@ -52,6 +52,7 @@ final class RootNavigation {
         static let closeTitle: String = NSLocalizedString("Close", comment: "")
         static let animationDuration: TimeInterval = 0.3
         static let leftButtonNegativeSpace: CGFloat = -8
+        static let secondBarButtonImageInset = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: -20)
     }
 
     fileprivate var cart: CartNavigating
@@ -196,8 +197,13 @@ extension RootNavigation: MainNavigationPresenting {
                                    target: interactor,
                                    action: #selector(RootNavigationInteracting.didTapCart))
 
+        let chat = UIBarButtonItem(image: #imageLiteral(resourceName: "chat_icon"),
+                                   style: .plain,
+                                   target: interactor,
+                                   action: #selector(RootNavigationInteracting.didTapChat))
+        chat.imageInsets = Constants.secondBarButtonImageInset
         viewController.navigationItem.leftBarButtonItems = [negativeButton, menuButton]
-        viewController.navigationItem.rightBarButtonItems = [cart]
+        viewController.navigationItem.rightBarButtonItems = [cart, chat]
 
     }
 }
