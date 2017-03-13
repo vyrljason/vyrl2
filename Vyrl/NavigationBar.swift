@@ -38,3 +38,13 @@ extension UIViewController: NavigationItemRendering {
         navigationItem.titleView = UIImageView(image: renderable.titleImage)
     }
 }
+
+protocol BackButtonHiding {
+    func hideBackButton()
+}
+
+extension UIViewController: BackButtonHiding {
+    func hideBackButton() {
+        navigationItem.hidesBackButton = true
+    }
+}

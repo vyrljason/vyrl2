@@ -11,14 +11,14 @@ struct ContactInfo {
         static let phone = "phone"
     }
 
-    let id: String
+    let id: String?
     let email: String
     let phone: String
 }
 
 extension ContactInfo: Decodable {
     static func decode(_ json: Any) throws -> ContactInfo {
-        return try self.init(id: json => KeyPath(JSONKeys.id),
+        return try self.init(id: json =>? OptionalKeyPath(stringLiteral: JSONKeys.id),
                              email: json => KeyPath(JSONKeys.email),
                              phone: json => KeyPath(JSONKeys.phone))
     }

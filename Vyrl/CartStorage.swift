@@ -7,6 +7,7 @@ import Foundation
 protocol CartStoring: class {
     func add(item: CartItem)
     func remove(item: CartItem)
+    func clear()
     var items: [CartItem] { get }
 }
 
@@ -53,5 +54,9 @@ final class CartStorage: CartStoring {
 
     func remove(item: CartItem) {
         items = items.filter({ return $0 != item })
+    }
+
+    func clear() {
+        items = []
     }
 }

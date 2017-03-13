@@ -35,17 +35,18 @@ final class CheckoutNavigationMock: ShippingAddressViewPresenting, CheckoutSumma
         summaryPresented = true
     }
 
-    func showShippingAdressView() {
+    func showShippingAdressView(using listener: ShippingAddressUpdateListening) {
         shippingPresented = true
     }
 }
 
 final class CheckoutInteractorTests: XCTestCase {
-    var projector: CheckoutRenderingMock!
-    var service: OrderProposalServiceMock!
-    var subject: CheckoutInteractor!
-    var navigation: CheckoutNavigationMock!
-    var errorPresenter: ErrorPresenterMock!
+    private var projector: CheckoutRenderingMock!
+    private var service: OrderProposalServiceMock!
+    private var subject: CheckoutInteractor!
+    private var navigation: CheckoutNavigationMock!
+    private var errorPresenter: ErrorPresenterMock!
+    private var cartStorage: CartStoringMock!
 
     override func setUp() {
         super.setUp()
@@ -54,7 +55,8 @@ final class CheckoutInteractorTests: XCTestCase {
         service = OrderProposalServiceMock()
         navigation = CheckoutNavigationMock()
         errorPresenter = ErrorPresenterMock()
-        subject = CheckoutInteractor(cartData: cartData, service: service)
+        cartStorage = CartStoringMock()
+        subject = CheckoutInteractor(cartData: cartData, service: service, cartStorage: cartStorage)
         subject.projector = projector
         subject.navigation = navigation
         subject.errorPresenter = errorPresenter
@@ -97,11 +99,19 @@ final class CheckoutInteractorTests: XCTestCase {
         XCTAssertTrue(errorPresenter.didPresentError)
     }
 
-    func test_didTapCheckout_whenServiceReturnsError_callsPresenter() {
+    func test_didTapCheckout_whenServiceReturnsSuccess_callsPresenter() {
         subject.didUpdate(shippingAddress: VyrlFaker.faker.shippingAddress())
 
         subject.didTapCheckout()
 
         XCTAssertTrue(navigation.summaryPresented)
+    }
+
+    func test_didTapCheckout_whenServiceReturnsSuccess_clearsCartStorage() {
+        subject.didUpdate(shippingAddress: VyrlFaker.faker.shippingAddress())
+
+        subject.didTapCheckout()
+
+        XCTAssertTrue(cartStorage.didCallClear)
     }
 }

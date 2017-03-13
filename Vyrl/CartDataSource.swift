@@ -63,24 +63,26 @@ final class CartDataSource: NSObject, CartDataProviding {
 
     func loadData() {
         guard !cartStorage.items.isEmpty else {
-            emptyTableDelegate?.configure(with: .noData)
+            self.update(with: [])
             return
         }
 
         let productsIds: [String] = cartStorage.items.map({ $0.productId })
 
         service.getProducts(with: productsIds) { [weak self] result in
-            guard let `self` = self else {
-                return
-            }
+            guard let `self` = self else { return }
+
             let products = result.map(success: { return $0 }, failure: { _ in return [] })
-            self.products = products
-            guard !products.isEmpty else {
-                self.emptyTableDelegate?.configure(with: .noData)
-                return
-            }
-            self.reloadingDelegate?.reloadData()
-            self.summaryDelegate?.didUpdate(summary: CartSummary(products: products))
+            self.update(with: products)
+        }
+    }
+
+    fileprivate func update(with products: [Product]) {
+        self.products = products
+        reloadingDelegate?.reloadData()
+        summaryDelegate?.didUpdate(summary: CartSummary(products: products))
+        if products.isEmpty {
+            emptyTableDelegate?.configure(with: .noData)
         }
     }
 

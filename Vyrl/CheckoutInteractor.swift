@@ -29,15 +29,17 @@ final class CheckoutInteractor: CheckoutInteracting {
     fileprivate var shippingAddress: ShippingAddress?
     fileprivate let contactInfo = VyrlFaker.faker.contactInfo() //FIXME: https://taiga.neoteric.eu/project/mpaprocki-vyrl-mobile/us/112
     fileprivate let service: OrderProposalSending
+    fileprivate let cartStorage: CartStoring
 
     weak var projector: CheckoutRendering?
     weak var navigation: ShippingAddressViewPresenting & CheckoutSummaryViewPresenting?
     weak var errorPresenter: ErrorAlertPresenting?
 
-    init(cartData: CartData, service: OrderProposalSending) {
+    init(cartData: CartData, service: OrderProposalSending, cartStorage: CartStoring) {
         cartItems = cartData.cartItems
         products = cartData.products
         self.service = service
+        self.cartStorage = cartStorage
     }
 
     func viewDidLoad() {
@@ -45,7 +47,7 @@ final class CheckoutInteractor: CheckoutInteracting {
     }
 
     func didTapAddShippingAddress() {
-        navigation?.showShippingAdressView()
+        navigation?.showShippingAdressView(using: self)
     }
 
     func didUpdate(shippingAddress: ShippingAddress?) {
@@ -69,6 +71,7 @@ final class CheckoutInteractor: CheckoutInteracting {
         service.send(proposal: orderProposal) { [weak self] result in
             guard let `self` = self else { return }
             result.on(success: { _ in
+                self.cartStorage.clear()
                 self.navigation?.presentSummaryView()
             }, failure: { _ in
                 self.errorPresenter?.presentError(title: nil, message: Constants.checkoutError)

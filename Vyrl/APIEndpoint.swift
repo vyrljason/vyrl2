@@ -11,12 +11,17 @@ enum AuthorizationType {
     case none
     case user
 
-    func requestHeader(with token: String?) -> [String: String] {
+    func requestHeader(with token: String?, for api: APIType) -> [String: String] {
         switch self {
         case .none: return [:]
         case .user:
             guard let token = token else { return [:] }
-            return [String(describing: HTTPHeaderField.authorization): Constants.userHeaderPrefix + " " + token]
+            switch api {
+            case .influencers:
+                return [String(describing: HTTPHeaderField.authorization): Constants.userHeaderPrefix + " " + token]
+            case .main:
+                return [String(describing: HTTPHeaderField.authorization): token]
+            }
         }
     }
 }

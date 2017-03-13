@@ -64,13 +64,13 @@ final class CartInteractorTests: XCTestCase {
     }
 
     func test_init_didSetDelegate() {
-        subject.viewDidAppear()
+        subject.viewWillAppear()
 
         XCTAssertTrue(dataSourceMock.emptyTableDelegate === emptyTableHandler)
     }
 
     func test_viewDidLoad_madeDataSourceLoadData() {
-        subject.viewDidAppear()
+        subject.viewWillAppear()
 
         XCTAssertTrue(dataSourceMock.didLoad)
     }
@@ -88,7 +88,7 @@ final class CartInteractorTests: XCTestCase {
     }
 
     func test_didTapRequest_didShowChexkout() {
-        subject.viewDidAppear()
+        subject.viewWillAppear()
 
         subject.didTapRequest()
 

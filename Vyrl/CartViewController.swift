@@ -58,9 +58,9 @@ final class CartViewController: UIViewController, HavingNib {
         tableView.setEditing(editing, animated: animated)
     }
 
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        interactor.viewDidAppear()
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        interactor.viewWillAppear()
     }
 
     override func viewWillDisappear(_ animated: Bool) {

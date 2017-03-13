@@ -6,7 +6,7 @@ import UIKit
 import Kingfisher
 
 private struct Constants {
-    static let fastTransitionDuration: TimeInterval = 0.1
+    static let fastTransitionDuration: TimeInterval = 0.3
 }
 
 protocol DownloadableImageRendering {
