@@ -5,7 +5,6 @@
 import UIKit
 
 final class CheckoutSummaryViewController: UIViewController, HavingNib {
-
     private enum Constants {
         static let title = NSLocalizedString("checkout.title", comment: "")
     }

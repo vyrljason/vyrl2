@@ -39,7 +39,11 @@ extension UIViewController: NavigationItemRendering {
     }
 }
 
-extension UIViewController {
+protocol BackButtonHiding {
+    func hideBackButton()
+}
+
+extension UIViewController: BackButtonHiding {
     func hideBackButton() {
         navigationItem.hidesBackButton = true
     }
