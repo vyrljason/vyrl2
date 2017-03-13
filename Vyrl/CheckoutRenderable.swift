@@ -10,6 +10,7 @@ struct CheckoutRenderable {
     let address: String?
     let addressButtonVisible: Bool
     let contact: String?
+    let contactButtonVisible: Bool
     let agreement: NSAttributedString
     let checkoutButtonVisible: Bool
 }
@@ -30,6 +31,7 @@ extension CheckoutRenderable {
         self.address = address?.description
         self.addressButtonVisible = address == nil
         self.contact = contact?.description
+        self.contactButtonVisible = contact == nil
         self.agreement = Constants.agreement
         self.checkoutButtonVisible = !self.addressButtonVisible
     }

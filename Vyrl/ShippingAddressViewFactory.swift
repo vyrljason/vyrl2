@@ -4,11 +4,11 @@
 
 import Foundation
 
-protocol ShippingAddressMaking {
+protocol ShippingAddressViewMaking {
     static func make(controller: ShippingAddressControlling, listener: ShippingAddressUpdateListening) -> ShippingAddressViewController
 }
 
-enum ShippingAddressControllerFactory: ShippingAddressMaking {
+enum ShippingAddressControllerFactory: ShippingAddressViewMaking {
     static func make(controller: ShippingAddressControlling, listener: ShippingAddressUpdateListening) -> ShippingAddressViewController {
         let shippingInteractor = ShippingAddressInteractor()
         let shippingAddressViewController = ShippingAddressViewController(interactor: shippingInteractor, formFactory: ShippingAddressFormFactory.self)

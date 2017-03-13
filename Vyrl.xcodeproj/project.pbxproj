@@ -317,6 +317,18 @@
 		85DCFC001E72CC3E0046D0D5 /* CheckoutSummaryControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85DCFBFF1E72CC3E0046D0D5 /* CheckoutSummaryControllerFactory.swift */; };
 		85DCFC121E75B0CD0046D0D5 /* CartStoringMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85DCFC111E75B0CD0046D0D5 /* CartStoringMock.swift */; };
 		85DCFC141E75BA110046D0D5 /* CheckoutSummaryViewControllerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85DCFC131E75BA110046D0D5 /* CheckoutSummaryViewControllerTest.swift */; };
+		85DCFC1A1E75BC240046D0D5 /* ContactInfoInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85DCFC191E75BC240046D0D5 /* ContactInfoInteractor.swift */; };
+		85DCFC1C1E75BC2E0046D0D5 /* ContactInfoFormInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85DCFC1B1E75BC2D0046D0D5 /* ContactInfoFormInteractor.swift */; };
+		85DCFC1E1E75BC370046D0D5 /* ContactInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85DCFC1D1E75BC370046D0D5 /* ContactInfoViewController.swift */; };
+		85DCFC201E75BC420046D0D5 /* ContactInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 85DCFC1F1E75BC420046D0D5 /* ContactInfoViewController.xib */; };
+		85DCFC221E75BC630046D0D5 /* ContactInfoFormFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85DCFC211E75BC630046D0D5 /* ContactInfoFormFactory.swift */; };
+		85DCFC241E75BC710046D0D5 /* ContactInfoViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85DCFC231E75BC710046D0D5 /* ContactInfoViewFactory.swift */; };
+		85DCFC261E75C1760046D0D5 /* FormInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85DCFC251E75C1760046D0D5 /* FormInteractor.swift */; };
+		85DCFC281E75C3760046D0D5 /* CustomIntegerConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85DCFC271E75C3760046D0D5 /* CustomIntegerConvertible.swift */; };
+		85DCFC2B1E767FBB0046D0D5 /* ContactInfoInteractorTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85DCFC2A1E767FBB0046D0D5 /* ContactInfoInteractorTest.swift */; };
+		85DCFC2D1E7682300046D0D5 /* ContactInfoControllerSnapshotTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85DCFC2C1E7682300046D0D5 /* ContactInfoControllerSnapshotTest.swift */; };
+		85DCFC2F1E7682C60046D0D5 /* ShippingInfoControllerSnapshotTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85DCFC2E1E7682C60046D0D5 /* ShippingInfoControllerSnapshotTest.swift */; };
+		85DCFC311E7683BD0046D0D5 /* LoginViewControllerSnapshotTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85DCFC301E7683BD0046D0D5 /* LoginViewControllerSnapshotTest.swift */; };
 		85FA7A281E5C730800491EED /* NavigationHaving.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FA7A271E5C730800491EED /* NavigationHaving.swift */; };
 		85FB31E11E65E1C500E2F113 /* StyleKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FB31E01E65E1C500E2F113 /* StyleKit.swift */; };
 		A4256F0E1E675A7BB6AE21F5 /* Pods_Vyrl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AA1C43D9EC44CB342D10427 /* Pods_Vyrl.framework */; };
@@ -652,6 +664,18 @@
 		85DCFBFF1E72CC3E0046D0D5 /* CheckoutSummaryControllerFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckoutSummaryControllerFactory.swift; sourceTree = "<group>"; };
 		85DCFC111E75B0CD0046D0D5 /* CartStoringMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CartStoringMock.swift; sourceTree = "<group>"; };
 		85DCFC131E75BA110046D0D5 /* CheckoutSummaryViewControllerTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckoutSummaryViewControllerTest.swift; sourceTree = "<group>"; };
+		85DCFC191E75BC240046D0D5 /* ContactInfoInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactInfoInteractor.swift; sourceTree = "<group>"; };
+		85DCFC1B1E75BC2D0046D0D5 /* ContactInfoFormInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactInfoFormInteractor.swift; sourceTree = "<group>"; };
+		85DCFC1D1E75BC370046D0D5 /* ContactInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactInfoViewController.swift; sourceTree = "<group>"; };
+		85DCFC1F1E75BC420046D0D5 /* ContactInfoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ContactInfoViewController.xib; sourceTree = "<group>"; };
+		85DCFC211E75BC630046D0D5 /* ContactInfoFormFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactInfoFormFactory.swift; sourceTree = "<group>"; };
+		85DCFC231E75BC710046D0D5 /* ContactInfoViewFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactInfoViewFactory.swift; sourceTree = "<group>"; };
+		85DCFC251E75C1760046D0D5 /* FormInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormInteractor.swift; sourceTree = "<group>"; };
+		85DCFC271E75C3760046D0D5 /* CustomIntegerConvertible.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomIntegerConvertible.swift; sourceTree = "<group>"; };
+		85DCFC2A1E767FBB0046D0D5 /* ContactInfoInteractorTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactInfoInteractorTest.swift; sourceTree = "<group>"; };
+		85DCFC2C1E7682300046D0D5 /* ContactInfoControllerSnapshotTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactInfoControllerSnapshotTest.swift; sourceTree = "<group>"; };
+		85DCFC2E1E7682C60046D0D5 /* ShippingInfoControllerSnapshotTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShippingInfoControllerSnapshotTest.swift; sourceTree = "<group>"; };
+		85DCFC301E7683BD0046D0D5 /* LoginViewControllerSnapshotTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewControllerSnapshotTest.swift; sourceTree = "<group>"; };
 		85FA7A271E5C730800491EED /* NavigationHaving.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationHaving.swift; sourceTree = "<group>"; };
 		85FB31E01E65E1C500E2F113 /* StyleKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StyleKit.swift; sourceTree = "<group>"; };
 		BD1309C018727D87342F7FE2 /* Pods-VyrlTests.ad hoc.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VyrlTests.ad hoc.xcconfig"; path = "Pods/Target Support Files/Pods-VyrlTests/Pods-VyrlTests.ad hoc.xcconfig"; sourceTree = "<group>"; };
@@ -1440,6 +1464,7 @@
 		852ACD3D1E55DB6B00219E90 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				85DCFC251E75C1760046D0D5 /* FormInteractor.swift */,
 				858D63E61E55F21800CFDD4C /* ServiceLocator.swift */,
 				1A1FA9461E5DB05E007EB61D /* Networking */,
 				852ACD3E1E55DB7400219E90 /* Protocols */,
@@ -1473,6 +1498,7 @@
 				850A80CE1E5DCABA00E684A3 /* JSONSerializationProtocol.swift */,
 				1A31217B1E66E9CE00F71925 /* ObjectStoring.swift */,
 				853A833A1E718954006EBA8C /* ErrorPresenting.swift */,
+				85DCFC271E75C3760046D0D5 /* CustomIntegerConvertible.swift */,
 			);
 			name = Protocols;
 			sourceTree = "<group>";
@@ -1480,6 +1506,7 @@
 		852ACD411E55DC8300219E90 /* UserInterface */ = {
 			isa = PBXGroup;
 			children = (
+				8554BEC11E69D5A400E05A37 /* FormView.swift */,
 				85CA3FE91E647E9200D43805 /* FormTextField.swift */,
 				3132612B1E6F0222004C68BD /* UnselectableTextField.swift */,
 				1A69C6A51E56008100134EF5 /* NavigationBar.swift */,
@@ -1619,6 +1646,7 @@
 			isa = PBXGroup;
 			children = (
 				1AA7FAA91E69A47B001C0B6F /* CartNavigation.swift */,
+				85DCFC151E75BC050046D0D5 /* ContactInfo */,
 				8554BEB81E69C93A00E05A37 /* ShippingDetails */,
 				853A83511E72C512006EBA8C /* CheckoutSummary */,
 				853A83491E72C4A3006EBA8C /* Checkout */,
@@ -1754,7 +1782,6 @@
 			children = (
 				8554BEBD1E69C98200E05A37 /* ShippingAddressViewController.swift */,
 				8554BEBF1E69C99200E05A37 /* ShippingAddressViewController.xib */,
-				8554BEC11E69D5A400E05A37 /* FormView.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -1881,6 +1908,7 @@
 		858D64211E573D2700CFDD4C /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				85DCFC291E767F900046D0D5 /* ContactInfo.swift */,
 				853A833C1E71B939006EBA8C /* ShippingDetails */,
 				85B0A82C1E66AECE002093BA /* Login */,
 				1A3121691E659E0000F71925 /* Cart */,
@@ -1933,6 +1961,9 @@
 				1AA7FAA11E68C0AD001C0B6F /* InfoViewSnapshotTests.swift */,
 				1AA7FAAD1E69C4CA001C0B6F /* CheckoutViewControllerSnapshotTest.swift */,
 				85DCFC131E75BA110046D0D5 /* CheckoutSummaryViewControllerTest.swift */,
+				85DCFC2C1E7682300046D0D5 /* ContactInfoControllerSnapshotTest.swift */,
+				85DCFC2E1E7682C60046D0D5 /* ShippingInfoControllerSnapshotTest.swift */,
+				85DCFC301E7683BD0046D0D5 /* LoginViewControllerSnapshotTest.swift */,
 			);
 			name = SnapshotTest;
 			sourceTree = "<group>";
@@ -2103,6 +2134,51 @@
 			name = Factories;
 			sourceTree = "<group>";
 		};
+		85DCFC151E75BC050046D0D5 /* ContactInfo */ = {
+			isa = PBXGroup;
+			children = (
+				85DCFC181E75BC170046D0D5 /* Views */,
+				85DCFC171E75BC120046D0D5 /* Interactors */,
+				85DCFC161E75BC0E0046D0D5 /* Factories */,
+			);
+			name = ContactInfo;
+			sourceTree = "<group>";
+		};
+		85DCFC161E75BC0E0046D0D5 /* Factories */ = {
+			isa = PBXGroup;
+			children = (
+				85DCFC211E75BC630046D0D5 /* ContactInfoFormFactory.swift */,
+				85DCFC231E75BC710046D0D5 /* ContactInfoViewFactory.swift */,
+			);
+			name = Factories;
+			sourceTree = "<group>";
+		};
+		85DCFC171E75BC120046D0D5 /* Interactors */ = {
+			isa = PBXGroup;
+			children = (
+				85DCFC191E75BC240046D0D5 /* ContactInfoInteractor.swift */,
+				85DCFC1B1E75BC2D0046D0D5 /* ContactInfoFormInteractor.swift */,
+			);
+			name = Interactors;
+			sourceTree = "<group>";
+		};
+		85DCFC181E75BC170046D0D5 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				85DCFC1D1E75BC370046D0D5 /* ContactInfoViewController.swift */,
+				85DCFC1F1E75BC420046D0D5 /* ContactInfoViewController.xib */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		85DCFC291E767F900046D0D5 /* ContactInfo.swift */ = {
+			isa = PBXGroup;
+			children = (
+				85DCFC2A1E767FBB0046D0D5 /* ContactInfoInteractorTest.swift */,
+			);
+			name = ContactInfo.swift;
+			sourceTree = "<group>";
+		};
 		A04E77D5729CEC243AC965C5 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -2243,6 +2319,7 @@
 				1A31215E1E641CFB00F71925 /* CartItemCell.xib in Resources */,
 				1AEBB9741E608AA300113DC9 /* CartViewController.xib in Resources */,
 				1A1FA93A1E5D94FE007EB61D /* CategoryCell.xib in Resources */,
+				85DCFC201E75BC420046D0D5 /* ContactInfoViewController.xib in Resources */,
 				31EF230D1E67AF5F0073F624 /* CenteredWithDetailTableCell.xib in Resources */,
 				31EF23341E69A8A90073F624 /* TableHeaderCell.xib in Resources */,
 				8554BEC01E69C99200E05A37 /* ShippingAddressViewController.xib in Resources */,
@@ -2441,6 +2518,7 @@
 				858D63EA1E55F24C00CFDD4C /* Result.swift in Sources */,
 				8538599C1E606DA90098D1EB /* Dictionary+Operations.swift in Sources */,
 				31B0792E1E6F7A650015C302 /* UITextView+RemoveInsets.swift in Sources */,
+				85DCFC221E75BC630046D0D5 /* ContactInfoFormFactory.swift in Sources */,
 				85CA3FDC1E6477DF00D43805 /* LoginInteractor.swift in Sources */,
 				1A1FA9381E5D93BA007EB61D /* Category.swift in Sources */,
 				3169B9C61E647208005F8A94 /* ExpandableTextView.swift in Sources */,
@@ -2481,6 +2559,7 @@
 				85B0A8381E6703A2002093BA /* CALayer+BottomBorder.swift in Sources */,
 				85CA3FEA1E647E9300D43805 /* FormTextField.swift in Sources */,
 				850A80D81E5DEB2B00E684A3 /* KeychainProtocol.swift in Sources */,
+				85DCFC261E75C1760046D0D5 /* FormInteractor.swift in Sources */,
 				85B0A83D1E670DC9002093BA /* BrandsEndpoint.swift in Sources */,
 				853859A51E607E270098D1EB /* SocialNetworkProfile.swift in Sources */,
 				850A80A71E5D927300E684A3 /* DictionaryConvertible.swift in Sources */,
@@ -2491,6 +2570,7 @@
 				852ACD4B1E55DDEE00219E90 /* BrandCell.swift in Sources */,
 				1A859C4B1E58D1950013EB09 /* LeftMenuInteractor.swift in Sources */,
 				85CA3FEF1E6489CF00D43805 /* LoginFormInteractor.swift in Sources */,
+				85DCFC1C1E75BC2E0046D0D5 /* ContactInfoFormInteractor.swift in Sources */,
 				852ACD3A1E55DB0F00219E90 /* BrandsViewController.swift in Sources */,
 				85B0A8411E670F1D002093BA /* BrandsService.swift in Sources */,
 				1A69C6A61E56008100134EF5 /* NavigationBar.swift in Sources */,
@@ -2498,6 +2578,7 @@
 				850A80D61E5DE83200E684A3 /* CredentialsStorage.swift in Sources */,
 				1A69C6A01E55DC8C00134EF5 /* LeftMenuViewController.swift in Sources */,
 				85CA3FDF1E6477EF00D43805 /* LoginService.swift in Sources */,
+				85DCFC281E75C3760046D0D5 /* CustomIntegerConvertible.swift in Sources */,
 				858D64181E5722C900CFDD4C /* BrandsResourceMock.swift in Sources */,
 				858D63E01E55F19A00CFDD4C /* ImageFetcher.swift in Sources */,
 				850A80D31E5DE69200E684A3 /* APICredentialsProvider.swift in Sources */,
@@ -2535,11 +2616,13 @@
 				858D64451E587D3F00CFDD4C /* DispatchQueue+OnMain.swift in Sources */,
 				31FEB5B01E5CBE2A00C5E41D /* BrandStoreHeader.swift in Sources */,
 				1AA7FAA41E697747001C0B6F /* CheckoutViewController.swift in Sources */,
+				85DCFC1E1E75BC370046D0D5 /* ContactInfoViewController.swift in Sources */,
 				31FEB5AE1E5C5E3900C5E41D /* BrandStoreHeaderRenderable.swift in Sources */,
 				850A810A1E5F2B4B00E684A3 /* ResourceConfiguratorFactory.swift in Sources */,
 				850A80F21E5E269F00E684A3 /* UserCredentials.swift in Sources */,
 				1AEBB9721E608A9B00113DC9 /* CartInteractor.swift in Sources */,
 				31EF22F51E677E310073F624 /* TableViewHaving.swift in Sources */,
+				85DCFC1A1E75BC240046D0D5 /* ContactInfoInteractor.swift in Sources */,
 				858D644A1E58A67200CFDD4C /* EmptyCollectionViewHandler.swift in Sources */,
 				31EF22E71E664C180073F624 /* ProductDetailsViewController.swift in Sources */,
 				1ADAF7F61E545FA300155D9F /* RootNavigation.swift in Sources */,
@@ -2550,6 +2633,7 @@
 				31EF232E1E69A69D0073F624 /* DetailTableCellRenderable.swift in Sources */,
 				850A80AE1E5D977C00E684A3 /* APIConfiguration.swift in Sources */,
 				1A1FA9611E5F2E55007EB61D /* AccountViewControllerFactory.swift in Sources */,
+				85DCFC241E75BC710046D0D5 /* ContactInfoViewFactory.swift in Sources */,
 				31B079311E709FF20015C302 /* SwipeableGalleryTableCell.swift in Sources */,
 				8554BE8F1E6883AE00E05A37 /* Variants.swift in Sources */,
 				1A1FA9641E5F4D19007EB61D /* AccountViewController.swift in Sources */,
@@ -2612,6 +2696,7 @@
 				85B2CD661E6D83F200C4C744 /* KeyboardHandlerTest.swift in Sources */,
 				858D63FB1E56037600CFDD4C /* ImageFetcherMock.swift in Sources */,
 				85B0A8451E67334A002093BA /* BrandsResourceTest.swift in Sources */,
+				85DCFC2F1E7682C60046D0D5 /* ShippingInfoControllerSnapshotTest.swift in Sources */,
 				1A1FA9511E5E2668007EB61D /* CategoriesDataSourceTests.swift in Sources */,
 				1AA7FAA21E68C0AD001C0B6F /* InfoViewSnapshotTests.swift in Sources */,
 				1AA7FA901E686F32001C0B6F /* EmptyTableViewHandlerMock.swift in Sources */,
@@ -2639,12 +2724,15 @@
 				3169B9D21E650EFC005F8A94 /* BrandStoreHeaderSnapshotTest.swift in Sources */,
 				853A833E1E71B95F006EBA8C /* ShippingAddressInteractorTest.swift in Sources */,
 				850A80B31E5D9EA800E684A3 /* APIConfigurationTest.swift in Sources */,
+				85DCFC2D1E7682300046D0D5 /* ContactInfoControllerSnapshotTest.swift in Sources */,
 				31EF22FD1E6784BA0073F624 /* ProductDetailsInteractorTest.swift in Sources */,
 				3169B9AE1E603B84005F8A94 /* BrandStoreCellSnapshotTest.swift in Sources */,
 				1A1FA9591E5F10DC007EB61D /* LeftMenuViewControllerSnapshotTest.swift in Sources */,
 				85DCFC141E75BA110046D0D5 /* CheckoutSummaryViewControllerTest.swift in Sources */,
 				85B0A8341E66B63B002093BA /* LoginServiceMock.swift in Sources */,
 				858D63F91E56030300CFDD4C /* DownloadingImageViewTest.swift in Sources */,
+				85DCFC311E7683BD0046D0D5 /* LoginViewControllerSnapshotTest.swift in Sources */,
+				85DCFC2B1E767FBB0046D0D5 /* ContactInfoInteractorTest.swift in Sources */,
 				85437AA31E58D4E200551D2D /* EmptyCollectionViewHandlerTest.swift in Sources */,
 				3169B9B81E6086D6005F8A94 /* BrandStoreInteractorTest.swift in Sources */,
 				3169B9D01E64FB73005F8A94 /* BrandStoreDataSourceTest.swift in Sources */,
