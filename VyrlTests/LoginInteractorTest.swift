@@ -11,11 +11,6 @@ final class LoginFormMock: LoginFormInteracting {
     var status: ValidationStatus = .valid
 }
 
-protocol LoginInteracting: class, FormActionDelegate {
-    weak var presenter: ErrorAlertPresenting & ViewActivityPresenting? { get set }
-    func didPrepare(form: LoginFormInteracting)
-}
-
 final class AuthorizationListenerMock: AuthorizationListener {
     var didCallFinish = false
 

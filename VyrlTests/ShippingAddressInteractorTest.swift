@@ -5,7 +5,8 @@
 @testable import Vyrl
 import XCTest
 
-final class ShippingAddresFormMock: ShippingFormInteracting {
+final class ShippingAddresFormMock: NSObject, ShippingFormInteracting {
+    var fields = [FormItem]()
     var delegate: FormActionDelegate?
     var result: ShippingAddress?
     var status: ValidationStatus = .valid
@@ -103,6 +104,5 @@ final class ShippingAddressInteractorTest: XCTestCase {
 
         XCTAssertTrue(listener.didCallUpdate)
         XCTAssertNotNil(listener.lastShippingAddress)
-
     }
 }
