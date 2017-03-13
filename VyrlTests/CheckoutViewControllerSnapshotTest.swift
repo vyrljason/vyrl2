@@ -7,12 +7,14 @@ import XCTest
 
 final class CheckoutInteractorMock: CheckoutInteracting {
     weak var projector: CheckoutRendering?
-    weak var navigation: ShippingAddressViewPresenting & CheckoutSummaryViewPresenting?
+    weak var navigation: ShippingAddressViewPresenting & ContactInfoViewPresenting & CheckoutSummaryViewPresenting?
     weak var errorPresenter: ErrorAlertPresenting?
     func viewDidLoad() { }
     func didTapAddShippingAddress() { }
     func didUpdate(shippingAddress: ShippingAddress?) { }
     func didTapCheckout() { }
+    func didTapContactInfo() { }
+    func didUpdate(contactInfo: ContactInfo?) { }
 }
 
 final class CheckoutViewControllerSnapshotTest: SnapshotTestCase {
@@ -32,6 +34,7 @@ final class CheckoutViewControllerSnapshotTest: SnapshotTestCase {
                                             address: "Semper crescis\naut decrescis",
                                             addressButtonVisible: false,
                                             contact: "Nunc obdurat\net tunc curat",
+                                            contactButtonVisible: false,
                                             agreement: agreement,
                                             checkoutButtonVisible: true)
         let _ = view.view

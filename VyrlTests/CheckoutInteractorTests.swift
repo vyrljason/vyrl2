@@ -9,8 +9,10 @@ final class OrderProposalServiceMock: OrderProposalSending {
     var success = true
     var orders = Orders(orders: [])
     var error = ServiceError.unknown
+    var didCallService = false
 
     func send(proposal: OrderProposal, completion: @escaping (Result<Orders, ServiceError>) -> Void) {
+        didCallService = true
         if success {
             completion(.success(orders))
         } else {
@@ -27,9 +29,10 @@ final class CheckoutRenderingMock: CheckoutRendering {
     }
 }
 
-final class CheckoutNavigationMock: ShippingAddressViewPresenting, CheckoutSummaryViewPresenting {
+final class CheckoutNavigationMock: ShippingAddressViewPresenting, CheckoutSummaryViewPresenting, ContactInfoViewPresenting {
     var summaryPresented = false
     var shippingPresented = false
+    var contactInfoPresented = false
 
     func presentSummaryView() {
         summaryPresented = true
@@ -37,6 +40,10 @@ final class CheckoutNavigationMock: ShippingAddressViewPresenting, CheckoutSumma
 
     func showShippingAdressView(using listener: ShippingAddressUpdateListening) {
         shippingPresented = true
+    }
+
+    func showContactInfoView(using listener: ContactInfoUpdateListening) {
+        contactInfoPresented = true
     }
 }
 
@@ -74,6 +81,20 @@ final class CheckoutInteractorTests: XCTestCase {
         XCTAssertTrue(navigation.shippingPresented)
     }
 
+    func test_didTapContactInfo_callsNavigation() {
+        subject.didTapContactInfo()
+
+        XCTAssertTrue(navigation.contactInfoPresented)
+    }
+
+    func test_didUpdateContactInfo_callsNavigation() {
+        projector.renderable = nil
+
+        subject.didUpdate(contactInfo: VyrlFaker.faker.contactInfo())
+
+        XCTAssertNotNil(projector.renderable)
+    }
+
     func test_didUpdateShippingAddress_refreshesRenderable() {
         projector.renderable = nil
 
@@ -82,8 +103,18 @@ final class CheckoutInteractorTests: XCTestCase {
         XCTAssertNotNil(projector.renderable)
     }
 
-    func test_didTapCheckout_whenNoShippingAddress_presentsError() {
+    func test_didTapCheckout_whenShippingAddressPresentButNoContactInfo_presentsError() {
+        subject.didUpdate(shippingAddress: VyrlFaker.faker.shippingAddress())
+        subject.didUpdate(contactInfo: nil)
+
+        subject.didTapCheckout()
+
+        XCTAssertTrue(errorPresenter.didPresentError)
+    }
+
+    func test_didTapCheckout_whenContactInfoPresentButNoShippingAddress_presentsError() {
         subject.didUpdate(shippingAddress: nil)
+        subject.didUpdate(contactInfo: VyrlFaker.faker.contactInfo())
 
         subject.didTapCheckout()
 
@@ -92,26 +123,32 @@ final class CheckoutInteractorTests: XCTestCase {
 
     func test_didTapCheckout_whenServiceReturnsError_presentsError() {
         subject.didUpdate(shippingAddress: VyrlFaker.faker.shippingAddress())
+        subject.didUpdate(contactInfo: VyrlFaker.faker.contactInfo())
         service.success = false
 
         subject.didTapCheckout()
 
+        XCTAssertTrue(service.didCallService)
         XCTAssertTrue(errorPresenter.didPresentError)
     }
 
     func test_didTapCheckout_whenServiceReturnsSuccess_callsPresenter() {
         subject.didUpdate(shippingAddress: VyrlFaker.faker.shippingAddress())
+        subject.didUpdate(contactInfo: VyrlFaker.faker.contactInfo())
 
         subject.didTapCheckout()
 
+        XCTAssertTrue(service.didCallService)
         XCTAssertTrue(navigation.summaryPresented)
     }
 
     func test_didTapCheckout_whenServiceReturnsSuccess_clearsCartStorage() {
         subject.didUpdate(shippingAddress: VyrlFaker.faker.shippingAddress())
+        subject.didUpdate(contactInfo: VyrlFaker.faker.contactInfo())
 
         subject.didTapCheckout()
 
+        XCTAssertTrue(service.didCallService)
         XCTAssertTrue(cartStorage.didCallClear)
     }
 }
