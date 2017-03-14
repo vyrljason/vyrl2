@@ -333,10 +333,13 @@
 		85DCFC2D1E7682300046D0D5 /* ContactInfoControllerSnapshotTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85DCFC2C1E7682300046D0D5 /* ContactInfoControllerSnapshotTest.swift */; };
 		85DCFC2F1E7682C60046D0D5 /* ShippingInfoControllerSnapshotTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85DCFC2E1E7682C60046D0D5 /* ShippingInfoControllerSnapshotTest.swift */; };
 		85DCFC311E7683BD0046D0D5 /* LoginViewControllerSnapshotTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85DCFC301E7683BD0046D0D5 /* LoginViewControllerSnapshotTest.swift */; };
+		85DCFC3A1E76B3490046D0D5 /* ActionButtonRenderable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85DCFC391E76B3490046D0D5 /* ActionButtonRenderable.swift */; };
 		85DCFC3C1E76C1C10046D0D5 /* String+isEmail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85DCFC3B1E76C1C10046D0D5 /* String+isEmail.swift */; };
 		85DCFC3E1E76C1E70046D0D5 /* String+isEmailTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85DCFC3D1E76C1E70046D0D5 /* String+isEmailTest.swift */; };
+		85DCFC401E76C6FA0046D0D5 /* ActionDescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85DCFC3F1E76C6FA0046D0D5 /* ActionDescriptionView.swift */; };
 		85DCFC431E76D5B50046D0D5 /* FormInteracting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85DCFC421E76D5B50046D0D5 /* FormInteracting.swift */; };
 		85DCFC451E76D7CF0046D0D5 /* FormFieldsInteractorMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85DCFC441E76D7CF0046D0D5 /* FormFieldsInteractorMock.swift */; };
+		85DCFC471E77FED00046D0D5 /* Array+Hashable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85DCFC461E77FED00046D0D5 /* Array+Hashable.swift */; };
 		85FA7A281E5C730800491EED /* NavigationHaving.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FA7A271E5C730800491EED /* NavigationHaving.swift */; };
 		85FB31E11E65E1C500E2F113 /* StyleKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FB31E01E65E1C500E2F113 /* StyleKit.swift */; };
 		A4256F0E1E675A7BB6AE21F5 /* Pods_Vyrl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AA1C43D9EC44CB342D10427 /* Pods_Vyrl.framework */; };
@@ -688,10 +691,13 @@
 		85DCFC2C1E7682300046D0D5 /* ContactInfoControllerSnapshotTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactInfoControllerSnapshotTest.swift; sourceTree = "<group>"; };
 		85DCFC2E1E7682C60046D0D5 /* ShippingInfoControllerSnapshotTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShippingInfoControllerSnapshotTest.swift; sourceTree = "<group>"; };
 		85DCFC301E7683BD0046D0D5 /* LoginViewControllerSnapshotTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewControllerSnapshotTest.swift; sourceTree = "<group>"; };
+		85DCFC391E76B3490046D0D5 /* ActionButtonRenderable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionButtonRenderable.swift; sourceTree = "<group>"; };
 		85DCFC3B1E76C1C10046D0D5 /* String+isEmail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+isEmail.swift"; sourceTree = "<group>"; };
 		85DCFC3D1E76C1E70046D0D5 /* String+isEmailTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+isEmailTest.swift"; sourceTree = "<group>"; };
+		85DCFC3F1E76C6FA0046D0D5 /* ActionDescriptionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionDescriptionView.swift; sourceTree = "<group>"; };
 		85DCFC421E76D5B50046D0D5 /* FormInteracting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormInteracting.swift; sourceTree = "<group>"; };
 		85DCFC441E76D7CF0046D0D5 /* FormFieldsInteractorMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormFieldsInteractorMock.swift; sourceTree = "<group>"; };
+		85DCFC461E77FED00046D0D5 /* Array+Hashable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Array+Hashable.swift"; sourceTree = "<group>"; };
 		85FA7A271E5C730800491EED /* NavigationHaving.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationHaving.swift; sourceTree = "<group>"; };
 		85FB31E01E65E1C500E2F113 /* StyleKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StyleKit.swift; sourceTree = "<group>"; };
 		BD1309C018727D87342F7FE2 /* Pods-VyrlTests.ad hoc.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VyrlTests.ad hoc.xcconfig"; path = "Pods/Target Support Files/Pods-VyrlTests/Pods-VyrlTests.ad hoc.xcconfig"; sourceTree = "<group>"; };
@@ -1596,6 +1602,7 @@
 			children = (
 				1AA7FAA31E697747001C0B6F /* CheckoutViewController.swift */,
 				1AA7FAA51E69783F001C0B6F /* CheckoutViewController.xib */,
+				85DCFC3F1E76C6FA0046D0D5 /* ActionDescriptionView.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -1639,6 +1646,7 @@
 			isa = PBXGroup;
 			children = (
 				853A83421E72A50E006EBA8C /* CheckoutRenderable.swift */,
+				85DCFC391E76B3490046D0D5 /* ActionButtonRenderable.swift */,
 			);
 			name = Renderables;
 			sourceTree = "<group>";
@@ -2033,6 +2041,7 @@
 				853A832E1E7024D0006EBA8C /* Array+Utils.swift */,
 				31B079471E75A4FD0015C302 /* UIViewController+NoTitleBackButton.swift */,
 				85DCFC3B1E76C1C10046D0D5 /* String+isEmail.swift */,
+				85DCFC461E77FED00046D0D5 /* Array+Hashable.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -2599,6 +2608,7 @@
 				853859A51E607E270098D1EB /* SocialNetworkProfile.swift in Sources */,
 				850A80A71E5D927300E684A3 /* DictionaryConvertible.swift in Sources */,
 				850A80E41E5E16E500E684A3 /* JSONToModelDeserializer.swift in Sources */,
+				85DCFC3A1E76B3490046D0D5 /* ActionButtonRenderable.swift in Sources */,
 				858D64471E58A4C000CFDD4C /* CollectionViewRefreshing.swift in Sources */,
 				858D63E51E55F1E000CFDD4C /* ImageRetriever.swift in Sources */,
 				3168A27B1E5EF66F00C65434 /* ProductsResourceMock.swift in Sources */,
@@ -2702,6 +2712,8 @@
 				8554BE7A1E68457C00E05A37 /* BrandsRequest.swift in Sources */,
 				850A80C61E5DAA1E00E684A3 /* AuthorizationResources.swift in Sources */,
 				1A50C1A31E6729650002A6DC /* ReloadingData.swift in Sources */,
+				85DCFC401E76C6FA0046D0D5 /* ActionDescriptionView.swift in Sources */,
+				85DCFC471E77FED00046D0D5 /* Array+Hashable.swift in Sources */,
 				85FA7A281E5C730800491EED /* NavigationHaving.swift in Sources */,
 				858D64261E5747D600CFDD4C /* BrandsControllerFactory.swift in Sources */,
 				850A80C11E5DA94800E684A3 /* NetworkEnums.swift in Sources */,

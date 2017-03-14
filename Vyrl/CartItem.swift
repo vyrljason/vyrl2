@@ -8,11 +8,13 @@ protocol StorageItemProtocol {
     init?(from dictionary: [String : AnyObject])
     var storableRepresentation: [String: AnyObject] { get }
 }
+
 struct CartItem {
 
     let productId: String
     let productVariants: [ProductVariant]
     let addedAt: Date
+    var product: Product? = nil
 
     init(productId: String, addedAt: Date, productVariants: [ProductVariant]) {
         self.productId = productId
@@ -39,6 +41,7 @@ extension CartItem: StorageItemProtocol {
         static let idKey: String = "CartItem.id"
         static let addedAtKey: String = "CartItem.addedAt"
         static let variantsKey: String = "CartItem.variants"
+        static let hashValue: String = "CartItem.hashValue"
     }
 
     init?(from dictionary: [String : AnyObject]) {
@@ -56,6 +59,7 @@ extension CartItem: StorageItemProtocol {
     var storableRepresentation: [String : AnyObject] {
         let variantsAsDictionaries: [[String: AnyObject]] = productVariants.flatMap { $0.dictionaryRepresentation as [String: AnyObject] }
         var dictionary: Dictionary = [String: AnyObject]()
+        dictionary[Constants.hashValue] = hashValue as AnyObject?
         dictionary[Constants.idKey] = productId as AnyObject?
         dictionary[Constants.addedAtKey] = addedAt as AnyObject?
         dictionary[Constants.variantsKey] = variantsAsDictionaries as AnyObject?
@@ -66,5 +70,11 @@ extension CartItem: StorageItemProtocol {
 extension CartItem: Equatable {
     static func == (lhs: CartItem, rhs: CartItem) -> Bool {
         return lhs.productId == rhs.productId && lhs.addedAt == rhs.addedAt
+    }
+}
+
+extension CartItem: Hashable {
+    var hashValue: Int {
+        return productId.hashValue ^ addedAt.hashValue ^ productVariants.customHashValue
     }
 }

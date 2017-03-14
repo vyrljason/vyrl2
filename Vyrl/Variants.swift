@@ -52,3 +52,19 @@ extension ProductVariant: StorageItemProtocol {
         return dictionaryRepresentation as [String: AnyObject]
     }
 }
+
+extension ProductVariant: CustomStringConvertible {
+    var description: String {
+        return "- " + name + ": " + value
+    }
+}
+
+extension ProductVariant: Hashable {
+    var hashValue: Int {
+        return name.hashValue ^ value.hashValue
+    }
+}
+
+func == (lhs: ProductVariant, rhs: ProductVariant) -> Bool {
+    return lhs.name == rhs.name && lhs.value == rhs.value
+}

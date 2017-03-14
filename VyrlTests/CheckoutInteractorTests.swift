@@ -21,11 +21,16 @@ final class OrderProposalServiceMock: OrderProposalSending {
     }
 }
 
-final class CheckoutRenderingMock: CheckoutRendering {
+final class CheckoutRenderingMock: CheckoutRendering, ActionButtonRendering {
     var renderable: CheckoutRenderable?
+    var actionRenderable: ActionButtonRenderable?
 
     func render(_ renderable: CheckoutRenderable) {
         self.renderable = renderable
+    }
+
+    func render(_ renderable: ActionButtonRenderable) {
+        self.actionRenderable = renderable
     }
 }
 

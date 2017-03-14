@@ -51,6 +51,7 @@ final class CartDataSource: NSObject, CartDataProviding {
     fileprivate let cartStorage: CartStoring
     fileprivate let service: ProductsWithIdsProviding
     fileprivate var products: [Product] = []
+    fileprivate var items: [CartItem] = []
 
     init(cartStorage: CartStoring, service: ProductsWithIdsProviding) {
         self.cartStorage = cartStorage
@@ -62,12 +63,13 @@ final class CartDataSource: NSObject, CartDataProviding {
     }
 
     func loadData() {
-        guard !cartStorage.items.isEmpty else {
+        items = cartStorage.items
+        guard !items.isEmpty else {
             self.update(with: [])
             return
         }
 
-        let productsIds: [String] = cartStorage.items.map({ $0.productId })
+        let productsIds: [String] = items.map({ $0.productId })
 
         service.getProducts(with: productsIds) { [weak self] result in
             guard let `self` = self else { return }
@@ -79,6 +81,11 @@ final class CartDataSource: NSObject, CartDataProviding {
 
     fileprivate func update(with products: [Product]) {
         self.products = products
+        self.items = self.items.map { (item) in
+            var modifiedItem = item
+            modifiedItem.product = products.filter({ $0.id == item.productId }).first
+            return modifiedItem
+        }
         reloadingDelegate?.reloadData()
         summaryDelegate?.didUpdate(summary: CartSummary(products: products))
         if products.isEmpty {
@@ -87,14 +94,13 @@ final class CartDataSource: NSObject, CartDataProviding {
     }
 
     fileprivate func removeItem(at index: Int) {
-        let product = products[index]
-        if let itemToRemove = cartStorage.items.filter({ $0.productId == product.id }).first {
-            cartStorage.remove(item: itemToRemove)
-            products.remove(at: index)
-            summaryDelegate?.didUpdate(summary: CartSummary(products: products))
-            if cartStorage.items.isEmpty {
-                emptyTableDelegate?.configure(with: .noData)
-            }
+        let item = items[index]
+        cartStorage.remove(item: item)
+        items.remove(at: index)
+        products.remove(at: index)
+        summaryDelegate?.didUpdate(summary: CartSummary(products: products))
+        if items.isEmpty {
+            emptyTableDelegate?.configure(with: .noData)
         }
     }
 }
@@ -112,25 +118,26 @@ extension CartDataSource: TableViewUsing {
 }
 
 extension CartDataSource: UITableViewDelegate, UITableViewDataSource {
-    
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return products.count
+        return items.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: CartItemCell = tableView.dequeueCell(at: indexPath)
-        prepare(cell: cell, using: products[indexPath.row])
+        prepare(cell: cell, cartItem: items[indexPath.row])
         return cell
     }
 
-    fileprivate func prepare(cell: CartItemCell, using product: Product) {
-        cell.render(product.cartItemRenderable)
-        guard let imageURL = product.images.first?.url else { return }
+    fileprivate func prepare(cell: CartItemCell, cartItem: CartItem) {
+        guard let renderable = CartItemCellRenderable(cartItem: cartItem) else { return }
+        cell.render(renderable)
+        guard let imageURL = cartItem.product?.images.first?.url else { return }
         cell.set(imageFetcher: ImageFetcher(url: imageURL))
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let product = products[indexPath.row]
+        guard let product = items[indexPath.row].product else { return }
         guidelinesDelegate?.showGuidelines(for: product)
         tableView.deselectRow(at: indexPath, animated: true)
     }

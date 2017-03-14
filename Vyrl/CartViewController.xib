@@ -53,25 +53,26 @@
                             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="vBC-cu-sA0">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
                             <blurEffect style="dark"/>
                         </visualEffectView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5KX-Ze-zjj">
-                            <rect key="frame" x="8" y="6" width="103" height="34"/>
+                            <rect key="frame" x="12" y="6" width="103" height="34"/>
                             <string key="text">3 products from
 2 companies</string>
                             <fontDescription key="fontDescription" type="system" weight="light" pointSize="14"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="in retail value" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SPe-U5-XU9">
-                            <rect key="frame" x="277" y="4" width="84" height="17"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="in retail value:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SPe-U5-XU9">
+                            <rect key="frame" x="275.5" y="4" width="87.5" height="17"/>
                             <fontDescription key="fontDescription" type="system" weight="light" pointSize="14"/>
                             <color key="textColor" red="0.61568627450980395" green="0.61568627450980395" blue="0.61568627450980395" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" text="$100" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jZ6-go-j5D">
-                            <rect key="frame" x="323" y="20" width="38" height="20"/>
+                            <rect key="frame" x="325" y="20" width="38" height="20"/>
                             <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
@@ -80,15 +81,15 @@
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="44" id="1Mn-G6-7Ua"/>
-                        <constraint firstAttribute="trailing" secondItem="SPe-U5-XU9" secondAttribute="trailing" constant="14" id="4jb-Me-tme"/>
-                        <constraint firstItem="5KX-Ze-zjj" firstAttribute="leading" secondItem="zE7-dY-15I" secondAttribute="leading" constant="8" id="9AH-md-MCZ"/>
+                        <constraint firstAttribute="trailing" secondItem="SPe-U5-XU9" secondAttribute="trailing" constant="12" id="4jb-Me-tme"/>
+                        <constraint firstItem="5KX-Ze-zjj" firstAttribute="leading" secondItem="zE7-dY-15I" secondAttribute="leading" constant="12" id="9AH-md-MCZ"/>
                         <constraint firstAttribute="bottom" secondItem="nRj-iT-To2" secondAttribute="bottom" id="FxS-oN-p7w"/>
                         <constraint firstAttribute="trailing" secondItem="nRj-iT-To2" secondAttribute="trailing" id="JVx-Nz-GFN"/>
                         <constraint firstItem="nRj-iT-To2" firstAttribute="leading" secondItem="zE7-dY-15I" secondAttribute="leading" id="Jo7-hX-zMl"/>
                         <constraint firstItem="SPe-U5-XU9" firstAttribute="top" secondItem="zE7-dY-15I" secondAttribute="top" constant="4" id="O0M-fg-HSC"/>
                         <constraint firstItem="5KX-Ze-zjj" firstAttribute="centerY" secondItem="zE7-dY-15I" secondAttribute="centerY" constant="0.75" id="hSz-5W-6Fy"/>
                         <constraint firstItem="nRj-iT-To2" firstAttribute="top" secondItem="zE7-dY-15I" secondAttribute="top" id="hj3-Ct-4ar"/>
-                        <constraint firstAttribute="trailing" secondItem="jZ6-go-j5D" secondAttribute="trailing" constant="14" id="uEE-Td-mhF"/>
+                        <constraint firstAttribute="trailing" secondItem="jZ6-go-j5D" secondAttribute="trailing" constant="12" id="uEE-Td-mhF"/>
                         <constraint firstAttribute="bottom" secondItem="jZ6-go-j5D" secondAttribute="bottom" constant="4" id="yYs-xD-nS3"/>
                     </constraints>
                 </view>

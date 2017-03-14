@@ -18,7 +18,7 @@ protocol ContactInfoUpdateListening: class {
 }
 
 protocol CheckoutInteracting: class, ShippingAddressUpdateListening, ContactInfoUpdateListening {
-    weak var projector: CheckoutRendering? { get set }
+    weak var projector: CheckoutRendering & ActionButtonRendering? { get set }
     weak var navigation: ShippingAddressViewPresenting & ContactInfoViewPresenting & CheckoutSummaryViewPresenting? { get set }
     weak var errorPresenter: ErrorAlertPresenting? { get set }
     func viewDidLoad()
@@ -36,7 +36,7 @@ final class CheckoutInteractor: CheckoutInteracting {
     fileprivate let service: OrderProposalSending
     fileprivate let cartStorage: CartStoring
 
-    weak var projector: CheckoutRendering?
+    weak var projector: CheckoutRendering & ActionButtonRendering?
     weak var navigation: ShippingAddressViewPresenting & ContactInfoViewPresenting & CheckoutSummaryViewPresenting?
     weak var errorPresenter: ErrorAlertPresenting?
 
@@ -69,11 +69,21 @@ final class CheckoutInteractor: CheckoutInteracting {
         refreshRenderable()
     }
 
+    private func refreshActionRenderable() {
+        let state: ActionButtonState
+        if let _ = contactInfo, let _ = shippingAddress {
+            state = .enabled
+        } else {
+            state = .disabled
+        }
+        projector?.render(ActionButtonRenderable(state: state))
+    }
     private func refreshRenderable() {
         let renderable = CheckoutRenderable(products: products,
                                             address: shippingAddress,
                                             contact: contactInfo)
         projector?.render(renderable)
+        refreshActionRenderable()
     }
 
     func didTapCheckout() {
@@ -81,9 +91,11 @@ final class CheckoutInteractor: CheckoutInteracting {
             errorPresenter?.presentError(title: nil, message: Constants.incompleteDataError)
             return
         }
+        projector?.render(ActionButtonRenderable(state: .inProgress))
         let orderProposal = OrderProposal(products: cartItems, shippingAddress: shippingAddress, contactInfo: contactInfo)
         service.send(proposal: orderProposal) { [weak self] result in
             guard let `self` = self else { return }
+            self.refreshActionRenderable()
             result.on(success: { _ in
                 self.cartStorage.clear()
                 self.navigation?.presentSummaryView()

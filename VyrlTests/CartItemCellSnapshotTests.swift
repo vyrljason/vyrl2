@@ -18,7 +18,7 @@ final class CartItemCellSnapshotTest: SnapshotTestCase {
         view.frame = CGRect(x: 0, y: 0, width: 375, height: 120)
 
         let cartItemRenderable: CartItemCellRenderable = CartItemCellRenderable(title: "Leica",
-                                                                                subTitle: "Custom-made by Jony Ive and Marc Newson",
+                                                                                subTitle: "- lens: Voigtlander 40mm F1.4\n- model: R8",
                                                                                 price: "$1,805,000")
 
         view.render(cartItemRenderable)

@@ -7,12 +7,9 @@ import Foundation
 struct CheckoutRenderable {
     let summaryHead: String
     let summarySubHead: String
-    let address: String?
-    let addressButtonVisible: Bool
-    let contact: String?
-    let contactButtonVisible: Bool
     let agreement: NSAttributedString
-    let checkoutButtonVisible: Bool
+    let contact: ActionDescriptionRenderable
+    let shippingAddress: ActionDescriptionRenderable
 }
 
 extension CheckoutRenderable {
@@ -28,11 +25,8 @@ extension CheckoutRenderable {
         let summary = CartSummary(products: products)
         summaryHead = NSString(format: Constants.summaryHeadFormat, summary.productsCount, summary.brandsCount) as String
         summarySubHead = NSString(format: Constants.summarySubHeadFormat, summary.brandsCount) as String
-        self.address = address?.description
-        self.addressButtonVisible = address == nil
-        self.contact = contact?.description
-        self.contactButtonVisible = contact == nil
+        self.contact = ActionDescriptionRenderable(isActionAvailable: contact == nil, description: contact?.description, isDescriptionLabelVisible: contact != nil)
+        self.shippingAddress = ActionDescriptionRenderable(isActionAvailable: address == nil, description: address?.description, isDescriptionLabelVisible: address != nil)
         self.agreement = Constants.agreement
-        self.checkoutButtonVisible = !self.addressButtonVisible
     }
 }

@@ -8,23 +8,27 @@ protocol CheckoutRendering: class {
     func render(_ renderable: CheckoutRenderable)
 }
 
+protocol ActionButtonRendering: class {
+    func render(_ renderable: ActionButtonRenderable)
+}
+
+private enum Constants {
+    static let title = NSLocalizedString("checkout.title", comment: "")
+    static let scrollViewInset = UIEdgeInsets(top: 0, left: 0, bottom: 48, right: 0)
+    static let enabledColor = UIColor.rouge
+    static let disabledColor = UIColor.greyishBrown
+}
+
 final class CheckoutViewController: UIViewController, HavingNib {
 
-    @IBOutlet fileprivate var summaryHead: UILabel!
-    @IBOutlet fileprivate var summarySubHead: UILabel!
-    @IBOutlet fileprivate var address: UILabel!
-    @IBOutlet fileprivate var contact: UILabel!
-    @IBOutlet fileprivate var addressTextContainer: UIView!
-    @IBOutlet fileprivate var contactTextContainer: UIView!
-    @IBOutlet fileprivate var addressButtonContainer: UIView!
-    @IBOutlet fileprivate var contactButtonContainer: UIView!
-    @IBOutlet fileprivate var agreement: AutoexpandableTextView!
-    @IBOutlet fileprivate var scroll: UIScrollView!
-
-    private enum Constants {
-        static let title = NSLocalizedString("checkout.title", comment: "")
-        static let scrollViewInset = UIEdgeInsets(top: 0, left: 0, bottom: 48, right: 0)
-    }
+    @IBOutlet fileprivate weak var summaryHead: UILabel!
+    @IBOutlet fileprivate weak var summarySubHead: UILabel!
+    @IBOutlet fileprivate var addressContainer: ActionDescriptionView!
+    @IBOutlet fileprivate var contactContainer: ActionDescriptionView!
+    @IBOutlet fileprivate weak var agreement: AutoexpandableTextView!
+    @IBOutlet fileprivate weak var scroll: UIScrollView!
+    @IBOutlet fileprivate weak var checkoutButton: UIButton!
+    @IBOutlet fileprivate weak var activityIndicator: UIActivityIndicatorView!
 
     fileprivate let interactor: CheckoutInteracting
 
@@ -51,13 +55,23 @@ extension CheckoutViewController: CheckoutRendering {
     func render(_ renderable: CheckoutRenderable) {
         summaryHead.text = renderable.summaryHead
         summarySubHead.text = renderable.summarySubHead
-        address.text = renderable.address
-        addressButtonContainer.isHidden = !renderable.addressButtonVisible
-        addressTextContainer.isHidden = renderable.addressButtonVisible
-        contactButtonContainer.isHidden = !renderable.contactButtonVisible
-        contactTextContainer.isHidden = renderable.contactButtonVisible
-        contact.text = renderable.contact
+        addressContainer.render(renderable.shippingAddress)
+        contactContainer.render(renderable.contact)
         agreement.attributedText = renderable.agreement
+    }
+}
+
+extension CheckoutViewController: ActionButtonRendering {
+    func render(_ renderable: ActionButtonRenderable) {
+        checkoutButton.backgroundColor = renderable.isEnabled ? Constants.enabledColor : Constants.disabledColor
+        checkoutButton.isEnabled = renderable.isEnabled
+        if renderable.isActivityIndicatorVisible {
+            checkoutButton.setTitle(nil, for: .normal)
+            activityIndicator.startAnimating()
+        } else {
+            checkoutButton.setTitle(Constants.title, for: .normal)
+            activityIndicator.stopAnimating()
+        }
     }
 }
 

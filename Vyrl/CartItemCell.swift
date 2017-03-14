@@ -10,11 +10,12 @@ struct CartItemCellRenderable {
     let price: String
 }
 
-extension Product {
-    var cartItemRenderable: CartItemCellRenderable {
-        return CartItemCellRenderable(title: name,
-                                      subTitle: description,
-                                      price: retailPrice.asMoneyWithDecimals)
+extension CartItemCellRenderable {
+    init?(cartItem: CartItem) {
+        guard let product = cartItem.product else { return nil }
+        title = product.name
+        subTitle = cartItem.productVariants.map { $0.description }.joined(separator: "\n")
+        price = product.retailPrice.asMoneyWithDecimals
     }
 }
 
