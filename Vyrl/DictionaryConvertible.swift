@@ -4,6 +4,10 @@
 
 import Foundation
 
-public protocol DictionaryConvertible {
+protocol DictionaryConvertible {
     var dictionaryRepresentation: [String: Any] { get }
+}
+
+protocol DictionaryInitializable {
+    init?(dictionary: [AnyHashable: Any]?)
 }

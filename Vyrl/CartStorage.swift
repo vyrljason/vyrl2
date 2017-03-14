@@ -11,8 +11,14 @@ protocol CartStoring: class {
     var items: [CartItem] { get }
 }
 
-final class CartStorage: CartStoring {
-    
+protocol CartUpdateInforming {
+    func postUpdate()
+}
+
+let cartUpdateNotificationName = Notification.Name("io.govyrl.vyrl.ios.main.brand.dev.cartUpdated")
+
+final class CartStorage: CartStoring, CartUpdateInforming {
+
     private enum Constants {
         static let defaultsKey: String = "CartStorageCartItems"
         static let accessQueueLabel: String = "SynchronizedCartStorageAccess"
@@ -21,6 +27,7 @@ final class CartStorage: CartStoring {
     private let accessQueue = DispatchQueue(label: Constants.accessQueueLabel,
                                             attributes: .concurrent)
     private let objectsStorage: ObjectStoring
+    fileprivate let notificationPosting: NotificationPosting
 
     var items: [CartItem] {
         get {
@@ -44,19 +51,28 @@ final class CartStorage: CartStoring {
         }
     }
 
-    init(objectsStorage: ObjectStoring) {
+    init(objectsStorage: ObjectStoring, notificationPosting: NotificationPosting = NotificationCenter.default) {
         self.objectsStorage = objectsStorage
+        self.notificationPosting = notificationPosting
     }
 
     func add(item: CartItem) {
         items += [item]
+        postUpdate()
     }
 
     func remove(item: CartItem) {
         items = items.filter({ return $0 != item })
+        postUpdate()
     }
 
     func clear() {
         items = []
+        postUpdate()
+    }
+
+    func postUpdate() {
+        let update = CartUpdateInfo(itemsCount: items.count)
+        notificationPosting.post(name: Notification(name: cartUpdateNotificationName).name, object: nil, userInfo: update.dictionaryRepresentation)
     }
 }

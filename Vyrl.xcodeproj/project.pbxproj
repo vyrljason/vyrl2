@@ -342,12 +342,23 @@
 		85DCFC2F1E7682C60046D0D5 /* ShippingInfoControllerSnapshotTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85DCFC2E1E7682C60046D0D5 /* ShippingInfoControllerSnapshotTest.swift */; };
 		85DCFC311E7683BD0046D0D5 /* LoginViewControllerSnapshotTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85DCFC301E7683BD0046D0D5 /* LoginViewControllerSnapshotTest.swift */; };
 		85DCFC3A1E76B3490046D0D5 /* ActionButtonRenderable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85DCFC391E76B3490046D0D5 /* ActionButtonRenderable.swift */; };
+		85DCFC331E7689B70046D0D5 /* ButtonWithBadge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85DCFC321E7689B70046D0D5 /* ButtonWithBadge.swift */; };
+		85DCFC351E768E340046D0D5 /* ButtonWithBadge.xib in Resources */ = {isa = PBXBuildFile; fileRef = 85DCFC341E768E340046D0D5 /* ButtonWithBadge.xib */; };
+		85DCFC371E76961A0046D0D5 /* BadgeBarButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85DCFC361E76961A0046D0D5 /* BadgeBarButtonItem.swift */; };
 		85DCFC3C1E76C1C10046D0D5 /* String+isEmail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85DCFC3B1E76C1C10046D0D5 /* String+isEmail.swift */; };
 		85DCFC3E1E76C1E70046D0D5 /* String+isEmailTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85DCFC3D1E76C1E70046D0D5 /* String+isEmailTest.swift */; };
 		85DCFC401E76C6FA0046D0D5 /* ActionDescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85DCFC3F1E76C6FA0046D0D5 /* ActionDescriptionView.swift */; };
 		85DCFC431E76D5B50046D0D5 /* FormInteracting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85DCFC421E76D5B50046D0D5 /* FormInteracting.swift */; };
 		85DCFC451E76D7CF0046D0D5 /* FormFieldsInteractorMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85DCFC441E76D7CF0046D0D5 /* FormFieldsInteractorMock.swift */; };
 		85DCFC471E77FED00046D0D5 /* Array+Hashable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85DCFC461E77FED00046D0D5 /* Array+Hashable.swift */; };
+		85DCFC331E7689B70046D0D5 /* ButtonWithBadge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85DCFC321E7689B70046D0D5 /* ButtonWithBadge.swift */; };
+		85DCFC351E768E340046D0D5 /* ButtonWithBadge.xib in Resources */ = {isa = PBXBuildFile; fileRef = 85DCFC341E768E340046D0D5 /* ButtonWithBadge.xib */; };
+		85DCFC371E76961A0046D0D5 /* BadgeBarButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85DCFC361E76961A0046D0D5 /* BadgeBarButtonItem.swift */; };
+		85DCFC491E7814360046D0D5 /* NotificationPosting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85DCFC481E7814360046D0D5 /* NotificationPosting.swift */; };
+		85DCFC4B1E78153A0046D0D5 /* NotificationObserving.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85DCFC4A1E78153A0046D0D5 /* NotificationObserving.swift */; };
+		85DCFC4D1E781B7E0046D0D5 /* CartUpdateInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85DCFC4C1E781B7E0046D0D5 /* CartUpdateInfo.swift */; };
+		85DCFC4F1E782DCF0046D0D5 /* BadgeButtonSnapshotTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85DCFC4E1E782DCF0046D0D5 /* BadgeButtonSnapshotTest.swift */; };
+		85DCFC531E7831AF0046D0D5 /* iosCartIconNav.png in Resources */ = {isa = PBXBuildFile; fileRef = 85DCFC521E7831AF0046D0D5 /* iosCartIconNav.png */; };
 		85FA7A281E5C730800491EED /* NavigationHaving.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FA7A271E5C730800491EED /* NavigationHaving.swift */; };
 		85FB31E11E65E1C500E2F113 /* StyleKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FB31E01E65E1C500E2F113 /* StyleKit.swift */; };
 		A4256F0E1E675A7BB6AE21F5 /* Pods_Vyrl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AA1C43D9EC44CB342D10427 /* Pods_Vyrl.framework */; };
@@ -708,12 +719,23 @@
 		85DCFC2E1E7682C60046D0D5 /* ShippingInfoControllerSnapshotTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShippingInfoControllerSnapshotTest.swift; sourceTree = "<group>"; };
 		85DCFC301E7683BD0046D0D5 /* LoginViewControllerSnapshotTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewControllerSnapshotTest.swift; sourceTree = "<group>"; };
 		85DCFC391E76B3490046D0D5 /* ActionButtonRenderable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionButtonRenderable.swift; sourceTree = "<group>"; };
+		85DCFC321E7689B70046D0D5 /* ButtonWithBadge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonWithBadge.swift; sourceTree = "<group>"; };
+		85DCFC341E768E340046D0D5 /* ButtonWithBadge.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ButtonWithBadge.xib; sourceTree = "<group>"; };
+		85DCFC361E76961A0046D0D5 /* BadgeBarButtonItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BadgeBarButtonItem.swift; sourceTree = "<group>"; };
 		85DCFC3B1E76C1C10046D0D5 /* String+isEmail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+isEmail.swift"; sourceTree = "<group>"; };
 		85DCFC3D1E76C1E70046D0D5 /* String+isEmailTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+isEmailTest.swift"; sourceTree = "<group>"; };
 		85DCFC3F1E76C6FA0046D0D5 /* ActionDescriptionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionDescriptionView.swift; sourceTree = "<group>"; };
 		85DCFC421E76D5B50046D0D5 /* FormInteracting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormInteracting.swift; sourceTree = "<group>"; };
 		85DCFC441E76D7CF0046D0D5 /* FormFieldsInteractorMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormFieldsInteractorMock.swift; sourceTree = "<group>"; };
 		85DCFC461E77FED00046D0D5 /* Array+Hashable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Array+Hashable.swift"; sourceTree = "<group>"; };
+		85DCFC321E7689B70046D0D5 /* ButtonWithBadge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonWithBadge.swift; sourceTree = "<group>"; };
+		85DCFC341E768E340046D0D5 /* ButtonWithBadge.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ButtonWithBadge.xib; sourceTree = "<group>"; };
+		85DCFC361E76961A0046D0D5 /* BadgeBarButtonItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BadgeBarButtonItem.swift; sourceTree = "<group>"; };
+		85DCFC481E7814360046D0D5 /* NotificationPosting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationPosting.swift; sourceTree = "<group>"; };
+		85DCFC4A1E78153A0046D0D5 /* NotificationObserving.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationObserving.swift; sourceTree = "<group>"; };
+		85DCFC4C1E781B7E0046D0D5 /* CartUpdateInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CartUpdateInfo.swift; sourceTree = "<group>"; };
+		85DCFC4E1E782DCF0046D0D5 /* BadgeButtonSnapshotTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BadgeButtonSnapshotTest.swift; sourceTree = "<group>"; };
+		85DCFC521E7831AF0046D0D5 /* iosCartIconNav.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iosCartIconNav.png; sourceTree = "<group>"; };
 		85FA7A271E5C730800491EED /* NavigationHaving.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationHaving.swift; sourceTree = "<group>"; };
 		85FB31E01E65E1C500E2F113 /* StyleKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StyleKit.swift; sourceTree = "<group>"; };
 		BD1309C018727D87342F7FE2 /* Pods-VyrlTests.ad hoc.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VyrlTests.ad hoc.xcconfig"; path = "Pods/Target Support Files/Pods-VyrlTests/Pods-VyrlTests.ad hoc.xcconfig"; sourceTree = "<group>"; };
@@ -861,6 +883,7 @@
 			isa = PBXGroup;
 			children = (
 				1A31216D1E65CA1A00F71925 /* CartItem.swift */,
+				85DCFC4C1E781B7E0046D0D5 /* CartUpdateInfo.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -1416,6 +1439,7 @@
 		850A80B81E5D9ED800E684A3 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				85DCFC541E7831E80046D0D5 /* Icons */,
 				1ADAF7DE1E545F3C00155D9F /* Info.plist */,
 				850A80B41E5D9ED600E684A3 /* EmptyTestConfiguration.plist */,
 				850A80B51E5D9ED600E684A3 /* TestConfiguration.plist */,
@@ -1587,6 +1611,8 @@
 				1A31217B1E66E9CE00F71925 /* ObjectStoring.swift */,
 				853A833A1E718954006EBA8C /* ErrorPresenting.swift */,
 				85DCFC271E75C3760046D0D5 /* CustomIntegerConvertible.swift */,
+				85DCFC481E7814360046D0D5 /* NotificationPosting.swift */,
+				85DCFC4A1E78153A0046D0D5 /* NotificationObserving.swift */,
 			);
 			name = Protocols;
 			sourceTree = "<group>";
@@ -1594,6 +1620,7 @@
 		852ACD411E55DC8300219E90 /* UserInterface */ = {
 			isa = PBXGroup;
 			children = (
+				85DCFC381E76961D0046D0D5 /* BadgeButton */,
 				8554BEC11E69D5A400E05A37 /* FormView.swift */,
 				85CA3FE91E647E9200D43805 /* FormTextField.swift */,
 				3132612B1E6F0222004C68BD /* UnselectableTextField.swift */,
@@ -2057,6 +2084,7 @@
 				85DCFC2E1E7682C60046D0D5 /* ShippingInfoControllerSnapshotTest.swift */,
 				85DCFC301E7683BD0046D0D5 /* LoginViewControllerSnapshotTest.swift */,
 				31B0795D1E7766960015C302 /* CollabsEmptyViewSnapshotTests.swift */,
+				85DCFC4E1E782DCF0046D0D5 /* BadgeButtonSnapshotTest.swift */,
 			);
 			name = SnapshotTest;
 			sourceTree = "<group>";
@@ -2275,6 +2303,16 @@
 			name = ContactInfo.swift;
 			sourceTree = "<group>";
 		};
+		85DCFC381E76961D0046D0D5 /* BadgeButton */ = {
+			isa = PBXGroup;
+			children = (
+				85DCFC321E7689B70046D0D5 /* ButtonWithBadge.swift */,
+				85DCFC341E768E340046D0D5 /* ButtonWithBadge.xib */,
+				85DCFC361E76961A0046D0D5 /* BadgeBarButtonItem.swift */,
+			);
+			name = BadgeButton;
+			sourceTree = "<group>";
+		};
 		85DCFC411E76D59E0046D0D5 /* Form */ = {
 			isa = PBXGroup;
 			children = (
@@ -2282,6 +2320,14 @@
 				85DCFC421E76D5B50046D0D5 /* FormInteracting.swift */,
 			);
 			name = Form;
+			sourceTree = "<group>";
+		};
+		85DCFC541E7831E80046D0D5 /* Icons */ = {
+			isa = PBXGroup;
+			children = (
+				85DCFC521E7831AF0046D0D5 /* iosCartIconNav.png */,
+			);
+			name = Icons;
 			sourceTree = "<group>";
 		};
 		A04E77D5729CEC243AC965C5 /* Pods */ = {
@@ -2408,6 +2454,7 @@
 				313CF7FD1E6E1671005686F5 /* TextTableCell.xib in Resources */,
 				313CF8031E6E268E005686F5 /* ExpandableTextTableCell.xib in Resources */,
 				31EF231C1E68AD810073F624 /* AddToCartTableCell.xib in Resources */,
+				85DCFC351E768E340046D0D5 /* ButtonWithBadge.xib in Resources */,
 				858D64161E57130500CFDD4C /* Localizable.strings in Resources */,
 				31FEB5B21E5CBE4800C5E41D /* BrandStoreHeader.xib in Resources */,
 				31EF232C1E69A63D0073F624 /* DetailTableViewCell.xib in Resources */,
@@ -2439,6 +2486,7 @@
 			files = (
 				850A80B61E5D9ED600E684A3 /* EmptyTestConfiguration.plist in Resources */,
 				850A80B71E5D9ED600E684A3 /* TestConfiguration.plist in Resources */,
+				85DCFC531E7831AF0046D0D5 /* iosCartIconNav.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2606,6 +2654,7 @@
 				85DCFC431E76D5B50046D0D5 /* FormInteracting.swift in Sources */,
 				850A80CD1E5DC7F900E684A3 /* APIError.swift in Sources */,
 				85B0A8361E670273002093BA /* UIBezierPath+StyleKit.swift in Sources */,
+				85DCFC4B1E78153A0046D0D5 /* NotificationObserving.swift in Sources */,
 				8554BEA21E698D7000E05A37 /* ContactInfo.swift in Sources */,
 				31EF22F31E6779780073F624 /* TableViewUsing.swift in Sources */,
 				858D640B1E560F0100CFDD4C /* CollectionViewHaving.swift in Sources */,
@@ -2626,6 +2675,7 @@
 				31EF22EA1E664C670073F624 /* ProductDetailsControllerFactory.swift in Sources */,
 				850A80ED1E5E200C00E684A3 /* APIResponseHandler.swift in Sources */,
 				8554BEBE1E69C98200E05A37 /* ShippingAddressViewController.swift in Sources */,
+				85DCFC4D1E781B7E0046D0D5 /* CartUpdateInfo.swift in Sources */,
 				858D63EA1E55F24C00CFDD4C /* Result.swift in Sources */,
 				8538599C1E606DA90098D1EB /* Dictionary+Operations.swift in Sources */,
 				31B079541E7736EF0015C302 /* CollabsViewController.swift in Sources */,
@@ -2638,6 +2688,7 @@
 				858D64011E56082500CFDD4C /* BrandsInteractor.swift in Sources */,
 				1A3121621E646C9100F71925 /* CartViewControllerFactory.swift in Sources */,
 				313CF8051E6E26E7005686F5 /* ExpandableTextTableCellRenderable.swift in Sources */,
+				85DCFC371E76961A0046D0D5 /* BadgeBarButtonItem.swift in Sources */,
 				31EF23011E6791BB0073F624 /* ProductDetailsDataSource.swift in Sources */,
 				1A31215C1E641CE400F71925 /* CartItemCell.swift in Sources */,
 				1A1FA94B1E5DF3E0007EB61D /* LeftMenuInteractorFactory.swift in Sources */,
@@ -2745,6 +2796,7 @@
 				1A1FA9421E5DA887007EB61D /* CategoriesDataSource.swift in Sources */,
 				853A835A1E72C5A9006EBA8C /* CheckoutSummaryInteractor.swift in Sources */,
 				85FB31E11E65E1C500E2F113 /* StyleKit.swift in Sources */,
+				85DCFC331E7689B70046D0D5 /* ButtonWithBadge.swift in Sources */,
 				31EF230F1E67B6410073F624 /* NamePriceTableCellRenderable.swift in Sources */,
 				31EF232E1E69A69D0073F624 /* DetailTableCellRenderable.swift in Sources */,
 				850A80AE1E5D977C00E684A3 /* APIConfiguration.swift in Sources */,
@@ -2773,6 +2825,7 @@
 				858D64051E56089B00CFDD4C /* BrandsDataSource.swift in Sources */,
 				31B0795A1E7753D70015C302 /* CollabsEmptyView.swift in Sources */,
 				1AA7FAB51E69CB3E001C0B6F /* OrderProposalEndpoint.swift in Sources */,
+				85DCFC491E7814360046D0D5 /* NotificationPosting.swift in Sources */,
 				1AA7FAB61E69CB3E001C0B6F /* OrderProposalResource.swift in Sources */,
 				858D64091E560EBC00CFDD4C /* CollectionViewControlling.swift in Sources */,
 				8538599A1E606BFD0098D1EB /* VyrlServerTrustPolicyManager.swift in Sources */,
@@ -2840,6 +2893,7 @@
 				1A1FA94D1E5E238C007EB61D /* DataSourceMock.swift in Sources */,
 				8554BE741E68066800E05A37 /* CategoriesResourceTest.swift in Sources */,
 				8554BEB31E699D3700E05A37 /* OrderProposalServiceTest.swift in Sources */,
+				85DCFC4F1E782DCF0046D0D5 /* BadgeButtonSnapshotTest.swift in Sources */,
 				3169B9B21E604A23005F8A94 /* BrandStoreServiceTest.swift in Sources */,
 				850A80FE1E5EF97E00E684A3 /* APIResponseHandlerTest.swift in Sources */,
 				858D63F61E55FF8600CFDD4C /* CustomAssertions.swift in Sources */,

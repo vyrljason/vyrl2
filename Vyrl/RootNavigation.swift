@@ -46,6 +46,10 @@ protocol MainNavigationRendering: class {
     func setUpMainNavigationItems(in viewController: UIViewController)
 }
 
+@objc protocol CartUpdateObserving {
+    func cartUpdated(notification: Notification)
+}
+
 final class RootNavigation {
 
     fileprivate enum Constants {
@@ -59,7 +63,6 @@ final class RootNavigation {
         static let closeTitle: String = NSLocalizedString("Close", comment: "")
         static let animationDuration: TimeInterval = 0.3
         static let leftButtonNegativeSpace: CGFloat = -8
-        static let secondBarButtonImageInset = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: -20)
     }
 
     fileprivate var cart: CartNavigating
@@ -72,6 +75,10 @@ final class RootNavigation {
     fileprivate let interactor: RootNavigationInteracting & NavigationDelegateHaving
     fileprivate let credentialsProvider: APICredentialsProviding
     fileprivate let loginControllerMaker: LoginControllerMaking.Type
+    fileprivate var cartButton: BadgeBarButtonItem?
+    fileprivate var chatButton: BadgeBarButtonItem?
+    fileprivate let notificationObserver: NotificationObserving
+    fileprivate let cartStorage: CartStoring
 
     weak var brandsFiltering: BrandsFilteringByCategory?
 
@@ -84,7 +91,9 @@ final class RootNavigation {
          accountMaker: AccountViewControllerMaking.Type,
          window: WindowProtocol,
          credentialsProvider: APICredentialsProviding,
-         loginControllerMaker: LoginControllerMaking.Type) {
+         loginControllerMaker: LoginControllerMaking.Type,
+         notificationObserver: NotificationObserving = NotificationCenter.default,
+         cartStorage: CartStoring) {
         self.interactor = interactor
         self.mainNavigation = mainNavigation
         self.leftMenu = leftMenu
@@ -94,9 +103,26 @@ final class RootNavigation {
         self.window = window
         self.credentialsProvider = credentialsProvider
         self.loginControllerMaker = loginControllerMaker
+        self.notificationObserver = notificationObserver
+        self.cartStorage = cartStorage
         interactor.delegate = self
         cart.chatPresenter = self
         setUpSlideMenu()
+        setUpNavigationItems()
+        notificationObserver.addObserver(self, selector: #selector(cartUpdated), name: cartUpdateNotificationName, object: nil)
+    }
+
+    private func setUpNavigationItems() {
+        cartButton = BadgeBarButtonItem(image: #imageLiteral(resourceName: "iosCartIconNav"),
+                                        style: .plain) { [weak self] in
+                                            self?.interactor.didTapCart()
+        }
+
+        chatButton = BadgeBarButtonItem(image: #imageLiteral(resourceName: "chat_icon"),
+                                        style: .plain) { [weak self] in
+                                            self?.interactor.didTapChat()
+        }
+        updateCartButton(using: CartUpdateInfo(itemsCount: cartStorage.items.count))
     }
 
     private func setUpSlideMenu() {
@@ -200,19 +226,9 @@ extension RootNavigation: MainNavigationPresenting {
         let negativeButton = UIBarButtonItem(barButtonSystemItem: .fixedSpace, target: nil, action: nil)
         negativeButton.width = Constants.leftButtonNegativeSpace
 
-        let cart = UIBarButtonItem(image: #imageLiteral(resourceName: "iosCartIconNav"),
-                                   style: .plain,
-                                   target: interactor,
-                                   action: #selector(RootNavigationInteracting.didTapCart))
-
-        let chat = UIBarButtonItem(image: #imageLiteral(resourceName: "chat_icon"),
-                                   style: .plain,
-                                   target: interactor,
-                                   action: #selector(RootNavigationInteracting.didTapChat))
-        chat.imageInsets = Constants.secondBarButtonImageInset
         viewController.navigationItem.leftBarButtonItems = [negativeButton, menuButton]
-        viewController.navigationItem.rightBarButtonItems = [cart, chat]
-
+        guard let cartButton = cartButton, let chatButton = chatButton else { return }
+        viewController.navigationItem.rightBarButtonItems = [cartButton, chatButton]
     }
 }
 
@@ -274,18 +290,18 @@ extension RootNavigation: RootNavigationControlling {
 extension RootNavigation: MainNavigationRendering {
     func setUpMainNavigationItems(in viewController: UIViewController) {
         viewController.renderNoTitleBackButton()
-        
-        let cart = UIBarButtonItem(image: #imageLiteral(resourceName: "iosCartIconNav"),
-                                   style: .plain,
-                                   target: interactor,
-                                   action: #selector(RootNavigationInteracting.didTapCart))
+        guard let cartButton = cartButton, let chatButton = chatButton else { return }
+        viewController.navigationItem.rightBarButtonItems = [cartButton, chatButton]
+    }
+}
 
-        let chat = UIBarButtonItem(image: #imageLiteral(resourceName: "chat_icon"),
-                                   style: .plain,
-                                   target: interactor,
-                                   action: #selector(RootNavigationInteracting.didTapChat))
-        chat.imageInsets = Constants.secondBarButtonImageInset
-        
-        viewController.navigationItem.rightBarButtonItems = [cart, chat]
+extension RootNavigation: CartUpdateObserving {
+    @objc func cartUpdated(notification: Notification) {
+        guard let updateInfo = CartUpdateInfo(dictionary: notification.userInfo) else { return }
+        updateCartButton(using: updateInfo)
+    }
+
+    fileprivate func updateCartButton(using updateInfo: CartUpdateInfo) {
+        cartButton?.render(BadgeButtonRenderable(itemsCount: updateInfo.itemsCount))
     }
 }

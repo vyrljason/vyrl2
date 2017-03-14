@@ -25,6 +25,7 @@ final class RootNavigationBuilder {
     var loginControllerMaker: LoginControllerMaking.Type = LoginControllerFactory.self
     lazy var leftMenu: UIViewController = { return LeftMenuViewController(interactor: self.leftMenuInteractor) }()
     var credentialsProvider: APICredentialsProviding = APICredentialsProvider(storage: CredentialsStorage())
+    var cartStorage: CartStoring = ServiceLocator.cartStorage
 
     func build() -> RootNavigation {
 
@@ -36,7 +37,8 @@ final class RootNavigationBuilder {
                                         accountMaker: accountMaker,
                                         window: window,
                                         credentialsProvider: credentialsProvider,
-                                        loginControllerMaker: loginControllerMaker)
+                                        loginControllerMaker: loginControllerMaker,
+                                        cartStorage: cartStorage)
         leftMenuInteractor.delegate = navigation
         navigation.brandsFiltering = brandsInteractor
         mainNavigation.mainNavigationDelegate = navigation

@@ -9,4 +9,5 @@ extension UIFont {
     static let infoViewText: UIFont = UIFont.systemFont(ofSize: 14.0, weight: UIFontWeightLight)
     static let noDataHeaderFont: UIFont = UIFont.systemFont(ofSize: 24.0, weight: UIFontWeightLight)
     static let noDataDescriptionFont: UIFont = UIFont.systemFont(ofSize: 16.0, weight: UIFontWeightLight)
+    static let badgeCountFont: UIFont = UIFont.systemFont(ofSize: 11.0, weight: UIFontWeightRegular)
 }

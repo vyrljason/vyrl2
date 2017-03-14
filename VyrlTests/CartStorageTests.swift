@@ -17,16 +17,25 @@ final class UserDefaultsMock: ObjectStoring {
     }
 }
 
+final class NotificationPostMock: NotificationPosting {
+    var cartUpdate: CartUpdateInfo?
+
+    func post(name aName: Notification.Name, object anObject: Any?, userInfo aUserInfo: [AnyHashable : Any]?) {
+        cartUpdate = CartUpdateInfo(dictionary: aUserInfo)
+    }
+}
+
 final class CartStorageTests: XCTestCase {
 
-    var subject: CartStorage!
-    var userDefaults: UserDefaultsMock!
+    private var subject: CartStorage!
+    private var userDefaults: UserDefaultsMock!
+    private var notificationPosting: NotificationPostMock!
 
     override func setUp() {
         super.setUp()
-
+        notificationPosting = NotificationPostMock()
         userDefaults = UserDefaultsMock()
-        subject = CartStorage(objectsStorage: userDefaults)
+        subject = CartStorage(objectsStorage: userDefaults, notificationPosting: notificationPosting)
     }
 
     func test_addItem_addedToDefaults() {
@@ -49,6 +58,12 @@ final class CartStorageTests: XCTestCase {
         XCTAssertEqual(subject.items.count, 0)
     }
 
+    func test_addItem_postsUpdate() {
+        subject.add(item: VyrlFaker.faker.cartItem())
+
+        XCTAssertNotNil(notificationPosting.cartUpdate)
+    }
+
     func test_addItem_sorted() {
         let item0 = CartItem(productId: "0", addedAt: Date(timeIntervalSince1970: 3600), productVariants: [])
         let item1 = CartItem(productId: "1", addedAt: Date(timeIntervalSince1970: 0), productVariants: [])
@@ -60,6 +75,14 @@ final class CartStorageTests: XCTestCase {
         XCTAssertEqual(subject.items.last, item1)
     }
 
+    func test_removeItem_postsUpdate() {
+        let item0 = CartItem(productId: "0", addedAt: Date(timeIntervalSince1970: 3600), productVariants: [])
+
+        subject.remove(item: item0)
+
+        XCTAssertNotNil(notificationPosting.cartUpdate)
+    }
+
     func test_clear_removesAllItems() {
         subject.add(item: VyrlFaker.faker.cartItem())
         subject.add(item: VyrlFaker.faker.cartItem())
@@ -69,5 +92,11 @@ final class CartStorageTests: XCTestCase {
         subject.clear()
 
         XCTAssertEqual(subject.items.count, 0)
+    }
+
+    func test_clear_postsUpdate() {
+        subject.clear()
+
+        XCTAssertNotNil(notificationPosting.cartUpdate)
     }
 }
