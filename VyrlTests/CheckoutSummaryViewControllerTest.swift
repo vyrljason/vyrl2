@@ -6,7 +6,7 @@
 import XCTest
 
 final class CheckoutSummaryInteractorMock: CheckoutSummaryInteracting {
-    weak var navigation: CheckoutNavigationDismissing?
+    weak var navigation: CheckoutNavigationDismissing & ChatPresenting?
     func didTapGoToCollabs() { }
 }
 

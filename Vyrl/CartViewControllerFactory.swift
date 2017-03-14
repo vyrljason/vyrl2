@@ -11,8 +11,8 @@ protocol CartControllerMaking {
 final class CartViewControllerFactory: CartControllerMaking {
 
     private enum Constants {
-        static let titleAttributes: [String: Any] = [:] //This should be adjusted by the final design
-        static let descriptionAttributes: [String: Any] = [:] //This should be adjusted by the final design
+        static let titleAttributes: [String: Any] = StyleKit.noDataHeaderAttributes
+        static let descriptionAttributes: [String: Any] = StyleKit.noDataDescriptionAttributes
         static let noDataTitle = NSLocalizedString("cart.noProducts.title", comment: "")
         static let noDataDescription = NSLocalizedString("cart.noProducts.description", comment: "")
         static let networkingErrorTitle = NSLocalizedString("cart.error.title", comment: "")

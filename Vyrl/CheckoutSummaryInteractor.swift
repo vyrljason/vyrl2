@@ -5,15 +5,16 @@
 import Foundation
 
 protocol CheckoutSummaryInteracting {
-    weak var navigation: CheckoutNavigationDismissing? { get set }
+    weak var navigation: CheckoutNavigationDismissing & ChatPresenting? { get set }
     func didTapGoToCollabs()
 }
 
 final class CheckoutSummaryInteractor: CheckoutSummaryInteracting {
 
-    weak var navigation: CheckoutNavigationDismissing?
+    weak var navigation: CheckoutNavigationDismissing & ChatPresenting?
 
     func didTapGoToCollabs() {
         navigation?.dismiss(animated: true)
+        navigation?.showChat()
     }
 }

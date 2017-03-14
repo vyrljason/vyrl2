@@ -17,6 +17,15 @@ protocol EmptyCollectionViewHandling: CollectionViewUsing {
 struct EmptyCollectionRenderable {
     let title: NSAttributedString
     let description: NSAttributedString
+    var imageName: NSString?
+    
+    init(title: NSAttributedString,
+         description: NSAttributedString,
+         imageName: NSString? = "errorIllustration") {
+        self.title = title
+        self.description = description
+        self.imageName = imageName
+    }
 }
 
 final class EmptyCollectionViewHandler: NSObject, DZNEmptyDataSetSource, DZNEmptyDataSetDelegate, EmptyCollectionViewHandling {
@@ -78,6 +87,11 @@ final class EmptyTableViewHandler: NSObject, DZNEmptyDataSetSource, DZNEmptyData
     func configure(with mode: EmptyCollectionMode) {
         renderable = modeToRenderable[mode]
         tableView?.reloadEmptyDataSet()
+    }
+    
+    func image(forEmptyDataSet scrollView: UIScrollView!) -> UIImage? {
+        guard let imageName: String = renderable?.imageName as String? else { return nil }
+        return UIImage(named: imageName)
     }
 
     func title(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {

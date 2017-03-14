@@ -13,7 +13,7 @@ final class RootNavigationTests: XCTestCase {
     private var navigationController: NavigationControllerMock!
     private var mainView: UIViewController!
     private var cart: CartNavigating!
-    private var chat: UIViewController!
+    private var chat: ChatNavigating!
     private var leftMenu: LeftMenuViewController!
     private var interactor: RootNavigationInteractor!
     private var dataSource: DataSourceMock!
@@ -23,7 +23,7 @@ final class RootNavigationTests: XCTestCase {
     override func setUp() {
         super.setUp()
         window = WindowMock()
-        chat = UIViewController()
+        chat = ChatNavigationBuilder().build()
         cart = CartNavigationBuilder().build()
         credentialsProvider = APICredentialsProviderMock()
         dataSource = DataSourceMock()
@@ -106,7 +106,7 @@ final class RootNavigationTests: XCTestCase {
         XCTAssertTrue(navigation.viewControllers.first is CartViewController)
     }
 
-    func test_showChat_showsChat() {
+    func test_showChat_showsCollabs() {
         subject.showInitialViewController()
         subject.showChat()
 
@@ -115,7 +115,7 @@ final class RootNavigationTests: XCTestCase {
             return
         }
 
-        XCTAssertTrue(navigation.viewControllers.first === chat)
+        XCTAssertTrue(navigation.viewControllers.first is CollabsViewController)
     }
 
     func test_dismissModal_dismissed() {

@@ -6,6 +6,7 @@ import UIKit
 
 protocol CartNavigating: class {
     weak var cartNavigationController: UINavigationController? { get set }
+    weak var chatPresenter: ChatPresenting? { get set }
     var cart: CartViewController! { get }
     func pushCheckout(with cartData: CartData)
 }
@@ -53,7 +54,7 @@ final class CartNavigationBuilder {
 }
 
 final class CartNavigation: CartNavigating {
-
+    
     var cart: CartViewController!
     fileprivate let checkoutFactory: CheckoutControllerMaking.Type
     fileprivate let shippingAddressFactory: ShippingAddressViewMaking.Type
@@ -61,6 +62,7 @@ final class CartNavigation: CartNavigating {
     fileprivate let contactInfoFactory: ContactInfoViewMaking.Type
 
     weak var cartNavigationController: UINavigationController?
+    weak var chatPresenter: ChatPresenting?
 
     init(cartFactory: CartControllerMaking.Type,
          checkoutFactory: CheckoutControllerMaking.Type,
@@ -116,8 +118,15 @@ extension CartNavigation: CheckoutSummaryViewPresenting {
         cartNavigationController?.pushViewController(summary, animated: true)
     }
 }
+
 extension CartNavigation: CheckoutNavigationDismissing {
     func dismiss(animated: Bool) {
         cartNavigationController?.dismiss(animated: animated, completion: nil)
+    }
+}
+
+extension CartNavigation: ChatPresenting {
+    func showChat() {
+        chatPresenter?.showChat()
     }
 }

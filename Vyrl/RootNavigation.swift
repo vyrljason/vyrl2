@@ -15,8 +15,11 @@ protocol AuthorizationFlowPresenting: class {
 
 protocol RootNavigationControlling: class {
     func showMenu()
-    func showChat()
     func dismissModal()
+}
+
+protocol ChatPresenting: class {
+    func showChat()
 }
 
 protocol CartPresenting: class {
@@ -64,7 +67,7 @@ final class RootNavigation {
     fileprivate let window: WindowProtocol
     fileprivate var slideMenu: SlideMenuController!
     fileprivate let leftMenu: UIViewController
-    fileprivate let chat: UIViewController
+    fileprivate var chat: ChatNavigating
     fileprivate let accountMaker: AccountViewControllerMaking.Type
     fileprivate let interactor: RootNavigationInteracting & NavigationDelegateHaving
     fileprivate let credentialsProvider: APICredentialsProviding
@@ -77,7 +80,7 @@ final class RootNavigation {
          leftMenu: UIViewController,
          mainNavigation: NavigationControlling,
          cart: CartNavigating,
-         chat: UIViewController,
+         chat: ChatNavigating,
          accountMaker: AccountViewControllerMaking.Type,
          window: WindowProtocol,
          credentialsProvider: APICredentialsProviding,
@@ -92,6 +95,7 @@ final class RootNavigation {
         self.credentialsProvider = credentialsProvider
         self.loginControllerMaker = loginControllerMaker
         interactor.delegate = self
+        cart.chatPresenter = self
         setUpSlideMenu()
     }
 
@@ -105,7 +109,7 @@ final class RootNavigation {
         viewController.modalTransitionStyle = .coverVertical
         viewController.modalPresentationStyle = .fullScreen
         let close = UIBarButtonItem(title: Constants.closeTitle,
-                                    style: .done,
+                                    style: .plain,
                                     target: interactor,
                                     action: #selector(RootNavigationInteracting.didTapClose))
         viewController.navigationItem.leftBarButtonItem = close
@@ -250,13 +254,16 @@ extension RootNavigation: CartPresenting {
     }
 }
 
+extension RootNavigation: ChatPresenting {
+    func showChat() {
+        let navigation = presentModally(chat.collabs)
+        chat.chatNavigationController = navigation
+    }
+}
+
 extension RootNavigation: RootNavigationControlling {
     func showMenu() {
         slideMenu.openLeft()
-    }
-
-    func showChat() {
-        presentModally(chat)
     }
 
     func dismissModal() {

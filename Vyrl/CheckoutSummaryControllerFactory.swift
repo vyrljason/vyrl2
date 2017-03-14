@@ -5,11 +5,11 @@
 import UIKit
 
 protocol CheckoutSummaryControllerMaking {
-    static func make(navigation: CheckoutNavigationDismissing) -> CheckoutSummaryViewController
+    static func make(navigation: CheckoutNavigationDismissing & ChatPresenting) -> CheckoutSummaryViewController
 }
 
 final class CheckoutSummaryControllerFactory: CheckoutSummaryControllerMaking {
-    static func make(navigation: CheckoutNavigationDismissing) -> CheckoutSummaryViewController {
+    static func make(navigation: CheckoutNavigationDismissing & ChatPresenting) -> CheckoutSummaryViewController {
         let interactor = CheckoutSummaryInteractor()
         let viewController = CheckoutSummaryViewController(interactor: interactor)
         interactor.navigation = navigation

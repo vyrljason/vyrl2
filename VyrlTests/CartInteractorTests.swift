@@ -35,6 +35,7 @@ final class CartDataProvidingMock: NSObject, CartDataProviding {
 
 final class CartNavigatingMock: CartNavigating {
     weak var cartNavigationController: UINavigationController?
+    weak var chatPresenter: ChatPresenting?
     var cart: CartViewController!
     var cartData: CartData?
 

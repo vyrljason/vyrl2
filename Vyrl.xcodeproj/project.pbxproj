@@ -112,6 +112,14 @@
 		31B079481E75A4FD0015C302 /* UIViewController+NoTitleBackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B079471E75A4FD0015C302 /* UIViewController+NoTitleBackButton.swift */; };
 		31B0794A1E76AA150015C302 /* NavigationItemMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B079491E76AA150015C302 /* NavigationItemMock.swift */; };
 		31B0794C1E76B1770015C302 /* ViewControllerMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B0794B1E76B1770015C302 /* ViewControllerMock.swift */; };
+		31B0794F1E7732CE0015C302 /* ChatNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B0794E1E7732CE0015C302 /* ChatNavigation.swift */; };
+		31B079541E7736EF0015C302 /* CollabsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B079521E7736EF0015C302 /* CollabsViewController.swift */; };
+		31B079551E7736EF0015C302 /* CollabsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31B079531E7736EF0015C302 /* CollabsViewController.xib */; };
+		31B079581E773CB90015C302 /* CollabsViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B079571E773CB90015C302 /* CollabsViewControllerFactory.swift */; };
+		31B0795A1E7753D70015C302 /* CollabsEmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B079591E7753D70015C302 /* CollabsEmptyView.swift */; };
+		31B0795C1E7753E80015C302 /* CollabsEmptyView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31B0795B1E7753E80015C302 /* CollabsEmptyView.xib */; };
+		31B0795E1E7766960015C302 /* CollabsEmptyViewSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B0795D1E7766960015C302 /* CollabsEmptyViewSnapshotTests.swift */; };
+		31B079611E780C720015C302 /* CollabsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B079601E780C720015C302 /* CollabsInteractor.swift */; };
 		31EF22E71E664C180073F624 /* ProductDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31EF22E51E664C180073F624 /* ProductDetailsViewController.swift */; };
 		31EF22E81E664C180073F624 /* ProductDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31EF22E61E664C180073F624 /* ProductDetailsViewController.xib */; };
 		31EF22EA1E664C670073F624 /* ProductDetailsControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31EF22E91E664C670073F624 /* ProductDetailsControllerFactory.swift */; };
@@ -468,6 +476,14 @@
 		31B079471E75A4FD0015C302 /* UIViewController+NoTitleBackButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+NoTitleBackButton.swift"; sourceTree = "<group>"; };
 		31B079491E76AA150015C302 /* NavigationItemMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationItemMock.swift; sourceTree = "<group>"; };
 		31B0794B1E76B1770015C302 /* ViewControllerMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerMock.swift; sourceTree = "<group>"; };
+		31B0794E1E7732CE0015C302 /* ChatNavigation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatNavigation.swift; sourceTree = "<group>"; };
+		31B079521E7736EF0015C302 /* CollabsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollabsViewController.swift; sourceTree = "<group>"; };
+		31B079531E7736EF0015C302 /* CollabsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CollabsViewController.xib; sourceTree = "<group>"; };
+		31B079571E773CB90015C302 /* CollabsViewControllerFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollabsViewControllerFactory.swift; sourceTree = "<group>"; };
+		31B079591E7753D70015C302 /* CollabsEmptyView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollabsEmptyView.swift; sourceTree = "<group>"; };
+		31B0795B1E7753E80015C302 /* CollabsEmptyView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CollabsEmptyView.xib; sourceTree = "<group>"; };
+		31B0795D1E7766960015C302 /* CollabsEmptyViewSnapshotTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollabsEmptyViewSnapshotTests.swift; sourceTree = "<group>"; };
+		31B079601E780C720015C302 /* CollabsInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollabsInteractor.swift; sourceTree = "<group>"; };
 		31EF22E51E664C180073F624 /* ProductDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductDetailsViewController.swift; sourceTree = "<group>"; };
 		31EF22E61E664C180073F624 /* ProductDetailsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProductDetailsViewController.xib; sourceTree = "<group>"; };
 		31EF22E91E664C670073F624 /* ProductDetailsControllerFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductDetailsControllerFactory.swift; sourceTree = "<group>"; };
@@ -963,6 +979,7 @@
 			isa = PBXGroup;
 			children = (
 				853A83521E72C52F006EBA8C /* Cart */,
+				31B0794D1E7732B20015C302 /* Chat */,
 				85CA3FD61E64778800D43805 /* Login */,
 				850A80C91E5DC17B00E684A3 /* Deserializing */,
 				1A1FA95E1E5F2E3B007EB61D /* Account */,
@@ -1152,6 +1169,52 @@
 				31FEB5A71E5C3A0D00C5E41D /* Views */,
 			);
 			name = BrandStore;
+			sourceTree = "<group>";
+		};
+		31B0794D1E7732B20015C302 /* Chat */ = {
+			isa = PBXGroup;
+			children = (
+				31B0794E1E7732CE0015C302 /* ChatNavigation.swift */,
+				31B079501E7734660015C302 /* Collabs */,
+			);
+			name = Chat;
+			sourceTree = "<group>";
+		};
+		31B079501E7734660015C302 /* Collabs */ = {
+			isa = PBXGroup;
+			children = (
+				31B0795F1E78033C0015C302 /* Interactors */,
+				31B079561E773CA80015C302 /* Factories */,
+				31B079511E7734840015C302 /* Views */,
+			);
+			name = Collabs;
+			sourceTree = "<group>";
+		};
+		31B079511E7734840015C302 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				31B079521E7736EF0015C302 /* CollabsViewController.swift */,
+				31B079531E7736EF0015C302 /* CollabsViewController.xib */,
+				31B079591E7753D70015C302 /* CollabsEmptyView.swift */,
+				31B0795B1E7753E80015C302 /* CollabsEmptyView.xib */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		31B079561E773CA80015C302 /* Factories */ = {
+			isa = PBXGroup;
+			children = (
+				31B079571E773CB90015C302 /* CollabsViewControllerFactory.swift */,
+			);
+			name = Factories;
+			sourceTree = "<group>";
+		};
+		31B0795F1E78033C0015C302 /* Interactors */ = {
+			isa = PBXGroup;
+			children = (
+				31B079601E780C720015C302 /* CollabsInteractor.swift */,
+			);
+			name = Interactors;
 			sourceTree = "<group>";
 		};
 		31EF22E21E664A3F0073F624 /* ProductDetails */ = {
@@ -1993,6 +2056,7 @@
 				85DCFC2C1E7682300046D0D5 /* ContactInfoControllerSnapshotTest.swift */,
 				85DCFC2E1E7682C60046D0D5 /* ShippingInfoControllerSnapshotTest.swift */,
 				85DCFC301E7683BD0046D0D5 /* LoginViewControllerSnapshotTest.swift */,
+				31B0795D1E7766960015C302 /* CollabsEmptyViewSnapshotTests.swift */,
 			);
 			name = SnapshotTest;
 			sourceTree = "<group>";
@@ -2336,6 +2400,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8538599E1E6073740098D1EB /* dergodaddy.crt in Resources */,
+				31B079551E7736EF0015C302 /* CollabsViewController.xib in Resources */,
 				1ADAF7D21E545F3C00155D9F /* LaunchScreen.storyboard in Resources */,
 				1AA7FAA61E69783F001C0B6F /* CheckoutViewController.xib in Resources */,
 				85CA3FE51E647A5400D43805 /* LoginViewController.xib in Resources */,
@@ -2364,6 +2429,7 @@
 				31EF230D1E67AF5F0073F624 /* CenteredWithDetailTableCell.xib in Resources */,
 				31EF23341E69A8A90073F624 /* TableHeaderCell.xib in Resources */,
 				8554BEC01E69C99200E05A37 /* ShippingAddressViewController.xib in Resources */,
+				31B0795C1E7753E80015C302 /* CollabsEmptyView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2547,6 +2613,7 @@
 				853859A91E607F450098D1EB /* DiscoveryFilterSettings.swift in Sources */,
 				850A81041E5F1FCF00E684A3 /* SessionManaging.swift in Sources */,
 				31EF22EF1E676E380073F624 /* ProductDetailsInteractor.swift in Sources */,
+				31B0794F1E7732CE0015C302 /* ChatNavigation.swift in Sources */,
 				1AA7FA9E1E6883F7001C0B6F /* AutoexpandableTextView.swift in Sources */,
 				85CA3FC51E642EB500D43805 /* RequestDataProvider.swift in Sources */,
 				8554BE6F1E6804E600E05A37 /* CategoriesEndpoint.swift in Sources */,
@@ -2561,8 +2628,10 @@
 				8554BEBE1E69C98200E05A37 /* ShippingAddressViewController.swift in Sources */,
 				858D63EA1E55F24C00CFDD4C /* Result.swift in Sources */,
 				8538599C1E606DA90098D1EB /* Dictionary+Operations.swift in Sources */,
+				31B079541E7736EF0015C302 /* CollabsViewController.swift in Sources */,
 				31B0792E1E6F7A650015C302 /* UITextView+RemoveInsets.swift in Sources */,
 				85DCFC221E75BC630046D0D5 /* ContactInfoFormFactory.swift in Sources */,
+				31B079611E780C720015C302 /* CollabsInteractor.swift in Sources */,
 				85CA3FDC1E6477DF00D43805 /* LoginInteractor.swift in Sources */,
 				1A1FA9381E5D93BA007EB61D /* Category.swift in Sources */,
 				3169B9C61E647208005F8A94 /* ExpandableTextView.swift in Sources */,
@@ -2574,6 +2643,7 @@
 				1A1FA94B1E5DF3E0007EB61D /* LeftMenuInteractorFactory.swift in Sources */,
 				850A80CF1E5DCABA00E684A3 /* JSONSerializationProtocol.swift in Sources */,
 				85CA3FF11E648A3400D43805 /* FormField.swift in Sources */,
+				31B079581E773CB90015C302 /* CollabsViewControllerFactory.swift in Sources */,
 				31EF22F11E67742C0073F624 /* TableViewDataProviding.swift in Sources */,
 				31B0793B1E70A7370015C302 /* SwipeableGalleryItemCell.swift in Sources */,
 				853771961E5C425B00E693AD /* BrandsNavigation.swift in Sources */,
@@ -2701,6 +2771,7 @@
 				3169B9AC1E5F3672005F8A94 /* BrandStoreCellRenderable.swift in Sources */,
 				853A83391E717CAC006EBA8C /* ShippingAddressFormFactory.swift in Sources */,
 				858D64051E56089B00CFDD4C /* BrandsDataSource.swift in Sources */,
+				31B0795A1E7753D70015C302 /* CollabsEmptyView.swift in Sources */,
 				1AA7FAB51E69CB3E001C0B6F /* OrderProposalEndpoint.swift in Sources */,
 				1AA7FAB61E69CB3E001C0B6F /* OrderProposalResource.swift in Sources */,
 				858D64091E560EBC00CFDD4C /* CollectionViewControlling.swift in Sources */,
@@ -2798,6 +2869,7 @@
 				858D64401E57538A00CFDD4C /* BrandsInteractorTest.swift in Sources */,
 				850A81001E5EFECD00E684A3 /* DataResponseMock.swift in Sources */,
 				850A80E01E5E140200E684A3 /* JSONModelDeserializerTest.swift in Sources */,
+				31B0795E1E7766960015C302 /* CollabsEmptyViewSnapshotTests.swift in Sources */,
 				1A3121781E66205C00F71925 /* AsyncAssertions.swift in Sources */,
 				850A80E61E5E171500E684A3 /* JSONToModelDeserializerTest.swift in Sources */,
 				1AA7FAAC1E69C33D001C0B6F /* CheckoutInteractorTests.swift in Sources */,
