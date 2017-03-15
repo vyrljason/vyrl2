@@ -17,14 +17,14 @@ protocol EmptyCollectionViewHandling: CollectionViewUsing {
 struct EmptyCollectionRenderable {
     let title: NSAttributedString
     let description: NSAttributedString
-    var imageName: NSString?
+    let image: UIImage?
     
     init(title: NSAttributedString,
          description: NSAttributedString,
-         imageName: NSString? = "errorIllustration") {
+         image: UIImage?) {
         self.title = title
         self.description = description
-        self.imageName = imageName
+        self.image = image
     }
 }
 
@@ -90,8 +90,7 @@ final class EmptyTableViewHandler: NSObject, DZNEmptyDataSetSource, DZNEmptyData
     }
     
     func image(forEmptyDataSet scrollView: UIScrollView!) -> UIImage? {
-        guard let imageName: String = renderable?.imageName as String? else { return nil }
-        return UIImage(named: imageName)
+        return renderable?.image
     }
 
     func title(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {

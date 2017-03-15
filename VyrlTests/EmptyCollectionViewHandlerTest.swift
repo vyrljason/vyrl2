@@ -12,7 +12,8 @@ final class EmptyCollectionViewHandlerTest: XCTestCase {
     var subject: EmptyCollectionViewHandler!
 
     let noDataRenderable = EmptyCollectionRenderable(title: NSAttributedString(string: "noDataTitle"),
-                                                     description: NSAttributedString(string: "noDataDescription"))
+                                                     description: NSAttributedString(string: "noDataDescription"),
+                                                     image: #imageLiteral(resourceName: "errorIllustration"))
 
     override func setUp() {
         super.setUp()

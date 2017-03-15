@@ -5,9 +5,9 @@
 import UIKit
 
 fileprivate struct Constants {
-    static let collabsNavigationTitle = NSLocalizedString("Collabs", comment: "")
-    static let noDataTitle = NSLocalizedString("Hey", comment: "")
-    static let noDataDescription = NSLocalizedString("You don't have any active collaborations yet. Hit \"close\" at the top of the screen to start looking through brands to work with.", comment: "")
+    static let collabsNavigationTitle = NSLocalizedString("collabs.navigation.title", comment: "")
+    static let noDataTitle = NSLocalizedString("collabs.placeholder.noDataTitle", comment: "")
+    static let noDataDescription = NSLocalizedString("collabs.placeholder.noDataDescription", comment: "")
 }
 
 protocol CollabsControllerMaking {
@@ -15,12 +15,12 @@ protocol CollabsControllerMaking {
 }
 
 final class CollabsViewControllerFactory: CollabsControllerMaking {
-    static private func makeEmptyTableHandler() -> EmptyTableViewHandler {
+    static func makeEmptyTableHandler() -> EmptyTableViewHandler {
         let noData = EmptyCollectionRenderable(title: NSAttributedString(string: Constants.noDataTitle,
                                                                          attributes: StyleKit.noDataHeaderAttributes),
                                                description: NSAttributedString(string: Constants.noDataDescription,
                                                                                attributes: StyleKit.noDataDescriptionAttributes),
-                                               imageName: "chatEmpty")
+                                               image: #imageLiteral(resourceName: "chatEmpty"))
         let emptyTableHandler = EmptyTableViewHandler(modeToRenderable: [ .noData: noData ])
         return emptyTableHandler
         

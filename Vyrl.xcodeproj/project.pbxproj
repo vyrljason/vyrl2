@@ -86,6 +86,7 @@
 		313CF8021E6E268E005686F5 /* ExpandableTextTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 313CF8001E6E268E005686F5 /* ExpandableTextTableCell.swift */; };
 		313CF8031E6E268E005686F5 /* ExpandableTextTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 313CF8011E6E268E005686F5 /* ExpandableTextTableCell.xib */; };
 		313CF8051E6E26E7005686F5 /* ExpandableTextTableCellRenderable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 313CF8041E6E26E7005686F5 /* ExpandableTextTableCellRenderable.swift */; };
+		31663A7F1E7931440073A449 /* CollabsSnapshotTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31663A7E1E7931440073A449 /* CollabsSnapshotTest.swift */; };
 		3168A27B1E5EF66F00C65434 /* ProductsResourceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3168A27A1E5EF66F00C65434 /* ProductsResourceMock.swift */; };
 		3168A27E1E5EF6F100C65434 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3168A27D1E5EF6F100C65434 /* Product.swift */; };
 		3168A2801E5F052600C65434 /* BrandStoreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3168A27F1E5F052600C65434 /* BrandStoreService.swift */; };
@@ -116,9 +117,6 @@
 		31B079541E7736EF0015C302 /* CollabsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B079521E7736EF0015C302 /* CollabsViewController.swift */; };
 		31B079551E7736EF0015C302 /* CollabsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31B079531E7736EF0015C302 /* CollabsViewController.xib */; };
 		31B079581E773CB90015C302 /* CollabsViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B079571E773CB90015C302 /* CollabsViewControllerFactory.swift */; };
-		31B0795A1E7753D70015C302 /* CollabsEmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B079591E7753D70015C302 /* CollabsEmptyView.swift */; };
-		31B0795C1E7753E80015C302 /* CollabsEmptyView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31B0795B1E7753E80015C302 /* CollabsEmptyView.xib */; };
-		31B0795E1E7766960015C302 /* CollabsEmptyViewSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B0795D1E7766960015C302 /* CollabsEmptyViewSnapshotTests.swift */; };
 		31B079611E780C720015C302 /* CollabsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B079601E780C720015C302 /* CollabsInteractor.swift */; };
 		31EF22E71E664C180073F624 /* ProductDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31EF22E51E664C180073F624 /* ProductDetailsViewController.swift */; };
 		31EF22E81E664C180073F624 /* ProductDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31EF22E61E664C180073F624 /* ProductDetailsViewController.xib */; };
@@ -457,6 +455,7 @@
 		313CF8001E6E268E005686F5 /* ExpandableTextTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpandableTextTableCell.swift; sourceTree = "<group>"; };
 		313CF8011E6E268E005686F5 /* ExpandableTextTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ExpandableTextTableCell.xib; sourceTree = "<group>"; };
 		313CF8041E6E26E7005686F5 /* ExpandableTextTableCellRenderable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpandableTextTableCellRenderable.swift; sourceTree = "<group>"; };
+		31663A7E1E7931440073A449 /* CollabsSnapshotTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollabsSnapshotTest.swift; sourceTree = "<group>"; };
 		3168A27A1E5EF66F00C65434 /* ProductsResourceMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductsResourceMock.swift; sourceTree = "<group>"; };
 		3168A27D1E5EF6F100C65434 /* Product.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		3168A27F1E5F052600C65434 /* BrandStoreService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrandStoreService.swift; sourceTree = "<group>"; };
@@ -487,9 +486,6 @@
 		31B079521E7736EF0015C302 /* CollabsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollabsViewController.swift; sourceTree = "<group>"; };
 		31B079531E7736EF0015C302 /* CollabsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CollabsViewController.xib; sourceTree = "<group>"; };
 		31B079571E773CB90015C302 /* CollabsViewControllerFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollabsViewControllerFactory.swift; sourceTree = "<group>"; };
-		31B079591E7753D70015C302 /* CollabsEmptyView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollabsEmptyView.swift; sourceTree = "<group>"; };
-		31B0795B1E7753E80015C302 /* CollabsEmptyView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CollabsEmptyView.xib; sourceTree = "<group>"; };
-		31B0795D1E7766960015C302 /* CollabsEmptyViewSnapshotTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollabsEmptyViewSnapshotTests.swift; sourceTree = "<group>"; };
 		31B079601E780C720015C302 /* CollabsInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollabsInteractor.swift; sourceTree = "<group>"; };
 		31EF22E51E664C180073F624 /* ProductDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductDetailsViewController.swift; sourceTree = "<group>"; };
 		31EF22E61E664C180073F624 /* ProductDetailsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProductDetailsViewController.xib; sourceTree = "<group>"; };
@@ -1210,8 +1206,6 @@
 			children = (
 				31B079521E7736EF0015C302 /* CollabsViewController.swift */,
 				31B079531E7736EF0015C302 /* CollabsViewController.xib */,
-				31B079591E7753D70015C302 /* CollabsEmptyView.swift */,
-				31B0795B1E7753E80015C302 /* CollabsEmptyView.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -2075,8 +2069,8 @@
 				85DCFC2C1E7682300046D0D5 /* ContactInfoControllerSnapshotTest.swift */,
 				85DCFC2E1E7682C60046D0D5 /* ShippingInfoControllerSnapshotTest.swift */,
 				85DCFC301E7683BD0046D0D5 /* LoginViewControllerSnapshotTest.swift */,
-				31B0795D1E7766960015C302 /* CollabsEmptyViewSnapshotTests.swift */,
 				85DCFC4E1E782DCF0046D0D5 /* BadgeButtonSnapshotTest.swift */,
+				31663A7E1E7931440073A449 /* CollabsSnapshotTest.swift */,
 			);
 			name = SnapshotTest;
 			sourceTree = "<group>";
@@ -2466,7 +2460,6 @@
 				31EF230D1E67AF5F0073F624 /* CenteredWithDetailTableCell.xib in Resources */,
 				31EF23341E69A8A90073F624 /* TableHeaderCell.xib in Resources */,
 				8554BEC01E69C99200E05A37 /* ShippingAddressViewController.xib in Resources */,
-				31B0795C1E7753E80015C302 /* CollabsEmptyView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2813,7 +2806,6 @@
 				3169B9AC1E5F3672005F8A94 /* BrandStoreCellRenderable.swift in Sources */,
 				853A83391E717CAC006EBA8C /* ShippingAddressFormFactory.swift in Sources */,
 				858D64051E56089B00CFDD4C /* BrandsDataSource.swift in Sources */,
-				31B0795A1E7753D70015C302 /* CollabsEmptyView.swift in Sources */,
 				1AA7FAB51E69CB3E001C0B6F /* OrderProposalEndpoint.swift in Sources */,
 				85DCFC491E7814360046D0D5 /* NotificationPosting.swift in Sources */,
 				1AA7FAB61E69CB3E001C0B6F /* OrderProposalResource.swift in Sources */,
@@ -2878,6 +2870,7 @@
 				853A83481E72B67F006EBA8C /* ErrorPresenterMock.swift in Sources */,
 				858D643E1E5752FD00CFDD4C /* BrandsDataSourceTest.swift in Sources */,
 				31EF23241E691F2E0073F624 /* AddToCartTableCellTest.swift in Sources */,
+				31663A7F1E7931440073A449 /* CollabsSnapshotTest.swift in Sources */,
 				1ADAF7FC1E54648A00155D9F /* WindowMock.swift in Sources */,
 				858D64311E574B5C00CFDD4C /* BrandCellSnapshotTest.swift in Sources */,
 				1A1FA94D1E5E238C007EB61D /* DataSourceMock.swift in Sources */,
@@ -2913,7 +2906,6 @@
 				858D64401E57538A00CFDD4C /* BrandsInteractorTest.swift in Sources */,
 				850A81001E5EFECD00E684A3 /* DataResponseMock.swift in Sources */,
 				850A80E01E5E140200E684A3 /* JSONModelDeserializerTest.swift in Sources */,
-				31B0795E1E7766960015C302 /* CollabsEmptyViewSnapshotTests.swift in Sources */,
 				1A3121781E66205C00F71925 /* AsyncAssertions.swift in Sources */,
 				850A80E61E5E171500E684A3 /* JSONToModelDeserializerTest.swift in Sources */,
 				1AA7FAAC1E69C33D001C0B6F /* CheckoutInteractorTests.swift in Sources */,

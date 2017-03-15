@@ -25,3 +25,6 @@
 "checkout.error.incompleteData" = "Shipping address and contact info are required.";
 "checkout.error.api" = "There was a problem with your checkout, please try again.";
 "contactInfo.error.invalid" = "Valid e-mail and phone number are required";
+"collabs.navigation.title" = "Collabs";
+"collabs.placeholder.noDataTitle" = "Hey";
+"collabs.placeholder.noDataDescription" = "You don't have any active collaborations yet. Hit \"close\" at the top of the screen to start looking through brands to work with.";

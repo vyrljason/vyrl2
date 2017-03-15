@@ -27,11 +27,13 @@ enum BrandsInteractorFactory: BrandsInteractorMaking {
        let noBrands = EmptyCollectionRenderable(title: NSAttributedString(string: Constants.noDataTitle,
                                                                            attributes: Constants.titleAttributes),
                                                  description: NSAttributedString(string: Constants.noDataDescription,
-                                                                                 attributes: Constants.descriptionAttributes))
+                                                                                 attributes: Constants.descriptionAttributes),
+                                                 image: #imageLiteral(resourceName: "errorIllustration"))
         let brandsError = EmptyCollectionRenderable(title: NSAttributedString(string: Constants.networkingErrorTitle,
                                                                               attributes: Constants.titleAttributes),
                                                     description: NSAttributedString(string: Constants.networkingErrorDescription,
-                                                                                    attributes: Constants.descriptionAttributes))
+                                                                                    attributes: Constants.descriptionAttributes),
+                                                    image: #imageLiteral(resourceName: "errorIllustration"))
 
         let resourceController = ServiceLocator.resourceConfigurator.resourceController
         let resource = ParameterizedService<BrandsResource>(resource: BrandsResource(controller: resourceController))

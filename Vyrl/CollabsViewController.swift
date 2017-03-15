@@ -22,19 +22,10 @@ final class CollabsViewController: UIViewController, HavingNib {
     override func viewDidLoad() {
         super.viewDidLoad()
         interactor.use(tableView)
-//        addEmptyView()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         interactor.viewWillAppear()
-    }
-    
-    private func addEmptyView() {
-        let emptyView = CollabsEmptyView.fromNib()
-        view.addSubview(emptyView)
-        view.topAnchor.constraint(equalTo: emptyView.topAnchor).isActive = true
-        view.leadingAnchor.constraint(equalTo: emptyView.leadingAnchor).isActive = true
-        view.trailingAnchor.constraint(equalTo: emptyView.trailingAnchor).isActive = true
     }
 }

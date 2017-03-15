@@ -24,11 +24,13 @@ final class CartViewControllerFactory: CartControllerMaking {
         let noData = EmptyCollectionRenderable(title: NSAttributedString(string: Constants.noDataTitle,
                                                                          attributes: Constants.titleAttributes),
                                                description: NSAttributedString(string: Constants.noDataDescription,
-                                                                               attributes: Constants.descriptionAttributes))
+                                                                               attributes: Constants.descriptionAttributes),
+                                               image: #imageLiteral(resourceName: "errorIllustration"))
         let error = EmptyCollectionRenderable(title: NSAttributedString(string: Constants.networkingErrorTitle,
                                                                         attributes: Constants.titleAttributes),
                                               description: NSAttributedString(string: Constants.networkingErrorDescription,
-                                                                              attributes: Constants.descriptionAttributes))
+                                                                              attributes: Constants.descriptionAttributes),
+                                              image: #imageLiteral(resourceName: "errorIllustration"))
         let storage = ServiceLocator.cartStorage
         let resourceController = ServiceLocator.resourceConfigurator.resourceController
         let resource = ParameterizedService<ProductsResource>(resource: ProductsResource(controller: resourceController))

@@ -13,7 +13,7 @@ final class CollabsInteractor: CollabsInteracting {
     fileprivate let emptyTableHandler: EmptyTableViewHandler
     fileprivate weak var tableView: UITableView?
     
-    init(emptyTableHandler: EmptyTableViewHandler) { //empty table handler
+    init(emptyTableHandler: EmptyTableViewHandler) {
         self.emptyTableHandler = emptyTableHandler
     }
     
