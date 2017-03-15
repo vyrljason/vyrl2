@@ -12,9 +12,7 @@ final class ButtonWithBadgeSnapshotTest: SnapshotTestCase {
     override func setUp() {
         super.setUp()
         subject = ButtonWithBadge.badgeButton(with: #imageLiteral(resourceName: "iosCartIconNav"), action: { })
-        subject.translatesAutoresizingMaskIntoConstraints = false
-        subject.set(height: 36)
-        subject.set(width: 46)
+        subject.frame = CGRect(x: 0, y: 0, width: 46, height: 36)
 
         recordMode = false
     }
@@ -30,6 +28,14 @@ final class ButtonWithBadgeSnapshotTest: SnapshotTestCase {
     func test_whenItemsCountIsNonZero_showsBadge() {
 
         subject.render(BadgeButtonRenderable(itemsCount: 35))
+
+        FBSnapshotVerifyView(subject)
+        FBSnapshotVerifyLayer(subject.layer)
+    }
+
+    func test_whenItemsCountIs3Digits_showsBiggerBadge() {
+
+        subject.render(BadgeButtonRenderable(itemsCount: 333))
 
         FBSnapshotVerifyView(subject)
         FBSnapshotVerifyLayer(subject.layer)

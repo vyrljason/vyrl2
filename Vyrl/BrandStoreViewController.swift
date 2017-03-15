@@ -24,7 +24,7 @@ final class BrandStoreViewController: UIViewController, HavingNib {
         super.viewDidLoad()
         interactor.use(brandStoreCollection)
     }
-    
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         interactor.loadData()

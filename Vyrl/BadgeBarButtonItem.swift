@@ -12,8 +12,8 @@ final class BadgeBarButtonItem: UIBarButtonItem {
     init(image: UIImage, style: UIBarButtonItemStyle = .plain, action: @escaping () -> Void) {
         actionClosure = action
         super.init()
-        customView = badgeButton
         badgeButton = ButtonWithBadge.badgeButton(with: image, action: { [weak self] in self?.didTapButton() })
+        customView = badgeButton
     }
 
     required init?(coder aDecoder: NSCoder) {

@@ -341,19 +341,15 @@
 		85DCFC2D1E7682300046D0D5 /* ContactInfoControllerSnapshotTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85DCFC2C1E7682300046D0D5 /* ContactInfoControllerSnapshotTest.swift */; };
 		85DCFC2F1E7682C60046D0D5 /* ShippingInfoControllerSnapshotTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85DCFC2E1E7682C60046D0D5 /* ShippingInfoControllerSnapshotTest.swift */; };
 		85DCFC311E7683BD0046D0D5 /* LoginViewControllerSnapshotTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85DCFC301E7683BD0046D0D5 /* LoginViewControllerSnapshotTest.swift */; };
-		85DCFC3A1E76B3490046D0D5 /* ActionButtonRenderable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85DCFC391E76B3490046D0D5 /* ActionButtonRenderable.swift */; };
 		85DCFC331E7689B70046D0D5 /* ButtonWithBadge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85DCFC321E7689B70046D0D5 /* ButtonWithBadge.swift */; };
-		85DCFC351E768E340046D0D5 /* ButtonWithBadge.xib in Resources */ = {isa = PBXBuildFile; fileRef = 85DCFC341E768E340046D0D5 /* ButtonWithBadge.xib */; };
 		85DCFC371E76961A0046D0D5 /* BadgeBarButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85DCFC361E76961A0046D0D5 /* BadgeBarButtonItem.swift */; };
+		85DCFC3A1E76B3490046D0D5 /* ActionButtonRenderable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85DCFC391E76B3490046D0D5 /* ActionButtonRenderable.swift */; };
 		85DCFC3C1E76C1C10046D0D5 /* String+isEmail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85DCFC3B1E76C1C10046D0D5 /* String+isEmail.swift */; };
 		85DCFC3E1E76C1E70046D0D5 /* String+isEmailTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85DCFC3D1E76C1E70046D0D5 /* String+isEmailTest.swift */; };
 		85DCFC401E76C6FA0046D0D5 /* ActionDescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85DCFC3F1E76C6FA0046D0D5 /* ActionDescriptionView.swift */; };
 		85DCFC431E76D5B50046D0D5 /* FormInteracting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85DCFC421E76D5B50046D0D5 /* FormInteracting.swift */; };
 		85DCFC451E76D7CF0046D0D5 /* FormFieldsInteractorMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85DCFC441E76D7CF0046D0D5 /* FormFieldsInteractorMock.swift */; };
 		85DCFC471E77FED00046D0D5 /* Array+Hashable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85DCFC461E77FED00046D0D5 /* Array+Hashable.swift */; };
-		85DCFC331E7689B70046D0D5 /* ButtonWithBadge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85DCFC321E7689B70046D0D5 /* ButtonWithBadge.swift */; };
-		85DCFC351E768E340046D0D5 /* ButtonWithBadge.xib in Resources */ = {isa = PBXBuildFile; fileRef = 85DCFC341E768E340046D0D5 /* ButtonWithBadge.xib */; };
-		85DCFC371E76961A0046D0D5 /* BadgeBarButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85DCFC361E76961A0046D0D5 /* BadgeBarButtonItem.swift */; };
 		85DCFC491E7814360046D0D5 /* NotificationPosting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85DCFC481E7814360046D0D5 /* NotificationPosting.swift */; };
 		85DCFC4B1E78153A0046D0D5 /* NotificationObserving.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85DCFC4A1E78153A0046D0D5 /* NotificationObserving.swift */; };
 		85DCFC4D1E781B7E0046D0D5 /* CartUpdateInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85DCFC4C1E781B7E0046D0D5 /* CartUpdateInfo.swift */; };
@@ -718,19 +714,15 @@
 		85DCFC2C1E7682300046D0D5 /* ContactInfoControllerSnapshotTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactInfoControllerSnapshotTest.swift; sourceTree = "<group>"; };
 		85DCFC2E1E7682C60046D0D5 /* ShippingInfoControllerSnapshotTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShippingInfoControllerSnapshotTest.swift; sourceTree = "<group>"; };
 		85DCFC301E7683BD0046D0D5 /* LoginViewControllerSnapshotTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewControllerSnapshotTest.swift; sourceTree = "<group>"; };
-		85DCFC391E76B3490046D0D5 /* ActionButtonRenderable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionButtonRenderable.swift; sourceTree = "<group>"; };
 		85DCFC321E7689B70046D0D5 /* ButtonWithBadge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonWithBadge.swift; sourceTree = "<group>"; };
-		85DCFC341E768E340046D0D5 /* ButtonWithBadge.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ButtonWithBadge.xib; sourceTree = "<group>"; };
 		85DCFC361E76961A0046D0D5 /* BadgeBarButtonItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BadgeBarButtonItem.swift; sourceTree = "<group>"; };
+		85DCFC391E76B3490046D0D5 /* ActionButtonRenderable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionButtonRenderable.swift; sourceTree = "<group>"; };
 		85DCFC3B1E76C1C10046D0D5 /* String+isEmail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+isEmail.swift"; sourceTree = "<group>"; };
 		85DCFC3D1E76C1E70046D0D5 /* String+isEmailTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+isEmailTest.swift"; sourceTree = "<group>"; };
 		85DCFC3F1E76C6FA0046D0D5 /* ActionDescriptionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionDescriptionView.swift; sourceTree = "<group>"; };
 		85DCFC421E76D5B50046D0D5 /* FormInteracting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormInteracting.swift; sourceTree = "<group>"; };
 		85DCFC441E76D7CF0046D0D5 /* FormFieldsInteractorMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormFieldsInteractorMock.swift; sourceTree = "<group>"; };
 		85DCFC461E77FED00046D0D5 /* Array+Hashable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Array+Hashable.swift"; sourceTree = "<group>"; };
-		85DCFC321E7689B70046D0D5 /* ButtonWithBadge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonWithBadge.swift; sourceTree = "<group>"; };
-		85DCFC341E768E340046D0D5 /* ButtonWithBadge.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ButtonWithBadge.xib; sourceTree = "<group>"; };
-		85DCFC361E76961A0046D0D5 /* BadgeBarButtonItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BadgeBarButtonItem.swift; sourceTree = "<group>"; };
 		85DCFC481E7814360046D0D5 /* NotificationPosting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationPosting.swift; sourceTree = "<group>"; };
 		85DCFC4A1E78153A0046D0D5 /* NotificationObserving.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationObserving.swift; sourceTree = "<group>"; };
 		85DCFC4C1E781B7E0046D0D5 /* CartUpdateInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CartUpdateInfo.swift; sourceTree = "<group>"; };
@@ -2307,7 +2299,6 @@
 			isa = PBXGroup;
 			children = (
 				85DCFC321E7689B70046D0D5 /* ButtonWithBadge.swift */,
-				85DCFC341E768E340046D0D5 /* ButtonWithBadge.xib */,
 				85DCFC361E76961A0046D0D5 /* BadgeBarButtonItem.swift */,
 			);
 			name = BadgeButton;
@@ -2454,7 +2445,6 @@
 				313CF7FD1E6E1671005686F5 /* TextTableCell.xib in Resources */,
 				313CF8031E6E268E005686F5 /* ExpandableTextTableCell.xib in Resources */,
 				31EF231C1E68AD810073F624 /* AddToCartTableCell.xib in Resources */,
-				85DCFC351E768E340046D0D5 /* ButtonWithBadge.xib in Resources */,
 				858D64161E57130500CFDD4C /* Localizable.strings in Resources */,
 				31FEB5B21E5CBE4800C5E41D /* BrandStoreHeader.xib in Resources */,
 				31EF232C1E69A63D0073F624 /* DetailTableViewCell.xib in Resources */,
