@@ -17,7 +17,7 @@ final class CollabsServiceTest: XCTestCase {
         subject = CollabsService(resource: service)
     }
 
-    func test_getProducts_whenSuccess_returnsBrands() {
+    func test_getCollabs_whenSuccess_returnsCollabs() {
         resource.success = true
 
         var wasCalled = false
@@ -28,7 +28,7 @@ final class CollabsServiceTest: XCTestCase {
         XCTAssertTrue(wasCalled)
     }
 
-    func test_getProducts_whenFailure_returnsError() {
+    func test_getCollabs_whenFailure_returnsError() {
         resource.success = false
 
         var wasCalled = false
