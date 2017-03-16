@@ -39,7 +39,7 @@ final class CollabsControllerSnapshotTest: SnapshotTestCase {
         interactor = CollabsInteractorNoDataMock()
         subject = CollabsViewController(interactor: interactor)
 
-        recordMode = true
+        recordMode = false
     }
     
     func testCollabsWithNoData() {
