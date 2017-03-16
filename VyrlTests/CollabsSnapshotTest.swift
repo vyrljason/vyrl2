@@ -5,30 +5,48 @@
 @testable import Vyrl
 import XCTest
 
-final class CollabsInteractorNoDataMock: CollabsInteracting {
-    
-    private var emptyTableHandler: EmptyTableViewHandler = CollabsViewControllerFactory.makeEmptyTableHandler()
-    
+final class CollabsInteractorNoDataMock: CollabsInteracting, DataRefreshing {
+
+    var collectionView: UICollectionView?
+    fileprivate var emptyCollectionHandler: EmptyCollectionViewHandling = CollabsViewControllerFactory.emptyCollectionViewHandler()
+    weak var dataUpdateListener: DataLoadingEventsListening?
+
     func viewWillAppear() { }
-    
-    func use(_ tableView: UITableView) {
-        emptyTableHandler.use(tableView)
-        emptyTableHandler.configure(with: .noData)
-        tableView.reloadEmptyDataSet()
+
+    func updateCollection(with result: DataFetchResult) { }
+
+    func loadData() { }
+
+    func use(_ collectionView: UICollectionView) {
+        self.collectionView = collectionView
+        emptyCollectionHandler.use(collectionView)
+        emptyCollectionHandler.configure(with: .noData)
+        collectionView.reloadEmptyDataSet()
     }
+
+    func refreshData() { }
+
+    func didSelect(collab: Collab) { }
 }
 
 final class CollabsControllerSnapshotTest: SnapshotTestCase {
-    
+
+    private var subject: CollabsViewController!
+    private var interactor: CollabsInteractorNoDataMock!
+
     override func setUp() {
         super.setUp()
-        recordMode = false
+        interactor = CollabsInteractorNoDataMock()
+        subject = CollabsViewController(interactor: interactor)
+
+        recordMode = true
     }
     
     func testCollabsWithNoData() {
-        let interactor = CollabsInteractorNoDataMock()
-        let subject = CollabsViewController(interactor: interactor)
-        
+        _ = subject.view
+
+        interactor.updateCollection(with: .empty)
+
         verifyForScreens(view: subject.view)
     }
 }

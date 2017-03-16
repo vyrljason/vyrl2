@@ -9,7 +9,7 @@ final class CollabsResourceMock: Fetching {
 
     typealias Model = Collabs
 
-    private let items: Collabs
+    let items: Collabs
     var success = true
 
     init(amount: Int) {

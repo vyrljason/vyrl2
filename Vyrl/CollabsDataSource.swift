@@ -29,11 +29,11 @@ final class CollabsDataSource: NSObject, CollabsDataProviding {
         service.getCollabs { [weak self] result in
             guard let `self` = self else { return }
             self.items = result.map(success: { $0 }, failure: { _ in return [] })
-//            DispatchQueue.onMainThread {
+            DispatchQueue.onMainThread {
                 self.collectionViewControllingDelegate?.updateCollection(with:
                     result.map(success: { $0 .isEmpty ? .empty : .someData },
                                failure: { _ in .error }))
-//            }
+            }
         }
     }
 }

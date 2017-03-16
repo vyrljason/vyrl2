@@ -36,6 +36,7 @@ final class CollabsViewControllerFactory: CollabsControllerMaking {
         viewController.navigationItem.title = Constants.collabsNavigationTitle
         dataSource.collectionViewControllingDelegate = interactor
         dataSource.selectionDelegate = interactor
+        interactor.dataUpdateListener = viewController
         return viewController
     }
 }
