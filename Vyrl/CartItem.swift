@@ -14,7 +14,7 @@ struct CartItem {
     let productId: String
     let productVariants: [ProductVariant]
     let addedAt: Date
-    var product: Product? = nil
+    var product: Product?
 
     init(productId: String, addedAt: Date, productVariants: [ProductVariant]) {
         self.productId = productId

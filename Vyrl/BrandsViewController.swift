@@ -4,11 +4,6 @@
 
 import UIKit
 
-protocol DataLoadingEventsListening: class {
-    func willStartDataLoading()
-    func didFinishDataLoading()
-}
-
 final class BrandsViewController: UIViewController, HavingNib {
     static let nibName: String = "BrandsViewController"
 

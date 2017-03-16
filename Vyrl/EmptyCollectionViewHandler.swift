@@ -48,6 +48,10 @@ final class EmptyCollectionViewHandler: NSObject, DZNEmptyDataSetSource, DZNEmpt
         collectionView?.reloadEmptyDataSet()
     }
 
+    func image(forEmptyDataSet scrollView: UIScrollView!) -> UIImage? {
+        return renderable?.image
+    }
+
     func title(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
         return renderable?.title
     }
