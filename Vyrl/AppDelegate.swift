@@ -5,7 +5,7 @@
 import UIKit
 import Fabric
 import Crashlytics
-import Alamofire
+import Firebase
 
 @UIApplicationMain
 final class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -13,7 +13,8 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
     private var rootNavigation: RootNavigation!
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        initializeAnalytics()
+        setUpAnalytics()
+        setUpFirebase()
         setUpAPIConfiguration()
         setUpChatTokenRepository()
         setUpRootNavigation()
@@ -25,7 +26,7 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
         rootNavigation?.showInitialViewController(animated: false)
     }
 
-    private func initializeAnalytics() {
+    private func setUpAnalytics() {
         Fabric.with([Crashlytics.self])
     }
 
@@ -36,5 +37,9 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
 
     private func setUpChatTokenRepository() {
         ServiceLocator.chatTokenRepository = ChatTokenRepositoryFactory.make(using: ServiceLocator.resourceConfigurator.resourceController)
+    }
+
+    private func setUpFirebase() {
+        FIRApp.configure()
     }
 }

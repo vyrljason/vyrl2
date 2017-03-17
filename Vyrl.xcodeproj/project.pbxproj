@@ -231,6 +231,7 @@
 		853BAC0A1E7BCA9D00874075 /* StoredRepositoryTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853BAC091E7BCA9D00874075 /* StoredRepositoryTest.swift */; };
 		853BAC0C1E7C07B700874075 /* KeychainMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853BAC0B1E7C07B700874075 /* KeychainMock.swift */; };
 		853BAC0E1E7C099800874075 /* ChatTokenRepositoryFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853BAC0D1E7C099800874075 /* ChatTokenRepositoryFactory.swift */; };
+		853BAC101E7C1A9600874075 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 853BAC0F1E7C1A9600874075 /* GoogleService-Info.plist */; };
 		85437AA31E58D4E200551D2D /* EmptyCollectionViewHandlerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85437AA21E58D4E200551D2D /* EmptyCollectionViewHandlerTest.swift */; };
 		85437AA51E58D7C200551D2D /* EmptyCollectionViewHandlerMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85437AA41E58D7C200551D2D /* EmptyCollectionViewHandlerMock.swift */; };
 		8554BE6A1E68047C00E05A37 /* CategoriesResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8554BE691E68047C00E05A37 /* CategoriesResource.swift */; };
@@ -656,6 +657,7 @@
 		853BAC091E7BCA9D00874075 /* StoredRepositoryTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoredRepositoryTest.swift; sourceTree = "<group>"; };
 		853BAC0B1E7C07B700874075 /* KeychainMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeychainMock.swift; sourceTree = "<group>"; };
 		853BAC0D1E7C099800874075 /* ChatTokenRepositoryFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatTokenRepositoryFactory.swift; sourceTree = "<group>"; };
+		853BAC0F1E7C1A9600874075 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		85437AA21E58D4E200551D2D /* EmptyCollectionViewHandlerTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmptyCollectionViewHandlerTest.swift; sourceTree = "<group>"; };
 		85437AA41E58D7C200551D2D /* EmptyCollectionViewHandlerMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmptyCollectionViewHandlerMock.swift; sourceTree = "<group>"; };
 		8554BE691E68047C00E05A37 /* CategoriesResource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoriesResource.swift; sourceTree = "<group>"; };
@@ -1082,6 +1084,7 @@
 		1ADAF7F71E54604300155D9F /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				853BAC0F1E7C1A9600874075 /* GoogleService-Info.plist */,
 				8538599D1E60734C0098D1EB /* dergodaddy.crt */,
 				850A80AF1E5D990C00E684A3 /* Configuration.plist */,
 				1ADAF7D01E545F3C00155D9F /* LaunchScreen.storyboard */,
@@ -2811,6 +2814,7 @@
 				31FEB5AB1E5C3A4800C5E41D /* BrandStoreViewController.xib in Resources */,
 				1A31215E1E641CFB00F71925 /* CartItemCell.xib in Resources */,
 				C4C887791E89A5590022558F /* BrandMessageCell.xib in Resources */,
+				853BAC101E7C1A9600874075 /* GoogleService-Info.plist in Resources */,
 				1AEBB9741E608AA300113DC9 /* CartViewController.xib in Resources */,
 				1A1FA93A1E5D94FE007EB61D /* CategoryCell.xib in Resources */,
 				85DCFC201E75BC420046D0D5 /* ContactInfoViewController.xib in Resources */,
