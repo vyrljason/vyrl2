@@ -14,6 +14,7 @@ target 'Vyrl' do
     pod 'ReachabilitySwift', '~> 3'
     pod 'Firebase/Core'
     pod 'Firebase/Database'
+    pod 'Firebase/Auth'
     pod 'SlideMenuControllerSwift'
     pod 'Kingfisher'
     pod 'Fakery'
