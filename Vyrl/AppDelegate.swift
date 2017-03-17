@@ -15,6 +15,7 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         initializeAnalytics()
         setUpAPIConfiguration()
+        setUpChatTokenRepository()
         setUpRootNavigation()
         return true
     }
@@ -31,5 +32,9 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
     private func setUpAPIConfiguration() {
         guard let apiConfiguration = try? APIConfiguration() else { fatalError("Could not retrieve API configuration") }
         ServiceLocator.resourceConfigurator = ResourceConfiguratorFactory.make(using: apiConfiguration)
+    }
+
+    private func setUpChatTokenRepository() {
+        ServiceLocator.chatTokenRepository = ChatTokenRepositoryFactory.make(using: ServiceLocator.resourceConfigurator.resourceController)
     }
 }
