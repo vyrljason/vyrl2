@@ -15,21 +15,28 @@ protocol CollabsControllerMaking {
 }
 
 final class CollabsViewControllerFactory: CollabsControllerMaking {
-    static func makeEmptyTableHandler() -> EmptyTableViewHandler {
+    static func emptyCollectionViewHandler() -> EmptyCollectionViewHandling {
         let noData = EmptyCollectionRenderable(title: NSAttributedString(string: Constants.noDataTitle,
                                                                          attributes: StyleKit.noDataHeaderAttributes),
                                                description: NSAttributedString(string: Constants.noDataDescription,
                                                                                attributes: StyleKit.noDataDescriptionAttributes),
                                                image: #imageLiteral(resourceName: "chatEmpty"))
-        let emptyTableHandler = EmptyTableViewHandler(modeToRenderable: [ .noData: noData ])
-        return emptyTableHandler
-        
+        let handler = EmptyCollectionViewHandler(modeToRenderable: [ .noData: noData ])
+        return handler
     }
+
     static func make(chatNavigation: ChatNavigating) -> CollabsViewController {
-        let emptyTableHandler = makeEmptyTableHandler()
-        let interactor = CollabsInteractor(emptyTableHandler: emptyTableHandler)
-        let collabs = CollabsViewController(interactor: interactor)
-        collabs.navigationItem.title = Constants.collabsNavigationTitle
-        return collabs
+        let resource = Service<CollabsResourceMock>(resource: CollabsResourceMock(amount: 15))
+        let service = CollabsService(resource: resource)
+        let dataSource = CollabsDataSource(service: service)
+
+        let emptyCollectionHandler = emptyCollectionViewHandler()
+        let interactor = CollabsInteractor(dataSource: dataSource, emptyCollectionHandler: emptyCollectionHandler)
+        let viewController = CollabsViewController(interactor: interactor)
+        viewController.navigationItem.title = Constants.collabsNavigationTitle
+        dataSource.selectionDelegate = interactor
+        dataSource.collectionUpdateListener = interactor
+        interactor.dataUpdateListener = viewController
+        return viewController
     }
 }

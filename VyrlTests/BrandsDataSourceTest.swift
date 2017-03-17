@@ -31,20 +31,6 @@ final class BrandsServiceMock: BrandsProviding {
     }
 }
 
-final class CollectionInteractorMock: CollectionViewHaving, CollectionViewControlling {
-    var collectionView: UICollectionView?
-    var updateResult: DataFetchResult?
-    var didLoadData = false
-
-    func updateCollection(with result: DataFetchResult) {
-        updateResult = result
-    }
-
-    func loadData() {
-        didLoadData = true
-    }
-}
-
 final class BrandsDataSourceTest: XCTestCase {
 
     var collectionView: CollectionViewMock!

@@ -174,3 +174,11 @@ extension Faker {
         return ProductImage(id: id, url: url, name: name, brandId: brandId)
     }
 }
+
+extension Faker {
+    func collab(brandName: String = VyrlFaker.faker.name.name(),
+                authorName: String? = VyrlFaker.faker.name.name(),
+                lastMessage: String = VyrlFaker.faker.lorem.characters(amount: 100)) -> Collab {
+        return Collab(brandName: brandName, authorName: authorName, lastMessage: lastMessage)
+    }
+}

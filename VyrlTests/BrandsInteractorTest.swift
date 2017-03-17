@@ -13,19 +13,6 @@ final class BrandStorePresenterMock: BrandStorePresenting {
     }
 }
 
-final class DataUpdateListener: DataLoadingEventsListening {
-    var willStart = false
-    var didFinish = false
-
-    func willStartDataLoading() {
-        willStart = true
-    }
-
-    func didFinishDataLoading() {
-        didFinish = true
-    }
-}
-
 final class BrandsDataSourceMock: NSObject, BrandsDataProviding, BrandsFilteredByCategoryProviding {
 
     weak var collectionViewControllingDelegate: CollectionViewHaving & CollectionViewControlling?
@@ -60,7 +47,7 @@ final class BrandsInteractorTest: XCTestCase {
 
     var collectionView: CollectionViewMock!
     var dataSource: BrandsDataSourceMock!
-    var dataUpdateListener: DataUpdateListener!
+    var dataUpdateListener: DataUpdateListenerMock!
     var emptyCollectionHandler: EmptyCollectionViewHandlerMock!
     var storePresenter: BrandStorePresenterMock!
     var subject: BrandsInteractor!
@@ -69,7 +56,7 @@ final class BrandsInteractorTest: XCTestCase {
         super.setUp()
         collectionView = CollectionViewMock()
         dataSource = BrandsDataSourceMock()
-        dataUpdateListener = DataUpdateListener()
+        dataUpdateListener = DataUpdateListenerMock()
         emptyCollectionHandler = EmptyCollectionViewHandlerMock()
         storePresenter = BrandStorePresenterMock()
         subject = BrandsInteractor(dataSource: dataSource, emptyCollectionHandler: emptyCollectionHandler)

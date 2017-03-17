@@ -4,28 +4,61 @@
 
 import UIKit
 
-protocol CollabsInteracting: class, TableViewUsing {
+protocol CollabSelecting: class {
+    func didSelect(collab: Collab)
+}
+
+protocol CollabsInteracting: CollectionViewUsing, CollabSelecting, CollectionUpateListening {
+    weak var dataUpdateListener: DataLoadingEventsListening? { get set }
     func viewWillAppear()
 }
 
 final class CollabsInteractor: CollabsInteracting {
-    
-    fileprivate let emptyTableHandler: EmptyTableViewHandler
-    fileprivate weak var tableView: UITableView?
-    
-    init(emptyTableHandler: EmptyTableViewHandler) {
-        self.emptyTableHandler = emptyTableHandler
+
+    fileprivate let dataSource: CollabsDataProviding
+    fileprivate let emptyCollectionHandler: EmptyCollectionViewHandling
+    weak var dataUpdateListener: DataLoadingEventsListening?
+
+    init(dataSource: CollabsDataProviding,
+         emptyCollectionHandler: EmptyCollectionViewHandling) {
+        self.dataSource = dataSource
+        self.emptyCollectionHandler = emptyCollectionHandler
+        dataSource.emptyCollectionHandler = emptyCollectionHandler
     }
-    
+
     func viewWillAppear() {
-        emptyTableHandler.configure(with: .noData)
-        tableView?.reloadEmptyDataSet()
+        loadData()
+    }
+
+    func loadData() {
+        dataUpdateListener?.willStartDataLoading()
+        dataSource.loadData()
     }
 }
 
-extension CollabsInteractor: TableViewUsing {
-    func use(_ tableView: UITableView) {
-        self.tableView = tableView
-        emptyTableHandler.use(tableView)
+extension CollabsInteractor {
+    func didUpdateCollection() {
+        dataUpdateListener?.didFinishDataLoading()
+    }
+}
+
+extension CollabsInteractor {
+    func didSelect(collab: Collab) {
+        //FIXME: As an Influencer I can tap on selected chat to enter it's details 
+        //https://taiga.neoteric.eu/project/mpaprocki-vyrl-mobile/us/93
+    }
+}
+
+extension CollabsInteractor: DataRefreshing {
+    func refreshData() {
+        loadData()
+    }
+}
+
+extension CollabsInteractor: CollectionViewUsing {
+    func use(_ collectionView: UICollectionView) {
+        emptyCollectionHandler.use(collectionView)
+        dataSource.use(collectionView)
+        dataSource.reloadingDelegate = collectionView
     }
 }

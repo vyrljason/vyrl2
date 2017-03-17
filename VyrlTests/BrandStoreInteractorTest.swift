@@ -17,32 +17,8 @@ final class ProductDetailsPresenterMock: ProductDetailsPresenting {
     }
 }
 
-final class BrandStoreDataSourceMock: NSObject, BrandStoreDataProviding {
-    weak var collectionViewControllingDelegate: CollectionViewHaving & CollectionViewControlling?
+final class BrandStoreDataSourceMock: CollectionDataSourceMock, BrandStoreDataProviding {
     weak var selectionDelegate: ProductSelecting?
-    var didRegisterNibs = false
-    var didLoadData = false
-    var didUseCollectionView = false
-    
-    func registerNibs(in collectionView: UICollectionView) {
-        didRegisterNibs = true
-    }
-    
-    func loadData() {
-        didLoadData = true
-    }
-    
-    func use(_ collectionView: UICollectionView) {
-        didUseCollectionView = true
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 1
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        return UICollectionViewCell()
-    }
 }
 
 // MARK: - Tests

@@ -257,6 +257,21 @@
 		8554BEC61E69DE8000E05A37 /* ShippingAddressInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8554BEC51E69DE8000E05A37 /* ShippingAddressInteractor.swift */; };
 		8554BEC91E69DECD00E05A37 /* ShippingAddressViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8554BEC81E69DECD00E05A37 /* ShippingAddressViewFactory.swift */; };
 		85718EEB1E65AD8C00E9602B /* LoginFormFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85718EEA1E65AD8C00E9602B /* LoginFormFactory.swift */; };
+		8572E4A11E7977260042160D /* CollabsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8572E4A01E7977260042160D /* CollabsDataSource.swift */; };
+		8572E4A71E79792C0042160D /* CollabsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8572E4A61E79792C0042160D /* CollabsService.swift */; };
+		8572E4A91E79793A0042160D /* CollabsResourceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8572E4A81E79793A0042160D /* CollabsResourceMock.swift */; };
+		8572E4AB1E797C6D0042160D /* CollabCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8572E4AA1E797C6D0042160D /* CollabCell.swift */; };
+		8572E4AD1E797CA90042160D /* CollabCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8572E4AC1E797CA90042160D /* CollabCell.xib */; };
+		8572E4AF1E797CE00042160D /* CollabRenderable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8572E4AE1E797CE00042160D /* CollabRenderable.swift */; };
+		8572E4B31E7996120042160D /* Collabs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8572E4B21E7996120042160D /* Collabs.swift */; };
+		8572E4B51E799E0D0042160D /* DataLoadingEventsListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8572E4B41E799E0D0042160D /* DataLoadingEventsListener.swift */; };
+		8572E4B61E79A78F0042160D /* Collab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8572E4B01E7981ED0042160D /* Collab.swift */; };
+		8572E4D81E7AC7F60042160D /* CollabsDataSourceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8572E4D71E7AC7F60042160D /* CollabsDataSourceTest.swift */; };
+		8572E4DA1E7AC8000042160D /* CollabsInteractorTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8572E4D91E7AC8000042160D /* CollabsInteractorTest.swift */; };
+		8572E4DC1E7AC9220042160D /* CollabsServiceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8572E4DB1E7AC9220042160D /* CollabsServiceTest.swift */; };
+		8572E4DE1E7ACAEB0042160D /* CollectionDataSourceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8572E4DD1E7ACAEB0042160D /* CollectionDataSourceMock.swift */; };
+		8572E4E01E7ACC040042160D /* DataUpdateListenerMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8572E4DF1E7ACC040042160D /* DataUpdateListenerMock.swift */; };
+		8572E4E21E7AD83C0042160D /* CollectionInteractorMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8572E4E11E7AD83C0042160D /* CollectionInteractorMock.swift */; };
 		858D63DE1E55F18100CFDD4C /* DownloadingImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858D63DD1E55F18100CFDD4C /* DownloadingImageView.swift */; };
 		858D63E01E55F19A00CFDD4C /* ImageFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858D63DF1E55F19A00CFDD4C /* ImageFetcher.swift */; };
 		858D63E51E55F1E000CFDD4C /* ImageRetriever.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858D63E41E55F1E000CFDD4C /* ImageRetriever.swift */; };
@@ -629,6 +644,21 @@
 		8554BEC51E69DE8000E05A37 /* ShippingAddressInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShippingAddressInteractor.swift; sourceTree = "<group>"; };
 		8554BEC81E69DECD00E05A37 /* ShippingAddressViewFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShippingAddressViewFactory.swift; sourceTree = "<group>"; };
 		85718EEA1E65AD8C00E9602B /* LoginFormFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginFormFactory.swift; sourceTree = "<group>"; };
+		8572E4A01E7977260042160D /* CollabsDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollabsDataSource.swift; sourceTree = "<group>"; };
+		8572E4A61E79792C0042160D /* CollabsService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollabsService.swift; sourceTree = "<group>"; };
+		8572E4A81E79793A0042160D /* CollabsResourceMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollabsResourceMock.swift; sourceTree = "<group>"; };
+		8572E4AA1E797C6D0042160D /* CollabCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollabCell.swift; sourceTree = "<group>"; };
+		8572E4AC1E797CA90042160D /* CollabCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CollabCell.xib; sourceTree = "<group>"; };
+		8572E4AE1E797CE00042160D /* CollabRenderable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollabRenderable.swift; sourceTree = "<group>"; };
+		8572E4B01E7981ED0042160D /* Collab.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Collab.swift; sourceTree = "<group>"; };
+		8572E4B21E7996120042160D /* Collabs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Collabs.swift; sourceTree = "<group>"; };
+		8572E4B41E799E0D0042160D /* DataLoadingEventsListener.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataLoadingEventsListener.swift; sourceTree = "<group>"; };
+		8572E4D71E7AC7F60042160D /* CollabsDataSourceTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollabsDataSourceTest.swift; sourceTree = "<group>"; };
+		8572E4D91E7AC8000042160D /* CollabsInteractorTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollabsInteractorTest.swift; sourceTree = "<group>"; };
+		8572E4DB1E7AC9220042160D /* CollabsServiceTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollabsServiceTest.swift; sourceTree = "<group>"; };
+		8572E4DD1E7ACAEB0042160D /* CollectionDataSourceMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionDataSourceMock.swift; sourceTree = "<group>"; };
+		8572E4DF1E7ACC040042160D /* DataUpdateListenerMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataUpdateListenerMock.swift; sourceTree = "<group>"; };
+		8572E4E11E7AD83C0042160D /* CollectionInteractorMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionInteractorMock.swift; sourceTree = "<group>"; };
 		858D63DD1E55F18100CFDD4C /* DownloadingImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DownloadingImageView.swift; sourceTree = "<group>"; };
 		858D63DF1E55F19A00CFDD4C /* ImageFetcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageFetcher.swift; sourceTree = "<group>"; };
 		858D63E41E55F1E000CFDD4C /* ImageRetriever.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageRetriever.swift; sourceTree = "<group>"; };
@@ -1050,6 +1080,9 @@
 				31B0794B1E76B1770015C302 /* ViewControllerMock.swift */,
 				85DCFC111E75B0CD0046D0D5 /* CartStoringMock.swift */,
 				85DCFC441E76D7CF0046D0D5 /* FormFieldsInteractorMock.swift */,
+				8572E4DD1E7ACAEB0042160D /* CollectionDataSourceMock.swift */,
+				8572E4DF1E7ACC040042160D /* DataUpdateListenerMock.swift */,
+				8572E4E11E7AD83C0042160D /* CollectionInteractorMock.swift */,
 			);
 			name = Mocks;
 			sourceTree = "<group>";
@@ -1194,6 +1227,11 @@
 		31B079501E7734660015C302 /* Collabs */ = {
 			isa = PBXGroup;
 			children = (
+				8572E4A51E7978350042160D /* Models */,
+				8572E4A41E79782E0042160D /* Renderables */,
+				8572E4A31E7978250042160D /* Resources */,
+				8572E4A21E79781E0042160D /* Services */,
+				8572E49F1E7977170042160D /* DataSources */,
 				31B0795F1E78033C0015C302 /* Interactors */,
 				31B079561E773CA80015C302 /* Factories */,
 				31B079511E7734840015C302 /* Views */,
@@ -1206,6 +1244,8 @@
 			children = (
 				31B079521E7736EF0015C302 /* CollabsViewController.swift */,
 				31B079531E7736EF0015C302 /* CollabsViewController.xib */,
+				8572E4AA1E797C6D0042160D /* CollabCell.swift */,
+				8572E4AC1E797CA90042160D /* CollabCell.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -1599,6 +1639,7 @@
 				85DCFC271E75C3760046D0D5 /* CustomIntegerConvertible.swift */,
 				85DCFC481E7814360046D0D5 /* NotificationPosting.swift */,
 				85DCFC4A1E78153A0046D0D5 /* NotificationObserving.swift */,
+				8572E4B41E799E0D0042160D /* DataLoadingEventsListener.swift */,
 			);
 			name = Protocols;
 			sourceTree = "<group>";
@@ -1908,6 +1949,65 @@
 			name = Factories;
 			sourceTree = "<group>";
 		};
+		8572E49F1E7977170042160D /* DataSources */ = {
+			isa = PBXGroup;
+			children = (
+				8572E4A01E7977260042160D /* CollabsDataSource.swift */,
+			);
+			name = DataSources;
+			sourceTree = "<group>";
+		};
+		8572E4A21E79781E0042160D /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				8572E4A61E79792C0042160D /* CollabsService.swift */,
+			);
+			name = Services;
+			sourceTree = "<group>";
+		};
+		8572E4A31E7978250042160D /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				8572E4A81E79793A0042160D /* CollabsResourceMock.swift */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		8572E4A41E79782E0042160D /* Renderables */ = {
+			isa = PBXGroup;
+			children = (
+				8572E4AE1E797CE00042160D /* CollabRenderable.swift */,
+			);
+			name = Renderables;
+			sourceTree = "<group>";
+		};
+		8572E4A51E7978350042160D /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				8572E4B01E7981ED0042160D /* Collab.swift */,
+				8572E4B21E7996120042160D /* Collabs.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		8572E4D51E7AC7C50042160D /* Chat */ = {
+			isa = PBXGroup;
+			children = (
+				8572E4D61E7AC7C90042160D /* Collabs */,
+			);
+			name = Chat;
+			sourceTree = "<group>";
+		};
+		8572E4D61E7AC7C90042160D /* Collabs */ = {
+			isa = PBXGroup;
+			children = (
+				8572E4D71E7AC7F60042160D /* CollabsDataSourceTest.swift */,
+				8572E4D91E7AC8000042160D /* CollabsInteractorTest.swift */,
+				8572E4DB1E7AC9220042160D /* CollabsServiceTest.swift */,
+			);
+			name = Collabs;
+			sourceTree = "<group>";
+		};
 		858D63E31E55F1C200CFDD4C /* ImageRetrieving */ = {
 			isa = PBXGroup;
 			children = (
@@ -2013,6 +2113,7 @@
 		858D64211E573D2700CFDD4C /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				8572E4D51E7AC7C50042160D /* Chat */,
 				85DCFC291E767F900046D0D5 /* ContactInfo.swift */,
 				853A833C1E71B939006EBA8C /* ShippingDetails */,
 				85B0A82C1E66AECE002093BA /* Login */,
@@ -2433,6 +2534,7 @@
 				8538599E1E6073740098D1EB /* dergodaddy.crt in Resources */,
 				31B079551E7736EF0015C302 /* CollabsViewController.xib in Resources */,
 				1ADAF7D21E545F3C00155D9F /* LaunchScreen.storyboard in Resources */,
+				8572E4AD1E797CA90042160D /* CollabCell.xib in Resources */,
 				1AA7FAA61E69783F001C0B6F /* CheckoutViewController.xib in Resources */,
 				85CA3FE51E647A5400D43805 /* LoginViewController.xib in Resources */,
 				31B0793C1E70A7370015C302 /* SwipeableGalleryItemCell.xib in Resources */,
@@ -2605,6 +2707,7 @@
 				850A810C1E5F2BF300E684A3 /* Deserializable.swift in Sources */,
 				85B0A83B1E670BBC002093BA /* BrandsResource.swift in Sources */,
 				8554BE9E1E697B2400E05A37 /* Order.swift in Sources */,
+				8572E4A91E79793A0042160D /* CollabsResourceMock.swift in Sources */,
 				850A80B91E5DA90C00E684A3 /* BrandStoreControllerFactory.swift in Sources */,
 				858D63FC1E56057F00CFDD4C /* Brand.swift in Sources */,
 				31EF23221E690D5B0073F624 /* ProductDetailsSectionSpecifics.swift in Sources */,
@@ -2659,6 +2762,7 @@
 				850A80ED1E5E200C00E684A3 /* APIResponseHandler.swift in Sources */,
 				8554BEBE1E69C98200E05A37 /* ShippingAddressViewController.swift in Sources */,
 				85DCFC4D1E781B7E0046D0D5 /* CartUpdateInfo.swift in Sources */,
+				8572E4B31E7996120042160D /* Collabs.swift in Sources */,
 				858D63EA1E55F24C00CFDD4C /* Result.swift in Sources */,
 				8538599C1E606DA90098D1EB /* Dictionary+Operations.swift in Sources */,
 				31B079541E7736EF0015C302 /* CollabsViewController.swift in Sources */,
@@ -2668,6 +2772,7 @@
 				85CA3FDC1E6477DF00D43805 /* LoginInteractor.swift in Sources */,
 				1A1FA9381E5D93BA007EB61D /* Category.swift in Sources */,
 				3169B9C61E647208005F8A94 /* ExpandableTextView.swift in Sources */,
+				8572E4A71E79792C0042160D /* CollabsService.swift in Sources */,
 				858D64011E56082500CFDD4C /* BrandsInteractor.swift in Sources */,
 				1A3121621E646C9100F71925 /* CartViewControllerFactory.swift in Sources */,
 				313CF8051E6E26E7005686F5 /* ExpandableTextTableCellRenderable.swift in Sources */,
@@ -2694,6 +2799,7 @@
 				85CA3FE81E647C4500D43805 /* LoginResources.swift in Sources */,
 				858D63E71E55F21800CFDD4C /* ServiceLocator.swift in Sources */,
 				31EF231B1E68AD810073F624 /* AddToCartTableCell.swift in Sources */,
+				8572E4A11E7977260042160D /* CollabsDataSource.swift in Sources */,
 				1A1FA93C1E5D950A007EB61D /* CategoryCell.swift in Sources */,
 				8554BE891E68731D00E05A37 /* OrderProposal.swift in Sources */,
 				1A859C151E575E7E0013EB09 /* RootNavigationBuilder.swift in Sources */,
@@ -2718,6 +2824,7 @@
 				3168A27B1E5EF66F00C65434 /* ProductsResourceMock.swift in Sources */,
 				852ACD4B1E55DDEE00219E90 /* BrandCell.swift in Sources */,
 				1A859C4B1E58D1950013EB09 /* LeftMenuInteractor.swift in Sources */,
+				8572E4AB1E797C6D0042160D /* CollabCell.swift in Sources */,
 				85CA3FEF1E6489CF00D43805 /* LoginFormInteractor.swift in Sources */,
 				85DCFC1C1E75BC2E0046D0D5 /* ContactInfoFormInteractor.swift in Sources */,
 				852ACD3A1E55DB0F00219E90 /* BrandsViewController.swift in Sources */,
@@ -2751,6 +2858,7 @@
 				1AA7FAB11E69CB2F001C0B6F /* OrderProposalService.swift in Sources */,
 				8554BE831E6870BF00E05A37 /* ShippingAddress.swift in Sources */,
 				8554BE7D1E68465100E05A37 /* ProductsResource.swift in Sources */,
+				8572E4B61E79A78F0042160D /* Collab.swift in Sources */,
 				31EF233C1E69C0860073F624 /* VariantHandler.swift in Sources */,
 				1A31217C1E66E9CE00F71925 /* ObjectStoring.swift in Sources */,
 				1A69C6A81E560F4800134EF5 /* WindowProtocol.swift in Sources */,
@@ -2795,6 +2903,7 @@
 				31EF23331E69A8A90073F624 /* TableHeaderCell.swift in Sources */,
 				8554BEC91E69DECD00E05A37 /* ShippingAddressViewFactory.swift in Sources */,
 				85B2CD641E6D83C600C4C744 /* KeyboardHandler.swift in Sources */,
+				8572E4AF1E797CE00042160D /* CollabRenderable.swift in Sources */,
 				850A80BF1E5DA94100E684A3 /* HTTPClient.swift in Sources */,
 				313CF7FF1E6E16F4005686F5 /* TextTableCellRenderable.swift in Sources */,
 				313CF7D71E6D9B07005686F5 /* PickerPresenter.swift in Sources */,
@@ -2811,6 +2920,7 @@
 				1AA7FAB61E69CB3E001C0B6F /* OrderProposalResource.swift in Sources */,
 				858D64091E560EBC00CFDD4C /* CollectionViewControlling.swift in Sources */,
 				8538599A1E606BFD0098D1EB /* VyrlServerTrustPolicyManager.swift in Sources */,
+				8572E4B51E799E0D0042160D /* DataLoadingEventsListener.swift in Sources */,
 				1AA7FAA01E6885FE001C0B6F /* Autolayout.swift in Sources */,
 				853859951E6029050098D1EB /* RegisterEndpoint.swift in Sources */,
 				1AA7FAAA1E69A47B001C0B6F /* CartNavigation.swift in Sources */,
@@ -2832,13 +2942,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				1A859C191E5899D80013EB09 /* RootNavigationControllingMock.swift in Sources */,
+				8572E4DC1E7AC9220042160D /* CollabsServiceTest.swift in Sources */,
 				85B0A8431E672ED0002093BA /* HTTPClientMock.swift in Sources */,
+				8572E4D81E7AC7F60042160D /* CollabsDataSourceTest.swift in Sources */,
 				85CA3FD51E646FE700D43805 /* BaseResourcesTest.swift in Sources */,
 				858D63F11E55F6D600CFDD4C /* ImageRetrieverMock.swift in Sources */,
 				8554BEB71E69C3E300E05A37 /* ProductsServiceTest.swift in Sources */,
 				1A3121761E65E22900F71925 /* CartStorageTests.swift in Sources */,
 				853771981E5C46AB00E693AD /* BrandsNavigationTest.swift in Sources */,
 				85B0A82E1E66AEE0002093BA /* LoginInteractorTest.swift in Sources */,
+				8572E4DA1E7AC8000042160D /* CollabsInteractorTest.swift in Sources */,
 				31EF23111E67BDFD0073F624 /* CenteredWithDetailTableCellTest.swift in Sources */,
 				1A859C171E58999A0013EB09 /* RootNavigationInteractorTests.swift in Sources */,
 				1A1FA94F1E5E23C3007EB61D /* NavigationProviderMock.swift in Sources */,
@@ -2847,6 +2960,7 @@
 				850A81061E5F219C00E684A3 /* HTTPClientTest.swift in Sources */,
 				1A31216B1E659E0E00F71925 /* CartInteractorTests.swift in Sources */,
 				1A31217A1E66260D00F71925 /* CartItemCellSnapshotTests.swift in Sources */,
+				8572E4E01E7ACC040042160D /* DataUpdateListenerMock.swift in Sources */,
 				85CA3FCB1E6431B500D43805 /* APIEndpointMock.swift in Sources */,
 				85DCFC451E76D7CF0046D0D5 /* FormFieldsInteractorMock.swift in Sources */,
 				85B2CD661E6D83F200C4C744 /* KeyboardHandlerTest.swift in Sources */,
@@ -2886,6 +3000,7 @@
 				850A80B31E5D9EA800E684A3 /* APIConfigurationTest.swift in Sources */,
 				85DCFC2D1E7682300046D0D5 /* ContactInfoControllerSnapshotTest.swift in Sources */,
 				31EF22FD1E6784BA0073F624 /* ProductDetailsInteractorTest.swift in Sources */,
+				8572E4DE1E7ACAEB0042160D /* CollectionDataSourceMock.swift in Sources */,
 				3169B9AE1E603B84005F8A94 /* BrandStoreCellSnapshotTest.swift in Sources */,
 				1A1FA9591E5F10DC007EB61D /* LeftMenuViewControllerSnapshotTest.swift in Sources */,
 				85DCFC141E75BA110046D0D5 /* CheckoutSummaryViewControllerTest.swift in Sources */,
@@ -2898,6 +3013,7 @@
 				3169B9D01E64FB73005F8A94 /* BrandStoreDataSourceTest.swift in Sources */,
 				85CA3FC91E64319200D43805 /* APICredentialsProviderMock.swift in Sources */,
 				1A3121741E65CDCB00F71925 /* CartDataSourceTests.swift in Sources */,
+				8572E4E21E7AD83C0042160D /* CollectionInteractorMock.swift in Sources */,
 				858D643C1E5751A400CFDD4C /* BrandsServiceTest.swift in Sources */,
 				85CA3FCD1E6431CF00D43805 /* APIConfigurationMock.swift in Sources */,
 				1AF49CD31E59F44A00FE7857 /* HomeScreenPresentingMock.swift in Sources */,
