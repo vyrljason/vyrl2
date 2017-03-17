@@ -6,6 +6,8 @@ import UIKit
 import Fabric
 import Crashlytics
 import Firebase
+import FirebaseAuth
+
 
 @UIApplicationMain
 final class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -41,5 +43,6 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
 
     private func setUpFirebase() {
         FIRApp.configure()
+        FIRAuth.auth()?.signIn(withCustomToken: <#T##String#>, completion: <#T##FIRAuthResultCallback?##FIRAuthResultCallback?##(FIRUser?, Error?) -> Void#>)
     }
 }
