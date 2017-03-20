@@ -4,29 +4,7 @@
 
 @testable import Vyrl
 import XCTest
-import KeychainAccess
 
-final class KeychainMock: KeychainProtocol {
-    var accessTokenIsSet: Bool = false
-    var removeThrows: Bool = false
-
-    private var accessToken: String?
-
-    subscript(key: KeychainKey) -> String? {
-        get {
-            if key == .accessTokenUser && accessTokenIsSet {
-                return accessToken
-            }
-            return nil
-        }
-        set {
-            if key == .accessTokenUser {
-                accessTokenIsSet = newValue != nil
-                accessToken = newValue
-            }
-        }
-    }
-}
 
 final class CredentialsStorageTest: XCTestCase {
 

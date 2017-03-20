@@ -182,3 +182,9 @@ extension Faker {
         return Collab(brandName: brandName, authorName: authorName, lastMessage: lastMessage)
     }
 }
+
+extension Faker {
+    func chatToken() -> ChatToken {
+        return ChatToken(token: VyrlFaker.faker.lorem.characters(amount: 30))
+    }
+}
