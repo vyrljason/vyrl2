@@ -10,6 +10,7 @@ final class CollabsInteractorNoDataMock: CollabsInteracting, DataRefreshing {
     var collectionView: UICollectionView?
     fileprivate var emptyCollectionHandler: EmptyCollectionViewHandling = CollabsViewControllerFactory.emptyCollectionViewHandler()
     weak var dataUpdateListener: DataLoadingEventsListening?
+    weak var messagesPresenter: MessagesPresenting?
 
     func viewWillAppear() { }
 

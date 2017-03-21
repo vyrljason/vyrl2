@@ -28,3 +28,4 @@
 "collabs.navigation.title" = "Collabs";
 "collabs.placeholder.noDataTitle" = "Hey";
 "collabs.placeholder.noDataDescription" = "You don't have any active collaborations yet. Hit \"close\" at the top of the screen to start looking through brands to work with.";
+"messages.navigation.title" = "Messages";

@@ -10,6 +10,7 @@ protocol CollabSelecting: class {
 
 protocol CollabsInteracting: CollectionViewUsing, CollabSelecting, CollectionUpateListening {
     weak var dataUpdateListener: DataLoadingEventsListening? { get set }
+    weak var messagesPresenter: MessagesPresenting? { get set }
     func viewWillAppear()
 }
 
@@ -18,6 +19,7 @@ final class CollabsInteractor: CollabsInteracting {
     fileprivate let dataSource: CollabsDataProviding
     fileprivate let emptyCollectionHandler: EmptyCollectionViewHandling
     weak var dataUpdateListener: DataLoadingEventsListening?
+    weak var messagesPresenter: MessagesPresenting?
 
     init(dataSource: CollabsDataProviding,
          emptyCollectionHandler: EmptyCollectionViewHandling) {
@@ -44,8 +46,7 @@ extension CollabsInteractor {
 
 extension CollabsInteractor {
     func didSelect(collab: Collab) {
-        //FIXME: As an Influencer I can tap on selected chat to enter it's details 
-        //https://taiga.neoteric.eu/project/mpaprocki-vyrl-mobile/us/93
+        messagesPresenter?.presentMessages(for: collab, animated: true)
     }
 }
 
