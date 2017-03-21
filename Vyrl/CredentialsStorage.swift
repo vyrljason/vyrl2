@@ -4,10 +4,6 @@
 
 import KeychainAccess
 
-private enum Constants {
-    static let serviceName = "io.govyrl.vyrl.ios.main.brand.dev"
-}
-
 protocol CredentialsStoring: class {
     var accessToken: String? { get set }
 }
@@ -25,7 +21,7 @@ final class CredentialsStorage: CredentialsStoring {
         }
     }
 
-    init(keychain: KeychainProtocol = Keychain(service: Constants.serviceName)) {
+    init(keychain: KeychainProtocol = Keychain(service: KeychainConstants.serviceName)) {
         self.keychain = keychain
     }
 }

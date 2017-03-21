@@ -6,13 +6,14 @@ import KeychainAccess
 
 enum KeychainKey: String, CustomStringConvertible {
     case accessTokenUser = "vyrl-app-access-token-user"
+    case chatToken = "vyrl-app-chat-token"
 
     var description: String {
         return self.rawValue
     }
 }
 
-protocol KeychainProtocol {
+protocol KeychainProtocol: class {
     subscript(key: KeychainKey) -> String? { get set }
 }
 
