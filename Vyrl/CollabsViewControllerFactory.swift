@@ -11,7 +11,7 @@ fileprivate struct Constants {
 }
 
 protocol CollabsControllerMaking {
-    static func make(chatNavigation: ChatNavigating) -> CollabsViewController
+    static func make(presenter: MessagesPresenting) -> CollabsViewController
 }
 
 final class CollabsViewControllerFactory: CollabsControllerMaking {
@@ -25,7 +25,7 @@ final class CollabsViewControllerFactory: CollabsControllerMaking {
         return handler
     }
 
-    static func make(chatNavigation: ChatNavigating) -> CollabsViewController {
+    static func make(presenter: MessagesPresenting) -> CollabsViewController {
         let resource = Service<CollabsResourceMock>(resource: CollabsResourceMock(amount: 15))
         let service = CollabsService(resource: resource)
         let dataSource = CollabsDataSource(service: service)
@@ -37,6 +37,7 @@ final class CollabsViewControllerFactory: CollabsControllerMaking {
         dataSource.selectionDelegate = interactor
         dataSource.collectionUpdateListener = interactor
         interactor.dataUpdateListener = viewController
+        interactor.messagesPresenter = presenter
         return viewController
     }
 }
