@@ -8,19 +8,16 @@
 
 import UIKit
 
-fileprivate struct Constants {
-    static let messagesNavigationTitle = NSLocalizedString("messages.navigation.title", comment: "")
-}
-
 protocol MessagesControllerMaking {
     static func make(collab: Collab) -> MessagesViewController
 }
 
 final class MessagesViewControllerFactory: MessagesControllerMaking {
     static func make(collab: Collab) -> MessagesViewController {
-        let interactor = MessagesInteractor()
+        let dataSource = MessagesDataSource(collab: collab)
+        let interactor = MessagesInteractor(dataSource: dataSource, collab: collab)
         let viewController = MessagesViewController(interactor: interactor)
-        viewController.navigationItem.title = Constants.messagesNavigationTitle
+        viewController.navigationItem.title = collab.brandName
         return viewController
     }
 }

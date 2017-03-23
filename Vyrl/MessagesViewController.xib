@@ -1,12 +1,19 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11106"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MessagesViewController" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MessagesViewController" customModule="Vyrl" customModuleProvider="target">
             <connections>
+                <outlet property="addMessageView" destination="GIk-al-Ee4" id="Lse-H9-ImY"/>
+                <outlet property="messageTextView" destination="A45-hA-dCI" id="Ha5-HW-c2T"/>
+                <outlet property="tableView" destination="k0Z-hE-yUv" id="jDn-1e-Kn4"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -14,7 +21,66 @@
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GIk-al-Ee4" userLabel="AddMessageView">
+                    <rect key="frame" x="0.0" y="617" width="375" height="50"/>
+                    <subviews>
+                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="A45-hA-dCI" customClass="AutoexpandableTextView" customModule="Vyrl" customModuleProvider="target">
+                            <rect key="frame" x="8" y="8" width="309" height="34"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="34" id="wZ4-f0-z1R"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="string" keyPath="placeholderText" value="Write your message here...."/>
+                                <userDefinedRuntimeAttribute type="number" keyPath="maxHeight">
+                                    <real key="value" value="80"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                            <connections>
+                                <outlet property="height" destination="wZ4-f0-z1R" id="Ca0-LS-bfS"/>
+                            </connections>
+                        </textView>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VYz-3y-5c5">
+                            <rect key="frame" x="337" y="0.0" width="38" height="50"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="50" id="FmQ-Xy-aQK"/>
+                                <constraint firstAttribute="width" constant="38" id="Y21-DT-QMQ"/>
+                            </constraints>
+                            <state key="normal" title="Button" image="send01"/>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="A45-hA-dCI" firstAttribute="top" secondItem="GIk-al-Ee4" secondAttribute="top" constant="8" id="JRL-uj-hLj"/>
+                        <constraint firstAttribute="bottom" secondItem="A45-hA-dCI" secondAttribute="bottom" constant="8" id="O3m-EK-K5v"/>
+                        <constraint firstAttribute="trailing" secondItem="VYz-3y-5c5" secondAttribute="trailing" id="QJe-SO-y98"/>
+                        <constraint firstItem="A45-hA-dCI" firstAttribute="leading" secondItem="GIk-al-Ee4" secondAttribute="leading" constant="8" id="agM-16-1BC"/>
+                        <constraint firstAttribute="bottom" secondItem="VYz-3y-5c5" secondAttribute="bottom" id="vv3-HB-3in"/>
+                        <constraint firstItem="VYz-3y-5c5" firstAttribute="leading" secondItem="A45-hA-dCI" secondAttribute="trailing" constant="20" id="xqi-OR-stq"/>
+                    </constraints>
+                </view>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="k0Z-hE-yUv">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="617"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                </tableView>
+            </subviews>
+            <color key="backgroundColor" red="0.95294117647058818" green="0.95294117647058818" blue="0.95294117647058818" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="k0Z-hE-yUv" secondAttribute="trailing" id="0Mn-P6-UcB"/>
+                <constraint firstAttribute="trailing" secondItem="GIk-al-Ee4" secondAttribute="trailing" id="EdS-2j-ABS"/>
+                <constraint firstItem="GIk-al-Ee4" firstAttribute="top" secondItem="k0Z-hE-yUv" secondAttribute="bottom" id="S1K-3A-h1T"/>
+                <constraint firstItem="k0Z-hE-yUv" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="Tof-J2-dFY"/>
+                <constraint firstItem="GIk-al-Ee4" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="ihH-Yx-swJ"/>
+                <constraint firstItem="k0Z-hE-yUv" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="nCy-nB-QAb"/>
+                <constraint firstAttribute="bottom" secondItem="GIk-al-Ee4" secondAttribute="bottom" id="ppe-d3-T0R" customClass="KeyboardLayoutConstraint" customModule="Spring"/>
+            </constraints>
+            <point key="canvasLocation" x="35.5" y="54.5"/>
         </view>
     </objects>
+    <resources>
+        <image name="send01" width="24" height="24"/>
+    </resources>
 </document>
