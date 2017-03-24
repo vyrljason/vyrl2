@@ -12,7 +12,7 @@ final class MessagesViewController: UIViewController, HavingNib {
     @IBOutlet fileprivate weak var addMessageView: UIView!
     @IBOutlet fileprivate weak var statusView: StatusView!
     
-    fileprivate var interactor: MessagesInteracting & DataRefreshing
+    fileprivate let interactor: MessagesInteracting & DataRefreshing
     fileprivate let refreshControl = UIRefreshControl()
     
     init(interactor: MessagesInteracting & DataRefreshing) {
@@ -26,7 +26,7 @@ final class MessagesViewController: UIViewController, HavingNib {
     }
     
     func setupBarButton() {
-        let moreButton = BadgeBarButtonItem(image: #imageLiteral(resourceName: "moreHoriz"), style: .plain) { [weak self] in
+        let moreButton = ClosureBarButtonItem.barButtonItem(image: #imageLiteral(resourceName: "moreHoriz")) { [weak self] in
             self?.interactor.didTapMore()
         }
         navigationItem.rightBarButtonItem = moreButton
@@ -40,6 +40,7 @@ final class MessagesViewController: UIViewController, HavingNib {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         interactor.viewWillAppear()
     }
     

@@ -14,7 +14,7 @@ protocol MessagesControllerMaking {
 
 final class MessagesViewControllerFactory: MessagesControllerMaking {
     static func make(collab: Collab) -> MessagesViewController {
-        let dataSource = MessagesDataSource(collab: collab)
+        let dataSource = MessagesDataSource()
         let interactor = MessagesInteractor(dataSource: dataSource, collab: collab)
         let viewController = MessagesViewController(interactor: interactor)
         viewController.navigationItem.title = collab.brandName

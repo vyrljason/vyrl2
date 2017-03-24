@@ -1,15 +1,10 @@
 //
-//  MessagesDataSource.swift
-//  Vyrl
-//
-//  Created by Wojciech Stasiński on 21/03/2017.
 //  Copyright © 2017 Vyrl. All rights reserved.
 //
 
 import UIKit
 
 protocol MessagesDataAccessing: class {
-    var collab: Collab { get }
     weak var interactor: MessagesInteracting? { get set }
 }
 
@@ -21,11 +16,7 @@ final class MessagesDataSource: NSObject, MessagesDataProviding {
     weak var reloadingDelegate: ReloadingData?
     weak var tableViewControllingDelegate: TableViewControlling?
     weak var interactor: MessagesInteracting?
-    let collab: Collab
     
-    init(collab: Collab) {
-        self.collab = collab
-    }
 }
 
 extension MessagesDataSource: TableViewUsing {

@@ -5,8 +5,16 @@
 import Decodable
 
 enum MessageType {
+    private enum Constants {
+        static let systemSenderId = "-1"
+    }
+    
     case system
     case normal
+
+    static func type(for senderId: String) -> MessageType {
+        return senderId == Constants.systemSenderId ? .system : . normal
+    }
 }
 
 struct MessageContainer {
@@ -28,18 +36,11 @@ extension MessageContainer: Decodable {
             throw DecodingError.missingKey("sender", DecodingError.Metadata(object: JSONKeys.sender))
         }
         
-        var messageType = MessageType.normal
-        if isSystemMessage(sender: sender) {
-            messageType = MessageType.system
-        }
+        let messageType = MessageType.type(for: sender.id)
 
         return try self.init(createdAt: json => KeyPath(JSONKeys.createdAt),
                              sender: sender,
                              message: json => KeyPath(JSONKeys.message),
                              messageType: messageType)
-    }
-    
-    static func isSystemMessage(sender: Sender) -> Bool {
-        return sender.id == "-1"
     }
 }
