@@ -22,7 +22,6 @@ extension Message: Decodable {
             throw DecodingError.typeMismatch(expected: URL.self, actual: String.self, DecodingError.Metadata(object: JSONKeys.mediaURL))
         }
 
-
         return try self.init(text: json => KeyPath(JSONKeys.text),
                              mediaURL: mediaURL,
                              isMedia: json => KeyPath(JSONKeys.isMedia))

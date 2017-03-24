@@ -8,8 +8,9 @@ final class MessagesViewController: UIViewController, HavingNib {
     static var nibName: String = "MessagesViewController"
 
     @IBOutlet fileprivate weak var tableView: UITableView!
-    @IBOutlet weak var messageTextView: AutoexpandableTextView!
-    @IBOutlet weak var addMessageView: UIView!
+    @IBOutlet fileprivate weak var messageTextView: AutoexpandableTextView!
+    @IBOutlet fileprivate weak var addMessageView: UIView!
+    @IBOutlet fileprivate weak var statusView: StatusView!
     
     fileprivate var interactor: MessagesInteracting & DataRefreshing
     fileprivate let refreshControl = UIRefreshControl()
@@ -17,6 +18,7 @@ final class MessagesViewController: UIViewController, HavingNib {
     init(interactor: MessagesInteracting & DataRefreshing) {
         self.interactor = interactor
         super.init(nibName: MessagesViewController.nibName, bundle: nil)
+        self.interactor.use(self)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -39,6 +41,11 @@ final class MessagesViewController: UIViewController, HavingNib {
     
     override func viewWillAppear(_ animated: Bool) {
         interactor.viewWillAppear()
+    }
+    
+    func setUpStatusView(withStatus status: CollabStatus) {
+        let renderable = StatusViewRenderable(status: status)
+        statusView.render(renderable: renderable)
     }
     
 }
