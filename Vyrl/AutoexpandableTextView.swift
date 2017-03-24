@@ -11,25 +11,32 @@ final class AutoexpandableTextView: UITextView {
     @IBInspectable var maxHeight: CGFloat = CGFloat(MAXFLOAT)
     @IBInspectable var placeholderTextColor: UIColor = UIColor.lightGray
     @IBInspectable var placeholderText: String = ""
-    var placeholderLabel: UILabel!
+    fileprivate var placeholderLabel: UILabel!
+    fileprivate var notificationObserver: NotificationObserving = NotificationCenter.default
 
     override var attributedText: NSAttributedString! {
         didSet {
             updateHeight()
+            if placeholderLabel != nil {
+                placeholderLabel.isHidden = !attributedText.string.isEmpty
+            }
         }
     }
     
     override var text: String! {
         didSet {
             updateHeight()
+            if placeholderLabel != nil {
+                placeholderLabel.isHidden = !text.isEmpty
+            }
         }
     }
 
     override func awakeFromNib() {
         super.awakeFromNib()
         updateHeight()
-        setupPlaceholder()
-        NotificationCenter.default.addObserver(self, selector: #selector(didChangeText), name: NSNotification.Name.UITextViewTextDidChange, object: nil)
+        setUpPlaceholder()
+        notificationObserver.addObserver(self, selector: #selector(didChangeText), name: NSNotification.Name.UITextViewTextDidChange, object: nil)
     }
 
     func updateHeight() {
@@ -39,19 +46,19 @@ final class AutoexpandableTextView: UITextView {
     }
     
     func didChangeText() {
-        placeholderLabel.isHidden = !self.text.isEmpty
+        placeholderLabel.isHidden = !text.isEmpty
         updateHeight()
     }
     
-    func setupPlaceholder() {
+    func setUpPlaceholder() {
         placeholderLabel = UILabel()
         placeholderLabel.text = placeholderText
-        placeholderLabel.font = self.font
+        placeholderLabel.font = font
         placeholderLabel.sizeToFit()
-        self.addSubview(placeholderLabel)
-        placeholderLabel.frame.origin = CGPoint(x: 5, y: (self.font?.pointSize)! / 2)
+        addSubview(placeholderLabel)
+        placeholderLabel.frame.origin = CGPoint(x: 5, y: (font?.pointSize ?? 1.0) / 2)
         placeholderLabel.textColor = placeholderTextColor
-        placeholderLabel.isHidden = !self.text.isEmpty
+        placeholderLabel.isHidden = !text.isEmpty
     }
     
 }

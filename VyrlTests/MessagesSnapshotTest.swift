@@ -27,7 +27,7 @@ final class MessagesControllerSnapshotTest: SnapshotTestCase {
         interactor = MessagesInteractorNoDataMock()
         subject = MessagesViewController(interactor: interactor)
         
-        recordMode = false
+        recordMode = true
     }
     
     func testMessagesWithNoData() {
