@@ -1,50 +1,50 @@
 //
-//  StatusView.swift
-//  Vyrl
-//
-//  Created by Wojciech Stasiński on 24/03/2017.
 //  Copyright © 2017 Vyrl. All rights reserved.
 //
 
 import UIKit
 
-enum CollabStatus: String {
+enum CollabStatus: Int, CustomStringConvertible, CustomIntegerConvertible {
     
     private enum Constants {
         static let currentStatusTitle = NSLocalizedString("messages.currentStatus.title", comment: "")
         static let fontSize: CGFloat = 16
     }
     
-    case brief = "1. brief"
-    case productDelivery = "2. productDelivery"
-    case contentReview = "3. contentReview"
-    case publication = "4. publication"
-    case done = "5. done"
-    case waiting = "Waiting for brand response..."
+    case brief = 0
+    case productDelivery = 1
+    case contentReview = 2
+    case publication = 3
+    case done = 4
+    case waiting = -1
     
     static var allValidStatuses: [CollabStatus] {
         return [CollabStatus.brief, CollabStatus.productDelivery, CollabStatus.contentReview,
                 CollabStatus.publication, CollabStatus.done]
     }
     
-    var statusIndex: Int {
+    var description: String {
         switch self {
         case .brief:
-            return 0
+            return "1. brief"
         case .productDelivery:
-            return 1
+            return "2. productDelivery"
         case .contentReview:
-            return 2
+            return "3. contentReview"
         case .publication:
-            return 3
+            return "4. publication"
         case .done:
-            return 4
-        default:
-            return -1
+            return "5. done"
+        case .waiting:
+            return "Waiting for brand response..."
         }
     }
     
-    var isValidStatus: Bool {
+    var integerValue: Int {
+        return self.rawValue
+    }
+    
+    var isValid: Bool {
         switch self {
         case .waiting:
             return false
@@ -54,20 +54,20 @@ enum CollabStatus: String {
     }
     
     var attributedText: NSAttributedString {
-        return NSAttributedString(string: self.rawValue)
+        return NSAttributedString(string: self.description)
     }
     
     var boldAttributedText: NSAttributedString {
-        return NSAttributedString(string: self.rawValue, attributes: [NSFontAttributeName: UIFont.boldSystemFont(ofSize: Constants.fontSize)])
+        return NSAttributedString(string: self.description, attributes: [NSFontAttributeName: UIFont.boldSystemFont(ofSize: Constants.fontSize)])
     }
     
     var strikedAttributedText: NSAttributedString {
-        return NSAttributedString(string: self.rawValue, attributes: [NSStrikethroughStyleAttributeName: NSNumber(value: NSUnderlineStyle.styleSingle.rawValue),
+        return NSAttributedString(string: self.description, attributes: [NSStrikethroughStyleAttributeName: NSNumber(value: NSUnderlineStyle.styleSingle.rawValue),
                                                                       NSForegroundColorAttributeName: UIColor.warmGrey])
     }
     
     var lightAttributedText: NSAttributedString {
-        return NSAttributedString(string: self.rawValue, attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: Constants.fontSize, weight: UIFontWeightLight),
+        return NSAttributedString(string: self.description, attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: Constants.fontSize, weight: UIFontWeightLight),
                                                                       NSForegroundColorAttributeName: UIColor.warmGrey])
     }
     
@@ -89,6 +89,11 @@ struct StatusViewRenderable {
 }
 
 final class StatusView: UIView {
+    
+    private enum Constants {
+        static let animationDuration: Double = 0.3
+    }
+    
     fileprivate var stackView: UIStackView!
     fileprivate var mainStatusView: MainStatusView!
     fileprivate var detailViews: [SingleStatusView] = []
@@ -130,7 +135,7 @@ final class StatusView: UIView {
     }
     
     func setUpDetailViews() {
-        for _ in CollabStatus.allValidStatuses {
+        CollabStatus.allValidStatuses.forEach { _ in
             let singleStatusView = SingleStatusView.fromNib()
             singleStatusView.isHidden = true
             detailViews.append(singleStatusView)
@@ -146,34 +151,34 @@ final class StatusView: UIView {
         }
         isExpanded = !isExpanded
         let renderable = MainStatusViewRenderable(status: currentRenderable.status.currentStatusAttributedText,
-                                                  isExpanded: isExpanded, arrowHidden: !currentRenderable.status.isValidStatus)
+                                                  isExpanded: isExpanded, arrowHidden: !currentRenderable.status.isValid)
         mainStatusView.render(renderable: renderable)
     }
     
     func expandView() {
-        UIView.animate(withDuration: 0.3) { [weak self] in
+        UIView.animate(withDuration: Constants.animationDuration) { [weak self] in
             guard let `self` = self else { return }
             let allValidStatuses = CollabStatus.allValidStatuses
-            for (index, status) in allValidStatuses.enumerated() {
+            allValidStatuses.forEach { status in
                 let renderable = SingleStatusViewRenderable(status: self.properAttributedText(for: status, currentStatus: self.currentRenderable.status),
-                                                            showSeparator: index != allValidStatuses.endIndex)
-                self.detailViews[index].render(renderable: renderable)
-                self.detailViews[index].isHidden = false
+                                                            showSeparator: status.integerValue != allValidStatuses.endIndex)
+                self.detailViews[status.integerValue].render(renderable: renderable)
+                self.detailViews[status.integerValue].isHidden = false
             }
         }
     }
     
     func properAttributedText(for status: CollabStatus, currentStatus: CollabStatus) -> NSAttributedString {
-        if status.statusIndex < currentStatus.statusIndex {
+        if status.integerValue < currentStatus.integerValue {
             return status.strikedAttributedText
-        } else if status.statusIndex > currentStatus.statusIndex {
+        } else if status.integerValue > currentStatus.integerValue {
             return status.lightAttributedText
         }
         return status.boldAttributedText
     }
     
     func collapseView() {
-        UIView.animate(withDuration: 0.3) { [weak self] in
+        UIView.animate(withDuration: Constants.animationDuration) { [weak self] in
             guard let `self` = self else { return }
             for view in self.detailViews {
                 view.isHidden = true
@@ -183,7 +188,7 @@ final class StatusView: UIView {
     
     func render(renderable: StatusViewRenderable) {
         let mainStatusRenderable = MainStatusViewRenderable(status: renderable.status.currentStatusAttributedText,
-                                                            isExpanded: isExpanded, arrowHidden: !renderable.status.isValidStatus)
+                                                            isExpanded: isExpanded, arrowHidden: !renderable.status.isValid)
         mainStatusView.render(renderable: mainStatusRenderable)
         currentRenderable = renderable
     }
@@ -191,6 +196,6 @@ final class StatusView: UIView {
 
 extension StatusView: UIGestureRecognizerDelegate {
     func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
-        return currentRenderable.status.isValidStatus
+        return currentRenderable.status.isValid
     }
 }

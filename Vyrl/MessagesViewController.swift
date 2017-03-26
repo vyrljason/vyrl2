@@ -18,7 +18,7 @@ final class MessagesViewController: UIViewController, HavingNib {
     init(interactor: MessagesInteracting & DataRefreshing) {
         self.interactor = interactor
         super.init(nibName: MessagesViewController.nibName, bundle: nil)
-        self.interactor.use(self)
+        interactor.use(self)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -48,12 +48,11 @@ final class MessagesViewController: UIViewController, HavingNib {
         let renderable = StatusViewRenderable(status: status)
         statusView.render(renderable: renderable)
     }
-    
 }
 
 extension MessagesViewController {
     fileprivate func setUpRefresh() {
-        refreshControl.tintColor = UIColor.rouge
+        refreshControl.tintColor = .rouge
         refreshControl.addTarget(interactor, action: #selector(DataRefreshing.refreshData), for: .valueChanged)
         tableView.addSubview(refreshControl)
     }
