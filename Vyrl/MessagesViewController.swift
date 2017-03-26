@@ -8,8 +8,9 @@ final class MessagesViewController: UIViewController, HavingNib {
     static var nibName: String = "MessagesViewController"
 
     @IBOutlet fileprivate weak var tableView: UITableView!
-    @IBOutlet weak var messageTextView: AutoexpandableTextView!
-    @IBOutlet weak var addMessageView: UIView!
+    @IBOutlet internal weak var messageTextView: AutoexpandableTextView!
+    @IBOutlet private weak var addMessageView: UIView!
+    @IBOutlet private weak var statusView: StatusView!
     
     fileprivate let interactor: MessagesInteracting & DataRefreshing
     fileprivate let refreshControl = UIRefreshControl()
@@ -17,6 +18,7 @@ final class MessagesViewController: UIViewController, HavingNib {
     init(interactor: MessagesInteracting & DataRefreshing) {
         self.interactor = interactor
         super.init(nibName: MessagesViewController.nibName, bundle: nil)
+        interactor.use(self)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -42,11 +44,15 @@ final class MessagesViewController: UIViewController, HavingNib {
         interactor.viewWillAppear()
     }
     
+    func setUpStatusView(withStatus status: CollabStatus) {
+        let renderable = StatusViewRenderable(status: status)
+        statusView.render(renderable: renderable)
+    }
 }
 
 extension MessagesViewController {
     fileprivate func setUpRefresh() {
-        refreshControl.tintColor = UIColor.rouge
+        refreshControl.tintColor = .rouge
         refreshControl.addTarget(interactor, action: #selector(DataRefreshing.refreshData), for: .valueChanged)
         tableView.addSubview(refreshControl)
     }

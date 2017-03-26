@@ -14,6 +14,8 @@ final class MessagesInteractorNoDataMock: MessagesInteracting, DataRefreshing {
     
     func use(_ tableView: UITableView) { }
     
+    func use(_ viewController: MessagesViewController) { }
+    
     func refreshData() { }
 }
 
@@ -43,4 +45,5 @@ final class MessagesControllerSnapshotTest: SnapshotTestCase {
         
         verifyForScreens(view: subject.view)
     }
+    
 }

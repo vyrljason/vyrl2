@@ -8,11 +8,13 @@ protocol MessagesInteracting: TableViewUsing {
     weak var dataUpdateListener: DataLoadingEventsListening? { get set }
     func viewWillAppear()
     func didTapMore()
+    func use(_ viewController: MessagesViewController)
 }
 
 final class MessagesInteractor: MessagesInteracting {
     fileprivate weak var tableView: UITableView?
-    fileprivate let dataSource: MessagesDataProviding
+    fileprivate weak var viewController: MessagesViewController?
+    let dataSource: MessagesDataProviding
     weak var dataUpdateListener: DataLoadingEventsListening?
     private let collab: Collab
     
@@ -22,10 +24,19 @@ final class MessagesInteractor: MessagesInteracting {
         dataSource.interactor = self
     }
     
-    func viewWillAppear() { }
+    func viewWillAppear() {
+        //FIXME: Only for test, Waiting for api sync
+        viewController?.setUpStatusView(withStatus: CollabStatus.publication)
+    }
     
-    func didTapMore() { }
+    func didTapMore() {
+        //FIXME: Only for test, Waiting for api sync
+        viewController?.setUpStatusView(withStatus: CollabStatus.waiting)
+    }
     
+    func use(_ viewController: MessagesViewController) {
+        self.viewController = viewController
+    }
 }
 
 extension MessagesInteractor: TableViewUsing {
