@@ -397,6 +397,7 @@
 		C4BDA43B1E8130700009BB67 /* MessagesDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4BDA43A1E8130700009BB67 /* MessagesDataSource.swift */; };
 		C4BDA43E1E8139010009BB67 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4BDA43D1E8139010009BB67 /* Message.swift */; };
 		C4BDA4401E8163890009BB67 /* Sender.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4BDA43F1E8163890009BB67 /* Sender.swift */; };
+		C4C887691E881DB10022558F /* StatusViewSnapshotTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C887681E881DB10022558F /* StatusViewSnapshotTest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -807,6 +808,7 @@
 		C4BDA43A1E8130700009BB67 /* MessagesDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagesDataSource.swift; sourceTree = "<group>"; };
 		C4BDA43D1E8139010009BB67 /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		C4BDA43F1E8163890009BB67 /* Sender.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sender.swift; sourceTree = "<group>"; };
+		C4C887681E881DB10022558F /* StatusViewSnapshotTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusViewSnapshotTest.swift; sourceTree = "<group>"; };
 		D1CA9B6CB49B011CC24AABEF /* Pods-Vyrl.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Vyrl.release.xcconfig"; path = "Pods/Target Support Files/Pods-Vyrl/Pods-Vyrl.release.xcconfig"; sourceTree = "<group>"; };
 		E340CAC7115BDC8D7662DAA1 /* Pods-VyrlTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VyrlTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-VyrlTests/Pods-VyrlTests.debug.xcconfig"; sourceTree = "<group>"; };
 		FEFAD20345D47357A44DABF7 /* Pods-Vyrl.ad hoc.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Vyrl.ad hoc.xcconfig"; path = "Pods/Target Support Files/Pods-Vyrl/Pods-Vyrl.ad hoc.xcconfig"; sourceTree = "<group>"; };
@@ -2268,6 +2270,7 @@
 				85DCFC4E1E782DCF0046D0D5 /* BadgeButtonSnapshotTest.swift */,
 				31663A7E1E7931440073A449 /* CollabsSnapshotTest.swift */,
 				C4BDA4371E8106B40009BB67 /* MessagesSnapshotTest.swift */,
+				C4C887681E881DB10022558F /* StatusViewSnapshotTest.swift */,
 			);
 			name = SnapshotTest;
 			sourceTree = "<group>";
@@ -3137,6 +3140,7 @@
 				8572E4DC1E7AC9220042160D /* CollabsServiceTest.swift in Sources */,
 				85B0A8431E672ED0002093BA /* HTTPClientMock.swift in Sources */,
 				8572E4D81E7AC7F60042160D /* CollabsDataSourceTest.swift in Sources */,
+				C4C887691E881DB10022558F /* StatusViewSnapshotTest.swift in Sources */,
 				85CA3FD51E646FE700D43805 /* BaseResourcesTest.swift in Sources */,
 				858D63F11E55F6D600CFDD4C /* ImageRetrieverMock.swift in Sources */,
 				8554BEB71E69C3E300E05A37 /* ProductsServiceTest.swift in Sources */,

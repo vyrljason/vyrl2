@@ -97,8 +97,8 @@ final class StatusView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        setUpMainStatusView()
         setUpStackView()
+        setUpMainStatusView()
         setUpDetailViews()
     }
     

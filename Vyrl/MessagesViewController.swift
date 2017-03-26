@@ -8,9 +8,9 @@ final class MessagesViewController: UIViewController, HavingNib {
     static var nibName: String = "MessagesViewController"
 
     @IBOutlet fileprivate weak var tableView: UITableView!
-    @IBOutlet fileprivate weak var messageTextView: AutoexpandableTextView!
-    @IBOutlet fileprivate weak var addMessageView: UIView!
-    @IBOutlet fileprivate weak var statusView: StatusView!
+    @IBOutlet internal weak var messageTextView: AutoexpandableTextView!
+    @IBOutlet private weak var addMessageView: UIView!
+    @IBOutlet private weak var statusView: StatusView!
     
     fileprivate let interactor: MessagesInteracting & DataRefreshing
     fileprivate let refreshControl = UIRefreshControl()

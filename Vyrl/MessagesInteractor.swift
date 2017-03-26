@@ -25,12 +25,12 @@ final class MessagesInteractor: MessagesInteracting {
     }
     
     func viewWillAppear() {
-        //FIX ME: Waiting for api sync
+        //FIXME: Only for test, Waiting for api sync
         viewController?.setUpStatusView(withStatus: CollabStatus.publication)
     }
     
     func didTapMore() {
-        //FIX ME: Waiting for api sync
+        //FIXME: Only for test, Waiting for api sync
         viewController?.setUpStatusView(withStatus: CollabStatus.waiting)
     }
     
