@@ -383,11 +383,15 @@
 		85FB31E11E65E1C500E2F113 /* StyleKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FB31E01E65E1C500E2F113 /* StyleKit.swift */; };
 		A4256F0E1E675A7BB6AE21F5 /* Pods_Vyrl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AA1C43D9EC44CB342D10427 /* Pods_Vyrl.framework */; };
 		BDDF0A4F0C2F3D7D482551AB /* Pods_VyrlTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3553ABBDC82B1A7C9E6385AE /* Pods_VyrlTests.framework */; };
+		C47D450C1E825F1B005DD524 /* MessageContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47D450B1E825F1B005DD524 /* MessageContainer.swift */; };
 		C4BDA4301E7FD7720009BB67 /* MessagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4BDA42E1E7FD7720009BB67 /* MessagesViewController.swift */; };
 		C4BDA4311E7FD7720009BB67 /* MessagesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4BDA42F1E7FD7720009BB67 /* MessagesViewController.xib */; };
 		C4BDA4331E7FDADA0009BB67 /* MessagesInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4BDA4321E7FDADA0009BB67 /* MessagesInteractor.swift */; };
 		C4BDA4351E7FDC8A0009BB67 /* MessagesViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4BDA4341E7FDC8A0009BB67 /* MessagesViewControllerFactory.swift */; };
 		C4BDA4381E8106B40009BB67 /* MessagesSnapshotTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4BDA4371E8106B40009BB67 /* MessagesSnapshotTest.swift */; };
+		C4BDA43B1E8130700009BB67 /* MessagesDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4BDA43A1E8130700009BB67 /* MessagesDataSource.swift */; };
+		C4BDA43E1E8139010009BB67 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4BDA43D1E8139010009BB67 /* Message.swift */; };
+		C4BDA4401E8163890009BB67 /* Sender.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4BDA43F1E8163890009BB67 /* Sender.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -784,11 +788,15 @@
 		85FA7A271E5C730800491EED /* NavigationHaving.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationHaving.swift; sourceTree = "<group>"; };
 		85FB31E01E65E1C500E2F113 /* StyleKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StyleKit.swift; sourceTree = "<group>"; };
 		BD1309C018727D87342F7FE2 /* Pods-VyrlTests.ad hoc.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VyrlTests.ad hoc.xcconfig"; path = "Pods/Target Support Files/Pods-VyrlTests/Pods-VyrlTests.ad hoc.xcconfig"; sourceTree = "<group>"; };
+		C47D450B1E825F1B005DD524 /* MessageContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageContainer.swift; sourceTree = "<group>"; };
 		C4BDA42E1E7FD7720009BB67 /* MessagesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagesViewController.swift; sourceTree = "<group>"; };
 		C4BDA42F1E7FD7720009BB67 /* MessagesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MessagesViewController.xib; sourceTree = "<group>"; };
 		C4BDA4321E7FDADA0009BB67 /* MessagesInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagesInteractor.swift; sourceTree = "<group>"; };
 		C4BDA4341E7FDC8A0009BB67 /* MessagesViewControllerFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagesViewControllerFactory.swift; sourceTree = "<group>"; };
 		C4BDA4371E8106B40009BB67 /* MessagesSnapshotTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagesSnapshotTest.swift; sourceTree = "<group>"; };
+		C4BDA43A1E8130700009BB67 /* MessagesDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagesDataSource.swift; sourceTree = "<group>"; };
+		C4BDA43D1E8139010009BB67 /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		C4BDA43F1E8163890009BB67 /* Sender.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sender.swift; sourceTree = "<group>"; };
 		D1CA9B6CB49B011CC24AABEF /* Pods-Vyrl.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Vyrl.release.xcconfig"; path = "Pods/Target Support Files/Pods-Vyrl/Pods-Vyrl.release.xcconfig"; sourceTree = "<group>"; };
 		E340CAC7115BDC8D7662DAA1 /* Pods-VyrlTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VyrlTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-VyrlTests/Pods-VyrlTests.debug.xcconfig"; sourceTree = "<group>"; };
 		FEFAD20345D47357A44DABF7 /* Pods-Vyrl.ad hoc.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Vyrl.ad hoc.xcconfig"; path = "Pods/Target Support Files/Pods-Vyrl/Pods-Vyrl.ad hoc.xcconfig"; sourceTree = "<group>"; };
@@ -2518,6 +2526,8 @@
 		C4BDA42A1E7FD68D0009BB67 /* Messages */ = {
 			isa = PBXGroup;
 			children = (
+				C4BDA43C1E8138F40009BB67 /* Models */,
+				C4BDA4391E81305C0009BB67 /* DataSources */,
 				C4BDA42D1E7FD6C10009BB67 /* Interactors */,
 				C4BDA42C1E7FD6B70009BB67 /* Factories */,
 				C4BDA42B1E7FD6AE0009BB67 /* Views */,
@@ -2555,6 +2565,24 @@
 			children = (
 			);
 			name = Messages;
+			sourceTree = "<group>";
+		};
+		C4BDA4391E81305C0009BB67 /* DataSources */ = {
+			isa = PBXGroup;
+			children = (
+				C4BDA43A1E8130700009BB67 /* MessagesDataSource.swift */,
+			);
+			name = DataSources;
+			sourceTree = "<group>";
+		};
+		C4BDA43C1E8138F40009BB67 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				C4BDA43D1E8139010009BB67 /* Message.swift */,
+				C4BDA43F1E8163890009BB67 /* Sender.swift */,
+				C47D450B1E825F1B005DD524 /* MessageContainer.swift */,
+			);
+			name = Models;
 			sourceTree = "<group>";
 		};
 		D9CA7D5820E054A4F0F7B78D /* Frameworks */ = {
@@ -2833,6 +2861,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				853A83191E6DD33D006EBA8C /* ShippingAddressFormInteractor.swift in Sources */,
+				C4BDA43E1E8139010009BB67 /* Message.swift in Sources */,
 				850A810C1E5F2BF300E684A3 /* Deserializable.swift in Sources */,
 				85B0A83B1E670BBC002093BA /* BrandsResource.swift in Sources */,
 				8554BE9E1E697B2400E05A37 /* Order.swift in Sources */,
@@ -2882,6 +2911,7 @@
 				31B0794F1E7732CE0015C302 /* ChatNavigation.swift in Sources */,
 				1AA7FA9E1E6883F7001C0B6F /* AutoexpandableTextView.swift in Sources */,
 				85CA3FC51E642EB500D43805 /* RequestDataProvider.swift in Sources */,
+				C47D450C1E825F1B005DD524 /* MessageContainer.swift in Sources */,
 				8554BE6F1E6804E600E05A37 /* CategoriesEndpoint.swift in Sources */,
 				1AA7FAA81E699D07001C0B6F /* CheckoutInteractor.swift in Sources */,
 				853859A01E6076570098D1EB /* UserProfile.swift in Sources */,
@@ -2965,6 +2995,7 @@
 				852ACD3A1E55DB0F00219E90 /* BrandsViewController.swift in Sources */,
 				85B0A8411E670F1D002093BA /* BrandsService.swift in Sources */,
 				1A69C6A61E56008100134EF5 /* NavigationBar.swift in Sources */,
+				C4BDA4401E8163890009BB67 /* Sender.swift in Sources */,
 				852ACD451E55DCDC00219E90 /* ReusableView.swift in Sources */,
 				850A80D61E5DE83200E684A3 /* CredentialsStorage.swift in Sources */,
 				1A69C6A01E55DC8C00134EF5 /* LeftMenuViewController.swift in Sources */,
@@ -3026,6 +3057,7 @@
 				1A1FA9421E5DA887007EB61D /* CategoriesDataSource.swift in Sources */,
 				853A835A1E72C5A9006EBA8C /* CheckoutSummaryInteractor.swift in Sources */,
 				85FB31E11E65E1C500E2F113 /* StyleKit.swift in Sources */,
+				C4BDA43B1E8130700009BB67 /* MessagesDataSource.swift in Sources */,
 				85DCFC331E7689B70046D0D5 /* ButtonWithBadge.swift in Sources */,
 				31EF230F1E67B6410073F624 /* NamePriceTableCellRenderable.swift in Sources */,
 				31EF232E1E69A69D0073F624 /* DetailTableCellRenderable.swift in Sources */,

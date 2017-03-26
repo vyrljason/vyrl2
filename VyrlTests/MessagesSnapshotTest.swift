@@ -5,9 +5,16 @@
 @testable import Vyrl
 import XCTest
 
-final class MessagesInteractorNoDataMock: MessagesInteracting {
+final class MessagesInteractorNoDataMock: MessagesInteracting, DataRefreshing {
+    weak var dataUpdateListener: DataLoadingEventsListening?
     
     func viewWillAppear() { }
+    
+    func didTapMore() { }
+    
+    func use(_ tableView: UITableView) { }
+    
+    func refreshData() { }
 }
 
 final class MessagesControllerSnapshotTest: SnapshotTestCase {
@@ -25,6 +32,14 @@ final class MessagesControllerSnapshotTest: SnapshotTestCase {
     
     func testMessagesWithNoData() {
         _ = subject.view
+        
+        verifyForScreens(view: subject.view)
+    }
+    
+    func testMessagesWithTextTyped() {
+        _ = subject.view
+        let testText = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla egestas euismod venenatis. Phasellus placerat fringilla dui at lobortis."
+        subject.messageTextView.text = testText
         
         verifyForScreens(view: subject.view)
     }
