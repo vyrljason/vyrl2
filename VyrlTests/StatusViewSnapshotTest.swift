@@ -10,7 +10,7 @@ final class StatusViewSnapshotTest: SnapshotTestCase {
     override func setUp() {
         super.setUp()
         
-        recordMode = true
+        recordMode = false
     }
     
     func testViewWaitingForResposne() {
