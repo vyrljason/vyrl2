@@ -4,11 +4,12 @@
 
 import KeychainAccess
 
-protocol ChatTokenStoring: class {
+protocol ChatCredentialsStoring: class {
     var chatToken: String? { get set }
+    var internalUserId: String? { get set }
 }
 
-final class ChatTokenStorage: ChatTokenStoring {
+final class ChatCredentialsStorage: ChatCredentialsStoring {
 
     private var keychain: KeychainProtocol
 
@@ -18,6 +19,15 @@ final class ChatTokenStorage: ChatTokenStoring {
         }
         set {
             keychain[KeychainKey.chatToken] = newValue
+        }
+    }
+
+    var internalUserId: String? {
+        get {
+            return keychain[KeychainKey.internalUserId]
+        }
+        set {
+            keychain[KeychainKey.internalUserId] = newValue
         }
     }
 

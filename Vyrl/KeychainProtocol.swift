@@ -7,6 +7,7 @@ import KeychainAccess
 enum KeychainKey: String, CustomStringConvertible {
     case accessTokenUser = "vyrl-app-access-token-user"
     case chatToken = "vyrl-app-chat-token"
+    case internalUserId = "vyrl-app-internal-user-id"
 
     var description: String {
         return self.rawValue

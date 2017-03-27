@@ -11,6 +11,6 @@
 #endif
 
 
-FOUNDATION_EXPORT double Pods_VyrlTestsVersionNumber;
-FOUNDATION_EXPORT const unsigned char Pods_VyrlTestsVersionString[];
+FOUNDATION_EXPORT double JWTDecodeVersionNumber;
+FOUNDATION_EXPORT const unsigned char JWTDecodeVersionString[];
 

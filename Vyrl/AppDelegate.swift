@@ -6,7 +6,6 @@ import UIKit
 import Fabric
 import Crashlytics
 import Firebase
-import FirebaseAuth
 
 @UIApplicationMain
 final class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -42,8 +41,5 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
 
     private func setUpFirebase() {
         FIRApp.configure()
-        guard let authenticator = FIRAuth.auth() else { return }
-        ServiceLocator.chatAuthenticator = ChatAuthenticator(chatTokenRepository: ServiceLocator.chatTokenRepository, authenticator: authenticator)
-        ServiceLocator.chatAuthenticator.authenticateUser()
     }
 }

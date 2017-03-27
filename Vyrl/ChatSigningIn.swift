@@ -12,6 +12,15 @@ enum FirebaseError: Int, CustomIntegerConvertible {
         return rawValue
     }
 
+    var error: NSError {
+        switch self {
+        case .failedAuthorization:
+            return NSError(domain: FirebaseError.errorDomain,
+                           code: integerValue,
+                           userInfo: nil)
+        }
+    }
+
     static var errorDomain: String {
         return "io.govyrl.vyrl.firebase"
     }
@@ -30,7 +39,7 @@ extension FIRAuth: ChatSigningIn {
             } else if let error = error as? NSError {
                 completion(.failure(error))
             } else {
-                completion(.failure(NSError(domain: FirebaseError.errorDomain, code: FirebaseError.failedAuthorization.integerValue, userInfo: nil)))
+                completion(.failure(FirebaseError.failedAuthorization.error))
             }
         }
     }

@@ -13,5 +13,5 @@ struct ServiceLocator {
     static var resourceConfigurator: APIResourceConfiguring!
     static var cartStorage: CartStoring = CartStorage(objectsStorage: UserDefaults.standard)
     static var chatTokenRepository: ChatTokenRepositoryAdapter!
-    static var chatAuthenticator: ChatAuthenticating!
+    static var chatAuthenticator: ChatAuthenticating?
 }
