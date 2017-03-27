@@ -10,7 +10,7 @@ final class InfluencerMessageCellSnapshotTest: SnapshotTestCase {
     override func setUp() {
         super.setUp()
         
-        recordMode = true
+        recordMode = false
     }
     
     func testViewCorrect() {
