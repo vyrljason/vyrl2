@@ -261,6 +261,8 @@
 		8554BEC41E69D7A400E05A37 /* ProductsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8554BEC31E69D7A400E05A37 /* ProductsService.swift */; };
 		8554BEC61E69DE8000E05A37 /* ShippingAddressInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8554BEC51E69DE8000E05A37 /* ShippingAddressInteractor.swift */; };
 		8554BEC91E69DECD00E05A37 /* ShippingAddressViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8554BEC81E69DECD00E05A37 /* ShippingAddressViewFactory.swift */; };
+		85603F761E88ED530062485E /* ChatAuthenticator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85603F751E88ED530062485E /* ChatAuthenticator.swift */; };
+		85603F7D1E88EE600062485E /* ChatSigningIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85603F7C1E88EE600062485E /* ChatSigningIn.swift */; };
 		85718EEB1E65AD8C00E9602B /* LoginFormFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85718EEA1E65AD8C00E9602B /* LoginFormFactory.swift */; };
 		8572E4A11E7977260042160D /* CollabsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8572E4A01E7977260042160D /* CollabsDataSource.swift */; };
 		8572E4A71E79792C0042160D /* CollabsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8572E4A61E79792C0042160D /* CollabsService.swift */; };
@@ -687,6 +689,8 @@
 		8554BEC31E69D7A400E05A37 /* ProductsService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductsService.swift; sourceTree = "<group>"; };
 		8554BEC51E69DE8000E05A37 /* ShippingAddressInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShippingAddressInteractor.swift; sourceTree = "<group>"; };
 		8554BEC81E69DECD00E05A37 /* ShippingAddressViewFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShippingAddressViewFactory.swift; sourceTree = "<group>"; };
+		85603F751E88ED530062485E /* ChatAuthenticator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatAuthenticator.swift; sourceTree = "<group>"; };
+		85603F7C1E88EE600062485E /* ChatSigningIn.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatSigningIn.swift; sourceTree = "<group>"; };
 		85718EEA1E65AD8C00E9602B /* LoginFormFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginFormFactory.swift; sourceTree = "<group>"; };
 		8572E4A01E7977260042160D /* CollabsDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollabsDataSource.swift; sourceTree = "<group>"; };
 		8572E4A61E79792C0042160D /* CollabsService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollabsService.swift; sourceTree = "<group>"; };
@@ -1098,6 +1102,7 @@
 		1ADAF7F81E54605D00155D9F /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				85603F741E88ED480062485E /* Firebase */,
 				853A83521E72C52F006EBA8C /* Cart */,
 				31B0794D1E7732B20015C302 /* Chat */,
 				85CA3FD61E64778800D43805 /* Login */,
@@ -1703,19 +1708,12 @@
 		852ACD3E1E55DB7400219E90 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
-				1A50C1A21E6729650002A6DC /* ReloadingData.swift */,
+				85603F7B1E88EE490062485E /* UIView */,
+				85603F7A1E88EE3F0062485E /* TableView */,
+				85603F791E88EE360062485E /* CollectionView */,
+				85603F781E88EE300062485E /* Firebase */,
 				850A80F51E5EDC8200E684A3 /* Networking */,
-				852ACD3F1E55DB8400219E90 /* HavingNib.swift */,
-				852ACD441E55DCDC00219E90 /* ReusableView.swift */,
-				858D64081E560EBC00CFDD4C /* CollectionViewControlling.swift */,
-				858D640A1E560F0100CFDD4C /* CollectionViewHaving.swift */,
-				858D64101E570E4C00CFDD4C /* CollectionViewDataProviding.swift */,
-				858D641F1E5734A800CFDD4C /* CollectionViewUsing.swift */,
-				858D64461E58A4C000CFDD4C /* CollectionViewRefreshing.swift */,
-				31EF22F01E67742C0073F624 /* TableViewDataProviding.swift */,
-				31EF22F61E677EB80073F624 /* TableViewControlling.swift */,
-				31EF22F41E677E310073F624 /* TableViewHaving.swift */,
-				31EF22F21E6779780073F624 /* TableViewUsing.swift */,
+				1A50C1A21E6729650002A6DC /* ReloadingData.swift */,
 				85FA7A271E5C730800491EED /* NavigationHaving.swift */,
 				850A80A61E5D927300E684A3 /* DictionaryConvertible.swift */,
 				850A80CE1E5DCABA00E684A3 /* JSONSerializationProtocol.swift */,
@@ -2064,6 +2062,54 @@
 				853A83381E717CAC006EBA8C /* ShippingAddressFormFactory.swift */,
 			);
 			name = Factories;
+			sourceTree = "<group>";
+		};
+		85603F741E88ED480062485E /* Firebase */ = {
+			isa = PBXGroup;
+			children = (
+				85603F751E88ED530062485E /* ChatAuthenticator.swift */,
+			);
+			name = Firebase;
+			sourceTree = "<group>";
+		};
+		85603F781E88EE300062485E /* Firebase */ = {
+			isa = PBXGroup;
+			children = (
+				85603F7C1E88EE600062485E /* ChatSigningIn.swift */,
+			);
+			name = Firebase;
+			sourceTree = "<group>";
+		};
+		85603F791E88EE360062485E /* CollectionView */ = {
+			isa = PBXGroup;
+			children = (
+				858D64081E560EBC00CFDD4C /* CollectionViewControlling.swift */,
+				858D640A1E560F0100CFDD4C /* CollectionViewHaving.swift */,
+				858D64101E570E4C00CFDD4C /* CollectionViewDataProviding.swift */,
+				858D641F1E5734A800CFDD4C /* CollectionViewUsing.swift */,
+				858D64461E58A4C000CFDD4C /* CollectionViewRefreshing.swift */,
+			);
+			name = CollectionView;
+			sourceTree = "<group>";
+		};
+		85603F7A1E88EE3F0062485E /* TableView */ = {
+			isa = PBXGroup;
+			children = (
+				31EF22F01E67742C0073F624 /* TableViewDataProviding.swift */,
+				31EF22F61E677EB80073F624 /* TableViewControlling.swift */,
+				31EF22F41E677E310073F624 /* TableViewHaving.swift */,
+				31EF22F21E6779780073F624 /* TableViewUsing.swift */,
+			);
+			name = TableView;
+			sourceTree = "<group>";
+		};
+		85603F7B1E88EE490062485E /* UIView */ = {
+			isa = PBXGroup;
+			children = (
+				852ACD3F1E55DB8400219E90 /* HavingNib.swift */,
+				852ACD441E55DCDC00219E90 /* ReusableView.swift */,
+			);
+			name = UIView;
 			sourceTree = "<group>";
 		};
 		8572E49F1E7977170042160D /* DataSources */ = {
@@ -3161,12 +3207,14 @@
 				31EF22F51E677E310073F624 /* TableViewHaving.swift in Sources */,
 				85DCFC1A1E75BC240046D0D5 /* ContactInfoInteractor.swift in Sources */,
 				858D644A1E58A67200CFDD4C /* EmptyCollectionViewHandler.swift in Sources */,
+				85603F7D1E88EE600062485E /* ChatSigningIn.swift in Sources */,
 				85A2A80F1E7B4E7100271871 /* KeychainConstants.swift in Sources */,
 				31EF22E71E664C180073F624 /* ProductDetailsViewController.swift in Sources */,
 				1ADAF7F61E545FA300155D9F /* RootNavigation.swift in Sources */,
 				1A1FA9421E5DA887007EB61D /* CategoriesDataSource.swift in Sources */,
 				853A835A1E72C5A9006EBA8C /* CheckoutSummaryInteractor.swift in Sources */,
 				85FB31E11E65E1C500E2F113 /* StyleKit.swift in Sources */,
+				85603F761E88ED530062485E /* ChatAuthenticator.swift in Sources */,
 				C4BDA43B1E8130700009BB67 /* MessagesDataSource.swift in Sources */,
 				85DCFC331E7689B70046D0D5 /* ButtonWithBadge.swift in Sources */,
 				31EF230F1E67B6410073F624 /* NamePriceTableCellRenderable.swift in Sources */,

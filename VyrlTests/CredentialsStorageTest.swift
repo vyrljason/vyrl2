@@ -5,7 +5,6 @@
 @testable import Vyrl
 import XCTest
 
-
 final class CredentialsStorageTest: XCTestCase {
 
     private let accessToken = "accessToken"

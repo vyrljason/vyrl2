@@ -8,7 +8,6 @@ import Crashlytics
 import Firebase
 import FirebaseAuth
 
-
 @UIApplicationMain
 final class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -16,9 +15,9 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         setUpAnalytics()
-        setUpFirebase()
         setUpAPIConfiguration()
         setUpChatTokenRepository()
+        setUpFirebase()
         setUpRootNavigation()
         return true
     }
@@ -43,6 +42,8 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
 
     private func setUpFirebase() {
         FIRApp.configure()
-        FIRAuth.auth()?.signIn(withCustomToken: <#T##String#>, completion: <#T##FIRAuthResultCallback?##FIRAuthResultCallback?##(FIRUser?, Error?) -> Void#>)
+        guard let authenticator = FIRAuth.auth() else { return }
+        ServiceLocator.chatAuthenticator = ChatAuthenticator(chatTokenRepository: ServiceLocator.chatTokenRepository, authenticator: authenticator)
+        ServiceLocator.chatAuthenticator.authenticateUser()
     }
 }
