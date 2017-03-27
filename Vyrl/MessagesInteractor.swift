@@ -27,6 +27,7 @@ final class MessagesInteractor: MessagesInteracting {
     func viewWillAppear() {
         //FIXME: Only for test, Waiting for api sync
         viewController?.setUpStatusView(withStatus: CollabStatus.publication)
+        dataSource.loadTableData()
     }
     
     func didTapMore() {

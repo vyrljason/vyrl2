@@ -398,6 +398,15 @@
 		C4BDA43E1E8139010009BB67 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4BDA43D1E8139010009BB67 /* Message.swift */; };
 		C4BDA4401E8163890009BB67 /* Sender.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4BDA43F1E8163890009BB67 /* Sender.swift */; };
 		C4C887691E881DB10022558F /* StatusViewSnapshotTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C887681E881DB10022558F /* StatusViewSnapshotTest.swift */; };
+		C4C8876C1E8984660022558F /* InfluencerMessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C8876A1E8984660022558F /* InfluencerMessageCell.swift */; };
+		C4C8876D1E8984660022558F /* InfluencerMessageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4C8876B1E8984660022558F /* InfluencerMessageCell.xib */; };
+		C4C8876F1E89880D0022558F /* Messages.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C8876E1E89880D0022558F /* Messages.swift */; };
+		C4C887721E898D360022558F /* MessagesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C887711E898D360022558F /* MessagesService.swift */; };
+		C4C887751E898DC40022558F /* MessagesResourceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C887741E898DC40022558F /* MessagesResourceMock.swift */; };
+		C4C887781E89A5590022558F /* BrandMessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C887761E89A5590022558F /* BrandMessageCell.swift */; };
+		C4C887791E89A5590022558F /* BrandMessageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4C887771E89A5590022558F /* BrandMessageCell.xib */; };
+		C4C8877B1E89AA400022558F /* InfluencerMessageCellSnapshotTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C8877A1E89AA400022558F /* InfluencerMessageCellSnapshotTest.swift */; };
+		C4C8877D1E89AA4F0022558F /* BrandMessageCellSnapshotTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C8877C1E89AA4F0022558F /* BrandMessageCellSnapshotTest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -809,6 +818,15 @@
 		C4BDA43D1E8139010009BB67 /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		C4BDA43F1E8163890009BB67 /* Sender.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sender.swift; sourceTree = "<group>"; };
 		C4C887681E881DB10022558F /* StatusViewSnapshotTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusViewSnapshotTest.swift; sourceTree = "<group>"; };
+		C4C8876A1E8984660022558F /* InfluencerMessageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfluencerMessageCell.swift; sourceTree = "<group>"; };
+		C4C8876B1E8984660022558F /* InfluencerMessageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InfluencerMessageCell.xib; sourceTree = "<group>"; };
+		C4C8876E1E89880D0022558F /* Messages.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Messages.swift; sourceTree = "<group>"; };
+		C4C887711E898D360022558F /* MessagesService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagesService.swift; sourceTree = "<group>"; };
+		C4C887741E898DC40022558F /* MessagesResourceMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagesResourceMock.swift; sourceTree = "<group>"; };
+		C4C887761E89A5590022558F /* BrandMessageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrandMessageCell.swift; sourceTree = "<group>"; };
+		C4C887771E89A5590022558F /* BrandMessageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BrandMessageCell.xib; sourceTree = "<group>"; };
+		C4C8877A1E89AA400022558F /* InfluencerMessageCellSnapshotTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfluencerMessageCellSnapshotTest.swift; sourceTree = "<group>"; };
+		C4C8877C1E89AA4F0022558F /* BrandMessageCellSnapshotTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrandMessageCellSnapshotTest.swift; sourceTree = "<group>"; };
 		D1CA9B6CB49B011CC24AABEF /* Pods-Vyrl.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Vyrl.release.xcconfig"; path = "Pods/Target Support Files/Pods-Vyrl/Pods-Vyrl.release.xcconfig"; sourceTree = "<group>"; };
 		E340CAC7115BDC8D7662DAA1 /* Pods-VyrlTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VyrlTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-VyrlTests/Pods-VyrlTests.debug.xcconfig"; sourceTree = "<group>"; };
 		FEFAD20345D47357A44DABF7 /* Pods-Vyrl.ad hoc.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Vyrl.ad hoc.xcconfig"; path = "Pods/Target Support Files/Pods-Vyrl/Pods-Vyrl.ad hoc.xcconfig"; sourceTree = "<group>"; };
@@ -2271,6 +2289,8 @@
 				31663A7E1E7931440073A449 /* CollabsSnapshotTest.swift */,
 				C4BDA4371E8106B40009BB67 /* MessagesSnapshotTest.swift */,
 				C4C887681E881DB10022558F /* StatusViewSnapshotTest.swift */,
+				C4C8877C1E89AA4F0022558F /* BrandMessageCellSnapshotTest.swift */,
+				C4C8877A1E89AA400022558F /* InfluencerMessageCellSnapshotTest.swift */,
 			);
 			name = SnapshotTest;
 			sourceTree = "<group>";
@@ -2539,6 +2559,8 @@
 		C4BDA42A1E7FD68D0009BB67 /* Messages */ = {
 			isa = PBXGroup;
 			children = (
+				C4C887731E898DAC0022558F /* Resources */,
+				C4C887701E898D1F0022558F /* Services */,
 				C4BDA43C1E8138F40009BB67 /* Models */,
 				C4BDA4391E81305C0009BB67 /* DataSources */,
 				C4BDA42D1E7FD6C10009BB67 /* Interactors */,
@@ -2558,6 +2580,10 @@
 				C4B161D61E85074300C6E112 /* MainStatusView.xib */,
 				C4B161D81E85090700C6E112 /* MainStatusView.swift */,
 				C4B161DA1E8509E100C6E112 /* StatusView.swift */,
+				C4C8876A1E8984660022558F /* InfluencerMessageCell.swift */,
+				C4C8876B1E8984660022558F /* InfluencerMessageCell.xib */,
+				C4C887761E89A5590022558F /* BrandMessageCell.swift */,
+				C4C887771E89A5590022558F /* BrandMessageCell.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -2599,8 +2625,25 @@
 				C4BDA43D1E8139010009BB67 /* Message.swift */,
 				C4BDA43F1E8163890009BB67 /* Sender.swift */,
 				C47D450B1E825F1B005DD524 /* MessageContainer.swift */,
+				C4C8876E1E89880D0022558F /* Messages.swift */,
 			);
 			name = Models;
+			sourceTree = "<group>";
+		};
+		C4C887701E898D1F0022558F /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				C4C887711E898D360022558F /* MessagesService.swift */,
+			);
+			name = Services;
+			sourceTree = "<group>";
+		};
+		C4C887731E898DAC0022558F /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				C4C887741E898DC40022558F /* MessagesResourceMock.swift */,
+			);
+			name = Resources;
 			sourceTree = "<group>";
 		};
 		D9CA7D5820E054A4F0F7B78D /* Frameworks */ = {
@@ -2716,6 +2759,7 @@
 				31B0793C1E70A7370015C302 /* SwipeableGalleryItemCell.xib in Resources */,
 				C4B161D51E83DDD100C6E112 /* SingleStatusView.xib in Resources */,
 				313CF7FD1E6E1671005686F5 /* TextTableCell.xib in Resources */,
+				C4C8876D1E8984660022558F /* InfluencerMessageCell.xib in Resources */,
 				313CF8031E6E268E005686F5 /* ExpandableTextTableCell.xib in Resources */,
 				31EF231C1E68AD810073F624 /* AddToCartTableCell.xib in Resources */,
 				858D64161E57130500CFDD4C /* Localizable.strings in Resources */,
@@ -2733,6 +2777,7 @@
 				1AA7FA9C1E687FE7001C0B6F /* InfoView.xib in Resources */,
 				31FEB5AB1E5C3A4800C5E41D /* BrandStoreViewController.xib in Resources */,
 				1A31215E1E641CFB00F71925 /* CartItemCell.xib in Resources */,
+				C4C887791E89A5590022558F /* BrandMessageCell.xib in Resources */,
 				1AEBB9741E608AA300113DC9 /* CartViewController.xib in Resources */,
 				1A1FA93A1E5D94FE007EB61D /* CategoryCell.xib in Resources */,
 				85DCFC201E75BC420046D0D5 /* ContactInfoViewController.xib in Resources */,
@@ -2891,6 +2936,7 @@
 				31EF23221E690D5B0073F624 /* ProductDetailsSectionSpecifics.swift in Sources */,
 				853A833B1E718954006EBA8C /* ErrorPresenting.swift in Sources */,
 				853859AB1E6085650098D1EB /* IndustryId.swift in Sources */,
+				C4C8876F1E89880D0022558F /* Messages.swift in Sources */,
 				85DCFC001E72CC3E0046D0D5 /* CheckoutSummaryControllerFactory.swift in Sources */,
 				8554BE6C1E68049800E05A37 /* Categories.swift in Sources */,
 				31B079461E75A4380015C302 /* ClosureBarButtonItem.swift in Sources */,
@@ -2998,6 +3044,7 @@
 				853859981E602BFD0098D1EB /* UserRegistrationRequest.swift in Sources */,
 				850A80F41E5EDC6E00E684A3 /* URLSessionProtocol.swift in Sources */,
 				85B0A8381E6703A2002093BA /* CALayer+BottomBorder.swift in Sources */,
+				C4C8876C1E8984660022558F /* InfluencerMessageCell.swift in Sources */,
 				85CA3FEA1E647E9300D43805 /* FormTextField.swift in Sources */,
 				850A80D81E5DEB2B00E684A3 /* KeychainProtocol.swift in Sources */,
 				85DCFC261E75C1760046D0D5 /* FormFieldsInteractor.swift in Sources */,
@@ -3019,11 +3066,13 @@
 				85B0A8411E670F1D002093BA /* BrandsService.swift in Sources */,
 				1A69C6A61E56008100134EF5 /* NavigationBar.swift in Sources */,
 				C4BDA4401E8163890009BB67 /* Sender.swift in Sources */,
+				C4C887721E898D360022558F /* MessagesService.swift in Sources */,
 				852ACD451E55DCDC00219E90 /* ReusableView.swift in Sources */,
 				850A80D61E5DE83200E684A3 /* CredentialsStorage.swift in Sources */,
 				1A69C6A01E55DC8C00134EF5 /* LeftMenuViewController.swift in Sources */,
 				85CA3FDF1E6477EF00D43805 /* LoginService.swift in Sources */,
 				85DCFC281E75C3760046D0D5 /* CustomIntegerConvertible.swift in Sources */,
+				C4C887781E89A5590022558F /* BrandMessageCell.swift in Sources */,
 				858D64181E5722C900CFDD4C /* BrandsResourceMock.swift in Sources */,
 				858D63E01E55F19A00CFDD4C /* ImageFetcher.swift in Sources */,
 				850A80D31E5DE69200E684A3 /* APICredentialsProvider.swift in Sources */,
@@ -3070,6 +3119,7 @@
 				31FEB5AE1E5C5E3900C5E41D /* BrandStoreHeaderRenderable.swift in Sources */,
 				850A810A1E5F2B4B00E684A3 /* ResourceConfiguratorFactory.swift in Sources */,
 				850A80F21E5E269F00E684A3 /* UserCredentials.swift in Sources */,
+				C4C887751E898DC40022558F /* MessagesResourceMock.swift in Sources */,
 				1AEBB9721E608A9B00113DC9 /* CartInteractor.swift in Sources */,
 				31EF22F51E677E310073F624 /* TableViewHaving.swift in Sources */,
 				85DCFC1A1E75BC240046D0D5 /* ContactInfoInteractor.swift in Sources */,
@@ -3171,6 +3221,7 @@
 				1ADAF7DD1E545F3C00155D9F /* RootNavigationTests.swift in Sources */,
 				850A80DB1E5E0DE600E684A3 /* CredentialsStorageTest.swift in Sources */,
 				1AA7FA8E1E672D08001C0B6F /* CartSummarySnapshotTests.swift in Sources */,
+				C4C8877D1E89AA4F0022558F /* BrandMessageCellSnapshotTest.swift in Sources */,
 				85CA3FD01E6439EE00D43805 /* AuthorizationResourcesTest.swift in Sources */,
 				858D63EF1E55F6A800CFDD4C /* ImageFetcherTest.swift in Sources */,
 				31B0794A1E76AA150015C302 /* NavigationItemMock.swift in Sources */,
@@ -3202,6 +3253,7 @@
 				8572E4DE1E7ACAEB0042160D /* CollectionDataSourceMock.swift in Sources */,
 				3169B9AE1E603B84005F8A94 /* BrandStoreCellSnapshotTest.swift in Sources */,
 				1A1FA9591E5F10DC007EB61D /* LeftMenuViewControllerSnapshotTest.swift in Sources */,
+				C4C8877B1E89AA400022558F /* InfluencerMessageCellSnapshotTest.swift in Sources */,
 				85DCFC141E75BA110046D0D5 /* CheckoutSummaryViewControllerTest.swift in Sources */,
 				C4BDA4381E8106B40009BB67 /* MessagesSnapshotTest.swift in Sources */,
 				85B0A8341E66B63B002093BA /* LoginServiceMock.swift in Sources */,
