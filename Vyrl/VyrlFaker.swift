@@ -191,7 +191,7 @@ extension Faker {
         return MessageContainer(createdAt: createdAt, sender: sender, message: message, messageType: messageType)
     }
     
-    func message(text: String = VyrlFaker.faker.lorem.sentence(wordsAmount: VyrlFaker.faker.number.randomInt(min: 1, max: 5)),
+    func message(text: String = VyrlFaker.faker.lorem.sentence(wordsAmount: VyrlFaker.faker.number.randomInt(min: 1, max: 20)),
                  mediaURL: URL = URL(string: VyrlFaker.faker.internet.url())!,
                  isMedia: Bool = false) -> Message {
         return Message(text: text, mediaURL: mediaURL, isMedia: isMedia)

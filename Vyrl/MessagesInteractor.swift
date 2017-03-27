@@ -22,6 +22,7 @@ final class MessagesInteractor: MessagesInteracting {
         self.dataSource = dataSource
         self.collab = collab
         dataSource.interactor = self
+        dataSource.tableViewControllingDelegate = self
     }
     
     func viewWillAppear() {
@@ -48,5 +49,17 @@ extension MessagesInteractor: TableViewUsing {
 }
 
 extension MessagesInteractor: DataRefreshing {
-    func refreshData() { }
+    func refreshData() {
+        dataSource.loadTableData()
+    }
+}
+
+extension MessagesInteractor: TableViewControlling {
+    func updateTable(with result: DataFetchResult) {
+        tableView?.reloadData()
+    }
+    
+    func loadTableData() {
+        dataSource.loadTableData()
+    }
 }

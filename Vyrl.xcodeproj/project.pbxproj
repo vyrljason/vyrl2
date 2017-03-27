@@ -407,6 +407,9 @@
 		C4C887791E89A5590022558F /* BrandMessageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4C887771E89A5590022558F /* BrandMessageCell.xib */; };
 		C4C8877B1E89AA400022558F /* InfluencerMessageCellSnapshotTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C8877A1E89AA400022558F /* InfluencerMessageCellSnapshotTest.swift */; };
 		C4C8877D1E89AA4F0022558F /* BrandMessageCellSnapshotTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C8877C1E89AA4F0022558F /* BrandMessageCellSnapshotTest.swift */; };
+		C4C887821E89B02B0022558F /* MessagesServiceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C887811E89B02B0022558F /* MessagesServiceTest.swift */; };
+		C4C887841E89B1290022558F /* MessagesDataSourceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C887831E89B1290022558F /* MessagesDataSourceTest.swift */; };
+		C4C887861E89B5280022558F /* MessagesInteractorTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C887851E89B5280022558F /* MessagesInteractorTest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -827,6 +830,9 @@
 		C4C887771E89A5590022558F /* BrandMessageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BrandMessageCell.xib; sourceTree = "<group>"; };
 		C4C8877A1E89AA400022558F /* InfluencerMessageCellSnapshotTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfluencerMessageCellSnapshotTest.swift; sourceTree = "<group>"; };
 		C4C8877C1E89AA4F0022558F /* BrandMessageCellSnapshotTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrandMessageCellSnapshotTest.swift; sourceTree = "<group>"; };
+		C4C887811E89B02B0022558F /* MessagesServiceTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagesServiceTest.swift; sourceTree = "<group>"; };
+		C4C887831E89B1290022558F /* MessagesDataSourceTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagesDataSourceTest.swift; sourceTree = "<group>"; };
+		C4C887851E89B5280022558F /* MessagesInteractorTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagesInteractorTest.swift; sourceTree = "<group>"; };
 		D1CA9B6CB49B011CC24AABEF /* Pods-Vyrl.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Vyrl.release.xcconfig"; path = "Pods/Target Support Files/Pods-Vyrl/Pods-Vyrl.release.xcconfig"; sourceTree = "<group>"; };
 		E340CAC7115BDC8D7662DAA1 /* Pods-VyrlTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VyrlTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-VyrlTests/Pods-VyrlTests.debug.xcconfig"; sourceTree = "<group>"; };
 		FEFAD20345D47357A44DABF7 /* Pods-Vyrl.ad hoc.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Vyrl.ad hoc.xcconfig"; path = "Pods/Target Support Files/Pods-Vyrl/Pods-Vyrl.ad hoc.xcconfig"; sourceTree = "<group>"; };
@@ -2607,6 +2613,9 @@
 		C4BDA4361E8105060009BB67 /* Messages */ = {
 			isa = PBXGroup;
 			children = (
+				C4C887801E89B0020022558F /* Services */,
+				C4C8877F1E89AFEE0022558F /* DataSources */,
+				C4C8877E1E89AFDC0022558F /* Interactors */,
 			);
 			name = Messages;
 			sourceTree = "<group>";
@@ -2644,6 +2653,30 @@
 				C4C887741E898DC40022558F /* MessagesResourceMock.swift */,
 			);
 			name = Resources;
+			sourceTree = "<group>";
+		};
+		C4C8877E1E89AFDC0022558F /* Interactors */ = {
+			isa = PBXGroup;
+			children = (
+				C4C887851E89B5280022558F /* MessagesInteractorTest.swift */,
+			);
+			name = Interactors;
+			sourceTree = "<group>";
+		};
+		C4C8877F1E89AFEE0022558F /* DataSources */ = {
+			isa = PBXGroup;
+			children = (
+				C4C887831E89B1290022558F /* MessagesDataSourceTest.swift */,
+			);
+			name = DataSources;
+			sourceTree = "<group>";
+		};
+		C4C887801E89B0020022558F /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				C4C887811E89B02B0022558F /* MessagesServiceTest.swift */,
+			);
+			name = Services;
 			sourceTree = "<group>";
 		};
 		D9CA7D5820E054A4F0F7B78D /* Frameworks */ = {
@@ -3215,6 +3248,7 @@
 				85DCFC2F1E7682C60046D0D5 /* ShippingInfoControllerSnapshotTest.swift in Sources */,
 				1A1FA9511E5E2668007EB61D /* CategoriesDataSourceTests.swift in Sources */,
 				1AA7FAA21E68C0AD001C0B6F /* InfoViewSnapshotTests.swift in Sources */,
+				C4C887821E89B02B0022558F /* MessagesServiceTest.swift in Sources */,
 				1AA7FA901E686F32001C0B6F /* EmptyTableViewHandlerMock.swift in Sources */,
 				3169B9CE1E64F503005F8A94 /* BrandStoreFlowLayoutHandlerTest.swift in Sources */,
 				1AF49CD11E59F24A00FE7857 /* LeftMenuInteractorTests.swift in Sources */,
@@ -3229,6 +3263,7 @@
 				853BAC081E7BCA4700874075 /* ChatTokenResourceTest.swift in Sources */,
 				858D64421E5755FC00CFDD4C /* CollectionViewMock.swift in Sources */,
 				31B0794C1E76B1770015C302 /* ViewControllerMock.swift in Sources */,
+				C4C887841E89B1290022558F /* MessagesDataSourceTest.swift in Sources */,
 				853A83481E72B67F006EBA8C /* ErrorPresenterMock.swift in Sources */,
 				858D643E1E5752FD00CFDD4C /* BrandsDataSourceTest.swift in Sources */,
 				31EF23241E691F2E0073F624 /* AddToCartTableCellTest.swift in Sources */,
@@ -3242,6 +3277,7 @@
 				85DCFC4F1E782DCF0046D0D5 /* BadgeButtonSnapshotTest.swift in Sources */,
 				3169B9B21E604A23005F8A94 /* BrandStoreServiceTest.swift in Sources */,
 				850A80FE1E5EF97E00E684A3 /* APIResponseHandlerTest.swift in Sources */,
+				C4C887861E89B5280022558F /* MessagesInteractorTest.swift in Sources */,
 				858D63F61E55FF8600CFDD4C /* CustomAssertions.swift in Sources */,
 				8554BEB11E699C2C00E05A37 /* OrderProposalResourceTest.swift in Sources */,
 				3169B9D21E650EFC005F8A94 /* BrandStoreHeaderSnapshotTest.swift in Sources */,
