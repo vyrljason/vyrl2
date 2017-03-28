@@ -5,13 +5,12 @@
 @testable import Vyrl
 import XCTest
 
-
 final class CredentialsStorageTest: XCTestCase {
 
     private let accessToken = "accessToken"
     private var subject: CredentialsStorage!
     private var keychain: KeychainMock!
-
+ 
     override func setUp() {
         super.setUp()
         keychain = KeychainMock()

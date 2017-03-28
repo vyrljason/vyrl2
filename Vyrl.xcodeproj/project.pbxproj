@@ -231,6 +231,7 @@
 		853BAC0A1E7BCA9D00874075 /* StoredRepositoryTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853BAC091E7BCA9D00874075 /* StoredRepositoryTest.swift */; };
 		853BAC0C1E7C07B700874075 /* KeychainMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853BAC0B1E7C07B700874075 /* KeychainMock.swift */; };
 		853BAC0E1E7C099800874075 /* ChatTokenRepositoryFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853BAC0D1E7C099800874075 /* ChatTokenRepositoryFactory.swift */; };
+		853BAC101E7C1A9600874075 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 853BAC0F1E7C1A9600874075 /* GoogleService-Info.plist */; };
 		85437AA31E58D4E200551D2D /* EmptyCollectionViewHandlerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85437AA21E58D4E200551D2D /* EmptyCollectionViewHandlerTest.swift */; };
 		85437AA51E58D7C200551D2D /* EmptyCollectionViewHandlerMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85437AA41E58D7C200551D2D /* EmptyCollectionViewHandlerMock.swift */; };
 		8554BE6A1E68047C00E05A37 /* CategoriesResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8554BE691E68047C00E05A37 /* CategoriesResource.swift */; };
@@ -260,6 +261,11 @@
 		8554BEC41E69D7A400E05A37 /* ProductsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8554BEC31E69D7A400E05A37 /* ProductsService.swift */; };
 		8554BEC61E69DE8000E05A37 /* ShippingAddressInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8554BEC51E69DE8000E05A37 /* ShippingAddressInteractor.swift */; };
 		8554BEC91E69DECD00E05A37 /* ShippingAddressViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8554BEC81E69DECD00E05A37 /* ShippingAddressViewFactory.swift */; };
+		85603F761E88ED530062485E /* ChatAuthenticator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85603F751E88ED530062485E /* ChatAuthenticator.swift */; };
+		85603F7D1E88EE600062485E /* ChatSigningIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85603F7C1E88EE600062485E /* ChatSigningIn.swift */; };
+		85603F7F1E8917280062485E /* ChatTokenDecoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85603F7E1E8917280062485E /* ChatTokenDecoding.swift */; };
+		85603F811E897F5F0062485E /* ChatAuthenticatorTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85603F801E897F5F0062485E /* ChatAuthenticatorTest.swift */; };
+		85603F831E89800B0062485E /* ChatCredentialsStorageMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85603F821E89800B0062485E /* ChatCredentialsStorageMock.swift */; };
 		85718EEB1E65AD8C00E9602B /* LoginFormFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85718EEA1E65AD8C00E9602B /* LoginFormFactory.swift */; };
 		8572E4A11E7977260042160D /* CollabsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8572E4A01E7977260042160D /* CollabsDataSource.swift */; };
 		8572E4A71E79792C0042160D /* CollabsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8572E4A61E79792C0042160D /* CollabsService.swift */; };
@@ -313,7 +319,7 @@
 		858D64471E58A4C000CFDD4C /* CollectionViewRefreshing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858D64461E58A4C000CFDD4C /* CollectionViewRefreshing.swift */; };
 		858D644A1E58A67200CFDD4C /* EmptyCollectionViewHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858D64491E58A67200CFDD4C /* EmptyCollectionViewHandler.swift */; };
 		85A2A80A1E7B4C3900271871 /* StoredRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85A2A8091E7B4C3900271871 /* StoredRepository.swift */; };
-		85A2A80D1E7B4D0300271871 /* ChatTokenStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85A2A80C1E7B4D0300271871 /* ChatTokenStorage.swift */; };
+		85A2A80D1E7B4D0300271871 /* ChatCredentialsStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85A2A80C1E7B4D0300271871 /* ChatCredentialsStorage.swift */; };
 		85A2A80F1E7B4E7100271871 /* KeychainConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85A2A80E1E7B4E7100271871 /* KeychainConstants.swift */; };
 		85B0A8261E65F335002093BA /* UIAlertController+Ok.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85B0A8251E65F335002093BA /* UIAlertController+Ok.swift */; };
 		85B0A82E1E66AEE0002093BA /* LoginInteractorTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85B0A82D1E66AEE0002093BA /* LoginInteractorTest.swift */; };
@@ -382,6 +388,7 @@
 		85FA7A281E5C730800491EED /* NavigationHaving.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FA7A271E5C730800491EED /* NavigationHaving.swift */; };
 		85FB31E11E65E1C500E2F113 /* StyleKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FB31E01E65E1C500E2F113 /* StyleKit.swift */; };
 		A4256F0E1E675A7BB6AE21F5 /* Pods_Vyrl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AA1C43D9EC44CB342D10427 /* Pods_Vyrl.framework */; };
+		A88C6E01D1C525F412047D1D /* Pods_Vyrl_VyrlTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1B503C80149A72A7A1B1D88 /* Pods_Vyrl_VyrlTests.framework */; };
 		BDDF0A4F0C2F3D7D482551AB /* Pods_VyrlTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3553ABBDC82B1A7C9E6385AE /* Pods_VyrlTests.framework */; };
 		C47D450C1E825F1B005DD524 /* MessageContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47D450B1E825F1B005DD524 /* MessageContainer.swift */; };
 		C4B161D31E83DDC100C6E112 /* SingleStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B161D21E83DDC100C6E112 /* SingleStatusView.swift */; };
@@ -656,6 +663,7 @@
 		853BAC091E7BCA9D00874075 /* StoredRepositoryTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoredRepositoryTest.swift; sourceTree = "<group>"; };
 		853BAC0B1E7C07B700874075 /* KeychainMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeychainMock.swift; sourceTree = "<group>"; };
 		853BAC0D1E7C099800874075 /* ChatTokenRepositoryFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatTokenRepositoryFactory.swift; sourceTree = "<group>"; };
+		853BAC0F1E7C1A9600874075 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		85437AA21E58D4E200551D2D /* EmptyCollectionViewHandlerTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmptyCollectionViewHandlerTest.swift; sourceTree = "<group>"; };
 		85437AA41E58D7C200551D2D /* EmptyCollectionViewHandlerMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmptyCollectionViewHandlerMock.swift; sourceTree = "<group>"; };
 		8554BE691E68047C00E05A37 /* CategoriesResource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoriesResource.swift; sourceTree = "<group>"; };
@@ -685,6 +693,11 @@
 		8554BEC31E69D7A400E05A37 /* ProductsService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductsService.swift; sourceTree = "<group>"; };
 		8554BEC51E69DE8000E05A37 /* ShippingAddressInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShippingAddressInteractor.swift; sourceTree = "<group>"; };
 		8554BEC81E69DECD00E05A37 /* ShippingAddressViewFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShippingAddressViewFactory.swift; sourceTree = "<group>"; };
+		85603F751E88ED530062485E /* ChatAuthenticator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatAuthenticator.swift; sourceTree = "<group>"; };
+		85603F7C1E88EE600062485E /* ChatSigningIn.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatSigningIn.swift; sourceTree = "<group>"; };
+		85603F7E1E8917280062485E /* ChatTokenDecoding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatTokenDecoding.swift; sourceTree = "<group>"; };
+		85603F801E897F5F0062485E /* ChatAuthenticatorTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatAuthenticatorTest.swift; sourceTree = "<group>"; };
+		85603F821E89800B0062485E /* ChatCredentialsStorageMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatCredentialsStorageMock.swift; sourceTree = "<group>"; };
 		85718EEA1E65AD8C00E9602B /* LoginFormFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginFormFactory.swift; sourceTree = "<group>"; };
 		8572E4A01E7977260042160D /* CollabsDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollabsDataSource.swift; sourceTree = "<group>"; };
 		8572E4A61E79792C0042160D /* CollabsService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollabsService.swift; sourceTree = "<group>"; };
@@ -737,7 +750,7 @@
 		858D64461E58A4C000CFDD4C /* CollectionViewRefreshing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewRefreshing.swift; sourceTree = "<group>"; };
 		858D64491E58A67200CFDD4C /* EmptyCollectionViewHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmptyCollectionViewHandler.swift; sourceTree = "<group>"; };
 		85A2A8091E7B4C3900271871 /* StoredRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoredRepository.swift; sourceTree = "<group>"; };
-		85A2A80C1E7B4D0300271871 /* ChatTokenStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatTokenStorage.swift; sourceTree = "<group>"; };
+		85A2A80C1E7B4D0300271871 /* ChatCredentialsStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatCredentialsStorage.swift; sourceTree = "<group>"; };
 		85A2A80E1E7B4E7100271871 /* KeychainConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeychainConstants.swift; sourceTree = "<group>"; };
 		85B0A8251E65F335002093BA /* UIAlertController+Ok.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIAlertController+Ok.swift"; sourceTree = "<group>"; };
 		85B0A82D1E66AEE0002093BA /* LoginInteractorTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginInteractorTest.swift; sourceTree = "<group>"; };
@@ -805,6 +818,8 @@
 		85DCFC521E7831AF0046D0D5 /* iosCartIconNav.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iosCartIconNav.png; sourceTree = "<group>"; };
 		85FA7A271E5C730800491EED /* NavigationHaving.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationHaving.swift; sourceTree = "<group>"; };
 		85FB31E01E65E1C500E2F113 /* StyleKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StyleKit.swift; sourceTree = "<group>"; };
+		A18C29074EB0CA69D3CEAB5F /* Pods-Vyrl-VyrlTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Vyrl-VyrlTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Vyrl-VyrlTests/Pods-Vyrl-VyrlTests.release.xcconfig"; sourceTree = "<group>"; };
+		A1B503C80149A72A7A1B1D88 /* Pods_Vyrl_VyrlTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Vyrl_VyrlTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD1309C018727D87342F7FE2 /* Pods-VyrlTests.ad hoc.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VyrlTests.ad hoc.xcconfig"; path = "Pods/Target Support Files/Pods-VyrlTests/Pods-VyrlTests.ad hoc.xcconfig"; sourceTree = "<group>"; };
 		C47D450B1E825F1B005DD524 /* MessageContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageContainer.swift; sourceTree = "<group>"; };
 		C4B161D21E83DDC100C6E112 /* SingleStatusView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SingleStatusView.swift; sourceTree = "<group>"; };
@@ -835,6 +850,8 @@
 		C4C887851E89B5280022558F /* MessagesInteractorTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagesInteractorTest.swift; sourceTree = "<group>"; };
 		D1CA9B6CB49B011CC24AABEF /* Pods-Vyrl.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Vyrl.release.xcconfig"; path = "Pods/Target Support Files/Pods-Vyrl/Pods-Vyrl.release.xcconfig"; sourceTree = "<group>"; };
 		E340CAC7115BDC8D7662DAA1 /* Pods-VyrlTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VyrlTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-VyrlTests/Pods-VyrlTests.debug.xcconfig"; sourceTree = "<group>"; };
+		F3FA9C9307A9DB63E646297F /* Pods-Vyrl-VyrlTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Vyrl-VyrlTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Vyrl-VyrlTests/Pods-Vyrl-VyrlTests.debug.xcconfig"; sourceTree = "<group>"; };
+		F49938B0396058B0A03497B5 /* Pods-Vyrl-VyrlTests.ad hoc.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Vyrl-VyrlTests.ad hoc.xcconfig"; path = "Pods/Target Support Files/Pods-Vyrl-VyrlTests/Pods-Vyrl-VyrlTests.ad hoc.xcconfig"; sourceTree = "<group>"; };
 		FEFAD20345D47357A44DABF7 /* Pods-Vyrl.ad hoc.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Vyrl.ad hoc.xcconfig"; path = "Pods/Target Support Files/Pods-Vyrl/Pods-Vyrl.ad hoc.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -852,6 +869,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BDDF0A4F0C2F3D7D482551AB /* Pods_VyrlTests.framework in Frameworks */,
+				A88C6E01D1C525F412047D1D /* Pods_Vyrl_VyrlTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1082,6 +1100,7 @@
 		1ADAF7F71E54604300155D9F /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				853BAC0F1E7C1A9600874075 /* GoogleService-Info.plist */,
 				8538599D1E60734C0098D1EB /* dergodaddy.crt */,
 				850A80AF1E5D990C00E684A3 /* Configuration.plist */,
 				1ADAF7D01E545F3C00155D9F /* LaunchScreen.storyboard */,
@@ -1095,6 +1114,7 @@
 		1ADAF7F81E54605D00155D9F /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				85603F741E88ED480062485E /* Firebase */,
 				853A83521E72C52F006EBA8C /* Cart */,
 				31B0794D1E7732B20015C302 /* Chat */,
 				85CA3FD61E64778800D43805 /* Login */,
@@ -1160,6 +1180,7 @@
 				8572E4DF1E7ACC040042160D /* DataUpdateListenerMock.swift */,
 				8572E4E11E7AD83C0042160D /* CollectionInteractorMock.swift */,
 				853BAC0B1E7C07B700874075 /* KeychainMock.swift */,
+				85603F821E89800B0062485E /* ChatCredentialsStorageMock.swift */,
 			);
 			name = Mocks;
 			sourceTree = "<group>";
@@ -1700,19 +1721,12 @@
 		852ACD3E1E55DB7400219E90 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
-				1A50C1A21E6729650002A6DC /* ReloadingData.swift */,
+				85603F7B1E88EE490062485E /* UIView */,
+				85603F7A1E88EE3F0062485E /* TableView */,
+				85603F791E88EE360062485E /* CollectionView */,
+				85603F781E88EE300062485E /* Firebase */,
 				850A80F51E5EDC8200E684A3 /* Networking */,
-				852ACD3F1E55DB8400219E90 /* HavingNib.swift */,
-				852ACD441E55DCDC00219E90 /* ReusableView.swift */,
-				858D64081E560EBC00CFDD4C /* CollectionViewControlling.swift */,
-				858D640A1E560F0100CFDD4C /* CollectionViewHaving.swift */,
-				858D64101E570E4C00CFDD4C /* CollectionViewDataProviding.swift */,
-				858D641F1E5734A800CFDD4C /* CollectionViewUsing.swift */,
-				858D64461E58A4C000CFDD4C /* CollectionViewRefreshing.swift */,
-				31EF22F01E67742C0073F624 /* TableViewDataProviding.swift */,
-				31EF22F61E677EB80073F624 /* TableViewControlling.swift */,
-				31EF22F41E677E310073F624 /* TableViewHaving.swift */,
-				31EF22F21E6779780073F624 /* TableViewUsing.swift */,
+				1A50C1A21E6729650002A6DC /* ReloadingData.swift */,
 				85FA7A271E5C730800491EED /* NavigationHaving.swift */,
 				850A80A61E5D927300E684A3 /* DictionaryConvertible.swift */,
 				850A80CE1E5DCABA00E684A3 /* JSONSerializationProtocol.swift */,
@@ -1903,6 +1917,7 @@
 			isa = PBXGroup;
 			children = (
 				8572E4DB1E7AC9220042160D /* CollabsServiceTest.swift */,
+				85603F801E897F5F0062485E /* ChatAuthenticatorTest.swift */,
 			);
 			name = Services;
 			sourceTree = "<group>";
@@ -2063,6 +2078,53 @@
 			name = Factories;
 			sourceTree = "<group>";
 		};
+		85603F741E88ED480062485E /* Firebase */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Firebase;
+			sourceTree = "<group>";
+		};
+		85603F781E88EE300062485E /* Firebase */ = {
+			isa = PBXGroup;
+			children = (
+				85603F7C1E88EE600062485E /* ChatSigningIn.swift */,
+			);
+			name = Firebase;
+			sourceTree = "<group>";
+		};
+		85603F791E88EE360062485E /* CollectionView */ = {
+			isa = PBXGroup;
+			children = (
+				858D64081E560EBC00CFDD4C /* CollectionViewControlling.swift */,
+				858D640A1E560F0100CFDD4C /* CollectionViewHaving.swift */,
+				858D64101E570E4C00CFDD4C /* CollectionViewDataProviding.swift */,
+				858D641F1E5734A800CFDD4C /* CollectionViewUsing.swift */,
+				858D64461E58A4C000CFDD4C /* CollectionViewRefreshing.swift */,
+			);
+			name = CollectionView;
+			sourceTree = "<group>";
+		};
+		85603F7A1E88EE3F0062485E /* TableView */ = {
+			isa = PBXGroup;
+			children = (
+				31EF22F01E67742C0073F624 /* TableViewDataProviding.swift */,
+				31EF22F61E677EB80073F624 /* TableViewControlling.swift */,
+				31EF22F41E677E310073F624 /* TableViewHaving.swift */,
+				31EF22F21E6779780073F624 /* TableViewUsing.swift */,
+			);
+			name = TableView;
+			sourceTree = "<group>";
+		};
+		85603F7B1E88EE490062485E /* UIView */ = {
+			isa = PBXGroup;
+			children = (
+				852ACD3F1E55DB8400219E90 /* HavingNib.swift */,
+				852ACD441E55DCDC00219E90 /* ReusableView.swift */,
+			);
+			name = UIView;
+			sourceTree = "<group>";
+		};
 		8572E49F1E7977170042160D /* DataSources */ = {
 			isa = PBXGroup;
 			children = (
@@ -2074,6 +2136,7 @@
 		8572E4A21E79781E0042160D /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				85603F751E88ED530062485E /* ChatAuthenticator.swift */,
 				8572E4A61E79792C0042160D /* CollabsService.swift */,
 				8572E4EA1E7AE4910042160D /* ChatTokenRepository.swift */,
 			);
@@ -2361,7 +2424,8 @@
 		85A2A80B1E7B4CF800271871 /* Other */ = {
 			isa = PBXGroup;
 			children = (
-				85A2A80C1E7B4D0300271871 /* ChatTokenStorage.swift */,
+				85A2A80C1E7B4D0300271871 /* ChatCredentialsStorage.swift */,
+				85603F7E1E8917280062485E /* ChatTokenDecoding.swift */,
 			);
 			name = Other;
 			sourceTree = "<group>";
@@ -2558,6 +2622,9 @@
 				1A2766098374FF4C447FC4D5 /* Pods-VyrlTests.release.xcconfig */,
 				FEFAD20345D47357A44DABF7 /* Pods-Vyrl.ad hoc.xcconfig */,
 				BD1309C018727D87342F7FE2 /* Pods-VyrlTests.ad hoc.xcconfig */,
+				F3FA9C9307A9DB63E646297F /* Pods-Vyrl-VyrlTests.debug.xcconfig */,
+				A18C29074EB0CA69D3CEAB5F /* Pods-Vyrl-VyrlTests.release.xcconfig */,
+				F49938B0396058B0A03497B5 /* Pods-Vyrl-VyrlTests.ad hoc.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -2684,6 +2751,7 @@
 			children = (
 				1AA1C43D9EC44CB342D10427 /* Pods_Vyrl.framework */,
 				3553ABBDC82B1A7C9E6385AE /* Pods_VyrlTests.framework */,
+				A1B503C80149A72A7A1B1D88 /* Pods_Vyrl_VyrlTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -2811,6 +2879,7 @@
 				31FEB5AB1E5C3A4800C5E41D /* BrandStoreViewController.xib in Resources */,
 				1A31215E1E641CFB00F71925 /* CartItemCell.xib in Resources */,
 				C4C887791E89A5590022558F /* BrandMessageCell.xib in Resources */,
+				853BAC101E7C1A9600874075 /* GoogleService-Info.plist in Resources */,
 				1AEBB9741E608AA300113DC9 /* CartViewController.xib in Resources */,
 				1A1FA93A1E5D94FE007EB61D /* CategoryCell.xib in Resources */,
 				85DCFC201E75BC420046D0D5 /* ContactInfoViewController.xib in Resources */,
@@ -2889,7 +2958,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		81D2EB6F70CBA8DB26E1473C /* [CP] Copy Pods Resources */ = {
@@ -2904,7 +2973,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-VyrlTests/Pods-VyrlTests-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Vyrl-VyrlTests/Pods-Vyrl-VyrlTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		8C856070D7E29DD91A6A3233 /* [CP] Embed Pods Frameworks */ = {
@@ -2919,7 +2988,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-VyrlTests/Pods-VyrlTests-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Vyrl-VyrlTests/Pods-Vyrl-VyrlTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		B22BC1051E54C77700C4519C /* Fabric */ = {
@@ -2948,7 +3017,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -3059,6 +3128,7 @@
 				1AA7FA9B1E687FE7001C0B6F /* InfoView.swift in Sources */,
 				1A1FA9481E5DD024007EB61D /* CategoriesResourceMock.swift in Sources */,
 				31FEB5AA1E5C3A4800C5E41D /* BrandStoreViewController.swift in Sources */,
+				85603F7F1E8917280062485E /* ChatTokenDecoding.swift in Sources */,
 				31FEB5A31E5C37A100C5E41D /* BrandStoreInteractor.swift in Sources */,
 				1A1FA93F1E5D9815007EB61D /* CategoryCellRenderable.swift in Sources */,
 				31FEB5B51E5D0FA300C5E41D /* BrandStoreDataSource.swift in Sources */,
@@ -3131,7 +3201,7 @@
 				C4BDA4331E7FDADA0009BB67 /* MessagesInteractor.swift in Sources */,
 				8554BE831E6870BF00E05A37 /* ShippingAddress.swift in Sources */,
 				8554BE7D1E68465100E05A37 /* ProductsResource.swift in Sources */,
-				85A2A80D1E7B4D0300271871 /* ChatTokenStorage.swift in Sources */,
+				85A2A80D1E7B4D0300271871 /* ChatCredentialsStorage.swift in Sources */,
 				8572E4B61E79A78F0042160D /* Collab.swift in Sources */,
 				31EF233C1E69C0860073F624 /* VariantHandler.swift in Sources */,
 				1A31217C1E66E9CE00F71925 /* ObjectStoring.swift in Sources */,
@@ -3157,12 +3227,14 @@
 				31EF22F51E677E310073F624 /* TableViewHaving.swift in Sources */,
 				85DCFC1A1E75BC240046D0D5 /* ContactInfoInteractor.swift in Sources */,
 				858D644A1E58A67200CFDD4C /* EmptyCollectionViewHandler.swift in Sources */,
+				85603F7D1E88EE600062485E /* ChatSigningIn.swift in Sources */,
 				85A2A80F1E7B4E7100271871 /* KeychainConstants.swift in Sources */,
 				31EF22E71E664C180073F624 /* ProductDetailsViewController.swift in Sources */,
 				1ADAF7F61E545FA300155D9F /* RootNavigation.swift in Sources */,
 				1A1FA9421E5DA887007EB61D /* CategoriesDataSource.swift in Sources */,
 				853A835A1E72C5A9006EBA8C /* CheckoutSummaryInteractor.swift in Sources */,
 				85FB31E11E65E1C500E2F113 /* StyleKit.swift in Sources */,
+				85603F761E88ED530062485E /* ChatAuthenticator.swift in Sources */,
 				C4BDA43B1E8130700009BB67 /* MessagesDataSource.swift in Sources */,
 				85DCFC331E7689B70046D0D5 /* ButtonWithBadge.swift in Sources */,
 				31EF230F1E67B6410073F624 /* NamePriceTableCellRenderable.swift in Sources */,
@@ -3253,6 +3325,7 @@
 				3169B9CE1E64F503005F8A94 /* BrandStoreFlowLayoutHandlerTest.swift in Sources */,
 				1AF49CD11E59F24A00FE7857 /* LeftMenuInteractorTests.swift in Sources */,
 				1ADAF7DD1E545F3C00155D9F /* RootNavigationTests.swift in Sources */,
+				85603F811E897F5F0062485E /* ChatAuthenticatorTest.swift in Sources */,
 				850A80DB1E5E0DE600E684A3 /* CredentialsStorageTest.swift in Sources */,
 				1AA7FA8E1E672D08001C0B6F /* CartSummarySnapshotTests.swift in Sources */,
 				C4C8877D1E89AA4F0022558F /* BrandMessageCellSnapshotTest.swift in Sources */,
@@ -3267,6 +3340,7 @@
 				853A83481E72B67F006EBA8C /* ErrorPresenterMock.swift in Sources */,
 				858D643E1E5752FD00CFDD4C /* BrandsDataSourceTest.swift in Sources */,
 				31EF23241E691F2E0073F624 /* AddToCartTableCellTest.swift in Sources */,
+				85603F831E89800B0062485E /* ChatCredentialsStorageMock.swift in Sources */,
 				31663A7F1E7931440073A449 /* CollabsSnapshotTest.swift in Sources */,
 				1ADAF7FC1E54648A00155D9F /* WindowMock.swift in Sources */,
 				858D64311E574B5C00CFDD4C /* BrandCellSnapshotTest.swift in Sources */,
@@ -3488,11 +3562,20 @@
 		};
 		1ADAF7F01E545F3C00155D9F /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E340CAC7115BDC8D7662DAA1 /* Pods-VyrlTests.debug.xcconfig */;
+			baseConfigurationReference = F3FA9C9307A9DB63E646297F /* Pods-Vyrl-VyrlTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				DEVELOPMENT_TEAM = 2FUQCB4MRE;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"${PODS_ROOT}/Firebase/Core/Sources",
+					"$(inherited)",
+					"\"${PODS_ROOT}/Headers/Public\"",
+					"\"${PODS_ROOT}/Headers/Public/Crashlytics\"",
+					"\"${PODS_ROOT}/Headers/Public/Fabric\"",
+					"\"${PODS_ROOT}/Headers/Public/SwiftLint\"",
+				);
 				INFOPLIST_FILE = VyrlTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = io.govyrl.VyrlTests;
@@ -3504,11 +3587,20 @@
 		};
 		1ADAF7F11E545F3C00155D9F /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1A2766098374FF4C447FC4D5 /* Pods-VyrlTests.release.xcconfig */;
+			baseConfigurationReference = A18C29074EB0CA69D3CEAB5F /* Pods-Vyrl-VyrlTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				DEVELOPMENT_TEAM = 2FUQCB4MRE;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"${PODS_ROOT}/Firebase/Core/Sources",
+					"$(inherited)",
+					"\"${PODS_ROOT}/Headers/Public\"",
+					"\"${PODS_ROOT}/Headers/Public/Crashlytics\"",
+					"\"${PODS_ROOT}/Headers/Public/Fabric\"",
+					"\"${PODS_ROOT}/Headers/Public/SwiftLint\"",
+				);
 				INFOPLIST_FILE = VyrlTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = io.govyrl.VyrlTests;
@@ -3581,11 +3673,20 @@
 		};
 		B22B2B801E64B2B800089F7A /* Ad Hoc */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = BD1309C018727D87342F7FE2 /* Pods-VyrlTests.ad hoc.xcconfig */;
+			baseConfigurationReference = F49938B0396058B0A03497B5 /* Pods-Vyrl-VyrlTests.ad hoc.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				DEVELOPMENT_TEAM = 2FUQCB4MRE;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"${PODS_ROOT}/Firebase/Core/Sources",
+					"$(inherited)",
+					"\"${PODS_ROOT}/Headers/Public\"",
+					"\"${PODS_ROOT}/Headers/Public/Crashlytics\"",
+					"\"${PODS_ROOT}/Headers/Public/Fabric\"",
+					"\"${PODS_ROOT}/Headers/Public/SwiftLint\"",
+				);
 				INFOPLIST_FILE = VyrlTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = io.govyrl.VyrlTests;
