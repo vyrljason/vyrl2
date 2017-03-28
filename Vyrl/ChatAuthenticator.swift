@@ -32,10 +32,10 @@ final class ChatAuthenticator: ChatAuthenticating {
 
     func authenticateUser(completion: @escaping ((Result<Void, ChatAuthenticationError>) -> Void)) {
         chatTokenRepository.getChatToken(refresh: false) { [weak self] result in
-            result.on(success: { [weak self] token in
+            result.on(success: { [weak self] chatToken in
                 guard let `self` = self else { return }
-                self.saveUserId(using: token)
-                self.authenticator.signIn(withCustomToken: token.token) { result in
+                self.saveUserId(using: chatToken)
+                self.authenticator.signIn(withCustomToken: chatToken.token) { result in
                     switch result {
                     case .success:
                         completion(.success())
@@ -48,8 +48,8 @@ final class ChatAuthenticator: ChatAuthenticating {
         }
     }
 
-    private func saveUserId(using token: ChatToken) {
-        let userId = tokenDecoder.decodeJWT(using: token.token)
+    private func saveUserId(using chatToken: ChatToken) {
+        let userId = tokenDecoder.decodeJWT(using: chatToken.token)
         chatCredentialsStorage.internalUserId = userId?.id
     }
 }

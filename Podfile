@@ -12,7 +12,6 @@ target 'Vyrl' do
     pod 'Whisper', :git => 'https://github.com/AllinMobile/Whisper'
     pod 'Spring', :git => 'https://github.com/MengTo/Spring.git', :branch => 'swift3'
     pod 'ReachabilitySwift', '~> 3'
-    pod 'Firebase'
     pod 'Firebase/Core'
     pod 'Firebase/Database'
     pod 'Firebase/Auth'

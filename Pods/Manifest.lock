@@ -11,15 +11,13 @@ PODS:
   - FBSnapshotTestCase/Core (2.1.4)
   - FBSnapshotTestCase/SwiftSupport (2.1.4):
     - FBSnapshotTestCase/Core
-  - Firebase (3.14.0):
-    - Firebase/Core (= 3.14.0)
-  - Firebase/Auth (3.14.0):
+  - Firebase/Auth (3.15.0):
     - Firebase/Core
     - FirebaseAuth (= 3.1.1)
-  - Firebase/Core (3.14.0):
+  - Firebase/Core (3.15.0):
     - FirebaseAnalytics (= 3.7.0)
-    - FirebaseCore (= 3.5.1)
-  - Firebase/Database (3.14.0):
+    - FirebaseCore (= 3.5.2)
+  - Firebase/Database (3.15.0):
     - Firebase/Core
     - FirebaseDatabase (= 3.1.2)
   - FirebaseAnalytics (3.7.0):
@@ -30,7 +28,7 @@ PODS:
     - FirebaseAnalytics (~> 3.7)
     - GoogleToolboxForMac/NSDictionary+URLArguments (~> 2.1)
     - GTMSessionFetcher/Core (~> 1.1)
-  - FirebaseCore (3.5.1):
+  - FirebaseCore (3.5.2):
     - GoogleToolboxForMac/NSData+zlib (~> 2.1)
   - FirebaseDatabase (3.1.2):
     - FirebaseAnalytics (~> 3.7)
@@ -45,7 +43,7 @@ PODS:
     - GoogleToolboxForMac/Defines (= 2.1.1)
     - GoogleToolboxForMac/NSString+URLArguments (= 2.1.1)
   - GoogleToolboxForMac/NSString+URLArguments (2.1.1)
-  - GTMSessionFetcher/Core (1.1.8)
+  - GTMSessionFetcher/Core (1.1.9)
   - JWTDecode (2.0.0)
   - KeychainAccess (3.0.1)
   - Kingfisher (3.3.3)
@@ -63,7 +61,6 @@ DEPENDENCIES:
   - Fabric
   - Fakery
   - FBSnapshotTestCase
-  - Firebase
   - Firebase/Auth
   - Firebase/Core
   - Firebase/Database
@@ -99,14 +96,14 @@ SPEC CHECKSUMS:
   Fabric: 5911403591946b8228ab1c51d98f1d7137e863c6
   Fakery: 97b99c23937d2e025d9135c75e2b17351ccd5031
   FBSnapshotTestCase: '094f9f314decbabe373b87cc339bea235a63e07a'
-  Firebase: 85a581fb04e44f63ae9f4fbc8d6dabf4a4c18653
+  Firebase: 2b1cdfba1cda8589f32904a697cc753322bff9d8
   FirebaseAnalytics: 0d1b7d81d5021155be37702a94ba1ec16d45365d
   FirebaseAuth: cc8a1824170adbd351edb7f994490a3fb5c18be6
-  FirebaseCore: 225d40532489835a034b8f4e2c9c87fbf4f615a2
+  FirebaseCore: a024587e43778508700af8c6b1209f7c4516ba02
   FirebaseDatabase: 05c96d7b43a7368dc91c07791adb49683e1738d1
   FirebaseInstanceID: 2d0518b1378fe9d685ef40cbdd63d2fdc1125339
   GoogleToolboxForMac: 8e329f1b599f2512c6b10676d45736bcc2cbbeb0
-  GTMSessionFetcher: 6f8d8b28b7e345549ac471071608170b31cb4977
+  GTMSessionFetcher: 5c046c76a1f859bc9c187e918f18e4fc7bb57b5e
   JWTDecode: 178e47e5d28d3abcff778bacced8342858cd6cb5
   KeychainAccess: 017ea25e313a49eda10bb19b0bb0760fb1edfe1a
   Kingfisher: 893215a42e5c2164e916f69463c68003092b104c
@@ -116,6 +113,6 @@ SPEC CHECKSUMS:
   SwiftLint: b8b683208cc09640898f16318a7a452274e91f61
   Whisper: '08be92623311f8e53201e62e17f6d7b9599a4714'
 
-PODFILE CHECKSUM: 36e7996c993423e9984868eebcce81c4f9422f00
+PODFILE CHECKSUM: 262dc15872ca8ad8c4e9d81b670228ffcfc646fa
 
 COCOAPODS: 1.2.1.beta.1
