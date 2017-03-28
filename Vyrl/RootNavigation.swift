@@ -75,7 +75,6 @@ final class RootNavigation {
     fileprivate let interactor: RootNavigationInteracting & NavigationDelegateHaving
     fileprivate let credentialsProvider: APICredentialsProviding
     fileprivate let welcomeControllerMaker: WelcomeControllerMaking.Type
-    fileprivate let loginControllerMaker: LoginControllerMaking.Type
     fileprivate var cartButton: BadgeBarButtonItem?
     fileprivate var chatButton: BadgeBarButtonItem?
     fileprivate let notificationObserver: NotificationObserving
@@ -93,7 +92,6 @@ final class RootNavigation {
          window: WindowProtocol,
          credentialsProvider: APICredentialsProviding,
          welcomeControllerMaker: WelcomeControllerMaking.Type,
-         loginControllerMaker: LoginControllerMaking.Type,
          notificationObserver: NotificationObserving = NotificationCenter.default,
          cartStorage: CartStoring) {
         self.interactor = interactor
@@ -105,7 +103,6 @@ final class RootNavigation {
         self.window = window
         self.credentialsProvider = credentialsProvider
         self.welcomeControllerMaker = welcomeControllerMaker
-        self.loginControllerMaker = loginControllerMaker
         self.notificationObserver = notificationObserver
         self.cartStorage = cartStorage
         interactor.delegate = self

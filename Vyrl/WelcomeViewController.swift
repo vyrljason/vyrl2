@@ -17,8 +17,12 @@ class WelcomeViewController: UIViewController, HavingNib {
     @IBOutlet weak var logoImageView: UIImageView!
     @IBOutlet weak var signupButton: UIButton!
     @IBOutlet weak var loginButton: UIButton!
+
     var player: AVPlayer?
     var playerLayer: AVPlayerLayer?
+    
+    fileprivate let loginControllerMaker: LoginControllerMaking.Type = LoginControllerFactory.self
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -68,8 +72,26 @@ class WelcomeViewController: UIViewController, HavingNib {
         super.viewWillDisappear(animated)
         navigationController?.navigationBar.isHidden = false
     }
+    
+    @IBAction func loginButtonTapped(_ sender: Any) {
+        let viewController = loginControllerMaker.make(using: self)
+        viewController.render(NavigationItemRenderable(titleImage: StyleKit.navigationBarLogo))
+        navigationController?.pushViewController(viewController, animated: true)
+    }
+    
+    @IBAction func signupButtonTapped(_ sender: Any) {
+        guard let viewController = UIStoryboard(name: "SignUpViewController", bundle: nil).instantiateInitialViewController() else {
+            return
+        }
+        navigationController?.pushViewController(viewController, animated: true)
+    }
 }
 
+extension WelcomeViewController: AuthorizationListener {
+    func didFinishAuthorizing() {
+        // no op
+    }
+}
 protocol WelcomeControllerMaking {
     static func make(using listener: AuthorizationListener) -> WelcomeViewController
 }

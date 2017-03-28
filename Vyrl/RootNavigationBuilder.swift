@@ -22,7 +22,6 @@ final class RootNavigationBuilder {
     var window: WindowProtocol = UIWindow()
     var accountMaker: AccountViewControllerMaking.Type = AccountViewControllerFactory.self
     var leftMenuInteractor = LeftMenuInteractorFactory.make()
-    var loginControllerMaker: LoginControllerMaking.Type = LoginControllerFactory.self
     var welcomeControllerMaker: WelcomeControllerMaking.Type = WelcomeControllerFactory.self
     lazy var leftMenu: UIViewController = { return LeftMenuViewController(interactor: self.leftMenuInteractor) }()
     var credentialsProvider: APICredentialsProviding = APICredentialsProvider(storage: CredentialsStorage())
@@ -39,7 +38,6 @@ final class RootNavigationBuilder {
                                         window: window,
                                         credentialsProvider: credentialsProvider,
                                         welcomeControllerMaker: welcomeControllerMaker,
-                                        loginControllerMaker: loginControllerMaker,
                                         cartStorage: cartStorage)
         leftMenuInteractor.delegate = navigation
         navigation.brandsFiltering = brandsInteractor

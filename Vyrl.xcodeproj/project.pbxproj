@@ -385,6 +385,14 @@
 		B2D37CD21E8B085700840334 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D37CD01E8B085700840334 /* WelcomeViewController.swift */; };
 		B2D37CD31E8B085700840334 /* WelcomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B2D37CD11E8B085700840334 /* WelcomeViewController.xib */; };
 		B2D37CD71E8B0EBA00840334 /* registrationvideo.mov in Resources */ = {isa = PBXBuildFile; fileRef = B2D37CD61E8B0EBA00840334 /* registrationvideo.mov */; };
+		B2D37CDC1E8B17C900840334 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D37CDA1E8B17C900840334 /* SignUpViewController.swift */; };
+		B2D37CE41E8B1B2000840334 /* SignupEmail2TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D37CDF1E8B1B2000840334 /* SignupEmail2TableViewCell.swift */; };
+		B2D37CE51E8B1B2000840334 /* SignupEmailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D37CE01E8B1B2000840334 /* SignupEmailTableViewCell.swift */; };
+		B2D37CE61E8B1B2000840334 /* SignupInstagramTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D37CE11E8B1B2000840334 /* SignupInstagramTableViewCell.swift */; };
+		B2D37CE71E8B1B2000840334 /* SignupPasswordTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D37CE21E8B1B2000840334 /* SignupPasswordTableViewCell.swift */; };
+		B2D37CE81E8B1B2000840334 /* SignupUsernameTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D37CE31E8B1B2000840334 /* SignupUsernameTableViewCell.swift */; };
+		B2D37CEA1E8B1C6700840334 /* BrandSwitchSignupCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D37CE91E8B1C6700840334 /* BrandSwitchSignupCell.swift */; };
+		B2D37CEC1E8B21F700840334 /* SignUpViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B2D37CEB1E8B21F700840334 /* SignUpViewController.storyboard */; };
 		BDDF0A4F0C2F3D7D482551AB /* Pods_VyrlTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3553ABBDC82B1A7C9E6385AE /* Pods_VyrlTests.framework */; };
 		C47D450C1E825F1B005DD524 /* MessageContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47D450B1E825F1B005DD524 /* MessageContainer.swift */; };
 		C4B161D31E83DDC100C6E112 /* SingleStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B161D21E83DDC100C6E112 /* SingleStatusView.swift */; };
@@ -811,6 +819,14 @@
 		B2D37CD01E8B085700840334 /* WelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		B2D37CD11E8B085700840334 /* WelcomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WelcomeViewController.xib; sourceTree = "<group>"; };
 		B2D37CD61E8B0EBA00840334 /* registrationvideo.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = registrationvideo.mov; sourceTree = "<group>"; };
+		B2D37CDA1E8B17C900840334 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		B2D37CDF1E8B1B2000840334 /* SignupEmail2TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupEmail2TableViewCell.swift; sourceTree = "<group>"; };
+		B2D37CE01E8B1B2000840334 /* SignupEmailTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupEmailTableViewCell.swift; sourceTree = "<group>"; };
+		B2D37CE11E8B1B2000840334 /* SignupInstagramTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupInstagramTableViewCell.swift; sourceTree = "<group>"; };
+		B2D37CE21E8B1B2000840334 /* SignupPasswordTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupPasswordTableViewCell.swift; sourceTree = "<group>"; };
+		B2D37CE31E8B1B2000840334 /* SignupUsernameTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupUsernameTableViewCell.swift; sourceTree = "<group>"; };
+		B2D37CE91E8B1C6700840334 /* BrandSwitchSignupCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrandSwitchSignupCell.swift; sourceTree = "<group>"; };
+		B2D37CEB1E8B21F700840334 /* SignUpViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SignUpViewController.storyboard; sourceTree = "<group>"; };
 		BD1309C018727D87342F7FE2 /* Pods-VyrlTests.ad hoc.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VyrlTests.ad hoc.xcconfig"; path = "Pods/Target Support Files/Pods-VyrlTests/Pods-VyrlTests.ad hoc.xcconfig"; sourceTree = "<group>"; };
 		C47D450B1E825F1B005DD524 /* MessageContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageContainer.swift; sourceTree = "<group>"; };
 		C4B161D21E83DDC100C6E112 /* SingleStatusView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SingleStatusView.swift; sourceTree = "<group>"; };
@@ -2433,6 +2449,9 @@
 				85CA3FE41E647A5400D43805 /* LoginViewController.xib */,
 				B2D37CD01E8B085700840334 /* WelcomeViewController.swift */,
 				B2D37CD11E8B085700840334 /* WelcomeViewController.xib */,
+				B2D37CDA1E8B17C900840334 /* SignUpViewController.swift */,
+				B2D37CEB1E8B21F700840334 /* SignUpViewController.storyboard */,
+				B2D37CDE1E8B1B1600840334 /* SignUp Cells */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -2569,6 +2588,19 @@
 				BD1309C018727D87342F7FE2 /* Pods-VyrlTests.ad hoc.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		B2D37CDE1E8B1B1600840334 /* SignUp Cells */ = {
+			isa = PBXGroup;
+			children = (
+				B2D37CE91E8B1C6700840334 /* BrandSwitchSignupCell.swift */,
+				B2D37CDF1E8B1B2000840334 /* SignupEmail2TableViewCell.swift */,
+				B2D37CE01E8B1B2000840334 /* SignupEmailTableViewCell.swift */,
+				B2D37CE11E8B1B2000840334 /* SignupInstagramTableViewCell.swift */,
+				B2D37CE21E8B1B2000840334 /* SignupPasswordTableViewCell.swift */,
+				B2D37CE31E8B1B2000840334 /* SignupUsernameTableViewCell.swift */,
+			);
+			name = "SignUp Cells";
 			sourceTree = "<group>";
 		};
 		C4BDA42A1E7FD68D0009BB67 /* Messages */ = {
@@ -2795,6 +2827,7 @@
 				C4BDA4311E7FD7720009BB67 /* MessagesViewController.xib in Resources */,
 				1ADAF7D21E545F3C00155D9F /* LaunchScreen.storyboard in Resources */,
 				8572E4AD1E797CA90042160D /* CollabCell.xib in Resources */,
+				B2D37CEC1E8B21F700840334 /* SignUpViewController.storyboard in Resources */,
 				C4B161D71E85074300C6E112 /* MainStatusView.xib in Resources */,
 				1AA7FAA61E69783F001C0B6F /* CheckoutViewController.xib in Resources */,
 				85CA3FE51E647A5400D43805 /* LoginViewController.xib in Resources */,
@@ -3014,6 +3047,7 @@
 				31EF22F31E6779780073F624 /* TableViewUsing.swift in Sources */,
 				858D640B1E560F0100CFDD4C /* CollectionViewHaving.swift in Sources */,
 				1AA7FA9A1E687FE7001C0B6F /* InfoViewProjector.swift in Sources */,
+				B2D37CEA1E8B1C6700840334 /* BrandSwitchSignupCell.swift in Sources */,
 				853859A91E607F450098D1EB /* DiscoveryFilterSettings.swift in Sources */,
 				850A81041E5F1FCF00E684A3 /* SessionManaging.swift in Sources */,
 				8572E4E51E7AE2E80042160D /* ChatTokenEndpoint.swift in Sources */,
@@ -3075,10 +3109,13 @@
 				31FEB5B51E5D0FA300C5E41D /* BrandStoreDataSource.swift in Sources */,
 				85CA3FE81E647C4500D43805 /* LoginResources.swift in Sources */,
 				858D63E71E55F21800CFDD4C /* ServiceLocator.swift in Sources */,
+				B2D37CE61E8B1B2000840334 /* SignupInstagramTableViewCell.swift in Sources */,
 				31EF231B1E68AD810073F624 /* AddToCartTableCell.swift in Sources */,
+				B2D37CE81E8B1B2000840334 /* SignupUsernameTableViewCell.swift in Sources */,
 				8572E4A11E7977260042160D /* CollabsDataSource.swift in Sources */,
 				1A1FA93C1E5D950A007EB61D /* CategoryCell.swift in Sources */,
 				8554BE891E68731D00E05A37 /* OrderProposal.swift in Sources */,
+				B2D37CE51E8B1B2000840334 /* SignupEmailTableViewCell.swift in Sources */,
 				1A859C151E575E7E0013EB09 /* RootNavigationBuilder.swift in Sources */,
 				31EF22F71E677EB80073F624 /* TableViewControlling.swift in Sources */,
 				850A80F01E5E268300E684A3 /* AuthorizationCredentials.swift in Sources */,
@@ -3092,6 +3129,7 @@
 				85CA3FEA1E647E9300D43805 /* FormTextField.swift in Sources */,
 				850A80D81E5DEB2B00E684A3 /* KeychainProtocol.swift in Sources */,
 				85DCFC261E75C1760046D0D5 /* FormFieldsInteractor.swift in Sources */,
+				B2D37CE41E8B1B2000840334 /* SignupEmail2TableViewCell.swift in Sources */,
 				85B0A83D1E670DC9002093BA /* BrandsEndpoint.swift in Sources */,
 				853859A51E607E270098D1EB /* SocialNetworkProfile.swift in Sources */,
 				850A80A71E5D927300E684A3 /* DictionaryConvertible.swift in Sources */,
@@ -3107,6 +3145,7 @@
 				85CA3FEF1E6489CF00D43805 /* LoginFormInteractor.swift in Sources */,
 				85DCFC1C1E75BC2E0046D0D5 /* ContactInfoFormInteractor.swift in Sources */,
 				852ACD3A1E55DB0F00219E90 /* BrandsViewController.swift in Sources */,
+				B2D37CDC1E8B17C900840334 /* SignUpViewController.swift in Sources */,
 				85B0A8411E670F1D002093BA /* BrandsService.swift in Sources */,
 				1A69C6A61E56008100134EF5 /* NavigationBar.swift in Sources */,
 				C4BDA4401E8163890009BB67 /* Sender.swift in Sources */,
@@ -3205,6 +3244,7 @@
 				853A83391E717CAC006EBA8C /* ShippingAddressFormFactory.swift in Sources */,
 				858D64051E56089B00CFDD4C /* BrandsDataSource.swift in Sources */,
 				1AA7FAB51E69CB3E001C0B6F /* OrderProposalEndpoint.swift in Sources */,
+				B2D37CE71E8B1B2000840334 /* SignupPasswordTableViewCell.swift in Sources */,
 				85DCFC491E7814360046D0D5 /* NotificationPosting.swift in Sources */,
 				1AA7FAB61E69CB3E001C0B6F /* OrderProposalResource.swift in Sources */,
 				858D64091E560EBC00CFDD4C /* CollectionViewControlling.swift in Sources */,

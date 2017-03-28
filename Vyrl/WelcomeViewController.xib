@@ -41,6 +41,9 @@
                         <constraint firstAttribute="height" constant="44" id="TFM-gb-CR7"/>
                     </constraints>
                     <state key="normal" title="Sign Up"/>
+                    <connections>
+                        <action selector="signupButtonTapped:" destination="-1" eventType="touchUpInside" id="bBs-zc-7Fz"/>
+                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="09Y-eo-gQp">
                     <rect key="frame" x="0.0" y="579" width="375" height="44"/>
@@ -48,6 +51,9 @@
                         <constraint firstAttribute="height" constant="44" id="siK-We-7cx"/>
                     </constraints>
                     <state key="normal" title="Login"/>
+                    <connections>
+                        <action selector="loginButtonTapped:" destination="-1" eventType="touchUpInside" id="dwb-7d-1v5"/>
+                    </connections>
                 </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
