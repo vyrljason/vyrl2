@@ -4,7 +4,7 @@
 
 import UIKit
 
-class SystemMessageCell: UITableViewCell, HavingNib, MessageCellRendering {
+final class SystemMessageCell: UITableViewCell, HavingNib, MessageCellRendering {
     
     static let nibName = "SystemMessageCell"
     
@@ -13,5 +13,5 @@ class SystemMessageCell: UITableViewCell, HavingNib, MessageCellRendering {
     func render(_ renderable: MessageCellRenderable) {
         messageTextView.text = renderable.text
     }
-    
+
 }

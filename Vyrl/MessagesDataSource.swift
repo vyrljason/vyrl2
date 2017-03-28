@@ -75,6 +75,23 @@ extension MessagesDataSource: TableViewDataProviding {
         cell.render(renderable)
     }
     
+    fileprivate func cellForUser(messageItem: MessageContainer, tableView: UITableView, indexPath: IndexPath) -> UITableViewCell {
+        if indexPath.row % 2 == 0 {
+            let cell: BrandMessageCell = tableView.dequeueCell(at: indexPath)
+            prepare(cell: cell, messageItem: items[indexPath.row])
+            return cell
+        }
+        let cell: InfluencerMessageCell = tableView.dequeueCell(at: indexPath)
+        prepare(cell: cell, messageItem: items[indexPath.row])
+        return cell
+    }
+    
+    fileprivate func cellForSystem(messageItem: MessageContainer, tableView: UITableView, indexPath: IndexPath) -> UITableViewCell {
+        let cell: SystemMessageCell = tableView.dequeueCell(at: indexPath)
+        prepare(cell: cell, messageItem: items[indexPath.row])
+        return cell
+    }
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         return Constants.numberOfSections
     }
@@ -87,18 +104,9 @@ extension MessagesDataSource: TableViewDataProviding {
         // FIXME: For test purposes, waiting for api
         switch items[indexPath.row].messageType {
         case .system:
-            let cell: SystemMessageCell = tableView.dequeueCell(at: indexPath)
-            prepare(cell: cell, messageItem: items[indexPath.row])
-            return cell
+            return cellForSystem(messageItem: items[indexPath.row], tableView: tableView, indexPath: indexPath)
         case .normal:
-            if indexPath.row % 2 == 0 {
-                let cell: BrandMessageCell = tableView.dequeueCell(at: indexPath)
-                prepare(cell: cell, messageItem: items[indexPath.row])
-                return cell
-            }
-            let cell: InfluencerMessageCell = tableView.dequeueCell(at: indexPath)
-            prepare(cell: cell, messageItem: items[indexPath.row])
-            return cell
+            return cellForUser(messageItem: items[indexPath.row], tableView: tableView, indexPath: indexPath)
         }
     }
 }

@@ -10,7 +10,6 @@ extension UIView {
             guard let borderColor = layer.borderColor else {
                 return nil
             }
-            
             return UIColor(cgColor: borderColor)
         }
         
@@ -43,12 +42,12 @@ extension UIView {
     @IBInspectable var ibCircleShape: Bool {
         get {
             layoutIfNeeded()
-            return layer.cornerRadius == bounds.width/2
+            return layer.cornerRadius == bounds.width / 2
         }
         
         set {
             layoutIfNeeded()
-            layer.cornerRadius = newValue ? bounds.width/2 : 0
+            layer.cornerRadius = newValue ? bounds.width / 2 : 0
             layer.masksToBounds = layer.cornerRadius > 0
         }
     }
