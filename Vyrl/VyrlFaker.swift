@@ -191,6 +191,13 @@ extension Faker {
         return MessageContainer(createdAt: createdAt, sender: sender, message: message, messageType: messageType)
     }
     
+    func systemMessageContainer(createdAt: Double = VyrlFaker.faker.number.randomDouble(),
+                                sender: Sender = VyrlFaker.faker.systemSender(),
+                                message: Message = VyrlFaker.faker.message(),
+                                messageType: MessageType = MessageType.system) -> MessageContainer {
+        return MessageContainer(createdAt: createdAt, sender: sender, message: message, messageType: messageType)
+    }
+    
     func message(text: String = VyrlFaker.faker.lorem.sentence(wordsAmount: VyrlFaker.faker.number.randomInt(min: 1, max: 20)),
                  mediaURL: URL = URL(string: VyrlFaker.faker.internet.url())!,
                  isMedia: Bool = false) -> Message {
@@ -200,6 +207,12 @@ extension Faker {
     func sender(avatar: URL = URL(string: VyrlFaker.faker.internet.url())!,
                 id: String = VyrlFaker.faker.lorem.characters(amount: 20),
                 name: String = VyrlFaker.faker.name.name()) -> Sender {
+        return Sender(avatar: avatar, id: id, name: name)
+    }
+    
+    func systemSender(avatar: URL = URL(string: VyrlFaker.faker.internet.url())!,
+                      id: String = "-1",
+                      name: String = VyrlFaker.faker.name.name()) -> Sender {
         return Sender(avatar: avatar, id: id, name: name)
     }
 }

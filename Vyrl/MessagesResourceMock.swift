@@ -13,7 +13,9 @@ final class MessagesResourceMock: Fetching {
     var success = true
     
     init(amount: Int) {
-        items = Messages(messages: (0..<amount).map { _ in VyrlFaker.faker.messageContainer() })
+        items = Messages(messages: (0..<amount).map { index in
+            return index % 5 == 0 ? VyrlFaker.faker.systemMessageContainer() : VyrlFaker.faker.messageContainer()
+        })
     }
     
     func fetch(completion: @escaping (Result<Messages, APIResponseError>) -> Void) {
