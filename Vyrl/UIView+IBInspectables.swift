@@ -12,7 +12,6 @@ extension UIView {
             }
             return UIColor(cgColor: borderColor)
         }
-        
         set {
             layer.borderColor = newValue?.cgColor
         }
@@ -22,7 +21,6 @@ extension UIView {
         get {
             return layer.borderWidth
         }
-        
         set {
             layer.borderWidth = newValue
         }
@@ -32,7 +30,6 @@ extension UIView {
         get {
             return layer.cornerRadius
         }
-        
         set {
             layer.cornerRadius = newValue
             layer.masksToBounds = newValue > 0
@@ -44,7 +41,6 @@ extension UIView {
             layoutIfNeeded()
             return layer.cornerRadius == bounds.width / 2
         }
-        
         set {
             layoutIfNeeded()
             layer.cornerRadius = newValue ? bounds.width / 2 : 0
