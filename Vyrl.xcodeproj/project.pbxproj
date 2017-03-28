@@ -383,6 +383,10 @@
 		85FB31E11E65E1C500E2F113 /* StyleKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FB31E01E65E1C500E2F113 /* StyleKit.swift */; };
 		A4256F0E1E675A7BB6AE21F5 /* Pods_Vyrl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AA1C43D9EC44CB342D10427 /* Pods_Vyrl.framework */; };
 		BDDF0A4F0C2F3D7D482551AB /* Pods_VyrlTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3553ABBDC82B1A7C9E6385AE /* Pods_VyrlTests.framework */; };
+		C414B25F1E8A7C4B002F973E /* UIView+IBInspectables.swift in Sources */ = {isa = PBXBuildFile; fileRef = C414B25E1E8A7C4B002F973E /* UIView+IBInspectables.swift */; };
+		C414B2611E8A810D002F973E /* SystemMessageCellSnapshotTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C414B2601E8A810D002F973E /* SystemMessageCellSnapshotTest.swift */; };
+		C450FA881E8A778D00A63414 /* SystemMessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C450FA861E8A778D00A63414 /* SystemMessageCell.swift */; };
+		C450FA891E8A778D00A63414 /* SystemMessageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C450FA871E8A778D00A63414 /* SystemMessageCell.xib */; };
 		C47D450C1E825F1B005DD524 /* MessageContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47D450B1E825F1B005DD524 /* MessageContainer.swift */; };
 		C4B161D31E83DDC100C6E112 /* SingleStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B161D21E83DDC100C6E112 /* SingleStatusView.swift */; };
 		C4B161D51E83DDD100C6E112 /* SingleStatusView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4B161D41E83DDD100C6E112 /* SingleStatusView.xib */; };
@@ -806,6 +810,10 @@
 		85FA7A271E5C730800491EED /* NavigationHaving.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationHaving.swift; sourceTree = "<group>"; };
 		85FB31E01E65E1C500E2F113 /* StyleKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StyleKit.swift; sourceTree = "<group>"; };
 		BD1309C018727D87342F7FE2 /* Pods-VyrlTests.ad hoc.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VyrlTests.ad hoc.xcconfig"; path = "Pods/Target Support Files/Pods-VyrlTests/Pods-VyrlTests.ad hoc.xcconfig"; sourceTree = "<group>"; };
+		C414B25E1E8A7C4B002F973E /* UIView+IBInspectables.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+IBInspectables.swift"; sourceTree = "<group>"; };
+		C414B2601E8A810D002F973E /* SystemMessageCellSnapshotTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SystemMessageCellSnapshotTest.swift; sourceTree = "<group>"; };
+		C450FA861E8A778D00A63414 /* SystemMessageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SystemMessageCell.swift; sourceTree = "<group>"; };
+		C450FA871E8A778D00A63414 /* SystemMessageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SystemMessageCell.xib; sourceTree = "<group>"; };
 		C47D450B1E825F1B005DD524 /* MessageContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageContainer.swift; sourceTree = "<group>"; };
 		C4B161D21E83DDC100C6E112 /* SingleStatusView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SingleStatusView.swift; sourceTree = "<group>"; };
 		C4B161D41E83DDD100C6E112 /* SingleStatusView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SingleStatusView.xib; sourceTree = "<group>"; };
@@ -2297,6 +2305,7 @@
 				C4C887681E881DB10022558F /* StatusViewSnapshotTest.swift */,
 				C4C8877C1E89AA4F0022558F /* BrandMessageCellSnapshotTest.swift */,
 				C4C8877A1E89AA400022558F /* InfluencerMessageCellSnapshotTest.swift */,
+				C414B2601E8A810D002F973E /* SystemMessageCellSnapshotTest.swift */,
 			);
 			name = SnapshotTest;
 			sourceTree = "<group>";
@@ -2346,6 +2355,7 @@
 				31B079471E75A4FD0015C302 /* UIViewController+NoTitleBackButton.swift */,
 				85DCFC3B1E76C1C10046D0D5 /* String+isEmail.swift */,
 				85DCFC461E77FED00046D0D5 /* Array+Hashable.swift */,
+				C414B25E1E8A7C4B002F973E /* UIView+IBInspectables.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -2590,6 +2600,8 @@
 				C4C8876B1E8984660022558F /* InfluencerMessageCell.xib */,
 				C4C887761E89A5590022558F /* BrandMessageCell.swift */,
 				C4C887771E89A5590022558F /* BrandMessageCell.xib */,
+				C450FA861E8A778D00A63414 /* SystemMessageCell.swift */,
+				C450FA871E8A778D00A63414 /* SystemMessageCell.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -2806,6 +2818,7 @@
 				1A69C6A21E55F79D00134EF5 /* LeftMenuViewController.xib in Resources */,
 				850A80B01E5D990C00E684A3 /* Configuration.plist in Resources */,
 				852ACD3C1E55DB1E00219E90 /* BrandsViewController.xib in Resources */,
+				C450FA891E8A778D00A63414 /* SystemMessageCell.xib in Resources */,
 				853A83571E72C57D006EBA8C /* CheckoutSummaryViewController.xib in Resources */,
 				1AA7FA9C1E687FE7001C0B6F /* InfoView.xib in Resources */,
 				31FEB5AB1E5C3A4800C5E41D /* BrandStoreViewController.xib in Resources */,
@@ -2961,6 +2974,7 @@
 				853A83191E6DD33D006EBA8C /* ShippingAddressFormInteractor.swift in Sources */,
 				C4BDA43E1E8139010009BB67 /* Message.swift in Sources */,
 				850A810C1E5F2BF300E684A3 /* Deserializable.swift in Sources */,
+				C450FA881E8A778D00A63414 /* SystemMessageCell.swift in Sources */,
 				85B0A83B1E670BBC002093BA /* BrandsResource.swift in Sources */,
 				8554BE9E1E697B2400E05A37 /* Order.swift in Sources */,
 				8572E4A91E79793A0042160D /* CollabsResourceMock.swift in Sources */,
@@ -3023,6 +3037,7 @@
 				31EF22EA1E664C670073F624 /* ProductDetailsControllerFactory.swift in Sources */,
 				C4B161D31E83DDC100C6E112 /* SingleStatusView.swift in Sources */,
 				850A80ED1E5E200C00E684A3 /* APIResponseHandler.swift in Sources */,
+				C414B25F1E8A7C4B002F973E /* UIView+IBInspectables.swift in Sources */,
 				8554BEBE1E69C98200E05A37 /* ShippingAddressViewController.swift in Sources */,
 				85DCFC4D1E781B7E0046D0D5 /* CartUpdateInfo.swift in Sources */,
 				8572E4B31E7996120042160D /* Collabs.swift in Sources */,
@@ -3289,6 +3304,7 @@
 				8572E4DE1E7ACAEB0042160D /* CollectionDataSourceMock.swift in Sources */,
 				3169B9AE1E603B84005F8A94 /* BrandStoreCellSnapshotTest.swift in Sources */,
 				1A1FA9591E5F10DC007EB61D /* LeftMenuViewControllerSnapshotTest.swift in Sources */,
+				C414B2611E8A810D002F973E /* SystemMessageCellSnapshotTest.swift in Sources */,
 				C4C8877B1E89AA400022558F /* InfluencerMessageCellSnapshotTest.swift in Sources */,
 				85DCFC141E75BA110046D0D5 /* CheckoutSummaryViewControllerTest.swift in Sources */,
 				C4BDA4381E8106B40009BB67 /* MessagesSnapshotTest.swift in Sources */,

@@ -39,6 +39,7 @@ extension MessagesDataSource: TableViewUsing {
         tableView.dataSource = self
         InfluencerMessageCell.register(to: tableView)
         BrandMessageCell.register(to: tableView)
+        SystemMessageCell.register(to: tableView)
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = Constants.cellHeight
         tableView.tableFooterView = UIView()
@@ -69,6 +70,11 @@ extension MessagesDataSource: TableViewDataProviding {
         cell.set(imageFetcher: ImageFetcher(url: messageItem.sender.avatar))
     }
     
+    fileprivate func prepare(cell: SystemMessageCell, messageItem: MessageContainer) {
+        let renderable = MessageCellRenderable(text: messageItem.message.text)
+        cell.render(renderable)
+    }
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         return Constants.numberOfSections
     }
@@ -79,14 +85,20 @@ extension MessagesDataSource: TableViewDataProviding {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         // FIXME: For test purposes, waiting for api
-        if indexPath.row % 2 == 0 {
-            let cell: BrandMessageCell = tableView.dequeueCell(at: indexPath)
+        switch items[indexPath.row].messageType {
+        case .system:
+            let cell: SystemMessageCell = tableView.dequeueCell(at: indexPath)
+            prepare(cell: cell, messageItem: items[indexPath.row])
+            return cell
+        case .normal:
+            if indexPath.row % 2 == 0 {
+                let cell: BrandMessageCell = tableView.dequeueCell(at: indexPath)
+                prepare(cell: cell, messageItem: items[indexPath.row])
+                return cell
+            }
+            let cell: InfluencerMessageCell = tableView.dequeueCell(at: indexPath)
             prepare(cell: cell, messageItem: items[indexPath.row])
             return cell
         }
-        
-        let cell: InfluencerMessageCell = tableView.dequeueCell(at: indexPath)
-        prepare(cell: cell, messageItem: items[indexPath.row])
-        return cell
     }
 }
