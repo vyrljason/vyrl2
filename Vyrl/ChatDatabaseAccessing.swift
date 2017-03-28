@@ -21,8 +21,6 @@ extension FIRDatabaseReference: ChatDatabaseChildAccessing {
     func childAt(path: String) -> ChatDatabaseChildAccessing & ChatDatabaseObserving {
         return child(path)
     }
-
-    
 }
 
 protocol ChatDatabaseReferenceHaving {

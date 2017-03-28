@@ -38,10 +38,10 @@ final class CollabsDataSource: NSObject, CollabsDataProviding {
     func loadData() {
         service.getCollabs { [weak self] result in
             guard let `self` = self else { return }
-            self.items = result.map(success: { $0 }, failure: { _ in return [] })
+            self.items = result.map(success: { $0.sorted(by: { $0.chatRoom.lastActivity > $1.chatRoom.lastActivity} ) }, failure: { _ in return [] })
             DispatchQueue.onMainThread { [weak self] in
                 self?.updateCollection(with: result.map(success: { $0 .isEmpty ? .empty : .someData },
-                                              failure: { _ in .error }))
+                                                        failure: { _ in .error }))
             }
             self.collectionUpdateListener?.didUpdateCollection()
         }

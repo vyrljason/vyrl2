@@ -5,7 +5,7 @@
 import Foundation
 
 extension Array where Element: DictionaryInitializable {
-    init(dictionaries: [[AnyHashable: Any]]?) {
-        self = dictionaries?.flatMap { return Element(dictionary: $0) } ?? []
+    init(dictionaries: [AnyHashable: [AnyHashable: Any]]?) {
+        self = dictionaries?.values.flatMap { return Element(dictionary: $0) } ?? []
     }
 }

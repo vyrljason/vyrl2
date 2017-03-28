@@ -269,11 +269,9 @@
 		85718EEB1E65AD8C00E9602B /* LoginFormFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85718EEA1E65AD8C00E9602B /* LoginFormFactory.swift */; };
 		8572E4A11E7977260042160D /* CollabsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8572E4A01E7977260042160D /* CollabsDataSource.swift */; };
 		8572E4A71E79792C0042160D /* CollabsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8572E4A61E79792C0042160D /* CollabsService.swift */; };
-		8572E4A91E79793A0042160D /* CollabsResourceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8572E4A81E79793A0042160D /* CollabsResourceMock.swift */; };
 		8572E4AB1E797C6D0042160D /* CollabCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8572E4AA1E797C6D0042160D /* CollabCell.swift */; };
 		8572E4AD1E797CA90042160D /* CollabCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8572E4AC1E797CA90042160D /* CollabCell.xib */; };
 		8572E4AF1E797CE00042160D /* CollabRenderable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8572E4AE1E797CE00042160D /* CollabRenderable.swift */; };
-		8572E4B31E7996120042160D /* Collabs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8572E4B21E7996120042160D /* Collabs.swift */; };
 		8572E4B51E799E0D0042160D /* DataLoadingEventsListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8572E4B41E799E0D0042160D /* DataLoadingEventsListener.swift */; };
 		8572E4B61E79A78F0042160D /* Collab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8572E4B01E7981ED0042160D /* Collab.swift */; };
 		8572E4D81E7AC7F60042160D /* CollabsDataSourceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8572E4D71E7AC7F60042160D /* CollabsDataSourceTest.swift */; };
@@ -326,6 +324,8 @@
 		8597AB611E8A59F700A64585 /* MessagesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8597AB5F1E8A59D100A64585 /* MessagesService.swift */; };
 		8597AB641E8A5A0C00A64585 /* MessagesResourceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8597AB621E8A5A0A00A64585 /* MessagesResourceMock.swift */; };
 		8597AB671E8ADF5900A64585 /* Array+DictionaryInitializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8597AB661E8ADF5900A64585 /* Array+DictionaryInitializable.swift */; };
+		8597AB691E8AEC1E00A64585 /* BrandsServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8597AB681E8AEC1E00A64585 /* BrandsServiceMock.swift */; };
+		8597AB6B1E8AEF7800A64585 /* ChatRoom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8597AB6A1E8AEF7800A64585 /* ChatRoom.swift */; };
 		85A2A80A1E7B4C3900271871 /* StoredRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85A2A8091E7B4C3900271871 /* StoredRepository.swift */; };
 		85A2A80D1E7B4D0300271871 /* ChatCredentialsStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85A2A80C1E7B4D0300271871 /* ChatCredentialsStorage.swift */; };
 		85A2A80F1E7B4E7100271871 /* KeychainConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85A2A80E1E7B4E7100271871 /* KeychainConstants.swift */; };
@@ -711,12 +711,10 @@
 		85718EEA1E65AD8C00E9602B /* LoginFormFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginFormFactory.swift; sourceTree = "<group>"; };
 		8572E4A01E7977260042160D /* CollabsDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollabsDataSource.swift; sourceTree = "<group>"; };
 		8572E4A61E79792C0042160D /* CollabsService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollabsService.swift; sourceTree = "<group>"; };
-		8572E4A81E79793A0042160D /* CollabsResourceMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollabsResourceMock.swift; sourceTree = "<group>"; };
 		8572E4AA1E797C6D0042160D /* CollabCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollabCell.swift; sourceTree = "<group>"; };
 		8572E4AC1E797CA90042160D /* CollabCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CollabCell.xib; sourceTree = "<group>"; };
 		8572E4AE1E797CE00042160D /* CollabRenderable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollabRenderable.swift; sourceTree = "<group>"; };
 		8572E4B01E7981ED0042160D /* Collab.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Collab.swift; sourceTree = "<group>"; };
-		8572E4B21E7996120042160D /* Collabs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Collabs.swift; sourceTree = "<group>"; };
 		8572E4B41E799E0D0042160D /* DataLoadingEventsListener.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataLoadingEventsListener.swift; sourceTree = "<group>"; };
 		8572E4D71E7AC7F60042160D /* CollabsDataSourceTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollabsDataSourceTest.swift; sourceTree = "<group>"; };
 		8572E4D91E7AC8000042160D /* CollabsInteractorTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollabsInteractorTest.swift; sourceTree = "<group>"; };
@@ -767,6 +765,8 @@
 		8597AB5F1E8A59D100A64585 /* MessagesService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagesService.swift; sourceTree = "<group>"; };
 		8597AB621E8A5A0A00A64585 /* MessagesResourceMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagesResourceMock.swift; sourceTree = "<group>"; };
 		8597AB661E8ADF5900A64585 /* Array+DictionaryInitializable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Array+DictionaryInitializable.swift"; sourceTree = "<group>"; };
+		8597AB681E8AEC1E00A64585 /* BrandsServiceMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrandsServiceMock.swift; sourceTree = "<group>"; };
+		8597AB6A1E8AEF7800A64585 /* ChatRoom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatRoom.swift; sourceTree = "<group>"; };
 		85A2A8091E7B4C3900271871 /* StoredRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoredRepository.swift; sourceTree = "<group>"; };
 		85A2A80C1E7B4D0300271871 /* ChatCredentialsStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatCredentialsStorage.swift; sourceTree = "<group>"; };
 		85A2A80E1E7B4E7100271871 /* KeychainConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeychainConstants.swift; sourceTree = "<group>"; };
@@ -1201,6 +1201,7 @@
 				8572E4E11E7AD83C0042160D /* CollectionInteractorMock.swift */,
 				853BAC0B1E7C07B700874075 /* KeychainMock.swift */,
 				85603F821E89800B0062485E /* ChatCredentialsStorageMock.swift */,
+				8597AB681E8AEC1E00A64585 /* BrandsServiceMock.swift */,
 			);
 			name = Mocks;
 			sourceTree = "<group>";
@@ -2167,7 +2168,6 @@
 		8572E4A31E7978250042160D /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				8572E4A81E79793A0042160D /* CollabsResourceMock.swift */,
 				8572E4E41E7AE2E80042160D /* ChatTokenEndpoint.swift */,
 				8572E4E81E7AE44C0042160D /* ChatTokenResource.swift */,
 			);
@@ -2186,8 +2186,8 @@
 			isa = PBXGroup;
 			children = (
 				8572E4B01E7981ED0042160D /* Collab.swift */,
-				8572E4B21E7996120042160D /* Collabs.swift */,
 				8572E4E61E7AE41E0042160D /* ChatToken.swift */,
+				8597AB6A1E8AEF7800A64585 /* ChatRoom.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -3064,7 +3064,6 @@
 				C450FA881E8A778D00A63414 /* SystemMessageCell.swift in Sources */,
 				85B0A83B1E670BBC002093BA /* BrandsResource.swift in Sources */,
 				8554BE9E1E697B2400E05A37 /* Order.swift in Sources */,
-				8572E4A91E79793A0042160D /* CollabsResourceMock.swift in Sources */,
 				850A80B91E5DA90C00E684A3 /* BrandStoreControllerFactory.swift in Sources */,
 				858D63FC1E56057F00CFDD4C /* Brand.swift in Sources */,
 				31EF23221E690D5B0073F624 /* ProductDetailsSectionSpecifics.swift in Sources */,
@@ -3113,6 +3112,7 @@
 				8597AB671E8ADF5900A64585 /* Array+DictionaryInitializable.swift in Sources */,
 				1AA7FA9E1E6883F7001C0B6F /* AutoexpandableTextView.swift in Sources */,
 				C4B161DB1E8509E100C6E112 /* StatusView.swift in Sources */,
+				8597AB6B1E8AEF7800A64585 /* ChatRoom.swift in Sources */,
 				85CA3FC51E642EB500D43805 /* RequestDataProvider.swift in Sources */,
 				C47D450C1E825F1B005DD524 /* MessageContainer.swift in Sources */,
 				8554BE6F1E6804E600E05A37 /* CategoriesEndpoint.swift in Sources */,
@@ -3130,7 +3130,6 @@
 				C414B25F1E8A7C4B002F973E /* UIView+IBInspectables.swift in Sources */,
 				8554BEBE1E69C98200E05A37 /* ShippingAddressViewController.swift in Sources */,
 				85DCFC4D1E781B7E0046D0D5 /* CartUpdateInfo.swift in Sources */,
-				8572E4B31E7996120042160D /* Collabs.swift in Sources */,
 				858D63EA1E55F24C00CFDD4C /* Result.swift in Sources */,
 				8538599C1E606DA90098D1EB /* Dictionary+Operations.swift in Sources */,
 				31B079541E7736EF0015C302 /* CollabsViewController.swift in Sources */,
@@ -3400,6 +3399,7 @@
 				85DCFC2D1E7682300046D0D5 /* ContactInfoControllerSnapshotTest.swift in Sources */,
 				31EF22FD1E6784BA0073F624 /* ProductDetailsInteractorTest.swift in Sources */,
 				8572E4DE1E7ACAEB0042160D /* CollectionDataSourceMock.swift in Sources */,
+				8597AB691E8AEC1E00A64585 /* BrandsServiceMock.swift in Sources */,
 				3169B9AE1E603B84005F8A94 /* BrandStoreCellSnapshotTest.swift in Sources */,
 				1A1FA9591E5F10DC007EB61D /* LeftMenuViewControllerSnapshotTest.swift in Sources */,
 				C414B2611E8A810D002F973E /* SystemMessageCellSnapshotTest.swift in Sources */,

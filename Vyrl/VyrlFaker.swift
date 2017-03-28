@@ -177,9 +177,17 @@ extension Faker {
 
 extension Faker {
     func collab(brandName: String = VyrlFaker.faker.name.name(),
-                authorName: String? = VyrlFaker.faker.name.name(),
-                lastMessage: String = VyrlFaker.faker.lorem.characters(amount: 100)) -> Collab {
-        return Collab(brandName: brandName, authorName: authorName, lastMessage: lastMessage)
+                chatRoom: ChatRoom = VyrlFaker.faker.chatRoom()) -> Collab {
+        return Collab(brandName: brandName, chatRoom: chatRoom)
+    }
+
+    func chatRoom(brandId: String = VyrlFaker.faker.lorem.characters(amount: 20),
+                  influencerId: String = VyrlFaker.faker.lorem.characters(amount: 20),
+                  lastMessage: String = VyrlFaker.faker.lorem.characters(amount: 100),
+                  lastActivity: Date = Date(),
+                  status: OrderStatus = .accepted,
+                  unreadMessages: Int = VyrlFaker.faker.number.randomInt()) -> ChatRoom {
+        return ChatRoom(brandId: brandId, influencerId: influencerId, lastMessage: lastMessage, lastActivity: lastActivity, status: status, unreadMessages: unreadMessages)
     }
 }
 
@@ -203,7 +211,7 @@ extension Faker {
                  isMedia: Bool = false) -> Message {
         return Message(text: text, mediaURL: mediaURL, isMedia: isMedia)
     }
-    
+
     func sender(avatar: URL = URL(string: VyrlFaker.faker.internet.url())!,
                 id: String = VyrlFaker.faker.lorem.characters(amount: 20),
                 name: String = VyrlFaker.faker.name.name()) -> Sender {
