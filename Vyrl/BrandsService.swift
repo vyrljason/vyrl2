@@ -6,6 +6,7 @@ import Foundation
 
 protocol BrandsProviding {
     func getFilteredBrands(for category: Category?, completion: @escaping (Result<[Brand], ServiceError>) -> Void)
+    func getBrands(with brandIds: [String], completion: @escaping (Result<[Brand], ServiceError>) -> Void)
 }
 
 final class BrandsService: BrandsProviding {
@@ -22,4 +23,7 @@ final class BrandsService: BrandsProviding {
         }
     }
 
+    func getBrands(with brandIds: [String], completion: @escaping (Result<[Brand], ServiceError>) -> Void) {
+        
+    }
 }

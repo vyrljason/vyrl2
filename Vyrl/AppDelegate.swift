@@ -41,5 +41,15 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
 
     private func setUpFirebase() {
         FIRApp.configure()
+        //FIXME: This is really temporary, we need to sign in **after** user login and have designated 
+        guard let authenticator = FIRAuth.auth() else { return }
+        let decoder = ChatTokenDecoder()
+        ServiceLocator.chatAuthenticator = ChatAuthenticator(chatTokenRepository: ServiceLocator.chatTokenRepository,
+                                                             authenticator: authenticator,
+                                                             tokenDecoder: decoder,
+                                                             chatCredentialsStorage: ChatCredentialsStorage())
+        ServiceLocator.chatAuthenticator?.authenticateUser { result in
+            print(result)
+        }
     }
 }

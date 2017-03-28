@@ -10,7 +10,8 @@ struct InternalUserId {
 }
 
 private enum Constants {
-    static let internalUserIdClaim = "id"
+    static let claimsKey = "claims"
+    static let idKey = "\"id\""
 }
 
 protocol ChatTokenDecoding {
@@ -21,9 +22,10 @@ final class ChatTokenDecoder: ChatTokenDecoding {
 
     func decodeJWT(using token: String) -> InternalUserId? {
         let decodedJWT: JWT? =  try? decode(jwt: token)
-        guard let userIdClaim = decodedJWT?.claim(name: Constants.internalUserIdClaim).string else {
+        guard let claims = (decodedJWT?.body["claims"] as? [String: Int]),
+        let userId: Int = claims.first?.value else {
             return nil
         }
-        return InternalUserId(id: userIdClaim)
+        return InternalUserId(id: String(userId))
     }
 }

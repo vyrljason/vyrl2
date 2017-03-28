@@ -3,6 +3,7 @@
 //
 
 import UIKit
+import FirebaseDatabase
 
 fileprivate struct Constants {
     static let collabsNavigationTitle = NSLocalizedString("collabs.navigation.title", comment: "")
@@ -27,7 +28,9 @@ final class CollabsViewControllerFactory: CollabsControllerMaking {
 
     static func make(presenter: MessagesPresenting) -> CollabsViewController {
         let resource = Service<CollabsResourceMock>(resource: CollabsResourceMock(amount: 15))
-        let service = CollabsService(resource: resource)
+        let storage = ChatCredentialsStorage()
+        let database = FIRDatabase.database()
+        let service = CollabsService(chatDatabase: database, chatCredentialsStorage: storage)
         let dataSource = CollabsDataSource(service: service)
 
         let emptyCollectionHandler = emptyCollectionViewHandler()

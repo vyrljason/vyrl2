@@ -31,7 +31,7 @@ final class ChatAuthenticator: ChatAuthenticating {
     }
 
     func authenticateUser(completion: @escaping ((Result<Void, ChatAuthenticationError>) -> Void)) {
-        chatTokenRepository.getChatToken(refresh: false) { [weak self] result in
+        chatTokenRepository.getChatToken(refresh: true) { [weak self] result in
             result.on(success: { [weak self] chatToken in
                 guard let `self` = self else { return }
                 self.saveUserId(using: chatToken)
