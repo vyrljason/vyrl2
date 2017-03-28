@@ -184,6 +184,27 @@ extension Faker {
 }
 
 extension Faker {
+    func messageContainer(createdAt: Double = VyrlFaker.faker.number.randomDouble(),
+                          sender: Sender = VyrlFaker.faker.sender(),
+                          message: Message = VyrlFaker.faker.message(),
+                          messageType: MessageType = MessageType.normal) -> MessageContainer {
+        return MessageContainer(createdAt: createdAt, sender: sender, message: message, messageType: messageType)
+    }
+    
+    func message(text: String = VyrlFaker.faker.lorem.sentence(wordsAmount: VyrlFaker.faker.number.randomInt(min: 1, max: 20)),
+                 mediaURL: URL = URL(string: VyrlFaker.faker.internet.url())!,
+                 isMedia: Bool = false) -> Message {
+        return Message(text: text, mediaURL: mediaURL, isMedia: isMedia)
+    }
+    
+    func sender(avatar: URL = URL(string: VyrlFaker.faker.internet.url())!,
+                id: String = VyrlFaker.faker.lorem.characters(amount: 20),
+                name: String = VyrlFaker.faker.name.name()) -> Sender {
+        return Sender(avatar: avatar, id: id, name: name)
+    }
+}
+
+extension Faker {
     func chatToken() -> ChatToken {
         return ChatToken(token: VyrlFaker.faker.lorem.characters(amount: 30))
     }

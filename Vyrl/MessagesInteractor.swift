@@ -22,11 +22,13 @@ final class MessagesInteractor: MessagesInteracting {
         self.dataSource = dataSource
         self.collab = collab
         dataSource.interactor = self
+        dataSource.tableViewControllingDelegate = self
     }
     
     func viewWillAppear() {
         //FIXME: Only for test, Waiting for api sync
         viewController?.setUpStatusView(withStatus: CollabStatus.publication)
+        dataSource.loadTableData()
     }
     
     func didTapMore() {
@@ -47,5 +49,17 @@ extension MessagesInteractor: TableViewUsing {
 }
 
 extension MessagesInteractor: DataRefreshing {
-    func refreshData() { }
+    func refreshData() {
+        dataSource.loadTableData()
+    }
+}
+
+extension MessagesInteractor: TableViewControlling {
+    func updateTable(with result: DataFetchResult) {
+        tableView?.reloadData()
+    }
+    
+    func loadTableData() {
+        dataSource.loadTableData()
+    }
 }

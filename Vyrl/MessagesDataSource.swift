@@ -13,9 +13,23 @@ protocol MessagesDataProviding: TableViewUsing, TableViewDataProviding, Messages
 }
 
 final class MessagesDataSource: NSObject, MessagesDataProviding {
+    
+    fileprivate enum Constants {
+        static let numberOfSections: Int = 1
+        static let cellHeight: CGFloat = 100
+    }
+    
+    fileprivate let service: MessagesProviding
+    fileprivate var items = [MessageContainer]()
+    
     weak var reloadingDelegate: ReloadingData?
     weak var tableViewControllingDelegate: TableViewControlling?
     weak var interactor: MessagesInteracting?
+    
+    init(service: MessagesProviding) {
+        self.service = service
+        super.init()
+    }
     
 }
 
@@ -23,27 +37,56 @@ extension MessagesDataSource: TableViewUsing {
     func use(_ tableView: UITableView) {
         tableView.delegate = self
         tableView.dataSource = self
+        InfluencerMessageCell.register(to: tableView)
+        BrandMessageCell.register(to: tableView)
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = Constants.cellHeight
+        tableView.tableFooterView = UIView()
     }
 }
 
 extension MessagesDataSource: TableViewDataProviding {
     func loadTableData() {
-        // Currently fetching is not needed
-        DispatchQueue.onMainThread { [weak self] in
+        service.getMessages { [weak self] result in
             guard let `self` = self else { return }
-            self.tableViewControllingDelegate?.updateTable(with: .empty)
+            self.items = result.map(success: { $0 }, failure: { _ in return [] })
+            DispatchQueue.onMainThread { [weak self] in
+                self?.tableViewControllingDelegate?.updateTable(with: result.map(success: { $0 .isEmpty ? .empty : .someData },
+                                                                                 failure: { _ in .error }))
+            }
         }
     }
     
+    fileprivate func prepare(cell: InfluencerMessageCell, messageItem: MessageContainer) {
+        let renderable = MessageCellRenderable(text: messageItem.message.text)
+        cell.render(renderable)
+        cell.set(imageFetcher: ImageFetcher(url: messageItem.sender.avatar))
+    }
+
+    fileprivate func prepare(cell: BrandMessageCell, messageItem: MessageContainer) {
+        let renderable = MessageCellRenderable(text: messageItem.message.text)
+        cell.render(renderable)
+        cell.set(imageFetcher: ImageFetcher(url: messageItem.sender.avatar))
+    }
+    
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 0
+        return Constants.numberOfSections
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+        return items.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
+        // FIXME: For test purposes, waiting for api
+        if indexPath.row % 2 == 0 {
+            let cell: BrandMessageCell = tableView.dequeueCell(at: indexPath)
+            prepare(cell: cell, messageItem: items[indexPath.row])
+            return cell
+        }
+        
+        let cell: InfluencerMessageCell = tableView.dequeueCell(at: indexPath)
+        prepare(cell: cell, messageItem: items[indexPath.row])
+        return cell
     }
 }
