@@ -382,6 +382,9 @@
 		85FA7A281E5C730800491EED /* NavigationHaving.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FA7A271E5C730800491EED /* NavigationHaving.swift */; };
 		85FB31E11E65E1C500E2F113 /* StyleKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FB31E01E65E1C500E2F113 /* StyleKit.swift */; };
 		A4256F0E1E675A7BB6AE21F5 /* Pods_Vyrl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AA1C43D9EC44CB342D10427 /* Pods_Vyrl.framework */; };
+		B2D37CD21E8B085700840334 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D37CD01E8B085700840334 /* WelcomeViewController.swift */; };
+		B2D37CD31E8B085700840334 /* WelcomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B2D37CD11E8B085700840334 /* WelcomeViewController.xib */; };
+		B2D37CD71E8B0EBA00840334 /* registrationvideo.mov in Resources */ = {isa = PBXBuildFile; fileRef = B2D37CD61E8B0EBA00840334 /* registrationvideo.mov */; };
 		BDDF0A4F0C2F3D7D482551AB /* Pods_VyrlTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3553ABBDC82B1A7C9E6385AE /* Pods_VyrlTests.framework */; };
 		C47D450C1E825F1B005DD524 /* MessageContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47D450B1E825F1B005DD524 /* MessageContainer.swift */; };
 		C4B161D31E83DDC100C6E112 /* SingleStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B161D21E83DDC100C6E112 /* SingleStatusView.swift */; };
@@ -805,6 +808,9 @@
 		85DCFC521E7831AF0046D0D5 /* iosCartIconNav.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iosCartIconNav.png; sourceTree = "<group>"; };
 		85FA7A271E5C730800491EED /* NavigationHaving.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationHaving.swift; sourceTree = "<group>"; };
 		85FB31E01E65E1C500E2F113 /* StyleKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StyleKit.swift; sourceTree = "<group>"; };
+		B2D37CD01E8B085700840334 /* WelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
+		B2D37CD11E8B085700840334 /* WelcomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WelcomeViewController.xib; sourceTree = "<group>"; };
+		B2D37CD61E8B0EBA00840334 /* registrationvideo.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = registrationvideo.mov; sourceTree = "<group>"; };
 		BD1309C018727D87342F7FE2 /* Pods-VyrlTests.ad hoc.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VyrlTests.ad hoc.xcconfig"; path = "Pods/Target Support Files/Pods-VyrlTests/Pods-VyrlTests.ad hoc.xcconfig"; sourceTree = "<group>"; };
 		C47D450B1E825F1B005DD524 /* MessageContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageContainer.swift; sourceTree = "<group>"; };
 		C4B161D21E83DDC100C6E112 /* SingleStatusView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SingleStatusView.swift; sourceTree = "<group>"; };
@@ -1082,6 +1088,7 @@
 		1ADAF7F71E54604300155D9F /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				B2D37CD61E8B0EBA00840334 /* registrationvideo.mov */,
 				8538599D1E60734C0098D1EB /* dergodaddy.crt */,
 				850A80AF1E5D990C00E684A3 /* Configuration.plist */,
 				1ADAF7D01E545F3C00155D9F /* LaunchScreen.storyboard */,
@@ -2424,6 +2431,8 @@
 			children = (
 				85CA3FD91E6477D100D43805 /* LoginViewController.swift */,
 				85CA3FE41E647A5400D43805 /* LoginViewController.xib */,
+				B2D37CD01E8B085700840334 /* WelcomeViewController.swift */,
+				B2D37CD11E8B085700840334 /* WelcomeViewController.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -2808,6 +2817,7 @@
 				852ACD3C1E55DB1E00219E90 /* BrandsViewController.xib in Resources */,
 				853A83571E72C57D006EBA8C /* CheckoutSummaryViewController.xib in Resources */,
 				1AA7FA9C1E687FE7001C0B6F /* InfoView.xib in Resources */,
+				B2D37CD71E8B0EBA00840334 /* registrationvideo.mov in Resources */,
 				31FEB5AB1E5C3A4800C5E41D /* BrandStoreViewController.xib in Resources */,
 				1A31215E1E641CFB00F71925 /* CartItemCell.xib in Resources */,
 				C4C887791E89A5590022558F /* BrandMessageCell.xib in Resources */,
@@ -2815,6 +2825,7 @@
 				1A1FA93A1E5D94FE007EB61D /* CategoryCell.xib in Resources */,
 				85DCFC201E75BC420046D0D5 /* ContactInfoViewController.xib in Resources */,
 				31EF230D1E67AF5F0073F624 /* CenteredWithDetailTableCell.xib in Resources */,
+				B2D37CD31E8B085700840334 /* WelcomeViewController.xib in Resources */,
 				31EF23341E69A8A90073F624 /* TableHeaderCell.xib in Resources */,
 				8554BEC01E69C99200E05A37 /* ShippingAddressViewController.xib in Resources */,
 			);
@@ -3099,6 +3110,7 @@
 				85B0A8411E670F1D002093BA /* BrandsService.swift in Sources */,
 				1A69C6A61E56008100134EF5 /* NavigationBar.swift in Sources */,
 				C4BDA4401E8163890009BB67 /* Sender.swift in Sources */,
+				B2D37CD21E8B085700840334 /* WelcomeViewController.swift in Sources */,
 				C4C887721E898D360022558F /* MessagesService.swift in Sources */,
 				852ACD451E55DCDC00219E90 /* ReusableView.swift in Sources */,
 				850A80D61E5DE83200E684A3 /* CredentialsStorage.swift in Sources */,

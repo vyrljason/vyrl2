@@ -74,6 +74,7 @@ final class RootNavigation {
     fileprivate let accountMaker: AccountViewControllerMaking.Type
     fileprivate let interactor: RootNavigationInteracting & NavigationDelegateHaving
     fileprivate let credentialsProvider: APICredentialsProviding
+    fileprivate let welcomeControllerMaker: WelcomeControllerMaking.Type
     fileprivate let loginControllerMaker: LoginControllerMaking.Type
     fileprivate var cartButton: BadgeBarButtonItem?
     fileprivate var chatButton: BadgeBarButtonItem?
@@ -91,6 +92,7 @@ final class RootNavigation {
          accountMaker: AccountViewControllerMaking.Type,
          window: WindowProtocol,
          credentialsProvider: APICredentialsProviding,
+         welcomeControllerMaker: WelcomeControllerMaking.Type,
          loginControllerMaker: LoginControllerMaking.Type,
          notificationObserver: NotificationObserving = NotificationCenter.default,
          cartStorage: CartStoring) {
@@ -102,6 +104,7 @@ final class RootNavigation {
         self.accountMaker = accountMaker
         self.window = window
         self.credentialsProvider = credentialsProvider
+        self.welcomeControllerMaker = welcomeControllerMaker
         self.loginControllerMaker = loginControllerMaker
         self.notificationObserver = notificationObserver
         self.cartStorage = cartStorage
@@ -189,7 +192,7 @@ extension RootNavigation {
 
 extension RootNavigation: AuthorizationFlowPresenting {
     func presentAuthorizationNavigation(animated: Bool) {
-        let viewController = loginControllerMaker.make(using: self)
+        let viewController = welcomeControllerMaker.make(using: self)
         viewController.render(NavigationItemRenderable(titleImage: Constants.titleImage))
         let authorizationNavigation = UINavigationController(rootViewController: viewController)
         authorizationNavigation.render(Constants.navigationBarRenderable)
