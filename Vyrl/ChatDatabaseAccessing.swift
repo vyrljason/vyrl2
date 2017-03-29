@@ -22,13 +22,3 @@ extension FIRDatabaseReference: ChatDatabaseChildAccessing {
         return child(path)
     }
 }
-
-protocol ChatDatabaseReferenceHaving {
-    var reference: ChatDatabaseChildAccessing & ChatDatabaseObserving { get }
-}
-
-extension FIRDatabase: ChatDatabaseReferenceHaving {
-    var reference: ChatDatabaseChildAccessing & ChatDatabaseObserving {
-        return reference()
-    }
- }

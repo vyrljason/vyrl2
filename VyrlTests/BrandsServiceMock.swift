@@ -23,7 +23,7 @@ final class BrandsServiceMock: BrandsProviding {
         }
     }
 
-    func getBrands(with brandIds: [String], completion: @escaping (Result<[Brand], ServiceError>) -> Void) {
+    func getBrands(withIds brandIds: [String], completion: @escaping (Result<[Brand], ServiceError>) -> Void) {
         self.brandIds = brandIds
         if success {
             completion(.success(isResponseEmpty ? [] : brands))

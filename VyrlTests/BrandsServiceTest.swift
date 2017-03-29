@@ -59,7 +59,7 @@ final class BrandsServiceTests: XCTestCase {
         let ids = ["id1", "id2"]
 
         var wasCalled = false
-        subject.getBrands(with: ids) { result in
+        subject.getBrands(withIds: ids) { result in
             wasCalled = true
             expectToBeSuccess(result)
         }
@@ -71,9 +71,9 @@ final class BrandsServiceTests: XCTestCase {
         let ids = ["id1", "id2"]
 
         var wasCalled = false
-        subject.getBrands(with: ids) { result in
+        subject.getBrands(withIds: ids) { result in
             wasCalled = true
-            expectToBeSuccess(result)
+            expectToBeFailure(result)
         }
         XCTAssertTrue(wasCalled)
     }

@@ -15,12 +15,12 @@ protocol CollabsProviding {
 
 final class CollabsService: CollabsProviding {
 
-    private let chatDatabase: ChatDatabaseReferenceHaving
+    private let chatDatabase: ChatDatabaseChildAccessing & ChatDatabaseObserving
     private let chatCredentialsStorage: ChatCredentialsStoring
     private let brandsService: BrandsProviding
     private var databaseHandle: FIRDatabaseHandle = 0
 
-    init(chatDatabase: ChatDatabaseReferenceHaving,
+    init(chatDatabase: ChatDatabaseChildAccessing & ChatDatabaseObserving,
          chatCredentialsStorage: ChatCredentialsStoring,
          brandsService: BrandsProviding) {
         self.chatDatabase = chatDatabase
@@ -52,14 +52,14 @@ final class CollabsService: CollabsProviding {
     }
 
     private func getChatRooms(using userId: String, completion: @escaping ([ChatRoom]) -> Void) {
-        databaseHandle = chatDatabase.reference.childAt(path: Constants.databasePathPrefix + userId).observe(.value) { [weak self] (snapshot) in
+        databaseHandle = chatDatabase.childAt(path: Constants.databasePathPrefix + userId).observe(.value) { [weak self] (snapshot) in
             guard let `self` = self else { return }
             var result = [ChatRoom]()
             if let roomsDictionary = snapshot.value as? [AnyHashable: [AnyHashable: Any]] {
                 result = [ChatRoom](dictionaries: roomsDictionary)
             }
             completion(result)
-            self.chatDatabase.reference.removeObserver(withHandle: self.databaseHandle)
+            self.chatDatabase.removeObserver(withHandle: self.databaseHandle)
         }
     }
 }

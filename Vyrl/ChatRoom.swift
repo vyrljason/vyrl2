@@ -39,3 +39,14 @@ extension ChatRoom: DictionaryInitializable {
         self.unreadMessages = unreadMessages
     }
 }
+
+extension ChatRoom: DictionaryConvertible {
+    var dictionaryRepresentation: [String: Any] {
+        return [Keys.brandId: brandId,
+                Keys.influencerId: influencerId,
+                Keys.lastMessage: lastMessage,
+                Keys.lastActivity: lastActivity,
+                Keys.status: status?.description ?? "",
+                Keys.unreadMessages: unreadMessages]
+    }
+}
