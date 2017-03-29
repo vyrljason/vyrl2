@@ -4,13 +4,17 @@
 
 import Decodable
 
-enum OrderStatus: String {
+enum OrderStatus: String, CustomStringConvertible {
     case requested = "REQUESTED"
     case declined = "DECLINED"
     case accepted = "ACCEPTED"
     case shipped = "SHIPPED"
     case delivered = "DELIVERED"
     case posted = "POSTED"
+
+    var description: String {
+        return rawValue
+    }
 }
 
 struct Order {

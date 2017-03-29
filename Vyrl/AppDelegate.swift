@@ -5,7 +5,7 @@
 import UIKit
 import Fabric
 import Crashlytics
-import Alamofire
+import Firebase
 
 @UIApplicationMain
 final class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -13,9 +13,10 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
     private var rootNavigation: RootNavigation!
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        initializeAnalytics()
+        setUpAnalytics()
         setUpAPIConfiguration()
         setUpChatTokenRepository()
+        setUpFirebase()
         setUpRootNavigation()
         return true
     }
@@ -25,7 +26,7 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
         rootNavigation?.showInitialViewController(animated: false)
     }
 
-    private func initializeAnalytics() {
+    private func setUpAnalytics() {
         Fabric.with([Crashlytics.self])
     }
 
@@ -36,5 +37,19 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
 
     private func setUpChatTokenRepository() {
         ServiceLocator.chatTokenRepository = ChatTokenRepositoryFactory.make(using: ServiceLocator.resourceConfigurator.resourceController)
+    }
+
+    private func setUpFirebase() {
+        FIRApp.configure()
+        //FIXME: This is really temporary, we need to sign in **after** user login and have designated 
+        guard let authenticator = FIRAuth.auth() else { return }
+        let decoder = ChatTokenDecoder()
+        ServiceLocator.chatAuthenticator = ChatAuthenticator(chatTokenRepository: ServiceLocator.chatTokenRepository,
+                                                             authenticator: authenticator,
+                                                             tokenDecoder: decoder,
+                                                             chatCredentialsStorage: ChatCredentialsStorage())
+        ServiceLocator.chatAuthenticator?.authenticateUser { result in
+            print(result)
+        }
     }
 }

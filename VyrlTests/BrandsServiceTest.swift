@@ -53,4 +53,28 @@ final class BrandsServiceTests: XCTestCase {
         }
         XCTAssertTrue(wasCalled)
     }
+
+    func test_getBrands_whenSuccess_returnsBrands() {
+        resourceController.success = true
+        let ids = ["id1", "id2"]
+
+        var wasCalled = false
+        subject.getBrands(withIds: ids) { result in
+            wasCalled = true
+            expectToBeSuccess(result)
+        }
+        XCTAssertTrue(wasCalled)
+    }
+
+    func test_getBrands_whenFailure_returnsError() {
+        resourceController.success = false
+        let ids = ["id1", "id2"]
+
+        var wasCalled = false
+        subject.getBrands(withIds: ids) { result in
+            wasCalled = true
+            expectToBeFailure(result)
+        }
+        XCTAssertTrue(wasCalled)
+    }
 }

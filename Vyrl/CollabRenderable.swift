@@ -10,6 +10,6 @@ struct CollabRenderable {
 
     init(collab: Collab) {
         name = collab.brandName
-        lastMessage = collab.lastMessage
+        lastMessage = collab.chatRoom.lastMessage
     }
 }
