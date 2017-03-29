@@ -36,7 +36,6 @@ final class CollabsService: CollabsProviding {
 
         getChatRooms(using: userId) { [weak self] chatRooms in
             guard let `self` = self else { return }
-
             let brandIds = chatRooms.map { $0.brandId }
             self.brandsService.getBrands(withIds: brandIds, completion: { result in
                 result.on(success: { brands in

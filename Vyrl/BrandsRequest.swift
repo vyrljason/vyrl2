@@ -23,7 +23,7 @@ struct BrandsRequest: DictionaryConvertible {
     }
 
     init(brandIds: [String]) {
-        self.categoryId = nil
+        categoryId = nil
         self.brandIds = brandIds
     }
 
