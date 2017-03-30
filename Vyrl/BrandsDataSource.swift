@@ -21,7 +21,7 @@ final class BrandsDataSource: NSObject, BrandsDataProviding {
     fileprivate let service: BrandsProviding
     fileprivate var items = [Brand]()
 
-    weak var collectionViewControllingDelegate: CollectionViewHaving & CollectionViewControlling?
+    weak var collectionViewControllingDelegate: (CollectionViewHaving & CollectionViewControlling)?
     weak var selectionDelegate: BrandSelecting?
 
     init(service: BrandsProviding) {

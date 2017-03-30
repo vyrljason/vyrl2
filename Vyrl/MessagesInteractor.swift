@@ -10,7 +10,7 @@ private enum Constants {
 
 protocol MessagesInteracting: TableViewUsing {
     weak var dataUpdateListener: DataLoadingEventsListening? { get set }
-    weak var presenter: MessageDisplaying & ErrorAlertPresenting? { get set }
+    weak var presenter: (MessageDisplaying & ErrorAlertPresenting)? { get set }
     weak var viewController: MessagesControlling? { get set }
     func viewWillAppear()
     func didTapMore()
@@ -21,8 +21,8 @@ final class MessagesInteractor: MessagesInteracting {
     fileprivate weak var tableView: UITableView?
     fileprivate let dataSource: MessagesDataProviding
     weak var dataUpdateListener: DataLoadingEventsListening?
-    weak var presenter: MessageDisplaying & ErrorAlertPresenting?
     weak var viewController: MessagesControlling?
+    weak var presenter: (MessageDisplaying & ErrorAlertPresenting)?
 
     private let collab: Collab
     private let messageSender: MessageSending
@@ -54,7 +54,7 @@ final class MessagesInteractor: MessagesInteracting {
                             toRoom: collab.chatRoomId) { [weak self] result in
                                 result.on(success: { _ in
                                     self?.presenter?.clearMessage()
-                                }, failure: { error in
+                                }, failure: { _ in
                                     self?.presenter?.presentError(title: nil, message: Constants.failedToSentMessage)
                                 })
         }

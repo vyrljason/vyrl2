@@ -21,7 +21,7 @@ final class ProductDetailsGalleryDataSource: NSObject, ProductDetailsGalleryData
         self.product = product
     }
     
-    weak var collectionViewControllingDelegate: CollectionViewHaving & CollectionViewControlling?
+    weak var collectionViewControllingDelegate: (CollectionViewHaving & CollectionViewControlling)?
 }
 
 extension ProductDetailsGalleryDataSource: UIScrollViewDelegate {
