@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 protocol MessagesControllerMaking {
     static func make(collab: Collab) -> MessagesViewController
@@ -14,9 +15,9 @@ protocol MessagesControllerMaking {
 
 final class MessagesViewControllerFactory: MessagesControllerMaking {
     static func make(collab: Collab) -> MessagesViewController {
-        let resource = Service<MessagesResourceMock>(resource: MessagesResourceMock(amount: 30))
-        let service = MessagesService(resource: resource)
-        let dataSource = MessagesDataSource(service: service)
+        let databaseReference = FIRDatabase.database().reference()
+        let service = MessagesService(chatDatabase: databaseReference)
+        let dataSource = MessagesDataSource(service: service, collab: collab)
         let interactor = MessagesInteractor(dataSource: dataSource, collab: collab)
         let viewController = MessagesViewController(interactor: interactor)
         viewController.navigationItem.title = collab.brandName

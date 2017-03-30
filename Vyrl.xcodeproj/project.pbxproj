@@ -322,6 +322,7 @@
 		8597AB671E8ADF5900A64585 /* Array+DictionaryInitializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8597AB661E8ADF5900A64585 /* Array+DictionaryInitializable.swift */; };
 		8597AB691E8AEC1E00A64585 /* BrandsServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8597AB681E8AEC1E00A64585 /* BrandsServiceMock.swift */; };
 		8597AB6B1E8AEF7800A64585 /* ChatRoom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8597AB6A1E8AEF7800A64585 /* ChatRoom.swift */; };
+		8597AB6D1E8C848D00A64585 /* ChatDatabaseMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8597AB6C1E8C848D00A64585 /* ChatDatabaseMock.swift */; };
 		85A2A80A1E7B4C3900271871 /* StoredRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85A2A8091E7B4C3900271871 /* StoredRepository.swift */; };
 		85A2A80D1E7B4D0300271871 /* ChatCredentialsStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85A2A80C1E7B4D0300271871 /* ChatCredentialsStorage.swift */; };
 		85A2A80F1E7B4E7100271871 /* KeychainConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85A2A80E1E7B4E7100271871 /* KeychainConstants.swift */; };
@@ -759,6 +760,7 @@
 		8597AB661E8ADF5900A64585 /* Array+DictionaryInitializable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Array+DictionaryInitializable.swift"; sourceTree = "<group>"; };
 		8597AB681E8AEC1E00A64585 /* BrandsServiceMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrandsServiceMock.swift; sourceTree = "<group>"; };
 		8597AB6A1E8AEF7800A64585 /* ChatRoom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatRoom.swift; sourceTree = "<group>"; };
+		8597AB6C1E8C848D00A64585 /* ChatDatabaseMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatDatabaseMock.swift; sourceTree = "<group>"; };
 		85A2A8091E7B4C3900271871 /* StoredRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoredRepository.swift; sourceTree = "<group>"; };
 		85A2A80C1E7B4D0300271871 /* ChatCredentialsStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatCredentialsStorage.swift; sourceTree = "<group>"; };
 		85A2A80E1E7B4E7100271871 /* KeychainConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeychainConstants.swift; sourceTree = "<group>"; };
@@ -1194,6 +1196,7 @@
 				853BAC0B1E7C07B700874075 /* KeychainMock.swift */,
 				85603F821E89800B0062485E /* ChatCredentialsStorageMock.swift */,
 				8597AB681E8AEC1E00A64585 /* BrandsServiceMock.swift */,
+				8597AB6C1E8C848D00A64585 /* ChatDatabaseMock.swift */,
 			);
 			name = Mocks;
 			sourceTree = "<group>";
@@ -3314,6 +3317,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1A859C191E5899D80013EB09 /* RootNavigationControllingMock.swift in Sources */,
+				8597AB6D1E8C848D00A64585 /* ChatDatabaseMock.swift in Sources */,
 				8572E4DC1E7AC9220042160D /* CollabsServiceTest.swift in Sources */,
 				85B0A8431E672ED0002093BA /* HTTPClientMock.swift in Sources */,
 				8572E4D81E7AC7F60042160D /* CollabsDataSourceTest.swift in Sources */,

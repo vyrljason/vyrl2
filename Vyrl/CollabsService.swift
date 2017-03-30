@@ -34,13 +34,13 @@ final class CollabsService: CollabsProviding {
             return
         }
 
-        getChatRooms(using: userId) { [weak self] chatRooms in
+        getChatRoomsWithIds(using: userId) { [weak self] chatRoomsWithIds in
             guard let `self` = self else { return }
-            let brandIds = chatRooms.map { $0.brandId }
+            let brandIds: [String] = chatRoomsWithIds.values.map { $0.brandId }
             self.brandsService.getBrands(withIds: brandIds, completion: { result in
                 result.on(success: { brands in
-                    let collabs: [Collab] = chatRooms.flatMap { chatRoom in
-                        brands.filter { $0.id == chatRoom.brandId }.first.flatMap { Collab(brandName: $0.name, chatRoom: chatRoom) }
+                    let collabs: [Collab] = chatRoomsWithIds.flatMap { (chatRoomId, chatRoom) in
+                        brands.filter { $0.id == chatRoom.brandId }.first.flatMap { Collab(chatRoomId: chatRoomId, brandName: $0.name, chatRoom: chatRoom) }
                     }
                     completion(.success(collabs))
                 }, failure: { error in
@@ -50,12 +50,16 @@ final class CollabsService: CollabsProviding {
         }
     }
 
-    private func getChatRooms(using userId: String, completion: @escaping ([ChatRoom]) -> Void) {
+    private func getChatRoomsWithIds(using userId: String, completion: @escaping ([String: ChatRoom]) -> Void) {
         databaseHandle = chatDatabase.childAt(path: Constants.databasePathPrefix + userId).observe(.value) { [weak self] (snapshot) in
             guard let `self` = self else { return }
-            var result = [ChatRoom]()
+            var result = [String: ChatRoom]()
             if let roomsDictionary = snapshot.value as? [AnyHashable: [AnyHashable: Any]] {
-                result = [ChatRoom](dictionaries: roomsDictionary)
+                roomsDictionary.forEach({ (key, valueDictionary) in
+                    if let room = ChatRoom(dictionary: valueDictionary), let roomId = key as? String {
+                        result[roomId] = room
+                    }
+                })
             }
             completion(result)
             self.chatDatabase.removeObserver(withHandle: self.databaseHandle)

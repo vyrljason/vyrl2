@@ -8,33 +8,22 @@ import XCTest
 final class MessagesServiceTest: XCTestCase {
     
     private var subject: MessagesService!
-    private var resource: MessagesResourceMock!
-    
+    private var chatDatabase: ChatDatabaseMock!
+
     override func setUp() {
         super.setUp()
-        resource = MessagesResourceMock(amount: 10)
-        let service = Service<MessagesResourceMock>(resource: resource)
-        subject = MessagesService(resource: service)
+        chatDatabase = ChatDatabaseMock()
+        chatDatabase.child = ChatDatabaseMock()
+        subject = MessagesService(chatDatabase: chatDatabase)
     }
     
     func test_getMessages_whenSuccess_returnsMessages() {
-        resource.success = true
-        
+        let chatRoomId = "id"
+
         var wasCalled = false
-        subject.getMessages { result in
+        subject.getMessages(inChatRoom: chatRoomId) { result in
             wasCalled = true
             expectToBeSuccess(result)
-        }
-        XCTAssertTrue(wasCalled)
-    }
-    
-    func test_getMessages_whenFailure_returnsError() {
-        resource.success = false
-        
-        var wasCalled = false
-        subject.getMessages { result in
-            wasCalled = true
-            expectToBeFailure(result)
         }
         XCTAssertTrue(wasCalled)
     }

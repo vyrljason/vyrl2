@@ -26,8 +26,7 @@ final class MessagesInteractor: MessagesInteracting {
     }
     
     func viewWillAppear() {
-        //FIXME: Only for test, Waiting for api sync
-        viewController?.setUpStatusView(withStatus: CollabStatus.publication)
+        viewController?.setUpStatusView(withStatus: CollabStatus(orderStatus: collab.chatRoom.status))
         dataSource.loadTableData()
     }
     

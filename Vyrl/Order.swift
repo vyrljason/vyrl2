@@ -4,16 +4,44 @@
 
 import Decodable
 
-enum OrderStatus: String, CustomStringConvertible {
-    case requested = "REQUESTED"
-    case declined = "DECLINED"
-    case accepted = "ACCEPTED"
-    case shipped = "SHIPPED"
-    case delivered = "DELIVERED"
-    case posted = "POSTED"
+enum OrderStatus: CustomStringConvertible {
+    case requested
+    case declined
+    case accepted
+    case shipped
+    case delivered
+    case posted
+    case custom(String)
 
     var description: String {
-        return rawValue
+        switch self {
+        case .requested: return "REQUESTED"
+        case .declined: return "DECLINED"
+        case .accepted: return "ACCEPTED"
+        case .shipped: return "SHIPPED"
+        case .delivered: return "DELIVERED"
+        case .posted: return "POSTED"
+        case .custom(let description): return description
+        }
+    }
+
+    init(description: String) {
+        switch description {
+        case OrderStatus.requested.description:
+            self = .requested
+        case OrderStatus.declined.description:
+            self = .declined
+        case OrderStatus.accepted.description:
+            self = .accepted
+        case OrderStatus.shipped.description:
+            self = .shipped
+        case OrderStatus.delivered.description:
+            self = .delivered
+        case OrderStatus.posted.description:
+            self = .posted
+        default:
+            self = .custom(description)
+        }
     }
 }
 
@@ -41,11 +69,11 @@ struct Order {
 
 extension Order: Decodable {
     static func decode(_ json: Any) throws -> Order {
-        guard let statusAsString: String = try json => KeyPath(JSONKeys.status) else {
-            throw DecodingError.missingKey("status", DecodingError.Metadata(object: JSONKeys.status))
-        }
-        guard let status: OrderStatus = OrderStatus(rawValue: statusAsString) else {
-            throw DecodingError.rawRepresentableInitializationError(rawValue: statusAsString, DecodingError.Metadata(object: JSONKeys.status))
+        let status: OrderStatus
+        if let statusAsString: String = try? json => KeyPath(JSONKeys.status) {
+            status = OrderStatus(description: statusAsString)
+        } else {
+            status = OrderStatus(description: "")
         }
         return try self.init(id: json => KeyPath(JSONKeys.id),
                              brandId: json => KeyPath(JSONKeys.brandId),

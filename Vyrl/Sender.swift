@@ -11,18 +11,14 @@ struct Sender {
         static let name = "name"
     }
     
-    let avatar: URL
+    let avatar: URL?
     let id: String
     let name: String
 }
 
 extension Sender: Decodable {
     static func decode(_ json: Any) throws -> Sender {
-        guard let avatarURL = try URL(string: json => KeyPath(JSONKeys.avatar)) else {
-            throw DecodingError.typeMismatch(expected: URL.self, actual: String.self, DecodingError.Metadata(object: JSONKeys.avatar))
-        }
-
-        return try self.init(avatar: avatarURL,
+        return try self.init(avatar: try URL(string: json => KeyPath(JSONKeys.avatar)),
                              id: json => KeyPath(JSONKeys.id),
                              name: json => KeyPath(JSONKeys.name))
     }
