@@ -409,6 +409,8 @@
 		C414B2691E8BC5F5002F973E /* AddContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C414B2681E8BC5F5002F973E /* AddContentView.swift */; };
 		C450FA881E8A778D00A63414 /* SystemMessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C450FA861E8A778D00A63414 /* SystemMessageCell.swift */; };
 		C450FA891E8A778D00A63414 /* SystemMessageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C450FA871E8A778D00A63414 /* SystemMessageCell.xib */; };
+		C451A5761E8DAD3B00DFE5F7 /* AddContentViewSnapshotTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C451A5751E8DAD3B00DFE5F7 /* AddContentViewSnapshotTest.swift */; };
+		C451A5781E8DAE3600DFE5F7 /* ConfirmDeliveryViewSnapshotTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C451A5771E8DAE3600DFE5F7 /* ConfirmDeliveryViewSnapshotTest.swift */; };
 		C47D450C1E825F1B005DD524 /* MessageContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47D450B1E825F1B005DD524 /* MessageContainer.swift */; };
 		C4B161D31E83DDC100C6E112 /* SingleStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B161D21E83DDC100C6E112 /* SingleStatusView.swift */; };
 		C4B161D51E83DDD100C6E112 /* SingleStatusView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4B161D41E83DDD100C6E112 /* SingleStatusView.xib */; };
@@ -857,6 +859,8 @@
 		C414B2681E8BC5F5002F973E /* AddContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddContentView.swift; sourceTree = "<group>"; };
 		C450FA861E8A778D00A63414 /* SystemMessageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SystemMessageCell.swift; sourceTree = "<group>"; };
 		C450FA871E8A778D00A63414 /* SystemMessageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SystemMessageCell.xib; sourceTree = "<group>"; };
+		C451A5751E8DAD3B00DFE5F7 /* AddContentViewSnapshotTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddContentViewSnapshotTest.swift; sourceTree = "<group>"; };
+		C451A5771E8DAE3600DFE5F7 /* ConfirmDeliveryViewSnapshotTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfirmDeliveryViewSnapshotTest.swift; sourceTree = "<group>"; };
 		C47D450B1E825F1B005DD524 /* MessageContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageContainer.swift; sourceTree = "<group>"; };
 		C4B161D21E83DDC100C6E112 /* SingleStatusView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SingleStatusView.swift; sourceTree = "<group>"; };
 		C4B161D41E83DDD100C6E112 /* SingleStatusView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SingleStatusView.xib; sourceTree = "<group>"; };
@@ -2398,6 +2402,8 @@
 				C4C8877C1E89AA4F0022558F /* BrandMessageCellSnapshotTest.swift */,
 				C4C8877A1E89AA400022558F /* InfluencerMessageCellSnapshotTest.swift */,
 				C414B2601E8A810D002F973E /* SystemMessageCellSnapshotTest.swift */,
+				C451A5751E8DAD3B00DFE5F7 /* AddContentViewSnapshotTest.swift */,
+				C451A5771E8DAE3600DFE5F7 /* ConfirmDeliveryViewSnapshotTest.swift */,
 			);
 			name = SnapshotTest;
 			sourceTree = "<group>";
@@ -3418,6 +3424,7 @@
 				3169B9B21E604A23005F8A94 /* BrandStoreServiceTest.swift in Sources */,
 				850A80FE1E5EF97E00E684A3 /* APIResponseHandlerTest.swift in Sources */,
 				C4C887861E89B5280022558F /* MessagesInteractorTest.swift in Sources */,
+				C451A5761E8DAD3B00DFE5F7 /* AddContentViewSnapshotTest.swift in Sources */,
 				858D63F61E55FF8600CFDD4C /* CustomAssertions.swift in Sources */,
 				8554BEB11E699C2C00E05A37 /* OrderProposalResourceTest.swift in Sources */,
 				3169B9D21E650EFC005F8A94 /* BrandStoreHeaderSnapshotTest.swift in Sources */,
@@ -3463,6 +3470,7 @@
 				31B079401E71667B0015C302 /* ProductDetailsGalleryDataSourceTest.swift in Sources */,
 				1AA7FAAE1E69C4CA001C0B6F /* CheckoutViewControllerSnapshotTest.swift in Sources */,
 				85B0A8301E66AEE8002093BA /* LoginFormInteractorTest.swift in Sources */,
+				C451A5781E8DAE3600DFE5F7 /* ConfirmDeliveryViewSnapshotTest.swift in Sources */,
 				85DCFC121E75B0CD0046D0D5 /* CartStoringMock.swift in Sources */,
 				85CA3FD21E64635600D43805 /* SessionManagerMock.swift in Sources */,
 				85B0A8321E66AEF5002093BA /* LoginServiceTest.swift in Sources */,
