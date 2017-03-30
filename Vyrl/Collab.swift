@@ -5,6 +5,7 @@
 import Decodable
 
 struct Collab {
+    let chatRoomId: String
     let brandName: String
     let chatRoom: ChatRoom
 }

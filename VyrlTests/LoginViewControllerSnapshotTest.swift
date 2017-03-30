@@ -6,7 +6,7 @@
 import XCTest
 
 final class LoginInteractorMock: LoginInteracting {
-    weak var presenter: ErrorAlertPresenting & ViewActivityPresenting?
+    weak var presenter: (ErrorAlertPresenting & ViewActivityPresenting)?
     func didPrepare(form: LoginFormInteracting) { }
     func didTapAction() { }
 }

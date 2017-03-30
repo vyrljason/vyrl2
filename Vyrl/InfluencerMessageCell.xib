@@ -18,7 +18,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="375" height="79"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="photoPlaceholderSmall" translatesAutoresizingMaskIntoConstraints="NO" id="VYK-QY-s1p" customClass="DownloadingImageView" customModule="Vyrl" customModuleProvider="target">
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="photoPlaceholderSmall" translatesAutoresizingMaskIntoConstraints="NO" id="VYK-QY-s1p" customClass="DownloadingImageView" customModule="Vyrl" customModuleProvider="target">
                         <rect key="frame" x="327" y="8" width="32" height="32"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="32" id="PbL-jz-ms5"/>

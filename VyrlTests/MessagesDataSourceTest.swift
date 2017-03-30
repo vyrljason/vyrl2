@@ -6,10 +6,9 @@ import XCTest
 @testable import Vyrl
 
 final class MessagesServiceMock: MessagesProviding {
-    
     var mockedMessages: [MessageContainer]? = [VyrlFaker.faker.messageContainer()]
-    
-    func getMessages(completion: @escaping (Result<[MessageContainer], ServiceError>) -> Void) {
+
+    func getMessages(inChatRoom chatRoomId: String, completion: @escaping (Result<[MessageContainer], ServiceError>) -> Void) {
         switch mockedMessages {
         case .some(let messages):
             completion(.success(messages))
@@ -24,13 +23,14 @@ final class MessagesDataSourceTests: XCTestCase {
     var subject: MessagesDataSource!
     var service: MessagesServiceMock!
     var tableView: TableViewMock!
-    
+    var collab: Collab!
+
     override func setUp() {
         super.setUp()
         service = MessagesServiceMock()
         tableView = TableViewMock()
-        
-        subject = MessagesDataSource(service: service)
+        collab = VyrlFaker.faker.collab()
+        subject = MessagesDataSource(service: service, collab: collab)
     }
     
     func test_registerNibs_didRegisterNib() {

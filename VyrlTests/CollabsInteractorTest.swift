@@ -12,6 +12,8 @@ final class CollabsDataSourceMock: CollectionDataSourceMock, CollabsDataProvidin
     weak var collectionUpdateListener: CollectionUpateListening?
     var updateResult: DataFetchResult?
 
+    override init() { }
+
     func updateCollection(with result: DataFetchResult) {
         updateResult = result
     }

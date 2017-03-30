@@ -17,7 +17,7 @@ protocol CategorySelectionHandling: class {
 
 final class LeftMenuInteractor: LeftMenuInteracting, CategorySelectionHandling {
 
-    weak var delegate: HomeScreenPresenting & CategoryPresenting & AccountScreenPresenting & AuthorizationScreenPresenting?
+    weak var delegate: (HomeScreenPresenting & CategoryPresenting & AccountScreenPresenting & AuthorizationScreenPresenting)?
     
     private let dataSource: CollectionViewUsing & CategoriesSelectionDelegateHaving & UICollectionViewDelegate & UICollectionViewDataSource
     private let credentialsProvider: APICredentialsProviding

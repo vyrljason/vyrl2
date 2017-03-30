@@ -5,7 +5,7 @@
 import UIKit
 
 protocol CartInteracting: class, TableViewUsing {
-    weak var projector: CartSummaryRendering & ViewContainer & LayoutGuideHaving? { get set }
+    weak var projector: (CartSummaryRendering & ViewContainer & LayoutGuideHaving)? { get set }
     func viewWillAppear()
     func didTapRequest()
 }
@@ -25,7 +25,7 @@ final class CartInteractor: CartInteracting {
     fileprivate let emptyTableHandler: EmptyTableViewHandling
 
     weak var cartNavigation: CartNavigating?
-    weak var projector: CartSummaryRendering & ViewContainer & LayoutGuideHaving?
+    weak var projector: (CartSummaryRendering & ViewContainer & LayoutGuideHaving)?
 
     init(dataSource: CartDataProviding, emptyTableHandler: EmptyTableViewHandling) {
         self.dataSource = dataSource

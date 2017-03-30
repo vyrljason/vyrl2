@@ -7,10 +7,13 @@ import XCTest
 
 final class MessagesInteractorNoDataMock: MessagesInteracting, DataRefreshing {
     weak var dataUpdateListener: DataLoadingEventsListening?
-    
+    weak var presenter: (MessageDisplaying & ErrorAlertPresenting)?
+
     func viewWillAppear() { }
     
     func didTapMore() { }
+
+    func didTapSend(message: String) { }
     
     func use(_ tableView: UITableView) { }
     

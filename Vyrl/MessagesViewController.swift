@@ -4,11 +4,15 @@
 
 import UIKit
 
+protocol MessageDisplaying: class {
+    func clearMessage()
+}
+
 final class MessagesViewController: UIViewController, HavingNib {
     static var nibName: String = "MessagesViewController"
 
     @IBOutlet fileprivate weak var tableView: UITableView!
-    @IBOutlet internal weak var messageTextView: AutoexpandableTextView!
+    @IBOutlet weak var messageTextView: AutoexpandableTextView!
     @IBOutlet private weak var addMessageView: UIView!
     @IBOutlet private weak var statusView: StatusView!
     
@@ -19,8 +23,9 @@ final class MessagesViewController: UIViewController, HavingNib {
         self.interactor = interactor
         super.init(nibName: MessagesViewController.nibName, bundle: nil)
         interactor.use(self)
+        interactor.presenter = self
     }
-    
+
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -43,7 +48,7 @@ final class MessagesViewController: UIViewController, HavingNib {
         super.viewWillAppear(animated)
         interactor.viewWillAppear()
     }
-    
+
     func setUpStatusView(withStatus status: CollabStatus) {
         let renderable = StatusViewRenderable(status: status)
         statusView.render(renderable: renderable)
@@ -65,5 +70,17 @@ extension MessagesViewController: DataLoadingEventsListening {
     
     func didFinishDataLoading() {
         refreshControl.endRefreshing()
+    }
+}
+
+extension MessagesViewController: MessageDisplaying {
+    func clearMessage() {
+        messageTextView.text = nil
+    }
+}
+
+extension MessagesViewController {
+    @IBAction private func didTapSend() {
+        interactor.didTapSend(message: messageTextView.text)
     }
 }

@@ -5,6 +5,33 @@
 @testable import Vyrl
 import XCTest
 
+final class MessagesPresenterMock: MessageDisplaying, ErrorAlertPresenting {
+    var didCallClear = false
+    var didCallPresentError = false
+
+    func clearMessage() {
+        didCallClear = true
+    }
+
+    func presentError(title: String?, message: String?) {
+        didCallPresentError = true
+    }
+}
+
+final class MessageSenderMock: MessageSending {
+    var success = true
+    var error = ServiceError.unknown
+    var response = EmptyResponse()
+
+    func send(message: Message, toRoom roomId: String, completion: @escaping (Result<EmptyResponse, ServiceError>) -> Void) {
+        if success {
+            completion(.success(response))
+        } else {
+            completion(.failure(error))
+        }
+    }
+}
+
 final class MessagesDataSourceMock: NSObject, MessagesDataProviding {
     var didUseTableView: Bool = false
     var didUseLoadTableData: Bool = false
@@ -41,12 +68,17 @@ final class MessagesInteractorTest: XCTestCase {
     var subject: MessagesInteractor!
     var tableView = TableViewMock()
     var dataSource: MessagesDataSourceMock!
+    var messagePresenter: MessagesPresenterMock!
+    var messageSender: MessageSenderMock!
     var collab: Collab!
     
     override func setUp() {
         dataSource = MessagesDataSourceMock()
         collab = VyrlFaker.faker.collab()
-        subject = MessagesInteractor(dataSource: dataSource, collab: collab)
+        messagePresenter = MessagesPresenterMock()
+        messageSender = MessageSenderMock()
+        subject = MessagesInteractor(dataSource: dataSource, collab: collab, messageSender: messageSender)
+        subject.presenter = messagePresenter
     }
     
     func test_refreshData_reloadsDataSource() {
@@ -77,5 +109,32 @@ final class MessagesInteractorTest: XCTestCase {
             subject.dataSource.tableViewControllingDelegate?.updateTable(with: result)
             XCTAssertTrue(tableView.didCallReload)
         }
+    }
+
+    func test_didTapSend_whenMessageIsEmpty_doesNothing() {
+        let message = ""
+
+        subject.didTapSend(message: message)
+
+        XCTAssertFalse(messagePresenter.didCallClear)
+        XCTAssertFalse(messagePresenter.didCallPresentError)
+    }
+
+    func test_didTapSend_whenServiceReturnsError_presentsError() {
+        let message = "message"
+        messageSender.success = false
+
+        subject.didTapSend(message: message)
+
+        XCTAssertTrue(messagePresenter.didCallPresentError)
+    }
+
+    func test_didTapSend_whenServiceReturnsSuccess_clearsMessage() {
+        let message = "message"
+        messageSender.success = true
+
+        subject.didTapSend(message: message)
+
+        XCTAssertTrue(messagePresenter.didCallClear)
     }
 }

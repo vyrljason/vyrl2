@@ -4,17 +4,14 @@
 
 import Decodable
 
-enum MessageType {
-    private enum Constants {
-        static let systemSenderId = "-1"
-    }
-    
-    case system
-    case normal
+fileprivate enum Constants {
+    static let systemSenderId = "-1"
+}
 
-    static func type(for senderId: String) -> MessageType {
-        return senderId == Constants.systemSenderId ? .system : . normal
-    }
+enum MessageType {
+    case system
+    case brand
+    case influencer
 }
 
 struct MessageContainer {
@@ -24,23 +21,26 @@ struct MessageContainer {
         static let message = "message"
     }
     
-    let createdAt: Double
+    let createdAt: Date
     let sender: Sender
     let message: Message
-    let messageType: MessageType
+
+    func messageType(in collab: Collab) -> MessageType {
+        switch sender.id {
+        case collab.chatRoom.influencerId:
+            return .influencer
+        case Constants.systemSenderId:
+            return .system
+        default:
+            return .brand
+        }
+    }
 }
 
 extension MessageContainer: Decodable {
     static func decode(_ json: Any) throws -> MessageContainer {
-        guard let sender: Sender = try json => KeyPath(JSONKeys.message) else {
-            throw DecodingError.missingKey("sender", DecodingError.Metadata(object: JSONKeys.sender))
-        }
-        
-        let messageType = MessageType.type(for: sender.id)
-
-        return try self.init(createdAt: json => KeyPath(JSONKeys.createdAt),
-                             sender: sender,
-                             message: json => KeyPath(JSONKeys.message),
-                             messageType: messageType)
+        return try self.init(createdAt: Date(timeIntervalSince1970: json => KeyPath(JSONKeys.createdAt)),
+                             sender: json => KeyPath(JSONKeys.sender),
+                             message: json => KeyPath(JSONKeys.message))
     }
 }
