@@ -10,6 +10,7 @@ protocol MessagesDataAccessing: class {
 
 protocol MessagesDataProviding: TableViewUsing, TableViewDataProviding, MessagesDataAccessing {
     weak var reloadingDelegate: ReloadingData? { get set }
+    weak var actionTarget: (ContentAdding & DeliveryConfirming)? { get set }
 }
 
 final class MessagesDataSource: NSObject, MessagesDataProviding {
@@ -23,6 +24,7 @@ final class MessagesDataSource: NSObject, MessagesDataProviding {
     fileprivate var items = [MessageContainer]()
     
     weak var reloadingDelegate: ReloadingData?
+    weak var actionTarget: (ContentAdding & DeliveryConfirming)?
     weak var tableViewControllingDelegate: TableViewControlling?
     weak var interactor: MessagesInteracting?
     
