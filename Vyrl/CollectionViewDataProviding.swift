@@ -13,7 +13,7 @@ protocol CollectionViewDataLoading {
 }
 
 protocol CollectionViewControllerProviding {
-    weak var collectionViewControllingDelegate: CollectionViewHaving & CollectionViewControlling? { get set }
+    weak var collectionViewControllingDelegate: (CollectionViewHaving & CollectionViewControlling)? { get set }
 }
 
 protocol CollectionViewNibRegistering {

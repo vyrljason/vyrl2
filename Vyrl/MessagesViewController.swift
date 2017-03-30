@@ -12,7 +12,7 @@ final class MessagesViewController: UIViewController, HavingNib {
     static var nibName: String = "MessagesViewController"
 
     @IBOutlet fileprivate weak var tableView: UITableView!
-    @IBOutlet fileprivate weak var messageTextView: AutoexpandableTextView!
+    @IBOutlet weak var messageTextView: AutoexpandableTextView!
     @IBOutlet private weak var addMessageView: UIView!
     @IBOutlet private weak var statusView: StatusView!
     

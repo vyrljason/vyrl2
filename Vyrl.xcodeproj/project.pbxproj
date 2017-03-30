@@ -3013,7 +3013,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Vyrl-VyrlTests/Pods-Vyrl-VyrlTests-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-VyrlTests/Pods-VyrlTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		8C856070D7E29DD91A6A3233 /* [CP] Embed Pods Frameworks */ = {
@@ -3028,7 +3028,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Vyrl-VyrlTests/Pods-Vyrl-VyrlTests-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-VyrlTests/Pods-VyrlTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		B22BC1051E54C77700C4519C /* Fabric */ = {
@@ -3614,14 +3614,13 @@
 		};
 		1ADAF7F01E545F3C00155D9F /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F3FA9C9307A9DB63E646297F /* Pods-Vyrl-VyrlTests.debug.xcconfig */;
+			baseConfigurationReference = E340CAC7115BDC8D7662DAA1 /* Pods-VyrlTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				DEVELOPMENT_TEAM = 2FUQCB4MRE;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
-					"${PODS_ROOT}/Firebase/Core/Sources",
 					"$(inherited)",
 					"\"${PODS_ROOT}/Headers/Public\"",
 					"\"${PODS_ROOT}/Headers/Public/Crashlytics\"",
@@ -3639,14 +3638,13 @@
 		};
 		1ADAF7F11E545F3C00155D9F /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A18C29074EB0CA69D3CEAB5F /* Pods-Vyrl-VyrlTests.release.xcconfig */;
+			baseConfigurationReference = 1A2766098374FF4C447FC4D5 /* Pods-VyrlTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				DEVELOPMENT_TEAM = 2FUQCB4MRE;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
-					"${PODS_ROOT}/Firebase/Core/Sources",
 					"$(inherited)",
 					"\"${PODS_ROOT}/Headers/Public\"",
 					"\"${PODS_ROOT}/Headers/Public/Crashlytics\"",
@@ -3725,14 +3723,13 @@
 		};
 		B22B2B801E64B2B800089F7A /* Ad Hoc */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F49938B0396058B0A03497B5 /* Pods-Vyrl-VyrlTests.ad hoc.xcconfig */;
+			baseConfigurationReference = BD1309C018727D87342F7FE2 /* Pods-VyrlTests.ad hoc.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				DEVELOPMENT_TEAM = 2FUQCB4MRE;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
-					"${PODS_ROOT}/Firebase/Core/Sources",
 					"$(inherited)",
 					"\"${PODS_ROOT}/Headers/Public\"",
 					"\"${PODS_ROOT}/Headers/Public/Crashlytics\"",

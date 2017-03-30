@@ -10,7 +10,7 @@ private enum Constants {
 
 protocol MessagesInteracting: TableViewUsing {
     weak var dataUpdateListener: DataLoadingEventsListening? { get set }
-    weak var presenter: MessageDisplaying & ErrorAlertPresenting? { get set }
+    weak var presenter: (MessageDisplaying & ErrorAlertPresenting)? { get set }
     func viewWillAppear()
     func didTapMore()
     func didTapSend(message: String)
@@ -20,9 +20,9 @@ protocol MessagesInteracting: TableViewUsing {
 final class MessagesInteractor: MessagesInteracting {
     fileprivate weak var tableView: UITableView?
     fileprivate weak var viewController: MessagesViewController?
-    fileprivate let dataSource: MessagesDataProviding
+    let dataSource: MessagesDataProviding
     weak var dataUpdateListener: DataLoadingEventsListening?
-    weak var presenter: MessageDisplaying & ErrorAlertPresenting?
+    weak var presenter: (MessageDisplaying & ErrorAlertPresenting)?
 
     private let collab: Collab
     private let messageSender: MessageSending

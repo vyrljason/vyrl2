@@ -11,6 +11,8 @@ PODS:
   - FBSnapshotTestCase/Core (2.1.4)
   - FBSnapshotTestCase/SwiftSupport (2.1.4):
     - FBSnapshotTestCase/Core
+  - Firebase (3.15.0):
+    - Firebase/Core (= 3.15.0)
   - Firebase/Auth (3.15.0):
     - Firebase/Core
     - FirebaseAuth (= 3.1.1)
@@ -61,6 +63,7 @@ DEPENDENCIES:
   - Fabric
   - Fakery
   - FBSnapshotTestCase
+  - Firebase
   - Firebase/Auth
   - Firebase/Core
   - Firebase/Database
@@ -113,6 +116,6 @@ SPEC CHECKSUMS:
   SwiftLint: b8b683208cc09640898f16318a7a452274e91f61
   Whisper: '08be92623311f8e53201e62e17f6d7b9599a4714'
 
-PODFILE CHECKSUM: 262dc15872ca8ad8c4e9d81b670228ffcfc646fa
+PODFILE CHECKSUM: f4a5b3803f499c6ee67ab5ba5d2d842196681b47
 
 COCOAPODS: 1.2.1.beta.1
