@@ -33,7 +33,7 @@
                                 <constraint firstAttribute="height" constant="34" id="wZ4-f0-z1R"/>
                             </constraints>
                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
-                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no"/>
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="string" keyPath="placeholderText" value="Write your message here...."/>
                                 <userDefinedRuntimeAttribute type="number" keyPath="maxHeight">

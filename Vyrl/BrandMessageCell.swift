@@ -23,5 +23,4 @@ class BrandMessageCell: UITableViewCell, HavingNib, MessageCellRendering {
     func set(imageFetcher: ImageFetching) {
         avatarImageView.fetchImage(using: imageFetcher, placeholder: #imageLiteral(resourceName: "photoPlaceholderSmall"))
     }
-    
 }
