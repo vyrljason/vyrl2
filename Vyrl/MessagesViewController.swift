@@ -8,7 +8,7 @@ final class MessagesViewController: UIViewController, HavingNib {
     static var nibName: String = "MessagesViewController"
 
     @IBOutlet fileprivate weak var tableView: UITableView!
-    @IBOutlet internal weak var messageTextView: AutoexpandableTextView!
+    @IBOutlet fileprivate weak var messageTextView: AutoexpandableTextView!
     @IBOutlet private weak var addMessageView: UIView!
     @IBOutlet private weak var statusView: StatusView!
     
@@ -43,7 +43,7 @@ final class MessagesViewController: UIViewController, HavingNib {
         super.viewWillAppear(animated)
         interactor.viewWillAppear()
     }
-    
+
     func setUpStatusView(withStatus status: CollabStatus) {
         let renderable = StatusViewRenderable(status: status)
         statusView.render(renderable: renderable)
@@ -65,5 +65,11 @@ extension MessagesViewController: DataLoadingEventsListening {
     
     func didFinishDataLoading() {
         refreshControl.endRefreshing()
+    }
+}
+
+extension MessagesViewController {
+    @IBAction private func didTapSend() {
+        interactor.didTapSend(message: messageTextView.text)
     }
 }

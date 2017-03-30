@@ -6,7 +6,7 @@ import Foundation
 
 protocol PostingWithParameters {
     associatedtype ResponseModel
-    associatedtype Parameters: DictionaryConvertible
+    associatedtype Parameters
     func post(using parameters: Parameters, completion: @escaping (Result<ResponseModel, APIResponseError>) -> Void)
 }
 

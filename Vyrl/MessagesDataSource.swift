@@ -13,20 +13,20 @@ protocol MessagesDataProviding: TableViewUsing, TableViewDataProviding, Messages
 }
 
 final class MessagesDataSource: NSObject, MessagesDataProviding {
-    
+
     fileprivate enum Constants {
         static let numberOfSections: Int = 1
         static let cellHeight: CGFloat = 100
     }
-    
+
     fileprivate let service: MessagesProviding
     fileprivate let collab: Collab
     fileprivate var items = [MessageContainer]()
-    
+
     weak var reloadingDelegate: ReloadingData?
     weak var tableViewControllingDelegate: TableViewControlling?
     weak var interactor: MessagesInteracting?
-    
+
     init(service: MessagesProviding, collab: Collab) {
         self.service = service
         self.collab = collab
@@ -51,14 +51,16 @@ extension MessagesDataSource: TableViewDataProviding {
     func loadTableData() {
         service.getMessages(inChatRoom: collab.chatRoomId) { [weak self] result in
             guard let `self` = self else { return }
-            self.items = result.map(success: { $0 }, failure: { _ in return [] })
+            self.items = result.map(success: {
+                $0.sorted(by: { $0.createdAt < $1.createdAt })},
+                                    failure: { _ in return [] })
             DispatchQueue.onMainThread { [weak self] in
                 self?.tableViewControllingDelegate?.updateTable(with: result.map(success: { $0 .isEmpty ? .empty : .someData },
                                                                                  failure: { _ in .error }))
             }
         }
     }
-    
+
     fileprivate func prepare(cell: InfluencerMessageCell, messageItem: MessageContainer) {
         let renderable = MessageCellRenderable(text: messageItem.message.text)
         cell.render(renderable)
@@ -72,7 +74,7 @@ extension MessagesDataSource: TableViewDataProviding {
         guard let avatarUrl = messageItem.sender.avatar else { return }
         cell.set(imageFetcher: ImageFetcher(url: avatarUrl))
     }
-    
+
     fileprivate func prepare(cell: SystemMessageCell, messageItem: MessageContainer) {
         let renderable = MessageCellRenderable(text: messageItem.message.text)
         cell.render(renderable)
@@ -95,15 +97,15 @@ extension MessagesDataSource: TableViewDataProviding {
         prepare(cell: cell, messageItem: items[indexPath.row])
         return cell
     }
-    
+
     func numberOfSections(in tableView: UITableView) -> Int {
         return Constants.numberOfSections
     }
-    
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return items.count
     }
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch items[indexPath.row].messageType(in: collab) {
         case .system:

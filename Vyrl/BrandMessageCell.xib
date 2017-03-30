@@ -14,11 +14,11 @@
         <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="BrandMessageCell" rowHeight="80" id="fjT-j2-IYs" customClass="BrandMessageCell" customModule="Vyrl" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="fjT-j2-IYs" id="Xuc-63-p9Q">
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" tableViewCell="fjT-j2-IYs" id="Xuc-63-p9Q">
                 <rect key="frame" x="0.0" y="0.0" width="375" height="79"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="Lorem ipsum dolor sit er elit lamet, consectetaur " textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="RRE-Bf-9ts" customClass="AutoexpandableTextView" customModule="Vyrl">
+                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" scrollEnabled="NO" editable="NO" text="Lorem ipsum dolor sit er elit lamet, consectetaur " textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="RRE-Bf-9ts" customClass="AutoexpandableTextView" customModule="Vyrl">
                         <rect key="frame" x="48" y="8" width="216" height="55"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -32,7 +32,7 @@
                             <outlet property="height" destination="d5j-sn-xAy" id="79Q-Hd-6Mf"/>
                         </connections>
                     </textView>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="photoPlaceholderSmall" translatesAutoresizingMaskIntoConstraints="NO" id="CAJ-h7-SCa" customClass="DownloadingImageView" customModule="Vyrl" customModuleProvider="target">
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="photoPlaceholderSmall" translatesAutoresizingMaskIntoConstraints="NO" id="CAJ-h7-SCa" customClass="DownloadingImageView" customModule="Vyrl" customModuleProvider="target">
                         <rect key="frame" x="16" y="8" width="32" height="32"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="32" id="Ilb-z7-kyC"/>

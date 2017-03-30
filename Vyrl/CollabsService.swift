@@ -61,8 +61,8 @@ final class CollabsService: CollabsProviding {
                     }
                 })
             }
-            completion(result)
             self.chatDatabase.removeObserver(withHandle: self.databaseHandle)
+            completion(result)
         }
     }
 }

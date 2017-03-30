@@ -25,6 +25,7 @@ enum OrderStatus: CustomStringConvertible {
         }
     }
 
+    // swiftlint:disable cyclomatic_complexity
     init(description: String) {
         switch description {
         case OrderStatus.requested.description:

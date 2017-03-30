@@ -51,6 +51,9 @@
                                 <constraint firstAttribute="width" constant="38" id="Y21-DT-QMQ"/>
                             </constraints>
                             <state key="normal" title="Button" image="send01"/>
+                            <connections>
+                                <action selector="didTapSend" destination="-1" eventType="touchUpInside" id="cLw-Ns-sxP"/>
+                            </connections>
                         </button>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -85,7 +88,7 @@
                 <constraint firstAttribute="trailing" secondItem="eAC-gO-r1l" secondAttribute="trailing" id="nJS-y3-cje"/>
                 <constraint firstAttribute="bottom" secondItem="GIk-al-Ee4" secondAttribute="bottom" id="ppe-d3-T0R" customClass="KeyboardLayoutConstraint" customModule="Spring"/>
             </constraints>
-            <point key="canvasLocation" x="33.5" y="62.5"/>
+            <point key="canvasLocation" x="-193" y="64"/>
         </view>
     </objects>
     <resources>

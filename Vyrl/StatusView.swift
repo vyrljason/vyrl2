@@ -18,6 +18,7 @@ enum CollabStatus: Int, CustomStringConvertible, CustomIntegerConvertible {
     case done = 4
     case waiting = -1
 
+    // swiftlint:disable cyclomatic_complexity
     init(orderStatus: OrderStatus) {
         switch orderStatus {
         case .requested:

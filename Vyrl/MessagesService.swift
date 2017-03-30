@@ -34,8 +34,8 @@ final class MessagesService: MessagesProviding {
             var result = [String: MessageContainer]()
             if let roomsDictionary = snapshot.value as? [AnyHashable: [AnyHashable: Any]] {
                 roomsDictionary.forEach({ (key, valueDictionary) in
-                    if let room = try? MessageContainer.decode(valueDictionary), let roomId = key as? String {
-                        result[roomId] = room
+                    if let message = try? MessageContainer.decode(valueDictionary), let messageId = key as? String {
+                        result[messageId] = message
                     }
                 })
             }

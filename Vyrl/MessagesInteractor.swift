@@ -8,6 +8,7 @@ protocol MessagesInteracting: TableViewUsing {
     weak var dataUpdateListener: DataLoadingEventsListening? { get set }
     func viewWillAppear()
     func didTapMore()
+    func didTapSend(message: String)
     func use(_ viewController: MessagesViewController)
 }
 
@@ -17,10 +18,13 @@ final class MessagesInteractor: MessagesInteracting {
     let dataSource: MessagesDataProviding
     weak var dataUpdateListener: DataLoadingEventsListening?
     private let collab: Collab
+    private let messageSender: MessageSending
     
-    init(dataSource: MessagesDataProviding, collab: Collab) {
+    init(dataSource: MessagesDataProviding, collab: Collab,
+         messageSender: MessageSending) {
         self.dataSource = dataSource
         self.collab = collab
+        self.messageSender = messageSender
         dataSource.interactor = self
         dataSource.tableViewControllingDelegate = self
     }
@@ -33,6 +37,21 @@ final class MessagesInteractor: MessagesInteracting {
     func didTapMore() {
         //FIXME: Only for test, Waiting for api sync
         viewController?.setUpStatusView(withStatus: CollabStatus.waiting)
+    }
+
+    func didTapSend(message: String) {
+        let trimmedMessage = message.trimmed
+        guard trimmedMessage.characters.count > 0 else { return }
+        let message = Message(text: trimmedMessage)
+        messageSender.send(message: message,
+                            toRoom: collab.chatRoomId) { result in
+                                result.on(success: { message in
+
+                                }, failure: { error in
+
+                                })
+        }
+
     }
     
     func use(_ viewController: MessagesViewController) {

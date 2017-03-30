@@ -261,6 +261,12 @@
 		8554BEC41E69D7A400E05A37 /* ProductsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8554BEC31E69D7A400E05A37 /* ProductsService.swift */; };
 		8554BEC61E69DE8000E05A37 /* ShippingAddressInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8554BEC51E69DE8000E05A37 /* ShippingAddressInteractor.swift */; };
 		8554BEC91E69DECD00E05A37 /* ShippingAddressViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8554BEC81E69DECD00E05A37 /* ShippingAddressViewFactory.swift */; };
+		855AD6D61E8CF81500B9523D /* String+Trim.swift in Sources */ = {isa = PBXBuildFile; fileRef = 855AD6D51E8CF81500B9523D /* String+Trim.swift */; };
+		855AD6DC1E8CF8FA00B9523D /* PostMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 855AD6D71E8CF8FA00B9523D /* PostMessage.swift */; };
+		855AD6DD1E8CF8FA00B9523D /* PostMessageEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 855AD6D81E8CF8FA00B9523D /* PostMessageEndpoint.swift */; };
+		855AD6DE1E8CF8FA00B9523D /* PostMessageResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 855AD6D91E8CF8FA00B9523D /* PostMessageResource.swift */; };
+		855AD6DF1E8CF8FA00B9523D /* PostMessageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 855AD6DA1E8CF8FA00B9523D /* PostMessageService.swift */; };
+		855AD6E21E8D00EE00B9523D /* EmptyResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 855AD6E11E8D00EE00B9523D /* EmptyResponse.swift */; };
 		85603F761E88ED530062485E /* ChatAuthenticator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85603F751E88ED530062485E /* ChatAuthenticator.swift */; };
 		85603F7D1E88EE600062485E /* ChatSigningIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85603F7C1E88EE600062485E /* ChatSigningIn.swift */; };
 		85603F7F1E8917280062485E /* ChatTokenDecoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85603F7E1E8917280062485E /* ChatTokenDecoding.swift */; };
@@ -700,6 +706,12 @@
 		8554BEC31E69D7A400E05A37 /* ProductsService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductsService.swift; sourceTree = "<group>"; };
 		8554BEC51E69DE8000E05A37 /* ShippingAddressInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShippingAddressInteractor.swift; sourceTree = "<group>"; };
 		8554BEC81E69DECD00E05A37 /* ShippingAddressViewFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShippingAddressViewFactory.swift; sourceTree = "<group>"; };
+		855AD6D51E8CF81500B9523D /* String+Trim.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Trim.swift"; sourceTree = "<group>"; };
+		855AD6D71E8CF8FA00B9523D /* PostMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostMessage.swift; sourceTree = "<group>"; };
+		855AD6D81E8CF8FA00B9523D /* PostMessageEndpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostMessageEndpoint.swift; sourceTree = "<group>"; };
+		855AD6D91E8CF8FA00B9523D /* PostMessageResource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostMessageResource.swift; sourceTree = "<group>"; };
+		855AD6DA1E8CF8FA00B9523D /* PostMessageService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostMessageService.swift; sourceTree = "<group>"; };
+		855AD6E11E8D00EE00B9523D /* EmptyResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmptyResponse.swift; sourceTree = "<group>"; };
 		85603F751E88ED530062485E /* ChatAuthenticator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatAuthenticator.swift; sourceTree = "<group>"; };
 		85603F7C1E88EE600062485E /* ChatSigningIn.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatSigningIn.swift; sourceTree = "<group>"; };
 		85603F7E1E8917280062485E /* ChatTokenDecoding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatTokenDecoding.swift; sourceTree = "<group>"; };
@@ -1645,6 +1657,7 @@
 			children = (
 				850A80EA1E5E1FFA00E684A3 /* DataResponseProtocol.swift */,
 				850A80EC1E5E200C00E684A3 /* APIResponseHandler.swift */,
+				855AD6E11E8D00EE00B9523D /* EmptyResponse.swift */,
 			);
 			name = Responses;
 			sourceTree = "<group>";
@@ -2428,6 +2441,7 @@
 				85DCFC461E77FED00046D0D5 /* Array+Hashable.swift */,
 				C414B25E1E8A7C4B002F973E /* UIView+IBInspectables.swift */,
 				8597AB661E8ADF5900A64585 /* Array+DictionaryInitializable.swift */,
+				855AD6D51E8CF81500B9523D /* String+Trim.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -2443,6 +2457,7 @@
 		8597AB571E89BC3D00A64585 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				855AD6DA1E8CF8FA00B9523D /* PostMessageService.swift */,
 				8597AB5F1E8A59D100A64585 /* MessagesService.swift */,
 			);
 			name = Services;
@@ -2451,6 +2466,8 @@
 		8597AB581E89BC4400A64585 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				855AD6D91E8CF8FA00B9523D /* PostMessageResource.swift */,
+				855AD6D81E8CF8FA00B9523D /* PostMessageEndpoint.swift */,
 				8597AB621E8A5A0A00A64585 /* MessagesResourceMock.swift */,
 			);
 			name = Resources;
@@ -2735,6 +2752,7 @@
 		C4BDA43C1E8138F40009BB67 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				855AD6D71E8CF8FA00B9523D /* PostMessage.swift */,
 				C4BDA43D1E8139010009BB67 /* Message.swift */,
 				C4BDA43F1E8163890009BB67 /* Sender.swift */,
 				C47D450B1E825F1B005DD524 /* MessageContainer.swift */,
@@ -3195,6 +3213,7 @@
 				1A69C6A61E56008100134EF5 /* NavigationBar.swift in Sources */,
 				C4BDA4401E8163890009BB67 /* Sender.swift in Sources */,
 				852ACD451E55DCDC00219E90 /* ReusableView.swift in Sources */,
+				855AD6D61E8CF81500B9523D /* String+Trim.swift in Sources */,
 				850A80D61E5DE83200E684A3 /* CredentialsStorage.swift in Sources */,
 				8597AB611E8A59F700A64585 /* MessagesService.swift in Sources */,
 				1A69C6A01E55DC8C00134EF5 /* LeftMenuViewController.swift in Sources */,
@@ -3222,6 +3241,7 @@
 				85B0A8261E65F335002093BA /* UIAlertController+Ok.swift in Sources */,
 				1A859C0E1E5756C50013EB09 /* UIFont.swift in Sources */,
 				85CA3FEC1E64887900D43805 /* String+Password.swift in Sources */,
+				855AD6DF1E8CF8FA00B9523D /* PostMessageService.swift in Sources */,
 				850A80D11E5DCBAF00E684A3 /* JSONModelDeserializer.swift in Sources */,
 				1AA7FAB11E69CB2F001C0B6F /* OrderProposalService.swift in Sources */,
 				C4BDA4331E7FDADA0009BB67 /* MessagesInteractor.swift in Sources */,
@@ -3237,6 +3257,7 @@
 				1A1FA9451E5DABE4007EB61D /* Service.swift in Sources */,
 				3169B9D41E659538005F8A94 /* Money.swift in Sources */,
 				31B079441E7199070015C302 /* PagerUpdater.swift in Sources */,
+				855AD6E21E8D00EE00B9523D /* EmptyResponse.swift in Sources */,
 				850A80FB1E5EE8DF00E684A3 /* APIResource.swift in Sources */,
 				8554BE8B1E6879A500E05A37 /* ProductsEndpoint.swift in Sources */,
 				850A80F91E5EE88F00E684A3 /* ResourceConfigurator.swift in Sources */,
@@ -3247,8 +3268,11 @@
 				85DCFC1E1E75BC370046D0D5 /* ContactInfoViewController.swift in Sources */,
 				31FEB5AE1E5C5E3900C5E41D /* BrandStoreHeaderRenderable.swift in Sources */,
 				850A810A1E5F2B4B00E684A3 /* ResourceConfiguratorFactory.swift in Sources */,
+				855AD6DE1E8CF8FA00B9523D /* PostMessageResource.swift in Sources */,
 				850A80F21E5E269F00E684A3 /* UserCredentials.swift in Sources */,
 				1AEBB9721E608A9B00113DC9 /* CartInteractor.swift in Sources */,
+				855AD6DC1E8CF8FA00B9523D /* PostMessage.swift in Sources */,
+				855AD6DD1E8CF8FA00B9523D /* PostMessageEndpoint.swift in Sources */,
 				31EF22F51E677E310073F624 /* TableViewHaving.swift in Sources */,
 				85DCFC1A1E75BC240046D0D5 /* ContactInfoInteractor.swift in Sources */,
 				858D644A1E58A67200CFDD4C /* EmptyCollectionViewHandler.swift in Sources */,
