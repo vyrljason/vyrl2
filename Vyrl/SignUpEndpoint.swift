@@ -4,7 +4,7 @@
 
 import Alamofire
 
-struct RegisterEndpoint: APIEndpoint {
+struct SignUpEndpoint: APIEndpoint {
     let path = "/auth/local/register"
     let authorization: AuthorizationType = .none
     let method: HTTPMethod = .post
@@ -12,7 +12,7 @@ struct RegisterEndpoint: APIEndpoint {
     let api: APIType = .influencers
     let encoding: ParameterEncoding = JSONEncoding()
 
-    init(request: UserRegistrationRequest) {
+    init(request: UserSignUpRequest) {
         parameters = request.dictionaryRepresentation
     }
 }

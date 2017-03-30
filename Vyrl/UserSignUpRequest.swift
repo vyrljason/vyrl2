@@ -4,7 +4,7 @@
 
 import Foundation
 
-struct UserRegistrationRequest {
+struct UserSignUpRequest {
     fileprivate enum JSONKeys {
         static let username = "username"
         static let email = "email"
@@ -22,7 +22,9 @@ struct UserRegistrationRequest {
     let platform: String
     let platformUsername: String
 
-    init(username: String, email: String, password: String, platform: String = Constants.defaultPlatform, platformUsername: String) {
+    init(username: String, email: String,
+         password: String, platform: String = Constants.defaultPlatform,
+         platformUsername: String) {
         self.username = username
         self.email = email
         self.password = password
@@ -31,7 +33,7 @@ struct UserRegistrationRequest {
     }
 }
 
-extension UserRegistrationRequest : DictionaryConvertible {
+extension UserSignUpRequest : DictionaryConvertible {
     var dictionaryRepresentation: [String: Any] {
         return [JSONKeys.username: username,
                 JSONKeys.email: email,
