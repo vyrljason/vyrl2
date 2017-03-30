@@ -13,6 +13,7 @@ final class MessagesDataSourceMock: NSObject, MessagesDataProviding {
     weak var tableViewControllingDelegate: TableViewControlling?
     weak var reloadingDelegate: ReloadingData?
     weak var interactor: MessagesInteracting?
+    weak var actionTarget: (ContentAdding & DeliveryConfirming)?
     
     func use(_ tableView: UITableView) {
         didUseTableView = true
@@ -46,7 +47,7 @@ final class MessagesInteractorTest: XCTestCase {
     override func setUp() {
         dataSource = MessagesDataSourceMock()
         collab = VyrlFaker.faker.collab()
-        subject = MessagesInteractor(dataSource: dataSource, collab: collab)
+        subject = MessagesInteractor(dataSource: dataSource, collab: collab, messageSender: <#T##MessageSending#>)
     }
     
     func test_refreshData_reloadsDataSource() {

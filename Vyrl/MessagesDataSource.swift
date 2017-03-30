@@ -18,6 +18,7 @@ final class MessagesDataSource: NSObject, MessagesDataProviding {
     fileprivate enum Constants {
         static let numberOfSections: Int = 1
         static let cellHeight: CGFloat = 100
+        static let footerHeight: CGFloat = 60
     }
 
     fileprivate let service: MessagesProviding
@@ -45,7 +46,29 @@ extension MessagesDataSource: TableViewUsing {
         SystemMessageCell.register(to: tableView)
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = Constants.cellHeight
-        tableView.tableFooterView = UIView()
+        tableView.tableFooterView = properFooterView(for: tableView)
+    }
+    
+    fileprivate func properFooterView(for tableView: UITableView) -> UIView {
+        switch CollabStatus(orderStatus: collab.chatRoom.status) {
+        case .productDelivery:
+            let confirmView = ConfirmDeliveryView.fromNib()
+            confirmView.delegate = actionTarget
+            return footerView(containing: confirmView, tableView: tableView)
+        case .contentReview:
+            let contentView = AddContentView.fromNib()
+            contentView.delegate = actionTarget
+            return footerView(containing: contentView, tableView: tableView)
+        default:
+            return UIView()
+        }
+    }
+    
+    fileprivate func footerView(containing view: UIView, tableView: UITableView) -> UIView {
+        let footerView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.size.width, height: Constants.footerHeight))
+        footerView.addSubview(view)
+        view.pinToEdges(of: footerView)
+        return footerView
     }
 }
 

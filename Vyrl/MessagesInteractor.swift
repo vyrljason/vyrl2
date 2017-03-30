@@ -11,18 +11,18 @@ private enum Constants {
 protocol MessagesInteracting: TableViewUsing {
     weak var dataUpdateListener: DataLoadingEventsListening? { get set }
     weak var presenter: MessageDisplaying & ErrorAlertPresenting? { get set }
+    weak var viewController: MessagesControlling? { get set }
     func viewWillAppear()
     func didTapMore()
     func didTapSend(message: String)
-    func use(_ viewController: MessagesViewController)
 }
 
 final class MessagesInteractor: MessagesInteracting {
     fileprivate weak var tableView: UITableView?
-    fileprivate weak var viewController: MessagesViewController?
     fileprivate let dataSource: MessagesDataProviding
     weak var dataUpdateListener: DataLoadingEventsListening?
     weak var presenter: MessageDisplaying & ErrorAlertPresenting?
+    weak var viewController: MessagesControlling?
 
     private let collab: Collab
     private let messageSender: MessageSending
@@ -34,6 +34,7 @@ final class MessagesInteractor: MessagesInteracting {
         self.messageSender = messageSender
         dataSource.interactor = self
         dataSource.tableViewControllingDelegate = self
+        dataSource.actionTarget = self
     }
     
     func viewWillAppear() {
@@ -58,10 +59,6 @@ final class MessagesInteractor: MessagesInteracting {
                                 })
         }
     }
-    
-    func use(_ viewController: MessagesViewController) {
-        self.viewController = viewController
-    }
 }
 
 extension MessagesInteractor: TableViewUsing {
@@ -84,5 +81,19 @@ extension MessagesInteractor: TableViewControlling {
     
     func loadTableData() {
         dataSource.loadTableData()
+    }
+}
+
+extension MessagesInteractor: DeliveryConfirming {
+    func didTapConfirm() {
+        //FIXME: Waiting for api
+        print("DID TAP CONFIRM")
+    }
+}
+
+extension MessagesInteractor: ContentAdding {
+    func didTapAddContent() {
+        //FIXME: Waiting for add content view controller
+        print("DID TAP ADD CONTENT")
     }
 }
