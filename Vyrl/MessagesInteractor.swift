@@ -26,12 +26,15 @@ final class MessagesInteractor: MessagesInteracting {
 
     private let collab: Collab
     private let messageSender: MessageSending
-    
+    private let deliveryService: ConfirmingDelivery
+
     init(dataSource: MessagesDataProviding, collab: Collab,
-         messageSender: MessageSending) {
+         messageSender: MessageSending,
+         deliveryService: ConfirmingDelivery) {
         self.dataSource = dataSource
         self.collab = collab
         self.messageSender = messageSender
+        self.deliveryService = deliveryService
         dataSource.interactor = self
         dataSource.tableViewControllingDelegate = self
     }
