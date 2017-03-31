@@ -5,7 +5,7 @@
 import UIKit
 
 protocol TableViewDataProviding: class, UITableViewDataSource, UITableViewDelegate {
-    weak var tableViewControllingDelegate: TableViewControlling? { get set }
+    func updateTable(with result: DataFetchResult)
     func loadTableData()
 }
 

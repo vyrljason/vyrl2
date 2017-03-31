@@ -19,7 +19,6 @@ protocol MessagesInteracting: TableViewUsing {
 }
 
 final class MessagesInteractor: MessagesInteracting {
-    fileprivate weak var tableView: UITableView?
     fileprivate let dataSource: MessagesDataProviding
     weak var dataUpdateListener: DataLoadingEventsListening?
     weak var viewController: MessagesControlling?
@@ -36,8 +35,6 @@ final class MessagesInteractor: MessagesInteracting {
         self.collab = collab
         self.messageSender = messageSender
         self.deliveryService = deliveryService
-        dataSource.interactor = self
-        dataSource.tableViewControllingDelegate = self
         dataSource.actionTarget = self
     }
     
@@ -67,8 +64,8 @@ final class MessagesInteractor: MessagesInteracting {
 
 extension MessagesInteractor: TableViewUsing {
     func use(_ tableView: UITableView) {
-        self.tableView = tableView
         dataSource.use(tableView)
+        dataSource.reloadingDelegate = tableView
     }
 }
 
@@ -78,22 +75,12 @@ extension MessagesInteractor: DataRefreshing {
     }
 }
 
-extension MessagesInteractor: TableViewControlling {
-    func updateTable(with result: DataFetchResult) {
-        tableView?.reloadData()
-    }
-    
-    func loadTableData() {
-        dataSource.loadTableData()
-    }
-}
-
 extension MessagesInteractor: DeliveryConfirming {
     func didTapConfirm() {
         deliveryService.confirmDelivery(forBrand: collab.chatRoom.brandId) { [weak self] result in
             guard let `self` = self else { return }
             result.on(success: { _ in
-                self.loadTableData()
+                self.dataSource.loadTableData()
             }, failure: { error in
                 self.presenter?.presentError(title: nil, message: Constants.failedToConfirmDelivery)
             })
