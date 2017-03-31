@@ -5,12 +5,12 @@
 import Alamofire
 
 struct ConfirmDeliveryEndpoint: APIEndpoint {
-    let path = "/order/active/delivered"
+    let path = "/orders/active/delivered"
     let authorization: AuthorizationType = .user
     let method: HTTPMethod = .post
     let parameters: [String: Any]?
     let api: APIType = .main
-    let encoding: ParameterEncoding = JSONEncoding()
+    let encoding: ParameterEncoding = URLEncoding(destination: .queryString)
 
     init(request: ConfirmDeliveryRequest) {
         parameters = request.dictionaryRepresentation

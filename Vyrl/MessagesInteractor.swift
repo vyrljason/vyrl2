@@ -7,7 +7,6 @@ import UIKit
 private enum Constants {
     static let failedToSentMessage = NSLocalizedString("messages.error.failedToSend", comment: "")
     static let failedToConfirmDelivery = NSLocalizedString("messages.error.failedToConfirmDelivery", comment: "")
-
 }
 
 protocol MessagesInteracting: TableViewUsing {

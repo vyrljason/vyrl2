@@ -162,6 +162,3 @@ final class MessagesInteractorTest: XCTestCase {
         XCTAssertTrue(messagePresenter.didCallPresentError)
     }
 }
-
-
-

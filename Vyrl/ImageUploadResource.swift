@@ -18,6 +18,5 @@ final class ImageUploadResource: ImageDataUploading, APIResource {
 
     func upload(imageData: Data, completion: @escaping (Result<ImageContainer, APIResponseError>) -> Void) {
         controller.call(endpoint: ImageUploadEndpoint(imageData: imageData), completion: completion)
-//        controller.upload(data: imageData, toEndpoint: ImageUploadEndpoint(), completion: completion)
     }
 }
