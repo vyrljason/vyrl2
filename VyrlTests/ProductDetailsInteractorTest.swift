@@ -20,11 +20,11 @@ final class VariantHandlerMock: VariantHandling {
 }
 
 final class ProductDetailsDataSourceMock: NSObject, ProductDetailsDataProviding {
+    var tableView: UITableView?
     var didUseTableView: Bool = false
     var didUseLoadTableData: Bool = false
     var didUseRegisterNibs: Bool = false
     var usedTableArgument: UITableView?
-    weak var tableViewControllingDelegate: TableViewControlling?
     var product: Product = VyrlFaker.faker.product()
     weak var interactor: ProductDetailsInteracting?
     
@@ -39,6 +39,10 @@ final class ProductDetailsDataSourceMock: NSObject, ProductDetailsDataProviding 
     
     func loadTableData() {
         didUseLoadTableData = true
+    }
+
+    func updateTable(with result: DataFetchResult) {
+        
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -69,28 +73,7 @@ final class ProductDetailsInteractorTest: XCTestCase {
         subject = ProductDetailsInteractor(dataSource: dataSource, variantHandler:variantHandlerMock, product: product)
         subject.errorPresenter = errorPresenterMock
     }
-    
-    func test_onInit_setsTableViewDataProvidingDelegate() {
-        XCTAssertTrue(dataSource.tableViewControllingDelegate === subject)
-    }
-    
-    func test_updateTable_reloadsTableViewInAllCases() {
-        subject.use(tableViewMock)
-        let possibleResults = [DataFetchResult.someData, DataFetchResult.empty, DataFetchResult.error]
-        
-        for result in possibleResults {
-            tableViewMock.didCallReload = false
-            subject.updateTable(with: result)
-            XCTAssertTrue(tableViewMock.didCallReload)
-        }
-    }
-    
-    func test_loadTableData_reloadsDataSource() {
-        subject.loadTableData()
-        
-        XCTAssertTrue(dataSource.didUseLoadTableData)
-    }
-    
+
     func test_onViewWillAppear_loadsTableData() {
         let anyValue: Bool = false
         

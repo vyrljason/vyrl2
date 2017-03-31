@@ -18,7 +18,10 @@ final class MessagesViewControllerFactory: MessagesControllerMaking {
         let postMessageResource = PostMessageResource(controller: resource)
         let postService = PostService<PostMessageResource>(resource: postMessageResource)
         let messageSender = PostMessageService(resource: postService)
-        let interactor = MessagesInteractor(dataSource: dataSource, collab: collab, messageSender: messageSender)
+        let confirmDeliveryResource = ConfirmDeliveryResource(controller: resource)
+        let deliveryResource = PostService<ConfirmDeliveryResource>(resource: confirmDeliveryResource)
+        let deliveryService = ConfirmDeliveryService(resource: deliveryResource)
+        let interactor = MessagesInteractor(dataSource: dataSource, collab: collab, messageSender: messageSender, deliveryService: deliveryService)
         let viewController = MessagesViewController(interactor: interactor)
         viewController.navigationItem.title = collab.brandName
         return viewController

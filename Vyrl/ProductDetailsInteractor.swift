@@ -9,7 +9,7 @@ fileprivate struct Constants {
     static let variantRequiredAlertText: String = NSLocalizedString("All variants need to be selected.", comment: "")
 }
 
-protocol ProductDetailsInteracting: TableViewUsing, TableViewControlling {
+protocol ProductDetailsInteracting: TableViewUsing {
     var allVariantsArePicked: Bool { get }
     weak var errorPresenter: ErrorAlertPresenting? { get set }
     func viewWillAppear(_ animated: Bool)
@@ -38,12 +38,11 @@ final class ProductDetailsInteractor: ProductDetailsInteracting {
         self.dataSource = dataSource
         self.cartStorage = cartStorage
         self.picker = PickerPresenter()
-        dataSource.tableViewControllingDelegate = self
         dataSource.interactor = self
     }
     
     func viewWillAppear(_ animated: Bool) {
-        loadTableData()
+        dataSource.loadTableData()
     }
     
     func addToCart() {
@@ -86,15 +85,5 @@ extension ProductDetailsInteractor: TableViewUsing {
     private func setupCellSizing(tableView: UITableView) {
         tableView.estimatedRowHeight = Constants.estimatedRowHeight
         tableView.rowHeight = UITableViewAutomaticDimension
-    }
-}
-
-extension ProductDetailsInteractor: TableViewControlling {
-    func updateTable(with result: DataFetchResult) {
-        tableView?.reloadData()
-    }
-    
-    func loadTableData() {
-        dataSource.loadTableData()
     }
 }
