@@ -5,6 +5,19 @@
 @testable import Vyrl
 import XCTest
 
+final class DeliveryServiceMock: ConfirmingDelivery {
+    var success = true
+    var result = EmptyResponse()
+    var error = ServiceError.unknown
+    func confirmDelivery(forBrand brandId: String, completion: @escaping (Result<EmptyResponse, ServiceError>) -> Void) {
+        if success {
+            completion(.success(result))
+        } else {
+            completion(.failure(error))
+        }
+    }
+}
+
 final class MessagesPresenterMock: MessageDisplaying, ErrorAlertPresenting {
     var didCallClear = false
     var didCallPresentError = false
@@ -72,13 +85,15 @@ final class MessagesInteractorTest: XCTestCase {
     var messagePresenter: MessagesPresenterMock!
     var messageSender: MessageSenderMock!
     var collab: Collab!
+    private var deliveryService: DeliveryServiceMock!
     
     override func setUp() {
         dataSource = MessagesDataSourceMock()
         collab = VyrlFaker.faker.collab()
         messagePresenter = MessagesPresenterMock()
         messageSender = MessageSenderMock()
-        subject = MessagesInteractor(dataSource: dataSource, collab: collab, messageSender: messageSender)
+        deliveryService = DeliveryServiceMock()
+        subject = MessagesInteractor(dataSource: dataSource, collab: collab, messageSender: messageSender, deliveryService: deliveryService)
         subject.presenter = messagePresenter
     }
     

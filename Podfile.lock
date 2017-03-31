@@ -11,8 +11,6 @@ PODS:
   - FBSnapshotTestCase/Core (2.1.4)
   - FBSnapshotTestCase/SwiftSupport (2.1.4):
     - FBSnapshotTestCase/Core
-  - Firebase (3.15.0):
-    - Firebase/Core (= 3.15.0)
   - Firebase/Auth (3.15.0):
     - Firebase/Core
     - FirebaseAuth (= 3.1.1)
@@ -63,7 +61,6 @@ DEPENDENCIES:
   - Fabric
   - Fakery
   - FBSnapshotTestCase
-  - Firebase
   - Firebase/Auth
   - Firebase/Core
   - Firebase/Database
@@ -98,7 +95,7 @@ SPEC CHECKSUMS:
   DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
   Fabric: 5911403591946b8228ab1c51d98f1d7137e863c6
   Fakery: 97b99c23937d2e025d9135c75e2b17351ccd5031
-  FBSnapshotTestCase: 094f9f314decbabe373b87cc339bea235a63e07a
+  FBSnapshotTestCase: '094f9f314decbabe373b87cc339bea235a63e07a'
   Firebase: 2b1cdfba1cda8589f32904a697cc753322bff9d8
   FirebaseAnalytics: 0d1b7d81d5021155be37702a94ba1ec16d45365d
   FirebaseAuth: cc8a1824170adbd351edb7f994490a3fb5c18be6
@@ -114,8 +111,8 @@ SPEC CHECKSUMS:
   SlideMenuControllerSwift: 9a163b16d54afab734add42858cba7ef7c307755
   Spring: 3f02b5dc3308572ef177b3cad0fa7bbc4b0706f7
   SwiftLint: 9fb1dd71d5952d130f8c2fb60ae2e1475cf5d575
-  Whisper: 08be92623311f8e53201e62e17f6d7b9599a4714
+  Whisper: '08be92623311f8e53201e62e17f6d7b9599a4714'
 
-PODFILE CHECKSUM: f4a5b3803f499c6ee67ab5ba5d2d842196681b47
+PODFILE CHECKSUM: 262dc15872ca8ad8c4e9d81b670228ffcfc646fa
 
 COCOAPODS: 1.2.1.beta.1

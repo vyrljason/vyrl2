@@ -19,4 +19,5 @@ final class APIResourceControllerMock<Value: Decodable>: APIResourceControlling 
             completion(.failure(error))
         }
     }
+
 }

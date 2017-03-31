@@ -3,6 +3,7 @@
 //
 
 import UIKit
+import Alamofire
 
 protocol MessageDisplaying: class {
     func clearMessage()
@@ -52,6 +53,15 @@ final class MessagesViewController: UIViewController, HavingNib {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         interactor.viewWillAppear()
+
+        let resource = ServiceLocator.resourceConfigurator.resourceController
+        let imageResource = ImageUploadResource(controller: resource)
+        let imageConverter = ImageToDataConverter()
+        let postService = ImageUploadService(resource: imageResource, imageConverter: imageConverter)
+        let image = #imageLiteral(resourceName: "test")
+        postService.upload(image: image) { (result) in
+            print(result)
+        }
     }
 }
 
