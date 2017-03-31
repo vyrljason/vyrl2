@@ -27,7 +27,7 @@ struct Product {
     let retailPrice: Double
     let isAdditionalGuidelines: Bool
     let additionalGuidelines: String?
-    let images: [ProductImage]
+    let images: [ImageContainer]
     let variants: [ProductVariants]
 }
 

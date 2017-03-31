@@ -15,7 +15,7 @@ final class ResourceConfigurator: APIResourceConfiguring {
     let resourceController: APIResourceControlling
 
     init(configuration: APIConfigurationHaving,
-         sessionManager: SessionManaging,
+         sessionManager: SessionManager,
          responseHandler: APIResponseHandling,
          requestDataProvider: RequestDataProviding) {
         self.configuration = configuration

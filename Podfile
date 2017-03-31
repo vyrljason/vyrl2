@@ -22,8 +22,7 @@ target 'Vyrl' do
     pod "JWTDecode"
 
     target 'VyrlTests' do
-        inherit! :search_paths
-        pod 'Firebase'
+        inherit! :complete
         pod 'FBSnapshotTestCase'
         pod 'Fakery'
     end

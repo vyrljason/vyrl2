@@ -4,7 +4,7 @@
 
 import Decodable
 
-struct ProductImage {
+struct ImageContainer {
     fileprivate struct JSONKeys {
         static let id = "id"
         static let url = "imageUrl"
@@ -18,8 +18,8 @@ struct ProductImage {
     let brandId: String
 }
 
-extension ProductImage: Decodable {
-    static func decode(_ json: Any) throws -> ProductImage {
+extension ImageContainer: Decodable {
+    static func decode(_ json: Any) throws -> ImageContainer {
         guard let imageURL = try URL(string: json => KeyPath(JSONKeys.url)) else {
             throw DecodingError.typeMismatch(expected: URL.self, actual: String.self, DecodingError.Metadata(object: JSONKeys.url))
         }

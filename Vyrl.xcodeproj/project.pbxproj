@@ -155,6 +155,8 @@
 		31FEB5B51E5D0FA300C5E41D /* BrandStoreDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31FEB5B41E5D0FA300C5E41D /* BrandStoreDataSource.swift */; };
 		31FEB5B81E5D952600C5E41D /* BrandStoreCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31FEB5B61E5D952600C5E41D /* BrandStoreCell.swift */; };
 		31FEB5B91E5D952600C5E41D /* BrandStoreCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31FEB5B71E5D952600C5E41D /* BrandStoreCell.xib */; };
+		8507FED31E8E300F00C0711B /* ImageUploadServiceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8507FED21E8E300F00C0711B /* ImageUploadServiceTest.swift */; };
+		8507FED51E8E318900C0711B /* ImageToDataConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8507FED41E8E318900C0711B /* ImageToDataConverter.swift */; };
 		850A80A71E5D927300E684A3 /* DictionaryConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850A80A61E5D927300E684A3 /* DictionaryConvertible.swift */; };
 		850A80AE1E5D977C00E684A3 /* APIConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850A80AD1E5D977C00E684A3 /* APIConfiguration.swift */; };
 		850A80B01E5D990C00E684A3 /* Configuration.plist in Resources */ = {isa = PBXBuildFile; fileRef = 850A80AF1E5D990C00E684A3 /* Configuration.plist */; };
@@ -202,6 +204,9 @@
 		852ACD471E55DCF200219E90 /* UIView+ReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852ACD461E55DCF200219E90 /* UIView+ReusableView.swift */; };
 		852ACD4B1E55DDEE00219E90 /* BrandCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852ACD4A1E55DDEE00219E90 /* BrandCell.swift */; };
 		852ACD4D1E55DE1500219E90 /* BrandCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 852ACD4C1E55DE1500219E90 /* BrandCell.xib */; };
+		852BC35C1E8DBD1B009115FA /* ImageUploadService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852BC35B1E8DBD1B009115FA /* ImageUploadService.swift */; };
+		852BC35E1E8DBD25009115FA /* ImageUploadResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852BC35D1E8DBD25009115FA /* ImageUploadResource.swift */; };
+		852BC3601E8DBD47009115FA /* ImageUploadEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852BC35F1E8DBD47009115FA /* ImageUploadEndpoint.swift */; };
 		853771961E5C425B00E693AD /* BrandsNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853771951E5C425B00E693AD /* BrandsNavigation.swift */; };
 		853771981E5C46AB00E693AD /* BrandsNavigationTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853771971E5C46AB00E693AD /* BrandsNavigationTest.swift */; };
 		853859951E6029050098D1EB /* RegisterEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853859941E6029050098D1EB /* RegisterEndpoint.swift */; };
@@ -247,7 +252,7 @@
 		8554BE891E68731D00E05A37 /* OrderProposal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8554BE881E68731D00E05A37 /* OrderProposal.swift */; };
 		8554BE8B1E6879A500E05A37 /* ProductsEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8554BE8A1E6879A500E05A37 /* ProductsEndpoint.swift */; };
 		8554BE8D1E6879B600E05A37 /* ProductsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8554BE8C1E6879B600E05A37 /* ProductsRequest.swift */; };
-		8554BE8E1E6883A500E05A37 /* ProductImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8554BE861E6870F200E05A37 /* ProductImage.swift */; };
+		8554BE8E1E6883A500E05A37 /* ImageContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8554BE861E6870F200E05A37 /* ImageContainer.swift */; };
 		8554BE8F1E6883AE00E05A37 /* Variants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8554BE841E6870D000E05A37 /* Variants.swift */; };
 		8554BE9E1E697B2400E05A37 /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8554BE9D1E697B2400E05A37 /* Order.swift */; };
 		8554BEA01E6982EB00E05A37 /* PostService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8554BE9F1E6982EB00E05A37 /* PostService.swift */; };
@@ -601,6 +606,8 @@
 		3553ABBDC82B1A7C9E6385AE /* Pods_VyrlTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VyrlTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D5C69B512EC5560D5FAF6DF /* Pods-Vyrl.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Vyrl.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Vyrl/Pods-Vyrl.debug.xcconfig"; sourceTree = "<group>"; };
 		850740CC1E55E71E00E2F65B /* Brand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Brand.swift; sourceTree = "<group>"; };
+		8507FED21E8E300F00C0711B /* ImageUploadServiceTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageUploadServiceTest.swift; sourceTree = "<group>"; };
+		8507FED41E8E318900C0711B /* ImageToDataConverter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageToDataConverter.swift; sourceTree = "<group>"; };
 		850A80A61E5D927300E684A3 /* DictionaryConvertible.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DictionaryConvertible.swift; sourceTree = "<group>"; };
 		850A80AD1E5D977C00E684A3 /* APIConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIConfiguration.swift; sourceTree = "<group>"; };
 		850A80AF1E5D990C00E684A3 /* Configuration.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Configuration.plist; sourceTree = "<group>"; };
@@ -647,6 +654,9 @@
 		852ACD461E55DCF200219E90 /* UIView+ReusableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+ReusableView.swift"; sourceTree = "<group>"; };
 		852ACD4A1E55DDEE00219E90 /* BrandCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrandCell.swift; sourceTree = "<group>"; };
 		852ACD4C1E55DE1500219E90 /* BrandCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BrandCell.xib; sourceTree = "<group>"; };
+		852BC35B1E8DBD1B009115FA /* ImageUploadService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageUploadService.swift; sourceTree = "<group>"; };
+		852BC35D1E8DBD25009115FA /* ImageUploadResource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageUploadResource.swift; sourceTree = "<group>"; };
+		852BC35F1E8DBD47009115FA /* ImageUploadEndpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageUploadEndpoint.swift; sourceTree = "<group>"; };
 		853771951E5C425B00E693AD /* BrandsNavigation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrandsNavigation.swift; sourceTree = "<group>"; };
 		853771971E5C46AB00E693AD /* BrandsNavigationTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrandsNavigationTest.swift; sourceTree = "<group>"; };
 		853859941E6029050098D1EB /* RegisterEndpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterEndpoint.swift; sourceTree = "<group>"; };
@@ -690,7 +700,7 @@
 		8554BE7E1E68466300E05A37 /* Products.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Products.swift; sourceTree = "<group>"; };
 		8554BE821E6870BF00E05A37 /* ShippingAddress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShippingAddress.swift; sourceTree = "<group>"; };
 		8554BE841E6870D000E05A37 /* Variants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Variants.swift; sourceTree = "<group>"; };
-		8554BE861E6870F200E05A37 /* ProductImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductImage.swift; sourceTree = "<group>"; };
+		8554BE861E6870F200E05A37 /* ImageContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageContainer.swift; sourceTree = "<group>"; };
 		8554BE881E68731D00E05A37 /* OrderProposal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderProposal.swift; sourceTree = "<group>"; };
 		8554BE8A1E6879A500E05A37 /* ProductsEndpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductsEndpoint.swift; sourceTree = "<group>"; };
 		8554BE8C1E6879B600E05A37 /* ProductsRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductsRequest.swift; sourceTree = "<group>"; };
@@ -1140,6 +1150,7 @@
 		1ADAF7F81E54605D00155D9F /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				85B60D551E8DC81C007F129F /* Shared */,
 				85603F741E88ED480062485E /* Firebase */,
 				853A83521E72C52F006EBA8C /* Cart */,
 				31B0794D1E7732B20015C302 /* Chat */,
@@ -1285,7 +1296,6 @@
 				3168A27D1E5EF6F100C65434 /* Product.swift */,
 				8554BE7E1E68466300E05A37 /* Products.swift */,
 				8554BE841E6870D000E05A37 /* Variants.swift */,
-				8554BE861E6870F200E05A37 /* ProductImage.swift */,
 				8554BE881E68731D00E05A37 /* OrderProposal.swift */,
 			);
 			name = Model;
@@ -1743,6 +1753,7 @@
 				852ACD411E55DC8300219E90 /* UserInterface */,
 				85A2A8091E7B4C3900271871 /* StoredRepository.swift */,
 				85A2A80E1E7B4E7100271871 /* KeychainConstants.swift */,
+				8507FED41E8E318900C0711B /* ImageToDataConverter.swift */,
 			);
 			name = Common;
 			sourceTree = "<group>";
@@ -2459,6 +2470,7 @@
 			children = (
 				855AD6DA1E8CF8FA00B9523D /* PostMessageService.swift */,
 				8597AB5F1E8A59D100A64585 /* MessagesService.swift */,
+				852BC35B1E8DBD1B009115FA /* ImageUploadService.swift */,
 			);
 			name = Services;
 			sourceTree = "<group>";
@@ -2469,6 +2481,8 @@
 				855AD6D91E8CF8FA00B9523D /* PostMessageResource.swift */,
 				855AD6D81E8CF8FA00B9523D /* PostMessageEndpoint.swift */,
 				8597AB621E8A5A0A00A64585 /* MessagesResourceMock.swift */,
+				852BC35D1E8DBD25009115FA /* ImageUploadResource.swift */,
+				852BC35F1E8DBD47009115FA /* ImageUploadEndpoint.swift */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -2501,6 +2515,22 @@
 				8554BE791E68457C00E05A37 /* BrandsRequest.swift */,
 			);
 			name = Resources;
+			sourceTree = "<group>";
+		};
+		85B60D551E8DC81C007F129F /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				85B60D561E8DC822007F129F /* Model */,
+			);
+			name = Shared;
+			sourceTree = "<group>";
+		};
+		85B60D561E8DC822007F129F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				8554BE861E6870F200E05A37 /* ImageContainer.swift */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 		85CA3FCE1E6439DF00D43805 /* Resources */ = {
@@ -2781,6 +2811,7 @@
 			isa = PBXGroup;
 			children = (
 				C4C887811E89B02B0022558F /* MessagesServiceTest.swift */,
+				8507FED21E8E300F00C0711B /* ImageUploadServiceTest.swift */,
 			);
 			name = Services;
 			sourceTree = "<group>";
@@ -3013,7 +3044,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-VyrlTests/Pods-VyrlTests-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Vyrl-VyrlTests/Pods-Vyrl-VyrlTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		8C856070D7E29DD91A6A3233 /* [CP] Embed Pods Frameworks */ = {
@@ -3028,7 +3059,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-VyrlTests/Pods-VyrlTests-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Vyrl-VyrlTests/Pods-Vyrl-VyrlTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		B22BC1051E54C77700C4519C /* Fabric */ = {
@@ -3100,7 +3131,7 @@
 				1A50C1A11E67293E0002A6DC /* CartDataSource.swift in Sources */,
 				853A832F1E7024D0006EBA8C /* Array+Utils.swift in Sources */,
 				8554BE781E682AE400E05A37 /* ServiceError.swift in Sources */,
-				8554BE8E1E6883A500E05A37 /* ProductImage.swift in Sources */,
+				8554BE8E1E6883A500E05A37 /* ImageContainer.swift in Sources */,
 				8554BEC61E69DE8000E05A37 /* ShippingAddressInteractor.swift in Sources */,
 				858D63DE1E55F18100CFDD4C /* DownloadingImageView.swift in Sources */,
 				31B079341E70A6580015C302 /* ProductDetailsGalleryDataSource.swift in Sources */,
@@ -3255,6 +3286,7 @@
 				1A31216E1E65CA1A00F71925 /* CartItem.swift in Sources */,
 				85B0A83F1E670E59002093BA /* Brands.swift in Sources */,
 				1A1FA9451E5DABE4007EB61D /* Service.swift in Sources */,
+				852BC35E1E8DBD25009115FA /* ImageUploadResource.swift in Sources */,
 				3169B9D41E659538005F8A94 /* Money.swift in Sources */,
 				31B079441E7199070015C302 /* PagerUpdater.swift in Sources */,
 				855AD6E21E8D00EE00B9523D /* EmptyResponse.swift in Sources */,
@@ -3268,6 +3300,7 @@
 				85DCFC1E1E75BC370046D0D5 /* ContactInfoViewController.swift in Sources */,
 				31FEB5AE1E5C5E3900C5E41D /* BrandStoreHeaderRenderable.swift in Sources */,
 				850A810A1E5F2B4B00E684A3 /* ResourceConfiguratorFactory.swift in Sources */,
+				852BC3601E8DBD47009115FA /* ImageUploadEndpoint.swift in Sources */,
 				855AD6DE1E8CF8FA00B9523D /* PostMessageResource.swift in Sources */,
 				850A80F21E5E269F00E684A3 /* UserCredentials.swift in Sources */,
 				1AEBB9721E608A9B00113DC9 /* CartInteractor.swift in Sources */,
@@ -3297,12 +3330,14 @@
 				1A69C6A41E55FF0000134EF5 /* UIColor.swift in Sources */,
 				31EF232B1E69A63D0073F624 /* DetailTableViewCell.swift in Sources */,
 				31EF23361E69A8CA0073F624 /* TableHeaderRenderable.swift in Sources */,
+				852BC35C1E8DBD1B009115FA /* ImageUploadService.swift in Sources */,
 				3169B9CC1E64C7C1005F8A94 /* BrandStoreFlowLayoutHandler.swift in Sources */,
 				31EF23331E69A8A90073F624 /* TableHeaderCell.swift in Sources */,
 				8554BEC91E69DECD00E05A37 /* ShippingAddressViewFactory.swift in Sources */,
 				85B2CD641E6D83C600C4C744 /* KeyboardHandler.swift in Sources */,
 				8572E4AF1E797CE00042160D /* CollabRenderable.swift in Sources */,
 				850A80BF1E5DA94100E684A3 /* HTTPClient.swift in Sources */,
+				8507FED51E8E318900C0711B /* ImageToDataConverter.swift in Sources */,
 				313CF7FF1E6E16F4005686F5 /* TextTableCellRenderable.swift in Sources */,
 				313CF7D71E6D9B07005686F5 /* PickerPresenter.swift in Sources */,
 				1A3121661E64720000F71925 /* CartStorage.swift in Sources */,
@@ -3366,6 +3401,7 @@
 				85DCFC451E76D7CF0046D0D5 /* FormFieldsInteractorMock.swift in Sources */,
 				85B2CD661E6D83F200C4C744 /* KeyboardHandlerTest.swift in Sources */,
 				858D63FB1E56037600CFDD4C /* ImageFetcherMock.swift in Sources */,
+				8507FED31E8E300F00C0711B /* ImageUploadServiceTest.swift in Sources */,
 				85B0A8451E67334A002093BA /* BrandsResourceTest.swift in Sources */,
 				85DCFC2F1E7682C60046D0D5 /* ShippingInfoControllerSnapshotTest.swift in Sources */,
 				1A1FA9511E5E2668007EB61D /* CategoriesDataSourceTests.swift in Sources */,
@@ -3614,13 +3650,12 @@
 		};
 		1ADAF7F01E545F3C00155D9F /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E340CAC7115BDC8D7662DAA1 /* Pods-VyrlTests.debug.xcconfig */;
+			baseConfigurationReference = F3FA9C9307A9DB63E646297F /* Pods-Vyrl-VyrlTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				DEVELOPMENT_TEAM = 2FUQCB4MRE;
 				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
 					"$(inherited)",
 					"\"${PODS_ROOT}/Headers/Public\"",
 					"\"${PODS_ROOT}/Headers/Public/Crashlytics\"",
@@ -3638,13 +3673,12 @@
 		};
 		1ADAF7F11E545F3C00155D9F /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1A2766098374FF4C447FC4D5 /* Pods-VyrlTests.release.xcconfig */;
+			baseConfigurationReference = A18C29074EB0CA69D3CEAB5F /* Pods-Vyrl-VyrlTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				DEVELOPMENT_TEAM = 2FUQCB4MRE;
 				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
 					"$(inherited)",
 					"\"${PODS_ROOT}/Headers/Public\"",
 					"\"${PODS_ROOT}/Headers/Public/Crashlytics\"",
@@ -3723,13 +3757,12 @@
 		};
 		B22B2B801E64B2B800089F7A /* Ad Hoc */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = BD1309C018727D87342F7FE2 /* Pods-VyrlTests.ad hoc.xcconfig */;
+			baseConfigurationReference = F49938B0396058B0A03497B5 /* Pods-Vyrl-VyrlTests.ad hoc.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				DEVELOPMENT_TEAM = 2FUQCB4MRE;
 				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
 					"$(inherited)",
 					"\"${PODS_ROOT}/Headers/Public\"",
 					"\"${PODS_ROOT}/Headers/Public/Crashlytics\"",
