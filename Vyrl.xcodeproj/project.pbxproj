@@ -432,6 +432,8 @@
 		C4C887821E89B02B0022558F /* MessagesServiceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C887811E89B02B0022558F /* MessagesServiceTest.swift */; };
 		C4C887841E89B1290022558F /* MessagesDataSourceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C887831E89B1290022558F /* MessagesDataSourceTest.swift */; };
 		C4C887861E89B5280022558F /* MessagesInteractorTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C887851E89B5280022558F /* MessagesInteractorTest.swift */; };
+		C4E110E21E8EC15D0098DF32 /* ComposeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4E110E01E8EC15D0098DF32 /* ComposeViewController.swift */; };
+		C4E110E31E8EC15D0098DF32 /* ComposeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4E110E11E8EC15D0098DF32 /* ComposeViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -878,6 +880,8 @@
 		C4C887811E89B02B0022558F /* MessagesServiceTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagesServiceTest.swift; sourceTree = "<group>"; };
 		C4C887831E89B1290022558F /* MessagesDataSourceTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagesDataSourceTest.swift; sourceTree = "<group>"; };
 		C4C887851E89B5280022558F /* MessagesInteractorTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagesInteractorTest.swift; sourceTree = "<group>"; };
+		C4E110E01E8EC15D0098DF32 /* ComposeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComposeViewController.swift; sourceTree = "<group>"; };
+		C4E110E11E8EC15D0098DF32 /* ComposeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ComposeViewController.xib; sourceTree = "<group>"; };
 		F53DC09A5D49F724A1F2D252 /* Pods_Vyrl.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Vyrl.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF1EEDD0D1C3C211CC65794A /* Pods-Vyrl.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Vyrl.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Vyrl/Pods-Vyrl.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -1344,6 +1348,7 @@
 		31B0794D1E7732B20015C302 /* Chat */ = {
 			isa = PBXGroup;
 			children = (
+				C4E110DD1E8EC0490098DF32 /* Compose */,
 				31B079501E7734660015C302 /* Collabs */,
 				C4BDA42A1E7FD68D0009BB67 /* Messages */,
 				31B0794E1E7732CE0015C302 /* ChatNavigation.swift */,
@@ -2794,6 +2799,31 @@
 			name = Services;
 			sourceTree = "<group>";
 		};
+		C4E110DD1E8EC0490098DF32 /* Compose */ = {
+			isa = PBXGroup;
+			children = (
+				C4E110DF1E8EC0660098DF32 /* Interactors */,
+				C4E110DE1E8EC05A0098DF32 /* Views */,
+			);
+			name = Compose;
+			sourceTree = "<group>";
+		};
+		C4E110DE1E8EC05A0098DF32 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				C4E110E01E8EC15D0098DF32 /* ComposeViewController.swift */,
+				C4E110E11E8EC15D0098DF32 /* ComposeViewController.xib */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		C4E110DF1E8EC0660098DF32 /* Interactors */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Interactors;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -2910,6 +2940,7 @@
 				852ACD4D1E55DE1500219E90 /* BrandCell.xib in Resources */,
 				1ADAF7CF1E545F3C00155D9F /* Assets.xcassets in Resources */,
 				31EF22E81E664C180073F624 /* ProductDetailsViewController.xib in Resources */,
+				C4E110E31E8EC15D0098DF32 /* ComposeViewController.xib in Resources */,
 				1A69C6A21E55F79D00134EF5 /* LeftMenuViewController.xib in Resources */,
 				850A80B01E5D990C00E684A3 /* Configuration.plist in Resources */,
 				852ACD3C1E55DB1E00219E90 /* BrandsViewController.xib in Resources */,
@@ -3254,6 +3285,7 @@
 				1A31217C1E66E9CE00F71925 /* ObjectStoring.swift in Sources */,
 				1A69C6A81E560F4800134EF5 /* WindowProtocol.swift in Sources */,
 				1A31216E1E65CA1A00F71925 /* CartItem.swift in Sources */,
+				C4E110E21E8EC15D0098DF32 /* ComposeViewController.swift in Sources */,
 				85B0A83F1E670E59002093BA /* Brands.swift in Sources */,
 				1A1FA9451E5DABE4007EB61D /* Service.swift in Sources */,
 				3169B9D41E659538005F8A94 /* Money.swift in Sources */,
