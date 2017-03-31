@@ -153,4 +153,15 @@ final class MessagesInteractorTest: XCTestCase {
 
         XCTAssertTrue(messagePresenter.didCallClear)
     }
+
+    func test_didTapConfirm_whenServiceReturnsFailure_presentsError() {
+        deliveryService.success = false
+
+        subject.didTapConfirm()
+
+        XCTAssertTrue(messagePresenter.didCallPresentError)
+    }
 }
+
+
+

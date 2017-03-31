@@ -6,6 +6,8 @@ import UIKit
 
 private enum Constants {
     static let failedToSentMessage = NSLocalizedString("messages.error.failedToSend", comment: "")
+    static let failedToConfirmDelivery = NSLocalizedString("messages.error.failedToConfirmDelivery", comment: "")
+
 }
 
 protocol MessagesInteracting: TableViewUsing {
@@ -24,9 +26,9 @@ final class MessagesInteractor: MessagesInteracting {
     weak var viewController: MessagesControlling?
     weak var presenter: (MessageDisplaying & ErrorAlertPresenting)?
 
-    private let collab: Collab
-    private let messageSender: MessageSending
-    private let deliveryService: ConfirmingDelivery
+    fileprivate let collab: Collab
+    fileprivate let messageSender: MessageSending
+    fileprivate let deliveryService: ConfirmingDelivery
 
     init(dataSource: MessagesDataProviding, collab: Collab,
          messageSender: MessageSending,
@@ -89,8 +91,14 @@ extension MessagesInteractor: TableViewControlling {
 
 extension MessagesInteractor: DeliveryConfirming {
     func didTapConfirm() {
-        //FIXME: Waiting for api
-        print("DID TAP CONFIRM")
+        deliveryService.confirmDelivery(forBrand: collab.chatRoom.brandId) { [weak self] result in
+            guard let `self` = self else { return }
+            result.on(success: { _ in
+                //FIXME: ??? Refresh view?
+            }, failure: { error in
+                self.presenter?.presentError(title: nil, message: Constants.failedToConfirmDelivery)
+            })
+        }
     }
 }
 
