@@ -5,6 +5,5 @@
 import Foundation
 
 protocol TableViewControlling: class {
-    func updateTable(with result: DataFetchResult)
     func loadTableData()
 }

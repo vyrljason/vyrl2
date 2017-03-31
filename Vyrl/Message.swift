@@ -25,8 +25,8 @@ struct Message {
 extension Message: Decodable {
     static func decode(_ json: Any) throws -> Message {
         return try self.init(text: json => KeyPath(JSONKeys.text),
-                             mediaURL: URL(string: json => KeyPath(JSONKeys.mediaURL)),
-                             isMedia: json => KeyPath(JSONKeys.isMedia))
+                             mediaURL: URL(string: json =>? OptionalKeyPath(stringLiteral: JSONKeys.mediaURL) ?? ""),
+                             isMedia: json =>? OptionalKeyPath(stringLiteral: JSONKeys.isMedia) ?? false)
     }
 }
 

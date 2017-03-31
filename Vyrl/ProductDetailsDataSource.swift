@@ -27,11 +27,10 @@ protocol ProductDetailsDataAccessing: class {
     weak var interactor: ProductDetailsInteracting? { get set }
 }
 
-protocol ProductDetailsDataProviding: TableViewUsing, TableViewDataProviding, ProductDetailsDataAccessing {
-}
+protocol ProductDetailsDataProviding: TableViewUsing, TableViewHaving, TableViewDataProviding, ProductDetailsDataAccessing { }
 
 final class ProductDetailsDataSource: NSObject, ProductDetailsDataProviding {
-    weak var tableViewControllingDelegate: TableViewControlling?
+    weak var tableView: UITableView?
     weak var interactor: ProductDetailsInteracting?
     let product: Product
     fileprivate var emptyRenderer: SectionRenderer
@@ -61,6 +60,7 @@ final class ProductDetailsDataSource: NSObject, ProductDetailsDataProviding {
 
 extension ProductDetailsDataSource: TableViewUsing {
     func use(_ tableView: UITableView) {
+        self.tableView = tableView
         registerNibs(in: tableView)
         tableView.delegate = self
         tableView.dataSource = self
@@ -81,10 +81,14 @@ extension ProductDetailsDataSource: TableViewDataProviding {
          // Currently fetching is not needed
         DispatchQueue.onMainThread { [weak self] in
             guard let `self` = self else { return }
-            self.tableViewControllingDelegate?.updateTable(with: .empty)
+            self.updateTable(with: .empty)
         }
     }
-    
+
+    func updateTable(with result: DataFetchResult) {
+        tableView?.reloadData()
+    }
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let renderer = getRenderer(for: indexPath.section)
         return renderer.tableView(tableView, cellFor: indexPath)

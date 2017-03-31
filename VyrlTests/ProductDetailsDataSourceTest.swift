@@ -33,8 +33,6 @@ class RendererMock: SectionRenderer {
     func didSelect(table: UITableView, indexPath: IndexPath) { }
 }
 
-// MARK - Tests
-
 final class ProductDetailsDataSourceTest: XCTestCase {
     
     var product = VyrlFaker.faker.product()
@@ -63,6 +61,15 @@ final class ProductDetailsDataSourceTest: XCTestCase {
         XCTAssertTrue(tableViewMock.didSetDelegation)
         XCTAssertTrue(tableViewMock.delegate === subject)
     }
-}
 
-// MARK - End
+    func test_updateTable_reloadsTableViewInAllCases() {
+        subject.use(tableViewMock)
+        let possibleResults = [DataFetchResult.someData, DataFetchResult.empty, DataFetchResult.error]
+
+        for result in possibleResults {
+            tableViewMock.didCallReload = false
+            subject.updateTable(with: result)
+            XCTAssertTrue(tableViewMock.didCallReload)
+        }
+    }
+}

@@ -3,6 +3,7 @@
 //
 
 import UIKit
+import Alamofire
 
 protocol MessageDisplaying: class {
     func clearMessage()
@@ -35,10 +36,6 @@ final class MessagesViewController: UIViewController, HavingNib {
     }
     
     func setUpNavigationBar() {
-        let moreButton = ClosureBarButtonItem.barButtonItem(image: #imageLiteral(resourceName: "moreHoriz")) { [weak self] in
-            self?.interactor.didTapMore()
-        }
-        navigationItem.rightBarButtonItem = nil
         renderNoTitleBackButton()
     }
     

@@ -5,6 +5,19 @@
 @testable import Vyrl
 import XCTest
 
+final class DeliveryServiceMock: ConfirmingDelivery {
+    var success = true
+    var result = EmptyResponse()
+    var error = ServiceError.unknown
+    func confirmDelivery(forBrand brandId: String, completion: @escaping (Result<EmptyResponse, ServiceError>) -> Void) {
+        if success {
+            completion(.success(result))
+        } else {
+            completion(.failure(error))
+        }
+    }
+}
+
 final class MessagesPresenterMock: MessageDisplaying, ErrorAlertPresenting {
     var didCallClear = false
     var didCallPresentError = false
@@ -36,23 +49,27 @@ final class MessagesDataSourceMock: NSObject, MessagesDataProviding {
     var didUseTableView: Bool = false
     var didUseLoadTableData: Bool = false
     var didUseRegisterNibs: Bool = false
-    var usedTableArgument: UITableView?
-    weak var tableViewControllingDelegate: TableViewControlling?
+    weak var tableView: UITableView?
     weak var reloadingDelegate: ReloadingData?
     weak var interactor: MessagesInteracting?
     weak var actionTarget: (ContentAdding & DeliveryConfirming)?
-    
+
     func use(_ tableView: UITableView) {
         didUseTableView = true
-        usedTableArgument = tableView
+        self.tableView = tableView
+        reloadingDelegate = tableView
     }
-    
+
     func registerNibs(in tableView: UITableView) {
         didUseRegisterNibs = true
     }
     
     func loadTableData() {
         didUseLoadTableData = true
+    }
+
+    func updateTable(with result: DataFetchResult) {
+        reloadingDelegate?.reloadData()
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -72,13 +89,15 @@ final class MessagesInteractorTest: XCTestCase {
     var messagePresenter: MessagesPresenterMock!
     var messageSender: MessageSenderMock!
     var collab: Collab!
+    private var deliveryService: DeliveryServiceMock!
     
     override func setUp() {
         dataSource = MessagesDataSourceMock()
         collab = VyrlFaker.faker.collab()
         messagePresenter = MessagesPresenterMock()
         messageSender = MessageSenderMock()
-        subject = MessagesInteractor(dataSource: dataSource, collab: collab, messageSender: messageSender)
+        deliveryService = DeliveryServiceMock()
+        subject = MessagesInteractor(dataSource: dataSource, collab: collab, messageSender: messageSender, deliveryService: deliveryService)
         subject.presenter = messagePresenter
     }
     
@@ -98,7 +117,7 @@ final class MessagesInteractorTest: XCTestCase {
         subject.use(tableView)
         
         XCTAssertTrue(dataSource.didUseTableView)
-        XCTAssertTrue(dataSource.usedTableArgument === tableView)
+        XCTAssertTrue(dataSource.tableView === tableView)
     }
     
     func test_updateTable_reloadsTableViewInAllCases() {
@@ -107,7 +126,7 @@ final class MessagesInteractorTest: XCTestCase {
         
         for result in possibleResults {
             tableView.didCallReload = false
-            dataSource.tableViewControllingDelegate?.updateTable(with: result)
+            dataSource.updateTable(with: result)
             XCTAssertTrue(tableView.didCallReload)
         }
     }
@@ -137,5 +156,13 @@ final class MessagesInteractorTest: XCTestCase {
         subject.didTapSend(message: message)
 
         XCTAssertTrue(messagePresenter.didCallClear)
+    }
+
+    func test_didTapConfirm_whenServiceReturnsFailure_presentsError() {
+        deliveryService.success = false
+
+        subject.didTapConfirm()
+
+        XCTAssertTrue(messagePresenter.didCallPresentError)
     }
 }
