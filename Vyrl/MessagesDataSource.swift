@@ -52,16 +52,22 @@ extension MessagesDataSource: TableViewUsing {
     fileprivate func properFooterView(for tableView: UITableView) -> UIView {
         switch CollabStatus(orderStatus: collab.chatRoom.status) {
         case .productDelivery:
-            let confirmView = ConfirmDeliveryView.fromNib()
-            confirmView.delegate = actionTarget
-            return footerView(containing: confirmView, tableView: tableView)
+            let contentView = createFooterContent(.addContent)
+            return footerView(containing: contentView, tableView: tableView)
         case .contentReview:
-            let contentView = AddContentView.fromNib()
-            contentView.delegate = actionTarget
+            let contentView = createFooterContent(.confirmDelivery)
             return footerView(containing: contentView, tableView: tableView)
         default:
             return UIView()
         }
+    }
+    
+    fileprivate func createFooterContent(_ type: MessagesFooterType) -> MessagesFooterView {
+        let contentView = MessagesFooterView.fromNib()
+        let contentViewRenderable = MessagesFooterRenderable(footerType: type)
+        contentView.render(renderable: contentViewRenderable)
+        contentView.delegate = actionTarget
+        return contentView
     }
     
     fileprivate func footerView(containing view: UIView, tableView: UITableView) -> UIView {

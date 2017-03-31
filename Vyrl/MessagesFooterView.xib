@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="Lqb-Vy-lEG" customClass="AddContentView" customModule="Vyrl" customModuleProvider="target">
+        <view contentMode="scaleToFill" id="Lqb-Vy-lEG" customClass="MessagesFooterView" customModule="Vyrl" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
@@ -32,7 +32,7 @@
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                     <connections>
-                        <action selector="didTapAddContentButton:" destination="Lqb-Vy-lEG" eventType="touchUpInside" id="Ge0-Xp-rfZ"/>
+                        <action selector="didTapButton" destination="Lqb-Vy-lEG" eventType="touchUpInside" id="eSD-Xq-a7X"/>
                     </connections>
                 </button>
             </subviews>
@@ -44,6 +44,9 @@
                 <constraint firstItem="UtQ-gt-fGz" firstAttribute="leading" secondItem="Lqb-Vy-lEG" secondAttribute="leading" constant="16" id="kRd-CN-NSP"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="footerButton" destination="UtQ-gt-fGz" id="rRv-Gy-hkF"/>
+            </connections>
         </view>
     </objects>
     <resources>
