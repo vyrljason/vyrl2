@@ -93,7 +93,7 @@ extension MessagesInteractor: DeliveryConfirming {
         deliveryService.confirmDelivery(forBrand: collab.chatRoom.brandId) { [weak self] result in
             guard let `self` = self else { return }
             result.on(success: { _ in
-                //FIXME: ??? Refresh view?
+                self.loadTableData()
             }, failure: { error in
                 self.presenter?.presentError(title: nil, message: Constants.failedToConfirmDelivery)
             })
