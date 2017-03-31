@@ -6,7 +6,7 @@
 import XCTest
 
 final class CheckoutInteractorMock: CheckoutInteracting {
-    weak var projector: CheckoutRendering & ActionButtonRendering?
+    weak var projector: (CheckoutRendering & ActionButtonRendering)?
     weak var navigation: (ShippingAddressViewPresenting & ContactInfoViewPresenting & CheckoutSummaryViewPresenting)?
     weak var errorPresenter: ErrorAlertPresenting?
     func viewDidLoad() { }

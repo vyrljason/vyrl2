@@ -10,6 +10,7 @@ protocol MessagesDataAccessing: class {
 
 protocol MessagesDataProviding: TableViewUsing, TableViewDataProviding, MessagesDataAccessing {
     weak var reloadingDelegate: ReloadingData? { get set }
+    weak var actionTarget: (ContentAdding & DeliveryConfirming)? { get set }
 }
 
 final class MessagesDataSource: NSObject, MessagesDataProviding {
@@ -17,6 +18,7 @@ final class MessagesDataSource: NSObject, MessagesDataProviding {
     fileprivate enum Constants {
         static let numberOfSections: Int = 1
         static let cellHeight: CGFloat = 100
+        static let footerHeight: CGFloat = 60
     }
 
     fileprivate let service: MessagesProviding
@@ -24,6 +26,7 @@ final class MessagesDataSource: NSObject, MessagesDataProviding {
     fileprivate var items = [MessageContainer]()
 
     weak var reloadingDelegate: ReloadingData?
+    weak var actionTarget: (ContentAdding & DeliveryConfirming)?
     weak var tableViewControllingDelegate: TableViewControlling?
     weak var interactor: MessagesInteracting?
 
@@ -43,7 +46,35 @@ extension MessagesDataSource: TableViewUsing {
         SystemMessageCell.register(to: tableView)
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = Constants.cellHeight
-        tableView.tableFooterView = UIView()
+        tableView.tableFooterView = properFooterView(for: tableView)
+    }
+    
+    fileprivate func properFooterView(for tableView: UITableView) -> UIView {
+        switch CollabStatus(orderStatus: collab.chatRoom.status) {
+        case .productDelivery:
+            let contentView = createFooterContent(.addContent)
+            return footerView(containing: contentView, tableView: tableView)
+        case .contentReview:
+            let contentView = createFooterContent(.confirmDelivery)
+            return footerView(containing: contentView, tableView: tableView)
+        default:
+            return UIView()
+        }
+    }
+    
+    fileprivate func createFooterContent(_ type: MessagesFooterType) -> MessagesFooterView {
+        let contentView = MessagesFooterView.fromNib()
+        let contentViewRenderable = MessagesFooterRenderable(footerType: type)
+        contentView.render(renderable: contentViewRenderable)
+        contentView.delegate = actionTarget
+        return contentView
+    }
+    
+    fileprivate func footerView(containing view: UIView, tableView: UITableView) -> UIView {
+        let footerView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.size.width, height: Constants.footerHeight))
+        footerView.addSubview(view)
+        view.pinToEdges(of: footerView)
+        return footerView
     }
 }
 

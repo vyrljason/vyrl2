@@ -8,13 +8,17 @@ protocol MessageDisplaying: class {
     func clearMessage()
 }
 
+protocol MessagesControlling: class {
+    func setUpStatusView(withStatus status: CollabStatus)
+}
+
 final class MessagesViewController: UIViewController, HavingNib {
     static var nibName: String = "MessagesViewController"
 
     @IBOutlet fileprivate weak var tableView: UITableView!
     @IBOutlet weak var messageTextView: AutoexpandableTextView!
-    @IBOutlet private weak var addMessageView: UIView!
-    @IBOutlet private weak var statusView: StatusView!
+    @IBOutlet fileprivate weak var addMessageView: UIView!
+    @IBOutlet fileprivate weak var statusView: StatusView!
     
     fileprivate let interactor: MessagesInteracting & DataRefreshing
     fileprivate let refreshControl = UIRefreshControl()
@@ -22,7 +26,7 @@ final class MessagesViewController: UIViewController, HavingNib {
     init(interactor: MessagesInteracting & DataRefreshing) {
         self.interactor = interactor
         super.init(nibName: MessagesViewController.nibName, bundle: nil)
-        interactor.use(self)
+        interactor.viewController = self
         interactor.presenter = self
     }
 
@@ -30,28 +34,24 @@ final class MessagesViewController: UIViewController, HavingNib {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func setupBarButton() {
+    func setUpNavigationBar() {
         let moreButton = ClosureBarButtonItem.barButtonItem(image: #imageLiteral(resourceName: "moreHoriz")) { [weak self] in
             self?.interactor.didTapMore()
         }
-        navigationItem.rightBarButtonItem = moreButton
+        navigationItem.rightBarButtonItem = nil
+        renderNoTitleBackButton()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpRefresh()
-        setupBarButton()
+        setUpNavigationBar()
         interactor.use(tableView)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         interactor.viewWillAppear()
-    }
-
-    func setUpStatusView(withStatus status: CollabStatus) {
-        let renderable = StatusViewRenderable(status: status)
-        statusView.render(renderable: renderable)
     }
 }
 
@@ -82,5 +82,12 @@ extension MessagesViewController: MessageDisplaying {
 extension MessagesViewController {
     @IBAction private func didTapSend() {
         interactor.didTapSend(message: messageTextView.text)
+    }
+}
+
+extension MessagesViewController: MessagesControlling {
+    func setUpStatusView(withStatus status: CollabStatus) {
+        let renderable = StatusViewRenderable(status: status)
+        statusView.render(renderable: renderable)
     }
 }

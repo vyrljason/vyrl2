@@ -11,17 +11,17 @@ private enum Constants {
 protocol MessagesInteracting: TableViewUsing {
     weak var dataUpdateListener: DataLoadingEventsListening? { get set }
     weak var presenter: (MessageDisplaying & ErrorAlertPresenting)? { get set }
+    weak var viewController: MessagesControlling? { get set }
     func viewWillAppear()
     func didTapMore()
     func didTapSend(message: String)
-    func use(_ viewController: MessagesViewController)
 }
 
 final class MessagesInteractor: MessagesInteracting {
     fileprivate weak var tableView: UITableView?
-    fileprivate weak var viewController: MessagesViewController?
-    let dataSource: MessagesDataProviding
+    fileprivate let dataSource: MessagesDataProviding
     weak var dataUpdateListener: DataLoadingEventsListening?
+    weak var viewController: MessagesControlling?
     weak var presenter: (MessageDisplaying & ErrorAlertPresenting)?
 
     private let collab: Collab
@@ -34,6 +34,7 @@ final class MessagesInteractor: MessagesInteracting {
         self.messageSender = messageSender
         dataSource.interactor = self
         dataSource.tableViewControllingDelegate = self
+        dataSource.actionTarget = self
     }
     
     func viewWillAppear() {
@@ -53,14 +54,10 @@ final class MessagesInteractor: MessagesInteracting {
                             toRoom: collab.chatRoomId) { [weak self] result in
                                 result.on(success: { _ in
                                     self?.presenter?.clearMessage()
-                                }, failure: { error in
+                                }, failure: { _ in
                                     self?.presenter?.presentError(title: nil, message: Constants.failedToSentMessage)
                                 })
         }
-    }
-    
-    func use(_ viewController: MessagesViewController) {
-        self.viewController = viewController
     }
 }
 
@@ -84,5 +81,19 @@ extension MessagesInteractor: TableViewControlling {
     
     func loadTableData() {
         dataSource.loadTableData()
+    }
+}
+
+extension MessagesInteractor: DeliveryConfirming {
+    func didTapConfirm() {
+        //FIXME: Waiting for api
+        print("DID TAP CONFIRM")
+    }
+}
+
+extension MessagesInteractor: ContentAdding {
+    func didTapAddContent() {
+        //FIXME: Waiting for add content view controller
+        print("DID TAP ADD CONTENT")
     }
 }

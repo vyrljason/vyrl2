@@ -40,6 +40,7 @@ final class MessagesDataSourceMock: NSObject, MessagesDataProviding {
     weak var tableViewControllingDelegate: TableViewControlling?
     weak var reloadingDelegate: ReloadingData?
     weak var interactor: MessagesInteracting?
+    weak var actionTarget: (ContentAdding & DeliveryConfirming)?
     
     func use(_ tableView: UITableView) {
         didUseTableView = true
@@ -106,7 +107,7 @@ final class MessagesInteractorTest: XCTestCase {
         
         for result in possibleResults {
             tableView.didCallReload = false
-            subject.dataSource.tableViewControllingDelegate?.updateTable(with: result)
+            dataSource.tableViewControllingDelegate?.updateTable(with: result)
             XCTAssertTrue(tableView.didCallReload)
         }
     }
