@@ -52,10 +52,10 @@ extension MessagesDataSource: TableViewUsing {
     fileprivate func properFooterView(for tableView: UITableView) -> UIView {
         switch CollabStatus(orderStatus: collab.chatRoom.status) {
         case .productDelivery:
-            let contentView = createFooterContent(.addContent)
+            let contentView = createFooterContent(.confirmDelivery)
             return footerView(containing: contentView, tableView: tableView)
         case .contentReview:
-            let contentView = createFooterContent(.confirmDelivery)
+            let contentView = createFooterContent(.addContent)
             return footerView(containing: contentView, tableView: tableView)
         default:
             return UIView()
