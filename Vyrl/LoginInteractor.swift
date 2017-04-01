@@ -5,6 +5,7 @@
 import Foundation
 
 protocol LoginInteracting: class, FormActionDelegate {
+    weak var navigator: AuthorizationNavigating? { get set }
     weak var presenter: ErrorAlertPresenting & ViewActivityPresenting? { get set }
     func didPrepare(form: LoginFormInteracting)
 }
@@ -18,12 +19,13 @@ final class LoginInteractor: LoginInteracting {
     fileprivate var form: LoginFormInteracting?
     fileprivate let service: UserLoginProviding
     fileprivate let credentialsStorage: CredentialsStoring
+    weak var navigator: AuthorizationNavigating?
     weak var presenter: ErrorAlertPresenting & ViewActivityPresenting?
-    weak var listener: AuthorizationListener?
 
-    init(service: UserLoginProviding, credentialsStorage: CredentialsStoring) {
+    init(service: UserLoginProviding, credentialsStorage: CredentialsStoring, navigator: AuthorizationNavigating) {
         self.service = service
         self.credentialsStorage = credentialsStorage
+        self.navigator = navigator
     }
 
     func didPrepare(form: LoginFormInteracting) {
@@ -47,7 +49,7 @@ extension LoginInteractor: FormActionDelegate {
             self.presenter?.dismiss()
             result.on(success: { userProfile in
                 self.credentialsStorage.saveToken(using: userProfile)
-                self.listener?.didFinishAuthorizing()
+                self.navigator?.didFinishAuthorization()
             }, failure: { error in
                 self.presenter?.presentError(title: error.title, message: error.message)
             })

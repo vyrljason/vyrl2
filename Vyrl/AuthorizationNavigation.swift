@@ -9,23 +9,35 @@
 import UIKit
 
 protocol AuthorizationNavigating: class {
-    weak var authorizationNavigationController: UINavigationController? { get set }
     weak var listener: AuthorizationListener? { get set }
 
     func didFinishAuthorization()
 }
 
-final class AuthorizationNavigation: AuthorizationNavigating {
-    weak var authorizationNavigationController: UINavigationController?
+protocol LoginPresenting: class {
+    func presentLogin()
+}
+
+final class AuthorizationNavigation: AuthorizationNavigating, NavigationControlling {
+    let navigationController = UINavigationController()
+
     weak var listener: AuthorizationListener?
 
     init(listener: AuthorizationListener, welcomeViewFactory: WelcomeViewMaking.Type) {
         self.listener = listener
-        let welcomeViewController = welcomeViewFactory.make()
-        self.authorizationNavigationController = UINavigationController(rootViewController: welcomeViewController)
+        let welcomeViewController = welcomeViewFactory.make(using: self)
+        self.navigationController.viewControllers = [welcomeViewController]
     }
     
     func didFinishAuthorization() {
         listener?.didFinishAuthorizing()
+    }
+}
+
+extension AuthorizationNavigation: LoginPresenting {
+    func presentLogin() {
+        let viewController = LoginControllerFactory.make(using: self)
+        viewController.render(NavigationItemRenderable(titleImage: StyleKit.navigationBarLogo))
+        navigationController.pushViewController(viewController, animated: true)
     }
 }

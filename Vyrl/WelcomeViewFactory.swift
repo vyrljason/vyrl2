@@ -9,12 +9,12 @@
 import Foundation
 
 protocol WelcomeViewMaking {
-    static func make() -> WelcomeViewController
+    static func make(using navigator: AuthorizationNavigating) -> WelcomeViewController
 }
 
 enum WelcomeViewFactory: WelcomeViewMaking {
-    static func make() -> WelcomeViewController {
-        let interactor = WelcomeViewInteractor()
+    static func make(using navigator: AuthorizationNavigating) -> WelcomeViewController {
+        let interactor = WelcomeViewInteractor(using: navigator)
         let viewController = WelcomeViewController(interactor: interactor)
         interactor.presenter = viewController
         return viewController

@@ -30,6 +30,18 @@ final class WelcomeViewController: UIViewController, HavingNib {
         super.init(nibName: WelcomeViewController.nibName, bundle: nil)
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.navigationBar.isHidden = true
+        playLoop()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationController?.navigationBar.isHidden = false
+        stopVideo()
+    }
+
     func playLoop() {
         if let playerLayer = playerLayer {
             //video is AR 0.55
@@ -41,6 +53,10 @@ final class WelcomeViewController: UIViewController, HavingNib {
             backgroundView.layer.addSublayer(playerLayer)
             loopVideo(videoPlayer: player)
         }
+    }
+    
+    func stopVideo() {
+        videoPlayer?.stop()
     }
     
     func loopVideo(videoPlayer: AVPlayer?) {

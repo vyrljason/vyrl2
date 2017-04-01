@@ -52,6 +52,8 @@ protocol MainNavigationRendering: class {
 
 final class RootNavigation {
 
+    var authorizationNavigation: AuthorizationNavigation? = nil
+    
     fileprivate enum Constants {
         static let menuWidthRatio: CGFloat = 0.8
         static let contentViewScale: CGFloat = 1.0
@@ -189,16 +191,21 @@ extension RootNavigation {
 
 extension RootNavigation: AuthorizationFlowPresenting {
     func presentAuthorizationNavigation(animated: Bool) {
-        let authorizationNavigation = AuthorizationNavigation(listener: self, welcomeViewFactory: welcomeViewMaker)
+        self.authorizationNavigation = AuthorizationNavigation(listener: self, welcomeViewFactory: welcomeViewMaker)
         
-        guard let welcomeViewController: WelcomeViewController = authorizationNavigation.authorizationNavigationController?.viewControllers.first as? WelcomeViewController else {
+        guard let authNavigationController = authorizationNavigation?.navigationController, let welcomeViewController: WelcomeViewController = authNavigationController.viewControllers.first as? WelcomeViewController else {
             assertionFailure("Auth nav starts at welcome vc")
             return
         }
         
-        // welcome vc should have nav bar hidden -- no need to render
-        transition(to: welcomeViewController, animated: animated)
-        welcomeViewController.playLoop()
+        let renderable = NavigationBarRenderable(tintColor: .white,
+                                                 titleFont: .titleFont,
+                                                 backgroundColor: .rouge,
+                                                 translucent: false)
+        
+        authNavigationController.render(renderable)
+
+        transition(to: authNavigationController, animated: animated)
     }
 }
 
