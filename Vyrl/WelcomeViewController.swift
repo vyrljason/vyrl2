@@ -56,7 +56,7 @@ final class WelcomeViewController: UIViewController, HavingNib {
     }
     
     func stopVideo() {
-        videoPlayer?.stop()
+        player?.pause()
     }
     
     func loopVideo(videoPlayer: AVPlayer?) {
