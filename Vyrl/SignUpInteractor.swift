@@ -15,6 +15,8 @@ final class SignUpInteractor: SignUpInteracting {
     private var form: SignUpFormInteracting?
     weak var presenter: ErrorAlertPresenting?
 
+    weak var signUpNavigation: AuthorizationNavigating?
+
     func didPrepare(form: SignUpFormInteracting) {
         self.form = form
     }
