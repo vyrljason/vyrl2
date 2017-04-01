@@ -197,7 +197,9 @@ extension RootNavigation: AuthorizationFlowPresenting {
         }
         
         // welcome vc should have nav bar hidden -- no need to render
-        transition(to: welcomeViewController, animated: animated)    }
+        transition(to: welcomeViewController, animated: animated)
+        welcomeViewController.playLoop()
+    }
 }
 
 extension RootNavigation: AuthorizationListener {
