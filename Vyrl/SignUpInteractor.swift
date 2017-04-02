@@ -27,7 +27,7 @@ final class SignUpInteractor: SignUpInteracting {
             presenter?.presentError(title: nil, message: errorMessage)
             return
         }
-        guard let userSignUpRequest = form.result else { return }
+        guard let _ = form.result else { return }
         //TODO: call Service to execute networking call
     }
 }
