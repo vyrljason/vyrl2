@@ -34,7 +34,8 @@ final class HTTPClient: APIResourceControlling {
                         parameters: requestDataProvider.parameters(for: endpoint),
                         encoding: endpoint.encoding,
                         headers: requestDataProvider.headers(for: endpoint)).responseJSON { (response: DataResponse<Any>) in
-                self.responseHandler.handle(response: response, completion: completion)
+                            self.responseHandler.handle(response: response, completion: completion)
+
         }
     }
 }

@@ -15,7 +15,7 @@ final class BrandStorePresenterMock: BrandStorePresenting {
 
 final class BrandsDataSourceMock: NSObject, BrandsDataProviding, BrandsFilteredByCategoryProviding {
 
-    weak var collectionViewControllingDelegate: CollectionViewHaving & CollectionViewControlling?
+    weak var collectionViewControllingDelegate: (CollectionViewHaving & CollectionViewControlling)?
     weak var selectionDelegate: BrandSelecting?
     var didLoad = false
     var category: Vyrl.Category?

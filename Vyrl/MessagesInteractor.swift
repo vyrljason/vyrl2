@@ -4,47 +4,68 @@
 
 import UIKit
 
+private enum Constants {
+    static let failedToSentMessage = NSLocalizedString("messages.error.failedToSend", comment: "")
+    static let failedToConfirmDelivery = NSLocalizedString("messages.error.failedToConfirmDelivery", comment: "")
+}
+
 protocol MessagesInteracting: TableViewUsing {
     weak var dataUpdateListener: DataLoadingEventsListening? { get set }
+    weak var presenter: (MessageDisplaying & ErrorAlertPresenting)? { get set }
+    weak var viewController: MessagesControlling? { get set }
     func viewWillAppear()
     func didTapMore()
-    func use(_ viewController: MessagesViewController)
+    func didTapSend(message: String)
 }
 
 final class MessagesInteractor: MessagesInteracting {
-    fileprivate weak var tableView: UITableView?
-    fileprivate weak var viewController: MessagesViewController?
-    let dataSource: MessagesDataProviding
+    fileprivate let dataSource: MessagesDataProviding
     weak var dataUpdateListener: DataLoadingEventsListening?
-    private let collab: Collab
-    
-    init(dataSource: MessagesDataProviding, collab: Collab) {
+    weak var viewController: MessagesControlling?
+    weak var presenter: (MessageDisplaying & ErrorAlertPresenting)?
+
+    fileprivate let collab: Collab
+    fileprivate let messageSender: MessageSending
+    fileprivate let deliveryService: ConfirmingDelivery
+
+    init(dataSource: MessagesDataProviding, collab: Collab,
+         messageSender: MessageSending,
+         deliveryService: ConfirmingDelivery) {
         self.dataSource = dataSource
         self.collab = collab
-        dataSource.interactor = self
-        dataSource.tableViewControllingDelegate = self
+        self.messageSender = messageSender
+        self.deliveryService = deliveryService
+        dataSource.actionTarget = self
     }
     
     func viewWillAppear() {
-        //FIXME: Only for test, Waiting for api sync
-        viewController?.setUpStatusView(withStatus: CollabStatus.publication)
+        viewController?.setUpStatusView(withStatus: CollabStatus(orderStatus: collab.chatRoom.status))
         dataSource.loadTableData()
     }
     
     func didTapMore() {
-        //FIXME: Only for test, Waiting for api sync
-        viewController?.setUpStatusView(withStatus: CollabStatus.waiting)
+        //TODO: Add reporting functionality. No story on Taiga yet ;-)
     }
-    
-    func use(_ viewController: MessagesViewController) {
-        self.viewController = viewController
+
+    func didTapSend(message: String) {
+        let trimmedMessage = message.trimmed
+        guard trimmedMessage.characters.count > 0 else { return }
+        let message = Message(text: trimmedMessage)
+        messageSender.send(message: message,
+                            toRoom: collab.chatRoomId) { [weak self] result in
+                                result.on(success: { _ in
+                                    self?.presenter?.clearMessage()
+                                }, failure: { _ in
+                                    self?.presenter?.presentError(title: nil, message: Constants.failedToSentMessage)
+                                })
+        }
     }
 }
 
 extension MessagesInteractor: TableViewUsing {
     func use(_ tableView: UITableView) {
-        self.tableView = tableView
         dataSource.use(tableView)
+        dataSource.reloadingDelegate = tableView
     }
 }
 
@@ -54,12 +75,22 @@ extension MessagesInteractor: DataRefreshing {
     }
 }
 
-extension MessagesInteractor: TableViewControlling {
-    func updateTable(with result: DataFetchResult) {
-        tableView?.reloadData()
+extension MessagesInteractor: DeliveryConfirming {
+    func didTapConfirm() {
+        deliveryService.confirmDelivery(forBrand: collab.chatRoom.brandId) { [weak self] result in
+            guard let `self` = self else { return }
+            result.on(success: { _ in
+                self.dataSource.loadTableData()
+            }, failure: { error in
+                self.presenter?.presentError(title: nil, message: Constants.failedToConfirmDelivery)
+            })
+        }
     }
-    
-    func loadTableData() {
-        dataSource.loadTableData()
+}
+
+extension MessagesInteractor: ContentAdding {
+    func didTapAddContent() {
+        //FIXME: Waiting for add content view controller
+        print("DID TAP ADD CONTENT")
     }
 }

@@ -13,7 +13,7 @@ final class BrandStoreDataSource: NSObject, BrandStoreDataProviding {
     fileprivate let service: BrandProductsProviding
     fileprivate var products = [Product]()
     fileprivate var flowLayoutHandler: BrandStoreFlowLayoutHandling
-    weak var collectionViewControllingDelegate: CollectionViewHaving & CollectionViewControlling?
+    weak var collectionViewControllingDelegate: (CollectionViewHaving & CollectionViewControlling)?
     weak var selectionDelegate: ProductSelecting?
 
     init(brand: Brand,

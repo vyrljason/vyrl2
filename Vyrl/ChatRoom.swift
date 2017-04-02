@@ -17,7 +17,7 @@ struct ChatRoom {
     let influencerId: String
     let lastMessage: String
     let lastActivity: Date
-    let status: OrderStatus?
+    let status: OrderStatus
     let unreadMessages: Int
 }
 
@@ -28,14 +28,14 @@ extension ChatRoom: DictionaryInitializable {
         guard let influencerId = dictionary[Keys.influencerId] as? String else { return nil }
         guard let lastMessage = dictionary[Keys.lastMessage] as? String else { return nil }
         guard let lastActivity = dictionary[Keys.lastActivity] as? TimeInterval else { return nil }
-        guard let statusAsString = dictionary[Keys.status] as? String else { return nil }
         guard let unreadMessages = dictionary[Keys.unreadMessages] as? Int else { return nil }
+        let statusAsString = dictionary[Keys.status] as? String ?? ""
 
         self.brandId = brandId
         self.influencerId = influencerId
         self.lastMessage = lastMessage
         self.lastActivity = Date(timeIntervalSince1970: lastActivity)
-        self.status = OrderStatus(rawValue: statusAsString)
+        self.status = OrderStatus(description: statusAsString)
         self.unreadMessages = unreadMessages
     }
 }
@@ -46,7 +46,7 @@ extension ChatRoom: DictionaryConvertible {
                 Keys.influencerId: influencerId,
                 Keys.lastMessage: lastMessage,
                 Keys.lastActivity: lastActivity,
-                Keys.status: status?.description ?? "",
+                Keys.status: status.description,
                 Keys.unreadMessages: unreadMessages]
     }
 }

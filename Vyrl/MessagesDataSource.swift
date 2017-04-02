@@ -4,37 +4,37 @@
 
 import UIKit
 
-protocol MessagesDataAccessing: class {
-    weak var interactor: MessagesInteracting? { get set }
-}
-
-protocol MessagesDataProviding: TableViewUsing, TableViewDataProviding, MessagesDataAccessing {
+protocol MessagesDataProviding: TableViewUsing, TableViewDataProviding, TableViewHaving {
     weak var reloadingDelegate: ReloadingData? { get set }
+    weak var actionTarget: (ContentAdding & DeliveryConfirming)? { get set }
 }
 
 final class MessagesDataSource: NSObject, MessagesDataProviding {
-    
+
     fileprivate enum Constants {
         static let numberOfSections: Int = 1
         static let cellHeight: CGFloat = 100
+        static let footerHeight: CGFloat = 60
     }
-    
+
     fileprivate let service: MessagesProviding
+    fileprivate let collab: Collab
     fileprivate var items = [MessageContainer]()
-    
+
+    weak var tableView: UITableView?
     weak var reloadingDelegate: ReloadingData?
-    weak var tableViewControllingDelegate: TableViewControlling?
-    weak var interactor: MessagesInteracting?
-    
-    init(service: MessagesProviding) {
+    weak var actionTarget: (ContentAdding & DeliveryConfirming)?
+
+    init(service: MessagesProviding, collab: Collab) {
         self.service = service
+        self.collab = collab
         super.init()
     }
-    
 }
 
 extension MessagesDataSource: TableViewUsing {
     func use(_ tableView: UITableView) {
+        self.tableView = tableView
         tableView.delegate = self
         tableView.dataSource = self
         InfluencerMessageCell.register(to: tableView)
@@ -42,71 +42,120 @@ extension MessagesDataSource: TableViewUsing {
         SystemMessageCell.register(to: tableView)
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = Constants.cellHeight
-        tableView.tableFooterView = UIView()
+        updateFooter()
+    }
+    
+    fileprivate func properFooterView(for tableView: UITableView) -> UIView {
+        switch CollabStatus(orderStatus: collab.chatRoom.status) {
+        case .productDelivery:
+            let contentView = createFooterContent(.confirmDelivery)
+            return footerView(containing: contentView, tableView: tableView)
+        case .contentReview:
+            let contentView = createFooterContent(.addContent)
+            return footerView(containing: contentView, tableView: tableView)
+        default:
+            return UIView()
+        }
+    }
+    
+    fileprivate func createFooterContent(_ type: MessagesFooterType) -> MessagesFooterView {
+        let contentView = MessagesFooterView.fromNib()
+        let contentViewRenderable = MessagesFooterRenderable(footerType: type)
+        contentView.render(renderable: contentViewRenderable)
+        contentView.delegate = actionTarget
+        return contentView
+    }
+    
+    fileprivate func footerView(containing view: UIView, tableView: UITableView) -> UIView {
+        let footerView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.size.width, height: Constants.footerHeight))
+        footerView.addSubview(view)
+        view.pinToEdges(of: footerView)
+        return footerView
+    }
+
+    fileprivate func updateFooter() {
+        guard let tableView = tableView else { return }
+        tableView.tableFooterView = properFooterView(for: tableView)
     }
 }
 
 extension MessagesDataSource: TableViewDataProviding {
     func loadTableData() {
-        service.getMessages { [weak self] result in
+        service.getMessages(inChatRoom: collab.chatRoomId) { [weak self] result in
             guard let `self` = self else { return }
-            self.items = result.map(success: { $0 }, failure: { _ in return [] })
+            self.items = result.map(success: {
+                $0.sorted(by: { $0.createdAt < $1.createdAt })},
+                                    failure: { _ in return [] })
             DispatchQueue.onMainThread { [weak self] in
-                self?.tableViewControllingDelegate?.updateTable(with: result.map(success: { $0 .isEmpty ? .empty : .someData },
+                self?.updateTable(with: result.map(success: { $0 .isEmpty ? .empty : .someData },
                                                                                  failure: { _ in .error }))
             }
         }
     }
-    
+
+    func updateTable(with result: DataFetchResult) {
+        reloadingDelegate?.reloadData()
+        updateFooter()
+        tableView?.scrollToRow(at: lastElementIndexPath, at: .top, animated: true)
+    }
+
+    private var lastElementIndexPath: IndexPath {
+        return IndexPath(row: max(0, items.count - 1), section: 0)
+    }
+
     fileprivate func prepare(cell: InfluencerMessageCell, messageItem: MessageContainer) {
         let renderable = MessageCellRenderable(text: messageItem.message.text)
         cell.render(renderable)
-        cell.set(imageFetcher: ImageFetcher(url: messageItem.sender.avatar))
+        guard let avatarUrl = messageItem.sender.avatar else { return }
+        cell.set(imageFetcher: ImageFetcher(url: avatarUrl))
     }
 
     fileprivate func prepare(cell: BrandMessageCell, messageItem: MessageContainer) {
         let renderable = MessageCellRenderable(text: messageItem.message.text)
         cell.render(renderable)
-        cell.set(imageFetcher: ImageFetcher(url: messageItem.sender.avatar))
+        guard let avatarUrl = messageItem.sender.avatar else { return }
+        cell.set(imageFetcher: ImageFetcher(url: avatarUrl))
     }
-    
+
     fileprivate func prepare(cell: SystemMessageCell, messageItem: MessageContainer) {
         let renderable = MessageCellRenderable(text: messageItem.message.text)
         cell.render(renderable)
     }
-    
-    fileprivate func cellForUser(messageItem: MessageContainer, tableView: UITableView, indexPath: IndexPath) -> UITableViewCell {
-        if indexPath.row % 2 == 0 {
-            let cell: BrandMessageCell = tableView.dequeueCell(at: indexPath)
-            prepare(cell: cell, messageItem: items[indexPath.row])
-            return cell
-        }
+
+    fileprivate func cellForBrand(messageItem: MessageContainer, tableView: UITableView, indexPath: IndexPath) -> UITableViewCell {
+        let cell: BrandMessageCell = tableView.dequeueCell(at: indexPath)
+        prepare(cell: cell, messageItem: items[indexPath.row])
+        return cell
+    }
+
+    fileprivate func cellForInfluencer(messageItem: MessageContainer, tableView: UITableView, indexPath: IndexPath) -> UITableViewCell {
         let cell: InfluencerMessageCell = tableView.dequeueCell(at: indexPath)
         prepare(cell: cell, messageItem: items[indexPath.row])
         return cell
     }
-    
+
     fileprivate func cellForSystem(messageItem: MessageContainer, tableView: UITableView, indexPath: IndexPath) -> UITableViewCell {
         let cell: SystemMessageCell = tableView.dequeueCell(at: indexPath)
         prepare(cell: cell, messageItem: items[indexPath.row])
         return cell
     }
-    
+
     func numberOfSections(in tableView: UITableView) -> Int {
         return Constants.numberOfSections
     }
-    
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return items.count
     }
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        // FIXME: For test purposes, waiting for api
-        switch items[indexPath.row].messageType {
+        switch items[indexPath.row].messageType(in: collab) {
         case .system:
             return cellForSystem(messageItem: items[indexPath.row], tableView: tableView, indexPath: indexPath)
-        case .normal:
-            return cellForUser(messageItem: items[indexPath.row], tableView: tableView, indexPath: indexPath)
+        case .influencer:
+            return cellForInfluencer(messageItem: items[indexPath.row], tableView: tableView, indexPath: indexPath)
+        case .brand:
+            return cellForBrand(messageItem: items[indexPath.row], tableView: tableView, indexPath: indexPath)
         }
     }
 }

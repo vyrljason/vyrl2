@@ -18,8 +18,8 @@ protocol ContactInfoUpdateListening: class {
 }
 
 protocol CheckoutInteracting: class, ShippingAddressUpdateListening, ContactInfoUpdateListening {
-    weak var projector: CheckoutRendering & ActionButtonRendering? { get set }
-    weak var navigation: ShippingAddressViewPresenting & ContactInfoViewPresenting & CheckoutSummaryViewPresenting? { get set }
+    weak var projector: (CheckoutRendering & ActionButtonRendering)? { get set }
+    weak var navigation: (ShippingAddressViewPresenting & ContactInfoViewPresenting & CheckoutSummaryViewPresenting)? { get set }
     weak var errorPresenter: ErrorAlertPresenting? { get set }
     func viewDidLoad()
     func didTapAddShippingAddress()
@@ -36,8 +36,8 @@ final class CheckoutInteractor: CheckoutInteracting {
     fileprivate let service: OrderProposalSending
     fileprivate let cartStorage: CartStoring
 
-    weak var projector: CheckoutRendering & ActionButtonRendering?
-    weak var navigation: ShippingAddressViewPresenting & ContactInfoViewPresenting & CheckoutSummaryViewPresenting?
+    weak var projector: (CheckoutRendering & ActionButtonRendering)?
+    weak var navigation: (ShippingAddressViewPresenting & ContactInfoViewPresenting & CheckoutSummaryViewPresenting)?
     weak var errorPresenter: ErrorAlertPresenting?
 
     init(cartData: CartData, service: OrderProposalSending, cartStorage: CartStoring) {

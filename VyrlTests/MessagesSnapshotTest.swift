@@ -7,14 +7,16 @@ import XCTest
 
 final class MessagesInteractorNoDataMock: MessagesInteracting, DataRefreshing {
     weak var dataUpdateListener: DataLoadingEventsListening?
+    weak var presenter: (MessageDisplaying & ErrorAlertPresenting)?
+    weak var viewController: MessagesControlling?
     
     func viewWillAppear() { }
     
     func didTapMore() { }
+
+    func didTapSend(message: String) { }
     
     func use(_ tableView: UITableView) { }
-    
-    func use(_ viewController: MessagesViewController) { }
     
     func refreshData() { }
 }
@@ -42,7 +44,7 @@ final class MessagesControllerSnapshotTest: SnapshotTestCase {
         _ = subject.view
         let testText = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla egestas euismod venenatis. Phasellus placerat fringilla dui at lobortis."
         subject.messageTextView.text = testText
-        
+    
         verifyForScreens(view: subject.view)
     }
     

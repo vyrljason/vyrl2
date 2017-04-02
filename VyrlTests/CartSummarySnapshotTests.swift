@@ -6,7 +6,7 @@
 import XCTest
 
 final class CartInteractingMock: CartInteracting {
-    weak var projector: CartSummaryRendering & ViewContainer & LayoutGuideHaving?
+    weak var projector: (CartSummaryRendering & ViewContainer & LayoutGuideHaving)?
 
     var product: Product?
 

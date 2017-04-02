@@ -6,7 +6,7 @@
 import UIKit
 
 class CollectionDataSourceMock: NSObject, CollectionViewManaging, CollectionViewNibRegistering, CollectionViewUsing {
-    weak var collectionViewControllingDelegate: CollectionViewHaving & CollectionViewControlling?
+    weak var collectionViewControllingDelegate: (CollectionViewHaving & CollectionViewControlling)?
     var didRegisterNibs = false
     var didLoadData = false
     var didUseCollectionView = false

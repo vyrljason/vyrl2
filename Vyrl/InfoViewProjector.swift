@@ -5,12 +5,12 @@
 import UIKit
 
 protocol InfoViewProjecting {
-    weak var presenter: ViewContainer & LayoutGuideHaving? { get set }
+    weak var presenter: (ViewContainer & LayoutGuideHaving)? { get set }
     func display()
 }
 
 final class InfoViewProjector: InfoViewProjecting {
-    weak var presenter: ViewContainer & LayoutGuideHaving?
+    weak var presenter: (ViewContainer & LayoutGuideHaving)?
     fileprivate let renderable: InfoViewRenderable
 
     init(renderable: InfoViewRenderable) {

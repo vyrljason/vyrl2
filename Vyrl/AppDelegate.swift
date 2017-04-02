@@ -48,8 +48,6 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
                                                              authenticator: authenticator,
                                                              tokenDecoder: decoder,
                                                              chatCredentialsStorage: ChatCredentialsStorage())
-        ServiceLocator.chatAuthenticator?.authenticateUser { result in
-            print(result)
-        }
+        ServiceLocator.chatAuthenticator?.authenticateUser { _ in }
     }
 }

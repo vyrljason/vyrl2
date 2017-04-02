@@ -17,7 +17,27 @@ enum CollabStatus: Int, CustomStringConvertible, CustomIntegerConvertible {
     case publication = 3
     case done = 4
     case waiting = -1
-    
+
+    // swiftlint:disable cyclomatic_complexity
+    init(orderStatus: OrderStatus) {
+        switch orderStatus {
+        case .requested:
+            self = .waiting
+        case .declined:
+            self = .done
+        case .accepted:
+            self = .brief
+        case .shipped:
+            self = .productDelivery
+        case .delivered:
+            self = .contentReview
+        case .posted:
+            self = .done
+        default:
+            self = .waiting
+        }
+    }
+
     static var allValidStatuses: [CollabStatus] {
         return [CollabStatus.brief, CollabStatus.productDelivery, CollabStatus.contentReview,
                 CollabStatus.publication, CollabStatus.done]

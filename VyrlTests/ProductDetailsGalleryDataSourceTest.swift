@@ -13,7 +13,7 @@ final class ProductDetailsGalleryDataSourceTest: XCTestCase {
     
     override func setUp() {
         collectionViewMock = CollectionViewMock()
-        let imageArray = (0..<5).map { _ in VyrlFaker.faker.productImage() }
+        let imageArray = (0..<5).map { _ in VyrlFaker.faker.imageContainer() }
         product = VyrlFaker.faker.product(images: imageArray)
         subject = ProductDetailsGalleryDataSource(product: product)
     }

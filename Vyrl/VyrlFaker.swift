@@ -26,7 +26,7 @@ extension Faker {
                  retailPrice: Double = VyrlFaker.faker.commerce.price(),
                  isAdditionalGuidelines: Bool = false,
                  additionalGuidelines: String = VyrlFaker.faker.lorem.characters(amount: 200),
-                 images: [ProductImage] = [],
+                 images: [ImageContainer] = [],
                  variants: [ProductVariants] = []) -> Product {
         return Product(id: id,
                        name: name,
@@ -167,18 +167,19 @@ extension Faker {
 }
 
 extension Faker {
-    func productImage(id: String = VyrlFaker.faker.lorem.characters(amount: 20),
+    func imageContainer(id: String = VyrlFaker.faker.lorem.characters(amount: 20),
                       url: URL = URL(string: VyrlFaker.faker.internet.url())!,
                       name: String = VyrlFaker.faker.commerce.productName(),
-                      brandId: String = VyrlFaker.faker.lorem.characters(amount: 20)) -> ProductImage {
-        return ProductImage(id: id, url: url, name: name, brandId: brandId)
+                      brandId: String = VyrlFaker.faker.lorem.characters(amount: 20)) -> ImageContainer {
+        return ImageContainer(id: id, url: url, name: name, brandId: brandId)
     }
 }
 
 extension Faker {
-    func collab(brandName: String = VyrlFaker.faker.name.name(),
+    func collab(chatRoomId: String = VyrlFaker.faker.lorem.characters(amount: 20),
+                brandName: String = VyrlFaker.faker.name.name(),
                 chatRoom: ChatRoom = VyrlFaker.faker.chatRoom()) -> Collab {
-        return Collab(brandName: brandName, chatRoom: chatRoom)
+        return Collab(chatRoomId: chatRoomId, brandName: brandName, chatRoom: chatRoom)
     }
 
     func chatRoom(brandId: String = VyrlFaker.faker.lorem.characters(amount: 20),
@@ -192,20 +193,18 @@ extension Faker {
 }
 
 extension Faker {
-    func messageContainer(createdAt: Double = VyrlFaker.faker.number.randomDouble(),
+    func messageContainer(createdAt: Date = Date(),
                           sender: Sender = VyrlFaker.faker.sender(),
-                          message: Message = VyrlFaker.faker.message(),
-                          messageType: MessageType = MessageType.normal) -> MessageContainer {
-        return MessageContainer(createdAt: createdAt, sender: sender, message: message, messageType: messageType)
+                          message: Message = VyrlFaker.faker.message()) -> MessageContainer {
+        return MessageContainer(createdAt: createdAt, sender: sender, message: message)
     }
-    
-    func systemMessageContainer(createdAt: Double = VyrlFaker.faker.number.randomDouble(),
+
+    func systemMessageContainer(createdAt: Date = Date(),
                                 sender: Sender = VyrlFaker.faker.systemSender(),
-                                message: Message = VyrlFaker.faker.message(),
-                                messageType: MessageType = MessageType.system) -> MessageContainer {
-        return MessageContainer(createdAt: createdAt, sender: sender, message: message, messageType: messageType)
+                                message: Message = VyrlFaker.faker.message()) -> MessageContainer {
+        return MessageContainer(createdAt: createdAt, sender: sender, message: message)
     }
-    
+
     func message(text: String = VyrlFaker.faker.lorem.sentence(wordsAmount: VyrlFaker.faker.number.randomInt(min: 1, max: 20)),
                  mediaURL: URL = URL(string: VyrlFaker.faker.internet.url())!,
                  isMedia: Bool = false) -> Message {
@@ -217,7 +216,7 @@ extension Faker {
                 name: String = VyrlFaker.faker.name.name()) -> Sender {
         return Sender(avatar: avatar, id: id, name: name)
     }
-    
+
     func systemSender(avatar: URL = URL(string: VyrlFaker.faker.internet.url())!,
                       id: String = "-1",
                       name: String = VyrlFaker.faker.name.name()) -> Sender {
