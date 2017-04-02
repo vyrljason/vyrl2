@@ -22,10 +22,10 @@ final class LoginFormInteractor: NSObject, LoginFormInteracting {
     weak var delegate: FormActionDelegate?
 
     init(username: FormItem, password: FormItem) {
-        guard username.field == .username, password.field == .password else {
+        guard username.field == .vyrlUsername, password.field == .password else {
             fatalError("Invalid form definition for LoginForm")
         }
-        self.fields = [.username, .password]
+        self.fields = [.vyrlUsername, .password]
         self.username = username
         self.password = password
         super.init()

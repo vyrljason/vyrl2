@@ -1,3 +1,18 @@
+// Localizables
+// MARK: Sign Up
+"signup.form.formHeader" = "VYRL Account Details";
+"signup.form.passwordFooter" = "Password must contain at least 6 characters, 1 uppercase letter and 1 number. Ex: Password1";
+"signup.form.socialNetworkDetailHeader" = "Social network details";
+"signup.form.formFooter" = "This is how we verify your account’s eligibility.";
+// MARK: All others
+"collabs.navigation.title" = "Collabs";
+"collabs.placeholder.noDataTitle" = "Hey";
+"collabs.placeholder.noDataDescription" = "You don't have any active collaborations yet. Hit \"close\" at the top of the screen to start looking through brands to work with.";
+"messages.currentStatus.title" = "Current status: ";
+"general.button.alert.ok" = "OK";
+"cart.guidelines.title" = "Content guidelines";
+"cart.guidelines.buttonTitle" = "Done";
+"chat.title" = "CHAT";
 "brand.submissionName" = "submissions";
 "cart.title" = "Cart";
 "cart.summaryFormat" = "%d products from\n%d companies";
@@ -6,9 +21,17 @@
 "checkout.title" = "Checkout";
 "cart.noProducts.title" = "No products in cart";
 "cart.noProducts.description" = "Add some products";
+
+// MARK: Error messages
+"messages.error.failedToSend" = "Failed to send a message, please try again.";
+"messages.error.failedToConfirmDelivery" = "Failed to confirm delivery, please try again.";
+"shippingAddress.error.invalid" = "Required fields cannot be empty";
+"validation.error.textFieldEmpty" = "Field cannot be empty";
+"checkout.error.incompleteData" = "Shipping address and contact info are required.";
+"checkout.error.api" = "There was a problem with your checkout, please try again.";
+"contactInfo.error.invalid" = "Valid e-mail and phone number are required";
 "cart.error.title" = "Something went wrong";
 "cart.error.description" = "Please contact the administrator";
-"chat.title" = "CHAT";
 "validation.error.usernameEmpty" = "Username cannot be empty";
 "validation.error.passwordEmpty" = "Password cannot be empty";
 "validation.error.passwordInvalid" = "Password format is invalid";
@@ -17,17 +40,3 @@
 "login.error.invalidUsername.message" = "Username doesn't exist";
 "login.error.unknown.message" = "Something ham jammed while attempting to log in. Please try again.";
 "login.error.title" = "Error";
-"general.button.alert.ok" = "OK";
-"cart.guidelines.title" = "Content guidelines";
-"cart.guidelines.buttonTitle" = "Done";
-"shippingAddress.error.invalid" = "Required fields cannot be empty";
-"validation.error.textFieldEmpty" = "Field cannot be empty";
-"checkout.error.incompleteData" = "Shipping address and contact info are required.";
-"checkout.error.api" = "There was a problem with your checkout, please try again.";
-"contactInfo.error.invalid" = "Valid e-mail and phone number are required";
-"collabs.navigation.title" = "Collabs";
-"collabs.placeholder.noDataTitle" = "Hey";
-"collabs.placeholder.noDataDescription" = "You don't have any active collaborations yet. Hit \"close\" at the top of the screen to start looking through brands to work with.";
-"messages.currentStatus.title" = "Current status: ";
-"messages.error.failedToSend" = "Failed to send a message, please try again.";
-"messages.error.failedToConfirmDelivery" = "Failed to confirm delivery, please try again.";

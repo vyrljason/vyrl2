@@ -5,11 +5,11 @@
 import Foundation
 
 protocol SignUpViewMaking {
-    static func make(_ navigation: AuthorizationNavigating) -> SignUpViewController
+    static func make(using navigation: AuthorizationNavigating) -> SignUpViewController
 }
 
 enum SignUpViewFactory: SignUpViewMaking {
-    static func make(_ navigation: AuthorizationNavigating) -> SignUpViewController {
+    static func make(using navigation: AuthorizationNavigating) -> SignUpViewController {
         let interactor = SignUpInteractor()
         let viewController = SignUpViewController(interactor: interactor, formFactory: SignUpFormFactory.self)
         interactor.presenter = viewController

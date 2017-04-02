@@ -34,14 +34,16 @@ func == (lhs: ValidationStatus, rhs: ValidationStatus) -> Bool {
 }
 
 enum FormField {
-    case username
+    case vyrlUsername
+    case instagramUsername
     case password
     case nonEmpty
     case email
 
     var validator: FormFieldValidating {
         switch self {
-        case .username: return UsernameValidation()
+        case .vyrlUsername: return VYRLUsernameValidation()
+        case .instagramUsername: return InstagramUsernameValidation()
         case .password: return PasswordValidation()
         case .nonEmpty: return NonEmptyValidation()
         case .email: return EmailValidation()

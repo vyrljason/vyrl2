@@ -15,12 +15,12 @@ private enum Constants {
 }
 
 enum SignUpFormIndex: Int, CustomIntegerConvertible {
-    case username
+    case vyrlUsername
     case email
     case emailConfirmation
     case password
     case instagramUsername
-
+    
     var integerValue: Int {
         return rawValue
     }
@@ -42,7 +42,7 @@ final class SignUpFormInteractor: SignUpFormInteracting {
     var result: UserSignUpRequest? {
         let text: [String] = fieldsInteractor.fields.flatMap { $0.textField.text }.filter { $0.characters.count > 0 }
         guard text.count == SignUpFormIndex.count else { return nil }
-        return UserSignUpRequest(username: text[SignUpFormIndex.username.integerValue],
+        return UserSignUpRequest(username: text[SignUpFormIndex.vyrlUsername.integerValue],
                                  email: text[SignUpFormIndex.email],
                                  password: text[SignUpFormIndex.password],
                                  platformUsername: text[SignUpFormIndex.instagramUsername])

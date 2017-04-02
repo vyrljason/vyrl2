@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FormView" customModule="Vyrl" customModuleProvider="target">
+            <connections>
+                <outlet property="title" destination="phJ-JA-5fe" id="Wo3-4Y-ZMv"/>
+                <outlet property="underline" destination="coP-gD-WnZ" id="v2V-e2-dWN"/>
+                <outlet property="value" destination="QJe-FV-0FD" id="8qf-tj-I5j"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="350" height="60"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="phJ-JA-5fe">
+                    <rect key="frame" x="16" y="19" width="33.5" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="*" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tdj-08-p1P">
+                    <rect key="frame" x="49.5" y="19" width="8.5" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="coP-gD-WnZ" userLabel="Underline">
+                    <rect key="frame" x="65.5" y="59" width="268.5" height="1"/>
+                    <color key="backgroundColor" red="0.69803921568627447" green="0.69803921568627447" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="1" id="cBL-kk-yTB"/>
+                    </constraints>
+                </view>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QJe-FV-0FD">
+                    <rect key="frame" x="66" y="11" width="268" height="38"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="38" id="lc9-Bm-ov0"/>
+                    </constraints>
+                    <nil key="textColor"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="coP-gD-WnZ" secondAttribute="trailing" constant="16" id="9wh-F9-Mau"/>
+                <constraint firstItem="Tdj-08-p1P" firstAttribute="leading" secondItem="phJ-JA-5fe" secondAttribute="trailing" id="QHV-Lc-2pc"/>
+                <constraint firstItem="QJe-FV-0FD" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="VAa-hI-x9r"/>
+                <constraint firstItem="phJ-JA-5fe" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="16" id="VdL-EQ-796"/>
+                <constraint firstAttribute="bottom" secondItem="coP-gD-WnZ" secondAttribute="bottom" id="WNA-v8-Kkm"/>
+                <constraint firstItem="Tdj-08-p1P" firstAttribute="centerY" secondItem="phJ-JA-5fe" secondAttribute="centerY" id="dxD-jh-RkP"/>
+                <constraint firstAttribute="trailing" secondItem="QJe-FV-0FD" secondAttribute="trailing" constant="16" id="gbB-xh-JNE"/>
+                <constraint firstItem="QJe-FV-0FD" firstAttribute="leading" secondItem="Tdj-08-p1P" secondAttribute="trailing" constant="8" id="oe2-1n-kef"/>
+                <constraint firstItem="phJ-JA-5fe" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="rQW-wN-RsO"/>
+                <constraint firstItem="coP-gD-WnZ" firstAttribute="leading" secondItem="phJ-JA-5fe" secondAttribute="trailing" constant="16" id="uDf-S6-P1b"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="22" y="228"/>
+        </view>
+    </objects>
+</document>

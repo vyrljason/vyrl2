@@ -18,6 +18,10 @@ protocol LoginPresenting: class {
     func presentLogin()
 }
 
+protocol SignUpPresenting: class {
+    func presentSignUp()
+}
+
 final class AuthorizationNavigation: AuthorizationNavigating, NavigationControlling {
     let navigationController = UINavigationController()
 
@@ -37,6 +41,14 @@ final class AuthorizationNavigation: AuthorizationNavigating, NavigationControll
 extension AuthorizationNavigation: LoginPresenting {
     func presentLogin() {
         let viewController = LoginControllerFactory.make(using: self)
+        viewController.render(NavigationItemRenderable(titleImage: StyleKit.navigationBarLogo))
+        navigationController.pushViewController(viewController, animated: true)
+    }
+}
+
+extension AuthorizationNavigation: SignUpPresenting {
+    func presentSignUp() {
+        let viewController = SignUpViewFactory.make(using: self)
         viewController.render(NavigationItemRenderable(titleImage: StyleKit.navigationBarLogo))
         navigationController.pushViewController(viewController, animated: true)
     }

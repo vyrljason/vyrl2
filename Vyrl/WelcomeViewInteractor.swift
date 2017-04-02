@@ -36,5 +36,10 @@ final class WelcomeViewInteractor: WelcomeViewInteracting {
     
     func didTapSignUp() {
         // present sign up VC
+        guard let signUpPresenter = navigator as? SignUpPresenting else {
+            assertionFailure("need a valid presenting navigator for signup presentation")
+            return
+        }
+        signUpPresenter.presentSignUp()
     }
 }
