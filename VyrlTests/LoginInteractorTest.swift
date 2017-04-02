@@ -46,18 +46,19 @@ final class LoginInteractorTest: XCTestCase {
     private var formItem: FormItem!
     private var listener: AuthorizationListenerMock!
     private var credentialsStorage: CredentialStorageMock!
-
+    private var authNavigation: AuthorizationNavigationMock!
+    
     override func setUp() {
         super.setUp()
         service = LoginServiceMock()
         presenter = LoginPresenterMock()
         form = LoginFormMock()
         listener = AuthorizationListenerMock()
+        authNavigation = AuthorizationNavigationMock()
         credentialsStorage = CredentialStorageMock()
         formItem = FormItem(field: .username, textField: MockTextField())
-        subject = LoginInteractor(service: service, credentialsStorage: credentialsStorage)
+        subject = LoginInteractor(service: service, credentialsStorage: credentialsStorage, navigator: authNavigation)
         subject.presenter = presenter
-        subject.listener = listener
     }
 
     func test_didPrepare_setsFormDelegate() {

@@ -353,7 +353,6 @@
 		85CA3FC91E64319200D43805 /* APICredentialsProviderMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85CA3FC81E64319200D43805 /* APICredentialsProviderMock.swift */; };
 		85CA3FCB1E6431B500D43805 /* APIEndpointMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85CA3FCA1E6431B500D43805 /* APIEndpointMock.swift */; };
 		85CA3FCD1E6431CF00D43805 /* APIConfigurationMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85CA3FCC1E6431CF00D43805 /* APIConfigurationMock.swift */; };
-		85CA3FD01E6439EE00D43805 /* AuthorizationResourcesTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85CA3FCF1E6439EE00D43805 /* AuthorizationResourcesTest.swift */; };
 		85CA3FD21E64635600D43805 /* SessionManagerMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85CA3FD11E64635600D43805 /* SessionManagerMock.swift */; };
 		85CA3FD51E646FE700D43805 /* BaseResourcesTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85CA3FD41E646FE700D43805 /* BaseResourcesTest.swift */; };
 		85CA3FDA1E6477D100D43805 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85CA3FD91E6477D100D43805 /* LoginViewController.swift */; };
@@ -406,6 +405,7 @@
 		B2DA9F8C1E8F9EFA00C2875F /* WelcomeViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2DA9F8B1E8F9EFA00C2875F /* WelcomeViewFactory.swift */; };
 		B2DA9F8E1E8FA06C00C2875F /* AuthorizationNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2DA9F8D1E8FA06C00C2875F /* AuthorizationNavigation.swift */; };
 		B2DA9F901E8FB0BD00C2875F /* WelcomeViewBackgroundVideo.mov in Resources */ = {isa = PBXBuildFile; fileRef = B2DA9F8F1E8FB0BD00C2875F /* WelcomeViewBackgroundVideo.mov */; };
+		B2DA9F941E91206C00C2875F /* AuthorizationNavigationMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2DA9F931E91206C00C2875F /* AuthorizationNavigationMock.swift */; };
 		BDDF0A4F0C2F3D7D482551AB /* Pods_VyrlTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3553ABBDC82B1A7C9E6385AE /* Pods_VyrlTests.framework */; };
 		C414B25F1E8A7C4B002F973E /* UIView+IBInspectables.swift in Sources */ = {isa = PBXBuildFile; fileRef = C414B25E1E8A7C4B002F973E /* UIView+IBInspectables.swift */; };
 		C414B2611E8A810D002F973E /* SystemMessageCellSnapshotTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C414B2601E8A810D002F973E /* SystemMessageCellSnapshotTest.swift */; };
@@ -803,7 +803,6 @@
 		85CA3FC81E64319200D43805 /* APICredentialsProviderMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APICredentialsProviderMock.swift; sourceTree = "<group>"; };
 		85CA3FCA1E6431B500D43805 /* APIEndpointMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIEndpointMock.swift; sourceTree = "<group>"; };
 		85CA3FCC1E6431CF00D43805 /* APIConfigurationMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIConfigurationMock.swift; sourceTree = "<group>"; };
-		85CA3FCF1E6439EE00D43805 /* AuthorizationResourcesTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthorizationResourcesTest.swift; sourceTree = "<group>"; };
 		85CA3FD11E64635600D43805 /* SessionManagerMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionManagerMock.swift; sourceTree = "<group>"; };
 		85CA3FD41E646FE700D43805 /* BaseResourcesTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseResourcesTest.swift; sourceTree = "<group>"; };
 		85CA3FD91E6477D100D43805 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -856,6 +855,7 @@
 		B2DA9F8B1E8F9EFA00C2875F /* WelcomeViewFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeViewFactory.swift; sourceTree = "<group>"; };
 		B2DA9F8D1E8FA06C00C2875F /* AuthorizationNavigation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthorizationNavigation.swift; sourceTree = "<group>"; };
 		B2DA9F8F1E8FB0BD00C2875F /* WelcomeViewBackgroundVideo.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = WelcomeViewBackgroundVideo.mov; sourceTree = "<group>"; };
+		B2DA9F931E91206C00C2875F /* AuthorizationNavigationMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthorizationNavigationMock.swift; sourceTree = "<group>"; };
 		BD1309C018727D87342F7FE2 /* Pods-VyrlTests.ad hoc.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VyrlTests.ad hoc.xcconfig"; path = "Pods/Target Support Files/Pods-VyrlTests/Pods-VyrlTests.ad hoc.xcconfig"; sourceTree = "<group>"; };
 		C414B25E1E8A7C4B002F973E /* UIView+IBInspectables.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+IBInspectables.swift"; sourceTree = "<group>"; };
 		C414B2601E8A810D002F973E /* SystemMessageCellSnapshotTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SystemMessageCellSnapshotTest.swift; sourceTree = "<group>"; };
@@ -1222,6 +1222,7 @@
 				853BAC0B1E7C07B700874075 /* KeychainMock.swift */,
 				85603F821E89800B0062485E /* ChatCredentialsStorageMock.swift */,
 				8597AB681E8AEC1E00A64585 /* BrandsServiceMock.swift */,
+				B2DA9F931E91206C00C2875F /* AuthorizationNavigationMock.swift */,
 			);
 			name = Mocks;
 			sourceTree = "<group>";
@@ -2573,7 +2574,6 @@
 		85CA3FCE1E6439DF00D43805 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				85CA3FCF1E6439EE00D43805 /* AuthorizationResourcesTest.swift */,
 				85CA3FD41E646FE700D43805 /* BaseResourcesTest.swift */,
 			);
 			name = Resources;
@@ -3418,6 +3418,7 @@
 				85B0A8431E672ED0002093BA /* HTTPClientMock.swift in Sources */,
 				8572E4D81E7AC7F60042160D /* CollabsDataSourceTest.swift in Sources */,
 				C4C887691E881DB10022558F /* StatusViewSnapshotTest.swift in Sources */,
+				B2DA9F941E91206C00C2875F /* AuthorizationNavigationMock.swift in Sources */,
 				85CA3FD51E646FE700D43805 /* BaseResourcesTest.swift in Sources */,
 				858D63F11E55F6D600CFDD4C /* ImageRetrieverMock.swift in Sources */,
 				8554BEB71E69C3E300E05A37 /* ProductsServiceTest.swift in Sources */,
@@ -3451,7 +3452,6 @@
 				850A80DB1E5E0DE600E684A3 /* CredentialsStorageTest.swift in Sources */,
 				1AA7FA8E1E672D08001C0B6F /* CartSummarySnapshotTests.swift in Sources */,
 				C4C8877D1E89AA4F0022558F /* BrandMessageCellSnapshotTest.swift in Sources */,
-				85CA3FD01E6439EE00D43805 /* AuthorizationResourcesTest.swift in Sources */,
 				858D63EF1E55F6A800CFDD4C /* ImageFetcherTest.swift in Sources */,
 				31B0794A1E76AA150015C302 /* NavigationItemMock.swift in Sources */,
 				31EF22FF1E678C450073F624 /* TableViewMock.swift in Sources */,
