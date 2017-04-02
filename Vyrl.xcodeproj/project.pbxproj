@@ -406,7 +406,6 @@
 		B2DA9F8E1E8FA06C00C2875F /* AuthorizationNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2DA9F8D1E8FA06C00C2875F /* AuthorizationNavigation.swift */; };
 		B2DA9F901E8FB0BD00C2875F /* WelcomeViewBackgroundVideo.mov in Resources */ = {isa = PBXBuildFile; fileRef = B2DA9F8F1E8FB0BD00C2875F /* WelcomeViewBackgroundVideo.mov */; };
 		B2DA9F941E91206C00C2875F /* AuthorizationNavigationMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2DA9F931E91206C00C2875F /* AuthorizationNavigationMock.swift */; };
-		BDDF0A4F0C2F3D7D482551AB /* Pods_VyrlTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3553ABBDC82B1A7C9E6385AE /* Pods_VyrlTests.framework */; };
 		C414B25F1E8A7C4B002F973E /* UIView+IBInspectables.swift in Sources */ = {isa = PBXBuildFile; fileRef = C414B25E1E8A7C4B002F973E /* UIView+IBInspectables.swift */; };
 		C414B2611E8A810D002F973E /* SystemMessageCellSnapshotTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C414B2601E8A810D002F973E /* SystemMessageCellSnapshotTest.swift */; };
 		C450FA881E8A778D00A63414 /* SystemMessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C450FA861E8A778D00A63414 /* SystemMessageCell.swift */; };
@@ -467,7 +466,6 @@
 		1A1FA95C1E5F173A007EB61D /* CategoryCellSnapshotTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryCellSnapshotTest.swift; sourceTree = "<group>"; };
 		1A1FA9601E5F2E55007EB61D /* AccountViewControllerFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountViewControllerFactory.swift; sourceTree = "<group>"; };
 		1A1FA9631E5F4D19007EB61D /* AccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
-		1A2766098374FF4C447FC4D5 /* Pods-VyrlTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VyrlTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-VyrlTests/Pods-VyrlTests.release.xcconfig"; sourceTree = "<group>"; };
 		1A31215B1E641CE400F71925 /* CartItemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CartItemCell.swift; path = ../Vyrl/CartItemCell.swift; sourceTree = "<group>"; };
 		1A31215D1E641CFB00F71925 /* CartItemCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CartItemCell.xib; path = ../Vyrl/CartItemCell.xib; sourceTree = "<group>"; };
 		1A3121611E646C9100F71925 /* CartViewControllerFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CartViewControllerFactory.swift; sourceTree = "<group>"; };
@@ -604,7 +602,6 @@
 		31FEB5B41E5D0FA300C5E41D /* BrandStoreDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrandStoreDataSource.swift; sourceTree = "<group>"; };
 		31FEB5B61E5D952600C5E41D /* BrandStoreCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrandStoreCell.swift; sourceTree = "<group>"; };
 		31FEB5B71E5D952600C5E41D /* BrandStoreCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BrandStoreCell.xib; sourceTree = "<group>"; };
-		3553ABBDC82B1A7C9E6385AE /* Pods_VyrlTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VyrlTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D5C69B512EC5560D5FAF6DF /* Pods-Vyrl.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Vyrl.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Vyrl/Pods-Vyrl.debug.xcconfig"; sourceTree = "<group>"; };
 		850740CC1E55E71E00E2F65B /* Brand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Brand.swift; sourceTree = "<group>"; };
 		850A80A61E5D927300E684A3 /* DictionaryConvertible.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DictionaryConvertible.swift; sourceTree = "<group>"; };
@@ -856,7 +853,6 @@
 		B2DA9F8D1E8FA06C00C2875F /* AuthorizationNavigation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthorizationNavigation.swift; sourceTree = "<group>"; };
 		B2DA9F8F1E8FB0BD00C2875F /* WelcomeViewBackgroundVideo.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = WelcomeViewBackgroundVideo.mov; sourceTree = "<group>"; };
 		B2DA9F931E91206C00C2875F /* AuthorizationNavigationMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthorizationNavigationMock.swift; sourceTree = "<group>"; };
-		BD1309C018727D87342F7FE2 /* Pods-VyrlTests.ad hoc.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VyrlTests.ad hoc.xcconfig"; path = "Pods/Target Support Files/Pods-VyrlTests/Pods-VyrlTests.ad hoc.xcconfig"; sourceTree = "<group>"; };
 		C414B25E1E8A7C4B002F973E /* UIView+IBInspectables.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+IBInspectables.swift"; sourceTree = "<group>"; };
 		C414B2601E8A810D002F973E /* SystemMessageCellSnapshotTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SystemMessageCellSnapshotTest.swift; sourceTree = "<group>"; };
 		C450FA861E8A778D00A63414 /* SystemMessageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SystemMessageCell.swift; sourceTree = "<group>"; };
@@ -887,7 +883,6 @@
 		C4C887831E89B1290022558F /* MessagesDataSourceTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagesDataSourceTest.swift; sourceTree = "<group>"; };
 		C4C887851E89B5280022558F /* MessagesInteractorTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagesInteractorTest.swift; sourceTree = "<group>"; };
 		D1CA9B6CB49B011CC24AABEF /* Pods-Vyrl.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Vyrl.release.xcconfig"; path = "Pods/Target Support Files/Pods-Vyrl/Pods-Vyrl.release.xcconfig"; sourceTree = "<group>"; };
-		E340CAC7115BDC8D7662DAA1 /* Pods-VyrlTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VyrlTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-VyrlTests/Pods-VyrlTests.debug.xcconfig"; sourceTree = "<group>"; };
 		F3FA9C9307A9DB63E646297F /* Pods-Vyrl-VyrlTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Vyrl-VyrlTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Vyrl-VyrlTests/Pods-Vyrl-VyrlTests.debug.xcconfig"; sourceTree = "<group>"; };
 		F49938B0396058B0A03497B5 /* Pods-Vyrl-VyrlTests.ad hoc.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Vyrl-VyrlTests.ad hoc.xcconfig"; path = "Pods/Target Support Files/Pods-Vyrl-VyrlTests/Pods-Vyrl-VyrlTests.ad hoc.xcconfig"; sourceTree = "<group>"; };
 		FEFAD20345D47357A44DABF7 /* Pods-Vyrl.ad hoc.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Vyrl.ad hoc.xcconfig"; path = "Pods/Target Support Files/Pods-Vyrl/Pods-Vyrl.ad hoc.xcconfig"; sourceTree = "<group>"; };
@@ -906,7 +901,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BDDF0A4F0C2F3D7D482551AB /* Pods_VyrlTests.framework in Frameworks */,
 				A88C6E01D1C525F412047D1D /* Pods_Vyrl_VyrlTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2737,10 +2731,7 @@
 			children = (
 				3D5C69B512EC5560D5FAF6DF /* Pods-Vyrl.debug.xcconfig */,
 				D1CA9B6CB49B011CC24AABEF /* Pods-Vyrl.release.xcconfig */,
-				E340CAC7115BDC8D7662DAA1 /* Pods-VyrlTests.debug.xcconfig */,
-				1A2766098374FF4C447FC4D5 /* Pods-VyrlTests.release.xcconfig */,
 				FEFAD20345D47357A44DABF7 /* Pods-Vyrl.ad hoc.xcconfig */,
-				BD1309C018727D87342F7FE2 /* Pods-VyrlTests.ad hoc.xcconfig */,
 				F3FA9C9307A9DB63E646297F /* Pods-Vyrl-VyrlTests.debug.xcconfig */,
 				A18C29074EB0CA69D3CEAB5F /* Pods-Vyrl-VyrlTests.release.xcconfig */,
 				F49938B0396058B0A03497B5 /* Pods-Vyrl-VyrlTests.ad hoc.xcconfig */,
@@ -2855,7 +2846,6 @@
 			isa = PBXGroup;
 			children = (
 				1AA1C43D9EC44CB342D10427 /* Pods_Vyrl.framework */,
-				3553ABBDC82B1A7C9E6385AE /* Pods_VyrlTests.framework */,
 				A1B503C80149A72A7A1B1D88 /* Pods_Vyrl_VyrlTests.framework */,
 			);
 			name = Frameworks;
@@ -2924,7 +2914,7 @@
 					};
 					1ADAF7D71E545F3C00155D9F = {
 						CreatedOnToolsVersion = 8.2;
-						DevelopmentTeam = 2FUQCB4MRE;
+						DevelopmentTeam = WW89T5YHE3;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 1ADAF7C31E545F3C00155D9F;
 					};
@@ -3690,7 +3680,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				DEVELOPMENT_TEAM = 2FUQCB4MRE;
+				DEVELOPMENT_TEAM = WW89T5YHE3;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"${PODS_ROOT}/Firebase/Core/Sources",
@@ -3715,7 +3705,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				DEVELOPMENT_TEAM = 2FUQCB4MRE;
+				DEVELOPMENT_TEAM = WW89T5YHE3;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"${PODS_ROOT}/Firebase/Core/Sources",
@@ -3801,7 +3791,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				DEVELOPMENT_TEAM = 2FUQCB4MRE;
+				DEVELOPMENT_TEAM = WW89T5YHE3;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"${PODS_ROOT}/Firebase/Core/Sources",
