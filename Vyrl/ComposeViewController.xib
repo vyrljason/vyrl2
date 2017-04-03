@@ -12,6 +12,10 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ComposeViewController" customModule="Vyrl" customModuleProvider="target">
             <connections>
+                <outlet property="composeImageView" destination="W1s-qf-g80" id="KXe-8Q-SOE"/>
+                <outlet property="composeTextView" destination="Z3H-1x-s2P" id="x9p-cd-7OA"/>
+                <outlet property="composeView" destination="ifg-56-Vv0" id="mvX-UF-Ke5"/>
+                <outlet property="scrollView" destination="o0C-zN-ubb" id="Mv1-o7-7c7"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -24,16 +28,16 @@
                     <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ifg-56-Vv0">
-                            <rect key="frame" x="20" y="8" width="335" height="377"/>
+                            <rect key="frame" x="20" y="8" width="335" height="365"/>
                             <subviews>
-                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="composePhotoPlaceholder" translatesAutoresizingMaskIntoConstraints="NO" id="W1s-qf-g80">
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="composePhotoPlaceholder" translatesAutoresizingMaskIntoConstraints="NO" id="W1s-qf-g80">
                                     <rect key="frame" x="12" y="12" width="311" height="311"/>
                                     <constraints>
                                         <constraint firstAttribute="width" secondItem="W1s-qf-g80" secondAttribute="height" id="Vv9-0t-a4i"/>
                                     </constraints>
                                 </imageView>
-                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Lorem ipsum dolor sit er elit lamet" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Z3H-1x-s2P" customClass="AutoexpandableTextView" customModule="Vyrl" customModuleProvider="target">
-                                    <rect key="frame" x="8" y="335" width="319" height="34"/>
+                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Z3H-1x-s2P" customClass="AutoexpandableTextView" customModule="Vyrl" customModuleProvider="target">
+                                    <rect key="frame" x="8" y="327" width="319" height="34"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="34" id="xZ7-GV-5K2"/>
@@ -42,9 +46,6 @@
                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     <userDefinedRuntimeAttributes>
                                         <userDefinedRuntimeAttribute type="string" keyPath="placeholderText" value="Write your message here..."/>
-                                        <userDefinedRuntimeAttribute type="number" keyPath="maxHeight">
-                                            <real key="value" value="100"/>
-                                        </userDefinedRuntimeAttribute>
                                     </userDefinedRuntimeAttributes>
                                     <connections>
                                         <outlet property="height" destination="xZ7-GV-5K2" id="FMm-AG-Rsj"/>
@@ -57,8 +58,8 @@
                                 <constraint firstItem="Z3H-1x-s2P" firstAttribute="leading" secondItem="ifg-56-Vv0" secondAttribute="leading" constant="8" id="TFi-2S-tkk"/>
                                 <constraint firstItem="W1s-qf-g80" firstAttribute="top" secondItem="ifg-56-Vv0" secondAttribute="top" constant="12" id="YK2-OT-dcF"/>
                                 <constraint firstAttribute="trailing" secondItem="Z3H-1x-s2P" secondAttribute="trailing" constant="8" id="ZV9-vB-OIK"/>
-                                <constraint firstAttribute="bottom" secondItem="Z3H-1x-s2P" secondAttribute="bottom" constant="8" id="Zp4-1h-ycm"/>
-                                <constraint firstItem="Z3H-1x-s2P" firstAttribute="top" secondItem="W1s-qf-g80" secondAttribute="bottom" constant="12" id="ip2-B3-qRv"/>
+                                <constraint firstAttribute="bottom" secondItem="Z3H-1x-s2P" secondAttribute="bottom" constant="4" id="Zp4-1h-ycm"/>
+                                <constraint firstItem="Z3H-1x-s2P" firstAttribute="top" secondItem="W1s-qf-g80" secondAttribute="bottom" constant="4" id="ip2-B3-qRv"/>
                                 <constraint firstItem="W1s-qf-g80" firstAttribute="leading" secondItem="ifg-56-Vv0" secondAttribute="leading" constant="12" id="nFd-u3-SWX"/>
                             </constraints>
                         </view>
@@ -67,7 +68,7 @@
                     <constraints>
                         <constraint firstItem="ifg-56-Vv0" firstAttribute="top" secondItem="o0C-zN-ubb" secondAttribute="top" constant="8" id="0qA-pA-Bt0"/>
                         <constraint firstAttribute="trailing" secondItem="ifg-56-Vv0" secondAttribute="trailing" constant="20" id="LRb-k9-Tkl"/>
-                        <constraint firstAttribute="bottom" secondItem="ifg-56-Vv0" secondAttribute="bottom" id="YWO-MG-u99"/>
+                        <constraint firstAttribute="bottom" secondItem="ifg-56-Vv0" secondAttribute="bottom" constant="8" id="YWO-MG-u99"/>
                         <constraint firstItem="ifg-56-Vv0" firstAttribute="leading" secondItem="o0C-zN-ubb" secondAttribute="leading" constant="20" id="t34-Mo-hsj"/>
                     </constraints>
                 </scrollView>

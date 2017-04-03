@@ -28,7 +28,8 @@ final class MessagesViewController: UIViewController, HavingNib {
         self.interactor = interactor
         super.init(nibName: MessagesViewController.nibName, bundle: nil)
         interactor.viewController = self
-        interactor.presenter = self
+        interactor.errorPresenter = self
+        interactor.messageDisplayer = self
     }
 
     required init?(coder aDecoder: NSCoder) {
