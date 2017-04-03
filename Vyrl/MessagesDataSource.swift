@@ -17,6 +17,7 @@ final class MessagesDataSource: NSObject, MessagesDataProviding {
         static let messagesSection: Int = 0
         static let cellHeight: CGFloat = 100
         static let footerHeight: CGFloat = 60
+        static let scrollingUpdateDelay: TimeInterval = 0.4
     }
 
     fileprivate let collab: Collab
@@ -115,7 +116,7 @@ extension MessagesDataSource: TableViewDataProviding {
 
     func updateTable(with result: DataFetchResult) {
         updateFooter()
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) { [weak self] in
+        DispatchQueue.main.asyncAfter(deadline: .now() + Constants.scrollingUpdateDelay) { [weak self] in
             guard let `self` = self else { return }
             self.tableView?.scrollToRow(at: self.lastElementIndexPath, at: .top, animated: true)
         }

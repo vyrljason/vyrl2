@@ -29,7 +29,6 @@ final class ChatRoomUpdater: ChatRoomUpdatesInforming {
     func listenToNewMessages(inRoom roomId: String, completion: @escaping ([MessageContainer]) -> Void) {
         messagesHandler = chatDatabase.childAt(path: messagesPath(for: roomId)).observe(.childAdded, with: { [weak self] (snapshot) in
             guard let `self` = self else { return }
-            print("added")
             let result = self.dataConverter.convert(snapshot: snapshot)
             completion(result)
         })
