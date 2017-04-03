@@ -9,13 +9,19 @@
 import UIKit
 import AVFoundation
 
+private enum Constants {
+    static let videoResourceName = "WelcomeViewBackgroundVideo"
+    static let videoResourceExtension = "mov"
+}
+
+
 final class WelcomeViewController: UIViewController, HavingNib {
     static let nibName: String = "WelcomeViewController"
     
-    @IBOutlet weak var backgroundView: UIView!
-    @IBOutlet weak var logoImageView: UIImageView!
-    @IBOutlet weak var loginButton: UIButton!
-    @IBOutlet weak var signUpButton: UIButton!
+    @IBOutlet private weak var backgroundView: UIView!
+    @IBOutlet private weak var logoImageView: UIImageView!
+    @IBOutlet private weak var loginButton: UIButton!
+    @IBOutlet private weak var signUpButton: UIButton!
 
     private let interactor: WelcomeViewInteracting
     private var player: AVPlayer?
@@ -23,7 +29,7 @@ final class WelcomeViewController: UIViewController, HavingNib {
     
     init(interactor: WelcomeViewInteracting) {
         self.interactor = interactor
-        if let fileURL: URL = Bundle.main.url(forResource: "WelcomeViewBackgroundVideo", withExtension: "mov") {
+        if let fileURL: URL = Bundle.main.url(forResource: Constants.videoResourceName, withExtension: Constants.videoResourceExtension) {
             self.player = AVPlayer(url: fileURL)
             self.playerLayer = AVPlayerLayer(player: player)
         }

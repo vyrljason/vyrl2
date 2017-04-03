@@ -156,7 +156,7 @@
 		31FEB5B51E5D0FA300C5E41D /* BrandStoreDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31FEB5B41E5D0FA300C5E41D /* BrandStoreDataSource.swift */; };
 		31FEB5B81E5D952600C5E41D /* BrandStoreCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31FEB5B61E5D952600C5E41D /* BrandStoreCell.swift */; };
 		31FEB5B91E5D952600C5E41D /* BrandStoreCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31FEB5B71E5D952600C5E41D /* BrandStoreCell.xib */; };
-		8217F9377CE6236507E326A4 /* Pods_VyrlTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD99B7EF9A009086D95C87E1 /* Pods_VyrlTests.framework */; };
+		8217F9377CE6236507E326A4 /* (null) in Frameworks */ = {isa = PBXBuildFile; };
 		8507FED31E8E300F00C0711B /* ImageMessageServiceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8507FED21E8E300F00C0711B /* ImageMessageServiceTest.swift */; };
 		8507FED51E8E318900C0711B /* ImageToDataConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8507FED41E8E318900C0711B /* ImageToDataConverter.swift */; };
 		850A80A71E5D927300E684A3 /* DictionaryConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850A80A61E5D927300E684A3 /* DictionaryConvertible.swift */; };
@@ -169,7 +169,6 @@
 		850A80BB1E5DA92800E684A3 /* APIEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850A80BA1E5DA92800E684A3 /* APIEndpoint.swift */; };
 		850A80BF1E5DA94100E684A3 /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850A80BE1E5DA94100E684A3 /* HTTPClient.swift */; };
 		850A80C11E5DA94800E684A3 /* NetworkEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850A80C01E5DA94800E684A3 /* NetworkEnums.swift */; };
-		850A80C61E5DAA1E00E684A3 /* AuthorizationResources.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850A80C51E5DAA1E00E684A3 /* AuthorizationResources.swift */; };
 		850A80C81E5DAB3200E684A3 /* LoginEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850A80C71E5DAB3200E684A3 /* LoginEndpoint.swift */; };
 		850A80CD1E5DC7F900E684A3 /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850A80CC1E5DC7F900E684A3 /* APIError.swift */; };
 		850A80CF1E5DCABA00E684A3 /* JSONSerializationProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850A80CE1E5DCABA00E684A3 /* JSONSerializationProtocol.swift */; };
@@ -207,8 +206,6 @@
 		852ACD4B1E55DDEE00219E90 /* BrandCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852ACD4A1E55DDEE00219E90 /* BrandCell.swift */; };
 		852ACD4D1E55DE1500219E90 /* BrandCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 852ACD4C1E55DE1500219E90 /* BrandCell.xib */; };
 		852BC35C1E8DBD1B009115FA /* ImageMessageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852BC35B1E8DBD1B009115FA /* ImageMessageService.swift */; };
-		852BC35E1E8DBD25009115FA /* ImageUploadResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852BC35D1E8DBD25009115FA /* ImageUploadResource.swift */; };
-		852BC3601E8DBD47009115FA /* ImageUploadEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852BC35F1E8DBD47009115FA /* ImageUploadEndpoint.swift */; };
 		853771961E5C425B00E693AD /* BrandsNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853771951E5C425B00E693AD /* BrandsNavigation.swift */; };
 		853771981E5C46AB00E693AD /* BrandsNavigationTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853771971E5C46AB00E693AD /* BrandsNavigationTest.swift */; };
 		8538599A1E606BFD0098D1EB /* VyrlServerTrustPolicyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853859991E606BFD0098D1EB /* VyrlServerTrustPolicyManager.swift */; };
@@ -423,7 +420,6 @@
 		B27A515D1E91523A003F0802 /* AuthorizationNavigationMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27A515C1E91523A003F0802 /* AuthorizationNavigationMock.swift */; };
 		B27A51621E91529A003F0802 /* ImageUploadEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27A515F1E91529A003F0802 /* ImageUploadEndpoint.swift */; };
 		B27A51631E91529A003F0802 /* ImageUploadResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27A51601E91529A003F0802 /* ImageUploadResource.swift */; };
-		B27A51641E91529A003F0802 /* ImageUploadService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27A51611E91529A003F0802 /* ImageUploadService.swift */; };
 		B27A51671E91597B003F0802 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27A51651E91597B003F0802 /* SignUpViewController.swift */; };
 		B27A51681E91597B003F0802 /* SignUpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B27A51661E91597B003F0802 /* SignUpViewController.xib */; };
 		B27A516B1E915C88003F0802 /* FormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27A51691E915C88003F0802 /* FormView.swift */; };
@@ -681,8 +677,6 @@
 		852ACD4A1E55DDEE00219E90 /* BrandCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrandCell.swift; sourceTree = "<group>"; };
 		852ACD4C1E55DE1500219E90 /* BrandCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BrandCell.xib; sourceTree = "<group>"; };
 		852BC35B1E8DBD1B009115FA /* ImageMessageService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageMessageService.swift; sourceTree = "<group>"; };
-		852BC35D1E8DBD25009115FA /* ImageUploadResource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageUploadResource.swift; sourceTree = "<group>"; };
-		852BC35F1E8DBD47009115FA /* ImageUploadEndpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageUploadEndpoint.swift; sourceTree = "<group>"; };
 		853771951E5C425B00E693AD /* BrandsNavigation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrandsNavigation.swift; sourceTree = "<group>"; };
 		853771971E5C46AB00E693AD /* BrandsNavigationTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrandsNavigationTest.swift; sourceTree = "<group>"; };
 		853859991E606BFD0098D1EB /* VyrlServerTrustPolicyManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VyrlServerTrustPolicyManager.swift; sourceTree = "<group>"; };
@@ -3228,7 +3222,6 @@
 				85B0A83B1E670BBC002093BA /* BrandsResource.swift in Sources */,
 				8554BE9E1E697B2400E05A37 /* Order.swift in Sources */,
 				850A80B91E5DA90C00E684A3 /* BrandStoreControllerFactory.swift in Sources */,
-				B27A51641E91529A003F0802 /* ImageUploadService.swift in Sources */,
 				858D63FC1E56057F00CFDD4C /* Brand.swift in Sources */,
 				31EF23221E690D5B0073F624 /* ProductDetailsSectionSpecifics.swift in Sources */,
 				853A833B1E718954006EBA8C /* ErrorPresenting.swift in Sources */,

@@ -40,7 +40,7 @@ final class LoginFormInteractorTest: XCTestCase {
         actionListener = FormActionDelegateMock()
         usernameTextField = MockTextField()
         passwordTextField = MockTextField()
-        usernameItem = FormItem(field: .username, textField: usernameTextField)
+        usernameItem = FormItem(field: .vyrlUsername, textField: usernameTextField)
         passwordItem = FormItem(field: .password, textField: passwordTextField)
 
         subject = LoginFormInteractor(username: usernameItem, password: passwordItem)
