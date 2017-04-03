@@ -417,6 +417,8 @@
 		C414B2611E8A810D002F973E /* SystemMessageCellSnapshotTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C414B2601E8A810D002F973E /* SystemMessageCellSnapshotTest.swift */; };
 		C414B2671E8BC5E5002F973E /* MessagesFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C414B2661E8BC5E5002F973E /* MessagesFooterView.xib */; };
 		C414B2691E8BC5F5002F973E /* MessagesFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C414B2681E8BC5F5002F973E /* MessagesFooterView.swift */; };
+		C44C3FF61E92F9EA005F776E /* ComposeInteractorTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44C3FF51E92F9EA005F776E /* ComposeInteractorTest.swift */; };
+		C44C3FF81E930038005F776E /* ComposeViewControllerSnapshotTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44C3FF71E930038005F776E /* ComposeViewControllerSnapshotTest.swift */; };
 		C450FA881E8A778D00A63414 /* SystemMessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C450FA861E8A778D00A63414 /* SystemMessageCell.swift */; };
 		C450FA891E8A778D00A63414 /* SystemMessageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C450FA871E8A778D00A63414 /* SystemMessageCell.xib */; };
 		C451A5761E8DAD3B00DFE5F7 /* MessagesFooterViewSnapshotTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C451A5751E8DAD3B00DFE5F7 /* MessagesFooterViewSnapshotTest.swift */; };
@@ -883,6 +885,8 @@
 		C414B2601E8A810D002F973E /* SystemMessageCellSnapshotTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SystemMessageCellSnapshotTest.swift; sourceTree = "<group>"; };
 		C414B2661E8BC5E5002F973E /* MessagesFooterView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MessagesFooterView.xib; sourceTree = "<group>"; };
 		C414B2681E8BC5F5002F973E /* MessagesFooterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagesFooterView.swift; sourceTree = "<group>"; };
+		C44C3FF51E92F9EA005F776E /* ComposeInteractorTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComposeInteractorTest.swift; sourceTree = "<group>"; };
+		C44C3FF71E930038005F776E /* ComposeViewControllerSnapshotTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComposeViewControllerSnapshotTest.swift; sourceTree = "<group>"; };
 		C450FA861E8A778D00A63414 /* SystemMessageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SystemMessageCell.swift; sourceTree = "<group>"; };
 		C450FA871E8A778D00A63414 /* SystemMessageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SystemMessageCell.xib; sourceTree = "<group>"; };
 		C451A5751E8DAD3B00DFE5F7 /* MessagesFooterViewSnapshotTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagesFooterViewSnapshotTest.swift; sourceTree = "<group>"; };
@@ -2260,6 +2264,7 @@
 		8572E4D51E7AC7C50042160D /* Chat */ = {
 			isa = PBXGroup;
 			children = (
+				C44C3FF31E92F985005F776E /* Compose */,
 				C4BDA4361E8105060009BB67 /* Messages */,
 				8572E4D61E7AC7C90042160D /* Collabs */,
 			);
@@ -2448,6 +2453,7 @@
 				C4C8877A1E89AA400022558F /* InfluencerMessageCellSnapshotTest.swift */,
 				C414B2601E8A810D002F973E /* SystemMessageCellSnapshotTest.swift */,
 				C451A5751E8DAD3B00DFE5F7 /* MessagesFooterViewSnapshotTest.swift */,
+				C44C3FF71E930038005F776E /* ComposeViewControllerSnapshotTest.swift */,
 			);
 			name = SnapshotTest;
 			sourceTree = "<group>";
@@ -2753,6 +2759,22 @@
 				AD99B7EF9A009086D95C87E1 /* Pods_VyrlTests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C44C3FF31E92F985005F776E /* Compose */ = {
+			isa = PBXGroup;
+			children = (
+				C44C3FF41E92F9D5005F776E /* Interactors */,
+			);
+			name = Compose;
+			sourceTree = "<group>";
+		};
+		C44C3FF41E92F9D5005F776E /* Interactors */ = {
+			isa = PBXGroup;
+			children = (
+				C44C3FF51E92F9EA005F776E /* ComposeInteractorTest.swift */,
+			);
+			name = Interactors;
 			sourceTree = "<group>";
 		};
 		C47E31C61E921EF2009ED817 /* Factories */ = {
@@ -3507,6 +3529,7 @@
 				8507FED31E8E300F00C0711B /* ImageMessageServiceTest.swift in Sources */,
 				85B0A8451E67334A002093BA /* BrandsResourceTest.swift in Sources */,
 				85DCFC2F1E7682C60046D0D5 /* ShippingInfoControllerSnapshotTest.swift in Sources */,
+				C44C3FF81E930038005F776E /* ComposeViewControllerSnapshotTest.swift in Sources */,
 				1A1FA9511E5E2668007EB61D /* CategoriesDataSourceTests.swift in Sources */,
 				1AA7FAA21E68C0AD001C0B6F /* InfoViewSnapshotTests.swift in Sources */,
 				C4C887821E89B02B0022558F /* MessagesServiceTest.swift in Sources */,
@@ -3550,6 +3573,7 @@
 				855828A31E8E500500748A9A /* ConfirmDeliveryServiceTest.swift in Sources */,
 				853BAC0A1E7BCA9D00874075 /* StoredRepositoryTest.swift in Sources */,
 				85DCFC2D1E7682300046D0D5 /* ContactInfoControllerSnapshotTest.swift in Sources */,
+				C44C3FF61E92F9EA005F776E /* ComposeInteractorTest.swift in Sources */,
 				31EF22FD1E6784BA0073F624 /* ProductDetailsInteractorTest.swift in Sources */,
 				8572E4DE1E7ACAEB0042160D /* CollectionDataSourceMock.swift in Sources */,
 				8597AB691E8AEC1E00A64585 /* BrandsServiceMock.swift in Sources */,

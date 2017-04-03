@@ -21,7 +21,7 @@ protocol MessagesPresenting: class {
 }
 
 protocol ComposePresenting: class {
-    func presentCompose(_ animated: Bool)
+    func presentCompose(for collab: Collab, animated: Bool)
 }
 
 @objc protocol ComposeClosing: class {
@@ -61,8 +61,8 @@ extension ChatNavigation: MessagesPresenting {
 }
 
 extension ChatNavigation: ComposePresenting {
-    func presentCompose(_ animated: Bool) {
-        let viewController = composeFactory.make(closer: self)
+    func presentCompose(for collab: Collab, animated: Bool) {
+        let viewController = composeFactory.make(collab: collab, closer: self)
         viewController.modalTransitionStyle = .coverVertical
         viewController.modalPresentationStyle = .fullScreen
         let navigation = UINavigationController(rootViewController: viewController)

@@ -32,6 +32,7 @@ final class ComposeViewController: UIViewController, HavingNib {
         self.interactor = interactor
         super.init(nibName: ComposeViewController.nibName, bundle: nil)
         interactor.viewController = self
+        interactor.errorPresenter = self
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -45,8 +46,8 @@ final class ComposeViewController: UIViewController, HavingNib {
                                     action: #selector(ComposeInteracting.didTapClose))
         let done = UIBarButtonItem(title: Constants.doneTitle,
                                     style: .done,
-                                    target: interactor,
-                                    action: #selector(ComposeInteracting.didTapDone))
+                                    target: self,
+                                    action: #selector(didTapDone))
         navigationItem.leftBarButtonItem = close
         navigationItem.rightBarButtonItem = done
         navigationItem.title = Constants.navigationTitle
@@ -56,6 +57,10 @@ final class ComposeViewController: UIViewController, HavingNib {
         composeImageView.isUserInteractionEnabled = true
         let tapGesture = UITapGestureRecognizer(target: interactor, action: #selector(ComposeInteracting.didTapImage))
         composeImageView.addGestureRecognizer(tapGesture)
+    }
+    
+    @objc fileprivate func didTapDone() {
+        interactor.didTapDone(message: composeTextView.text)
     }
     
     override func viewDidLoad() {

@@ -9,13 +9,11 @@ struct ImageContainer {
         static let id = "id"
         static let url = "imageUrl"
         static let name = "imageName"
-        static let brandId = "brandId"
     }
 
     let id: String
     let url: URL
     let name: String
-    let brandId: String
 }
 
 extension ImageContainer: Decodable {
@@ -25,7 +23,6 @@ extension ImageContainer: Decodable {
         }
         return try self.init(id: json => KeyPath(JSONKeys.id),
                              url: imageURL,
-                             name: json => KeyPath(JSONKeys.name),
-                             brandId: json => KeyPath(JSONKeys.brandId))
+                             name: json => KeyPath(JSONKeys.name))
     }
 }

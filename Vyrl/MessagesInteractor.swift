@@ -64,9 +64,9 @@ final class MessagesInteractor: MessagesInteracting {
         messageSender.send(message: message,
                            toRoom: collab.chatRoomId) { [weak self] result in
                             result.on(success: { _ in
-                                self?.presenter?.clearMessage()
+                                self?.messageDisplayer?.clearMessage()
                             }, failure: { _ in
-                                self?.presenter?.presentError(title: nil, message: Constants.failedToSentMessage)
+                                self?.errorPresenter?.presentError(title: nil, message: Constants.failedToSentMessage)
                             })
         }
     }
@@ -100,6 +100,6 @@ extension MessagesInteractor: DeliveryConfirming {
 
 extension MessagesInteractor: ContentAdding {
     func didTapAddContent() {
-        composePresenter?.presentCompose(true)
+        composePresenter?.presentCompose(for: collab, animated: true)
     }
 }
