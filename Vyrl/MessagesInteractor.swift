@@ -10,7 +10,6 @@ private enum Constants {
 }
 
 protocol MessagesInteracting: TableViewUsing {
-    weak var dataUpdateListener: DataLoadingEventsListening? { get set }
     weak var errorPresenter: ErrorAlertPresenting? { get set }
     weak var messageDisplayer: MessageDisplaying? { get set }
     weak var composePresenter: ComposePresenting? { get set }
@@ -23,7 +22,6 @@ protocol MessagesInteracting: TableViewUsing {
 
 final class MessagesInteractor: MessagesInteracting {
     fileprivate let dataSource: MessagesDataProviding
-    weak var dataUpdateListener: DataLoadingEventsListening?
     weak var viewController: MessagesControlling?
     weak var errorPresenter: ErrorAlertPresenting?
     weak var messageDisplayer: MessageDisplaying?

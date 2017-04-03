@@ -22,7 +22,6 @@ final class MessagesViewController: UIViewController, HavingNib {
     @IBOutlet fileprivate weak var statusView: StatusView!
     
     fileprivate let interactor: MessagesInteracting & DataRefreshing
-    fileprivate let refreshControl = UIRefreshControl()
     
     init(interactor: MessagesInteracting & DataRefreshing) {
         self.interactor = interactor
@@ -42,7 +41,6 @@ final class MessagesViewController: UIViewController, HavingNib {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setUpRefresh()
         setUpNavigationBar()
         interactor.use(tableView)
     }
@@ -55,24 +53,6 @@ final class MessagesViewController: UIViewController, HavingNib {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         interactor.viewWillDisappear()
-    }
-}
-
-extension MessagesViewController {
-    fileprivate func setUpRefresh() {
-        refreshControl.tintColor = .rouge
-        refreshControl.addTarget(interactor, action: #selector(DataRefreshing.refreshData), for: .valueChanged)
-        tableView.addSubview(refreshControl)
-    }
-}
-
-extension MessagesViewController: DataLoadingEventsListening {
-    func willStartDataLoading() {
-        refreshControl.beginRefreshing()
-    }
-    
-    func didFinishDataLoading() {
-        refreshControl.endRefreshing()
     }
 }
 
