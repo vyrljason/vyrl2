@@ -13,5 +13,4 @@ final class SystemMessageCell: UITableViewCell, HavingNib, MessageCellRendering 
     func render(_ renderable: MessageCellRenderable) {
         messageTextView.text = renderable.text
     }
-
 }
