@@ -9,11 +9,13 @@ protocol SnapshotToChatRoomsConverting {
     func convert(snapshot: FIRDataSnapshot) -> [String: ChatRoom]
 }
 
-final class ChatRoomSnapshotConverter: SnapshotToChatRoomsConverting {
+final class ChatRoomsSnapshotConverter: SnapshotToChatRoomsConverting {
 
     func convert(snapshot: FIRDataSnapshot) -> [String: ChatRoom] {
         var result = [String: ChatRoom]()
+
         guard snapshot.exists() else { return result }
+
         if let parseableDictionaries = snapshot.value as? [AnyHashable: [AnyHashable: Any]] {
             parseableDictionaries.forEach({ (key, valueDictionary) in
                 if let room = ChatRoom(dictionary: valueDictionary), let roomId = key as? String {

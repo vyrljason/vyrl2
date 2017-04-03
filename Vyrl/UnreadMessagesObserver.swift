@@ -32,7 +32,7 @@ final class UnreadMessagesObserver: UnreadMessagesObserving {
 
     init(chatDatabase: ChatDatabaseChildAccessing & ChatDatabaseObserving,
          chatCredentialsStorage: ChatCredentialsStoring,
-         dataConverter: SnapshotToChatRoomsConverting = ChatRoomSnapshotConverter(),
+         dataConverter: SnapshotToChatRoomsConverting = ChatRoomsSnapshotConverter(),
          notificationSender: NotificationPosting = NotificationCenter.default) {
         self.chatDatabase = chatDatabase
         self.chatCredentialsStorage = chatCredentialsStorage

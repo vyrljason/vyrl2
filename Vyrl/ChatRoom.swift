@@ -13,6 +13,9 @@ struct ChatRoom {
         static let status = "status"
         static let unreadMessages = "unread"
     }
+
+    static let statusKey = Keys.status
+
     let brandId: String
     let influencerId: String
     let lastMessage: String

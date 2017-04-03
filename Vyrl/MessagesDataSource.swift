@@ -132,8 +132,9 @@ extension MessagesDataSource {
     }
 
     private func startListeningToStatusUpdates() {
-        orderStatusUpdater.listenToOrderStatusUpdates(inRoom: collab.chatRoomId) { [weak self] chatRoom in
-            self?.status = CollabStatus(orderStatus: chatRoom.status)
+        orderStatusUpdater.listenToOrderStatusUpdates(inRoom: collab.chatRoomId) { [weak self] updatedOrderStatus in
+            guard let `self` = self else { return }
+            self.status = CollabStatus(orderStatus: updatedOrderStatus)
         }
     }
 

@@ -22,7 +22,7 @@ final class CollabsService: CollabsProviding {
 
     init(chatDatabase: ChatDatabaseChildAccessing & ChatDatabaseObserving,
          chatCredentialsStorage: ChatCredentialsStoring,
-         dataConverter: SnapshotToChatRoomsConverting = ChatRoomSnapshotConverter(),
+         dataConverter: SnapshotToChatRoomsConverting = ChatRoomsSnapshotConverter(),
          brandsService: BrandsProviding) {
         self.chatDatabase = chatDatabase
         self.chatCredentialsStorage = chatCredentialsStorage
