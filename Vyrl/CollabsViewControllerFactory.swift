@@ -28,7 +28,7 @@ final class CollabsViewControllerFactory: CollabsControllerMaking {
 
     static func make(presenter: MessagesPresenting) -> CollabsViewController {
         let credentialsStorage = ChatCredentialsStorage()
-        let databaseReference = FIRDatabase.database().reference()
+        let databaseReference = ServiceLocator.chatDatabaseReference
         let resourceController = ServiceLocator.resourceConfigurator.resourceController
         let brandsResource = ParameterizedService<BrandsResource>(resource: BrandsResource(controller: resourceController))
         let brandsService = BrandsService(resource: brandsResource)

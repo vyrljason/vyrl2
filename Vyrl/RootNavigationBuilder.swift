@@ -26,6 +26,7 @@ final class RootNavigationBuilder {
     lazy var leftMenu: UIViewController = { return LeftMenuViewController(interactor: self.leftMenuInteractor) }()
     var credentialsProvider: APICredentialsProviding = APICredentialsProvider(storage: CredentialsStorage())
     var cartStorage: CartStoring = ServiceLocator.cartStorage
+    var notificationObserver: NotificationObserving = NotificationCenter.default
 
     func build() -> RootNavigation {
 
@@ -38,6 +39,7 @@ final class RootNavigationBuilder {
                                         window: window,
                                         credentialsProvider: credentialsProvider,
                                         loginControllerMaker: loginControllerMaker,
+                                        notificationObserver: notificationObserver,
                                         cartStorage: cartStorage)
         leftMenuInteractor.delegate = navigation
         navigation.brandsFiltering = brandsInteractor
