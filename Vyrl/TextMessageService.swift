@@ -4,11 +4,11 @@
 
 import Foundation
 
-protocol MessageSending {
+protocol TextMessageSending {
     func send(message: Message, toRoom roomId: String, completion: @escaping (Result<EmptyResponse, ServiceError>) -> Void)
 }
 
-final class PostMessageService: MessageSending {
+final class TextMessageService: TextMessageSending {
     private let resource: PostService<PostMessageResource>
 
     init(resource: PostService<PostMessageResource>) {

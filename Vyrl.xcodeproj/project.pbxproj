@@ -156,8 +156,8 @@
 		31FEB5B51E5D0FA300C5E41D /* BrandStoreDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31FEB5B41E5D0FA300C5E41D /* BrandStoreDataSource.swift */; };
 		31FEB5B81E5D952600C5E41D /* BrandStoreCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31FEB5B61E5D952600C5E41D /* BrandStoreCell.swift */; };
 		31FEB5B91E5D952600C5E41D /* BrandStoreCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31FEB5B71E5D952600C5E41D /* BrandStoreCell.xib */; };
-		8217F9377CE6236507E326A4 /* (null) in Frameworks */ = {isa = PBXBuildFile; };
-		8507FED31E8E300F00C0711B /* ImageUploadServiceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8507FED21E8E300F00C0711B /* ImageUploadServiceTest.swift */; };
+		8217F9377CE6236507E326A4 /* Pods_VyrlTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD99B7EF9A009086D95C87E1 /* Pods_VyrlTests.framework */; };
+		8507FED31E8E300F00C0711B /* ImageMessageServiceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8507FED21E8E300F00C0711B /* ImageMessageServiceTest.swift */; };
 		8507FED51E8E318900C0711B /* ImageToDataConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8507FED41E8E318900C0711B /* ImageToDataConverter.swift */; };
 		850A80A71E5D927300E684A3 /* DictionaryConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850A80A61E5D927300E684A3 /* DictionaryConvertible.swift */; };
 		850A80AE1E5D977C00E684A3 /* APIConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850A80AD1E5D977C00E684A3 /* APIConfiguration.swift */; };
@@ -169,6 +169,7 @@
 		850A80BB1E5DA92800E684A3 /* APIEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850A80BA1E5DA92800E684A3 /* APIEndpoint.swift */; };
 		850A80BF1E5DA94100E684A3 /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850A80BE1E5DA94100E684A3 /* HTTPClient.swift */; };
 		850A80C11E5DA94800E684A3 /* NetworkEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850A80C01E5DA94800E684A3 /* NetworkEnums.swift */; };
+		850A80C61E5DAA1E00E684A3 /* AuthorizationResources.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850A80C51E5DAA1E00E684A3 /* AuthorizationResources.swift */; };
 		850A80C81E5DAB3200E684A3 /* LoginEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850A80C71E5DAB3200E684A3 /* LoginEndpoint.swift */; };
 		850A80CD1E5DC7F900E684A3 /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850A80CC1E5DC7F900E684A3 /* APIError.swift */; };
 		850A80CF1E5DCABA00E684A3 /* JSONSerializationProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850A80CE1E5DCABA00E684A3 /* JSONSerializationProtocol.swift */; };
@@ -205,6 +206,9 @@
 		852ACD471E55DCF200219E90 /* UIView+ReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852ACD461E55DCF200219E90 /* UIView+ReusableView.swift */; };
 		852ACD4B1E55DDEE00219E90 /* BrandCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852ACD4A1E55DDEE00219E90 /* BrandCell.swift */; };
 		852ACD4D1E55DE1500219E90 /* BrandCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 852ACD4C1E55DE1500219E90 /* BrandCell.xib */; };
+		852BC35C1E8DBD1B009115FA /* ImageMessageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852BC35B1E8DBD1B009115FA /* ImageMessageService.swift */; };
+		852BC35E1E8DBD25009115FA /* ImageUploadResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852BC35D1E8DBD25009115FA /* ImageUploadResource.swift */; };
+		852BC3601E8DBD47009115FA /* ImageUploadEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852BC35F1E8DBD47009115FA /* ImageUploadEndpoint.swift */; };
 		853771961E5C425B00E693AD /* BrandsNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853771951E5C425B00E693AD /* BrandsNavigation.swift */; };
 		853771981E5C46AB00E693AD /* BrandsNavigationTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853771971E5C46AB00E693AD /* BrandsNavigationTest.swift */; };
 		8538599A1E606BFD0098D1EB /* VyrlServerTrustPolicyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853859991E606BFD0098D1EB /* VyrlServerTrustPolicyManager.swift */; };
@@ -270,7 +274,7 @@
 		855AD6DC1E8CF8FA00B9523D /* PostMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 855AD6D71E8CF8FA00B9523D /* PostMessage.swift */; };
 		855AD6DD1E8CF8FA00B9523D /* PostMessageEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 855AD6D81E8CF8FA00B9523D /* PostMessageEndpoint.swift */; };
 		855AD6DE1E8CF8FA00B9523D /* PostMessageResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 855AD6D91E8CF8FA00B9523D /* PostMessageResource.swift */; };
-		855AD6DF1E8CF8FA00B9523D /* PostMessageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 855AD6DA1E8CF8FA00B9523D /* PostMessageService.swift */; };
+		855AD6DF1E8CF8FA00B9523D /* TextMessageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 855AD6DA1E8CF8FA00B9523D /* TextMessageService.swift */; };
 		855AD6E21E8D00EE00B9523D /* EmptyResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 855AD6E11E8D00EE00B9523D /* EmptyResponse.swift */; };
 		85603F761E88ED530062485E /* ChatAuthenticator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85603F751E88ED530062485E /* ChatAuthenticator.swift */; };
 		85603F7D1E88EE600062485E /* ChatSigningIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85603F7C1E88EE600062485E /* ChatSigningIn.swift */; };
@@ -629,7 +633,7 @@
 		41D34CDCBBCD4E7EFCD66AC2 /* Pods-VyrlTests.ad hoc.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VyrlTests.ad hoc.xcconfig"; path = "Pods/Target Support Files/Pods-VyrlTests/Pods-VyrlTests.ad hoc.xcconfig"; sourceTree = "<group>"; };
 		7F12BBECEACCAA3DF5ACEC47 /* Pods-VyrlTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VyrlTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-VyrlTests/Pods-VyrlTests.debug.xcconfig"; sourceTree = "<group>"; };
 		850740CC1E55E71E00E2F65B /* Brand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Brand.swift; sourceTree = "<group>"; };
-		8507FED21E8E300F00C0711B /* ImageUploadServiceTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageUploadServiceTest.swift; sourceTree = "<group>"; };
+		8507FED21E8E300F00C0711B /* ImageMessageServiceTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageMessageServiceTest.swift; sourceTree = "<group>"; };
 		8507FED41E8E318900C0711B /* ImageToDataConverter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageToDataConverter.swift; sourceTree = "<group>"; };
 		850A80A61E5D927300E684A3 /* DictionaryConvertible.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DictionaryConvertible.swift; sourceTree = "<group>"; };
 		850A80AD1E5D977C00E684A3 /* APIConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIConfiguration.swift; sourceTree = "<group>"; };
@@ -676,6 +680,9 @@
 		852ACD461E55DCF200219E90 /* UIView+ReusableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+ReusableView.swift"; sourceTree = "<group>"; };
 		852ACD4A1E55DDEE00219E90 /* BrandCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrandCell.swift; sourceTree = "<group>"; };
 		852ACD4C1E55DE1500219E90 /* BrandCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BrandCell.xib; sourceTree = "<group>"; };
+		852BC35B1E8DBD1B009115FA /* ImageMessageService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageMessageService.swift; sourceTree = "<group>"; };
+		852BC35D1E8DBD25009115FA /* ImageUploadResource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageUploadResource.swift; sourceTree = "<group>"; };
+		852BC35F1E8DBD47009115FA /* ImageUploadEndpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageUploadEndpoint.swift; sourceTree = "<group>"; };
 		853771951E5C425B00E693AD /* BrandsNavigation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrandsNavigation.swift; sourceTree = "<group>"; };
 		853771971E5C46AB00E693AD /* BrandsNavigationTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrandsNavigationTest.swift; sourceTree = "<group>"; };
 		853859991E606BFD0098D1EB /* VyrlServerTrustPolicyManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VyrlServerTrustPolicyManager.swift; sourceTree = "<group>"; };
@@ -741,7 +748,7 @@
 		855AD6D71E8CF8FA00B9523D /* PostMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostMessage.swift; sourceTree = "<group>"; };
 		855AD6D81E8CF8FA00B9523D /* PostMessageEndpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostMessageEndpoint.swift; sourceTree = "<group>"; };
 		855AD6D91E8CF8FA00B9523D /* PostMessageResource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostMessageResource.swift; sourceTree = "<group>"; };
-		855AD6DA1E8CF8FA00B9523D /* PostMessageService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostMessageService.swift; sourceTree = "<group>"; };
+		855AD6DA1E8CF8FA00B9523D /* TextMessageService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextMessageService.swift; sourceTree = "<group>"; };
 		855AD6E11E8D00EE00B9523D /* EmptyResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmptyResponse.swift; sourceTree = "<group>"; };
 		85603F751E88ED530062485E /* ChatAuthenticator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatAuthenticator.swift; sourceTree = "<group>"; };
 		85603F7C1E88EE600062485E /* ChatSigningIn.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatSigningIn.swift; sourceTree = "<group>"; };
@@ -2505,8 +2512,9 @@
 		8597AB571E89BC3D00A64585 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				855AD6DA1E8CF8FA00B9523D /* PostMessageService.swift */,
+				855AD6DA1E8CF8FA00B9523D /* TextMessageService.swift */,
 				8597AB5F1E8A59D100A64585 /* MessagesService.swift */,
+				852BC35B1E8DBD1B009115FA /* ImageMessageService.swift */,
 				8558289E1E8E468500748A9A /* ConfirmDeliveryService.swift */,
 			);
 			name = Services;
@@ -2913,7 +2921,7 @@
 			isa = PBXGroup;
 			children = (
 				C4C887811E89B02B0022558F /* MessagesServiceTest.swift */,
-				8507FED21E8E300F00C0711B /* ImageUploadServiceTest.swift */,
+				8507FED21E8E300F00C0711B /* ImageMessageServiceTest.swift */,
 				855828A21E8E500500748A9A /* ConfirmDeliveryServiceTest.swift */,
 			);
 			name = Services;
@@ -3395,7 +3403,7 @@
 				85B0A8261E65F335002093BA /* UIAlertController+Ok.swift in Sources */,
 				1A859C0E1E5756C50013EB09 /* UIFont.swift in Sources */,
 				85CA3FEC1E64887900D43805 /* String+Password.swift in Sources */,
-				855AD6DF1E8CF8FA00B9523D /* PostMessageService.swift in Sources */,
+				855AD6DF1E8CF8FA00B9523D /* TextMessageService.swift in Sources */,
 				850A80D11E5DCBAF00E684A3 /* JSONModelDeserializer.swift in Sources */,
 				1AA7FAB11E69CB2F001C0B6F /* OrderProposalService.swift in Sources */,
 				C4BDA4331E7FDADA0009BB67 /* MessagesInteractor.swift in Sources */,
@@ -3455,6 +3463,7 @@
 				1A69C6A41E55FF0000134EF5 /* UIColor.swift in Sources */,
 				31EF232B1E69A63D0073F624 /* DetailTableViewCell.swift in Sources */,
 				31EF23361E69A8CA0073F624 /* TableHeaderRenderable.swift in Sources */,
+				852BC35C1E8DBD1B009115FA /* ImageMessageService.swift in Sources */,
 				3169B9CC1E64C7C1005F8A94 /* BrandStoreFlowLayoutHandler.swift in Sources */,
 				31EF23331E69A8A90073F624 /* TableHeaderCell.swift in Sources */,
 				B27A51621E91529A003F0802 /* ImageUploadEndpoint.swift in Sources */,
@@ -3531,7 +3540,7 @@
 				85DCFC451E76D7CF0046D0D5 /* FormFieldsInteractorMock.swift in Sources */,
 				85B2CD661E6D83F200C4C744 /* KeyboardHandlerTest.swift in Sources */,
 				858D63FB1E56037600CFDD4C /* ImageFetcherMock.swift in Sources */,
-				8507FED31E8E300F00C0711B /* ImageUploadServiceTest.swift in Sources */,
+				8507FED31E8E300F00C0711B /* ImageMessageServiceTest.swift in Sources */,
 				85B0A8451E67334A002093BA /* BrandsResourceTest.swift in Sources */,
 				85DCFC2F1E7682C60046D0D5 /* ShippingInfoControllerSnapshotTest.swift in Sources */,
 				1A1FA9511E5E2668007EB61D /* CategoriesDataSourceTests.swift in Sources */,

@@ -20,6 +20,12 @@ struct Message {
         self.mediaURL = mediaURL
         self.isMedia = isMedia
     }
+
+    init(text: String, mediaURL: URL) {
+        self.text = text
+        self.mediaURL = mediaURL
+        self.isMedia = true
+    }
 }
 
 extension Message: Decodable {
