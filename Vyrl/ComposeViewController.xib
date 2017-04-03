@@ -70,6 +70,7 @@
                         <constraint firstAttribute="trailing" secondItem="ifg-56-Vv0" secondAttribute="trailing" constant="20" id="LRb-k9-Tkl"/>
                         <constraint firstAttribute="bottom" secondItem="ifg-56-Vv0" secondAttribute="bottom" constant="8" id="YWO-MG-u99"/>
                         <constraint firstItem="ifg-56-Vv0" firstAttribute="leading" secondItem="o0C-zN-ubb" secondAttribute="leading" constant="20" id="t34-Mo-hsj"/>
+                        <constraint firstItem="ifg-56-Vv0" firstAttribute="centerX" secondItem="o0C-zN-ubb" secondAttribute="centerX" id="yxV-ly-6kG"/>
                     </constraints>
                 </scrollView>
             </subviews>
