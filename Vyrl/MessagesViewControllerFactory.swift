@@ -6,11 +6,11 @@ import UIKit
 import Firebase
 
 protocol MessagesControllerMaking {
-    static func make(collab: Collab) -> MessagesViewController
+    static func make(collab: Collab, presenter: ComposePresenting) -> MessagesViewController
 }
 
 final class MessagesViewControllerFactory: MessagesControllerMaking {
-    static func make(collab: Collab) -> MessagesViewController {
+    static func make(collab: Collab, presenter: ComposePresenting) -> MessagesViewController {
         let databaseReference = FIRDatabase.database().reference()
         let service = MessagesService(chatDatabase: databaseReference)
         let dataSource = MessagesDataSource(service: service, collab: collab)
@@ -22,6 +22,7 @@ final class MessagesViewControllerFactory: MessagesControllerMaking {
         let deliveryResource = PostService<ConfirmDeliveryResource>(resource: confirmDeliveryResource)
         let deliveryService = ConfirmDeliveryService(resource: deliveryResource)
         let interactor = MessagesInteractor(dataSource: dataSource, collab: collab, messageSender: messageSender, deliveryService: deliveryService)
+        interactor.composePresenter = presenter
         let viewController = MessagesViewController(interactor: interactor)
         viewController.navigationItem.title = collab.brandName
         return viewController

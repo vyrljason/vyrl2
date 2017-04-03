@@ -31,3 +31,4 @@
 "messages.currentStatus.title" = "Current status: ";
 "messages.error.failedToSend" = "Failed to send a message, please try again.";
 "messages.error.failedToConfirmDelivery" = "Failed to confirm delivery, please try again.";
+"compose.navigation.title" = "Compose";
