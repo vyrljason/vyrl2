@@ -12,6 +12,9 @@ import AVFoundation
 private enum Constants {
     static let videoResourceName = "WelcomeViewBackgroundVideo"
     static let videoResourceExtension = "mov"
+    //video is AR 0.55
+    static let videoAspectRatio: CGFloat = 0.55
+
 }
 
 
@@ -49,16 +52,15 @@ final class WelcomeViewController: UIViewController, HavingNib {
     }
 
     func playLoop() {
-        if let playerLayer = playerLayer {
-            //video is AR 0.55
-            let videoAR: CGFloat = 0.55
-            let desiredVideoWidth = UIScreen.main.bounds.width
-            let necessaryVideoHeight = desiredVideoWidth/videoAR
-            let heightOffsetToCenter = (UIScreen.main.bounds.height - necessaryVideoHeight)/2
-            playerLayer.frame = CGRect(x: 0, y: heightOffsetToCenter, width: desiredVideoWidth, height: necessaryVideoHeight)
-            backgroundView.layer.addSublayer(playerLayer)
-            loopVideo(videoPlayer: player)
+        guard let playerLayer = playerLayer else {
+            return
         }
+        let desiredVideoWidth = UIScreen.main.bounds.width
+        let necessaryVideoHeight = desiredVideoWidth/Constants.videoAspectRatio
+        let heightOffsetToCenter = (UIScreen.main.bounds.height - necessaryVideoHeight)/2
+        playerLayer.frame = CGRect(x: 0, y: heightOffsetToCenter, width: desiredVideoWidth, height: necessaryVideoHeight)
+        backgroundView.layer.addSublayer(playerLayer)
+        loopVideo(videoPlayer: player)
     }
     
     func stopVideo() {
@@ -83,11 +85,11 @@ final class WelcomeViewController: UIViewController, HavingNib {
         fatalError("init(coder:) has not been implemented")
     }
     
-    @IBAction func didTapLogin(_ sender: Any) {
+    @IBAction private func didTapLogin() {
         interactor.didTapLogin()
     }
     
-    @IBAction func didTapSignUp(_ sender: Any) {
+    @IBAction private func didTapSignUp() {
         interactor.didTapSignUp()
     }
 }
