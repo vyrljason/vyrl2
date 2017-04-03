@@ -51,6 +51,11 @@ final class MessagesViewController: UIViewController, HavingNib {
         super.viewWillAppear(animated)
         interactor.viewWillAppear()
     }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        interactor.viewWillDisappear()
+    }
 }
 
 extension MessagesViewController {

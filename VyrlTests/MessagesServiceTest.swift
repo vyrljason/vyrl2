@@ -16,15 +16,4 @@ final class MessagesServiceTest: XCTestCase {
         chatDatabase.child = ChatDatabaseMock()
         subject = MessagesService(chatDatabase: chatDatabase)
     }
-    
-    func test_getMessages_whenSuccess_returnsMessages() {
-        let chatRoomId = "id"
-
-        var wasCalled = false
-        subject.getMessages(inChatRoom: chatRoomId) { result in
-            wasCalled = true
-            expectToBeSuccess(result)
-        }
-        XCTAssertTrue(wasCalled)
-    }
 }

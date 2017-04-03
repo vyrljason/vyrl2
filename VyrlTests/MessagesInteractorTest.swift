@@ -31,7 +31,7 @@ final class MessagesPresenterMock: MessageDisplaying, ErrorAlertPresenting {
     }
 }
 
-final class MessageSenderMock: MessageSending {
+final class MessageSenderMock: TextMessageSending {
     var success = true
     var error = ServiceError.unknown
     var response = EmptyResponse()
@@ -49,6 +49,7 @@ final class MessagesDataSourceMock: NSObject, MessagesDataProviding {
     var didUseTableView: Bool = false
     var didUseLoadTableData: Bool = false
     var didUseRegisterNibs: Bool = false
+    var didCallStopDataUpdates: Bool = false
     weak var tableView: UITableView?
     weak var reloadingDelegate: ReloadingData?
     weak var interactor: MessagesInteracting?
@@ -66,6 +67,10 @@ final class MessagesDataSourceMock: NSObject, MessagesDataProviding {
     
     func loadTableData() {
         didUseLoadTableData = true
+    }
+
+    func stopDataUpdates() {
+        didCallStopDataUpdates = true
     }
 
     func updateTable(with result: DataFetchResult) {
@@ -111,6 +116,12 @@ final class MessagesInteractorTest: XCTestCase {
         subject.viewWillAppear()
         
         XCTAssertTrue(dataSource.didUseLoadTableData)
+    }
+
+    func test_viewWillDisappear_stopDataUpdates() {
+        subject.viewWillDisappear()
+
+        XCTAssertTrue(dataSource.didCallStopDataUpdates)
     }
     
     func test_use_forwardsUseToDataSource() {

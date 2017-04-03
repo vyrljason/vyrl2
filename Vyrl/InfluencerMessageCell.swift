@@ -12,7 +12,11 @@ protocol MessageCellRendering {
     func render(_ renderable: MessageCellRenderable)
 }
 
-class InfluencerMessageCell: UITableViewCell, HavingNib, MessageCellRendering {
+protocol ImageFetcherUsing {
+    func set(imageFetcher: ImageFetching)
+}
+
+final class InfluencerMessageCell: UITableViewCell, HavingNib, MessageCellRendering, ImageFetcherUsing {
     
     static let nibName = "InfluencerMessageCell"
     
