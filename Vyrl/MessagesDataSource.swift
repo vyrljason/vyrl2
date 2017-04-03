@@ -10,7 +10,6 @@ protocol MessagesDataProviding: TableViewUsing, TableViewDataProviding, TableVie
     func stopDataUpdates()
 }
 
-
 final class MessagesDataSource: NSObject, MessagesDataProviding {
 
     fileprivate enum Constants {
