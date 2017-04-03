@@ -31,7 +31,7 @@ final class MessagesPresenterMock: MessageDisplaying, ErrorAlertPresenting {
     }
 }
 
-final class MessageSenderMock: MessageSending {
+final class MessageSenderMock: TextMessageSending {
     var success = true
     var error = ServiceError.unknown
     var response = EmptyResponse()

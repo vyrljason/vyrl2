@@ -21,7 +21,7 @@ final class MessagesViewControllerFactory: MessagesControllerMaking {
         let resource = ServiceLocator.resourceConfigurator.resourceController
         let postMessageResource = PostMessageResource(controller: resource)
         let postService = PostService<PostMessageResource>(resource: postMessageResource)
-        let messageSender = PostMessageService(resource: postService)
+        let messageSender = TextMessageService(resource: postService)
         let confirmDeliveryResource = ConfirmDeliveryResource(controller: resource)
         let deliveryResource = PostService<ConfirmDeliveryResource>(resource: confirmDeliveryResource)
         let deliveryService = ConfirmDeliveryService(resource: deliveryResource)
