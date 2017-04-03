@@ -14,6 +14,7 @@ protocol MessagesInteracting: TableViewUsing {
     weak var presenter: (MessageDisplaying & ErrorAlertPresenting)? { get set }
     weak var viewController: MessagesControlling? { get set }
     func viewWillAppear()
+    func viewWillDisappear()
     func didTapMore()
     func didTapSend(message: String)
 }
@@ -28,7 +29,8 @@ final class MessagesInteractor: MessagesInteracting {
     fileprivate let messageSender: TextMessageSending
     fileprivate let deliveryService: ConfirmingDelivery
 
-    init(dataSource: MessagesDataProviding, collab: Collab,
+    init(dataSource: MessagesDataProviding,
+         collab: Collab,
          messageSender: TextMessageSending,
          deliveryService: ConfirmingDelivery) {
         self.dataSource = dataSource
@@ -37,12 +39,16 @@ final class MessagesInteractor: MessagesInteracting {
         self.deliveryService = deliveryService
         dataSource.actionTarget = self
     }
-    
+
     func viewWillAppear() {
         viewController?.setUpStatusView(withStatus: CollabStatus(orderStatus: collab.chatRoom.status))
         dataSource.loadTableData()
     }
-    
+
+    func viewWillDisappear() {
+        dataSource.stopDataUpdates()
+    }
+
     func didTapMore() {
         //TODO: Add reporting functionality. No story on Taiga yet ;-)
     }
@@ -52,12 +58,12 @@ final class MessagesInteractor: MessagesInteracting {
         guard trimmedMessage.characters.count > 0 else { return }
         let message = Message(text: trimmedMessage)
         messageSender.send(message: message,
-                            toRoom: collab.chatRoomId) { [weak self] result in
-                                result.on(success: { _ in
-                                    self?.presenter?.clearMessage()
-                                }, failure: { _ in
-                                    self?.presenter?.presentError(title: nil, message: Constants.failedToSentMessage)
-                                })
+                           toRoom: collab.chatRoomId) { [weak self] result in
+                            result.on(success: { _ in
+                                self?.presenter?.clearMessage()
+                            }, failure: { _ in
+                                self?.presenter?.presentError(title: nil, message: Constants.failedToSentMessage)
+                            })
         }
     }
 }

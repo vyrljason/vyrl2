@@ -61,7 +61,7 @@ final class CollabsService: CollabsProviding {
                     }
                 })
             }
-            self.chatDatabase.removeObserver(withHandle: self.databaseHandle)
+            self.chatDatabase.childAt(path: Constants.databasePathPrefix + userId).removeObserver(withHandle: self.databaseHandle)
             completion(result)
         }
     }

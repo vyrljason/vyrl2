@@ -12,8 +12,8 @@ protocol MessagesControllerMaking {
 final class MessagesViewControllerFactory: MessagesControllerMaking {
     static func make(collab: Collab) -> MessagesViewController {
         let databaseReference = FIRDatabase.database().reference()
-        let service = MessagesService(chatDatabase: databaseReference)
-        let dataSource = MessagesDataSource(service: service, collab: collab)
+        let chatRoomUpdater = ChatRoomUpdater(chatDatabase: databaseReference)
+        let dataSource = MessagesDataSource(collab: collab, chatRoomUpdater: chatRoomUpdater)
         let resource = ServiceLocator.resourceConfigurator.resourceController
         let postMessageResource = PostMessageResource(controller: resource)
         let postService = PostService<PostMessageResource>(resource: postMessageResource)
