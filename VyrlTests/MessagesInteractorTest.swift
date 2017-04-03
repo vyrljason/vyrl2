@@ -50,10 +50,12 @@ final class MessagesDataSourceMock: NSObject, MessagesDataProviding {
     var didUseLoadTableData: Bool = false
     var didUseRegisterNibs: Bool = false
     var didCallStopDataUpdates: Bool = false
+    var didCallStartListeningToUpdates: Bool = false
     weak var tableView: UITableView?
     weak var reloadingDelegate: ReloadingData?
     weak var interactor: MessagesInteracting?
     weak var actionTarget: (ContentAdding & DeliveryConfirming)?
+    weak var statusViewUpdater: MessagesControlling?
 
     func use(_ tableView: UITableView) {
         didUseTableView = true
@@ -64,19 +66,15 @@ final class MessagesDataSourceMock: NSObject, MessagesDataProviding {
     func registerNibs(in tableView: UITableView) {
         didUseRegisterNibs = true
     }
-    
-    func loadTableData() {
-        didUseLoadTableData = true
-    }
 
     func stopDataUpdates() {
         didCallStopDataUpdates = true
     }
 
-    func updateTable(with result: DataFetchResult) {
-        reloadingDelegate?.reloadData()
+    func startListeningToUpdates() {
+        didCallStartListeningToUpdates = true
     }
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         return UITableViewCell()
     }
@@ -106,16 +104,10 @@ final class MessagesInteractorTest: XCTestCase {
         subject.presenter = messagePresenter
     }
     
-    func test_refreshData_reloadsDataSource() {
-        subject.refreshData()
-        
-        XCTAssertTrue(dataSource.didUseLoadTableData)
-    }
-    
     func test_onViewWillAppear_loadsTableData() {
         subject.viewWillAppear()
         
-        XCTAssertTrue(dataSource.didUseLoadTableData)
+        XCTAssertTrue(dataSource.didCallStartListeningToUpdates)
     }
 
     func test_viewWillDisappear_stopDataUpdates() {
@@ -129,17 +121,6 @@ final class MessagesInteractorTest: XCTestCase {
         
         XCTAssertTrue(dataSource.didUseTableView)
         XCTAssertTrue(dataSource.tableView === tableView)
-    }
-    
-    func test_updateTable_reloadsTableViewInAllCases() {
-        subject.use(tableView)
-        let possibleResults = [DataFetchResult.someData, DataFetchResult.empty, DataFetchResult.error]
-        
-        for result in possibleResults {
-            tableView.didCallReload = false
-            dataSource.updateTable(with: result)
-            XCTAssertTrue(tableView.didCallReload)
-        }
     }
 
     func test_didTapSend_whenMessageIsEmpty_doesNothing() {

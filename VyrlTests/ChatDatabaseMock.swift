@@ -9,6 +9,7 @@ final class ChatDatabaseMock: ChatDatabaseChildAccessing, ChatDatabaseObserving 
 
     var child: ChatDatabaseMock!
     var didCallObserved = false
+    var didCallObservedSingleEvent = false
     var didCallRemoveObserver = false
     var snapshot = FIRDataSnapshot()
 
@@ -27,7 +28,8 @@ final class ChatDatabaseMock: ChatDatabaseChildAccessing, ChatDatabaseObserving 
     }
 
     func observeSingleEvent(of eventType: FIRDataEventType, with block: @escaping (FIRDataSnapshot) -> Swift.Void) {
-        
+        didCallObservedSingleEvent = true
+        block(snapshot)
     }
 
     func removeAllObservers() { }

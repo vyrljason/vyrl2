@@ -16,10 +16,24 @@ final class MessagesServiceMock: MessagesProviding {
 final class ChatRoomUpdaterMock: ChatRoomUpdatesInforming {
 
     var didCallStopListening = false
-    var didCallListenToNewMessages = false
+    var didCallStartListening = false
 
     func listenToNewMessages(inRoom roomId: String, completion: @escaping ([MessageContainer]) -> Void) {
-        didCallListenToNewMessages = true
+        didCallStartListening = true
+    }
+
+    func stopListening(inRoom roomId: String) {
+        didCallStopListening = true
+    }
+}
+
+final class OrderStatusUpdaterMock: OrderStatusUpdatesInforming {
+
+    var didCallStopListening = false
+    var didCallStartListening = false
+
+    func listenToOrderStatusUpdates(inRoom roomId: String, completion: @escaping (ChatRoom) -> Void) {
+        didCallStartListening = true
     }
 
     func stopListening(inRoom roomId: String) {
@@ -28,31 +42,36 @@ final class ChatRoomUpdaterMock: ChatRoomUpdatesInforming {
 }
 
 final class MessagesDataSourceTests: XCTestCase {
-    
+
     var subject: MessagesDataSource!
     var service: MessagesServiceMock!
     var tableView: TableViewMock!
     private var chatRoomUpdater: ChatRoomUpdaterMock!
+    private var orderStatusUpdater: OrderStatusUpdaterMock!
     var collab: Collab!
+    var status: CollabStatus!
 
     override func setUp() {
         super.setUp()
         service = MessagesServiceMock()
         tableView = TableViewMock()
         collab = VyrlFaker.faker.collab()
+        status = CollabStatus.brief
         chatRoomUpdater = ChatRoomUpdaterMock()
-        subject = MessagesDataSource(collab: collab, chatRoomUpdater: chatRoomUpdater)
+        orderStatusUpdater = OrderStatusUpdaterMock()
+        subject = MessagesDataSource(collab: collab, status: status,
+                                     chatRoomUpdater: chatRoomUpdater, orderStatusUpdater: orderStatusUpdater)
     }
-    
+
     func test_registerNibs_didRegisterNib() {
         subject.use(tableView)
-        
+
         XCTAssertTrue(tableView.didRegisterNib)
     }
 
     func test_use_setsDelegateAndDataSource_onTableView() {
         subject.use(tableView)
-        
+
         XCTAssertTrue(tableView.didSetDataSource)
         XCTAssertTrue(tableView.dataSource === subject)
         XCTAssertTrue(tableView.didSetDelegation)
@@ -64,12 +83,14 @@ final class MessagesDataSourceTests: XCTestCase {
         subject.stopDataUpdates()
 
         XCTAssertTrue(chatRoomUpdater.didCallStopListening)
+        XCTAssertTrue(orderStatusUpdater.didCallStopListening)
     }
 
-    func test_loadData_startsListeningToUpdates() {
+    func test_startListeningToUpdates_asksChatUpdaterAndOrderStatusUpdaterForUpdates() {
 
-        subject.loadTableData()
+        subject.startListeningToUpdates()
 
-        XCTAssertTrue(chatRoomUpdater.didCallListenToNewMessages)
+        XCTAssertTrue(chatRoomUpdater.didCallStartListening)
+        XCTAssertTrue(orderStatusUpdater.didCallStartListening)
     }
 }
