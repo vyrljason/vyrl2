@@ -4,7 +4,7 @@
 
 import UIKit
 
-class BrandMessageCell: UITableViewCell, HavingNib, MessageCellRendering {
+final class BrandMessageCell: UITableViewCell, HavingNib, MessageCellRendering, ImageFetcherUsing {
     
     static let nibName = "BrandMessageCell"
     

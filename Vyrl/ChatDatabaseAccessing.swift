@@ -11,6 +11,7 @@ protocol ChatDatabaseChildAccessing {
 
 protocol ChatDatabaseObserving {
     func observe(_ eventType: FIRDataEventType, with block: @escaping (FIRDataSnapshot) -> Void) -> UInt
+    func observeSingleEvent(of eventType: FIRDataEventType, with block: @escaping (FIRDataSnapshot) -> Swift.Void)
     func removeObserver(withHandle handle: UInt)
     func removeAllObservers()
 }

@@ -9,6 +9,7 @@ final class ChatDatabaseMock: ChatDatabaseChildAccessing, ChatDatabaseObserving 
 
     var child: ChatDatabaseMock!
     var didCallObserved = false
+    var didCallRemoveObserver = false
     var snapshot = FIRDataSnapshot()
 
     func childAt(path: String) -> ChatDatabaseChildAccessing & ChatDatabaseObserving {
@@ -21,7 +22,9 @@ final class ChatDatabaseMock: ChatDatabaseChildAccessing, ChatDatabaseObserving 
         return 0
     }
 
-    func removeObserver(withHandle handle: UInt) { }
+    func removeObserver(withHandle handle: UInt) {
+        didCallRemoveObserver = true
+    }
 
     func removeAllObservers() { }
 }
