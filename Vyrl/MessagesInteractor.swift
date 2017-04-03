@@ -25,11 +25,11 @@ final class MessagesInteractor: MessagesInteracting {
     weak var presenter: (MessageDisplaying & ErrorAlertPresenting)?
 
     fileprivate let collab: Collab
-    fileprivate let messageSender: MessageSending
+    fileprivate let messageSender: TextMessageSending
     fileprivate let deliveryService: ConfirmingDelivery
 
     init(dataSource: MessagesDataProviding, collab: Collab,
-         messageSender: MessageSending,
+         messageSender: TextMessageSending,
          deliveryService: ConfirmingDelivery) {
         self.dataSource = dataSource
         self.collab = collab
