@@ -2206,13 +2206,6 @@
 			name = Factories;
 			sourceTree = "<group>";
 		};
-		85603F741E88ED480062485E /* Firebase */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Firebase;
-			sourceTree = "<group>";
-		};
 		85603F781E88EE300062485E /* Firebase */ = {
 			isa = PBXGroup;
 			children = (
