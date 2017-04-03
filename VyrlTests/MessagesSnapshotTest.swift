@@ -11,6 +11,8 @@ final class MessagesInteractorNoDataMock: MessagesInteracting, DataRefreshing {
     weak var viewController: MessagesControlling?
     
     func viewWillAppear() { }
+
+    func viewWillDisappear() { }
     
     func didTapMore() { }
 
