@@ -7,6 +7,17 @@ import Foundation
 enum ChatAuthenticationError: Error {
     case noChatToken
     case signInProblem(NSError)
+
+    var message: String {
+        switch self {
+        case .noChatToken: return NSLocalizedString("chat.login.error.message", comment: "")
+        case .signInProblem(let error): return error.localizedDescription
+        }
+    }
+
+    var title: String {
+        return NSLocalizedString("chat.login.error.title", comment: "")
+    }
 }
 
 protocol ChatAuthenticating {
@@ -19,15 +30,18 @@ final class ChatAuthenticator: ChatAuthenticating {
     private let authenticator: ChatSigningIn
     private let tokenDecoder: ChatTokenDecoding
     private let chatCredentialsStorage: ChatCredentialsStoring
+    private let unreadMessagesObserver: UnreadMessagesObserving
 
     init(chatTokenRepository: ChatTokenProviding,
          authenticator: ChatSigningIn,
          tokenDecoder: ChatTokenDecoding,
-         chatCredentialsStorage: ChatCredentialsStoring) {
+         chatCredentialsStorage: ChatCredentialsStoring,
+         unreadMessagesObserver: UnreadMessagesObserving) {
         self.chatTokenRepository = chatTokenRepository
         self.authenticator = authenticator
         self.tokenDecoder = tokenDecoder
         self.chatCredentialsStorage = chatCredentialsStorage
+        self.unreadMessagesObserver = unreadMessagesObserver
     }
 
     func authenticateUser(completion: @escaping ((Result<Void, ChatAuthenticationError>) -> Void)) {
@@ -38,6 +52,7 @@ final class ChatAuthenticator: ChatAuthenticating {
                 self.authenticator.signIn(withCustomToken: chatToken.token) { result in
                     switch result {
                     case .success:
+                        self.unreadMessagesObserver.observeUnreadMessages()
                         completion(.success())
                     case .failure(let error):
                         completion(.failure(.signInProblem(error)))

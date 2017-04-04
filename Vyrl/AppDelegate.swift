@@ -13,10 +13,11 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
     private var rootNavigation: RootNavigation!
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        setUpFirebaseConfiguration()
         setUpAnalytics()
         setUpAPIConfiguration()
         setUpChatTokenRepository()
-        setUpFirebase()
+        setUpFirebaseAuthentication()
         setUpRootNavigation()
         return true
     }
@@ -39,18 +40,16 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
         ServiceLocator.chatTokenRepository = ChatTokenRepositoryFactory.make(using: ServiceLocator.resourceConfigurator.resourceController)
     }
 
-    private func setUpFirebase() {
+    private func setUpFirebaseConfiguration() {
         FIRApp.configure()
-        //FIXME: This is really temporary, we need to sign in **after** user login and have designated 
+    }
+
+    private func setUpFirebaseAuthentication() {
         guard let authenticator = FIRAuth.auth() else { return }
-        let decoder = ChatTokenDecoder()
         ServiceLocator.chatAuthenticator = ChatAuthenticator(chatTokenRepository: ServiceLocator.chatTokenRepository,
                                                              authenticator: authenticator,
-                                                             tokenDecoder: decoder,
-                                                             chatCredentialsStorage: ChatCredentialsStorage())
-        ServiceLocator.chatAuthenticator?.authenticateUser { _ in
-            //FIXME: This is also temporary, waiting for the whole flow to be finished, then moved after login
-            ServiceLocator.unreadMessagesObserver.observeUnreadMessages()
-        }
+                                                             tokenDecoder: ChatTokenDecoder(),
+                                                             chatCredentialsStorage: ChatCredentialsStorage(),
+                                                             unreadMessagesObserver: ServiceLocator.unreadMessagesObserver)
     }
 }

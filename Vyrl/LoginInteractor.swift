@@ -16,13 +16,17 @@ protocol AuthorizationListener: class {
 final class LoginInteractor: LoginInteracting {
 
     fileprivate var form: LoginFormInteracting?
-    fileprivate let service: UserLoginProviding
+    fileprivate let apiLoginService: UserLoginProviding
+    fileprivate let chatLoginService: ChatAuthenticating
     fileprivate let credentialsStorage: CredentialsStoring
     weak var presenter: (ErrorAlertPresenting & ViewActivityPresenting)?
     weak var listener: AuthorizationListener?
 
-    init(service: UserLoginProviding, credentialsStorage: CredentialsStoring) {
-        self.service = service
+    init(apiLoginService: UserLoginProviding,
+         chatLoginService: ChatAuthenticating,
+         credentialsStorage: CredentialsStoring) {
+        self.apiLoginService = apiLoginService
+        self.chatLoginService = chatLoginService
         self.credentialsStorage = credentialsStorage
     }
 
@@ -42,12 +46,18 @@ extension LoginInteractor: FormActionDelegate {
             return
         }
         presenter?.presentActivity()
-        service.login(using: credentials) { [weak self] result in
+        apiLoginService.login(using: credentials) { [weak self] apiResult in
             guard let `self` = self else { return }
-            self.presenter?.dismiss()
-            result.on(success: { userProfile in
+            apiResult.on(success: { userProfile in
                 self.credentialsStorage.saveToken(using: userProfile)
-                self.listener?.didFinishAuthorizing()
+                self.chatLoginService.authenticateUser() { chatResult in
+                    chatResult.on(success: { _ in
+                        self.presenter?.dismiss()
+                        self.listener?.didFinishAuthorizing()
+                    }, failure: { error in
+                        self.presenter?.presentError(title: error.title, message: error.message)
+                    })
+                }
             }, failure: { error in
                 self.presenter?.presentError(title: error.title, message: error.message)
             })

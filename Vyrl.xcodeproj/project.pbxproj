@@ -2246,7 +2246,6 @@
 		8572E4A21E79781E0042160D /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				85603F751E88ED530062485E /* ChatAuthenticator.swift */,
 				8572E4A61E79792C0042160D /* CollabsService.swift */,
 				8572E4EA1E7AE4910042160D /* ChatTokenRepository.swift */,
 			);
@@ -2656,6 +2655,7 @@
 		85CA3FDD1E6477E300D43805 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				85603F751E88ED530062485E /* ChatAuthenticator.swift */,
 				85CA3FDE1E6477EF00D43805 /* LoginService.swift */,
 			);
 			name = Services;

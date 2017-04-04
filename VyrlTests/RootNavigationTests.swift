@@ -19,6 +19,8 @@ final class RootNavigationTests: XCTestCase {
     private var dataSource: DataSourceMock!
     private var credentialsProvider: APICredentialsProviderMock!
     private var leftMenuInteractor: LeftMenuInteractor!
+    private var chatCredentialsStorage: ChatCredentialsStorageMock!
+    private var unreadMessagesObserver: UnreadMessagesObserverMock!
 
     override func setUp() {
         super.setUp()
@@ -27,7 +29,10 @@ final class RootNavigationTests: XCTestCase {
         cart = CartNavigationBuilder().build()
         credentialsProvider = APICredentialsProviderMock()
         dataSource = DataSourceMock()
-        leftMenuInteractor = LeftMenuInteractor(dataSource: dataSource, credentialsProvider: credentialsProvider)
+        chatCredentialsStorage = ChatCredentialsStorageMock()
+        unreadMessagesObserver = UnreadMessagesObserverMock()
+        leftMenuInteractor = LeftMenuInteractor(dataSource: dataSource, credentialsProvider: credentialsProvider,
+                                                chatCredentialsStorage: chatCredentialsStorage, unreadMessagesObserver: unreadMessagesObserver)
         leftMenu = LeftMenuViewController(interactor: leftMenuInteractor)
         interactor = RootNavigationInteractor()
         navigationController = NavigationControllerMock()
