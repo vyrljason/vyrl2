@@ -4,19 +4,24 @@
 
 import Foundation
 
+private enum Constants  {
+    static let noChatTokenMessage = NSLocalizedString("chat.login.error.message", comment: "")
+    static let chatErrorTitle = NSLocalizedString("chat.login.error.title", comment: "")
+}
+
 enum ChatAuthenticationError: Error {
     case noChatToken
     case signInProblem(NSError)
 
     var message: String {
         switch self {
-        case .noChatToken: return NSLocalizedString("chat.login.error.message", comment: "")
+        case .noChatToken: return Constants.noChatTokenMessage
         case .signInProblem(let error): return error.localizedDescription
         }
     }
 
     var title: String {
-        return NSLocalizedString("chat.login.error.title", comment: "")
+        return Constants.chatErrorTitle
     }
 }
 
