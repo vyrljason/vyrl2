@@ -23,5 +23,4 @@ final class InfluencerMediaMessageCell: UITableViewCell, HavingNib, MessageCellR
     func set(imageFetcher: ImageFetching) {
         mediaImageView.fetchImage(using: imageFetcher, placeholder: #imageLiteral(resourceName: "photoPlaceholderSmall"))
     }
-    
 }
