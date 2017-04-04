@@ -62,10 +62,10 @@ final class ComposeViewController: UIViewController, HavingNib {
     @objc fileprivate func didTapDone() {
         interactor.didTapDone(message: composeTextView.text)
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        setUp(keyboardHandler: KeyboardHandler(scrollView: scrollView, dismissOnTouch: true))
+        setUp(keyboardHandler: KeyboardHandler(scrollView: scrollView, animateOnStart: true, dismissOnTouch: true))
         setUp(imagePicker: UIImagePickerController())
         setUpNavigationBar()
         setUpImageView()
@@ -75,8 +75,7 @@ final class ComposeViewController: UIViewController, HavingNib {
 extension ComposeViewController {
     fileprivate func setUp(keyboardHandler: KeyboardHandler) {
         self.keyboardHandler = keyboardHandler
-        keyboardHandler.maximumVisibleY = composeView.bounds.maxY
-        keyboardHandler.animateOnStart = true
+        keyboardHandler.maximumVisibleY = view.frame.maxY
     }
     
     fileprivate func setUp(imagePicker: UIImagePickerController) {
