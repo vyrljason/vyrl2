@@ -409,6 +409,9 @@
 		85EEA4981E930F7000D04704 /* ChatPresenceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85EEA4971E930F7000D04704 /* ChatPresenceService.swift */; };
 		85EEA49A1E93817900D04704 /* ChatPresenceServiceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85EEA4991E93817900D04704 /* ChatPresenceServiceTest.swift */; };
 		85EEA49E1E93C2D100D04704 /* ChatCredentialsStorageTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85EEA49D1E93C2D100D04704 /* ChatCredentialsStorageTest.swift */; };
+		85EEA4A01E93DEAB00D04704 /* PostImageResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85EEA49F1E93DEAB00D04704 /* PostImageResource.swift */; };
+		85EEA4A21E93E08400D04704 /* PostImageEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85EEA4A11E93E08400D04704 /* PostImageEndpoint.swift */; };
+		85EEA4A41E93E3BC00D04704 /* ImageMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85EEA4A31E93E3BC00D04704 /* ImageMessage.swift */; };
 		85FA7A281E5C730800491EED /* NavigationHaving.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FA7A271E5C730800491EED /* NavigationHaving.swift */; };
 		85FB31E11E65E1C500E2F113 /* StyleKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FB31E01E65E1C500E2F113 /* StyleKit.swift */; };
 		8B93F52018D6B44C46B04178 /* Pods_VyrlTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E0EB38848E0C16BD8FCFD361 /* Pods_VyrlTests.framework */; };
@@ -898,6 +901,9 @@
 		85EEA4971E930F7000D04704 /* ChatPresenceService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatPresenceService.swift; sourceTree = "<group>"; };
 		85EEA4991E93817900D04704 /* ChatPresenceServiceTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatPresenceServiceTest.swift; sourceTree = "<group>"; };
 		85EEA49D1E93C2D100D04704 /* ChatCredentialsStorageTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatCredentialsStorageTest.swift; sourceTree = "<group>"; };
+		85EEA49F1E93DEAB00D04704 /* PostImageResource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostImageResource.swift; sourceTree = "<group>"; };
+		85EEA4A11E93E08400D04704 /* PostImageEndpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostImageEndpoint.swift; sourceTree = "<group>"; };
+		85EEA4A31E93E3BC00D04704 /* ImageMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageMessage.swift; sourceTree = "<group>"; };
 		85FA7A271E5C730800491EED /* NavigationHaving.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationHaving.swift; sourceTree = "<group>"; };
 		85FB31E01E65E1C500E2F113 /* StyleKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StyleKit.swift; sourceTree = "<group>"; };
 		B27A513D1E91505E003F0802 /* SignUpFormFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpFormFactory.swift; sourceTree = "<group>"; };
@@ -2589,6 +2595,8 @@
 				8558289A1E8E448A00748A9A /* ConfirmDeliveryEndpoint.swift */,
 				8558289C1E8E455C00748A9A /* ConfirmDeliveryRequest.swift */,
 				855828A01E8E46E600748A9A /* ConfirmDeliveryResource.swift */,
+				85EEA49F1E93DEAB00D04704 /* PostImageResource.swift */,
+				85EEA4A11E93E08400D04704 /* PostImageEndpoint.swift */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -2979,6 +2987,7 @@
 				C4BDA43F1E8163890009BB67 /* Sender.swift */,
 				C47D450B1E825F1B005DD524 /* MessageContainer.swift */,
 				C4C8876E1E89880D0022558F /* Messages.swift */,
+				85EEA4A31E93E3BC00D04704 /* ImageMessage.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -3366,6 +3375,7 @@
 				854AE0251E926B7600B0F322 /* MessagesCellFactory.swift in Sources */,
 				8554BEA21E698D7000E05A37 /* ContactInfo.swift in Sources */,
 				31EF22F31E6779780073F624 /* TableViewUsing.swift in Sources */,
+				85EEA4A41E93E3BC00D04704 /* ImageMessage.swift in Sources */,
 				858D640B1E560F0100CFDD4C /* CollectionViewHaving.swift in Sources */,
 				1AA7FA9A1E687FE7001C0B6F /* InfoViewProjector.swift in Sources */,
 				853859A91E607F450098D1EB /* DiscoveryFilterSettings.swift in Sources */,
@@ -3496,6 +3506,7 @@
 				850A80D31E5DE69200E684A3 /* APICredentialsProvider.swift in Sources */,
 				31EF231E1E68BD700073F624 /* AddToCartTableCellRenderable.swift in Sources */,
 				858D64141E57121600CFDD4C /* BrandsRenderable.swift in Sources */,
+				85EEA4A21E93E08400D04704 /* PostImageEndpoint.swift in Sources */,
 				3168A27E1E5EF6F100C65434 /* Product.swift in Sources */,
 				8554BEC41E69D7A400E05A37 /* ProductsService.swift in Sources */,
 				8554BEA01E6982EB00E05A37 /* PostService.swift in Sources */,
@@ -3552,6 +3563,7 @@
 				858D644A1E58A67200CFDD4C /* EmptyCollectionViewHandler.swift in Sources */,
 				85603F7D1E88EE600062485E /* ChatSigningIn.swift in Sources */,
 				85A2A80F1E7B4E7100271871 /* KeychainConstants.swift in Sources */,
+				85EEA4A01E93DEAB00D04704 /* PostImageResource.swift in Sources */,
 				31EF22E71E664C180073F624 /* ProductDetailsViewController.swift in Sources */,
 				B27A514B1E915077003F0802 /* WelcomeViewController.swift in Sources */,
 				1ADAF7F61E545FA300155D9F /* RootNavigation.swift in Sources */,
