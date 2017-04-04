@@ -39,7 +39,7 @@ final class ComposeInteractor: NSObject, ComposeInteracting {
     
     @objc func didTapDone(message: String) {
         guard let selectedImage = selectedImage, message.characters.count > 0 else { return }
-        messageSender.send(message: message, withImage: selectedImage, toRoom: collab.chatRoomId) { [weak self] result in
+        messageSender.send(message: message, withImage: selectedImage, toCollab: collab) { [weak self] result in
             result.on(success: { _ in
                 self?.composeCloser?.finishPresentation()
             }, failure: { _ in

@@ -16,7 +16,7 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="414"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="FlD-7L-IoE" id="RGl-Up-f2P">
-                <rect key="frame" x="0.0" y="0.0" width="375" height="413.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="375" height="414"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XhC-RW-2ZZ">
@@ -28,14 +28,14 @@
                                     <constraint firstAttribute="width" secondItem="814-JD-0yk" secondAttribute="height" multiplier="1:1" id="7Wg-AI-oKF"/>
                                 </constraints>
                             </imageView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="C2b-9h-vox" customClass="AutoexpandableTextView" customModule="Vyrl" customModuleProvider="target">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C2b-9h-vox" customClass="AutoexpandableTextView" customModule="Vyrl" customModuleProvider="target">
                                 <rect key="frame" x="16" y="335" width="311" height="54"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="54" id="Q4v-00-N0j"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no" spellCheckingType="no"/>
                                 <connections>
                                     <outlet property="height" destination="Q4v-00-N0j" id="Ct9-iF-SMC"/>
                                 </connections>
