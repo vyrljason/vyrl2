@@ -438,6 +438,9 @@
 		C414B2691E8BC5F5002F973E /* MessagesFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C414B2681E8BC5F5002F973E /* MessagesFooterView.swift */; };
 		C44C3FF61E92F9EA005F776E /* ComposeInteractorTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44C3FF51E92F9EA005F776E /* ComposeInteractorTest.swift */; };
 		C44C3FF81E930038005F776E /* ComposeViewControllerSnapshotTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44C3FF71E930038005F776E /* ComposeViewControllerSnapshotTest.swift */; };
+		C44C3FFA1E93B7ED005F776E /* InfluencerMediaMessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44C3FF91E93B7ED005F776E /* InfluencerMediaMessageCell.swift */; };
+		C44C3FFC1E93B864005F776E /* InfluencerMediaMessageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C44C3FFB1E93B864005F776E /* InfluencerMediaMessageCell.xib */; };
+		C44C3FFE1E93BE4C005F776E /* InfluencerMediaMessageCellSnapshotTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44C3FFD1E93BE4C005F776E /* InfluencerMediaMessageCellSnapshotTest.swift */; };
 		C450FA881E8A778D00A63414 /* SystemMessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C450FA861E8A778D00A63414 /* SystemMessageCell.swift */; };
 		C450FA891E8A778D00A63414 /* SystemMessageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C450FA871E8A778D00A63414 /* SystemMessageCell.xib */; };
 		C451A5761E8DAD3B00DFE5F7 /* MessagesFooterViewSnapshotTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C451A5751E8DAD3B00DFE5F7 /* MessagesFooterViewSnapshotTest.swift */; };
@@ -923,6 +926,9 @@
 		C414B2681E8BC5F5002F973E /* MessagesFooterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagesFooterView.swift; sourceTree = "<group>"; };
 		C44C3FF51E92F9EA005F776E /* ComposeInteractorTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComposeInteractorTest.swift; sourceTree = "<group>"; };
 		C44C3FF71E930038005F776E /* ComposeViewControllerSnapshotTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComposeViewControllerSnapshotTest.swift; sourceTree = "<group>"; };
+		C44C3FF91E93B7ED005F776E /* InfluencerMediaMessageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfluencerMediaMessageCell.swift; sourceTree = "<group>"; };
+		C44C3FFB1E93B864005F776E /* InfluencerMediaMessageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InfluencerMediaMessageCell.xib; sourceTree = "<group>"; };
+		C44C3FFD1E93BE4C005F776E /* InfluencerMediaMessageCellSnapshotTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfluencerMediaMessageCellSnapshotTest.swift; sourceTree = "<group>"; };
 		C450FA861E8A778D00A63414 /* SystemMessageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SystemMessageCell.swift; sourceTree = "<group>"; };
 		C450FA871E8A778D00A63414 /* SystemMessageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SystemMessageCell.xib; sourceTree = "<group>"; };
 		C451A5751E8DAD3B00DFE5F7 /* MessagesFooterViewSnapshotTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagesFooterViewSnapshotTest.swift; sourceTree = "<group>"; };
@@ -2508,6 +2514,7 @@
 				C414B2601E8A810D002F973E /* SystemMessageCellSnapshotTest.swift */,
 				C451A5751E8DAD3B00DFE5F7 /* MessagesFooterViewSnapshotTest.swift */,
 				C44C3FF71E930038005F776E /* ComposeViewControllerSnapshotTest.swift */,
+				C44C3FFD1E93BE4C005F776E /* InfluencerMediaMessageCellSnapshotTest.swift */,
 			);
 			name = SnapshotTest;
 			sourceTree = "<group>";
@@ -2945,6 +2952,8 @@
 				C450FA871E8A778D00A63414 /* SystemMessageCell.xib */,
 				C414B2661E8BC5E5002F973E /* MessagesFooterView.xib */,
 				C414B2681E8BC5F5002F973E /* MessagesFooterView.swift */,
+				C44C3FF91E93B7ED005F776E /* InfluencerMediaMessageCell.swift */,
+				C44C3FFB1E93B864005F776E /* InfluencerMediaMessageCell.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -3146,6 +3155,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8538599E1E6073740098D1EB /* dergodaddy.crt in Resources */,
+				C44C3FFC1E93B864005F776E /* InfluencerMediaMessageCell.xib in Resources */,
 				31B079551E7736EF0015C302 /* CollabsViewController.xib in Resources */,
 				C4BDA4311E7FD7720009BB67 /* MessagesViewController.xib in Resources */,
 				1ADAF7D21E545F3C00155D9F /* LaunchScreen.storyboard in Resources */,
@@ -3453,6 +3463,7 @@
 				85CA3FE81E647C4500D43805 /* LoginResources.swift in Sources */,
 				858D63E71E55F21800CFDD4C /* ServiceLocator.swift in Sources */,
 				31EF231B1E68AD810073F624 /* AddToCartTableCell.swift in Sources */,
+				C44C3FFA1E93B7ED005F776E /* InfluencerMediaMessageCell.swift in Sources */,
 				8572E4A11E7977260042160D /* CollabsDataSource.swift in Sources */,
 				8558289B1E8E448A00748A9A /* ConfirmDeliveryEndpoint.swift in Sources */,
 				1A1FA93C1E5D950A007EB61D /* CategoryCell.swift in Sources */,
@@ -3665,6 +3676,7 @@
 				85B0A8451E67334A002093BA /* BrandsResourceTest.swift in Sources */,
 				85DCFC2F1E7682C60046D0D5 /* ShippingInfoControllerSnapshotTest.swift in Sources */,
 				C44C3FF81E930038005F776E /* ComposeViewControllerSnapshotTest.swift in Sources */,
+				C44C3FFE1E93BE4C005F776E /* InfluencerMediaMessageCellSnapshotTest.swift in Sources */,
 				1A1FA9511E5E2668007EB61D /* CategoriesDataSourceTests.swift in Sources */,
 				1AA7FAA21E68C0AD001C0B6F /* InfoViewSnapshotTests.swift in Sources */,
 				C4C887821E89B02B0022558F /* MessagesServiceTest.swift in Sources */,
