@@ -72,7 +72,7 @@ final class CartStorage: CartStoring, CartUpdateInforming {
     }
 
     func postUpdate() {
-        let update = CartUpdateInfo(itemsCount: items.count)
+        let update = CountableItemUpdate(itemsCount: items.count)
         notificationPosting.post(name: Notification(name: cartUpdateNotificationName).name, object: nil, userInfo: update.dictionaryRepresentation)
     }
 }

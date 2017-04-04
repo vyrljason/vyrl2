@@ -4,20 +4,20 @@
 
 import Foundation
 
-struct CartUpdateInfo {
+struct CountableItemUpdate {
     fileprivate enum Keys {
         static let itemsCount = "Items.count"
     }
     let itemsCount: Int
 }
 
-extension CartUpdateInfo: DictionaryConvertible {
+extension CountableItemUpdate: DictionaryConvertible {
     var dictionaryRepresentation: [String : Any] {
         return [Keys.itemsCount: itemsCount]
     }
 }
 
-extension CartUpdateInfo: DictionaryInitializable {
+extension CountableItemUpdate: DictionaryInitializable {
     init?(dictionary: [AnyHashable : Any]?) {
         guard let itemsCount = dictionary?[Keys.itemsCount] as? Int else { return nil }
         self.itemsCount = itemsCount

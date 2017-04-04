@@ -48,6 +48,9 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
                                                              authenticator: authenticator,
                                                              tokenDecoder: decoder,
                                                              chatCredentialsStorage: ChatCredentialsStorage())
-        ServiceLocator.chatAuthenticator?.authenticateUser { _ in }
+        ServiceLocator.chatAuthenticator?.authenticateUser { _ in
+            //FIXME: This is also temporary, waiting for the whole flow to be finished, then moved after login
+            ServiceLocator.unreadMessagesObserver.observeUnreadMessages()
+        }
     }
 }

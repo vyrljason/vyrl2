@@ -50,6 +50,10 @@ protocol MainNavigationRendering: class {
     func cartUpdated(notification: Notification)
 }
 
+@objc protocol UnreadMessagesCountObserving {
+    func unreadMessagesUpdated(notification: Notification)
+}
+
 final class RootNavigation {
 
     var authorizationNavigation: AuthorizationNavigation? = nil
@@ -112,6 +116,7 @@ final class RootNavigation {
         setUpSlideMenu()
         setUpNavigationItems()
         notificationObserver.addObserver(self, selector: #selector(cartUpdated), name: cartUpdateNotificationName, object: nil)
+        notificationObserver.addObserver(self, selector: #selector(unreadMessagesUpdated), name: unreadMessagesUpdateNotificationName, object: nil)
     }
 
     private func setUpNavigationItems() {
@@ -124,7 +129,7 @@ final class RootNavigation {
                                         style: .plain) { [weak self] in
                                             self?.interactor.didTapChat()
         }
-        updateCartButton(using: CartUpdateInfo(itemsCount: cartStorage.items.count))
+        updateCartButton(using: CountableItemUpdate(itemsCount: cartStorage.items.count))
     }
 
     private func setUpSlideMenu() {
@@ -308,11 +313,22 @@ extension RootNavigation: MainNavigationRendering {
 
 extension RootNavigation: CartUpdateObserving {
     @objc func cartUpdated(notification: Notification) {
-        guard let updateInfo = CartUpdateInfo(dictionary: notification.userInfo) else { return }
+        guard let updateInfo = CountableItemUpdate(dictionary: notification.userInfo) else { return }
         updateCartButton(using: updateInfo)
     }
 
-    fileprivate func updateCartButton(using updateInfo: CartUpdateInfo) {
+    fileprivate func updateCartButton(using updateInfo: CountableItemUpdate) {
         cartButton?.render(BadgeButtonRenderable(itemsCount: updateInfo.itemsCount))
+    }
+}
+
+extension RootNavigation: UnreadMessagesCountObserving {
+    @objc func unreadMessagesUpdated(notification: Notification) {
+        guard let updateInfo = CountableItemUpdate(dictionary: notification.userInfo) else { return }
+        updateMessagesButton(using: updateInfo)
+    }
+
+    fileprivate func updateMessagesButton(using updateInfo: CountableItemUpdate) {
+        chatButton?.render(BadgeButtonRenderable(itemsCount: updateInfo.itemsCount))
     }
 }

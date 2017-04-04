@@ -49,11 +49,13 @@ final class MessagesDataSourceMock: NSObject, MessagesDataProviding {
     var didUseTableView: Bool = false
     var didUseLoadTableData: Bool = false
     var didUseRegisterNibs: Bool = false
-    var didCallStopDataUpdates: Bool = false
+    var didCallunsubscribeToChatUpdates: Bool = false
+    var didCallsubscribeToChatUpdates: Bool = false
     weak var tableView: UITableView?
     weak var reloadingDelegate: ReloadingData?
     weak var interactor: MessagesInteracting?
     weak var actionTarget: (ContentAdding & DeliveryConfirming)?
+    weak var statusViewUpdater: MessagesControlling?
 
     func use(_ tableView: UITableView) {
         didUseTableView = true
@@ -64,19 +66,15 @@ final class MessagesDataSourceMock: NSObject, MessagesDataProviding {
     func registerNibs(in tableView: UITableView) {
         didUseRegisterNibs = true
     }
-    
-    func loadTableData() {
-        didUseLoadTableData = true
+
+    func unsubscribeToChatUpdates() {
+        didCallunsubscribeToChatUpdates = true
     }
 
-    func stopDataUpdates() {
-        didCallStopDataUpdates = true
+    func subscribeToChatUpdates() {
+        didCallsubscribeToChatUpdates = true
     }
 
-    func updateTable(with result: DataFetchResult) {
-        reloadingDelegate?.reloadData()
-    }
-    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         return UITableViewCell()
     }
@@ -107,22 +105,16 @@ final class MessagesInteractorTest: XCTestCase {
         subject.messageDisplayer = messagePresenter
     }
     
-    func test_refreshData_reloadsDataSource() {
-        subject.refreshData()
-        
-        XCTAssertTrue(dataSource.didUseLoadTableData)
-    }
-    
     func test_onViewWillAppear_loadsTableData() {
         subject.viewWillAppear()
         
-        XCTAssertTrue(dataSource.didUseLoadTableData)
+        XCTAssertTrue(dataSource.didCallsubscribeToChatUpdates)
     }
 
-    func test_viewWillDisappear_stopDataUpdates() {
+    func test_viewWillDisappear_unsubscribeToChatUpdates() {
         subject.viewWillDisappear()
 
-        XCTAssertTrue(dataSource.didCallStopDataUpdates)
+        XCTAssertTrue(dataSource.didCallunsubscribeToChatUpdates)
     }
     
     func test_use_forwardsUseToDataSource() {
@@ -130,17 +122,6 @@ final class MessagesInteractorTest: XCTestCase {
         
         XCTAssertTrue(dataSource.didUseTableView)
         XCTAssertTrue(dataSource.tableView === tableView)
-    }
-    
-    func test_updateTable_reloadsTableViewInAllCases() {
-        subject.use(tableView)
-        let possibleResults = [DataFetchResult.someData, DataFetchResult.empty, DataFetchResult.error]
-        
-        for result in possibleResults {
-            tableView.didCallReload = false
-            dataSource.updateTable(with: result)
-            XCTAssertTrue(tableView.didCallReload)
-        }
     }
 
     func test_didTapSend_whenMessageIsEmpty_doesNothing() {

@@ -32,7 +32,6 @@ final class RootNavigationTests: XCTestCase {
         interactor = RootNavigationInteractor()
         navigationController = NavigationControllerMock()
         navigationProvider = NavigationProviderMock(navigationController: navigationController)
-
         let builder = RootNavigationBuilder()
         builder.interactor = interactor
         builder.leftMenu = leftMenu
@@ -41,7 +40,6 @@ final class RootNavigationTests: XCTestCase {
         builder.window = window
         builder.mainNavigation = navigationProvider
         builder.credentialsProvider = credentialsProvider
-
         subject = builder.build()
     }
 
