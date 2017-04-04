@@ -55,3 +55,5 @@
 "messages.error.failedToSend" = "Failed to send a message, please try again.";
 "messages.error.failedToConfirmDelivery" = "Failed to confirm delivery, please try again.";
 "compose.navigation.title" = "Compose";
+"chat.login.error.message" = "Something ham jammed while attempting to log in. Please try again.";
+"chat.login.error.title" = "Error";

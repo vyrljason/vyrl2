@@ -8,4 +8,10 @@ import Foundation
 final class ChatCredentialsStorageMock: ChatCredentialsStoring {
     var chatToken: String?
     var internalUserId: String?
+
+    var didCallClear: Bool = false
+
+    func clear() {
+        didCallClear = true
+    }
 }

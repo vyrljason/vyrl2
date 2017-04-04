@@ -21,10 +21,17 @@ final class LeftMenuInteractor: LeftMenuInteracting, CategorySelectionHandling {
     
     private let dataSource: CollectionViewUsing & CategoriesSelectionDelegateHaving & UICollectionViewDelegate & UICollectionViewDataSource
     private let credentialsProvider: APICredentialsProviding
+    private let chatCredentialsStorage: ChatCredentialsStoring
+    private let unreadMessagesObserver: UnreadMessagesObserving
+
     init(dataSource: CollectionViewUsing & CategoriesSelectionDelegateHaving & UICollectionViewDelegate & UICollectionViewDataSource,
-         credentialsProvider: APICredentialsProviding) {
+         credentialsProvider: APICredentialsProviding,
+         chatCredentialsStorage: ChatCredentialsStoring,
+         unreadMessagesObserver: UnreadMessagesObserving) {
         self.dataSource = dataSource
         self.credentialsProvider = credentialsProvider
+        self.chatCredentialsStorage = chatCredentialsStorage
+        self.unreadMessagesObserver = unreadMessagesObserver
         dataSource.delegate = self
     }
 
@@ -46,6 +53,8 @@ final class LeftMenuInteractor: LeftMenuInteracting, CategorySelectionHandling {
 
     func didTapLogout() {
         credentialsProvider.clear()
+        chatCredentialsStorage.clear()
+        unreadMessagesObserver.stopObserving()
         delegate?.showAuthorization()
     }
 }
