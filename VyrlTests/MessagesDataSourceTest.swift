@@ -41,6 +41,20 @@ final class OrderStatusUpdaterMock: OrderStatusUpdatesInforming {
     }
 }
 
+final class ChatPresenceServiceMock: ChatPresenceInforming {
+
+    var leftRoom: String?
+    var enteredRoom: String?
+
+    func userDidEnter(chatRoom roomId: String) {
+        enteredRoom = roomId
+    }
+
+    func userWillLeave(chatRoom roomId: String) {
+        leftRoom = roomId
+    }
+}
+
 final class MessagesDataSourceTests: XCTestCase {
 
     var subject: MessagesDataSource!
@@ -48,6 +62,7 @@ final class MessagesDataSourceTests: XCTestCase {
     var tableView: TableViewMock!
     private var chatRoomUpdater: ChatRoomUpdaterMock!
     private var orderStatusUpdater: OrderStatusUpdaterMock!
+    private var chatPresenceService: ChatPresenceServiceMock!
     var collab: Collab!
     var status: CollabStatus!
 
@@ -59,8 +74,11 @@ final class MessagesDataSourceTests: XCTestCase {
         status = CollabStatus.brief
         chatRoomUpdater = ChatRoomUpdaterMock()
         orderStatusUpdater = OrderStatusUpdaterMock()
+        chatPresenceService = ChatPresenceServiceMock()
         subject = MessagesDataSource(collab: collab, status: status,
-                                     chatRoomUpdater: chatRoomUpdater, orderStatusUpdater: orderStatusUpdater)
+                                     chatRoomUpdater: chatRoomUpdater,
+                                     orderStatusUpdater: orderStatusUpdater,
+                                     chatPresenceService: chatPresenceService)
     }
 
     func test_registerNibs_didRegisterNib() {
@@ -78,19 +96,21 @@ final class MessagesDataSourceTests: XCTestCase {
         XCTAssertTrue(tableView.delegate === subject)
     }
 
-    func test_stopDataUpdates_asksChatUpdaterToStopUpdates() {
+    func test_subscribeToChatUpdates_asksChatUpdaterAndOrderStatusUpdaterForUpdates() {
 
-        subject.stopDataUpdates()
-
-        XCTAssertTrue(chatRoomUpdater.didCallStopListening)
-        XCTAssertTrue(orderStatusUpdater.didCallStopListening)
-    }
-
-    func test_startListeningToUpdates_asksChatUpdaterAndOrderStatusUpdaterForUpdates() {
-
-        subject.startListeningToUpdates()
+        subject.subscribeToChatUpdates()
 
         XCTAssertTrue(chatRoomUpdater.didCallStartListening)
         XCTAssertTrue(orderStatusUpdater.didCallStartListening)
+        XCTAssertEqual(chatPresenceService.enteredRoom, collab.chatRoomId)
+    }
+
+    func test_unsubscribeToChatUpdates_asksChatUpdaterToStopUpdates() {
+
+        subject.unsubscribeToChatUpdates()
+
+        XCTAssertTrue(chatRoomUpdater.didCallStopListening)
+        XCTAssertTrue(orderStatusUpdater.didCallStopListening)
+        XCTAssertEqual(chatPresenceService.leftRoom, collab.chatRoomId)
     }
 }

@@ -8,8 +8,8 @@ protocol MessagesDataProviding: UITableViewDataSource, UITableViewDelegate, Tabl
     weak var reloadingDelegate: ReloadingData? { get set }
     weak var actionTarget: (ContentAdding & DeliveryConfirming)? { get set }
     weak var statusViewUpdater: MessagesControlling? { get set }
-    func startListeningToUpdates()
-    func stopDataUpdates()
+    func subscribeToChatUpdates()
+    func unsubscribeToChatUpdates()
 }
 
 final class MessagesDataSource: NSObject, MessagesDataProviding {
@@ -30,6 +30,7 @@ final class MessagesDataSource: NSObject, MessagesDataProviding {
     }
     fileprivate let chatRoomUpdater: ChatRoomUpdatesInforming
     fileprivate let orderStatusUpdater: OrderStatusUpdatesInforming
+    fileprivate let chatPresenceService: ChatPresenceInforming
     fileprivate var items = [MessageContainer]()
     fileprivate let messagesCellFactory: MessagesCellMaking
 
@@ -42,11 +43,13 @@ final class MessagesDataSource: NSObject, MessagesDataProviding {
          status: CollabStatus,
          chatRoomUpdater: ChatRoomUpdatesInforming,
          orderStatusUpdater: OrderStatusUpdatesInforming,
+         chatPresenceService: ChatPresenceInforming,
          messagesCellFactory: MessagesCellMaking = MessagesCellFactory()) {
         self.collab = collab
         self.status = status
         self.chatRoomUpdater = chatRoomUpdater
         self.orderStatusUpdater = orderStatusUpdater
+        self.chatPresenceService = chatPresenceService
         self.messagesCellFactory = messagesCellFactory
         super.init()
     }
@@ -101,16 +104,18 @@ extension MessagesDataSource: TableViewUsing {
 
 extension MessagesDataSource {
 
-    func stopDataUpdates() {
-        chatRoomUpdater.stopListening(inRoom: collab.chatRoomId)
-        orderStatusUpdater.stopListening(inRoom: collab.chatRoomId)
-    }
-
-    func startListeningToUpdates() {
-        self.items.removeAll()
+    func subscribeToChatUpdates() {
+        items.removeAll()
         reloadingDelegate?.reloadData()
         startListeningToNewMessages()
         startListeningToStatusUpdates()
+        chatPresenceService.userDidEnter(chatRoom: collab.chatRoomId)
+    }
+
+    func unsubscribeToChatUpdates() {
+        chatRoomUpdater.stopListening(inRoom: collab.chatRoomId)
+        orderStatusUpdater.stopListening(inRoom: collab.chatRoomId)
+        chatPresenceService.userWillLeave(chatRoom: collab.chatRoomId)
     }
 
     private func startListeningToNewMessages() {

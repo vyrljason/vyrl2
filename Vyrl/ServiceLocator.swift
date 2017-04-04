@@ -14,7 +14,7 @@ struct ServiceLocator {
     static var resourceConfigurator: APIResourceConfiguring!
     static var cartStorage: CartStoring = CartStorage(objectsStorage: UserDefaults.standard)
     static var chatTokenRepository: ChatTokenRepositoryAdapter!
-    static var chatDatabaseReference: (ChatDatabaseChildAccessing & ChatDatabaseObserving) = FIRDatabase.database().reference()
+    static var chatDatabaseReference: (ChatDatabaseChildAccessing & ChatDatabaseObserving & ChatDatabaseUpdating) = FIRDatabase.database().reference()
     static var chatAuthenticator: ChatAuthenticating?
     static var unreadMessagesObserver: UnreadMessagesObserving = UnreadMessagesObserver(chatDatabase: ServiceLocator.chatDatabaseReference,
                                                                                         chatCredentialsStorage: ChatCredentialsStorage())

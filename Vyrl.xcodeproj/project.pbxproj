@@ -414,6 +414,8 @@
 		85DCFC4D1E781B7E0046D0D5 /* CartUpdateInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85DCFC4C1E781B7E0046D0D5 /* CartUpdateInfo.swift */; };
 		85DCFC4F1E782DCF0046D0D5 /* BadgeButtonSnapshotTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85DCFC4E1E782DCF0046D0D5 /* BadgeButtonSnapshotTest.swift */; };
 		85DCFC531E7831AF0046D0D5 /* iosCartIconNav.png in Resources */ = {isa = PBXBuildFile; fileRef = 85DCFC521E7831AF0046D0D5 /* iosCartIconNav.png */; };
+		85EEA4981E930F7000D04704 /* ChatPresenceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85EEA4971E930F7000D04704 /* ChatPresenceService.swift */; };
+		85EEA49A1E93817900D04704 /* ChatPresenceServiceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85EEA4991E93817900D04704 /* ChatPresenceServiceTest.swift */; };
 		85FA7A281E5C730800491EED /* NavigationHaving.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FA7A271E5C730800491EED /* NavigationHaving.swift */; };
 		85FB31E11E65E1C500E2F113 /* StyleKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FB31E01E65E1C500E2F113 /* StyleKit.swift */; };
 		C414B25F1E8A7C4B002F973E /* UIView+IBInspectables.swift in Sources */ = {isa = PBXBuildFile; fileRef = C414B25E1E8A7C4B002F973E /* UIView+IBInspectables.swift */; };
@@ -874,6 +876,8 @@
 		85DCFC4C1E781B7E0046D0D5 /* CartUpdateInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CartUpdateInfo.swift; sourceTree = "<group>"; };
 		85DCFC4E1E782DCF0046D0D5 /* BadgeButtonSnapshotTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BadgeButtonSnapshotTest.swift; sourceTree = "<group>"; };
 		85DCFC521E7831AF0046D0D5 /* iosCartIconNav.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iosCartIconNav.png; sourceTree = "<group>"; };
+		85EEA4971E930F7000D04704 /* ChatPresenceService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatPresenceService.swift; sourceTree = "<group>"; };
+		85EEA4991E93817900D04704 /* ChatPresenceServiceTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatPresenceServiceTest.swift; sourceTree = "<group>"; };
 		85FA7A271E5C730800491EED /* NavigationHaving.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationHaving.swift; sourceTree = "<group>"; };
 		85FB31E01E65E1C500E2F113 /* StyleKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StyleKit.swift; sourceTree = "<group>"; };
 		96549903E451F71A0DF3113D /* Pods-VyrlTests.ad hoc.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VyrlTests.ad hoc.xcconfig"; path = "Pods/Target Support Files/Pods-VyrlTests/Pods-VyrlTests.ad hoc.xcconfig"; sourceTree = "<group>"; };
@@ -2021,9 +2025,8 @@
 		854AE01C1E92498900B0F322 /* Firebase */ = {
 			isa = PBXGroup;
 			children = (
+				854AE02C1E92BAC200B0F322 /* UnreadMessagesObserver.swift */,
 				854AE0201E9258D300B0F322 /* Other */,
-				854AE01D1E9249AC00B0F322 /* ChatRoomUpdater.swift */,
-				854AE02A1E92B16400B0F322 /* OrderStatusUpdater.swift */,
 			);
 			name = Firebase;
 			sourceTree = "<group>";
@@ -2031,7 +2034,6 @@
 		854AE0201E9258D300B0F322 /* Other */ = {
 			isa = PBXGroup;
 			children = (
-				854AE0211E9258E100B0F322 /* MessagesSnapshotConverter.swift */,
 				854AE0281E92ABF500B0F322 /* ChatRoomSnapshotConverter.swift */,
 			);
 			name = Other;
@@ -2040,6 +2042,7 @@
 		854AE0231E926ABE00B0F322 /* Other */ = {
 			isa = PBXGroup;
 			children = (
+				854AE0211E9258E100B0F322 /* MessagesSnapshotConverter.swift */,
 				854AE0241E926B7600B0F322 /* MessagesCellFactory.swift */,
 			);
 			name = Other;
@@ -2048,7 +2051,6 @@
 		854AE02E1E92E77100B0F322 /* UnreadMessages */ = {
 			isa = PBXGroup;
 			children = (
-				854AE02C1E92BAC200B0F322 /* UnreadMessagesObserver.swift */,
 			);
 			name = UnreadMessages;
 			sourceTree = "<group>";
@@ -2520,10 +2522,13 @@
 		8597AB571E89BC3D00A64585 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				854AE02A1E92B16400B0F322 /* OrderStatusUpdater.swift */,
+				854AE01D1E9249AC00B0F322 /* ChatRoomUpdater.swift */,
 				855AD6DA1E8CF8FA00B9523D /* TextMessageService.swift */,
 				8597AB5F1E8A59D100A64585 /* MessagesService.swift */,
 				852BC35B1E8DBD1B009115FA /* ImageMessageService.swift */,
 				8558289E1E8E468500748A9A /* ConfirmDeliveryService.swift */,
+				85EEA4971E930F7000D04704 /* ChatPresenceService.swift */,
 			);
 			name = Services;
 			sourceTree = "<group>";
@@ -2865,6 +2870,7 @@
 				C4C887811E89B02B0022558F /* MessagesServiceTest.swift */,
 				8507FED21E8E300F00C0711B /* ImageMessageServiceTest.swift */,
 				855828A21E8E500500748A9A /* ConfirmDeliveryServiceTest.swift */,
+				85EEA4991E93817900D04704 /* ChatPresenceServiceTest.swift */,
 			);
 			name = Services;
 			sourceTree = "<group>";
@@ -3217,6 +3223,7 @@
 				85CA3FC51E642EB500D43805 /* RequestDataProvider.swift in Sources */,
 				C47D450C1E825F1B005DD524 /* MessageContainer.swift in Sources */,
 				8554BE6F1E6804E600E05A37 /* CategoriesEndpoint.swift in Sources */,
+				85EEA4981E930F7000D04704 /* ChatPresenceService.swift in Sources */,
 				1AA7FAA81E699D07001C0B6F /* CheckoutInteractor.swift in Sources */,
 				853859A01E6076570098D1EB /* UserProfile.swift in Sources */,
 				858D641E1E572C4300CFDD4C /* APIResponseError.swift in Sources */,
@@ -3467,6 +3474,7 @@
 				850A81061E5F219C00E684A3 /* HTTPClientTest.swift in Sources */,
 				1A31216B1E659E0E00F71925 /* CartInteractorTests.swift in Sources */,
 				1A31217A1E66260D00F71925 /* CartItemCellSnapshotTests.swift in Sources */,
+				85EEA49A1E93817900D04704 /* ChatPresenceServiceTest.swift in Sources */,
 				8572E4E01E7ACC040042160D /* DataUpdateListenerMock.swift in Sources */,
 				85CA3FCB1E6431B500D43805 /* APIEndpointMock.swift in Sources */,
 				85DCFC451E76D7CF0046D0D5 /* FormFieldsInteractorMock.swift in Sources */,

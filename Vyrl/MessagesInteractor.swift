@@ -42,11 +42,11 @@ final class MessagesInteractor: MessagesInteracting {
 
     func viewWillAppear() {
         viewController?.setUpStatusView(withStatus: CollabStatus(orderStatus: collab.chatRoom.status))
-        dataSource.startListeningToUpdates()
+        dataSource.subscribeToChatUpdates()
     }
 
     func viewWillDisappear() {
-        dataSource.stopDataUpdates()
+        dataSource.unsubscribeToChatUpdates()
     }
 
     func didTapMore() {

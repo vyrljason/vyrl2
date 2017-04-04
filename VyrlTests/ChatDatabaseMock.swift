@@ -5,15 +5,18 @@
 @testable import Vyrl
 import Firebase
 
-final class ChatDatabaseMock: ChatDatabaseChildAccessing, ChatDatabaseObserving {
+final class ChatDatabaseMock: ChatDatabaseChildAccessing, ChatDatabaseObserving, ChatDatabaseUpdating {
 
     var child: ChatDatabaseMock!
+    var calledPath: String?
+    var lastCalledValue: Any?
     var didCallObserved = false
     var didCallObservedSingleEvent = false
     var didCallRemoveObserver = false
     var snapshot = FIRDataSnapshot()
 
-    func childAt(path: String) -> ChatDatabaseChildAccessing & ChatDatabaseObserving {
+    func childAt(path: String) -> ChatDatabaseChildAccessing & ChatDatabaseObserving & ChatDatabaseUpdating {
+        calledPath = path
         return child
     }
 
@@ -33,4 +36,8 @@ final class ChatDatabaseMock: ChatDatabaseChildAccessing, ChatDatabaseObserving 
     }
 
     func removeAllObservers() { }
+
+    func setValue(_ value: Any?) {
+        lastCalledValue = value
+    }
 }

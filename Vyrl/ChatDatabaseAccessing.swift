@@ -6,7 +6,11 @@ import Foundation
 import FirebaseDatabase
 
 protocol ChatDatabaseChildAccessing {
-    func childAt(path: String) -> ChatDatabaseChildAccessing & ChatDatabaseObserving
+    func childAt(path: String) -> ChatDatabaseChildAccessing & ChatDatabaseObserving & ChatDatabaseUpdating
+}
+
+protocol ChatDatabaseUpdating {
+    func setValue(_ value: Any?)
 }
 
 protocol ChatDatabaseObserving {
@@ -18,8 +22,10 @@ protocol ChatDatabaseObserving {
 
 extension FIRDatabaseReference: ChatDatabaseObserving { }
 
+extension FIRDatabaseReference: ChatDatabaseUpdating { }
+
 extension FIRDatabaseReference: ChatDatabaseChildAccessing {
-    func childAt(path: String) -> ChatDatabaseChildAccessing & ChatDatabaseObserving {
+    func childAt(path: String) -> ChatDatabaseChildAccessing & ChatDatabaseObserving & ChatDatabaseUpdating {
         return child(path)
     }
 }

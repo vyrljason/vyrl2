@@ -16,9 +16,10 @@ final class MessagesViewControllerFactory: MessagesControllerMaking {
         let resource = ServiceLocator.resourceConfigurator.resourceController
         let chatRoomUpdater = ChatRoomUpdater(chatDatabase: databaseReference)
         let orderStatusUpdater = OrderStatusUpdater(chatDatabase: databaseReference, chatCredentialsStorage: chatCredentialsStorage)
+        let chatPresenceService = ChatPresenceService(chatDatabase: databaseReference, chatCredentialsStorage: chatCredentialsStorage)
         let initialStatus = CollabStatus(orderStatus: collab.chatRoom.status)
         let dataSource = MessagesDataSource(collab: collab, status: initialStatus,
-                                            chatRoomUpdater: chatRoomUpdater, orderStatusUpdater: orderStatusUpdater)
+                                            chatRoomUpdater: chatRoomUpdater, orderStatusUpdater: orderStatusUpdater, chatPresenceService: chatPresenceService)
         let postMessageResource = PostMessageResource(controller: resource)
         let postService = PostService<PostMessageResource>(resource: postMessageResource)
         let messageSender = TextMessageService(resource: postService)

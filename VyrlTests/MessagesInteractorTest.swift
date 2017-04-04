@@ -49,8 +49,8 @@ final class MessagesDataSourceMock: NSObject, MessagesDataProviding {
     var didUseTableView: Bool = false
     var didUseLoadTableData: Bool = false
     var didUseRegisterNibs: Bool = false
-    var didCallStopDataUpdates: Bool = false
-    var didCallStartListeningToUpdates: Bool = false
+    var didCallunsubscribeToChatUpdates: Bool = false
+    var didCallsubscribeToChatUpdates: Bool = false
     weak var tableView: UITableView?
     weak var reloadingDelegate: ReloadingData?
     weak var interactor: MessagesInteracting?
@@ -67,12 +67,12 @@ final class MessagesDataSourceMock: NSObject, MessagesDataProviding {
         didUseRegisterNibs = true
     }
 
-    func stopDataUpdates() {
-        didCallStopDataUpdates = true
+    func unsubscribeToChatUpdates() {
+        didCallunsubscribeToChatUpdates = true
     }
 
-    func startListeningToUpdates() {
-        didCallStartListeningToUpdates = true
+    func subscribeToChatUpdates() {
+        didCallsubscribeToChatUpdates = true
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -107,13 +107,13 @@ final class MessagesInteractorTest: XCTestCase {
     func test_onViewWillAppear_loadsTableData() {
         subject.viewWillAppear()
         
-        XCTAssertTrue(dataSource.didCallStartListeningToUpdates)
+        XCTAssertTrue(dataSource.didCallsubscribeToChatUpdates)
     }
 
-    func test_viewWillDisappear_stopDataUpdates() {
+    func test_viewWillDisappear_unsubscribeToChatUpdates() {
         subject.viewWillDisappear()
 
-        XCTAssertTrue(dataSource.didCallStopDataUpdates)
+        XCTAssertTrue(dataSource.didCallunsubscribeToChatUpdates)
     }
     
     func test_use_forwardsUseToDataSource() {
