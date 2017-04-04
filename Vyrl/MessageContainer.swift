@@ -12,6 +12,7 @@ enum MessageType {
     case system
     case brand
     case influencer
+    case influencerMedia
 }
 
 struct MessageContainer: Equatable {
@@ -28,7 +29,7 @@ struct MessageContainer: Equatable {
     func messageType(in collab: Collab) -> MessageType {
         switch sender.id {
         case collab.chatRoom.influencerId:
-            return .influencer
+            return message.isMedia ? .influencerMedia : .influencer
         case Constants.systemSenderId:
             return .system
         default:

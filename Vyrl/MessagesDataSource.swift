@@ -61,6 +61,7 @@ extension MessagesDataSource: TableViewUsing {
         tableView.delegate = self
         tableView.dataSource = self
         InfluencerMessageCell.register(to: tableView)
+        InfluencerMediaMessageCell.register(to: tableView)
         BrandMessageCell.register(to: tableView)
         SystemMessageCell.register(to: tableView)
         tableView.rowHeight = UITableViewAutomaticDimension
