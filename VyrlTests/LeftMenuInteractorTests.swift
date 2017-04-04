@@ -12,13 +12,20 @@ final class LeftMenuInteractorTests: XCTestCase {
     private var dataSource: DataSourceMock!
     private var subject: LeftMenuInteractor!
     private var credentialsProvider: APICredentialsProviderMock!
+    private var chatCredentialsStorage: ChatCredentialsStorageMock!
+    private var unreadMessagesObserver: UnreadMessagesObserverMock!
 
     override func setUp() {
         super.setUp()
         homeScreenPresentingMock = HomeScreenPresentingMock()
         dataSource = DataSourceMock()
         credentialsProvider = APICredentialsProviderMock()
-        subject = LeftMenuInteractor(dataSource: dataSource, credentialsProvider: credentialsProvider)
+        chatCredentialsStorage = ChatCredentialsStorageMock()
+        unreadMessagesObserver = UnreadMessagesObserverMock()
+
+        subject = LeftMenuInteractor(dataSource: dataSource, credentialsProvider: credentialsProvider,
+                                     chatCredentialsStorage: chatCredentialsStorage,
+                                     unreadMessagesObserver: unreadMessagesObserver)
         subject.delegate = homeScreenPresentingMock
     }
 
@@ -54,6 +61,7 @@ final class LeftMenuInteractorTests: XCTestCase {
 
         XCTAssertTrue(homeScreenPresentingMock.showAuthorizationCalled)
         XCTAssertTrue(credentialsProvider.didCallClear)
-
+        XCTAssertTrue(chatCredentialsStorage.didCallClear)
+        XCTAssertTrue(unreadMessagesObserver.didCallStopObserving)
     }
 }

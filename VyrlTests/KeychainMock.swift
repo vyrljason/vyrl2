@@ -8,9 +8,11 @@ import KeychainAccess
 final class KeychainMock: KeychainProtocol {
     var accessTokenIsSet: Bool = false
     var chatTokenInSet: Bool = false
+    var internalUserIdIsSet: Bool = false
 
     private var accessToken: String?
     private var chatToken: String?
+    private var internalUserId: String?
 
     subscript(key: KeychainKey) -> String? {
         get {
@@ -19,6 +21,9 @@ final class KeychainMock: KeychainProtocol {
             }
             if key == .chatToken && chatTokenInSet {
                 return chatToken
+            }
+            if key == .internalUserId && internalUserIdIsSet {
+                return internalUserId
             }
             return nil
         }
@@ -30,6 +35,10 @@ final class KeychainMock: KeychainProtocol {
             if key == .chatToken {
                 chatTokenInSet = newValue != nil
                 chatToken = newValue
+            }
+            if key == .internalUserId {
+                internalUserIdIsSet = newValue != nil
+                internalUserId = newValue
             }
         }
     }
