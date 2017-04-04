@@ -18,13 +18,15 @@ final class CollabsService: CollabsProviding {
     private let chatDatabase: ChatDatabaseChildAccessing & ChatDatabaseObserving
     private let chatCredentialsStorage: ChatCredentialsStoring
     private let brandsService: BrandsProviding
-    private var databaseHandle: FIRDatabaseHandle = 0
+    private let dataConverter: SnapshotToChatRoomsConverting
 
     init(chatDatabase: ChatDatabaseChildAccessing & ChatDatabaseObserving,
          chatCredentialsStorage: ChatCredentialsStoring,
+         dataConverter: SnapshotToChatRoomsConverting = ChatRoomsSnapshotConverter(),
          brandsService: BrandsProviding) {
         self.chatDatabase = chatDatabase
         self.chatCredentialsStorage = chatCredentialsStorage
+        self.dataConverter = dataConverter
         self.brandsService = brandsService
     }
 
@@ -51,17 +53,10 @@ final class CollabsService: CollabsProviding {
     }
 
     private func getChatRoomsWithIds(using userId: String, completion: @escaping ([String: ChatRoom]) -> Void) {
-        databaseHandle = chatDatabase.childAt(path: Constants.databasePathPrefix + userId).observe(.value) { [weak self] (snapshot) in
+        let path = Constants.databasePathPrefix + userId
+        chatDatabase.childAt(path: path).observeSingleEvent(of: .value) { [weak self] (snapshot) in
             guard let `self` = self else { return }
-            var result = [String: ChatRoom]()
-            if let roomsDictionary = snapshot.value as? [AnyHashable: [AnyHashable: Any]] {
-                roomsDictionary.forEach({ (key, valueDictionary) in
-                    if let room = ChatRoom(dictionary: valueDictionary), let roomId = key as? String {
-                        result[roomId] = room
-                    }
-                })
-            }
-            self.chatDatabase.childAt(path: Constants.databasePathPrefix + userId).removeObserver(withHandle: self.databaseHandle)
+            let result = self.dataConverter.convert(snapshot: snapshot)
             completion(result)
         }
     }

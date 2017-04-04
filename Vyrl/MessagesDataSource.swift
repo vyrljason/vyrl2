@@ -4,10 +4,12 @@
 
 import UIKit
 
-protocol MessagesDataProviding: TableViewUsing, TableViewDataProviding, TableViewHaving {
+protocol MessagesDataProviding: UITableViewDataSource, UITableViewDelegate, TableViewUsing, TableViewHaving {
     weak var reloadingDelegate: ReloadingData? { get set }
     weak var actionTarget: (ContentAdding & DeliveryConfirming)? { get set }
-    func stopDataUpdates()
+    weak var statusViewUpdater: MessagesControlling? { get set }
+    func subscribeToChatUpdates()
+    func unsubscribeToChatUpdates()
 }
 
 final class MessagesDataSource: NSObject, MessagesDataProviding {
@@ -21,19 +23,33 @@ final class MessagesDataSource: NSObject, MessagesDataProviding {
     }
 
     fileprivate let collab: Collab
+    fileprivate var status: CollabStatus {
+        didSet {
+            updateView(for: status)
+        }
+    }
     fileprivate let chatRoomUpdater: ChatRoomUpdatesInforming
+    fileprivate let orderStatusUpdater: OrderStatusUpdatesInforming
+    fileprivate let chatPresenceService: ChatPresenceInforming
     fileprivate var items = [MessageContainer]()
     fileprivate let messagesCellFactory: MessagesCellMaking
 
     weak var tableView: UITableView?
     weak var reloadingDelegate: ReloadingData?
     weak var actionTarget: (ContentAdding & DeliveryConfirming)?
+    weak var statusViewUpdater: MessagesControlling?
 
     init(collab: Collab,
+         status: CollabStatus,
          chatRoomUpdater: ChatRoomUpdatesInforming,
+         orderStatusUpdater: OrderStatusUpdatesInforming,
+         chatPresenceService: ChatPresenceInforming,
          messagesCellFactory: MessagesCellMaking = MessagesCellFactory()) {
         self.collab = collab
+        self.status = status
         self.chatRoomUpdater = chatRoomUpdater
+        self.orderStatusUpdater = orderStatusUpdater
+        self.chatPresenceService = chatPresenceService
         self.messagesCellFactory = messagesCellFactory
         super.init()
     }
@@ -53,7 +69,7 @@ extension MessagesDataSource: TableViewUsing {
     }
 
     fileprivate func properFooterView(for tableView: UITableView) -> UIView {
-        switch CollabStatus(orderStatus: collab.chatRoom.status) {
+        switch status {
         case .productDelivery:
             let contentView = createFooterContent(.confirmDelivery)
             return footerView(containing: contentView, tableView: tableView)
@@ -86,17 +102,44 @@ extension MessagesDataSource: TableViewUsing {
     }
 }
 
-extension MessagesDataSource: TableViewDataProviding {
-    func loadTableData() {
-        self.items.removeAll()
+extension MessagesDataSource {
+
+    func subscribeToChatUpdates() {
+        items.removeAll()
         reloadingDelegate?.reloadData()
+        startListeningToNewMessages()
+        startListeningToStatusUpdates()
+        chatPresenceService.userDidEnter(chatRoom: collab.chatRoomId)
+    }
+
+    func unsubscribeToChatUpdates() {
+        chatRoomUpdater.stopListening(inRoom: collab.chatRoomId)
+        orderStatusUpdater.stopListening(inRoom: collab.chatRoomId)
+        chatPresenceService.userWillLeave(chatRoom: collab.chatRoomId)
+    }
+
+    private func startListeningToNewMessages() {
         chatRoomUpdater.listenToNewMessages(inRoom: collab.chatRoomId) { [weak self] newMessages in
             guard let `self` = self else { return }
             DispatchQueue.onMainThread { [weak self] in
                 guard let `self` = self else { return }
                 self.appendNew(messages: newMessages)
-                self.updateTable(with: self.items.isEmpty ? .empty : .someData)
+                self.animateToLastMessage()
             }
+        }
+    }
+
+    private func animateToLastMessage() {
+        DispatchQueue.main.asyncAfter(deadline: .now() + Constants.scrollingUpdateDelay) { [weak self] in
+            guard let `self` = self else { return }
+            self.tableView?.scrollToRow(at: self.lastElementIndexPath, at: .top, animated: true)
+        }
+    }
+
+    private func startListeningToStatusUpdates() {
+        orderStatusUpdater.listenToOrderStatusUpdates(inRoom: collab.chatRoomId) { [weak self] updatedOrderStatus in
+            guard let `self` = self else { return }
+            self.status = CollabStatus(orderStatus: updatedOrderStatus)
         }
     }
 
@@ -110,22 +153,17 @@ extension MessagesDataSource: TableViewDataProviding {
         tableView?.endUpdates()
     }
 
-    func stopDataUpdates() {
-        chatRoomUpdater.stopListening(inRoom: collab.chatRoomId)
-    }
-
-    func updateTable(with result: DataFetchResult) {
+    func updateView(for status: CollabStatus) {
+        statusViewUpdater?.setUpStatusView(withStatus: status)
         updateFooter()
-        DispatchQueue.main.asyncAfter(deadline: .now() + Constants.scrollingUpdateDelay) { [weak self] in
-            guard let `self` = self else { return }
-            self.tableView?.scrollToRow(at: self.lastElementIndexPath, at: .top, animated: true)
-        }
     }
 
     private var lastElementIndexPath: IndexPath {
         return IndexPath(row: max(0, items.count - 1), section: Constants.messagesSection)
     }
+}
 
+extension MessagesDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
         return Constants.numberOfSections
     }

@@ -14,7 +14,7 @@ enum MessageType {
     case influencer
 }
 
-struct MessageContainer {
+struct MessageContainer: Equatable {
     fileprivate struct JSONKeys {
         static let createdAt = "createdAt"
         static let sender = "sender"
@@ -43,4 +43,8 @@ extension MessageContainer: Decodable {
                              sender: json => KeyPath(JSONKeys.sender),
                              message: json => KeyPath(JSONKeys.message))
     }
+}
+
+func == (lhs: MessageContainer, rhs: MessageContainer) -> Bool {
+    return lhs.createdAt == rhs.createdAt && lhs.sender == rhs.sender && lhs.message == rhs.message
 }
