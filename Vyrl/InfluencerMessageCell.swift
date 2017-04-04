@@ -25,7 +25,7 @@ final class InfluencerMessageCell: UITableViewCell, HavingNib, MessageCellRender
 
     override func prepareForReuse() {
         super.prepareForReuse()
-        avatarImageView.cancelImageFetching(using: nil)
+        avatarImageView.cancelImageFetching(using: #imageLiteral(resourceName: "photoPlaceholderSmall"))
     }
     
     func render(_ renderable: MessageCellRenderable) {
@@ -35,5 +35,4 @@ final class InfluencerMessageCell: UITableViewCell, HavingNib, MessageCellRender
     func set(imageFetcher: ImageFetching) {
         avatarImageView.fetchImage(using: imageFetcher, placeholder: #imageLiteral(resourceName: "photoPlaceholderSmall"))
     }
-    
 }
