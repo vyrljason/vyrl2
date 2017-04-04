@@ -28,7 +28,7 @@
                                     <constraint firstAttribute="width" secondItem="814-JD-0yk" secondAttribute="height" multiplier="1:1" id="7Wg-AI-oKF"/>
                                 </constraints>
                             </imageView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="C2b-9h-vox" customClass="AutoexpandableTextView" customModule="Vyrl" customModuleProvider="target">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C2b-9h-vox" customClass="AutoexpandableTextView" customModule="Vyrl" customModuleProvider="target">
                                 <rect key="frame" x="16" y="335" width="311" height="54"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
