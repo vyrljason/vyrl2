@@ -10,7 +10,7 @@ protocol CredentialsStoring: class {
 
 final class CredentialsStorage: CredentialsStoring {
 
-    private var keychain: KeychainProtocol
+    private let keychain: KeychainProtocol
 
     var accessToken: String? {
         get {

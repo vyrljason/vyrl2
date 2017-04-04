@@ -12,7 +12,7 @@ protocol ChatCredentialsStoring: class {
 
 final class ChatCredentialsStorage: ChatCredentialsStoring {
 
-    private var keychain: KeychainProtocol
+    private let keychain: KeychainProtocol
 
     var chatToken: String? {
         get {
