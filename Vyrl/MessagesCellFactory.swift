@@ -19,6 +19,8 @@ final class MessagesCellFactory: MessagesCellMaking {
             cell = systemMessageCell(tableView: tableView, indexPath: indexPath)
         case .influencer:
             cell = influencerMessageCell(tableView: tableView, indexPath: indexPath)
+        case .influencerMedia:
+            cell = influencerMediaMessageCell(tableView: tableView, indexPath: indexPath)
         case .brand:
             cell = brandMessageCell(tableView: tableView, indexPath: indexPath)
         }
@@ -46,6 +48,10 @@ final class MessagesCellFactory: MessagesCellMaking {
     }
 
     private func influencerMessageCell(tableView: UITableView, indexPath: IndexPath) -> InfluencerMessageCell {
+        return tableView.dequeueCell(at: indexPath)
+    }
+    
+    private func influencerMediaMessageCell(tableView: UITableView, indexPath: IndexPath) -> InfluencerMediaMessageCell {
         return tableView.dequeueCell(at: indexPath)
     }
 
