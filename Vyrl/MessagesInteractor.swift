@@ -44,11 +44,11 @@ final class MessagesInteractor: MessagesInteracting {
 
     func viewWillAppear() {
         viewController?.setUpStatusView(withStatus: CollabStatus(orderStatus: collab.chatRoom.status))
-        dataSource.loadTableData()
+        dataSource.subscribeToChatUpdates()
     }
 
     func viewWillDisappear() {
-        dataSource.stopDataUpdates()
+        dataSource.unsubscribeToChatUpdates()
     }
 
     func didTapMore() {
@@ -77,19 +77,12 @@ extension MessagesInteractor: TableViewUsing {
     }
 }
 
-extension MessagesInteractor: DataRefreshing {
-    func refreshData() {
-        dataSource.loadTableData()
-    }
-}
-
 extension MessagesInteractor: DeliveryConfirming {
     func didTapConfirm() {
         deliveryService.confirmDelivery(forBrand: collab.chatRoom.brandId) { [weak self] result in
             guard let `self` = self else { return }
-            result.on(success: { _ in
-                self.dataSource.loadTableData()
-            }, failure: { _ in
+            result.on(success: nil,
+                      failure: { _ in
                 self.errorPresenter?.presentError(title: nil, message: Constants.failedToConfirmDelivery)
             })
         }

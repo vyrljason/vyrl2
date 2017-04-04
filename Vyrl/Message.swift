@@ -43,3 +43,7 @@ extension Message: DictionaryConvertible {
                 JSONKeys.mediaURL: mediaURL?.absoluteString ?? ""]
     }
 }
+
+func == (lhs: Message, rhs: Message) -> Bool {
+    return lhs.text == rhs.text && lhs.mediaURL == rhs.mediaURL && lhs.isMedia == rhs.isMedia
+}

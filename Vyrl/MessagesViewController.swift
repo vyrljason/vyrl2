@@ -21,9 +21,9 @@ final class MessagesViewController: UIViewController, HavingNib {
     @IBOutlet fileprivate weak var addMessageView: UIView!
     @IBOutlet fileprivate weak var statusView: StatusView!
     
-    fileprivate let interactor: MessagesInteracting & DataRefreshing
+    fileprivate let interactor: MessagesInteracting
     
-    init(interactor: MessagesInteracting & DataRefreshing) {
+    init(interactor: MessagesInteracting) {
         self.interactor = interactor
         super.init(nibName: MessagesViewController.nibName, bundle: nil)
         interactor.viewController = self

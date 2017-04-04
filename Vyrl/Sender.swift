@@ -31,3 +31,7 @@ extension Sender: Decodable {
                              name: json => KeyPath(JSONKeys.name))
     }
 }
+
+func == (lhs: Sender, rhs: Sender) -> Bool {
+    return lhs.avatar == rhs.avatar && lhs.id == rhs.id && lhs.name == rhs.name
+}

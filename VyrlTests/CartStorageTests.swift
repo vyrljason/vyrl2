@@ -18,10 +18,10 @@ final class UserDefaultsMock: ObjectStoring {
 }
 
 final class NotificationPostMock: NotificationPosting {
-    var cartUpdate: CartUpdateInfo?
+    var cartUpdate: CountableItemUpdate?
 
     func post(name aName: Notification.Name, object anObject: Any?, userInfo aUserInfo: [AnyHashable : Any]?) {
-        cartUpdate = CartUpdateInfo(dictionary: aUserInfo)
+        cartUpdate = CountableItemUpdate(dictionary: aUserInfo)
     }
 }
 
