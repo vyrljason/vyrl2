@@ -16,7 +16,7 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="414"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="FlD-7L-IoE" id="RGl-Up-f2P">
-                <rect key="frame" x="0.0" y="0.0" width="375" height="413.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="375" height="414"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XhC-RW-2ZZ">
@@ -35,7 +35,7 @@
                                     <constraint firstAttribute="height" constant="54" id="Q4v-00-N0j"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no" spellCheckingType="no"/>
                                 <connections>
                                     <outlet property="height" destination="Q4v-00-N0j" id="Ct9-iF-SMC"/>
                                 </connections>

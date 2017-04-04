@@ -6,7 +6,7 @@ import Foundation
 
 final class PostImageResource: PostingWithParameters, APIResource {
 
-    typealias ResponseModel = EmptyResponse
+    typealias ResponseModel = InfluencerPost
     typealias Parameters = ImageMessage
     private let controller: APIResourceControlling
 
@@ -14,7 +14,7 @@ final class PostImageResource: PostingWithParameters, APIResource {
         self.controller = controller
     }
 
-    func post(using parameters: ImageMessage, completion: @escaping (Result<EmptyResponse, APIResponseError>) -> Void) {
+    func post(using parameters: ImageMessage, completion: @escaping (Result<InfluencerPost, APIResponseError>) -> Void) {
         controller.call(endpoint: PostImageEndpoint(message: parameters), completion: completion)
     }
 }

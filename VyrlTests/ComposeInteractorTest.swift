@@ -26,7 +26,7 @@ final class ImageMessageSenderMock: ImageMessageSending {
     var error = ImageMessageError.imageUpload
     var response = EmptyResponse()
     
-    func send(message: String, withImage image: UIImage, toRoom roomId: String, completion: @escaping (Result<Void, ImageMessageError>) -> Void) {
+    func send(message: String, withImage image: UIImage, toCollab collab: Collab, completion: @escaping (Result<Void, ImageMessageError>) -> Void) {
         if success {
             completion(.success())
         } else {

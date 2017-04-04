@@ -412,6 +412,7 @@
 		85EEA4A01E93DEAB00D04704 /* PostImageResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85EEA49F1E93DEAB00D04704 /* PostImageResource.swift */; };
 		85EEA4A21E93E08400D04704 /* PostImageEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85EEA4A11E93E08400D04704 /* PostImageEndpoint.swift */; };
 		85EEA4A41E93E3BC00D04704 /* ImageMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85EEA4A31E93E3BC00D04704 /* ImageMessage.swift */; };
+		85EEA4A61E93F40400D04704 /* InfluencerPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85EEA4A51E93F40400D04704 /* InfluencerPost.swift */; };
 		85FA7A281E5C730800491EED /* NavigationHaving.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FA7A271E5C730800491EED /* NavigationHaving.swift */; };
 		85FB31E11E65E1C500E2F113 /* StyleKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FB31E01E65E1C500E2F113 /* StyleKit.swift */; };
 		8B93F52018D6B44C46B04178 /* Pods_VyrlTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E0EB38848E0C16BD8FCFD361 /* Pods_VyrlTests.framework */; };
@@ -904,6 +905,7 @@
 		85EEA49F1E93DEAB00D04704 /* PostImageResource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostImageResource.swift; sourceTree = "<group>"; };
 		85EEA4A11E93E08400D04704 /* PostImageEndpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostImageEndpoint.swift; sourceTree = "<group>"; };
 		85EEA4A31E93E3BC00D04704 /* ImageMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageMessage.swift; sourceTree = "<group>"; };
+		85EEA4A51E93F40400D04704 /* InfluencerPost.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfluencerPost.swift; sourceTree = "<group>"; };
 		85FA7A271E5C730800491EED /* NavigationHaving.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationHaving.swift; sourceTree = "<group>"; };
 		85FB31E01E65E1C500E2F113 /* StyleKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StyleKit.swift; sourceTree = "<group>"; };
 		B27A513D1E91505E003F0802 /* SignUpFormFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpFormFactory.swift; sourceTree = "<group>"; };
@@ -2988,6 +2990,7 @@
 				C47D450B1E825F1B005DD524 /* MessageContainer.swift */,
 				C4C8876E1E89880D0022558F /* Messages.swift */,
 				85EEA4A31E93E3BC00D04704 /* ImageMessage.swift */,
+				85EEA4A51E93F40400D04704 /* InfluencerPost.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -3533,6 +3536,7 @@
 				8572E4B61E79A78F0042160D /* Collab.swift in Sources */,
 				31EF233C1E69C0860073F624 /* VariantHandler.swift in Sources */,
 				1A31217C1E66E9CE00F71925 /* ObjectStoring.swift in Sources */,
+				85EEA4A61E93F40400D04704 /* InfluencerPost.swift in Sources */,
 				1A69C6A81E560F4800134EF5 /* WindowProtocol.swift in Sources */,
 				1A31216E1E65CA1A00F71925 /* CartItem.swift in Sources */,
 				C4E110E21E8EC15D0098DF32 /* ComposeViewController.swift in Sources */,
