@@ -6,9 +6,10 @@
 import XCTest
 
 final class MessagesInteractorNoDataMock: MessagesInteracting, DataRefreshing {
-    weak var dataUpdateListener: DataLoadingEventsListening?
-    weak var presenter: (MessageDisplaying & ErrorAlertPresenting)?
     weak var viewController: MessagesControlling?
+    weak var errorPresenter: ErrorAlertPresenting?
+    weak var messageDisplayer: MessageDisplaying?
+    weak var composePresenter: ComposePresenting?
     
     func viewWillAppear() { }
 

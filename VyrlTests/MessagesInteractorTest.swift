@@ -101,7 +101,8 @@ final class MessagesInteractorTest: XCTestCase {
         messageSender = MessageSenderMock()
         deliveryService = DeliveryServiceMock()
         subject = MessagesInteractor(dataSource: dataSource, collab: collab, messageSender: messageSender, deliveryService: deliveryService)
-        subject.presenter = messagePresenter
+        subject.errorPresenter = messagePresenter
+        subject.messageDisplayer = messagePresenter
     }
     
     func test_onViewWillAppear_loadsTableData() {

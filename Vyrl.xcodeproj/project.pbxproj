@@ -422,10 +422,14 @@
 		C414B2611E8A810D002F973E /* SystemMessageCellSnapshotTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C414B2601E8A810D002F973E /* SystemMessageCellSnapshotTest.swift */; };
 		C414B2671E8BC5E5002F973E /* MessagesFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C414B2661E8BC5E5002F973E /* MessagesFooterView.xib */; };
 		C414B2691E8BC5F5002F973E /* MessagesFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C414B2681E8BC5F5002F973E /* MessagesFooterView.swift */; };
+		C44C3FF61E92F9EA005F776E /* ComposeInteractorTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44C3FF51E92F9EA005F776E /* ComposeInteractorTest.swift */; };
+		C44C3FF81E930038005F776E /* ComposeViewControllerSnapshotTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44C3FF71E930038005F776E /* ComposeViewControllerSnapshotTest.swift */; };
 		C450FA881E8A778D00A63414 /* SystemMessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C450FA861E8A778D00A63414 /* SystemMessageCell.swift */; };
 		C450FA891E8A778D00A63414 /* SystemMessageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C450FA871E8A778D00A63414 /* SystemMessageCell.xib */; };
 		C451A5761E8DAD3B00DFE5F7 /* MessagesFooterViewSnapshotTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C451A5751E8DAD3B00DFE5F7 /* MessagesFooterViewSnapshotTest.swift */; };
 		C47D450C1E825F1B005DD524 /* MessageContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47D450B1E825F1B005DD524 /* MessageContainer.swift */; };
+		C47E31C81E921F14009ED817 /* ComposeViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47E31C71E921F14009ED817 /* ComposeViewControllerFactory.swift */; };
+		C47E31CA1E921F89009ED817 /* ComposeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47E31C91E921F89009ED817 /* ComposeInteractor.swift */; };
 		C4B161D31E83DDC100C6E112 /* SingleStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B161D21E83DDC100C6E112 /* SingleStatusView.swift */; };
 		C4B161D51E83DDD100C6E112 /* SingleStatusView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4B161D41E83DDD100C6E112 /* SingleStatusView.xib */; };
 		C4B161D71E85074300C6E112 /* MainStatusView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4B161D61E85074300C6E112 /* MainStatusView.xib */; };
@@ -450,6 +454,9 @@
 		C4C887821E89B02B0022558F /* MessagesServiceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C887811E89B02B0022558F /* MessagesServiceTest.swift */; };
 		C4C887841E89B1290022558F /* MessagesDataSourceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C887831E89B1290022558F /* MessagesDataSourceTest.swift */; };
 		C4C887861E89B5280022558F /* MessagesInteractorTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C887851E89B5280022558F /* MessagesInteractorTest.swift */; };
+		C4E110E21E8EC15D0098DF32 /* ComposeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4E110E01E8EC15D0098DF32 /* ComposeViewController.swift */; };
+		C4E110E31E8EC15D0098DF32 /* ComposeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4E110E11E8EC15D0098DF32 /* ComposeViewController.xib */; };
+		C4E25A001E92709B003E1AB7 /* ImagePicking.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4E259FF1E92709B003E1AB7 /* ImagePicking.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -620,6 +627,7 @@
 		31FEB5B71E5D952600C5E41D /* BrandStoreCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BrandStoreCell.xib; sourceTree = "<group>"; };
 		36E484A59E4A208220452393 /* Pods-Vyrl.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Vyrl.release.xcconfig"; path = "Pods/Target Support Files/Pods-Vyrl/Pods-Vyrl.release.xcconfig"; sourceTree = "<group>"; };
 		7F12BBECEACCAA3DF5ACEC47 /* Pods-VyrlTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VyrlTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-VyrlTests/Pods-VyrlTests.debug.xcconfig"; sourceTree = "<group>"; };
+		7F8A3F2908216E08C5DAF64C /* Pods-Vyrl.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Vyrl.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Vyrl/Pods-Vyrl.debug.xcconfig"; sourceTree = "<group>"; };
 		850740CC1E55E71E00E2F65B /* Brand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Brand.swift; sourceTree = "<group>"; };
 		8507FED21E8E300F00C0711B /* ImageMessageServiceTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageMessageServiceTest.swift; sourceTree = "<group>"; };
 		8507FED41E8E318900C0711B /* ImageToDataConverter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageToDataConverter.swift; sourceTree = "<group>"; };
@@ -887,10 +895,14 @@
 		C414B2601E8A810D002F973E /* SystemMessageCellSnapshotTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SystemMessageCellSnapshotTest.swift; sourceTree = "<group>"; };
 		C414B2661E8BC5E5002F973E /* MessagesFooterView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MessagesFooterView.xib; sourceTree = "<group>"; };
 		C414B2681E8BC5F5002F973E /* MessagesFooterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagesFooterView.swift; sourceTree = "<group>"; };
+		C44C3FF51E92F9EA005F776E /* ComposeInteractorTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComposeInteractorTest.swift; sourceTree = "<group>"; };
+		C44C3FF71E930038005F776E /* ComposeViewControllerSnapshotTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComposeViewControllerSnapshotTest.swift; sourceTree = "<group>"; };
 		C450FA861E8A778D00A63414 /* SystemMessageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SystemMessageCell.swift; sourceTree = "<group>"; };
 		C450FA871E8A778D00A63414 /* SystemMessageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SystemMessageCell.xib; sourceTree = "<group>"; };
 		C451A5751E8DAD3B00DFE5F7 /* MessagesFooterViewSnapshotTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagesFooterViewSnapshotTest.swift; sourceTree = "<group>"; };
 		C47D450B1E825F1B005DD524 /* MessageContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageContainer.swift; sourceTree = "<group>"; };
+		C47E31C71E921F14009ED817 /* ComposeViewControllerFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComposeViewControllerFactory.swift; sourceTree = "<group>"; };
+		C47E31C91E921F89009ED817 /* ComposeInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComposeInteractor.swift; sourceTree = "<group>"; };
 		C4B161D21E83DDC100C6E112 /* SingleStatusView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SingleStatusView.swift; sourceTree = "<group>"; };
 		C4B161D41E83DDD100C6E112 /* SingleStatusView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SingleStatusView.xib; sourceTree = "<group>"; };
 		C4B161D61E85074300C6E112 /* MainStatusView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainStatusView.xib; sourceTree = "<group>"; };
@@ -915,7 +927,9 @@
 		C4C887811E89B02B0022558F /* MessagesServiceTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagesServiceTest.swift; sourceTree = "<group>"; };
 		C4C887831E89B1290022558F /* MessagesDataSourceTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagesDataSourceTest.swift; sourceTree = "<group>"; };
 		C4C887851E89B5280022558F /* MessagesInteractorTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagesInteractorTest.swift; sourceTree = "<group>"; };
-		E3B99920C60905B93C4672BF /* Pods-Vyrl.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Vyrl.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Vyrl/Pods-Vyrl.debug.xcconfig"; sourceTree = "<group>"; };
+		C4E110E01E8EC15D0098DF32 /* ComposeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComposeViewController.swift; sourceTree = "<group>"; };
+		C4E110E11E8EC15D0098DF32 /* ComposeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ComposeViewController.xib; sourceTree = "<group>"; };
+		C4E259FF1E92709B003E1AB7 /* ImagePicking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagePicking.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1381,6 +1395,7 @@
 			children = (
 				854AE02E1E92E77100B0F322 /* UnreadMessages */,
 				854AE01C1E92498900B0F322 /* Firebase */,
+				C4E110DD1E8EC0490098DF32 /* Compose */,
 				31B079501E7734660015C302 /* Collabs */,
 				C4BDA42A1E7FD68D0009BB67 /* Messages */,
 				31B0794E1E7732CE0015C302 /* ChatNavigation.swift */,
@@ -1803,6 +1818,7 @@
 				85DCFC481E7814360046D0D5 /* NotificationPosting.swift */,
 				85DCFC4A1E78153A0046D0D5 /* NotificationObserving.swift */,
 				8572E4B41E799E0D0042160D /* DataLoadingEventsListener.swift */,
+				C4E259FF1E92709B003E1AB7 /* ImagePicking.swift */,
 			);
 			name = Protocols;
 			sourceTree = "<group>";
@@ -2267,6 +2283,7 @@
 		8572E4D51E7AC7C50042160D /* Chat */ = {
 			isa = PBXGroup;
 			children = (
+				C44C3FF31E92F985005F776E /* Compose */,
 				C4BDA4361E8105060009BB67 /* Messages */,
 				8572E4D61E7AC7C90042160D /* Collabs */,
 			);
@@ -2455,6 +2472,7 @@
 				C4C8877A1E89AA400022558F /* InfluencerMessageCellSnapshotTest.swift */,
 				C414B2601E8A810D002F973E /* SystemMessageCellSnapshotTest.swift */,
 				C451A5751E8DAD3B00DFE5F7 /* MessagesFooterViewSnapshotTest.swift */,
+				C44C3FF71E930038005F776E /* ComposeViewControllerSnapshotTest.swift */,
 			);
 			name = SnapshotTest;
 			sourceTree = "<group>";
@@ -2765,6 +2783,30 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		C44C3FF31E92F985005F776E /* Compose */ = {
+			isa = PBXGroup;
+			children = (
+				C44C3FF41E92F9D5005F776E /* Interactors */,
+			);
+			name = Compose;
+			sourceTree = "<group>";
+		};
+		C44C3FF41E92F9D5005F776E /* Interactors */ = {
+			isa = PBXGroup;
+			children = (
+				C44C3FF51E92F9EA005F776E /* ComposeInteractorTest.swift */,
+			);
+			name = Interactors;
+			sourceTree = "<group>";
+		};
+		C47E31C61E921EF2009ED817 /* Factories */ = {
+			isa = PBXGroup;
+			children = (
+				C47E31C71E921F14009ED817 /* ComposeViewControllerFactory.swift */,
+			);
+			name = Factories;
+			sourceTree = "<group>";
+		};
 		C4BDA42A1E7FD68D0009BB67 /* Messages */ = {
 			isa = PBXGroup;
 			children = (
@@ -2875,15 +2917,42 @@
 			name = Services;
 			sourceTree = "<group>";
 		};
+		C4E110DD1E8EC0490098DF32 /* Compose */ = {
+			isa = PBXGroup;
+			children = (
+				C47E31C61E921EF2009ED817 /* Factories */,
+				C4E110DF1E8EC0660098DF32 /* Interactors */,
+				C4E110DE1E8EC05A0098DF32 /* Views */,
+			);
+			name = Compose;
+			sourceTree = "<group>";
+		};
+		C4E110DE1E8EC05A0098DF32 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				C4E110E01E8EC15D0098DF32 /* ComposeViewController.swift */,
+				C4E110E11E8EC15D0098DF32 /* ComposeViewController.xib */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		C4E110DF1E8EC0660098DF32 /* Interactors */ = {
+			isa = PBXGroup;
+			children = (
+				C47E31C91E921F89009ED817 /* ComposeInteractor.swift */,
+			);
+			name = Interactors;
+			sourceTree = "<group>";
+		};
 		F1A85FC39E82348889D7EDFF /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				E3B99920C60905B93C4672BF /* Pods-Vyrl.debug.xcconfig */,
 				36E484A59E4A208220452393 /* Pods-Vyrl.release.xcconfig */,
 				97CBD94580D69E2EFCC220E2 /* Pods-Vyrl.ad hoc.xcconfig */,
 				7F12BBECEACCAA3DF5ACEC47 /* Pods-VyrlTests.debug.xcconfig */,
 				21CC19E04AE6243D1B242F7D /* Pods-VyrlTests.release.xcconfig */,
 				96549903E451F71A0DF3113D /* Pods-VyrlTests.ad hoc.xcconfig */,
+				7F8A3F2908216E08C5DAF64C /* Pods-Vyrl.debug.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -3007,6 +3076,7 @@
 				852ACD4D1E55DE1500219E90 /* BrandCell.xib in Resources */,
 				1ADAF7CF1E545F3C00155D9F /* Assets.xcassets in Resources */,
 				31EF22E81E664C180073F624 /* ProductDetailsViewController.xib in Resources */,
+				C4E110E31E8EC15D0098DF32 /* ComposeViewController.xib in Resources */,
 				1A69C6A21E55F79D00134EF5 /* LeftMenuViewController.xib in Resources */,
 				850A80B01E5D990C00E684A3 /* Configuration.plist in Resources */,
 				852ACD3C1E55DB1E00219E90 /* BrandsViewController.xib in Resources */,
@@ -3235,6 +3305,7 @@
 				31EF22EA1E664C670073F624 /* ProductDetailsControllerFactory.swift in Sources */,
 				C4B161D31E83DDC100C6E112 /* SingleStatusView.swift in Sources */,
 				850A80ED1E5E200C00E684A3 /* APIResponseHandler.swift in Sources */,
+				C47E31C81E921F14009ED817 /* ComposeViewControllerFactory.swift in Sources */,
 				C414B25F1E8A7C4B002F973E /* UIView+IBInspectables.swift in Sources */,
 				8554BEBE1E69C98200E05A37 /* ShippingAddressViewController.swift in Sources */,
 				85DCFC4D1E781B7E0046D0D5 /* CartUpdateInfo.swift in Sources */,
@@ -3243,6 +3314,7 @@
 				31B079541E7736EF0015C302 /* CollabsViewController.swift in Sources */,
 				31B0792E1E6F7A650015C302 /* UITextView+RemoveInsets.swift in Sources */,
 				85DCFC221E75BC630046D0D5 /* ContactInfoFormFactory.swift in Sources */,
+				C4E25A001E92709B003E1AB7 /* ImagePicking.swift in Sources */,
 				31B079611E780C720015C302 /* CollabsInteractor.swift in Sources */,
 				85CA3FDC1E6477DF00D43805 /* LoginInteractor.swift in Sources */,
 				1A1FA9381E5D93BA007EB61D /* Category.swift in Sources */,
@@ -3300,6 +3372,7 @@
 				85B0A83D1E670DC9002093BA /* BrandsEndpoint.swift in Sources */,
 				854AE02D1E92BAC200B0F322 /* UnreadMessagesObserver.swift in Sources */,
 				853859A51E607E270098D1EB /* SocialNetworkProfile.swift in Sources */,
+				C47E31CA1E921F89009ED817 /* ComposeInteractor.swift in Sources */,
 				850A80A71E5D927300E684A3 /* DictionaryConvertible.swift in Sources */,
 				C4B161D91E85090700C6E112 /* MainStatusView.swift in Sources */,
 				850A80E41E5E16E500E684A3 /* JSONToModelDeserializer.swift in Sources */,
@@ -3359,6 +3432,7 @@
 				1A31217C1E66E9CE00F71925 /* ObjectStoring.swift in Sources */,
 				1A69C6A81E560F4800134EF5 /* WindowProtocol.swift in Sources */,
 				1A31216E1E65CA1A00F71925 /* CartItem.swift in Sources */,
+				C4E110E21E8EC15D0098DF32 /* ComposeViewController.swift in Sources */,
 				85B0A83F1E670E59002093BA /* Brands.swift in Sources */,
 				1A1FA9451E5DABE4007EB61D /* Service.swift in Sources */,
 				852BC35E1E8DBD25009115FA /* ImageUploadResource.swift in Sources */,
@@ -3483,6 +3557,7 @@
 				8507FED31E8E300F00C0711B /* ImageMessageServiceTest.swift in Sources */,
 				85B0A8451E67334A002093BA /* BrandsResourceTest.swift in Sources */,
 				85DCFC2F1E7682C60046D0D5 /* ShippingInfoControllerSnapshotTest.swift in Sources */,
+				C44C3FF81E930038005F776E /* ComposeViewControllerSnapshotTest.swift in Sources */,
 				1A1FA9511E5E2668007EB61D /* CategoriesDataSourceTests.swift in Sources */,
 				1AA7FAA21E68C0AD001C0B6F /* InfoViewSnapshotTests.swift in Sources */,
 				C4C887821E89B02B0022558F /* MessagesServiceTest.swift in Sources */,
@@ -3526,6 +3601,7 @@
 				855828A31E8E500500748A9A /* ConfirmDeliveryServiceTest.swift in Sources */,
 				853BAC0A1E7BCA9D00874075 /* StoredRepositoryTest.swift in Sources */,
 				85DCFC2D1E7682300046D0D5 /* ContactInfoControllerSnapshotTest.swift in Sources */,
+				C44C3FF61E92F9EA005F776E /* ComposeInteractorTest.swift in Sources */,
 				31EF22FD1E6784BA0073F624 /* ProductDetailsInteractorTest.swift in Sources */,
 				8572E4DE1E7ACAEB0042160D /* CollectionDataSourceMock.swift in Sources */,
 				8597AB691E8AEC1E00A64585 /* BrandsServiceMock.swift in Sources */,
@@ -3688,7 +3764,7 @@
 		};
 		1ADAF7ED1E545F3C00155D9F /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E3B99920C60905B93C4672BF /* Pods-Vyrl.debug.xcconfig */;
+			baseConfigurationReference = 7F8A3F2908216E08C5DAF64C /* Pods-Vyrl.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIconDev;
