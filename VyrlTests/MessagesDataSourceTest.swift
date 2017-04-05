@@ -32,7 +32,7 @@ final class OrderStatusUpdaterMock: OrderStatusUpdatesInforming {
     var didCallStopListening = false
     var didCallStartListening = false
 
-    func listenToOrderStatusUpdates(inRoom roomId: String, completion: @escaping (OrderStatus) -> Void) {
+    func listenToStatusUpdates(inRoom roomId: String, completion: @escaping (OrderStatus) -> Void) {
         didCallStartListening = true
     }
 

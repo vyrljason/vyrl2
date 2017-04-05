@@ -10,7 +10,7 @@ private enum Constants {
 }
 
 protocol OrderStatusUpdatesInforming {
-    func listenToOrderStatusUpdates(inRoom roomId: String, completion: @escaping (OrderStatus) -> Void)
+    func listenToStatusUpdates(inRoom roomId: String, completion: @escaping (OrderStatus?, ContentStatus?) -> Void)
     func stopListening(inRoom roomId: String)
 }
 
@@ -26,14 +26,21 @@ final class OrderStatusUpdater: OrderStatusUpdatesInforming {
         self.chatCredentialsStorage = chatCredentialsStorage
     }
 
-    func listenToOrderStatusUpdates(inRoom roomId: String,
-                                    completion: @escaping (OrderStatus) -> Void) {
+    func listenToStatusUpdates(inRoom roomId: String,
+                                    completion: @escaping (OrderStatus?, ContentStatus?) -> Void) {
         guard let userId = chatCredentialsStorage.internalUserId else { return }
 
         observerHandler = chatDatabase.childAt(path: path(for: userId, in: roomId)).observe(.childChanged) { (snapshot) in
-            guard snapshot.exists(), snapshot.key == ChatRoom.statusKey,
-                let statusAsString = snapshot.value as? String else { return }
-            completion(OrderStatus(description: statusAsString))
+            guard snapshot.exists() else { return }
+            if snapshot.key == ChatRoom.orderStatusKey,
+                let statusAsString = snapshot.value as? String {
+            completion(OrderStatus(description: statusAsString), nil)
+
+            }
+            if snapshot.key == ChatRoom.contentStatusKey,
+                let statusAsString = snapshot.value as? String {
+                completion(nil, ContentStatus(description: statusAsString))
+            }
         }
     }
 
