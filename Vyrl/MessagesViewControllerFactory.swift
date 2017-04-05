@@ -17,9 +17,21 @@ final class MessagesViewControllerFactory: MessagesControllerMaking {
         let chatRoomUpdater = ChatRoomUpdater(chatDatabase: databaseReference)
         let orderStatusUpdater = OrderStatusUpdater(chatDatabase: databaseReference, chatCredentialsStorage: chatCredentialsStorage)
         let chatPresenceService = ChatPresenceService(chatDatabase: databaseReference, chatCredentialsStorage: chatCredentialsStorage)
+
+        let influencerPostsResource = InfluencerPostsResource(controller: resource)
+        let influencerPostsResourceAdapter = PostService<InfluencerPostsResource>(resource: influencerPostsResource)
+        let influencerPostsService = InfluencerPostsService(resource: influencerPostsResourceAdapter)
+
+        let postInstagramResource = PostInstagramResource(controller: resource)
+        let influencerPostResourceAdapter = PostService<PostInstagramResource>(resource: postInstagramResource)
+        let influencerPostUpdater = InstagramUpdateService(resource: influencerPostResourceAdapter)
+
         let initialStatus = CollabStatus(orderStatus: collab.chatRoom.status)
         let dataSource = MessagesDataSource(collab: collab, status: initialStatus,
-                                            chatRoomUpdater: chatRoomUpdater, orderStatusUpdater: orderStatusUpdater, chatPresenceService: chatPresenceService)
+                                            chatRoomUpdater: chatRoomUpdater, orderStatusUpdater: orderStatusUpdater,
+                                            chatPresenceService: chatPresenceService,
+                                            influencerPostUpdater: influencerPostUpdater,
+                                            influencerPostsService: influencerPostsService)
         let postMessageResource = PostMessageResource(controller: resource)
         let postService = PostService<PostMessageResource>(resource: postMessageResource)
         let messageSender = TextMessageService(resource: postService)

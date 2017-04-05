@@ -22,17 +22,20 @@ final class MessagesDataSource: NSObject, MessagesDataProviding {
         static let scrollingUpdateDelay: TimeInterval = 0.4
     }
 
+    fileprivate let messagesCellFactory: MessagesCellMaking
+    fileprivate var items = [MessageContainer]()
     fileprivate let collab: Collab
     fileprivate var status: CollabStatus {
         didSet {
             updateView(for: status)
         }
     }
+
     fileprivate let chatRoomUpdater: ChatRoomUpdatesInforming
     fileprivate let orderStatusUpdater: OrderStatusUpdatesInforming
     fileprivate let chatPresenceService: ChatPresenceInforming
-    fileprivate var items = [MessageContainer]()
-    fileprivate let messagesCellFactory: MessagesCellMaking
+    fileprivate let influencerPostUpdater: UpdatePostWithInstagram
+    fileprivate let influencerPostsService: InfluencerPostsProviding
 
     weak var tableView: UITableView?
     weak var reloadingDelegate: ReloadingData?
@@ -44,6 +47,8 @@ final class MessagesDataSource: NSObject, MessagesDataProviding {
          chatRoomUpdater: ChatRoomUpdatesInforming,
          orderStatusUpdater: OrderStatusUpdatesInforming,
          chatPresenceService: ChatPresenceInforming,
+         influencerPostUpdater: UpdatePostWithInstagram,
+         influencerPostsService: InfluencerPostsProviding,
          messagesCellFactory: MessagesCellMaking = MessagesCellFactory()) {
         self.collab = collab
         self.status = status
@@ -51,6 +56,8 @@ final class MessagesDataSource: NSObject, MessagesDataProviding {
         self.orderStatusUpdater = orderStatusUpdater
         self.chatPresenceService = chatPresenceService
         self.messagesCellFactory = messagesCellFactory
+        self.influencerPostUpdater = influencerPostUpdater
+        self.influencerPostsService = influencerPostsService
         super.init()
     }
 }
@@ -176,5 +183,23 @@ extension MessagesDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let relatedMessageItem = items[indexPath.row]
         return messagesCellFactory.makeCell(ofType: relatedMessageItem.messageType(in: collab), using: relatedMessageItem, in: tableView, for: indexPath)
+    }
+}
+
+extension MessagesDataSource {
+    private func upload(instagramUrl: String) {
+        //TODO: Please delete these comments, they are only as a guidelines for a developer ;-)
+        influencerPostsService.influencerPosts(fromBrand: collab.chatRoom.brandId) { result in
+            result.on(success: { [weak self] influencerPosts in
+                guard let `self` = self else { return }
+                guard let currentPost = influencerPosts.posts.first else { return }
+                self.influencerPostUpdater.update(postId: currentPost.id, withInstagram: instagramUrl) { [weak self] result in
+                    guard let `self` = self else { return }
+                    //TODO: Update UI
+                }
+            }, failure: { (error) in
+                //TODO: Handle error on UI
+            })
+        }
     }
 }
