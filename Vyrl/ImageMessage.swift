@@ -17,7 +17,6 @@ struct ImageMessage {
 }
 
 extension ImageMessage: DictionaryConvertible {
-
     var dictionaryRepresentation: [String: Any] {
         return [JSONKeys.mediaUrl: mediaUrl.absoluteString,
                 JSONKeys.brandId: brandId,
