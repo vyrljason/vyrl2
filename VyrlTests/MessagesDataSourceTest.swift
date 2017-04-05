@@ -32,7 +32,7 @@ final class OrderStatusUpdaterMock: OrderStatusUpdatesInforming {
     var didCallStopListening = false
     var didCallStartListening = false
 
-    func listenToStatusUpdates(inRoom roomId: String, completion: @escaping (OrderStatus) -> Void) {
+    func listenToStatusUpdates(inRoom roomId: String, completion: @escaping (OrderStatus?, ContentStatus?) -> Void) {
         didCallStartListening = true
     }
 
@@ -107,7 +107,7 @@ final class MessagesDataSourceTests: XCTestCase {
         chatPresenceService = ChatPresenceServiceMock()
         influencerPostUpdater = InfluencerPostUpdaterMock()
         influencerPostsService = InfluencerPostsServiceMock()
-        subject = MessagesDataSource(collab: collab, status: status,
+        subject = MessagesDataSource(collab: collab, collaborationStatus: status,
                                      chatRoomUpdater: chatRoomUpdater,
                                      orderStatusUpdater: orderStatusUpdater,
                                      chatPresenceService: chatPresenceService,
