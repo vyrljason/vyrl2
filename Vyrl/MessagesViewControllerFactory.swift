@@ -30,16 +30,16 @@ final class MessagesViewControllerFactory: MessagesControllerMaking {
         let dataSource = MessagesDataSource(collab: collab,
                                             collaborationStatus: collaborationStatus,
                                             chatRoomUpdater: chatRoomUpdater, orderStatusUpdater: orderStatusUpdater,
-                                            chatPresenceService: chatPresenceService,
-                                            influencerPostUpdater: influencerPostUpdater,
-                                            influencerPostsService: influencerPostsService)
+                                            chatPresenceService: chatPresenceService)
         let postMessageResource = PostMessageResource(controller: resource)
         let postService = PostService<PostMessageResource>(resource: postMessageResource)
         let messageSender = TextMessageService(resource: postService)
         let confirmDeliveryResource = ConfirmDeliveryResource(controller: resource)
         let deliveryResource = PostService<ConfirmDeliveryResource>(resource: confirmDeliveryResource)
         let deliveryService = ConfirmDeliveryService(resource: deliveryResource)
-        let interactor = MessagesInteractor(dataSource: dataSource, collab: collab, messageSender: messageSender, deliveryService: deliveryService)
+        let interactor = MessagesInteractor(dataSource: dataSource, collab: collab, messageSender: messageSender,
+                                            deliveryService: deliveryService, influencerPostUpdater: influencerPostUpdater,
+                                            influencerPostsService: influencerPostsService)
         interactor.composePresenter = presenter
         let viewController = MessagesViewController(interactor: interactor)
         viewController.navigationItem.title = collab.brandName

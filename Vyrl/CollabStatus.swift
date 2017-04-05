@@ -17,8 +17,8 @@ enum CollabStatus: Int, CustomStringConvertible, CustomIntegerConvertible {
     case publication = 3
     case done = 4
     case waiting = -1
-    case declined = -2 //TODO: Remove this comment -> `Order status` ustawiony na `DECLINED` niech się zachowuje tak samo jak Wasz status z opisem `Waiting for response`
-    case inactive = -3 //TODO: Remove this comment -> w tej chwili w swich'u jest default na waiting, zmienmy go na "No active collab"; w ten sposob belka bedzie zawsze widoczna, nie trzeba nic urkywac/pokazywac, a influencere ma jasny status czy cos jest aktywne czy nie
+    case declined = -2
+    case inactive = -3
 
     // swiftlint:disable cyclomatic_complexity
     init(orderStatus: OrderStatus, contentStatus: ContentStatus) {

@@ -4,7 +4,6 @@
 
 import Foundation
 
-
 enum OrderStatus: CustomStringConvertible {
     case requested
     case declined

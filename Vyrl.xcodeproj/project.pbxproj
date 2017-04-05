@@ -446,6 +446,9 @@
 		C450FA881E8A778D00A63414 /* SystemMessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C450FA861E8A778D00A63414 /* SystemMessageCell.swift */; };
 		C450FA891E8A778D00A63414 /* SystemMessageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C450FA871E8A778D00A63414 /* SystemMessageCell.xib */; };
 		C451A5761E8DAD3B00DFE5F7 /* MessagesFooterViewSnapshotTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C451A5751E8DAD3B00DFE5F7 /* MessagesFooterViewSnapshotTest.swift */; };
+		C47B0ED31E950616005A687F /* SuccessMessagesFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47B0ED21E950616005A687F /* SuccessMessagesFooterView.swift */; };
+		C47B0ED51E950639005A687F /* SuccessMessagesFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C47B0ED41E950639005A687F /* SuccessMessagesFooterView.xib */; };
+		C47B0ED71E950EDF005A687F /* SuccessMessagesFooterViewSnapshotTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47B0ED61E950EDF005A687F /* SuccessMessagesFooterViewSnapshotTest.swift */; };
 		C47D450C1E825F1B005DD524 /* MessageContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47D450B1E825F1B005DD524 /* MessageContainer.swift */; };
 		C47E31C81E921F14009ED817 /* ComposeViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47E31C71E921F14009ED817 /* ComposeViewControllerFactory.swift */; };
 		C47E31CA1E921F89009ED817 /* ComposeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47E31C91E921F89009ED817 /* ComposeInteractor.swift */; };
@@ -938,6 +941,9 @@
 		C450FA861E8A778D00A63414 /* SystemMessageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SystemMessageCell.swift; sourceTree = "<group>"; };
 		C450FA871E8A778D00A63414 /* SystemMessageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SystemMessageCell.xib; sourceTree = "<group>"; };
 		C451A5751E8DAD3B00DFE5F7 /* MessagesFooterViewSnapshotTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagesFooterViewSnapshotTest.swift; sourceTree = "<group>"; };
+		C47B0ED21E950616005A687F /* SuccessMessagesFooterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuccessMessagesFooterView.swift; sourceTree = "<group>"; };
+		C47B0ED41E950639005A687F /* SuccessMessagesFooterView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SuccessMessagesFooterView.xib; sourceTree = "<group>"; };
+		C47B0ED61E950EDF005A687F /* SuccessMessagesFooterViewSnapshotTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuccessMessagesFooterViewSnapshotTest.swift; sourceTree = "<group>"; };
 		C47D450B1E825F1B005DD524 /* MessageContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageContainer.swift; sourceTree = "<group>"; };
 		C47E31C71E921F14009ED817 /* ComposeViewControllerFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComposeViewControllerFactory.swift; sourceTree = "<group>"; };
 		C47E31C91E921F89009ED817 /* ComposeInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComposeInteractor.swift; sourceTree = "<group>"; };
@@ -2499,6 +2505,7 @@
 				C451A5751E8DAD3B00DFE5F7 /* MessagesFooterViewSnapshotTest.swift */,
 				C44C3FF71E930038005F776E /* ComposeViewControllerSnapshotTest.swift */,
 				C44C3FFD1E93BE4C005F776E /* InfluencerMediaMessageCellSnapshotTest.swift */,
+				C47B0ED61E950EDF005A687F /* SuccessMessagesFooterViewSnapshotTest.swift */,
 			);
 			name = SnapshotTest;
 			sourceTree = "<group>";
@@ -2908,6 +2915,8 @@
 				C414B2681E8BC5F5002F973E /* MessagesFooterView.swift */,
 				C44C3FF91E93B7ED005F776E /* InfluencerMediaMessageCell.swift */,
 				C44C3FFB1E93B864005F776E /* InfluencerMediaMessageCell.xib */,
+				C47B0ED21E950616005A687F /* SuccessMessagesFooterView.swift */,
+				C47B0ED41E950639005A687F /* SuccessMessagesFooterView.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -3143,6 +3152,7 @@
 				31EF231C1E68AD810073F624 /* AddToCartTableCell.xib in Resources */,
 				858D64161E57130500CFDD4C /* Localizable.strings in Resources */,
 				31FEB5B21E5CBE4800C5E41D /* BrandStoreHeader.xib in Resources */,
+				C47B0ED51E950639005A687F /* SuccessMessagesFooterView.xib in Resources */,
 				31EF232C1E69A63D0073F624 /* DetailTableViewCell.xib in Resources */,
 				31FEB5B91E5D952600C5E41D /* BrandStoreCell.xib in Resources */,
 				C414B2671E8BC5E5002F973E /* MessagesFooterView.xib in Resources */,
@@ -3563,6 +3573,7 @@
 				85DCFC241E75BC710046D0D5 /* ContactInfoViewFactory.swift in Sources */,
 				31B079311E709FF20015C302 /* SwipeableGalleryTableCell.swift in Sources */,
 				8554BE8F1E6883AE00E05A37 /* Variants.swift in Sources */,
+				C47B0ED31E950616005A687F /* SuccessMessagesFooterView.swift in Sources */,
 				1A1FA9641E5F4D19007EB61D /* AccountViewController.swift in Sources */,
 				1A69C6A41E55FF0000134EF5 /* UIColor.swift in Sources */,
 				31EF232B1E69A63D0073F624 /* DetailTableViewCell.swift in Sources */,
@@ -3692,6 +3703,7 @@
 				850A80B31E5D9EA800E684A3 /* APIConfigurationTest.swift in Sources */,
 				855828A31E8E500500748A9A /* ConfirmDeliveryServiceTest.swift in Sources */,
 				853BAC0A1E7BCA9D00874075 /* StoredRepositoryTest.swift in Sources */,
+				C47B0ED71E950EDF005A687F /* SuccessMessagesFooterViewSnapshotTest.swift in Sources */,
 				85DCFC2D1E7682300046D0D5 /* ContactInfoControllerSnapshotTest.swift in Sources */,
 				C44C3FF61E92F9EA005F776E /* ComposeInteractorTest.swift in Sources */,
 				31EF22FD1E6784BA0073F624 /* ProductDetailsInteractorTest.swift in Sources */,

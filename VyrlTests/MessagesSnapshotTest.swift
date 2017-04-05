@@ -17,7 +17,7 @@ final class MessagesInteractorNoDataMock: MessagesInteracting, DataRefreshing {
     
     func didTapMore() { }
 
-    func didTapSend(message: String) { }
+    func didTapSend(message: String, addMessageStatus: AddMessageStatus) { }
     
     func use(_ tableView: UITableView) { }
     
@@ -51,4 +51,19 @@ final class MessagesControllerSnapshotTest: SnapshotTestCase {
         verifyForScreens(view: subject.view)
     }
     
+    func testMessagesWithNoDataAddingInstagramLink() {
+        _ = subject.view
+        subject.setUpAddMessageView(withStatus: .instagramLink)
+        
+        verifyForScreens(view: subject.view)
+    }
+    
+    func testMessagesWithTextTypedAddingInstagramLink() {
+        _ = subject.view
+        subject.setUpAddMessageView(withStatus: .instagramLink)
+        let testText = "http://www.test.com"
+        subject.messageTextView.text = testText
+        
+        verifyForScreens(view: subject.view)
+    }
 }
