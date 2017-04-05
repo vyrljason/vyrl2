@@ -31,7 +31,7 @@ extension ChatRoom: DictionaryInitializable {
     init?(dictionary: [AnyHashable: Any]?) {
         guard let dictionary = dictionary as? [String: Any] else { return nil }
         guard let brandId = dictionary[Keys.brandId] as? String else { return nil }
-        guard let influencerId = dictionary[Keys.influencerId] as? String else { return nil }
+        guard let influencerIdAsInt = dictionary[Keys.influencerId] as? Int else { return nil }
         guard let lastMessage = dictionary[Keys.lastMessage] as? String else { return nil }
         guard let lastActivity = dictionary[Keys.lastActivity] as? TimeInterval else { return nil }
         guard let unreadMessages = dictionary[Keys.unreadMessages] as? Int else { return nil }
@@ -39,7 +39,7 @@ extension ChatRoom: DictionaryInitializable {
         let contentStatusAsString = dictionary[Keys.contentStatus] as? String ?? ""
 
         self.brandId = brandId
-        self.influencerId = influencerId
+        self.influencerId = String(describing: influencerIdAsInt)
         self.lastMessage = lastMessage
         self.lastActivity = Date(timeIntervalSince1970: lastActivity)
         self.orderStatus = OrderStatus(description: orderStatusAsString)

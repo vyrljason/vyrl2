@@ -43,6 +43,7 @@ final class MessagesViewControllerFactory: MessagesControllerMaking {
         interactor.composePresenter = presenter
         let viewController = MessagesViewController(interactor: interactor)
         viewController.navigationItem.title = collab.brandName
+        dataSource.statusViewUpdater = viewController
         return viewController
     }
 }

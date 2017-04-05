@@ -25,6 +25,8 @@ enum CollabStatus: Int, CustomStringConvertible, CustomIntegerConvertible {
         switch (orderStatus, contentStatus) {
         case (.custom(_), .none):
             self = .inactive
+        case (.requested, .none):
+            self = .waiting
         case (.accepted, .none):
             self = .brief
         case (.declined, .none):
