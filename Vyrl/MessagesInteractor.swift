@@ -7,6 +7,7 @@ import UIKit
 private enum Constants {
     static let failedToSentMessage = NSLocalizedString("messages.error.failedToSend", comment: "")
     static let failedToConfirmDelivery = NSLocalizedString("messages.error.failedToConfirmDelivery", comment: "")
+    static let failedToSentInstagramLink = NSLocalizedString("messages.error.failedToSendInstagramLink", comment: "")
 }
 
 protocol MessagesInteracting: TableViewUsing {
@@ -17,7 +18,7 @@ protocol MessagesInteracting: TableViewUsing {
     func viewWillAppear()
     func viewWillDisappear()
     func didTapMore()
-    func didTapSend(message: String)
+    func didTapSend(message: String, addMessageStatus: AddMessageStatus)
 }
 
 final class MessagesInteractor: MessagesInteracting {
@@ -30,15 +31,21 @@ final class MessagesInteractor: MessagesInteracting {
     fileprivate let collab: Collab
     fileprivate let messageSender: TextMessageSending
     fileprivate let deliveryService: ConfirmingDelivery
+    fileprivate let influencerPostUpdater: UpdatePostWithInstagram
+    fileprivate let influencerPostsService: InfluencerPostsProviding
 
     init(dataSource: MessagesDataProviding,
          collab: Collab,
          messageSender: TextMessageSending,
-         deliveryService: ConfirmingDelivery) {
+         deliveryService: ConfirmingDelivery,
+         influencerPostUpdater: UpdatePostWithInstagram,
+         influencerPostsService: InfluencerPostsProviding) {
         self.dataSource = dataSource
         self.collab = collab
         self.messageSender = messageSender
         self.deliveryService = deliveryService
+        self.influencerPostUpdater = influencerPostUpdater
+        self.influencerPostsService = influencerPostsService
         dataSource.actionTarget = self
     }
 
@@ -55,10 +62,19 @@ final class MessagesInteractor: MessagesInteracting {
         //TODO: Add reporting functionality. No story on Taiga yet ;-)
     }
 
-    func didTapSend(message: String) {
+    func didTapSend(message: String, addMessageStatus: AddMessageStatus) {
         let trimmedMessage = message.trimmed
         guard trimmedMessage.characters.count > 0 else { return }
-        let message = Message(text: trimmedMessage)
+        switch addMessageStatus {
+        case .normal:
+            sendNormalMessage(message: trimmedMessage)
+        case .instagramLink:
+            sendInstagramLinkMessage(instagramUrl: trimmedMessage)
+        }
+    }
+    
+    fileprivate func sendNormalMessage(message: String) {
+        let message = Message(text: message)
         messageSender.send(message: message,
                            toRoom: collab.chatRoomId) { [weak self] result in
                             result.on(success: { _ in
@@ -66,6 +82,22 @@ final class MessagesInteractor: MessagesInteracting {
                             }, failure: { _ in
                                 self?.errorPresenter?.presentError(title: nil, message: Constants.failedToSentMessage)
                             })
+        }
+    }
+    
+    fileprivate func sendInstagramLinkMessage(instagramUrl: String) {
+        influencerPostsService.influencerPosts(fromBrand: collab.chatRoom.brandId) { result in
+            result.on(success: { [weak self] influencerPosts in
+                guard let `self` = self else { return }
+                guard let currentPost = influencerPosts.posts.first else { return }
+                self.influencerPostUpdater.update(postId: currentPost.id, withInstagram: instagramUrl) { [weak self] _ in
+                    guard let `self` = self else { return }
+                    self.messageDisplayer?.clearMessage()
+                    self.viewController?.setUpAddMessageView(withStatus: .normal)
+                }
+                }, failure: { _ in
+                    self.errorPresenter?.presentError(title: nil, message: Constants.failedToConfirmDelivery)
+            })
         }
     }
 }
@@ -99,5 +131,12 @@ extension MessagesInteractor: DeliveryConfirming {
 extension MessagesInteractor: ContentAdding {
     func didTapAddContent() {
         composePresenter?.presentCompose(for: collab, animated: true)
+    }
+}
+
+extension MessagesInteractor: InstagramLinkAdding {
+    func didTapAddLink() {
+        viewController?.setUpAddMessageView(withStatus: .instagramLink)
+        viewController?.showKeyboard()
     }
 }

@@ -10,7 +10,12 @@ final class AutoexpandableTextView: UITextView {
     @IBOutlet fileprivate weak var height: NSLayoutConstraint?
     @IBInspectable var maxHeight: CGFloat = CGFloat(MAXFLOAT)
     @IBInspectable var placeholderTextColor: UIColor = UIColor.lightGray
-    @IBInspectable var placeholderText: String = ""
+    @IBInspectable var placeholderText: String = "" {
+        didSet {
+            placeholderLabel?.text = placeholderText
+            placeholderLabel?.sizeToFit()
+        }
+    }
     fileprivate var placeholderLabel: UILabel!
     fileprivate var notificationObserver: NotificationObserving = NotificationCenter.default
 

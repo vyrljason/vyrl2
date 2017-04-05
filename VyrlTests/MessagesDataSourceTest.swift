@@ -91,8 +91,6 @@ final class MessagesDataSourceTests: XCTestCase {
     private var chatRoomUpdater: ChatRoomUpdaterMock!
     private var orderStatusUpdater: OrderStatusUpdaterMock!
     private var chatPresenceService: ChatPresenceServiceMock!
-    private var influencerPostUpdater: InfluencerPostUpdaterMock!
-    private var influencerPostsService: InfluencerPostsServiceMock!
     var collab: Collab!
     var status: CollabStatus!
 
@@ -105,14 +103,10 @@ final class MessagesDataSourceTests: XCTestCase {
         chatRoomUpdater = ChatRoomUpdaterMock()
         orderStatusUpdater = OrderStatusUpdaterMock()
         chatPresenceService = ChatPresenceServiceMock()
-        influencerPostUpdater = InfluencerPostUpdaterMock()
-        influencerPostsService = InfluencerPostsServiceMock()
         subject = MessagesDataSource(collab: collab, collaborationStatus: status,
                                      chatRoomUpdater: chatRoomUpdater,
                                      orderStatusUpdater: orderStatusUpdater,
-                                     chatPresenceService: chatPresenceService,
-                                     influencerPostUpdater: influencerPostUpdater,
-                                     influencerPostsService: influencerPostsService)
+                                     chatPresenceService: chatPresenceService)
     }
 
     func test_registerNibs_didRegisterNib() {

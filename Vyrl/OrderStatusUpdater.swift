@@ -27,7 +27,7 @@ final class OrderStatusUpdater: OrderStatusUpdatesInforming {
     }
 
     func listenToStatusUpdates(inRoom roomId: String,
-                                    completion: @escaping (OrderStatus?, ContentStatus?) -> Void) {
+                               completion: @escaping (OrderStatus?, ContentStatus?) -> Void) {
         guard let userId = chatCredentialsStorage.internalUserId else { return }
 
         observerHandler = chatDatabase.childAt(path: path(for: userId, in: roomId)).observe(.childChanged) { (snapshot) in
