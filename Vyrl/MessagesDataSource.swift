@@ -22,35 +22,48 @@ final class MessagesDataSource: NSObject, MessagesDataProviding {
         static let scrollingUpdateDelay: TimeInterval = 0.4
     }
 
+    fileprivate let messagesCellFactory: MessagesCellMaking
+    fileprivate var items = [MessageContainer]()
     fileprivate let collab: Collab
-    fileprivate var status: CollabStatus {
+    fileprivate var contentStatus: ContentStatus
+    fileprivate var orderStatus: OrderStatus
+
+    fileprivate var collaborationStatus: CollabStatus {
         didSet {
-            updateView(for: status)
+            updateView(for: collaborationStatus)
         }
     }
+
     fileprivate let chatRoomUpdater: ChatRoomUpdatesInforming
     fileprivate let orderStatusUpdater: OrderStatusUpdatesInforming
     fileprivate let chatPresenceService: ChatPresenceInforming
-    fileprivate var items = [MessageContainer]()
-    fileprivate let messagesCellFactory: MessagesCellMaking
+    fileprivate let influencerPostUpdater: UpdatePostWithInstagram
+    fileprivate let influencerPostsService: InfluencerPostsProviding
 
     weak var tableView: UITableView?
     weak var reloadingDelegate: ReloadingData?
     weak var actionTarget: (ContentAdding & DeliveryConfirming)?
     weak var statusViewUpdater: MessagesControlling?
 
+    // swiftlint:disable function_parameter_count
     init(collab: Collab,
-         status: CollabStatus,
+         collaborationStatus: CollabStatus,
          chatRoomUpdater: ChatRoomUpdatesInforming,
          orderStatusUpdater: OrderStatusUpdatesInforming,
          chatPresenceService: ChatPresenceInforming,
+         influencerPostUpdater: UpdatePostWithInstagram,
+         influencerPostsService: InfluencerPostsProviding,
          messagesCellFactory: MessagesCellMaking = MessagesCellFactory()) {
         self.collab = collab
-        self.status = status
+        self.collaborationStatus = collaborationStatus
         self.chatRoomUpdater = chatRoomUpdater
         self.orderStatusUpdater = orderStatusUpdater
         self.chatPresenceService = chatPresenceService
         self.messagesCellFactory = messagesCellFactory
+        self.influencerPostUpdater = influencerPostUpdater
+        self.influencerPostsService = influencerPostsService
+        self.contentStatus = collab.chatRoom.contentStatus
+        self.orderStatus = collab.chatRoom.orderStatus
         super.init()
     }
 }
@@ -70,7 +83,7 @@ extension MessagesDataSource: TableViewUsing {
     }
 
     fileprivate func properFooterView(for tableView: UITableView) -> UIView {
-        switch status {
+        switch collaborationStatus {
         case .productDelivery:
             let contentView = createFooterContent(.confirmDelivery)
             return footerView(containing: contentView, tableView: tableView)
@@ -138,9 +151,9 @@ extension MessagesDataSource {
     }
 
     private func startListeningToStatusUpdates() {
-        orderStatusUpdater.listenToOrderStatusUpdates(inRoom: collab.chatRoomId) { [weak self] updatedOrderStatus in
+        orderStatusUpdater.listenToStatusUpdates(inRoom: collab.chatRoomId) { [weak self] (updatedOrderStatus, updatedContentStatus) in
             guard let `self` = self else { return }
-            self.status = CollabStatus(orderStatus: updatedOrderStatus)
+            self.collaborationStatus = CollabStatus(orderStatus: updatedOrderStatus ?? self.orderStatus, contentStatus: updatedContentStatus ?? self.contentStatus)
         }
     }
 
@@ -176,5 +189,23 @@ extension MessagesDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let relatedMessageItem = items[indexPath.row]
         return messagesCellFactory.makeCell(ofType: relatedMessageItem.messageType(in: collab), using: relatedMessageItem, in: tableView, for: indexPath)
+    }
+}
+
+extension MessagesDataSource {
+    private func upload(instagramUrl: String) {
+        //TODO: Please delete these comments, they are only as a guidelines for a developer ;-)
+        influencerPostsService.influencerPosts(fromBrand: collab.chatRoom.brandId) { result in
+            result.on(success: { [weak self] influencerPosts in
+                guard let `self` = self else { return }
+                guard let currentPost = influencerPosts.posts.first else { return }
+                self.influencerPostUpdater.update(postId: currentPost.id, withInstagram: instagramUrl) { [weak self] result in
+                    guard let `self` = self else { return }
+                    //TODO: Update UI
+                }
+            }, failure: { (error) in
+                //TODO: Handle error on UI
+            })
+        }
     }
 }

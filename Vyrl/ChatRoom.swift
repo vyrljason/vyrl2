@@ -10,17 +10,20 @@ struct ChatRoom {
         static let influencerId = "influencerId"
         static let lastMessage = "lastMessage"
         static let lastActivity = "lastActivity"
-        static let status = "status"
+        static let orderStatus = "status"
+        static let contentStatus = "contentStatus"
         static let unreadMessages = "unread"
     }
 
-    static let statusKey = Keys.status
+    static let orderStatusKey = Keys.orderStatus
+    static let contentStatusKey = Keys.contentStatus
 
     let brandId: String
     let influencerId: String
     let lastMessage: String
     let lastActivity: Date
-    let status: OrderStatus
+    let orderStatus: OrderStatus
+    let contentStatus: ContentStatus
     let unreadMessages: Int
 }
 
@@ -32,13 +35,15 @@ extension ChatRoom: DictionaryInitializable {
         guard let lastMessage = dictionary[Keys.lastMessage] as? String else { return nil }
         guard let lastActivity = dictionary[Keys.lastActivity] as? TimeInterval else { return nil }
         guard let unreadMessages = dictionary[Keys.unreadMessages] as? Int else { return nil }
-        let statusAsString = dictionary[Keys.status] as? String ?? ""
+        let orderStatusAsString = dictionary[Keys.orderStatus] as? String ?? ""
+        let contentStatusAsString = dictionary[Keys.contentStatus] as? String ?? ""
 
         self.brandId = brandId
         self.influencerId = influencerId
         self.lastMessage = lastMessage
         self.lastActivity = Date(timeIntervalSince1970: lastActivity)
-        self.status = OrderStatus(description: statusAsString)
+        self.orderStatus = OrderStatus(description: orderStatusAsString)
+        self.contentStatus = ContentStatus(description: contentStatusAsString)
         self.unreadMessages = unreadMessages
     }
 }
@@ -49,7 +54,8 @@ extension ChatRoom: DictionaryConvertible {
                 Keys.influencerId: influencerId,
                 Keys.lastMessage: lastMessage,
                 Keys.lastActivity: lastActivity,
-                Keys.status: status.description,
+                Keys.orderStatus: orderStatus.description,
+                Keys.contentStatus: contentStatus.description,
                 Keys.unreadMessages: unreadMessages]
     }
 }

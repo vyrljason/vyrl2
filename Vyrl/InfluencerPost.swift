@@ -4,6 +4,16 @@
 
 import Decodable
 
+struct InfluencerPosts {
+    let posts: [InfluencerPost]
+}
+
+extension InfluencerPosts: Decodable {
+    static func decode(_ json: Any) throws -> InfluencerPosts {
+        return try self.init(posts: [InfluencerPost].decode(json))
+    }
+}
+
 struct InfluencerPost {
     fileprivate struct JSONKeys {
         static let approved = "approved"
@@ -13,6 +23,7 @@ struct InfluencerPost {
         static let brandId = "brandId"
         static let orderId = "orderId"
         static let id = "id"
+        static let lastModified = "lastModified"
     }
 
     let isApproved: Bool
@@ -22,6 +33,7 @@ struct InfluencerPost {
     let description: String
     let id: String
     let orderId: String
+    let lastModified: String
 }
 
 extension InfluencerPost: Decodable {
@@ -32,6 +44,7 @@ extension InfluencerPost: Decodable {
                              brandId: json => KeyPath(JSONKeys.brandId),
                              description: json => KeyPath(JSONKeys.description),
                              id: json => KeyPath(JSONKeys.id),
-                             orderId: json => KeyPath(JSONKeys.orderId))
+                             orderId: json => KeyPath(JSONKeys.orderId),
+                             lastModified: json => KeyPath(JSONKeys.lastModified))
     }
 }
