@@ -182,7 +182,7 @@ extension Faker {
                         description: String = VyrlFaker.faker.lorem.characters(amount: 100),
                         id: String = VyrlFaker.faker.lorem.characters(amount: 20),
                         orderId: String = VyrlFaker.faker.lorem.characters(amount: 20),
-                        lastModified: Date = Date()) -> InfluencerPost {
+                        lastModified: String = VyrlFaker.faker.lorem.characters(amount: 20)) -> InfluencerPost {
         return InfluencerPost(isApproved: isApproved,
                               status: status, mediaUrl: mediaUrl,
                               brandId: brandId, description: description,

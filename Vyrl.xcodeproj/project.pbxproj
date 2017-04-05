@@ -2556,6 +2556,23 @@
 			name = Other;
 			sourceTree = "<group>";
 		};
+		859377C01E94C32A007C10DF /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				852BC35B1E8DBD1B009115FA /* ImageMessageService.swift */,
+			);
+			name = Service;
+			sourceTree = "<group>";
+		};
+		859377C11E94C335007C10DF /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				852BC35F1E8DBD47009115FA /* ImageUploadEndpoint.swift */,
+				852BC35D1E8DBD25009115FA /* ImageUploadResource.swift */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
 		8597AB571E89BC3D00A64585 /* Services */ = {
 			isa = PBXGroup;
 			children = (
@@ -2563,7 +2580,6 @@
 				854AE01D1E9249AC00B0F322 /* ChatRoomUpdater.swift */,
 				855AD6DA1E8CF8FA00B9523D /* TextMessageService.swift */,
 				8597AB5F1E8A59D100A64585 /* MessagesService.swift */,
-				852BC35B1E8DBD1B009115FA /* ImageMessageService.swift */,
 				8558289E1E8E468500748A9A /* ConfirmDeliveryService.swift */,
 				85EEA4971E930F7000D04704 /* ChatPresenceService.swift */,
 				85EEA4AE1E93F9AB00D04704 /* PostInstagramService.swift */,
@@ -2577,7 +2593,6 @@
 			children = (
 				855AD6D91E8CF8FA00B9523D /* PostMessageResource.swift */,
 				8597AB621E8A5A0A00A64585 /* MessagesResourceMock.swift */,
-				852BC35D1E8DBD25009115FA /* ImageUploadResource.swift */,
 				8558289C1E8E455C00748A9A /* ConfirmDeliveryRequest.swift */,
 				855828A01E8E46E600748A9A /* ConfirmDeliveryResource.swift */,
 				85EEA49F1E93DEAB00D04704 /* PostImageResource.swift */,
@@ -2791,7 +2806,6 @@
 			isa = PBXGroup;
 			children = (
 				855AD6D81E8CF8FA00B9523D /* PostMessageEndpoint.swift */,
-				852BC35F1E8DBD47009115FA /* ImageUploadEndpoint.swift */,
 				8558289A1E8E448A00748A9A /* ConfirmDeliveryEndpoint.swift */,
 				85EEA4A11E93E08400D04704 /* PostImageEndpoint.swift */,
 				85EEA4A81E93F88500D04704 /* PostInstagramEndpoint.swift */,
@@ -2952,6 +2966,8 @@
 		C4E110DD1E8EC0490098DF32 /* Compose */ = {
 			isa = PBXGroup;
 			children = (
+				859377C11E94C335007C10DF /* Resources */,
+				859377C01E94C32A007C10DF /* Service */,
 				C47E31C61E921EF2009ED817 /* Factories */,
 				C4E110DF1E8EC0660098DF32 /* Interactors */,
 				C4E110DE1E8EC05A0098DF32 /* Views */,
