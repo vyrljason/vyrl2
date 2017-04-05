@@ -168,9 +168,25 @@ extension Faker {
 
 extension Faker {
     func imageContainer(id: String = VyrlFaker.faker.lorem.characters(amount: 20),
-                      url: URL = URL(string: VyrlFaker.faker.internet.url())!,
-                      name: String = VyrlFaker.faker.commerce.productName()) -> ImageContainer {
+                        url: URL = URL(string: VyrlFaker.faker.internet.url())!,
+                        name: String = VyrlFaker.faker.commerce.productName()) -> ImageContainer {
         return ImageContainer(id: id, url: url, name: name)
+    }
+}
+
+extension Faker {
+    func influencerPost(isApproved: Bool = true,
+                        status: OrderStatus = .accepted,
+                        mediaUrl: URL? = URL(string: VyrlFaker.faker.internet.url()),
+                        brandId: String = VyrlFaker.faker.lorem.characters(amount: 20),
+                        description: String = VyrlFaker.faker.lorem.characters(amount: 100),
+                        id: String = VyrlFaker.faker.lorem.characters(amount: 20),
+                        orderId: String = VyrlFaker.faker.lorem.characters(amount: 20),
+                        lastModified: String = VyrlFaker.faker.lorem.characters(amount: 20)) -> InfluencerPost {
+        return InfluencerPost(isApproved: isApproved,
+                              status: status, mediaUrl: mediaUrl,
+                              brandId: brandId, description: description,
+                              id: id, orderId: orderId, lastModified: lastModified)
     }
 }
 

@@ -7,11 +7,12 @@ import KeychainAccess
 protocol ChatCredentialsStoring: class {
     var chatToken: String? { get set }
     var internalUserId: String? { get set }
+    func clear()
 }
 
 final class ChatCredentialsStorage: ChatCredentialsStoring {
 
-    private var keychain: KeychainProtocol
+    private let keychain: KeychainProtocol
 
     var chatToken: String? {
         get {
@@ -33,5 +34,10 @@ final class ChatCredentialsStorage: ChatCredentialsStoring {
 
     init(keychain: KeychainProtocol = Keychain(service: KeychainConstants.serviceName)) {
         self.keychain = keychain
+    }
+
+    func clear() {
+        chatToken = nil
+        internalUserId = nil
     }
 }

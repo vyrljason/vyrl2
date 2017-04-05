@@ -12,9 +12,10 @@ enum LoginControllerFactory: LoginControllerMaking {
     static func make(using listener: AuthorizationListener) -> LoginViewController {
         let resourceController = ServiceLocator.resourceConfigurator.resourceController
         let resource = UserLoginResource(controller: resourceController)
-        let service = LoginService(resource: resource)
+        let apiLoginService = LoginService(resource: resource)
+        let chatLoginService: ChatAuthenticating = ServiceLocator.chatAuthenticator
         let credentialsStorage = CredentialsStorage()
-        let interactor = LoginInteractor(service: service, credentialsStorage: credentialsStorage)
+        let interactor = LoginInteractor(apiLoginService: apiLoginService, chatLoginService: chatLoginService, credentialsStorage: credentialsStorage)
         let controller = LoginViewController(interactor: interactor, formMaker: LoginFormFactory.self)
         interactor.presenter = controller
         interactor.listener = listener

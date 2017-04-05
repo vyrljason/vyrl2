@@ -36,6 +36,11 @@ enum LeftMenuInteractorFactory {
         let credentialsProvider = APICredentialsProvider(storage: credentialsStorage)
         let categoriesDataSource: CategoriesDataSource = CategoriesDataSource(service: service,
                                                                               emptyTableHandler: emptyCollectionHandler)
-        return LeftMenuInteractor(dataSource: categoriesDataSource, credentialsProvider: credentialsProvider)
+        let chatCredentialsStorage = ChatCredentialsStorage()
+        let unreadMessagesObserver = ServiceLocator.unreadMessagesObserver
+        return LeftMenuInteractor(dataSource: categoriesDataSource,
+                                  credentialsProvider: credentialsProvider,
+                                  chatCredentialsStorage: chatCredentialsStorage,
+                                  unreadMessagesObserver: unreadMessagesObserver)
     }
 }

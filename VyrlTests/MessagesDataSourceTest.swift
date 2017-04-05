@@ -55,6 +55,34 @@ final class ChatPresenceServiceMock: ChatPresenceInforming {
     }
 }
 
+final class InfluencerPostUpdaterMock: UpdatePostWithInstagram {
+    var success: Bool = true
+    var error = ServiceError.unknown
+    var result = VyrlFaker.faker.influencerPost()
+
+    func update(postId: String, withInstagram instagramUrl: String, completion: @escaping (Result<InfluencerPost, ServiceError>) -> Void) {
+        if success {
+            completion(.success(result))
+        } else {
+            completion(.failure(error))
+        }
+    }
+}
+
+final class InfluencerPostsServiceMock: InfluencerPostsProviding {
+    var success: Bool = true
+    var error = ServiceError.unknown
+    var result: InfluencerPosts =  InfluencerPosts(posts: [VyrlFaker.faker.influencerPost()])
+
+    func influencerPosts(fromBrand brandId: String, completion: @escaping (Result<InfluencerPosts, ServiceError>) -> Void) {
+        if success {
+            completion(.success(result))
+        } else {
+            completion(.failure(error))
+        }
+    }
+}
+
 final class MessagesDataSourceTests: XCTestCase {
 
     var subject: MessagesDataSource!
@@ -63,6 +91,8 @@ final class MessagesDataSourceTests: XCTestCase {
     private var chatRoomUpdater: ChatRoomUpdaterMock!
     private var orderStatusUpdater: OrderStatusUpdaterMock!
     private var chatPresenceService: ChatPresenceServiceMock!
+    private var influencerPostUpdater: InfluencerPostUpdaterMock!
+    private var influencerPostsService: InfluencerPostsServiceMock!
     var collab: Collab!
     var status: CollabStatus!
 
@@ -75,10 +105,14 @@ final class MessagesDataSourceTests: XCTestCase {
         chatRoomUpdater = ChatRoomUpdaterMock()
         orderStatusUpdater = OrderStatusUpdaterMock()
         chatPresenceService = ChatPresenceServiceMock()
+        influencerPostUpdater = InfluencerPostUpdaterMock()
+        influencerPostsService = InfluencerPostsServiceMock()
         subject = MessagesDataSource(collab: collab, status: status,
                                      chatRoomUpdater: chatRoomUpdater,
                                      orderStatusUpdater: orderStatusUpdater,
-                                     chatPresenceService: chatPresenceService)
+                                     chatPresenceService: chatPresenceService,
+                                     influencerPostUpdater: influencerPostUpdater,
+                                     influencerPostsService: influencerPostsService)
     }
 
     func test_registerNibs_didRegisterNib() {

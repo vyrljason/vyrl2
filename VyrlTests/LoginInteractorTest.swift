@@ -37,25 +37,39 @@ final class LoginPresenterMock: ErrorAlertPresenting, ViewActivityPresenting {
     }
 }
 
+final class ChatLoginServiceMock: ChatAuthenticating {
+    var success = true
+    var error = ChatAuthenticationError.noChatToken
+    func authenticateUser(completion: @escaping ((Result<Void, ChatAuthenticationError>) -> Void)) {
+        if success {
+            completion(.success())
+        } else {
+            completion(.failure(error))
+        }
+    }
+}
+
 final class LoginInteractorTest: XCTestCase {
 
-    private var service: LoginServiceMock!
+    private var apiService: LoginServiceMock!
     private var presenter: LoginPresenterMock!
     private var form: LoginFormMock!
     private var subject: LoginInteractor!
     private var formItem: FormItem!
     private var listener: AuthorizationListenerMock!
     private var credentialsStorage: CredentialStorageMock!
+    private var chatService: ChatLoginServiceMock!
 
     override func setUp() {
         super.setUp()
-        service = LoginServiceMock()
+        apiService = LoginServiceMock()
+        chatService = ChatLoginServiceMock()
         presenter = LoginPresenterMock()
         form = LoginFormMock()
         listener = AuthorizationListenerMock()
         credentialsStorage = CredentialStorageMock()
         formItem = FormItem(field: .username, textField: MockTextField())
-        subject = LoginInteractor(service: service, credentialsStorage: credentialsStorage)
+        subject = LoginInteractor(apiLoginService: apiService, chatLoginService: chatService, credentialsStorage: credentialsStorage)
         subject.presenter = presenter
         subject.listener = listener
     }
@@ -73,18 +87,21 @@ final class LoginInteractorTest: XCTestCase {
 
         subject.didTapAction()
 
-        XCTAssertFalse(service.didCalledService)
+        XCTAssertFalse(apiService.didCalledService)
         XCTAssertTrue(presenter.didPresentError)
     }
 
     func test_didTapAction_whenFormIsValid_callsService_withSameUserCredentials() {
+        apiService.success = true
+        chatService.success = true
+
         subject.didPrepare(form: form)
         form.result = UserCredentials(username: "username", password: "password")
 
         subject.didTapAction()
 
-        XCTAssertTrue(service.didCalledService)
-        XCTAssertEqual(service.credentials, form.result)
+        XCTAssertTrue(apiService.didCalledService)
+        XCTAssertEqual(apiService.credentials, form.result)
     }
 
     func test_didTapAction_whenFormIsValid_savesCredentials() {
@@ -93,17 +110,32 @@ final class LoginInteractorTest: XCTestCase {
 
         subject.didTapAction()
 
-        XCTAssertEqual(service.result.token, credentialsStorage.accessToken)
+        XCTAssertEqual(apiService.result.token, credentialsStorage.accessToken)
     }
 
-    func test_didTapAction_whenFormIsValid_whenServiceReturnsFailure_PresentsError() {
-        service.success = false
+    func test_didTapAction_whenFormIsValid_whenApiServiceReturnsFailure_PresentsError() {
+        apiService.success = false
+        chatService.success = true
+
         subject.didPrepare(form: form)
         form.result = UserCredentials(username: "username", password: "password")
 
         subject.didTapAction()
         
-        XCTAssertTrue(service.didCalledService)
+        XCTAssertTrue(apiService.didCalledService)
+        XCTAssertTrue(presenter.didPresentError)
+    }
+
+    func test_didTapAction_whenFormIsValid_whenChatServiceReturnsFailure_PresentsError() {
+        apiService.success = true
+        chatService.success = false
+
+        subject.didPrepare(form: form)
+        form.result = UserCredentials(username: "username", password: "password")
+
+        subject.didTapAction()
+
+        XCTAssertTrue(apiService.didCalledService)
         XCTAssertTrue(presenter.didPresentError)
     }
 }

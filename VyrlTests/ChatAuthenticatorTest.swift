@@ -46,6 +46,20 @@ final class ChatTokenRepositoryMock: ChatTokenProviding {
     }
 }
 
+final class UnreadMessagesObserverMock: UnreadMessagesObserving {
+
+    var didCallObserve = false
+    var didCallStopObserving = false
+
+    func observeUnreadMessages() {
+        didCallObserve = true
+    }
+
+    func stopObserving() {
+        didCallStopObserving = true
+    }
+}
+
 final class ChatAuthenticatorTest: XCTestCase {
 
     private var subject: ChatAuthenticator!
@@ -53,6 +67,7 @@ final class ChatAuthenticatorTest: XCTestCase {
     private var chatTokenRepository: ChatTokenRepositoryMock!
     private var authenticator: ChatSigningInMock!
     private var tokenDecoder: ChatDecodingMock!
+    private var unreadMessagesObserver: UnreadMessagesObserverMock!
 
     override func setUp() {
         super.setUp()
@@ -61,10 +76,12 @@ final class ChatAuthenticatorTest: XCTestCase {
         chatTokenRepository = ChatTokenRepositoryMock()
         authenticator = ChatSigningInMock()
         tokenDecoder = ChatDecodingMock()
+        unreadMessagesObserver = UnreadMessagesObserverMock()
         subject = ChatAuthenticator(chatTokenRepository: chatTokenRepository,
                                     authenticator: authenticator,
                                     tokenDecoder: tokenDecoder,
-                                    chatCredentialsStorage: chatCredentialsStorage)
+                                    chatCredentialsStorage: chatCredentialsStorage,
+                                    unreadMessagesObserver: unreadMessagesObserver)
     }
 
     func test_authenticateUser_whenChatRepositoryAndAuthenticatorSuccess_returnSuccess() {
@@ -104,4 +121,12 @@ final class ChatAuthenticatorTest: XCTestCase {
         XCTAssertEqual(chatTokenRepository.token.token, tokenDecoder.token)
     }
 
+    func test_authenticateUser_whenChatRepositorySuccess_startsUnreadMessagesObserving() {
+        chatTokenRepository.success = true
+        authenticator.success = true
+        
+        subject.authenticateUser { _ in }
+        
+        XCTAssertTrue(unreadMessagesObserver.didCallObserve)
+    }
 }
