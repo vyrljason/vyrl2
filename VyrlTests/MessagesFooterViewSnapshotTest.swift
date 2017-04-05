@@ -32,4 +32,14 @@ final class MessagesFooterViewSnapshotTest: SnapshotTestCase {
         FBSnapshotVerifyView(view)
         FBSnapshotVerifyLayer(view.layer)
     }
+    
+    func testInstagramLinkViewState() {
+        let view = MessagesFooterView.fromNib(translatesAutoresizingMaskIntoConstraints: true)
+        view.frame = CGRect(x: 0, y: 0, width: 375, height: 60)
+        let renderable = MessagesFooterRenderable(footerType: .instagramLink)
+        view.render(renderable: renderable)
+        
+        FBSnapshotVerifyView(view)
+        FBSnapshotVerifyLayer(view.layer)
+    }
 }

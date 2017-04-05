@@ -11,6 +11,40 @@ protocol MessageDisplaying: class {
 
 protocol MessagesControlling: class {
     func setUpStatusView(withStatus status: CollabStatus)
+    func setUpAddMessageView(withStatus status: AddMessageStatus)
+    func showKeyboard()
+}
+
+enum AddMessageStatus {
+    case normal
+    case instagramLink
+    
+    var backgroundColor: UIColor {
+        switch self {
+        case .instagramLink:
+            return .rouge
+        case .normal:
+            return .white
+        }
+    }
+    
+    var textColor: UIColor {
+        switch self {
+        case .instagramLink:
+            return .white
+        case .normal:
+            return .black
+        }
+    }
+    
+    var placeholderText: String {
+        switch self {
+        case .instagramLink:
+            return NSLocalizedString("messages.messageTextView.instagramPlaceholder", comment: "")
+        default:
+            return NSLocalizedString("messages.messageTextView.normalPlaceholder", comment: "")
+        }
+    }
 }
 
 final class MessagesViewController: UIViewController, HavingNib {
@@ -22,6 +56,7 @@ final class MessagesViewController: UIViewController, HavingNib {
     @IBOutlet fileprivate weak var statusView: StatusView!
     
     fileprivate let interactor: MessagesInteracting
+    fileprivate var currentAddMessageStatus: AddMessageStatus = .normal
     
     init(interactor: MessagesInteracting) {
         self.interactor = interactor
@@ -64,7 +99,7 @@ extension MessagesViewController: MessageDisplaying {
 
 extension MessagesViewController {
     @IBAction private func didTapSend() {
-        interactor.didTapSend(message: messageTextView.text)
+        interactor.didTapSend(message: messageTextView.text, addMessageStatus: currentAddMessageStatus)
     }
 }
 
@@ -72,5 +107,16 @@ extension MessagesViewController: MessagesControlling {
     func setUpStatusView(withStatus status: CollabStatus) {
         let renderable = StatusViewRenderable(status: status)
         statusView.render(renderable: renderable)
+    }
+    
+    func setUpAddMessageView(withStatus status: AddMessageStatus) {
+        currentAddMessageStatus = status
+        addMessageView.backgroundColor = status.backgroundColor
+        messageTextView.placeholderText = status.placeholderText
+        messageTextView.textColor = status.textColor
+    }
+    
+    func showKeyboard() {
+        messageTextView.becomeFirstResponder()
     }
 }

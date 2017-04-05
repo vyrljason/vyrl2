@@ -28,7 +28,6 @@
                     <subviews>
                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="A45-hA-dCI" customClass="AutoexpandableTextView" customModule="Vyrl" customModuleProvider="target">
                             <rect key="frame" x="8" y="8" width="309" height="34"/>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="34" id="wZ4-f0-z1R"/>
                             </constraints>
@@ -45,12 +44,12 @@
                             </connections>
                         </textView>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VYz-3y-5c5">
-                            <rect key="frame" x="337" y="0.0" width="38" height="50"/>
+                            <rect key="frame" x="327" y="0.0" width="48" height="50"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="50" id="FmQ-Xy-aQK"/>
-                                <constraint firstAttribute="width" constant="38" id="Y21-DT-QMQ"/>
+                                <constraint firstAttribute="width" constant="48" id="Y21-DT-QMQ"/>
                             </constraints>
-                            <state key="normal" title="Button" image="send01"/>
+                            <state key="normal" image="send01"/>
                             <connections>
                                 <action selector="didTapSend" destination="-1" eventType="touchUpInside" id="cLw-Ns-sxP"/>
                             </connections>
@@ -63,7 +62,7 @@
                         <constraint firstAttribute="trailing" secondItem="VYz-3y-5c5" secondAttribute="trailing" id="QJe-SO-y98"/>
                         <constraint firstItem="A45-hA-dCI" firstAttribute="leading" secondItem="GIk-al-Ee4" secondAttribute="leading" constant="8" id="agM-16-1BC"/>
                         <constraint firstAttribute="bottom" secondItem="VYz-3y-5c5" secondAttribute="bottom" id="vv3-HB-3in"/>
-                        <constraint firstItem="VYz-3y-5c5" firstAttribute="leading" secondItem="A45-hA-dCI" secondAttribute="trailing" constant="20" id="xqi-OR-stq"/>
+                        <constraint firstItem="VYz-3y-5c5" firstAttribute="leading" secondItem="A45-hA-dCI" secondAttribute="trailing" constant="10" id="xqi-OR-stq"/>
                     </constraints>
                 </view>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="onDrag" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="k0Z-hE-yUv">

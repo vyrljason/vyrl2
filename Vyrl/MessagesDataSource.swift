@@ -6,7 +6,7 @@ import UIKit
 
 protocol MessagesDataProviding: UITableViewDataSource, UITableViewDelegate, TableViewUsing, TableViewHaving {
     weak var reloadingDelegate: ReloadingData? { get set }
-    weak var actionTarget: (ContentAdding & DeliveryConfirming)? { get set }
+    weak var actionTarget: (ContentAdding & DeliveryConfirming & InstagramLinkAdding)? { get set }
     weak var statusViewUpdater: MessagesControlling? { get set }
     func subscribeToChatUpdates()
     func unsubscribeToChatUpdates()
@@ -36,7 +36,7 @@ final class MessagesDataSource: NSObject, MessagesDataProviding {
 
     weak var tableView: UITableView?
     weak var reloadingDelegate: ReloadingData?
-    weak var actionTarget: (ContentAdding & DeliveryConfirming)?
+    weak var actionTarget: (ContentAdding & DeliveryConfirming & InstagramLinkAdding)?
     weak var statusViewUpdater: MessagesControlling?
 
     init(collab: Collab,
@@ -71,14 +71,15 @@ extension MessagesDataSource: TableViewUsing {
 
     fileprivate func properFooterView(for tableView: UITableView) -> UIView {
         switch status {
-        case .productDelivery:
-            let contentView = createFooterContent(.confirmDelivery)
-            return footerView(containing: contentView, tableView: tableView)
-        case .contentReview:
-            let contentView = createFooterContent(.addContent)
-            return footerView(containing: contentView, tableView: tableView)
+//        case .productDelivery:
+//            let contentView = createFooterContent(.confirmDelivery)
+//            return footerView(containing: contentView, tableView: tableView)
+//        case .contentReview:
+//            let contentView = createFooterContent(.addContent)
+//            return footerView(containing: contentView, tableView: tableView)
         default:
-            return UIView()
+            let contentView = createFooterContent(.instagramLink)
+            return footerView(containing: contentView, tableView: tableView)
         }
     }
 

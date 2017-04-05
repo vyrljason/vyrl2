@@ -17,7 +17,7 @@ protocol MessagesInteracting: TableViewUsing {
     func viewWillAppear()
     func viewWillDisappear()
     func didTapMore()
-    func didTapSend(message: String)
+    func didTapSend(message: String, addMessageStatus: AddMessageStatus)
 }
 
 final class MessagesInteractor: MessagesInteracting {
@@ -55,10 +55,19 @@ final class MessagesInteractor: MessagesInteracting {
         //TODO: Add reporting functionality. No story on Taiga yet ;-)
     }
 
-    func didTapSend(message: String) {
+    func didTapSend(message: String, addMessageStatus: AddMessageStatus) {
         let trimmedMessage = message.trimmed
         guard trimmedMessage.characters.count > 0 else { return }
-        let message = Message(text: trimmedMessage)
+        switch addMessageStatus {
+        case .normal:
+            sendNormalMessage(message: trimmedMessage)
+        case .instagramLink:
+            sendInstagramLinkMessage(message: trimmedMessage)
+        }
+    }
+    
+    fileprivate func sendNormalMessage(message: String) {
+        let message = Message(text: message)
         messageSender.send(message: message,
                            toRoom: collab.chatRoomId) { [weak self] result in
                             result.on(success: { _ in
@@ -67,6 +76,11 @@ final class MessagesInteractor: MessagesInteracting {
                                 self?.errorPresenter?.presentError(title: nil, message: Constants.failedToSentMessage)
                             })
         }
+    }
+    
+    fileprivate func sendInstagramLinkMessage(message: String) {
+        messageDisplayer?.clearMessage()
+        viewController?.setUpAddMessageView(withStatus: .normal)
     }
 }
 
@@ -92,5 +106,12 @@ extension MessagesInteractor: DeliveryConfirming {
 extension MessagesInteractor: ContentAdding {
     func didTapAddContent() {
         composePresenter?.presentCompose(for: collab, animated: true)
+    }
+}
+
+extension MessagesInteractor: InstagramLinkAdding {
+    func didTapAddLink() {
+        viewController?.setUpAddMessageView(withStatus: .instagramLink)
+        viewController?.showKeyboard()
     }
 }

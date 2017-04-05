@@ -54,7 +54,7 @@ final class MessagesDataSourceMock: NSObject, MessagesDataProviding {
     weak var tableView: UITableView?
     weak var reloadingDelegate: ReloadingData?
     weak var interactor: MessagesInteracting?
-    weak var actionTarget: (ContentAdding & DeliveryConfirming)?
+    weak var actionTarget: (ContentAdding & DeliveryConfirming & InstagramLinkAdding)?
     weak var statusViewUpdater: MessagesControlling?
 
     func use(_ tableView: UITableView) {
@@ -127,7 +127,7 @@ final class MessagesInteractorTest: XCTestCase {
     func test_didTapSend_whenMessageIsEmpty_doesNothing() {
         let message = ""
 
-        subject.didTapSend(message: message)
+        subject.didTapSend(message: message, addMessageStatus: .normal)
 
         XCTAssertFalse(messagePresenter.didCallClear)
         XCTAssertFalse(messagePresenter.didCallPresentError)
@@ -137,7 +137,7 @@ final class MessagesInteractorTest: XCTestCase {
         let message = "message"
         messageSender.success = false
 
-        subject.didTapSend(message: message)
+        subject.didTapSend(message: message, addMessageStatus: .normal)
 
         XCTAssertTrue(messagePresenter.didCallPresentError)
     }
@@ -146,7 +146,7 @@ final class MessagesInteractorTest: XCTestCase {
         let message = "message"
         messageSender.success = true
 
-        subject.didTapSend(message: message)
+        subject.didTapSend(message: message, addMessageStatus: .normal)
 
         XCTAssertTrue(messagePresenter.didCallClear)
     }
