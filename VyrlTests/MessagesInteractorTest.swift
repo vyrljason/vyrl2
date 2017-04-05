@@ -93,6 +93,8 @@ final class MessagesInteractorTest: XCTestCase {
     var messageSender: MessageSenderMock!
     var collab: Collab!
     private var deliveryService: DeliveryServiceMock!
+    private var influencerPostUpdater: InfluencerPostUpdaterMock!
+    private var influencerPostsService: InfluencerPostsServiceMock!
     
     override func setUp() {
         dataSource = MessagesDataSourceMock()
@@ -100,7 +102,11 @@ final class MessagesInteractorTest: XCTestCase {
         messagePresenter = MessagesPresenterMock()
         messageSender = MessageSenderMock()
         deliveryService = DeliveryServiceMock()
-        subject = MessagesInteractor(dataSource: dataSource, collab: collab, messageSender: messageSender, deliveryService: deliveryService)
+        influencerPostUpdater = InfluencerPostUpdaterMock()
+        influencerPostsService = InfluencerPostsServiceMock()
+        subject = MessagesInteractor(dataSource: dataSource, collab: collab, messageSender: messageSender,
+                                     deliveryService: deliveryService, influencerPostUpdater: influencerPostUpdater,
+                                     influencerPostsService: influencerPostsService)
         subject.errorPresenter = messagePresenter
         subject.messageDisplayer = messagePresenter
     }

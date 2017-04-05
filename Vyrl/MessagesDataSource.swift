@@ -19,6 +19,7 @@ final class MessagesDataSource: NSObject, MessagesDataProviding {
         static let messagesSection: Int = 0
         static let cellHeight: CGFloat = 100
         static let footerHeight: CGFloat = 60
+        static let successFooterHeight: CGFloat = 176
         static let scrollingUpdateDelay: TimeInterval = 0.4
     }
 
@@ -37,8 +38,6 @@ final class MessagesDataSource: NSObject, MessagesDataProviding {
     fileprivate let chatRoomUpdater: ChatRoomUpdatesInforming
     fileprivate let orderStatusUpdater: OrderStatusUpdatesInforming
     fileprivate let chatPresenceService: ChatPresenceInforming
-    fileprivate let influencerPostUpdater: UpdatePostWithInstagram
-    fileprivate let influencerPostsService: InfluencerPostsProviding
 
     weak var tableView: UITableView?
     weak var reloadingDelegate: ReloadingData?
@@ -51,8 +50,6 @@ final class MessagesDataSource: NSObject, MessagesDataProviding {
          chatRoomUpdater: ChatRoomUpdatesInforming,
          orderStatusUpdater: OrderStatusUpdatesInforming,
          chatPresenceService: ChatPresenceInforming,
-         influencerPostUpdater: UpdatePostWithInstagram,
-         influencerPostsService: InfluencerPostsProviding,
          messagesCellFactory: MessagesCellMaking = MessagesCellFactory()) {
         self.collab = collab
         self.collaborationStatus = collaborationStatus
@@ -60,8 +57,6 @@ final class MessagesDataSource: NSObject, MessagesDataProviding {
         self.orderStatusUpdater = orderStatusUpdater
         self.chatPresenceService = chatPresenceService
         self.messagesCellFactory = messagesCellFactory
-        self.influencerPostUpdater = influencerPostUpdater
-        self.influencerPostsService = influencerPostsService
         self.contentStatus = collab.chatRoom.contentStatus
         self.orderStatus = collab.chatRoom.orderStatus
         super.init()
@@ -87,6 +82,17 @@ extension MessagesDataSource: TableViewUsing {
         case .productDelivery:
             let contentView = createFooterContent(.confirmDelivery)
             return footerView(containing: contentView, tableView: tableView)
+        case .contentReview:
+            let contentView = createFooterContent(.addContent)
+            return footerView(containing: contentView, tableView: tableView)
+        case .publication:
+            let contentView = createFooterContent(.instagramLink)
+            return footerView(containing: contentView, tableView: tableView)
+        case .done:
+            let contentView = createSuccessFooterContent()
+            return footerView(containing: contentView, tableView: tableView)
+        default:
+            return UIView()
         }
     }
 
@@ -97,9 +103,15 @@ extension MessagesDataSource: TableViewUsing {
         contentView.delegate = actionTarget
         return contentView
     }
+    
+    fileprivate func createSuccessFooterContent() -> SuccessMessagesFooterView {
+        let contentView = SuccessMessagesFooterView.fromNib()
+        return contentView
+    }
 
     fileprivate func footerView(containing view: UIView, tableView: UITableView) -> UIView {
-        let footerView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.size.width, height: Constants.footerHeight))
+        let properFooterHeight = collaborationStatus == .done ? Constants.successFooterHeight : Constants.footerHeight
+        let footerView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.size.width, height: properFooterHeight))
         footerView.addSubview(view)
         view.pinToEdges(of: footerView)
         return footerView
@@ -184,23 +196,5 @@ extension MessagesDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let relatedMessageItem = items[indexPath.row]
         return messagesCellFactory.makeCell(ofType: relatedMessageItem.messageType(in: collab), using: relatedMessageItem, in: tableView, for: indexPath)
-    }
-}
-
-extension MessagesDataSource {
-    private func upload(instagramUrl: String) {
-        //TODO: Please delete these comments, they are only as a guidelines for a developer ;-)
-        influencerPostsService.influencerPosts(fromBrand: collab.chatRoom.brandId) { result in
-            result.on(success: { [weak self] influencerPosts in
-                guard let `self` = self else { return }
-                guard let currentPost = influencerPosts.posts.first else { return }
-                self.influencerPostUpdater.update(postId: currentPost.id, withInstagram: instagramUrl) { [weak self] result in
-                    guard let `self` = self else { return }
-                    //TODO: Update UI
-                }
-            }, failure: { (error) in
-                //TODO: Handle error on UI
-            })
-        }
     }
 }
