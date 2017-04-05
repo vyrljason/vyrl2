@@ -42,6 +42,7 @@ final class MessagesDataSource: NSObject, MessagesDataProviding {
     weak var actionTarget: (ContentAdding & DeliveryConfirming)?
     weak var statusViewUpdater: MessagesControlling?
 
+    // swiftlint:disable function_parameter_count
     init(collab: Collab,
          status: CollabStatus,
          chatRoomUpdater: ChatRoomUpdatesInforming,
