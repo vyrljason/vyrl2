@@ -26,8 +26,9 @@ final class MessagesViewControllerFactory: MessagesControllerMaking {
         let influencerPostResourceAdapter = PostService<PostInstagramResource>(resource: postInstagramResource)
         let influencerPostUpdater = InstagramUpdateService(resource: influencerPostResourceAdapter)
 
-        let initialStatus = CollabStatus(orderStatus: collab.chatRoom.status)
-        let dataSource = MessagesDataSource(collab: collab, status: initialStatus,
+        let collaborationStatus = CollabStatus(orderStatus: collab.chatRoom.orderStatus, contentStatus: collab.chatRoom.contentStatus)
+        let dataSource = MessagesDataSource(collab: collab,
+                                            collaborationStatus: collaborationStatus,
                                             chatRoomUpdater: chatRoomUpdater, orderStatusUpdater: orderStatusUpdater,
                                             chatPresenceService: chatPresenceService,
                                             influencerPostUpdater: influencerPostUpdater,

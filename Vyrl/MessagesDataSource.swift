@@ -25,9 +25,12 @@ final class MessagesDataSource: NSObject, MessagesDataProviding {
     fileprivate let messagesCellFactory: MessagesCellMaking
     fileprivate var items = [MessageContainer]()
     fileprivate let collab: Collab
-    fileprivate var status: CollabStatus {
+    fileprivate var contentStatus: ContentStatus
+    fileprivate var orderStatus: OrderStatus
+
+    fileprivate var collaborationStatus: CollabStatus {
         didSet {
-            updateView(for: status)
+            updateView(for: collaborationStatus)
         }
     }
 
@@ -44,7 +47,7 @@ final class MessagesDataSource: NSObject, MessagesDataProviding {
 
     // swiftlint:disable function_parameter_count
     init(collab: Collab,
-         status: CollabStatus,
+         collaborationStatus: CollabStatus,
          chatRoomUpdater: ChatRoomUpdatesInforming,
          orderStatusUpdater: OrderStatusUpdatesInforming,
          chatPresenceService: ChatPresenceInforming,
@@ -52,13 +55,15 @@ final class MessagesDataSource: NSObject, MessagesDataProviding {
          influencerPostsService: InfluencerPostsProviding,
          messagesCellFactory: MessagesCellMaking = MessagesCellFactory()) {
         self.collab = collab
-        self.status = status
+        self.collaborationStatus = collaborationStatus
         self.chatRoomUpdater = chatRoomUpdater
         self.orderStatusUpdater = orderStatusUpdater
         self.chatPresenceService = chatPresenceService
         self.messagesCellFactory = messagesCellFactory
         self.influencerPostUpdater = influencerPostUpdater
         self.influencerPostsService = influencerPostsService
+        self.contentStatus = collab.chatRoom.contentStatus
+        self.orderStatus = collab.chatRoom.orderStatus
         super.init()
     }
 }
@@ -78,15 +83,9 @@ extension MessagesDataSource: TableViewUsing {
     }
 
     fileprivate func properFooterView(for tableView: UITableView) -> UIView {
-        switch status {
-//        case .productDelivery:
-//            let contentView = createFooterContent(.confirmDelivery)
-//            return footerView(containing: contentView, tableView: tableView)
-//        case .contentReview:
-//            let contentView = createFooterContent(.addContent)
-//            return footerView(containing: contentView, tableView: tableView)
-        default:
-            let contentView = createFooterContent(.instagramLink)
+        switch collaborationStatus {
+        case .productDelivery:
+            let contentView = createFooterContent(.confirmDelivery)
             return footerView(containing: contentView, tableView: tableView)
         }
     }
@@ -147,9 +146,9 @@ extension MessagesDataSource {
     }
 
     private func startListeningToStatusUpdates() {
-        orderStatusUpdater.listenToOrderStatusUpdates(inRoom: collab.chatRoomId) { [weak self] updatedOrderStatus in
+        orderStatusUpdater.listenToStatusUpdates(inRoom: collab.chatRoomId) { [weak self] (updatedOrderStatus, updatedContentStatus) in
             guard let `self` = self else { return }
-            self.status = CollabStatus(orderStatus: updatedOrderStatus)
+            self.collaborationStatus = CollabStatus(orderStatus: updatedOrderStatus ?? self.orderStatus, contentStatus: updatedContentStatus ?? self.contentStatus)
         }
     }
 

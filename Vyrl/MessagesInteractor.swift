@@ -43,7 +43,7 @@ final class MessagesInteractor: MessagesInteracting {
     }
 
     func viewWillAppear() {
-        viewController?.setUpStatusView(withStatus: CollabStatus(orderStatus: collab.chatRoom.status))
+        viewController?.setUpStatusView(withStatus: CollabStatus(orderStatus: collab.chatRoom.orderStatus, contentStatus: collab.chatRoom.contentStatus))
         dataSource.subscribeToChatUpdates()
     }
 
