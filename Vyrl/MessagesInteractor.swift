@@ -65,6 +65,7 @@ final class MessagesInteractor: MessagesInteracting {
     func didTapSend(message: String, addMessageStatus: AddMessageStatus) {
         let trimmedMessage = message.trimmed
         guard trimmedMessage.characters.count > 0 else { return }
+        viewController?.showSendingStatus()
         switch addMessageStatus {
         case .normal:
             sendNormalMessage(message: trimmedMessage)
@@ -78,9 +79,13 @@ final class MessagesInteractor: MessagesInteracting {
         messageSender.send(message: message,
                            toRoom: collab.chatRoomId) { [weak self] result in
                             result.on(success: { _ in
-                                self?.messageDisplayer?.clearMessage()
+                                guard let `self` = self else { return }
+                                self.viewController?.hideSendingStatus()
+                                self.messageDisplayer?.clearMessage()
                             }, failure: { _ in
-                                self?.errorPresenter?.presentError(title: nil, message: Constants.failedToSentMessage)
+                                guard let `self` = self else { return }
+                                self.viewController?.hideSendingStatus()
+                                self.errorPresenter?.presentError(title: nil, message: Constants.failedToSentMessage)
                             })
         }
     }
@@ -92,10 +97,12 @@ final class MessagesInteractor: MessagesInteracting {
                 guard let currentPost = influencerPosts.posts.first else { return }
                 self.influencerPostUpdater.update(postId: currentPost.id, withInstagram: instagramUrl) { [weak self] _ in
                     guard let `self` = self else { return }
+                    self.viewController?.hideSendingStatus()
                     self.messageDisplayer?.clearMessage()
                     self.viewController?.setUpAddMessageView(withStatus: .normal)
                 }
                 }, failure: { _ in
+                    self.viewController?.hideSendingStatus()
                     self.errorPresenter?.presentError(title: nil, message: Constants.failedToConfirmDelivery)
             })
         }

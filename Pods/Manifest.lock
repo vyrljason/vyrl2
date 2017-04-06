@@ -49,6 +49,7 @@ PODS:
   - JWTDecode (2.0.0)
   - KeychainAccess (3.0.1)
   - Kingfisher (3.6.0)
+  - MBProgressHUD (1.0.0)
   - ReachabilitySwift (3)
   - SlideMenuControllerSwift (3.0.1)
   - Spring (1.0.3)
@@ -70,6 +71,7 @@ DEPENDENCIES:
   - JWTDecode
   - KeychainAccess
   - Kingfisher
+  - MBProgressHUD (~> 1.0.0)
   - ReachabilitySwift (~> 3)
   - SlideMenuControllerSwift
   - Spring (from `https://github.com/MengTo/Spring.git`, branch `swift3`)
@@ -110,12 +112,13 @@ SPEC CHECKSUMS:
   JWTDecode: 178e47e5d28d3abcff778bacced8342858cd6cb5
   KeychainAccess: 017ea25e313a49eda10bb19b0bb0760fb1edfe1a
   Kingfisher: 300035f9a40634dc9b452d946c9f22250688fecd
+  MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
   ReachabilitySwift: f5b9bb30a0777fac8f09ce8b067e32faeb29bb64
   SlideMenuControllerSwift: 9a163b16d54afab734add42858cba7ef7c307755
   Spring: 3f02b5dc3308572ef177b3cad0fa7bbc4b0706f7
   SwiftLint: 9fb1dd71d5952d130f8c2fb60ae2e1475cf5d575
   Whisper: 08be92623311f8e53201e62e17f6d7b9599a4714
 
-PODFILE CHECKSUM: f4a5b3803f499c6ee67ab5ba5d2d842196681b47
+PODFILE CHECKSUM: 36265a3b3cdd50520ae1cc9bb364f5e08bdd7dfb
 
 COCOAPODS: 1.2.0
