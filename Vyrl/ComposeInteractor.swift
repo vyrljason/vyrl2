@@ -12,6 +12,7 @@ private enum Constants {
     weak var composeCloser: ComposeClosing? { get set }
     weak var viewController: ComposeControlling? { get set }
     weak var errorPresenter: ErrorAlertPresenting? { get set }
+    weak var sendStatusPresenter: PresentingSendStatus? { get set }
     func didTapClose()
     func didTapDone(message: String)
     func didTapImage()
@@ -22,6 +23,7 @@ final class ComposeInteractor: NSObject, ComposeInteracting {
     weak var composeCloser: ComposeClosing?
     weak var viewController: ComposeControlling?
     weak var errorPresenter: ErrorAlertPresenting?
+    weak var sendStatusPresenter: PresentingSendStatus?
     
     fileprivate let messageSender: ImageMessageSending
     fileprivate let collab: Collab
@@ -39,13 +41,12 @@ final class ComposeInteractor: NSObject, ComposeInteracting {
     
     @objc func didTapDone(message: String) {
         guard let selectedImage = selectedImage, message.characters.count > 0 else { return }
-        viewController?.showSendingStatus()
+        sendStatusPresenter?.showSendingStatus()
         messageSender.send(message: message, withImage: selectedImage, toCollab: collab) { [weak self] result in
+            self?.sendStatusPresenter?.hideSendingStatus()
             result.on(success: { _ in
-                self?.viewController?.hideSendingStatus()
                 self?.composeCloser?.finishPresentation()
             }, failure: { _ in
-                self?.viewController?.hideSendingStatus()
                 self?.errorPresenter?.presentError(title: nil, message: Constants.failedToSentMessage)
             })
         }

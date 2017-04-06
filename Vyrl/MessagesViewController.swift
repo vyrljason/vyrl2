@@ -13,6 +13,9 @@ protocol MessagesControlling: class {
     func setUpStatusView(withStatus status: CollabStatus)
     func setUpAddMessageView(withStatus status: AddMessageStatus)
     func showKeyboard()
+}
+
+@objc protocol PresentingSendStatus: class {
     func showSendingStatus()
     func hideSendingStatus()
 }
@@ -68,6 +71,7 @@ final class MessagesViewController: UIViewController, HavingNib {
         interactor.viewController = self
         interactor.errorPresenter = self
         interactor.messageDisplayer = self
+        interactor.sendStatusPresenter = self
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -128,7 +132,9 @@ extension MessagesViewController: MessagesControlling {
     func showKeyboard() {
         messageTextView.becomeFirstResponder()
     }
-    
+}
+
+extension MessagesViewController: PresentingSendStatus {
     func showSendingStatus() {
         sendButton.isEnabled = false
         activityPresenter.presentActivity(inView: view)

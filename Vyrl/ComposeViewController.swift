@@ -14,8 +14,6 @@ fileprivate enum Constants {
     func setUpImageView(withImage image: UIImage)
     func showImagePicker()
     func closeImagePicker()
-    func showSendingStatus()
-    func hideSendingStatus()
 }
 
 final class ComposeViewController: UIViewController, HavingNib {
@@ -37,6 +35,7 @@ final class ComposeViewController: UIViewController, HavingNib {
         super.init(nibName: ComposeViewController.nibName, bundle: nil)
         interactor.viewController = self
         interactor.errorPresenter = self
+        interactor.sendStatusPresenter = self
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -108,7 +107,9 @@ extension ComposeViewController: ComposeControlling {
     func closeImagePicker() {
         dismiss(animated: true, completion: nil)
     }
-    
+}
+
+extension ComposeViewController: PresentingSendStatus {
     func showSendingStatus() {
         doneButton.isEnabled = false
         composeImageView.isUserInteractionEnabled = false
