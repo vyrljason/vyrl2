@@ -53,7 +53,7 @@ extension LoginInteractor: FormActionDelegate {
             guard let `self` = self else { return }
             apiResult.on(success: { userProfile in
                 self.credentialsStorage.saveToken(using: userProfile)
-                self.chatLoginService.authenticateUser() { chatResult in
+                self.chatLoginService.authenticateUser { chatResult in
                     chatResult.on(success: { _ in
                         self.presenter?.dismiss()
                         self.listener?.didFinishAuthorizing()

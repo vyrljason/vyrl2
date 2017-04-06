@@ -51,5 +51,7 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
                                                              tokenDecoder: ChatTokenDecoder(),
                                                              chatCredentialsStorage: ChatCredentialsStorage(),
                                                              unreadMessagesObserver: ServiceLocator.unreadMessagesObserver)
+        guard let _ = FIRAuth.auth()?.currentUser else { return }
+        ServiceLocator.unreadMessagesObserver.observeUnreadMessages()
     }
 }
