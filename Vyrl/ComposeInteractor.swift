@@ -39,10 +39,13 @@ final class ComposeInteractor: NSObject, ComposeInteracting {
     
     @objc func didTapDone(message: String) {
         guard let selectedImage = selectedImage, message.characters.count > 0 else { return }
+        viewController?.showSendingStatus()
         messageSender.send(message: message, withImage: selectedImage, toCollab: collab) { [weak self] result in
             result.on(success: { _ in
+                self?.viewController?.hideSendingStatus()
                 self?.composeCloser?.finishPresentation()
             }, failure: { _ in
+                self?.viewController?.hideSendingStatus()
                 self?.errorPresenter?.presentError(title: nil, message: Constants.failedToSentMessage)
             })
         }

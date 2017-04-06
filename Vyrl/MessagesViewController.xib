@@ -13,6 +13,7 @@
             <connections>
                 <outlet property="addMessageView" destination="GIk-al-Ee4" id="Lse-H9-ImY"/>
                 <outlet property="messageTextView" destination="A45-hA-dCI" id="Ha5-HW-c2T"/>
+                <outlet property="sendButton" destination="VYz-3y-5c5" id="kUy-LZ-XPE"/>
                 <outlet property="statusView" destination="eAC-gO-r1l" id="Hxk-sJ-6d5"/>
                 <outlet property="tableView" destination="k0Z-hE-yUv" id="jDn-1e-Kn4"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>

@@ -19,7 +19,8 @@ target 'Vyrl' do
     pod 'Kingfisher'
     pod 'Fakery'
     pod 'DZNEmptyDataSet'
-    pod "JWTDecode"
+    pod 'JWTDecode'
+    pod 'MBProgressHUD', '~> 1.0.0'
 
     target 'VyrlTests' do
         inherit! :search_paths
@@ -28,4 +29,3 @@ target 'Vyrl' do
         pod 'Fakery'
     end
 end
-
