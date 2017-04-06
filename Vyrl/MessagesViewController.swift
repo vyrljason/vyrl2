@@ -15,6 +15,11 @@ protocol MessagesControlling: class {
     func showKeyboard()
 }
 
+@objc protocol PresentingSendStatus: class {
+    func showSendingStatus()
+    func hideSendingStatus()
+}
+
 enum AddMessageStatus {
     case normal
     case instagramLink
@@ -54,8 +59,10 @@ final class MessagesViewController: UIViewController, HavingNib {
     @IBOutlet weak var messageTextView: AutoexpandableTextView!
     @IBOutlet fileprivate weak var addMessageView: UIView!
     @IBOutlet fileprivate weak var statusView: StatusView!
+    @IBOutlet fileprivate weak var sendButton: UIButton!
     
     fileprivate let interactor: MessagesInteracting
+    fileprivate var activityPresenter: PresentingActivity!
     fileprivate var currentAddMessageStatus: AddMessageStatus = .normal
     
     init(interactor: MessagesInteracting) {
@@ -64,6 +71,7 @@ final class MessagesViewController: UIViewController, HavingNib {
         interactor.viewController = self
         interactor.errorPresenter = self
         interactor.messageDisplayer = self
+        interactor.sendStatusPresenter = self
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -77,6 +85,7 @@ final class MessagesViewController: UIViewController, HavingNib {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpNavigationBar()
+        setUp(activityPresenter: ServiceLocator.activityPresenter)
         interactor.use(tableView)
     }
     
@@ -101,6 +110,10 @@ extension MessagesViewController {
     @IBAction private func didTapSend() {
         interactor.didTapSend(message: messageTextView.text, addMessageStatus: currentAddMessageStatus)
     }
+    
+    fileprivate func setUp(activityPresenter: PresentingActivity) {
+        self.activityPresenter = activityPresenter
+    }
 }
 
 extension MessagesViewController: MessagesControlling {
@@ -118,5 +131,17 @@ extension MessagesViewController: MessagesControlling {
     
     func showKeyboard() {
         messageTextView.becomeFirstResponder()
+    }
+}
+
+extension MessagesViewController: PresentingSendStatus {
+    func showSendingStatus() {
+        sendButton.isEnabled = false
+        activityPresenter.presentActivity(inView: view)
+    }
+    
+    func hideSendingStatus() {
+        sendButton.isEnabled = true
+        activityPresenter.dismissActivity(inView: view)
     }
 }

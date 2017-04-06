@@ -27,12 +27,15 @@ final class ComposeViewController: UIViewController, HavingNib {
     fileprivate let interactor: ComposeInteracting & ImagePicking
     fileprivate var keyboardHandler: KeyboardHandler!
     fileprivate var imagePicker: UIImagePickerController!
+    fileprivate var activityPresenter: PresentingActivity!
+    fileprivate var doneButton: UIBarButtonItem!
     
     init(interactor: ComposeInteracting & ImagePicking) {
         self.interactor = interactor
         super.init(nibName: ComposeViewController.nibName, bundle: nil)
         interactor.viewController = self
         interactor.errorPresenter = self
+        interactor.sendStatusPresenter = self
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -48,6 +51,7 @@ final class ComposeViewController: UIViewController, HavingNib {
                                     style: .done,
                                     target: self,
                                     action: #selector(didTapDone))
+        doneButton = done
         navigationItem.leftBarButtonItem = close
         navigationItem.rightBarButtonItem = done
         navigationItem.title = Constants.navigationTitle
@@ -67,6 +71,7 @@ final class ComposeViewController: UIViewController, HavingNib {
         super.viewDidLoad()
         setUp(keyboardHandler: KeyboardHandler(scrollView: scrollView, animateOnStart: true, dismissOnTouch: true))
         setUp(imagePicker: UIImagePickerController())
+        setUp(activityPresenter: ServiceLocator.activityPresenter)
         setUpNavigationBar()
         setUpImageView()
     }
@@ -84,6 +89,10 @@ extension ComposeViewController {
         imagePicker.allowsEditing = false
         imagePicker.sourceType = .photoLibrary
     }
+    
+    fileprivate func setUp(activityPresenter: PresentingActivity) {
+        self.activityPresenter = activityPresenter
+    }
 }
 
 extension ComposeViewController: ComposeControlling {
@@ -97,5 +106,19 @@ extension ComposeViewController: ComposeControlling {
     
     func closeImagePicker() {
         dismiss(animated: true, completion: nil)
+    }
+}
+
+extension ComposeViewController: PresentingSendStatus {
+    func showSendingStatus() {
+        doneButton.isEnabled = false
+        composeImageView.isUserInteractionEnabled = false
+        activityPresenter.presentActivity(inView: view)
+    }
+    
+    func hideSendingStatus() {
+        doneButton.isEnabled = true
+        composeImageView.isUserInteractionEnabled = true
+        activityPresenter.dismissActivity(inView: view)
     }
 }

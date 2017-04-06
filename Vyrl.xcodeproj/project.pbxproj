@@ -449,6 +449,7 @@
 		C47B0ED31E950616005A687F /* SuccessMessagesFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47B0ED21E950616005A687F /* SuccessMessagesFooterView.swift */; };
 		C47B0ED51E950639005A687F /* SuccessMessagesFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C47B0ED41E950639005A687F /* SuccessMessagesFooterView.xib */; };
 		C47B0ED71E950EDF005A687F /* SuccessMessagesFooterViewSnapshotTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47B0ED61E950EDF005A687F /* SuccessMessagesFooterViewSnapshotTest.swift */; };
+		C47B0ED91E964B8F005A687F /* PresentingActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47B0ED81E964B8F005A687F /* PresentingActivity.swift */; };
 		C47D450C1E825F1B005DD524 /* MessageContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47D450B1E825F1B005DD524 /* MessageContainer.swift */; };
 		C47E31C81E921F14009ED817 /* ComposeViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47E31C71E921F14009ED817 /* ComposeViewControllerFactory.swift */; };
 		C47E31CA1E921F89009ED817 /* ComposeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47E31C91E921F89009ED817 /* ComposeInteractor.swift */; };
@@ -944,6 +945,7 @@
 		C47B0ED21E950616005A687F /* SuccessMessagesFooterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuccessMessagesFooterView.swift; sourceTree = "<group>"; };
 		C47B0ED41E950639005A687F /* SuccessMessagesFooterView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SuccessMessagesFooterView.xib; sourceTree = "<group>"; };
 		C47B0ED61E950EDF005A687F /* SuccessMessagesFooterViewSnapshotTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuccessMessagesFooterViewSnapshotTest.swift; sourceTree = "<group>"; };
+		C47B0ED81E964B8F005A687F /* PresentingActivity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PresentingActivity.swift; sourceTree = "<group>"; };
 		C47D450B1E825F1B005DD524 /* MessageContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageContainer.swift; sourceTree = "<group>"; };
 		C47E31C71E921F14009ED817 /* ComposeViewControllerFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComposeViewControllerFactory.swift; sourceTree = "<group>"; };
 		C47E31C91E921F89009ED817 /* ComposeInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComposeInteractor.swift; sourceTree = "<group>"; };
@@ -1889,6 +1891,7 @@
 				1AA7FA9F1E6885FE001C0B6F /* Autolayout.swift */,
 				85B2CD631E6D83C600C4C744 /* KeyboardHandler.swift */,
 				31B079451E75A4380015C302 /* ClosureBarButtonItem.swift */,
+				C47B0ED81E964B8F005A687F /* PresentingActivity.swift */,
 			);
 			name = UserInterface;
 			sourceTree = "<group>";
@@ -3453,6 +3456,7 @@
 				853859A71E607E420098D1EB /* UserSettings.swift in Sources */,
 				853859981E602BFD0098D1EB /* UserRegistrationRequest.swift in Sources */,
 				850A80F41E5EDC6E00E684A3 /* URLSessionProtocol.swift in Sources */,
+				C47B0ED91E964B8F005A687F /* PresentingActivity.swift in Sources */,
 				85B0A8381E6703A2002093BA /* CALayer+BottomBorder.swift in Sources */,
 				C4C8876C1E8984660022558F /* InfluencerMessageCell.swift in Sources */,
 				85CA3FEA1E647E9300D43805 /* FormTextField.swift in Sources */,

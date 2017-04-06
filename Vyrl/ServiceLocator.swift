@@ -5,6 +5,7 @@
 import Foundation
 import Kingfisher
 import FirebaseDatabase
+import MBProgressHUD
 
 // Service Locator Pattern is used here.
 // https://en.wikipedia.org/wiki/Service_locator_pattern
@@ -18,4 +19,5 @@ struct ServiceLocator {
     static var chatAuthenticator: ChatAuthenticating!
     static var unreadMessagesObserver: UnreadMessagesObserving = UnreadMessagesObserver(chatDatabase: ServiceLocator.chatDatabaseReference,
                                                                                         chatCredentialsStorage: ChatCredentialsStorage())
+    static var activityPresenter: PresentingActivity = ActivityPresenterAdapter()
 }
