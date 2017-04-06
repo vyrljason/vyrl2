@@ -13,7 +13,7 @@ final class BrandMessageCell: UITableViewCell, HavingNib, MessageCellRendering, 
     
     override func prepareForReuse() {
         super.prepareForReuse()
-        avatarImageView.cancelImageFetching(using: nil)
+        avatarImageView.cancelImageFetching(using: #imageLiteral(resourceName: "photoPlaceholderSmall"))
     }
     
     func render(_ renderable: MessageCellRenderable) {

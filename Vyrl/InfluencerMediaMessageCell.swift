@@ -13,7 +13,7 @@ final class InfluencerMediaMessageCell: UITableViewCell, HavingNib, MessageCellR
     
     override func prepareForReuse() {
         super.prepareForReuse()
-        mediaImageView.cancelImageFetching(using: nil)
+        mediaImageView.cancelImageFetching(using: #imageLiteral(resourceName: "photoPlaceholderBig"))
     }
     
     func render(_ renderable: MessageCellRenderable) {
@@ -21,6 +21,6 @@ final class InfluencerMediaMessageCell: UITableViewCell, HavingNib, MessageCellR
     }
     
     func set(imageFetcher: ImageFetching) {
-        mediaImageView.fetchImage(using: imageFetcher, placeholder: #imageLiteral(resourceName: "photoPlaceholderSmall"))
+        mediaImageView.fetchImage(using: imageFetcher, placeholder: #imageLiteral(resourceName: "photoPlaceholderBig"))
     }
 }
