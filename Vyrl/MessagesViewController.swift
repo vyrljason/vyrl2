@@ -87,16 +87,7 @@ final class MessagesViewController: UIViewController, HavingNib {
         setUpNavigationBar()
         setUp(activityPresenter: ServiceLocator.activityPresenter)
         interactor.use(tableView)
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        interactor.viewWillAppear()
-    }
-
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        interactor.viewWillDisappear()
+        interactor.viewDidLoad()
     }
 }
 

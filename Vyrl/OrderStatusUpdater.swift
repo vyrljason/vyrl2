@@ -9,12 +9,12 @@ private enum Constants {
     static let databasePathPrefix = "chats/users/"
 }
 
-protocol OrderStatusUpdatesInforming {
-    func listenToStatusUpdates(inRoom roomId: String, completion: @escaping (OrderStatus?, ContentStatus?) -> Void)
+protocol CollabStatusUpdatesInforming {
+    func listenToStatusUpdates(inRoom roomId: String, completion: @escaping (CollabStatus) -> Void)
     func stopListening(inRoom roomId: String)
 }
 
-final class OrderStatusUpdater: OrderStatusUpdatesInforming {
+final class CollabStatusUpdater: CollabStatusUpdatesInforming {
 
     private let chatDatabase: ChatDatabaseChildAccessing & ChatDatabaseObserving
     private let chatCredentialsStorage: ChatCredentialsStoring
@@ -27,19 +27,15 @@ final class OrderStatusUpdater: OrderStatusUpdatesInforming {
     }
 
     func listenToStatusUpdates(inRoom roomId: String,
-                               completion: @escaping (OrderStatus?, ContentStatus?) -> Void) {
+                               completion: @escaping (CollabStatus) -> Void) {
         guard let userId = chatCredentialsStorage.internalUserId else { return }
 
         observerHandler = chatDatabase.childAt(path: path(for: userId, in: roomId)).observe(.childChanged) { (snapshot) in
             guard snapshot.exists() else { return }
-            if snapshot.key == ChatRoom.orderStatusKey,
+            if snapshot.key == ChatRoom.collabStatusKey,
                 let statusAsString = snapshot.value as? String {
-            completion(OrderStatus(description: statusAsString), nil)
+            completion(CollabStatus(apiValue: statusAsString))
 
-            }
-            if snapshot.key == ChatRoom.contentStatusKey,
-                let statusAsString = snapshot.value as? String {
-                completion(nil, ContentStatus(description: statusAsString))
             }
         }
     }

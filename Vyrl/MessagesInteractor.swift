@@ -16,8 +16,7 @@ protocol MessagesInteracting: TableViewUsing {
     weak var composePresenter: ComposePresenting? { get set }
     weak var viewController: MessagesControlling? { get set }
     weak var sendStatusPresenter: PresentingSendStatus? { get set }
-    func viewWillAppear()
-    func viewWillDisappear()
+    func viewDidLoad()
     func didTapMore()
     func didTapSend(message: String, addMessageStatus: AddMessageStatus)
 }
@@ -51,15 +50,15 @@ final class MessagesInteractor: MessagesInteracting {
         dataSource.actionTarget = self
     }
 
-    func viewWillAppear() {
-        viewController?.setUpStatusView(withStatus: CollabStatus(orderStatus: collab.chatRoom.orderStatus, contentStatus: collab.chatRoom.contentStatus))
+    func viewDidLoad() {
+        viewController?.setUpStatusView(withStatus: collab.chatRoom.collabStatus)
         dataSource.subscribeToChatUpdates()
     }
 
-    func viewWillDisappear() {
+    deinit {
         dataSource.unsubscribeToChatUpdates()
     }
-
+    
     func didTapMore() {
         //TODO: Add reporting functionality. No story on Taiga yet ;-)
     }

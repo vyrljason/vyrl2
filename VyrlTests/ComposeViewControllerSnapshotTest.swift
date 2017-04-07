@@ -9,6 +9,7 @@ final class ComposeInteractorMock: NSObject, ComposeInteracting, ImagePicking {
     weak var composeCloser: ComposeClosing?
     weak var viewController: ComposeControlling?
     weak var errorPresenter: ErrorAlertPresenting?
+    weak var sendStatusPresenter: PresentingSendStatus?
     func didTapClose() { }
     func didTapDone(message: String) { }
     func didTapImage() { }
