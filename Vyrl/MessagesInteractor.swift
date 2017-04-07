@@ -91,10 +91,10 @@ final class MessagesInteractor: MessagesInteracting {
         influencerPostUpdater.update(brandId: collab.chatRoom.brandId, withInstagram: instagramUrl) { [weak self] result in
             guard let `self` = self else { return }
             self.sendStatusPresenter?.hideSendingStatus()
-            result.on(success: { (post) in
+            result.on(success: { _ in
                 self.messageDisplayer?.clearMessage()
                 self.viewController?.setUpAddMessageView(withStatus: .normal)
-            }, failure: { (error) in
+            }, failure: { _ in
                 self.errorPresenter?.presentError(title: nil, message: Constants.failedToSentInstagramLink)
             })
         }
