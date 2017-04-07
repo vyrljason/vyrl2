@@ -18,10 +18,6 @@ final class MessagesViewControllerFactory: MessagesControllerMaking {
         let orderStatusUpdater = OrderStatusUpdater(chatDatabase: databaseReference, chatCredentialsStorage: chatCredentialsStorage)
         let chatPresenceService = ChatPresenceService(chatDatabase: databaseReference, chatCredentialsStorage: chatCredentialsStorage)
 
-        let influencerPostsResource = InfluencerPostsResource(controller: resource)
-        let influencerPostsResourceAdapter = PostService<InfluencerPostsResource>(resource: influencerPostsResource)
-        let influencerPostsService = InfluencerPostsService(resource: influencerPostsResourceAdapter)
-
         let postInstagramResource = PostInstagramResource(controller: resource)
         let influencerPostResourceAdapter = PostService<PostInstagramResource>(resource: postInstagramResource)
         let influencerPostUpdater = InstagramUpdateService(resource: influencerPostResourceAdapter)
@@ -38,8 +34,7 @@ final class MessagesViewControllerFactory: MessagesControllerMaking {
         let deliveryResource = PostService<ConfirmDeliveryResource>(resource: confirmDeliveryResource)
         let deliveryService = ConfirmDeliveryService(resource: deliveryResource)
         let interactor = MessagesInteractor(dataSource: dataSource, collab: collab, messageSender: messageSender,
-                                            deliveryService: deliveryService, influencerPostUpdater: influencerPostUpdater,
-                                            influencerPostsService: influencerPostsService)
+                                            deliveryService: deliveryService, influencerPostUpdater: influencerPostUpdater)
         interactor.composePresenter = presenter
         let viewController = MessagesViewController(interactor: interactor)
         viewController.navigationItem.title = collab.brandName

@@ -34,20 +34,17 @@ final class MessagesInteractor: MessagesInteracting {
     fileprivate let messageSender: TextMessageSending
     fileprivate let deliveryService: ConfirmingDelivery
     fileprivate let influencerPostUpdater: UpdatePostWithInstagram
-    fileprivate let influencerPostsService: InfluencerPostsProviding
 
     init(dataSource: MessagesDataProviding,
          collab: Collab,
          messageSender: TextMessageSending,
          deliveryService: ConfirmingDelivery,
-         influencerPostUpdater: UpdatePostWithInstagram,
-         influencerPostsService: InfluencerPostsProviding) {
+         influencerPostUpdater: UpdatePostWithInstagram) {
         self.dataSource = dataSource
         self.collab = collab
         self.messageSender = messageSender
         self.deliveryService = deliveryService
         self.influencerPostUpdater = influencerPostUpdater
-        self.influencerPostsService = influencerPostsService
         dataSource.actionTarget = self
     }
 
@@ -75,7 +72,7 @@ final class MessagesInteractor: MessagesInteracting {
             sendInstagramLinkMessage(instagramUrl: trimmedMessage)
         }
     }
-    
+
     fileprivate func sendNormalMessage(message: String) {
         let message = Message(text: message)
         messageSender.send(message: message,
@@ -90,21 +87,16 @@ final class MessagesInteractor: MessagesInteracting {
                             })
         }
     }
-    
+
     fileprivate func sendInstagramLinkMessage(instagramUrl: String) {
-        influencerPostsService.influencerPosts(fromBrand: collab.chatRoom.brandId) { result in
-            result.on(success: { [weak self] influencerPosts in
-                guard let `self` = self else { return }
-                guard let currentPost = influencerPosts.posts.first else { return }
-                self.influencerPostUpdater.update(postId: currentPost.id, withInstagram: instagramUrl) { [weak self] _ in
-                    guard let `self` = self else { return }
-                    self.sendStatusPresenter?.hideSendingStatus()
-                    self.messageDisplayer?.clearMessage()
-                    self.viewController?.setUpAddMessageView(withStatus: .normal)
-                }
-                }, failure: { _ in
-                    self.sendStatusPresenter?.hideSendingStatus()
-                    self.errorPresenter?.presentError(title: nil, message: Constants.failedToConfirmDelivery)
+        influencerPostUpdater.update(brandId: collab.chatRoom.brandId, withInstagram: instagramUrl) { [weak self] result in
+            guard let `self` = self else { return }
+            self.sendStatusPresenter?.hideSendingStatus()
+            result.on(success: { (post) in
+                self.messageDisplayer?.clearMessage()
+                self.viewController?.setUpAddMessageView(withStatus: .normal)
+            }, failure: { (error) in
+                self.errorPresenter?.presentError(title: nil, message: Constants.failedToSentInstagramLink)
             })
         }
     }
@@ -123,7 +115,7 @@ extension MessagesInteractor: DeliveryConfirming {
             guard let `self` = self else { return }
             result.on(success: nil,
                       failure: { _ in
-                self.errorPresenter?.presentError(title: nil, message: Constants.failedToConfirmDelivery)
+                        self.errorPresenter?.presentError(title: nil, message: Constants.failedToConfirmDelivery)
             })
         }
     }

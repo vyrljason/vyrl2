@@ -5,7 +5,7 @@
 import Foundation
 
 protocol UpdatePostWithInstagram {
-    func update(postId: String, withInstagram instagramUrl: String, completion: @escaping (Result<InfluencerPost, ServiceError>) -> Void)
+    func update(brandId: String, withInstagram instagramUrl: String, completion: @escaping (Result<EmptyResponse, ServiceError>) -> Void)
 }
 
 final class InstagramUpdateService: UpdatePostWithInstagram {
@@ -15,7 +15,7 @@ final class InstagramUpdateService: UpdatePostWithInstagram {
         self.resource = resource
     }
 
-    func update(postId: String, withInstagram instagramUrl: String, completion: @escaping (Result<InfluencerPost, ServiceError>) -> Void) {
-        resource.post(using: InstagramPost(postId: postId, instagramUrl: instagramUrl), completion: completion)
+    func update(brandId: String, withInstagram instagramUrl: String, completion: @escaping (Result<EmptyResponse, ServiceError>) -> Void) {
+        resource.post(using: InstagramPost(brandId: brandId, instagramUrl: instagramUrl), completion: completion)
     }
 }
