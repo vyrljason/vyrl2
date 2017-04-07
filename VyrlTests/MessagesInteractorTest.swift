@@ -94,8 +94,7 @@ final class MessagesInteractorTest: XCTestCase {
     var collab: Collab!
     private var deliveryService: DeliveryServiceMock!
     private var influencerPostUpdater: InfluencerPostUpdaterMock!
-    private var influencerPostsService: InfluencerPostsServiceMock!
-    
+
     override func setUp() {
         dataSource = MessagesDataSourceMock()
         collab = VyrlFaker.faker.collab()
@@ -103,10 +102,8 @@ final class MessagesInteractorTest: XCTestCase {
         messageSender = MessageSenderMock()
         deliveryService = DeliveryServiceMock()
         influencerPostUpdater = InfluencerPostUpdaterMock()
-        influencerPostsService = InfluencerPostsServiceMock()
         subject = MessagesInteractor(dataSource: dataSource, collab: collab, messageSender: messageSender,
-                                     deliveryService: deliveryService, influencerPostUpdater: influencerPostUpdater,
-                                     influencerPostsService: influencerPostsService)
+                                     deliveryService: deliveryService, influencerPostUpdater: influencerPostUpdater)
         subject.errorPresenter = messagePresenter
         subject.messageDisplayer = messagePresenter
     }
@@ -156,6 +153,25 @@ final class MessagesInteractorTest: XCTestCase {
 
         XCTAssertTrue(messagePresenter.didCallClear)
     }
+
+    func test_didTapSend_whenSendingInstagramLink_whenServiceReturnsSuccess_clearsMessage() {
+        let link = "instagramLink"
+        influencerPostUpdater.success = true
+
+        subject.didTapSend(message: link, addMessageStatus: .instagramLink)
+
+        XCTAssertTrue(messagePresenter.didCallClear)
+    }
+
+    func test_didTapSend_whenSendingInstagramLink_whenServiceReturnsFailure_presentsError() {
+        let link = "instagramLink"
+        influencerPostUpdater.success = false
+
+        subject.didTapSend(message: link, addMessageStatus: .instagramLink)
+
+        XCTAssertTrue(messagePresenter.didCallPresentError)
+    }
+
 
     func test_didTapConfirm_whenServiceReturnsFailure_presentsError() {
         deliveryService.success = false

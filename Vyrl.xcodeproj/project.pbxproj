@@ -428,10 +428,6 @@
 		85EEA4AB1E93F8C200D04704 /* InstagramPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85EEA4AA1E93F8C200D04704 /* InstagramPost.swift */; };
 		85EEA4AD1E93F95B00D04704 /* PostInstagramResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85EEA4AC1E93F95B00D04704 /* PostInstagramResource.swift */; };
 		85EEA4AF1E93F9AB00D04704 /* PostInstagramService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85EEA4AE1E93F9AB00D04704 /* PostInstagramService.swift */; };
-		85EEA4B11E93FBB100D04704 /* InfluencerPostsEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85EEA4B01E93FBB100D04704 /* InfluencerPostsEndpoint.swift */; };
-		85EEA4B31E93FC0E00D04704 /* InfluencerPostsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85EEA4B21E93FC0E00D04704 /* InfluencerPostsRequest.swift */; };
-		85EEA4B51E93FDD600D04704 /* InfluencerPostsResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85EEA4B41E93FDD600D04704 /* InfluencerPostsResource.swift */; };
-		85EEA4B71E93FF0A00D04704 /* InfluencerPostsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85EEA4B61E93FF0A00D04704 /* InfluencerPostsService.swift */; };
 		85FA7A281E5C730800491EED /* NavigationHaving.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FA7A271E5C730800491EED /* NavigationHaving.swift */; };
 		85FB31E11E65E1C500E2F113 /* StyleKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FB31E01E65E1C500E2F113 /* StyleKit.swift */; };
 		C414B25F1E8A7C4B002F973E /* UIView+IBInspectables.swift in Sources */ = {isa = PBXBuildFile; fileRef = C414B25E1E8A7C4B002F973E /* UIView+IBInspectables.swift */; };
@@ -921,10 +917,6 @@
 		85EEA4AA1E93F8C200D04704 /* InstagramPost.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InstagramPost.swift; sourceTree = "<group>"; };
 		85EEA4AC1E93F95B00D04704 /* PostInstagramResource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostInstagramResource.swift; sourceTree = "<group>"; };
 		85EEA4AE1E93F9AB00D04704 /* PostInstagramService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostInstagramService.swift; sourceTree = "<group>"; };
-		85EEA4B01E93FBB100D04704 /* InfluencerPostsEndpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfluencerPostsEndpoint.swift; sourceTree = "<group>"; };
-		85EEA4B21E93FC0E00D04704 /* InfluencerPostsRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfluencerPostsRequest.swift; sourceTree = "<group>"; };
-		85EEA4B41E93FDD600D04704 /* InfluencerPostsResource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfluencerPostsResource.swift; sourceTree = "<group>"; };
-		85EEA4B61E93FF0A00D04704 /* InfluencerPostsService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfluencerPostsService.swift; sourceTree = "<group>"; };
 		85FA7A271E5C730800491EED /* NavigationHaving.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationHaving.swift; sourceTree = "<group>"; };
 		85FB31E01E65E1C500E2F113 /* StyleKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StyleKit.swift; sourceTree = "<group>"; };
 		96549903E451F71A0DF3113D /* Pods-VyrlTests.ad hoc.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VyrlTests.ad hoc.xcconfig"; path = "Pods/Target Support Files/Pods-VyrlTests/Pods-VyrlTests.ad hoc.xcconfig"; sourceTree = "<group>"; };
@@ -2100,7 +2092,6 @@
 			children = (
 				854AE0211E9258E100B0F322 /* MessagesSnapshotConverter.swift */,
 				854AE0241E926B7600B0F322 /* MessagesCellFactory.swift */,
-				85EEA4B21E93FC0E00D04704 /* InfluencerPostsRequest.swift */,
 			);
 			name = Other;
 			sourceTree = "<group>";
@@ -2600,7 +2591,6 @@
 				8558289E1E8E468500748A9A /* ConfirmDeliveryService.swift */,
 				85EEA4971E930F7000D04704 /* ChatPresenceService.swift */,
 				85EEA4AE1E93F9AB00D04704 /* PostInstagramService.swift */,
-				85EEA4B61E93FF0A00D04704 /* InfluencerPostsService.swift */,
 			);
 			name = Services;
 			sourceTree = "<group>";
@@ -2614,7 +2604,6 @@
 				855828A01E8E46E600748A9A /* ConfirmDeliveryResource.swift */,
 				85EEA49F1E93DEAB00D04704 /* PostImageResource.swift */,
 				85EEA4AC1E93F95B00D04704 /* PostInstagramResource.swift */,
-				85EEA4B41E93FDD600D04704 /* InfluencerPostsResource.swift */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -2844,7 +2833,6 @@
 				8558289A1E8E448A00748A9A /* ConfirmDeliveryEndpoint.swift */,
 				85EEA4A11E93E08400D04704 /* PostImageEndpoint.swift */,
 				85EEA4A81E93F88500D04704 /* PostInstagramEndpoint.swift */,
-				85EEA4B01E93FBB100D04704 /* InfluencerPostsEndpoint.swift */,
 			);
 			name = Endpoints;
 			sourceTree = "<group>";
@@ -3482,7 +3470,6 @@
 				C414B2691E8BC5F5002F973E /* MessagesFooterView.swift in Sources */,
 				85B0A8411E670F1D002093BA /* BrandsService.swift in Sources */,
 				1A69C6A61E56008100134EF5 /* NavigationBar.swift in Sources */,
-				85EEA4B31E93FC0E00D04704 /* InfluencerPostsRequest.swift in Sources */,
 				C4BDA4401E8163890009BB67 /* Sender.swift in Sources */,
 				852ACD451E55DCDC00219E90 /* ReusableView.swift in Sources */,
 				855AD6D61E8CF81500B9523D /* String+Trim.swift in Sources */,
@@ -3505,7 +3492,6 @@
 				8554BEA01E6982EB00E05A37 /* PostService.swift in Sources */,
 				8572E4EB1E7AE4910042160D /* ChatTokenRepository.swift in Sources */,
 				31FEB5B81E5D952600C5E41D /* BrandStoreCell.swift in Sources */,
-				85EEA4B71E93FF0A00D04704 /* InfluencerPostsService.swift in Sources */,
 				853A83431E72A50E006EBA8C /* CheckoutRenderable.swift in Sources */,
 				31EF230C1E67AF5F0073F624 /* CenteredWithDetailTableCell.swift in Sources */,
 				852ACD471E55DCF200219E90 /* UIView+ReusableView.swift in Sources */,
@@ -3566,7 +3552,6 @@
 				1A1FA9421E5DA887007EB61D /* CategoriesDataSource.swift in Sources */,
 				853A835A1E72C5A9006EBA8C /* CheckoutSummaryInteractor.swift in Sources */,
 				85FB31E11E65E1C500E2F113 /* StyleKit.swift in Sources */,
-				85EEA4B51E93FDD600D04704 /* InfluencerPostsResource.swift in Sources */,
 				85603F761E88ED530062485E /* ChatAuthenticator.swift in Sources */,
 				C4BDA43B1E8130700009BB67 /* MessagesDataSource.swift in Sources */,
 				85DCFC331E7689B70046D0D5 /* ButtonWithBadge.swift in Sources */,
@@ -3590,7 +3575,6 @@
 				8572E4AF1E797CE00042160D /* CollabRenderable.swift in Sources */,
 				850A80BF1E5DA94100E684A3 /* HTTPClient.swift in Sources */,
 				855828A11E8E46E600748A9A /* ConfirmDeliveryResource.swift in Sources */,
-				85EEA4B11E93FBB100D04704 /* InfluencerPostsEndpoint.swift in Sources */,
 				8507FED51E8E318900C0711B /* ImageToDataConverter.swift in Sources */,
 				313CF7FF1E6E16F4005686F5 /* TextTableCellRenderable.swift in Sources */,
 				8558289D1E8E455C00748A9A /* ConfirmDeliveryRequest.swift in Sources */,
