@@ -7,7 +7,7 @@ import Alamofire
 struct PostInstagramEndpoint: APIEndpoint {
     let path: String = "/posts/posted"
     let authorization: AuthorizationType = .user
-    let method: HTTPMethod = .patch
+    let method: HTTPMethod = .post
     let parameters: [String: Any]?
     let api: APIType = .main
     let encoding: ParameterEncoding = JSONEncoding()
