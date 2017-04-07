@@ -201,10 +201,9 @@ extension Faker {
                   influencerId: String = VyrlFaker.faker.lorem.characters(amount: 20),
                   lastMessage: String = VyrlFaker.faker.lorem.characters(amount: 100),
                   lastActivity: Date = Date(),
-                  orderStatus: OrderStatus = .accepted,
-                  contentStatus: ContentStatus = .none,
+                  collabStatus: CollabStatus = .waiting,
                   unreadMessages: Int = VyrlFaker.faker.number.randomInt()) -> ChatRoom {
-        return ChatRoom(brandId: brandId, influencerId: influencerId, lastMessage: lastMessage, lastActivity: lastActivity, orderStatus: orderStatus, contentStatus: contentStatus, unreadMessages: unreadMessages)
+        return ChatRoom(brandId: brandId, influencerId: influencerId, lastMessage: lastMessage, lastActivity: lastActivity, collabStatus: collabStatus, unreadMessages: unreadMessages)
     }
 }
 

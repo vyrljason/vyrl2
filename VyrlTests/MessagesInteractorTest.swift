@@ -108,14 +108,14 @@ final class MessagesInteractorTest: XCTestCase {
         subject.messageDisplayer = messagePresenter
     }
     
-    func test_onViewWillAppear_loadsTableData() {
-        subject.viewWillAppear()
+    func test_onViewDidLoad_subscribeToChatUpdates() {
+        subject.viewDidLoad()
         
         XCTAssertTrue(dataSource.didCallsubscribeToChatUpdates)
     }
 
-    func test_viewWillDisappear_unsubscribeToChatUpdates() {
-        subject.viewWillDisappear()
+    func test_deinit_unsubscribeToChatUpdates() {
+        subject = nil
 
         XCTAssertTrue(dataSource.didCallunsubscribeToChatUpdates)
     }
