@@ -6,7 +6,6 @@ import UIKit
 
 private enum Constants {
     static let incompleteDataError =  NSLocalizedString("checkout.error.incompleteData", comment: "")
-    static let checkoutError =  NSLocalizedString("checkout.error.api", comment: "")
 }
 
 protocol ShippingAddressUpdateListening: class {
@@ -99,8 +98,8 @@ final class CheckoutInteractor: CheckoutInteracting {
             result.on(success: { _ in
                 self.cartStorage.clear()
                 self.navigation?.presentSummaryView()
-            }, failure: { _ in
-                self.errorPresenter?.presentError(title: nil, message: Constants.checkoutError)
+            }, failure: { error in
+                self.errorPresenter?.presentError(title: error.title, message: error.message)
             })
         }
     }
