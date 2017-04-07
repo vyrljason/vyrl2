@@ -11,11 +11,13 @@ struct APIError {
         static let legacyAPIstatusCode = "status"
         static let name = "name"
         static let message = "message"
+        static let conflict = "conflict"
     }
 
     let statusCode: Int
     let name: String
     let message: String
+    let conflict: String?
 }
 
 extension APIError: Decodable {
@@ -24,12 +26,14 @@ extension APIError: Decodable {
             let errorDictionary = try json => KeyPath(JSONKeys.error)
             return try self.init(statusCode: legacyAPIStatusCode,
                                  name: errorDictionary => KeyPath(JSONKeys.name),
-                                 message: errorDictionary => KeyPath(JSONKeys.message))
+                                 message: errorDictionary => KeyPath(JSONKeys.message),
+                                 conflict: errorDictionary =>? OptionalKeyPath(stringLiteral: JSONKeys.conflict))
         } else {
             let errorDictionary = try json => KeyPath(JSONKeys.error)
             return try self.init(statusCode: errorDictionary => KeyPath(JSONKeys.statusCode),
                                  name: errorDictionary => KeyPath(JSONKeys.name),
-                                 message: errorDictionary => KeyPath(JSONKeys.message))
+                                 message: errorDictionary => KeyPath(JSONKeys.message),
+                                 conflict: errorDictionary =>? OptionalKeyPath(stringLiteral: JSONKeys.conflict))
         }
     }
 }
@@ -51,5 +55,6 @@ extension APIError {
         self.statusCode = Constants.failureStatusCode
         self.name = error.domain
         self.message = error.localizedDescription
+        self.conflict = nil
     }
 }
