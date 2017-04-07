@@ -58,23 +58,9 @@ final class ChatPresenceServiceMock: ChatPresenceInforming {
 final class InfluencerPostUpdaterMock: UpdatePostWithInstagram {
     var success: Bool = true
     var error = ServiceError.unknown
-    var result = VyrlFaker.faker.influencerPost()
+    var result = EmptyResponse()
 
-    func update(postId: String, withInstagram instagramUrl: String, completion: @escaping (Result<InfluencerPost, ServiceError>) -> Void) {
-        if success {
-            completion(.success(result))
-        } else {
-            completion(.failure(error))
-        }
-    }
-}
-
-final class InfluencerPostsServiceMock: InfluencerPostsProviding {
-    var success: Bool = true
-    var error = ServiceError.unknown
-    var result: InfluencerPosts =  InfluencerPosts(posts: [VyrlFaker.faker.influencerPost()])
-
-    func influencerPosts(fromBrand brandId: String, completion: @escaping (Result<InfluencerPosts, ServiceError>) -> Void) {
+    func update(brandId: String, withInstagram instagramUrl: String, completion: @escaping (Result<EmptyResponse, ServiceError>) -> Void) {
         if success {
             completion(.success(result))
         } else {
