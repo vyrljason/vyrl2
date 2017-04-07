@@ -10,11 +10,10 @@ final class MessagesInteractorNoDataMock: MessagesInteracting, DataRefreshing {
     weak var errorPresenter: ErrorAlertPresenting?
     weak var messageDisplayer: MessageDisplaying?
     weak var composePresenter: ComposePresenting?
+    weak var sendStatusPresenter: PresentingSendStatus?
     
-    func viewWillAppear() { }
+    func viewDidLoad() { }
 
-    func viewWillDisappear() { }
-    
     func didTapMore() { }
 
     func didTapSend(message: String, addMessageStatus: AddMessageStatus) { }

@@ -4,45 +4,47 @@
 
 import UIKit
 
-enum CollabStatus: Int, CustomStringConvertible, CustomIntegerConvertible {
+enum CollabStatus: CustomStringConvertible, CustomIntegerConvertible {
 
     private enum Constants {
         static let currentStatusTitle = NSLocalizedString("messages.currentStatus.title", comment: "")
         static let fontSize: CGFloat = 16
     }
 
-    case brief = 0
-    case productDelivery = 1
-    case contentReview = 2
-    case publication = 3
-    case done = 4
-    case waiting = -1
-    case declined = -2
-    case inactive = -3
+    case brief
+    case productDelivery
+    case contentReview
+    case contentReviewPending
+    case contentReviewDeclined
+    case publication
+    case done
+    case waiting
+    case inactive
+    case custom(String)
 
     // swiftlint:disable cyclomatic_complexity
-    init(orderStatus: OrderStatus, contentStatus: ContentStatus) {
-        switch (orderStatus, contentStatus) {
-        case (.custom(_), .none):
-            self = .inactive
-        case (.requested, .none):
-            self = .waiting
-        case (.accepted, .none):
+    init(apiValue: String) {
+        switch apiValue {
+        case CollabStatus.brief.apiValue:
             self = .brief
-        case (.declined, .none):
-            self = .declined
-        case (.shipped, .none):
+        case CollabStatus.productDelivery.apiValue:
             self = .productDelivery
-        case (.delivered, .none),
-             (.delivered, .pending),
-             (.delivered, .declined):
+        case CollabStatus.contentReview.apiValue:
             self = .contentReview
-        case (.delivered, .approved):
+        case CollabStatus.contentReviewPending.apiValue:
+            self = .contentReviewPending
+        case CollabStatus.contentReviewDeclined.apiValue:
+            self = .contentReviewDeclined
+        case CollabStatus.publication.apiValue:
             self = .publication
-        case (.posted, .approved):
+        case CollabStatus.done.apiValue:
             self = .done
-        default:
+        case CollabStatus.waiting.apiValue:
+            self = .waiting
+        case CollabStatus.inactive.apiValue:
             self = .inactive
+        default:
+            self = .custom(apiValue)
         }
     }
 
@@ -53,32 +55,52 @@ enum CollabStatus: Int, CustomStringConvertible, CustomIntegerConvertible {
 
     var description: String {
         switch self {
-        case .brief:
-            return "1. brief"
-        case .productDelivery:
-            return "2. productDelivery"
-        case .contentReview:
-            return "3. contentReview"
-        case .publication:
-            return "4. publication"
-        case .done:
-            return "5. done"
-        case .waiting:
-            return "Waiting for brand response..."
-        case .declined:
-            return "Declined"
-        case .inactive:
-            return "No active collab"
+        case .brief: return "1. brief"
+        case .productDelivery: return "2. productDelivery"
+        case .contentReview, .contentReviewPending, .contentReviewDeclined: return "3. contentReview"
+        case .publication: return "4. publication"
+        case .done: return "5. done"
+        case .waiting: return "Waiting for brand response..."
+        case .inactive: return "No active collab"
+        case .custom(let description): return description
+        }
+    }
+    
+    var apiValue: String {
+        switch self {
+        case .brief: return "ORDER_BRIEF"
+        case .productDelivery: return "ORDER_SHIPPED"
+        case .contentReview: return "ORDER_CONTENT_NONE"
+        case .contentReviewPending: return "ORDER_CONTENT_PENDING"
+        case .contentReviewDeclined: return "ORDER_CONTENT_DECLINED"
+        case .publication: return "ORDER_CONTENT_APPROVED"
+        case .done: return "ORDER_DONE"
+        case .waiting: return "WAITING_FOR_BRAND_RESPONSE"
+        case .inactive: return "NO_ORDER"
+        case .custom: return ""
         }
     }
 
     var integerValue: Int {
-        return self.rawValue
+        switch self {
+        case .brief:
+            return 0
+        case .productDelivery:
+            return 1
+        case .contentReview, .contentReviewPending, .contentReviewDeclined:
+            return 2
+        case .publication:
+            return 3
+        case .done:
+            return 4
+        default:
+            return -1
+        }
     }
 
     var isValid: Bool {
         switch self {
-        case .waiting:
+        case .waiting, .inactive:
             return false
         default:
             return true
@@ -108,7 +130,7 @@ enum CollabStatus: Int, CustomStringConvertible, CustomIntegerConvertible {
 
     var currentStatusAttributedText: NSAttributedString {
         switch self {
-        case .waiting, .declined, .inactive:
+        case .waiting, .inactive, .custom:
             return attributedText
         default:
             let currentStatus = NSMutableAttributedString(string: Constants.currentStatusTitle,
@@ -118,4 +140,10 @@ enum CollabStatus: Int, CustomStringConvertible, CustomIntegerConvertible {
             return currentStatus
         }
     }
+}
+
+extension CollabStatus: Equatable { }
+
+func == (lhs: CollabStatus, rhs: CollabStatus) -> Bool {
+    return lhs.apiValue == rhs.apiValue
 }

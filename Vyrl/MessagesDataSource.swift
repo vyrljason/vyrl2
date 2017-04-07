@@ -26,8 +26,6 @@ final class MessagesDataSource: NSObject, MessagesDataProviding {
     fileprivate let messagesCellFactory: MessagesCellMaking
     fileprivate var items = [MessageContainer]()
     fileprivate let collab: Collab
-    fileprivate var contentStatus: ContentStatus
-    fileprivate var orderStatus: OrderStatus
 
     fileprivate var collaborationStatus: CollabStatus {
         didSet {
@@ -36,7 +34,7 @@ final class MessagesDataSource: NSObject, MessagesDataProviding {
     }
 
     fileprivate let chatRoomUpdater: ChatRoomUpdatesInforming
-    fileprivate let orderStatusUpdater: OrderStatusUpdatesInforming
+    fileprivate let collabStatusUpdater: CollabStatusUpdatesInforming
     fileprivate let chatPresenceService: ChatPresenceInforming
 
     weak var tableView: UITableView?
@@ -46,19 +44,16 @@ final class MessagesDataSource: NSObject, MessagesDataProviding {
 
     // swiftlint:disable function_parameter_count
     init(collab: Collab,
-         collaborationStatus: CollabStatus,
          chatRoomUpdater: ChatRoomUpdatesInforming,
-         orderStatusUpdater: OrderStatusUpdatesInforming,
+         collabStatusUpdater: CollabStatusUpdatesInforming,
          chatPresenceService: ChatPresenceInforming,
          messagesCellFactory: MessagesCellMaking = MessagesCellFactory()) {
         self.collab = collab
-        self.collaborationStatus = collaborationStatus
+        self.collaborationStatus = collab.chatRoom.collabStatus
         self.chatRoomUpdater = chatRoomUpdater
-        self.orderStatusUpdater = orderStatusUpdater
+        self.collabStatusUpdater = collabStatusUpdater
         self.chatPresenceService = chatPresenceService
         self.messagesCellFactory = messagesCellFactory
-        self.contentStatus = collab.chatRoom.contentStatus
-        self.orderStatus = collab.chatRoom.orderStatus
         super.init()
     }
 }
@@ -82,7 +77,7 @@ extension MessagesDataSource: TableViewUsing {
         case .productDelivery:
             let contentView = createFooterContent(.confirmDelivery)
             return footerView(containing: contentView, tableView: tableView)
-        case .contentReview:
+        case .contentReview, .contentReviewDeclined:
             let contentView = createFooterContent(.addContent)
             return footerView(containing: contentView, tableView: tableView)
         case .publication:
@@ -135,7 +130,7 @@ extension MessagesDataSource {
 
     func unsubscribeToChatUpdates() {
         chatRoomUpdater.stopListening(inRoom: collab.chatRoomId)
-        orderStatusUpdater.stopListening(inRoom: collab.chatRoomId)
+        collabStatusUpdater.stopListening(inRoom: collab.chatRoomId)
         chatPresenceService.userWillLeave(chatRoom: collab.chatRoomId)
     }
 
@@ -158,9 +153,9 @@ extension MessagesDataSource {
     }
 
     private func startListeningToStatusUpdates() {
-        orderStatusUpdater.listenToStatusUpdates(inRoom: collab.chatRoomId) { [weak self] (updatedOrderStatus, updatedContentStatus) in
+        collabStatusUpdater.listenToStatusUpdates(inRoom: collab.chatRoomId) { [weak self] (updatedCollabStatus) in
             guard let `self` = self else { return }
-            self.collaborationStatus = CollabStatus(orderStatus: updatedOrderStatus ?? self.orderStatus, contentStatus: updatedContentStatus ?? self.contentStatus)
+            self.collaborationStatus = updatedCollabStatus
         }
     }
 

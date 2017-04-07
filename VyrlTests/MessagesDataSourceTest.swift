@@ -27,12 +27,12 @@ final class ChatRoomUpdaterMock: ChatRoomUpdatesInforming {
     }
 }
 
-final class OrderStatusUpdaterMock: OrderStatusUpdatesInforming {
+final class CollabStatusUpdaterMock: CollabStatusUpdatesInforming {
 
     var didCallStopListening = false
     var didCallStartListening = false
 
-    func listenToStatusUpdates(inRoom roomId: String, completion: @escaping (OrderStatus?, ContentStatus?) -> Void) {
+    func listenToStatusUpdates(inRoom roomId: String, completion: @escaping (CollabStatus) -> Void) {
         didCallStartListening = true
     }
 
@@ -89,7 +89,7 @@ final class MessagesDataSourceTests: XCTestCase {
     var service: MessagesServiceMock!
     var tableView: TableViewMock!
     private var chatRoomUpdater: ChatRoomUpdaterMock!
-    private var orderStatusUpdater: OrderStatusUpdaterMock!
+    private var collabStatusUpdater: CollabStatusUpdaterMock!
     private var chatPresenceService: ChatPresenceServiceMock!
     var collab: Collab!
     var status: CollabStatus!
@@ -101,11 +101,11 @@ final class MessagesDataSourceTests: XCTestCase {
         collab = VyrlFaker.faker.collab()
         status = CollabStatus.brief
         chatRoomUpdater = ChatRoomUpdaterMock()
-        orderStatusUpdater = OrderStatusUpdaterMock()
+        collabStatusUpdater = CollabStatusUpdaterMock()
         chatPresenceService = ChatPresenceServiceMock()
-        subject = MessagesDataSource(collab: collab, collaborationStatus: status,
+        subject = MessagesDataSource(collab: collab,
                                      chatRoomUpdater: chatRoomUpdater,
-                                     orderStatusUpdater: orderStatusUpdater,
+                                     collabStatusUpdater: collabStatusUpdater,
                                      chatPresenceService: chatPresenceService)
     }
 
@@ -129,7 +129,7 @@ final class MessagesDataSourceTests: XCTestCase {
         subject.subscribeToChatUpdates()
 
         XCTAssertTrue(chatRoomUpdater.didCallStartListening)
-        XCTAssertTrue(orderStatusUpdater.didCallStartListening)
+        XCTAssertTrue(collabStatusUpdater.didCallStartListening)
         XCTAssertEqual(chatPresenceService.enteredRoom, collab.chatRoomId)
     }
 
@@ -138,7 +138,7 @@ final class MessagesDataSourceTests: XCTestCase {
         subject.unsubscribeToChatUpdates()
 
         XCTAssertTrue(chatRoomUpdater.didCallStopListening)
-        XCTAssertTrue(orderStatusUpdater.didCallStopListening)
+        XCTAssertTrue(collabStatusUpdater.didCallStopListening)
         XCTAssertEqual(chatPresenceService.leftRoom, collab.chatRoomId)
     }
 }
