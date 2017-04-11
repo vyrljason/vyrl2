@@ -5,17 +5,12 @@
 import UIKit
 
 protocol WebViewControllerBuilding: class {
-    var webViewContentUrl: URL? { get set }
-
-    func build() -> WebViewController?
+    func build(webViewContentUrl: URL) -> WebViewController
 }
 
 final class WebViewControllerBuilder: WebViewControllerBuilding {
 
-    var webViewContentUrl: URL?
-
-    func build() -> WebViewController? {
-        guard let webViewContentUrl = webViewContentUrl else { return nil }
+    func build(webViewContentUrl: URL) -> WebViewController {
         let interactor = WebViewInteractor(urlToDisplay: webViewContentUrl)
         let viewController = WebViewController(interactor: interactor)
         return viewController
