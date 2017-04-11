@@ -65,7 +65,7 @@ final class APIResponseHandlerTest: XCTestCase {
 
     func test_handle_whenResponseIsFailureWithValidAPIError_callsCompletionWithAPIError() {
         let error = NSError(domain: "error", code: NSURLErrorUnknown, userInfo: nil)
-        let apiError = APIError(statusCode: 333, name: "error", message: "error_message")
+        let apiError = APIError(statusCode: 333, name: "error", message: "error_message", conflict: nil)
         let expectedError = APIResponseError.apiRequestError(apiError)
         let dataResponse = DataResponseMock.dataForValid(apiError: apiError, error: error)
 
