@@ -32,7 +32,7 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     private func setUpAPIConfiguration() {
-        guard let apiConfiguration = try? APIConfiguration() else { fatalError("Could not retrieve API configuration") }
+        guard let apiConfiguration = try? APIConfiguration(mode: .Staging) else { fatalError("Could not retrieve API configuration") }
         ServiceLocator.resourceConfigurator = ResourceConfiguratorFactory.make(using: apiConfiguration)
     }
 
