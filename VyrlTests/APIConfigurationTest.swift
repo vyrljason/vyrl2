@@ -11,6 +11,8 @@ final class APIConfigurationTest: XCTestCase {
         static let production = "Production"
         static let mainBaseURL = "MainBaseURL"
         static let influencersBaseURL = "InfluencersBaseURL"
+        static let FAQURL = "FAQ"
+        static let ToSURL = "ToS"
     }
     private enum Constants {
         static let testConfigurationFilename = "TestConfiguration"
@@ -45,38 +47,70 @@ final class APIConfigurationTest: XCTestCase {
     }
 
     func test_mainBaseURL_WhenModeIsStagingReturnValue() {
-        guard let mainBaseURLString = plistStaging?[DictionaryKeys.mainBaseURL] else { XCTFail(); return }
-        let expectedResult = URL(string: mainBaseURLString)
+        guard let urlString = plistStaging?[DictionaryKeys.mainBaseURL] else { XCTFail(); return }
+        let expectedResult = URL(string: urlString)
 
         XCTAssertEqual(stagingConfiguration?.mainBaseURL, expectedResult)
     }
 
     func test_mainBaseURL_whenModeIsProduction_ReturnValue() {
-        guard let mainBaseURLString = plistProduction?[DictionaryKeys.mainBaseURL] else { XCTFail(); return }
-        let expectedResult = URL(string: mainBaseURLString)
+        guard let urlString = plistProduction?[DictionaryKeys.mainBaseURL] else { XCTFail(); return }
+        let expectedResult = URL(string: urlString)
 
         XCTAssertEqual(productionConfiguration?.mainBaseURL, expectedResult)
     }
 
     func test_influencersBaseURL_WhenModeIsStagingReturnValue() {
-        guard let influencersBaseURLString = plistStaging?[DictionaryKeys.influencersBaseURL] else { XCTFail(); return }
-        let expectedResult = URL(string: influencersBaseURLString)
+        guard let urlString = plistStaging?[DictionaryKeys.influencersBaseURL] else { XCTFail(); return }
+        let expectedResult = URL(string: urlString)
 
         XCTAssertEqual(stagingConfiguration?.influencersBaseURL, expectedResult)
     }
 
     func test_influencersBaseURL_whenModeIsProduction_ReturnValue() {
-        guard let influencersBaseURLString = plistProduction?[DictionaryKeys.influencersBaseURL] else { XCTFail(); return }
-        let expectedResult = URL(string: influencersBaseURLString)
+        guard let urlString = plistProduction?[DictionaryKeys.influencersBaseURL] else { XCTFail(); return }
+        let expectedResult = URL(string: urlString)
 
         XCTAssertEqual(productionConfiguration?.influencersBaseURL, expectedResult)
     }
 
+    func test_faqURL_WhenModeIsStagingReturnValue() {
+        guard let urlString = plistStaging?[DictionaryKeys.FAQURL] else { XCTFail(); return }
+        let expectedResult = URL(string: urlString)
+
+        XCTAssertEqual(stagingConfiguration?.faqURL, expectedResult)
+    }
+
+    func test_faqURL_whenModeIsProduction_ReturnValue() {
+        guard let urlString = plistProduction?[DictionaryKeys.FAQURL] else { XCTFail(); return }
+        let expectedResult = URL(string: urlString)
+
+        XCTAssertEqual(productionConfiguration?.faqURL, expectedResult)
+    }
+
+    func test_tosURL_WhenModeIsStagingReturnValue() {
+        guard let urlString = plistStaging?[DictionaryKeys.ToSURL] else { XCTFail(); return }
+        let expectedResult = URL(string: urlString)
+
+        XCTAssertEqual(stagingConfiguration?.tosURL, expectedResult)
+    }
+
+    func test_tosURL_whenModeIsProduction_ReturnValue() {
+        guard let urlString = plistProduction?[DictionaryKeys.ToSURL] else { XCTFail(); return }
+        let expectedResult = URL(string: urlString)
+
+        XCTAssertEqual(productionConfiguration?.tosURL, expectedResult)
+    }
+
     func test_init_WithNoMainBaseURL_throwsError() {
-        XCTAssertThrowsError(try APIConfiguration(bundle: Bundle(for: type(of: self)), plistName: Constants.emptyConfigurationFilename))
+        XCTAssertThrowsError(try APIConfiguration(bundle: Bundle(for: type(of: self)),
+                                                  plistName: Constants.emptyConfigurationFilename,
+                                                  mode: .Staging))
     }
 
     func test_init_WithNoExisitingPlist_throwsError() {
-        XCTAssertThrowsError(try APIConfiguration(bundle: Bundle(for: type(of: self)), plistName: Constants.fakeConfigurationFilename))
+        XCTAssertThrowsError(try APIConfiguration(bundle: Bundle(for: type(of: self)),
+                                                  plistName: Constants.fakeConfigurationFilename,
+                                                  mode: .Staging))
     }
 }

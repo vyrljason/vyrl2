@@ -8,9 +8,17 @@
 		<string>https://api-dev.govyrl.io</string>
 		<key>MainBaseURL</key>
 		<string>http://54.193.54.182/api</string>
+		<key>FAQ</key>
+		<string>https://s3-us-west-1.amazonaws.com/vyrl-mobile/web/faq.html</string>
+		<key>ToS</key>
+		<string>https://s3-us-west-1.amazonaws.com/vyrl-mobile/web/tos_privacy.html</string>
 	</dict>
 	<key>Production</key>
 	<dict>
+		<key>FAQ</key>
+		<string></string>
+		<key>ToS</key>
+		<string></string>
 		<key>InfluencersBaseURL</key>
 		<string></string>
 		<key>MainBaseURL</key>

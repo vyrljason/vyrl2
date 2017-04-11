@@ -340,6 +340,11 @@
 		858D64451E587D3F00CFDD4C /* DispatchQueue+OnMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858D64441E587D3F00CFDD4C /* DispatchQueue+OnMain.swift */; };
 		858D64471E58A4C000CFDD4C /* CollectionViewRefreshing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858D64461E58A4C000CFDD4C /* CollectionViewRefreshing.swift */; };
 		858D644A1E58A67200CFDD4C /* EmptyCollectionViewHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858D64491E58A67200CFDD4C /* EmptyCollectionViewHandler.swift */; };
+		858F76E01E9CCAE6005FDF6A /* WebViewControllerBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858F76DF1E9CCAE6005FDF6A /* WebViewControllerBuilder.swift */; };
+		858F76E21E9CCAFA005FDF6A /* WebViewInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858F76E11E9CCAFA005FDF6A /* WebViewInteractor.swift */; };
+		858F76E41E9CCB0F005FDF6A /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858F76E31E9CCB0F005FDF6A /* WebViewController.swift */; };
+		858F76E61E9CCB30005FDF6A /* WebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 858F76E51E9CCB30005FDF6A /* WebViewController.xib */; };
+		858F76EB1E9CD226005FDF6A /* WebViewInteractorTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858F76EA1E9CD226005FDF6A /* WebViewInteractorTest.swift */; };
 		8597AB541E89B78C00A64585 /* ChatDatabaseAccessing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8597AB531E89B78C00A64585 /* ChatDatabaseAccessing.swift */; };
 		8597AB611E8A59F700A64585 /* MessagesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8597AB5F1E8A59D100A64585 /* MessagesService.swift */; };
 		8597AB641E8A5A0C00A64585 /* MessagesResourceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8597AB621E8A5A0A00A64585 /* MessagesResourceMock.swift */; };
@@ -831,6 +836,11 @@
 		858D64441E587D3F00CFDD4C /* DispatchQueue+OnMain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DispatchQueue+OnMain.swift"; sourceTree = "<group>"; };
 		858D64461E58A4C000CFDD4C /* CollectionViewRefreshing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewRefreshing.swift; sourceTree = "<group>"; };
 		858D64491E58A67200CFDD4C /* EmptyCollectionViewHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmptyCollectionViewHandler.swift; sourceTree = "<group>"; };
+		858F76DF1E9CCAE6005FDF6A /* WebViewControllerBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewControllerBuilder.swift; sourceTree = "<group>"; };
+		858F76E11E9CCAFA005FDF6A /* WebViewInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewInteractor.swift; sourceTree = "<group>"; };
+		858F76E31E9CCB0F005FDF6A /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
+		858F76E51E9CCB30005FDF6A /* WebViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WebViewController.xib; sourceTree = "<group>"; };
+		858F76EA1E9CD226005FDF6A /* WebViewInteractorTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewInteractorTest.swift; sourceTree = "<group>"; };
 		8597AB531E89B78C00A64585 /* ChatDatabaseAccessing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatDatabaseAccessing.swift; sourceTree = "<group>"; };
 		8597AB5F1E8A59D100A64585 /* MessagesService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagesService.swift; sourceTree = "<group>"; };
 		8597AB621E8A5A0A00A64585 /* MessagesResourceMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagesResourceMock.swift; sourceTree = "<group>"; };
@@ -2437,6 +2447,7 @@
 		858D64211E573D2700CFDD4C /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				858F76E81E9CD214005FDF6A /* Shared */,
 				8572E4D51E7AC7C50042160D /* Chat */,
 				85DCFC291E767F900046D0D5 /* ContactInfo.swift */,
 				853A833C1E71B939006EBA8C /* ShippingDetails */,
@@ -2570,6 +2581,65 @@
 			name = Other;
 			sourceTree = "<group>";
 		};
+		858F76DB1E9CCABC005FDF6A /* WebViewController */ = {
+			isa = PBXGroup;
+			children = (
+				858F76E71E9CCB6B005FDF6A /* Model */,
+				858F76DE1E9CCADA005FDF6A /* Views */,
+				858F76DD1E9CCAD4005FDF6A /* Interactors */,
+				858F76DC1E9CCACF005FDF6A /* Builders */,
+			);
+			name = WebViewController;
+			sourceTree = "<group>";
+		};
+		858F76DC1E9CCACF005FDF6A /* Builders */ = {
+			isa = PBXGroup;
+			children = (
+				858F76DF1E9CCAE6005FDF6A /* WebViewControllerBuilder.swift */,
+			);
+			name = Builders;
+			sourceTree = "<group>";
+		};
+		858F76DD1E9CCAD4005FDF6A /* Interactors */ = {
+			isa = PBXGroup;
+			children = (
+				858F76E11E9CCAFA005FDF6A /* WebViewInteractor.swift */,
+			);
+			name = Interactors;
+			sourceTree = "<group>";
+		};
+		858F76DE1E9CCADA005FDF6A /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				858F76E31E9CCB0F005FDF6A /* WebViewController.swift */,
+				858F76E51E9CCB30005FDF6A /* WebViewController.xib */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		858F76E71E9CCB6B005FDF6A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		858F76E81E9CD214005FDF6A /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				858F76E91E9CD218005FDF6A /* WebViewController */,
+			);
+			name = Shared;
+			sourceTree = "<group>";
+		};
+		858F76E91E9CD218005FDF6A /* WebViewController */ = {
+			isa = PBXGroup;
+			children = (
+				858F76EA1E9CD226005FDF6A /* WebViewInteractorTest.swift */,
+			);
+			name = WebViewController;
+			sourceTree = "<group>";
+		};
 		859377C01E94C32A007C10DF /* Service */ = {
 			isa = PBXGroup;
 			children = (
@@ -2638,6 +2708,7 @@
 		85B60D551E8DC81C007F129F /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				858F76DB1E9CCABC005FDF6A /* WebViewController */,
 				85B60D561E8DC822007F129F /* Model */,
 			);
 			name = Shared;
@@ -3154,6 +3225,7 @@
 				31FEB5B91E5D952600C5E41D /* BrandStoreCell.xib in Resources */,
 				C414B2671E8BC5E5002F973E /* MessagesFooterView.xib in Resources */,
 				31B079321E709FF20015C302 /* SwipeableGalleryTableCell.xib in Resources */,
+				858F76E61E9CCB30005FDF6A /* WebViewController.xib in Resources */,
 				852ACD4D1E55DE1500219E90 /* BrandCell.xib in Resources */,
 				1ADAF7CF1E545F3C00155D9F /* Assets.xcassets in Resources */,
 				31EF22E81E664C180073F624 /* ProductDetailsViewController.xib in Resources */,
@@ -3368,6 +3440,7 @@
 				853859A91E607F450098D1EB /* DiscoveryFilterSettings.swift in Sources */,
 				850A81041E5F1FCF00E684A3 /* SessionManaging.swift in Sources */,
 				8572E4E51E7AE2E80042160D /* ChatTokenEndpoint.swift in Sources */,
+				858F76E41E9CCB0F005FDF6A /* WebViewController.swift in Sources */,
 				31EF22EF1E676E380073F624 /* ProductDetailsInteractor.swift in Sources */,
 				31B0794F1E7732CE0015C302 /* ChatNavigation.swift in Sources */,
 				8597AB671E8ADF5900A64585 /* Array+DictionaryInitializable.swift in Sources */,
@@ -3491,6 +3564,7 @@
 				858D63E01E55F19A00CFDD4C /* ImageFetcher.swift in Sources */,
 				850A80D31E5DE69200E684A3 /* APICredentialsProvider.swift in Sources */,
 				31EF231E1E68BD700073F624 /* AddToCartTableCellRenderable.swift in Sources */,
+				858F76E01E9CCAE6005FDF6A /* WebViewControllerBuilder.swift in Sources */,
 				858D64141E57121600CFDD4C /* BrandsRenderable.swift in Sources */,
 				85CF95EB1E94E72B00EBDEC2 /* ContentStatus.swift in Sources */,
 				85EEA4A21E93E08400D04704 /* PostImageEndpoint.swift in Sources */,
@@ -3604,6 +3678,7 @@
 				8572E4B51E799E0D0042160D /* DataLoadingEventsListener.swift in Sources */,
 				1AA7FAA01E6885FE001C0B6F /* Autolayout.swift in Sources */,
 				853859951E6029050098D1EB /* RegisterEndpoint.swift in Sources */,
+				858F76E21E9CCAFA005FDF6A /* WebViewInteractor.swift in Sources */,
 				1AA7FAAA1E69A47B001C0B6F /* CartNavigation.swift in Sources */,
 				8554BE761E682AC900E05A37 /* ParametrizedService.swift in Sources */,
 				C4BDA4301E7FD7720009BB67 /* MessagesViewController.swift in Sources */,
@@ -3626,6 +3701,7 @@
 			files = (
 				1A859C191E5899D80013EB09 /* RootNavigationControllingMock.swift in Sources */,
 				8597AB6D1E8C848D00A64585 /* ChatDatabaseMock.swift in Sources */,
+				858F76EB1E9CD226005FDF6A /* WebViewInteractorTest.swift in Sources */,
 				8572E4DC1E7AC9220042160D /* CollabsServiceTest.swift in Sources */,
 				85B0A8431E672ED0002093BA /* HTTPClientMock.swift in Sources */,
 				8572E4D81E7AC7F60042160D /* CollabsDataSourceTest.swift in Sources */,

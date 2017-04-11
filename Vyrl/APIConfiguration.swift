@@ -15,14 +15,18 @@ enum ConfigurationMode: String, CustomStringConvertible {
 
 enum ConfigurationError: Error {
     case noConfigurationFile
-    case noBaseURL
-    case noAlternativeBaseURL
+    case noBaseLink
+    case noAlternativeBaseLink
+    case noFAQLink
+    case noToSLink
 }
 
 protocol APIConfigurationHaving {
     var mainBaseURL: URL { get }
     var influencersBaseURL: URL { get }
     var mode: ConfigurationMode { get }
+    var faqURL: URL { get }
+    var tosURL: URL { get }
 }
 
 final class APIConfiguration: APIConfigurationHaving {
@@ -32,6 +36,8 @@ final class APIConfiguration: APIConfigurationHaving {
         static let mainBaseURL = "MainBaseURL"
         static let influencersBaseURL = "InfluencersBaseURL"
         static let defaultFileType = "plist"
+        static let faqURL = "FAQ"
+        static let tosURL = "ToS"
     }
 
     private let configuration: [String: String]
@@ -39,10 +45,12 @@ final class APIConfiguration: APIConfigurationHaving {
     let mode: ConfigurationMode
     let mainBaseURL: URL
     let influencersBaseURL: URL
+    let faqURL: URL
+    let tosURL: URL
 
     init(bundle: Bundle = Bundle.main,
          plistName: String = ConfigurationKeys.configurationFile,
-         mode: ConfigurationMode = .Staging) throws {
+         mode: ConfigurationMode) throws {
         guard let resourcePath = bundle.path(forResource: plistName,
                                              ofType: ConfigurationKeys.defaultFileType),
             let baseConfiguration = NSDictionary(contentsOfFile: resourcePath) as? [String: Any],
@@ -51,12 +59,22 @@ final class APIConfiguration: APIConfigurationHaving {
         self.configuration = configuration
         self.mode = mode
         guard let mainBaseURLString = configuration[ConfigurationKeys.mainBaseURL], let mainBaseURL = URL(string: mainBaseURLString) else {
-            throw ConfigurationError.noBaseURL
+            throw ConfigurationError.noBaseLink
         }
         self.mainBaseURL = mainBaseURL
         guard let influencersBaseURLString = configuration[ConfigurationKeys.influencersBaseURL], let influencersBaseURL = URL(string: influencersBaseURLString) else {
-            throw ConfigurationError.noAlternativeBaseURL
+            throw ConfigurationError.noAlternativeBaseLink
         }
         self.influencersBaseURL = influencersBaseURL
+
+        guard let faqURLString = configuration[ConfigurationKeys.faqURL], let faqURL = URL(string: faqURLString) else {
+            throw ConfigurationError.noFAQLink
+        }
+        self.faqURL = faqURL
+
+        guard let tosURLString = configuration[ConfigurationKeys.tosURL], let tosURL = URL(string: tosURLString) else {
+            throw ConfigurationError.noToSLink
+        }
+        self.tosURL = tosURL
     }
 }
