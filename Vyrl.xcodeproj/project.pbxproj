@@ -442,6 +442,8 @@
 		C450FA881E8A778D00A63414 /* SystemMessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C450FA861E8A778D00A63414 /* SystemMessageCell.swift */; };
 		C450FA891E8A778D00A63414 /* SystemMessageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C450FA871E8A778D00A63414 /* SystemMessageCell.xib */; };
 		C451A5761E8DAD3B00DFE5F7 /* MessagesFooterViewSnapshotTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C451A5751E8DAD3B00DFE5F7 /* MessagesFooterViewSnapshotTest.swift */; };
+		C47A7E821E9CAC9C0088E578 /* AccountViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C47A7E811E9CAC9C0088E578 /* AccountViewController.xib */; };
+		C47A7E841E9CCEFD0088E578 /* UIView+Gradients.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47A7E831E9CCEFD0088E578 /* UIView+Gradients.swift */; };
 		C47B0ED31E950616005A687F /* SuccessMessagesFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47B0ED21E950616005A687F /* SuccessMessagesFooterView.swift */; };
 		C47B0ED51E950639005A687F /* SuccessMessagesFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C47B0ED41E950639005A687F /* SuccessMessagesFooterView.xib */; };
 		C47B0ED71E950EDF005A687F /* SuccessMessagesFooterViewSnapshotTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47B0ED61E950EDF005A687F /* SuccessMessagesFooterViewSnapshotTest.swift */; };
@@ -934,6 +936,8 @@
 		C450FA861E8A778D00A63414 /* SystemMessageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SystemMessageCell.swift; sourceTree = "<group>"; };
 		C450FA871E8A778D00A63414 /* SystemMessageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SystemMessageCell.xib; sourceTree = "<group>"; };
 		C451A5751E8DAD3B00DFE5F7 /* MessagesFooterViewSnapshotTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagesFooterViewSnapshotTest.swift; sourceTree = "<group>"; };
+		C47A7E811E9CAC9C0088E578 /* AccountViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AccountViewController.xib; sourceTree = "<group>"; };
+		C47A7E831E9CCEFD0088E578 /* UIView+Gradients.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Gradients.swift"; sourceTree = "<group>"; };
 		C47B0ED21E950616005A687F /* SuccessMessagesFooterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuccessMessagesFooterView.swift; sourceTree = "<group>"; };
 		C47B0ED41E950639005A687F /* SuccessMessagesFooterView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SuccessMessagesFooterView.xib; sourceTree = "<group>"; };
 		C47B0ED61E950EDF005A687F /* SuccessMessagesFooterViewSnapshotTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuccessMessagesFooterViewSnapshotTest.swift; sourceTree = "<group>"; };
@@ -1071,6 +1075,7 @@
 			isa = PBXGroup;
 			children = (
 				1A1FA9631E5F4D19007EB61D /* AccountViewController.swift */,
+				C47A7E811E9CAC9C0088E578 /* AccountViewController.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -2552,6 +2557,7 @@
 				C414B25E1E8A7C4B002F973E /* UIView+IBInspectables.swift */,
 				8597AB661E8ADF5900A64585 /* Array+DictionaryInitializable.swift */,
 				855AD6D51E8CF81500B9523D /* String+Trim.swift */,
+				C47A7E831E9CCEFD0088E578 /* UIView+Gradients.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -3165,6 +3171,7 @@
 				1AEBB9741E608AA300113DC9 /* CartViewController.xib in Resources */,
 				1A1FA93A1E5D94FE007EB61D /* CategoryCell.xib in Resources */,
 				85DCFC201E75BC420046D0D5 /* ContactInfoViewController.xib in Resources */,
+				C47A7E821E9CAC9C0088E578 /* AccountViewController.xib in Resources */,
 				31EF230D1E67AF5F0073F624 /* CenteredWithDetailTableCell.xib in Resources */,
 				31EF23341E69A8A90073F624 /* TableHeaderCell.xib in Resources */,
 				8554BEC01E69C99200E05A37 /* ShippingAddressViewController.xib in Resources */,
@@ -3409,6 +3416,7 @@
 				850A80CF1E5DCABA00E684A3 /* JSONSerializationProtocol.swift in Sources */,
 				85CA3FF11E648A3400D43805 /* FormField.swift in Sources */,
 				8572E4E91E7AE44C0042160D /* ChatTokenResource.swift in Sources */,
+				C47A7E841E9CCEFD0088E578 /* UIView+Gradients.swift in Sources */,
 				31B079581E773CB90015C302 /* CollabsViewControllerFactory.swift in Sources */,
 				31EF22F11E67742C0073F624 /* TableViewDataProviding.swift in Sources */,
 				31B0793B1E70A7370015C302 /* SwipeableGalleryItemCell.swift in Sources */,
