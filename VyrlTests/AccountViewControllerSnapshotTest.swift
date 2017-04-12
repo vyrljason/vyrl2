@@ -6,7 +6,7 @@
 import XCTest
 
 final class AccountInteractorMock: AccountInteracting, ApplicationSharing {
-    weak var viewController: AccountControlling?
+    weak var controller: AccountControlling?
     weak var activityLoaderPresenter: ActivityLoaderPresenting?
     weak var errorPresenter: ErrorAlertPresenting?
     

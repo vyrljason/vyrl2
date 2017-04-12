@@ -9,7 +9,7 @@ fileprivate enum Constants {
 }
 
 protocol AccountInteracting {
-    weak var viewController: AccountControlling? { get set }
+    weak var controller: AccountControlling? { get set }
     weak var activityLoaderPresenter: ActivityLoaderPresenting? { get set }
     weak var errorPresenter: ErrorAlertPresenting? { get set }
     func didTapViewProfile()
@@ -31,7 +31,7 @@ final class AccountInteractor: AccountInteracting {
     fileprivate let userProfileService: UserProfileProviding
     fileprivate let appVersionService: AppVersionProviding
     fileprivate var userProfile: UserProfile?
-    weak var viewController: AccountControlling?
+    weak var controller: AccountControlling?
     weak var activityLoaderPresenter: ActivityLoaderPresenting?
     weak var errorPresenter: ErrorAlertPresenting?
     
@@ -89,15 +89,15 @@ final class AccountInteractor: AccountInteracting {
     
     fileprivate func setAppVersion() {
         let version = "version \(appVersionService.appVersion()) (\(appVersionService.buildVersion()))"
-        viewController?.setVersionLabel(text: version)
+        controller?.setVersionLabel(text: version)
     }
     
     fileprivate func setView(using userProfile: UserProfile) {
-        self.viewController?.setEmailStatus(emailStatus: userProfile.settings.emailNotificationsEnabled)
-        self.viewController?.setPushStatus(pushStatus: userProfile.settings.pushNotificationsEnabled)
-        self.viewController?.setInfluencerLabel(text: userProfile.username)
+        self.controller?.setEmailStatus(emailStatus: userProfile.settings.emailNotificationsEnabled)
+        self.controller?.setPushStatus(pushStatus: userProfile.settings.pushNotificationsEnabled)
+        self.controller?.setInfluencerLabel(text: userProfile.username)
         guard let avatarUrl = userProfile.avatar else { return }
-        self.viewController?.setAvatar(imageFetcher: ImageFetcher(url: avatarUrl))
+        self.controller?.setAvatar(imageFetcher: ImageFetcher(url: avatarUrl))
     }
 }
 

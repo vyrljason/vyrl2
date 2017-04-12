@@ -37,7 +37,7 @@ final class AccountViewController: UIViewController, HavingNib {
     init(interactor: AccountInteracting & ApplicationSharing) {
         self.interactor = interactor
         super.init(nibName: AccountViewController.nibName, bundle: nil)
-        self.interactor.viewController = self
+        self.interactor.controller = self
         self.interactor.errorPresenter = self
         self.interactor.activityLoaderPresenter = self
     }
