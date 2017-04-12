@@ -39,7 +39,7 @@ enum LoginError: Error {
 }
 
 protocol UserLoginProviding {
-    func login(using credentials: UserCredentials, completion: @escaping (Result<UserProfile, LoginError>) -> Void)
+    func login(using credentials: UserCredentials, completion: @escaping (Result<UserToken, LoginError>) -> Void)
 }
 
 final class LoginService: UserLoginProviding {
@@ -50,7 +50,7 @@ final class LoginService: UserLoginProviding {
         self.resource = resource
     }
 
-    func login(using credentials: UserCredentials, completion: @escaping (Result<UserProfile, LoginError>) -> Void) {
+    func login(using credentials: UserCredentials, completion: @escaping (Result<UserToken, LoginError>) -> Void) {
         resource.login(using: credentials) { result in
             completion(result.map(success: { .success($0) }, failure: { error in
                 guard case .apiRequestError(let apiError) = error else { return .failure(.unknown) }

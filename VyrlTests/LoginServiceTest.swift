@@ -10,10 +10,10 @@ final class LoginResourceMock: AuthorizingWithCredentials {
     var didCalledResource = false
     var success = true
     var credentials: UserCredentials?
-    var result = VyrlFaker.faker.userProfile()
+    var result = VyrlFaker.faker.userToken()
     var error: APIResponseError = .connectionProblem
 
-    func login(using credentials: UserCredentials, completion: @escaping (Result<UserProfile, APIResponseError>) -> Void) {
+    func login(using credentials: UserCredentials, completion: @escaping (Result<UserToken, APIResponseError>) -> Void) {
         self.credentials = credentials
         didCalledResource = true
         if success {

@@ -449,6 +449,16 @@
 		C451A5761E8DAD3B00DFE5F7 /* MessagesFooterViewSnapshotTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C451A5751E8DAD3B00DFE5F7 /* MessagesFooterViewSnapshotTest.swift */; };
 		C47A7E821E9CAC9C0088E578 /* AccountViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C47A7E811E9CAC9C0088E578 /* AccountViewController.xib */; };
 		C47A7E841E9CCEFD0088E578 /* UIView+Gradients.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47A7E831E9CCEFD0088E578 /* UIView+Gradients.swift */; };
+		C47A7E871E9CFDC30088E578 /* AccountInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47A7E861E9CFDC30088E578 /* AccountInteractor.swift */; };
+		C47A7E8A1E9DFB0E0088E578 /* UserProfileEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47A7E891E9DFB0E0088E578 /* UserProfileEndpoint.swift */; };
+		C47A7E8E1E9DFC3F0088E578 /* UserProfileResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47A7E8D1E9DFC3F0088E578 /* UserProfileResource.swift */; };
+		C47A7E901E9DFCFA0088E578 /* UserProfileResourceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47A7E8F1E9DFCFA0088E578 /* UserProfileResourceMock.swift */; };
+		C47A7E931E9DFE510088E578 /* UserProfileService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47A7E921E9DFE510088E578 /* UserProfileService.swift */; };
+		C47A7E951E9E1A8F0088E578 /* UserToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47A7E941E9E1A8F0088E578 /* UserToken.swift */; };
+		C47A7E971E9E1EC90088E578 /* AppVersionProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47A7E961E9E1EC90088E578 /* AppVersionProvider.swift */; };
+		C47A7E991E9E2DBB0088E578 /* AccountViewControllerSnapshotTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47A7E981E9E2DBB0088E578 /* AccountViewControllerSnapshotTest.swift */; };
+		C47A7E9E1E9E31140088E578 /* UserProfileResourceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47A7E9D1E9E31140088E578 /* UserProfileResourceTest.swift */; };
+		C47A7EA01E9E31240088E578 /* UserProfileServiceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47A7E9F1E9E31240088E578 /* UserProfileServiceTest.swift */; };
 		C47B0ED31E950616005A687F /* SuccessMessagesFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47B0ED21E950616005A687F /* SuccessMessagesFooterView.swift */; };
 		C47B0ED51E950639005A687F /* SuccessMessagesFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C47B0ED41E950639005A687F /* SuccessMessagesFooterView.xib */; };
 		C47B0ED71E950EDF005A687F /* SuccessMessagesFooterViewSnapshotTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47B0ED61E950EDF005A687F /* SuccessMessagesFooterViewSnapshotTest.swift */; };
@@ -948,6 +958,16 @@
 		C451A5751E8DAD3B00DFE5F7 /* MessagesFooterViewSnapshotTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagesFooterViewSnapshotTest.swift; sourceTree = "<group>"; };
 		C47A7E811E9CAC9C0088E578 /* AccountViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AccountViewController.xib; sourceTree = "<group>"; };
 		C47A7E831E9CCEFD0088E578 /* UIView+Gradients.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Gradients.swift"; sourceTree = "<group>"; };
+		C47A7E861E9CFDC30088E578 /* AccountInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountInteractor.swift; sourceTree = "<group>"; };
+		C47A7E891E9DFB0E0088E578 /* UserProfileEndpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfileEndpoint.swift; sourceTree = "<group>"; };
+		C47A7E8D1E9DFC3F0088E578 /* UserProfileResource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfileResource.swift; sourceTree = "<group>"; };
+		C47A7E8F1E9DFCFA0088E578 /* UserProfileResourceMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfileResourceMock.swift; sourceTree = "<group>"; };
+		C47A7E921E9DFE510088E578 /* UserProfileService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfileService.swift; sourceTree = "<group>"; };
+		C47A7E941E9E1A8F0088E578 /* UserToken.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserToken.swift; sourceTree = "<group>"; };
+		C47A7E961E9E1EC90088E578 /* AppVersionProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppVersionProvider.swift; sourceTree = "<group>"; };
+		C47A7E981E9E2DBB0088E578 /* AccountViewControllerSnapshotTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountViewControllerSnapshotTest.swift; sourceTree = "<group>"; };
+		C47A7E9D1E9E31140088E578 /* UserProfileResourceTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfileResourceTest.swift; sourceTree = "<group>"; };
+		C47A7E9F1E9E31240088E578 /* UserProfileServiceTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfileServiceTest.swift; sourceTree = "<group>"; };
 		C47B0ED21E950616005A687F /* SuccessMessagesFooterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuccessMessagesFooterView.swift; sourceTree = "<group>"; };
 		C47B0ED41E950639005A687F /* SuccessMessagesFooterView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SuccessMessagesFooterView.xib; sourceTree = "<group>"; };
 		C47B0ED61E950EDF005A687F /* SuccessMessagesFooterViewSnapshotTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuccessMessagesFooterViewSnapshotTest.swift; sourceTree = "<group>"; };
@@ -1067,6 +1087,9 @@
 		1A1FA95E1E5F2E3B007EB61D /* Account */ = {
 			isa = PBXGroup;
 			children = (
+				C47A7E911E9DFE3B0088E578 /* Services */,
+				C47A7E881E9DFAC90088E578 /* Resources */,
+				C47A7E851E9CFDAF0088E578 /* Interactors */,
 				1A1FA9621E5F4D0B007EB61D /* Views */,
 				1A1FA95F1E5F2E44007EB61D /* Factories */,
 			);
@@ -1848,6 +1871,7 @@
 				85A2A8091E7B4C3900271871 /* StoredRepository.swift */,
 				85A2A80E1E7B4E7100271871 /* KeychainConstants.swift */,
 				8507FED41E8E318900C0711B /* ImageToDataConverter.swift */,
+				C47A7E961E9E1EC90088E578 /* AppVersionProvider.swift */,
 			);
 			name = Common;
 			sourceTree = "<group>";
@@ -1920,6 +1944,7 @@
 				853859A61E607E420098D1EB /* UserSettings.swift */,
 				853859A81E607F450098D1EB /* DiscoveryFilterSettings.swift */,
 				8538599F1E6076570098D1EB /* UserProfile.swift */,
+				C47A7E941E9E1A8F0088E578 /* UserToken.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -2447,6 +2472,7 @@
 		858D64211E573D2700CFDD4C /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				C47A7E9A1E9E30920088E578 /* Account */,
 				858F76E81E9CD214005FDF6A /* Shared */,
 				8572E4D51E7AC7C50042160D /* Chat */,
 				85DCFC291E767F900046D0D5 /* ContactInfo.swift */,
@@ -2516,6 +2542,7 @@
 				C44C3FF71E930038005F776E /* ComposeViewControllerSnapshotTest.swift */,
 				C44C3FFD1E93BE4C005F776E /* InfluencerMediaMessageCellSnapshotTest.swift */,
 				C47B0ED61E950EDF005A687F /* SuccessMessagesFooterViewSnapshotTest.swift */,
+				C47A7E981E9E2DBB0088E578 /* AccountViewControllerSnapshotTest.swift */,
 			);
 			name = SnapshotTest;
 			sourceTree = "<group>";
@@ -2937,6 +2964,57 @@
 				C44C3FF51E92F9EA005F776E /* ComposeInteractorTest.swift */,
 			);
 			name = Interactors;
+			sourceTree = "<group>";
+		};
+		C47A7E851E9CFDAF0088E578 /* Interactors */ = {
+			isa = PBXGroup;
+			children = (
+				C47A7E861E9CFDC30088E578 /* AccountInteractor.swift */,
+			);
+			name = Interactors;
+			sourceTree = "<group>";
+		};
+		C47A7E881E9DFAC90088E578 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				C47A7E891E9DFB0E0088E578 /* UserProfileEndpoint.swift */,
+				C47A7E8D1E9DFC3F0088E578 /* UserProfileResource.swift */,
+				C47A7E8F1E9DFCFA0088E578 /* UserProfileResourceMock.swift */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		C47A7E911E9DFE3B0088E578 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				C47A7E921E9DFE510088E578 /* UserProfileService.swift */,
+			);
+			name = Services;
+			sourceTree = "<group>";
+		};
+		C47A7E9A1E9E30920088E578 /* Account */ = {
+			isa = PBXGroup;
+			children = (
+				C47A7E9C1E9E30D80088E578 /* Resources */,
+				C47A7E9B1E9E30C90088E578 /* Service */,
+			);
+			name = Account;
+			sourceTree = "<group>";
+		};
+		C47A7E9B1E9E30C90088E578 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				C47A7E9F1E9E31240088E578 /* UserProfileServiceTest.swift */,
+			);
+			name = Service;
+			sourceTree = "<group>";
+		};
+		C47A7E9C1E9E30D80088E578 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				C47A7E9D1E9E31140088E578 /* UserProfileResourceTest.swift */,
+			);
+			name = Resources;
 			sourceTree = "<group>";
 		};
 		C47E31C61E921EF2009ED817 /* Factories */ = {
@@ -3454,6 +3532,7 @@
 				1AA7FAA81E699D07001C0B6F /* CheckoutInteractor.swift in Sources */,
 				85EEA4AB1E93F8C200D04704 /* InstagramPost.swift in Sources */,
 				853859A01E6076570098D1EB /* UserProfile.swift in Sources */,
+				C47A7E901E9DFCFA0088E578 /* UserProfileResourceMock.swift in Sources */,
 				858D641E1E572C4300CFDD4C /* APIResponseError.swift in Sources */,
 				854AE01E1E9249AC00B0F322 /* ChatRoomUpdater.swift in Sources */,
 				85CA3FDA1E6477D100D43805 /* LoginViewController.swift in Sources */,
@@ -3471,6 +3550,7 @@
 				8538599C1E606DA90098D1EB /* Dictionary+Operations.swift in Sources */,
 				31B079541E7736EF0015C302 /* CollabsViewController.swift in Sources */,
 				31B0792E1E6F7A650015C302 /* UITextView+RemoveInsets.swift in Sources */,
+				C47A7E871E9CFDC30088E578 /* AccountInteractor.swift in Sources */,
 				85DCFC221E75BC630046D0D5 /* ContactInfoFormFactory.swift in Sources */,
 				C4E25A001E92709B003E1AB7 /* ImagePicking.swift in Sources */,
 				31B079611E780C720015C302 /* CollabsInteractor.swift in Sources */,
@@ -3563,6 +3643,7 @@
 				858D64181E5722C900CFDD4C /* BrandsResourceMock.swift in Sources */,
 				858D63E01E55F19A00CFDD4C /* ImageFetcher.swift in Sources */,
 				850A80D31E5DE69200E684A3 /* APICredentialsProvider.swift in Sources */,
+				C47A7E8E1E9DFC3F0088E578 /* UserProfileResource.swift in Sources */,
 				31EF231E1E68BD700073F624 /* AddToCartTableCellRenderable.swift in Sources */,
 				858F76E01E9CCAE6005FDF6A /* WebViewControllerBuilder.swift in Sources */,
 				858D64141E57121600CFDD4C /* BrandsRenderable.swift in Sources */,
@@ -3607,6 +3688,7 @@
 				855AD6E21E8D00EE00B9523D /* EmptyResponse.swift in Sources */,
 				850A80FB1E5EE8DF00E684A3 /* APIResource.swift in Sources */,
 				8554BE8B1E6879A500E05A37 /* ProductsEndpoint.swift in Sources */,
+				C47A7E951E9E1A8F0088E578 /* UserToken.swift in Sources */,
 				850A80F91E5EE88F00E684A3 /* ResourceConfigurator.swift in Sources */,
 				853859A31E607DB00098D1EB /* Industry.swift in Sources */,
 				858D64451E587D3F00CFDD4C /* DispatchQueue+OnMain.swift in Sources */,
@@ -3624,6 +3706,7 @@
 				855AD6DD1E8CF8FA00B9523D /* PostMessageEndpoint.swift in Sources */,
 				31EF22F51E677E310073F624 /* TableViewHaving.swift in Sources */,
 				85DCFC1A1E75BC240046D0D5 /* ContactInfoInteractor.swift in Sources */,
+				C47A7E8A1E9DFB0E0088E578 /* UserProfileEndpoint.swift in Sources */,
 				858D644A1E58A67200CFDD4C /* EmptyCollectionViewHandler.swift in Sources */,
 				85603F7D1E88EE600062485E /* ChatSigningIn.swift in Sources */,
 				85A2A80F1E7B4E7100271871 /* KeychainConstants.swift in Sources */,
@@ -3671,12 +3754,14 @@
 				853A83391E717CAC006EBA8C /* ShippingAddressFormFactory.swift in Sources */,
 				858D64051E56089B00CFDD4C /* BrandsDataSource.swift in Sources */,
 				1AA7FAB51E69CB3E001C0B6F /* OrderProposalEndpoint.swift in Sources */,
+				C47A7E971E9E1EC90088E578 /* AppVersionProvider.swift in Sources */,
 				85DCFC491E7814360046D0D5 /* NotificationPosting.swift in Sources */,
 				1AA7FAB61E69CB3E001C0B6F /* OrderProposalResource.swift in Sources */,
 				858D64091E560EBC00CFDD4C /* CollectionViewControlling.swift in Sources */,
 				8538599A1E606BFD0098D1EB /* VyrlServerTrustPolicyManager.swift in Sources */,
 				8572E4B51E799E0D0042160D /* DataLoadingEventsListener.swift in Sources */,
 				1AA7FAA01E6885FE001C0B6F /* Autolayout.swift in Sources */,
+				C47A7E931E9DFE510088E578 /* UserProfileService.swift in Sources */,
 				853859951E6029050098D1EB /* RegisterEndpoint.swift in Sources */,
 				858F76E21E9CCAFA005FDF6A /* WebViewInteractor.swift in Sources */,
 				1AA7FAAA1E69A47B001C0B6F /* CartNavigation.swift in Sources */,
@@ -3711,6 +3796,7 @@
 				8554BEB71E69C3E300E05A37 /* ProductsServiceTest.swift in Sources */,
 				1A3121761E65E22900F71925 /* CartStorageTests.swift in Sources */,
 				853771981E5C46AB00E693AD /* BrandsNavigationTest.swift in Sources */,
+				C47A7EA01E9E31240088E578 /* UserProfileServiceTest.swift in Sources */,
 				85B0A82E1E66AEE0002093BA /* LoginInteractorTest.swift in Sources */,
 				8572E4DA1E7AC8000042160D /* CollabsInteractorTest.swift in Sources */,
 				31EF23111E67BDFD0073F624 /* CenteredWithDetailTableCellTest.swift in Sources */,
@@ -3721,6 +3807,7 @@
 				850A81061E5F219C00E684A3 /* HTTPClientTest.swift in Sources */,
 				1A31216B1E659E0E00F71925 /* CartInteractorTests.swift in Sources */,
 				1A31217A1E66260D00F71925 /* CartItemCellSnapshotTests.swift in Sources */,
+				C47A7E991E9E2DBB0088E578 /* AccountViewControllerSnapshotTest.swift in Sources */,
 				85EEA49A1E93817900D04704 /* ChatPresenceServiceTest.swift in Sources */,
 				8572E4E01E7ACC040042160D /* DataUpdateListenerMock.swift in Sources */,
 				85CA3FCB1E6431B500D43805 /* APIEndpointMock.swift in Sources */,
@@ -3813,6 +3900,7 @@
 				858D64341E574B8800CFDD4C /* SnapshotTestCase.swift in Sources */,
 				1A1FA9571E5EE0D2007EB61D /* CategoriesServiceTests.swift in Sources */,
 				850A80E81E5E183000E684A3 /* MockUser.swift in Sources */,
+				C47A7E9E1E9E31140088E578 /* UserProfileResourceTest.swift in Sources */,
 				31B079401E71667B0015C302 /* ProductDetailsGalleryDataSourceTest.swift in Sources */,
 				1AA7FAAE1E69C4CA001C0B6F /* CheckoutViewControllerSnapshotTest.swift in Sources */,
 				85B0A8301E66AEE8002093BA /* LoginFormInteractorTest.swift in Sources */,

@@ -101,7 +101,6 @@ extension Faker {
                      pendingEmail: String = VyrlFaker.faker.internet.email(),
                      isPlatformConfirmed: Bool = false,
                      tagline: String = VyrlFaker.faker.lorem.characters(amount: 20),
-                     token: String = VyrlFaker.faker.lorem.characters(amount: 20),
                      username: String = VyrlFaker.faker.company.name(),
                      settings: UserSettings = VyrlFaker.faker.userSettings(),
                      instagramProfile: SocialNetworkProfile = VyrlFaker.faker.socialNetworkProfile(),
@@ -114,11 +113,13 @@ extension Faker {
                            pendingEmail: pendingEmail,
                            isPlatformConfirmed: isPlatformConfirmed,
                            tagline: tagline,
-                           token: token,
                            username: username,
                            settings: settings,
                            instagramProfile: instagramProfile,
                            industries: industries)
+    }
+    func userToken(token: String = VyrlFaker.faker.lorem.characters(amount: 20)) -> UserToken {
+        return UserToken(token: token)
     }
 }
 
