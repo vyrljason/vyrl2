@@ -10,9 +10,12 @@ protocol AccountViewControllerMaking {
 
 enum AccountViewControllerFactory: AccountViewControllerMaking {
     static func make() -> AccountViewController {
-        let account = AccountViewController()
-        account.title = "ACCOUNT" // FIXME: remove
-        account.view.backgroundColor = .white // FIXME: remove
+        let resourceController = ServiceLocator.resourceConfigurator.resourceController
+        let resource = Service<UserProfileResource>(resource: UserProfileResource(controller: resourceController))
+        let userProfileService = UserProfileService(resource: resource)
+        let appVersionService = AppVersionService()
+        let interactor = AccountInteractor(userProfileService: userProfileService, appVersionService: appVersionService)
+        let account = AccountViewController(interactor: interactor)
         return account
     }
 }

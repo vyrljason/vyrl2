@@ -5,7 +5,7 @@
 import Foundation
 
 protocol AuthorizingWithCredentials {
-    func login(using credentials: UserCredentials, completion: @escaping (Result<UserProfile, APIResponseError>) -> Void)
+    func login(using credentials: UserCredentials, completion: @escaping (Result<UserToken, APIResponseError>) -> Void)
 }
 
 final class UserLoginResource: AuthorizingWithCredentials {
@@ -16,7 +16,7 @@ final class UserLoginResource: AuthorizingWithCredentials {
         self.controller = controller
     }
 
-    func login(using credentials: UserCredentials, completion: @escaping (Result<UserProfile, APIResponseError>) -> Void) {
+    func login(using credentials: UserCredentials, completion: @escaping (Result<UserToken, APIResponseError>) -> Void) {
         let endpoint = LoginEndpoint(userCredentials: credentials)
         controller.call(endpoint: endpoint, completion: completion)
     }

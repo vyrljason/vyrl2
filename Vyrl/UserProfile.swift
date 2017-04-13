@@ -20,7 +20,6 @@ struct UserProfile {
         static let isPlatformConfirmed = "platformConfirmed"
         static let settings = "settings"
         static let tagline = "tagline"
-        static let token = "token"
         static let username = "username"
     }
     let id: Int
@@ -32,7 +31,6 @@ struct UserProfile {
     let pendingEmail: String?
     let isPlatformConfirmed: Bool
     let tagline: String
-    let token: String
     let username: String
     let settings: UserSettings
     let instagramProfile: SocialNetworkProfile?
@@ -59,7 +57,6 @@ extension UserProfile: Decodable {
                              pendingEmail: json =>? OptionalKeyPath(stringLiteral: JSONKeys.pendingEmail),
                              isPlatformConfirmed: json => KeyPath(JSONKeys.isPlatformConfirmed),
                              tagline: json => KeyPath(JSONKeys.tagline),
-                             token: json => KeyPath(JSONKeys.token),
                              username: json => KeyPath(JSONKeys.username),
                              settings: json => KeyPath(JSONKeys.settings),
                              instagramProfile: json =>? OptionalKeyPath(stringLiteral: JSONKeys.instagramProfile),

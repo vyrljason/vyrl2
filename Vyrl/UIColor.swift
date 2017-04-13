@@ -13,4 +13,5 @@ extension UIColor {
     static let greyishBrown: UIColor = #colorLiteral(red: 0.2901960784, green: 0.2901960784, blue: 0.2901960784, alpha: 1)
     static let warmGrey: UIColor = #colorLiteral(red: 0.6980392157, green: 0.6980392157, blue: 0.6980392157, alpha: 1)
     static let pinkishRed: UIColor = #colorLiteral(red: 0.8901960784, green: 0.06274509804, blue: 0.1098039216, alpha: 1)
+    static let lightGrey: UIColor = #colorLiteral(red: 0.8, green: 0.8, blue: 0.8, alpha: 1)
 }
