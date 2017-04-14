@@ -56,6 +56,7 @@ final class APIConfiguration: APIConfigurationHaving {
     let shareURL: URL
     let bugReportURL: URL
 
+    // swiftlint:disable cyclomatic_complexity
     init(bundle: Bundle = Bundle.main,
          plistName: String = ConfigurationKeys.configurationFile,
          mode: ConfigurationMode) throws {

@@ -4,7 +4,7 @@
 
 import Foundation
 
-private enum Constants  {
+private enum Constants {
     static let noChatTokenMessage = NSLocalizedString("chat.login.error.message", comment: "")
     static let chatErrorTitle = NSLocalizedString("chat.login.error.title", comment: "")
 }
