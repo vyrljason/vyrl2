@@ -53,6 +53,7 @@ final class AccountInteractor: AccountInteracting {
     weak var authorizationPresenter: AuthorizationScreenPresenting?
     weak var settingsDismisser: SettingsDismissing?
     
+    // swiftlint:disable function_parameter_count
     init(userProfileService: UserProfileProviding, appVersionService: AppVersionProviding,
          apiConfiguration: APIConfigurationHaving, updateUserSettingsService: UserSettingsUpdating,
          deleteUserService: UserDeleting, credentialsProvider: APICredentialsProviding,
