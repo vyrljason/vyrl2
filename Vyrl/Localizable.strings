@@ -39,4 +39,5 @@
 "chat.login.error.message" = "Something ham jammed while attempting to log in. Please try again.";
 "chat.login.error.title" = "Error";
 "account.share.title" = "Share VYRL";
+"account.share.text" = "Check out VYRL!";
 "account.error.failedToFetchUserProfile" = "Something ham jammed while attempting to fetch user profile. Please try again.";

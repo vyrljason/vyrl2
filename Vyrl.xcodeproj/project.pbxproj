@@ -459,6 +459,7 @@
 		C47A7E991E9E2DBB0088E578 /* AccountViewControllerSnapshotTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47A7E981E9E2DBB0088E578 /* AccountViewControllerSnapshotTest.swift */; };
 		C47A7E9E1E9E31140088E578 /* UserProfileResourceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47A7E9D1E9E31140088E578 /* UserProfileResourceTest.swift */; };
 		C47A7EA01E9E31240088E578 /* UserProfileServiceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47A7E9F1E9E31240088E578 /* UserProfileServiceTest.swift */; };
+		C47A7EA41E9E4A5F0088E578 /* SettingsNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47A7EA31E9E4A5F0088E578 /* SettingsNavigation.swift */; };
 		C47B0ED31E950616005A687F /* SuccessMessagesFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47B0ED21E950616005A687F /* SuccessMessagesFooterView.swift */; };
 		C47B0ED51E950639005A687F /* SuccessMessagesFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C47B0ED41E950639005A687F /* SuccessMessagesFooterView.xib */; };
 		C47B0ED71E950EDF005A687F /* SuccessMessagesFooterViewSnapshotTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47B0ED61E950EDF005A687F /* SuccessMessagesFooterViewSnapshotTest.swift */; };
@@ -968,6 +969,7 @@
 		C47A7E981E9E2DBB0088E578 /* AccountViewControllerSnapshotTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountViewControllerSnapshotTest.swift; sourceTree = "<group>"; };
 		C47A7E9D1E9E31140088E578 /* UserProfileResourceTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfileResourceTest.swift; sourceTree = "<group>"; };
 		C47A7E9F1E9E31240088E578 /* UserProfileServiceTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfileServiceTest.swift; sourceTree = "<group>"; };
+		C47A7EA31E9E4A5F0088E578 /* SettingsNavigation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsNavigation.swift; sourceTree = "<group>"; };
 		C47B0ED21E950616005A687F /* SuccessMessagesFooterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuccessMessagesFooterView.swift; sourceTree = "<group>"; };
 		C47B0ED41E950639005A687F /* SuccessMessagesFooterView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SuccessMessagesFooterView.xib; sourceTree = "<group>"; };
 		C47B0ED61E950EDF005A687F /* SuccessMessagesFooterViewSnapshotTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuccessMessagesFooterViewSnapshotTest.swift; sourceTree = "<group>"; };
@@ -1084,16 +1086,13 @@
 			name = Service;
 			sourceTree = "<group>";
 		};
-		1A1FA95E1E5F2E3B007EB61D /* Account */ = {
+		1A1FA95E1E5F2E3B007EB61D /* Settings */ = {
 			isa = PBXGroup;
 			children = (
-				C47A7E911E9DFE3B0088E578 /* Services */,
-				C47A7E881E9DFAC90088E578 /* Resources */,
-				C47A7E851E9CFDAF0088E578 /* Interactors */,
-				1A1FA9621E5F4D0B007EB61D /* Views */,
-				1A1FA95F1E5F2E44007EB61D /* Factories */,
+				C47A7EA11E9E49FE0088E578 /* Account */,
+				C47A7EA31E9E4A5F0088E578 /* SettingsNavigation.swift */,
 			);
-			name = Account;
+			name = Settings;
 			sourceTree = "<group>";
 		};
 		1A1FA95F1E5F2E44007EB61D /* Factories */ = {
@@ -1271,7 +1270,7 @@
 				31B0794D1E7732B20015C302 /* Chat */,
 				85CA3FD61E64778800D43805 /* Login */,
 				850A80C91E5DC17B00E684A3 /* Deserializing */,
-				1A1FA95E1E5F2E3B007EB61D /* Account */,
+				1A1FA95E1E5F2E3B007EB61D /* Settings */,
 				850A80D41E5DE7B500E684A3 /* Authorization */,
 				850A80AC1E5D977200E684A3 /* Networking */,
 				1A859C111E575E230013EB09 /* RootNavigation */,
@@ -2472,7 +2471,7 @@
 		858D64211E573D2700CFDD4C /* Modules */ = {
 			isa = PBXGroup;
 			children = (
-				C47A7E9A1E9E30920088E578 /* Account */,
+				C47A7EA21E9E4A1A0088E578 /* Settings */,
 				858F76E81E9CD214005FDF6A /* Shared */,
 				8572E4D51E7AC7C50042160D /* Chat */,
 				85DCFC291E767F900046D0D5 /* ContactInfo.swift */,
@@ -3015,6 +3014,26 @@
 				C47A7E9D1E9E31140088E578 /* UserProfileResourceTest.swift */,
 			);
 			name = Resources;
+			sourceTree = "<group>";
+		};
+		C47A7EA11E9E49FE0088E578 /* Account */ = {
+			isa = PBXGroup;
+			children = (
+				C47A7E911E9DFE3B0088E578 /* Services */,
+				C47A7E881E9DFAC90088E578 /* Resources */,
+				C47A7E851E9CFDAF0088E578 /* Interactors */,
+				1A1FA9621E5F4D0B007EB61D /* Views */,
+				1A1FA95F1E5F2E44007EB61D /* Factories */,
+			);
+			name = Account;
+			sourceTree = "<group>";
+		};
+		C47A7EA21E9E4A1A0088E578 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				C47A7E9A1E9E30920088E578 /* Account */,
+			);
+			name = Settings;
 			sourceTree = "<group>";
 		};
 		C47E31C61E921EF2009ED817 /* Factories */ = {
@@ -3774,6 +3793,7 @@
 				85EEA4A91E93F88500D04704 /* PostInstagramEndpoint.swift in Sources */,
 				85DCFC471E77FED00046D0D5 /* Array+Hashable.swift in Sources */,
 				85FA7A281E5C730800491EED /* NavigationHaving.swift in Sources */,
+				C47A7EA41E9E4A5F0088E578 /* SettingsNavigation.swift in Sources */,
 				858D64261E5747D600CFDD4C /* BrandsControllerFactory.swift in Sources */,
 				850A80C11E5DA94800E684A3 /* NetworkEnums.swift in Sources */,
 				85718EEB1E65AD8C00E9602B /* LoginFormFactory.swift in Sources */,

@@ -4,6 +4,10 @@
 <dict>
 	<key>Staging</key>
 	<dict>
+		<key>BugReportURL</key>
+		<string>http://bugreport.com</string>
+		<key>ShareURL</key>
+		<string>http://share.com</string>
 		<key>ToS</key>
 		<string>http://tos.com</string>
 		<key>FAQ</key>
@@ -15,6 +19,10 @@
 	</dict>
 	<key>Production</key>
 	<dict>
+		<key>BugReportURL</key>
+		<string>http://bugreport.com</string>
+		<key>ShareURL</key>
+		<string>http://share.com</string>
 		<key>FAQ</key>
 		<string>http://faq.production.com</string>
 		<key>ToS</key>

@@ -4,6 +4,10 @@
 <dict>
 	<key>Staging</key>
 	<dict>
+		<key>BugReportURL</key>
+		<string>https://github.com/govyrl/ios-issues/issues</string>
+		<key>ShareURL</key>
+		<string>https://itunes.apple.com/us/app/vyrl-influencer-network/id1057867611?mt=8</string>
 		<key>InfluencersBaseURL</key>
 		<string>https://api-dev.govyrl.io</string>
 		<key>MainBaseURL</key>
@@ -15,6 +19,10 @@
 	</dict>
 	<key>Production</key>
 	<dict>
+		<key>BugReportURL</key>
+		<string>https://github.com/govyrl/ios-issues/issues</string>
+		<key>ShareURL</key>
+		<string>https://itunes.apple.com/us/app/vyrl-influencer-network/id1057867611?mt=8</string>
 		<key>FAQ</key>
 		<string></string>
 		<key>ToS</key>

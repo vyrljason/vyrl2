@@ -5,16 +5,20 @@
 import UIKit
 
 protocol AccountViewControllerMaking {
-    static func make() -> AccountViewController
+    static func make(webviewPresenter: WebviewPresenting, sharePresenter: SharePresenting) -> AccountViewController
 }
 
 enum AccountViewControllerFactory: AccountViewControllerMaking {
-    static func make() -> AccountViewController {
+    static func make(webviewPresenter: WebviewPresenting, sharePresenter: SharePresenting) -> AccountViewController {
         let resourceController = ServiceLocator.resourceConfigurator.resourceController
         let resource = Service<UserProfileResource>(resource: UserProfileResource(controller: resourceController))
         let userProfileService = UserProfileService(resource: resource)
         let appVersionService = AppVersionService()
-        let interactor = AccountInteractor(userProfileService: userProfileService, appVersionService: appVersionService)
+        let apiConfiguration = ServiceLocator.resourceConfigurator.configuration
+        let interactor = AccountInteractor(userProfileService: userProfileService, appVersionService: appVersionService,
+                                           apiConfiguration: apiConfiguration)
+        interactor.webviewPresenter = webviewPresenter
+        interactor.sharePresenter = sharePresenter
         let account = AccountViewController(interactor: interactor)
         return account
     }

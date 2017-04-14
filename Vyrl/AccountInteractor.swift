@@ -6,12 +6,15 @@ import Foundation
 
 fileprivate enum Constants {
     static let failedToFetchUserProfile: String = NSLocalizedString("account.error.failedToFetchUserProfile", comment: "")
+    static let shareText: String = NSLocalizedString("account.share.text", comment: "")
 }
 
 protocol AccountInteracting {
     weak var controller: AccountControlling? { get set }
-    weak var activityLoaderPresenter: ActivityLoaderPresenting? { get set }
+    weak var activityIndicatorPresenter: ActivityIndicatorPresenter? { get set }
     weak var errorPresenter: ErrorAlertPresenting? { get set }
+    weak var webviewPresenter: WebviewPresenting? { get set }
+    weak var sharePresenter: SharePresenting? { get set }
     func didTapViewProfile()
     func didTapTermsOfService()
     func didTapFaq()
@@ -30,14 +33,19 @@ final class AccountInteractor: AccountInteracting {
     
     fileprivate let userProfileService: UserProfileProviding
     fileprivate let appVersionService: AppVersionProviding
+    fileprivate let apiConfiguration: APIConfigurationHaving
     fileprivate var userProfile: UserProfile?
     weak var controller: AccountControlling?
-    weak var activityLoaderPresenter: ActivityLoaderPresenting?
+    weak var activityIndicatorPresenter: ActivityIndicatorPresenter?
     weak var errorPresenter: ErrorAlertPresenting?
+    weak var webviewPresenter: WebviewPresenting?
+    weak var sharePresenter: SharePresenting?
     
-    init(userProfileService: UserProfileProviding, appVersionService: AppVersionProviding) {
+    init(userProfileService: UserProfileProviding, appVersionService: AppVersionProviding,
+         apiConfiguration: APIConfigurationHaving) {
         self.userProfileService = userProfileService
         self.appVersionService = appVersionService
+        self.apiConfiguration = apiConfiguration
     }
     
     func viewWillAppear() {
@@ -46,11 +54,15 @@ final class AccountInteractor: AccountInteracting {
     }
     
     func didTapFaq() {
-        
+        webviewPresenter?.presentWebview(with: apiConfiguration.faqURL, animated: true)
+    }
+    
+    func didTapTermsOfService() {
+        webviewPresenter?.presentWebview(with: apiConfiguration.tosURL, animated: true)
     }
     
     func didTapFoundABug() {
-        
+        webviewPresenter?.presentWebview(with: apiConfiguration.bugReportURL, animated: true)
     }
     
     func didTapViewProfile() {
@@ -58,10 +70,6 @@ final class AccountInteractor: AccountInteracting {
     }
     
     func didTapDeleteAccount() {
-        
-    }
-    
-    func didTapTermsOfService() {
         
     }
     
@@ -74,10 +82,10 @@ final class AccountInteractor: AccountInteracting {
     }
     
     fileprivate func fetchUserProfile() {
-        activityLoaderPresenter?.showActivityLoader()
+        activityIndicatorPresenter?.presentActivity()
         userProfileService.get { [weak self] result in
             guard let `self` = self else { return }
-            self.activityLoaderPresenter?.hideActivityLoader()
+            self.activityIndicatorPresenter?.dismissActivity()
             result.on(success: { userProfile in
                 self.userProfile = userProfile
                 self.setView(using: userProfile)
@@ -103,6 +111,6 @@ final class AccountInteractor: AccountInteracting {
 
 extension AccountInteractor: ApplicationSharing {
     func didTapShare() {
-        
+        sharePresenter?.presentShare(with: Constants.shareText, url: apiConfiguration.shareURL, animated: true)
     }
 }

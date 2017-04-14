@@ -13,6 +13,8 @@ final class APIConfigurationTest: XCTestCase {
         static let influencersBaseURL = "InfluencersBaseURL"
         static let FAQURL = "FAQ"
         static let ToSURL = "ToS"
+        static let ShareURL = "ShareURL"
+        static let BugReportURL = "BugReportURL"
     }
     private enum Constants {
         static let testConfigurationFilename = "TestConfiguration"
@@ -100,6 +102,34 @@ final class APIConfigurationTest: XCTestCase {
         let expectedResult = URL(string: urlString)
 
         XCTAssertEqual(productionConfiguration?.tosURL, expectedResult)
+    }
+    
+    func test_bugReportURL_whenModeIsProduction_ReturnValue() {
+        guard let urlString = plistProduction?[DictionaryKeys.BugReportURL] else { XCTFail(); return }
+        let expectedResult = URL(string: urlString)
+        
+        XCTAssertEqual(productionConfiguration?.bugReportURL, expectedResult)
+    }
+    
+    func test_bugReportURL_WhenModeIsStagingReturnValue() {
+        guard let urlString = plistStaging?[DictionaryKeys.BugReportURL] else { XCTFail(); return }
+        let expectedResult = URL(string: urlString)
+        
+        XCTAssertEqual(stagingConfiguration?.bugReportURL, expectedResult)
+    }
+    
+    func test_shareURL_whenModeIsProduction_ReturnValue() {
+        guard let urlString = plistProduction?[DictionaryKeys.ShareURL] else { XCTFail(); return }
+        let expectedResult = URL(string: urlString)
+        
+        XCTAssertEqual(productionConfiguration?.shareURL, expectedResult)
+    }
+    
+    func test_shareURL_WhenModeIsStagingReturnValue() {
+        guard let urlString = plistStaging?[DictionaryKeys.ShareURL] else { XCTFail(); return }
+        let expectedResult = URL(string: urlString)
+        
+        XCTAssertEqual(stagingConfiguration?.shareURL, expectedResult)
     }
 
     func test_init_WithNoMainBaseURL_throwsError() {
