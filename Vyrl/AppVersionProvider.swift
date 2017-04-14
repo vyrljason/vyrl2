@@ -16,13 +16,19 @@ protocol AppVersionProviding {
 
 final class AppVersionService: AppVersionProviding {
     
+    let bundle: Bundle
+    
+    init(bundle: Bundle = Bundle.main) {
+        self.bundle = bundle
+    }
+    
     func appVersion() -> String {
-        let version: String? = Bundle.main.object(forInfoDictionaryKey: Constants.bundleShortVersion) as? String
+        let version: String? = bundle.object(forInfoDictionaryKey: Constants.bundleShortVersion) as? String
         return version ?? ""
     }
     
     func buildVersion() -> String {
-        let bundle: String? = Bundle.main.object(forInfoDictionaryKey: Constants.bundleVersion) as? String
-        return bundle ?? ""
+        let build: String? = bundle.object(forInfoDictionaryKey: Constants.bundleVersion) as? String
+        return build ?? ""
     }
 }
