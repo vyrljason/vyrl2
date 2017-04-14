@@ -460,6 +460,15 @@
 		C47A7E9E1E9E31140088E578 /* UserProfileResourceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47A7E9D1E9E31140088E578 /* UserProfileResourceTest.swift */; };
 		C47A7EA01E9E31240088E578 /* UserProfileServiceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47A7E9F1E9E31240088E578 /* UserProfileServiceTest.swift */; };
 		C47A7EA41E9E4A5F0088E578 /* SettingsNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47A7EA31E9E4A5F0088E578 /* SettingsNavigation.swift */; };
+		C47A7EA61EA0C3880088E578 /* UpdateUserSettingsEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47A7EA51EA0C3880088E578 /* UpdateUserSettingsEndpoint.swift */; };
+		C47A7EA81EA0C5AB0088E578 /* UpdateUserSettingsResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47A7EA71EA0C5AB0088E578 /* UpdateUserSettingsResource.swift */; };
+		C47A7EAC1EA0C8350088E578 /* UpdateUserSettingsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47A7EAB1EA0C8350088E578 /* UpdateUserSettingsService.swift */; };
+		C47A7EAE1EA0DC6E0088E578 /* DeleteUserEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47A7EAD1EA0DC6E0088E578 /* DeleteUserEndpoint.swift */; };
+		C47A7EB01EA0DCE30088E578 /* DeleteUserResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47A7EAF1EA0DCE30088E578 /* DeleteUserResource.swift */; };
+		C47A7EB21EA0FCBF0088E578 /* DeleteUserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47A7EB11EA0FCBF0088E578 /* DeleteUserService.swift */; };
+		C47A7EB51EA114C00088E578 /* DeleteUserServiceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47A7EB41EA114C00088E578 /* DeleteUserServiceTest.swift */; };
+		C47A7EB71EA114DA0088E578 /* UpdateUserSettingsServiceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47A7EB61EA114DA0088E578 /* UpdateUserSettingsServiceTest.swift */; };
+		C47A7EB91EA117DE0088E578 /* AccountInteractorTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47A7EB81EA117DE0088E578 /* AccountInteractorTest.swift */; };
 		C47B0ED31E950616005A687F /* SuccessMessagesFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47B0ED21E950616005A687F /* SuccessMessagesFooterView.swift */; };
 		C47B0ED51E950639005A687F /* SuccessMessagesFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C47B0ED41E950639005A687F /* SuccessMessagesFooterView.xib */; };
 		C47B0ED71E950EDF005A687F /* SuccessMessagesFooterViewSnapshotTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47B0ED61E950EDF005A687F /* SuccessMessagesFooterViewSnapshotTest.swift */; };
@@ -970,6 +979,15 @@
 		C47A7E9D1E9E31140088E578 /* UserProfileResourceTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfileResourceTest.swift; sourceTree = "<group>"; };
 		C47A7E9F1E9E31240088E578 /* UserProfileServiceTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfileServiceTest.swift; sourceTree = "<group>"; };
 		C47A7EA31E9E4A5F0088E578 /* SettingsNavigation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsNavigation.swift; sourceTree = "<group>"; };
+		C47A7EA51EA0C3880088E578 /* UpdateUserSettingsEndpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdateUserSettingsEndpoint.swift; sourceTree = "<group>"; };
+		C47A7EA71EA0C5AB0088E578 /* UpdateUserSettingsResource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdateUserSettingsResource.swift; sourceTree = "<group>"; };
+		C47A7EAB1EA0C8350088E578 /* UpdateUserSettingsService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdateUserSettingsService.swift; sourceTree = "<group>"; };
+		C47A7EAD1EA0DC6E0088E578 /* DeleteUserEndpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeleteUserEndpoint.swift; sourceTree = "<group>"; };
+		C47A7EAF1EA0DCE30088E578 /* DeleteUserResource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeleteUserResource.swift; sourceTree = "<group>"; };
+		C47A7EB11EA0FCBF0088E578 /* DeleteUserService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeleteUserService.swift; sourceTree = "<group>"; };
+		C47A7EB41EA114C00088E578 /* DeleteUserServiceTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeleteUserServiceTest.swift; sourceTree = "<group>"; };
+		C47A7EB61EA114DA0088E578 /* UpdateUserSettingsServiceTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdateUserSettingsServiceTest.swift; sourceTree = "<group>"; };
+		C47A7EB81EA117DE0088E578 /* AccountInteractorTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountInteractorTest.swift; sourceTree = "<group>"; };
 		C47B0ED21E950616005A687F /* SuccessMessagesFooterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuccessMessagesFooterView.swift; sourceTree = "<group>"; };
 		C47B0ED41E950639005A687F /* SuccessMessagesFooterView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SuccessMessagesFooterView.xib; sourceTree = "<group>"; };
 		C47B0ED61E950EDF005A687F /* SuccessMessagesFooterViewSnapshotTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuccessMessagesFooterViewSnapshotTest.swift; sourceTree = "<group>"; };
@@ -2979,6 +2997,10 @@
 				C47A7E891E9DFB0E0088E578 /* UserProfileEndpoint.swift */,
 				C47A7E8D1E9DFC3F0088E578 /* UserProfileResource.swift */,
 				C47A7E8F1E9DFCFA0088E578 /* UserProfileResourceMock.swift */,
+				C47A7EA51EA0C3880088E578 /* UpdateUserSettingsEndpoint.swift */,
+				C47A7EA71EA0C5AB0088E578 /* UpdateUserSettingsResource.swift */,
+				C47A7EAD1EA0DC6E0088E578 /* DeleteUserEndpoint.swift */,
+				C47A7EAF1EA0DCE30088E578 /* DeleteUserResource.swift */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -2987,6 +3009,8 @@
 			isa = PBXGroup;
 			children = (
 				C47A7E921E9DFE510088E578 /* UserProfileService.swift */,
+				C47A7EAB1EA0C8350088E578 /* UpdateUserSettingsService.swift */,
+				C47A7EB11EA0FCBF0088E578 /* DeleteUserService.swift */,
 			);
 			name = Services;
 			sourceTree = "<group>";
@@ -2994,6 +3018,7 @@
 		C47A7E9A1E9E30920088E578 /* Account */ = {
 			isa = PBXGroup;
 			children = (
+				C47A7EB31EA1143D0088E578 /* Interactors */,
 				C47A7E9C1E9E30D80088E578 /* Resources */,
 				C47A7E9B1E9E30C90088E578 /* Service */,
 			);
@@ -3004,6 +3029,8 @@
 			isa = PBXGroup;
 			children = (
 				C47A7E9F1E9E31240088E578 /* UserProfileServiceTest.swift */,
+				C47A7EB41EA114C00088E578 /* DeleteUserServiceTest.swift */,
+				C47A7EB61EA114DA0088E578 /* UpdateUserSettingsServiceTest.swift */,
 			);
 			name = Service;
 			sourceTree = "<group>";
@@ -3034,6 +3061,14 @@
 				C47A7E9A1E9E30920088E578 /* Account */,
 			);
 			name = Settings;
+			sourceTree = "<group>";
+		};
+		C47A7EB31EA1143D0088E578 /* Interactors */ = {
+			isa = PBXGroup;
+			children = (
+				C47A7EB81EA117DE0088E578 /* AccountInteractorTest.swift */,
+			);
+			name = Interactors;
 			sourceTree = "<group>";
 		};
 		C47E31C61E921EF2009ED817 /* Factories */ = {
@@ -3486,6 +3521,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				853A83191E6DD33D006EBA8C /* ShippingAddressFormInteractor.swift in Sources */,
+				C47A7EB01EA0DCE30088E578 /* DeleteUserResource.swift in Sources */,
 				C4BDA43E1E8139010009BB67 /* Message.swift in Sources */,
 				850A810C1E5F2BF300E684A3 /* Deserializable.swift in Sources */,
 				C450FA881E8A778D00A63414 /* SystemMessageCell.swift in Sources */,
@@ -3508,6 +3544,7 @@
 				85CA3FF31E648A8200D43805 /* FormValidator.swift in Sources */,
 				85CA3FC31E642E2C00D43805 /* Bundle+AppVersion.swift in Sources */,
 				858D64231E57473100CFDD4C /* CollectionViewDataProviding.swift in Sources */,
+				C47A7EA61EA0C3880088E578 /* UpdateUserSettingsEndpoint.swift in Sources */,
 				313CF7FC1E6E1671005686F5 /* TextTableCell.swift in Sources */,
 				C4BDA4351E7FDC8A0009BB67 /* MessagesViewControllerFactory.swift in Sources */,
 				852ACD431E55DC9600219E90 /* UIView+NibHaving.swift in Sources */,
@@ -3598,6 +3635,7 @@
 				850A80C81E5DAB3200E684A3 /* LoginEndpoint.swift in Sources */,
 				858D641B1E57268F00CFDD4C /* VyrlFaker.swift in Sources */,
 				853BAC0E1E7C099800874075 /* ChatTokenRepositoryFactory.swift in Sources */,
+				C47A7EAE1EA0DC6E0088E578 /* DeleteUserEndpoint.swift in Sources */,
 				1A1FA9531E5ED670007EB61D /* CategoriesService.swift in Sources */,
 				85CF95E91E94E6FD00EBDEC2 /* OrderStatus.swift in Sources */,
 				1AA7FA9B1E687FE7001C0B6F /* InfoView.swift in Sources */,
@@ -3685,6 +3723,7 @@
 				1A859C0E1E5756C50013EB09 /* UIFont.swift in Sources */,
 				85CA3FEC1E64887900D43805 /* String+Password.swift in Sources */,
 				855AD6DF1E8CF8FA00B9523D /* TextMessageService.swift in Sources */,
+				C47A7EAC1EA0C8350088E578 /* UpdateUserSettingsService.swift in Sources */,
 				850A80D11E5DCBAF00E684A3 /* JSONModelDeserializer.swift in Sources */,
 				1AA7FAB11E69CB2F001C0B6F /* OrderProposalService.swift in Sources */,
 				C4BDA4331E7FDADA0009BB67 /* MessagesInteractor.swift in Sources */,
@@ -3762,6 +3801,7 @@
 				8507FED51E8E318900C0711B /* ImageToDataConverter.swift in Sources */,
 				313CF7FF1E6E16F4005686F5 /* TextTableCellRenderable.swift in Sources */,
 				8558289D1E8E455C00748A9A /* ConfirmDeliveryRequest.swift in Sources */,
+				C47A7EA81EA0C5AB0088E578 /* UpdateUserSettingsResource.swift in Sources */,
 				313CF7D71E6D9B07005686F5 /* PickerPresenter.swift in Sources */,
 				1A3121661E64720000F71925 /* CartStorage.swift in Sources */,
 				1AEBB9731E608A9E00113DC9 /* CartViewController.swift in Sources */,
@@ -3783,6 +3823,7 @@
 				C47A7E931E9DFE510088E578 /* UserProfileService.swift in Sources */,
 				853859951E6029050098D1EB /* RegisterEndpoint.swift in Sources */,
 				858F76E21E9CCAFA005FDF6A /* WebViewInteractor.swift in Sources */,
+				C47A7EB21EA0FCBF0088E578 /* DeleteUserService.swift in Sources */,
 				1AA7FAAA1E69A47B001C0B6F /* CartNavigation.swift in Sources */,
 				8554BE761E682AC900E05A37 /* ParametrizedService.swift in Sources */,
 				C4BDA4301E7FD7720009BB67 /* MessagesViewController.swift in Sources */,
@@ -3885,7 +3926,9 @@
 				C47B0ED71E950EDF005A687F /* SuccessMessagesFooterViewSnapshotTest.swift in Sources */,
 				85DCFC2D1E7682300046D0D5 /* ContactInfoControllerSnapshotTest.swift in Sources */,
 				C44C3FF61E92F9EA005F776E /* ComposeInteractorTest.swift in Sources */,
+				C47A7EB91EA117DE0088E578 /* AccountInteractorTest.swift in Sources */,
 				31EF22FD1E6784BA0073F624 /* ProductDetailsInteractorTest.swift in Sources */,
+				C47A7EB71EA114DA0088E578 /* UpdateUserSettingsServiceTest.swift in Sources */,
 				8572E4DE1E7ACAEB0042160D /* CollectionDataSourceMock.swift in Sources */,
 				8597AB691E8AEC1E00A64585 /* BrandsServiceMock.swift in Sources */,
 				3169B9AE1E603B84005F8A94 /* BrandStoreCellSnapshotTest.swift in Sources */,
@@ -3915,6 +3958,7 @@
 				1A3121781E66205C00F71925 /* AsyncAssertions.swift in Sources */,
 				850A80E61E5E171500E684A3 /* JSONToModelDeserializerTest.swift in Sources */,
 				1AA7FAAC1E69C33D001C0B6F /* CheckoutInteractorTests.swift in Sources */,
+				C47A7EB51EA114C00088E578 /* DeleteUserServiceTest.swift in Sources */,
 				850A80DD1E5E122C00E684A3 /* APICredentialsProviderTest.swift in Sources */,
 				1A859C1B1E58A5620013EB09 /* NavigationControllerMock.swift in Sources */,
 				858D64341E574B8800CFDD4C /* SnapshotTestCase.swift in Sources */,

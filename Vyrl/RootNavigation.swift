@@ -26,7 +26,7 @@ protocol CartPresenting: class {
     func showCart()
 }
 
-protocol AuthorizationScreenPresenting {
+protocol AuthorizationScreenPresenting: class {
     func showAuthorization()
 }
 
@@ -260,6 +260,7 @@ extension RootNavigation: AccountScreenPresenting {
     func showAccount() {
         let navigation = presentModally(settings.account)
         settings.settingsNavigationController = navigation
+        settings.loginPresenter = self
         slideMenu.closeLeft()
     }
 }

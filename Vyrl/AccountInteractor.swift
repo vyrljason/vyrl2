@@ -6,7 +6,11 @@ import Foundation
 
 fileprivate enum Constants {
     static let failedToFetchUserProfile: String = NSLocalizedString("account.error.failedToFetchUserProfile", comment: "")
+    static let failedToUpdateUserSettings: String = NSLocalizedString("account.error.failedToUpdateUserSettings", comment: "")
+    static let failedToDeleteUser: String = NSLocalizedString("account.error.failedToDeleteUser", comment: "")
     static let shareText: String = NSLocalizedString("account.share.text", comment: "")
+    static let deleteAlertTitle: String = NSLocalizedString("account.deleteAlert.title", comment: "")
+    static let deleteAlertMessage: String = NSLocalizedString("account.deleteAlert.message", comment: "")
 }
 
 protocol AccountInteracting {
@@ -33,19 +37,34 @@ final class AccountInteractor: AccountInteracting {
     
     fileprivate let userProfileService: UserProfileProviding
     fileprivate let appVersionService: AppVersionProviding
+    fileprivate let updateUserSettingsService: UserSettingsUpdating
+    fileprivate let deleteUserService: UserDeleting
     fileprivate let apiConfiguration: APIConfigurationHaving
+    fileprivate let credentialsProvider: APICredentialsProviding
+    fileprivate let chatCredentialsStorage: ChatCredentialsStoring
+    fileprivate let unreadMessagesObserver: UnreadMessagesObserving
     fileprivate var userProfile: UserProfile?
     weak var controller: AccountControlling?
     weak var activityIndicatorPresenter: ActivityIndicatorPresenter?
     weak var errorPresenter: ErrorAlertPresenting?
     weak var webviewPresenter: WebviewPresenting?
     weak var sharePresenter: SharePresenting?
+    weak var alertPresenter: AlertPresenting?
+    weak var authorizationPresenter: AuthorizationScreenPresenting?
+    weak var settingsDismisser: SettingsDismissing?
     
     init(userProfileService: UserProfileProviding, appVersionService: AppVersionProviding,
-         apiConfiguration: APIConfigurationHaving) {
+         apiConfiguration: APIConfigurationHaving, updateUserSettingsService: UserSettingsUpdating,
+         deleteUserService: UserDeleting, credentialsProvider: APICredentialsProviding,
+         chatCredentialsStorage: ChatCredentialsStoring, unreadMessagesObserver: UnreadMessagesObserving) {
         self.userProfileService = userProfileService
         self.appVersionService = appVersionService
         self.apiConfiguration = apiConfiguration
+        self.updateUserSettingsService = updateUserSettingsService
+        self.deleteUserService = deleteUserService
+        self.credentialsProvider = credentialsProvider
+        self.chatCredentialsStorage = chatCredentialsStorage
+        self.unreadMessagesObserver = unreadMessagesObserver
     }
     
     func viewWillAppear() {
@@ -70,15 +89,23 @@ final class AccountInteractor: AccountInteracting {
     }
     
     func didTapDeleteAccount() {
-        
+        deleteUser()
     }
     
     func didSwitchPushNotifications(value: Bool) {
-        
+        guard let userProfile = self.userProfile else { return }
+        let userSettings = UserSettings(chatRequestsEnabled: userProfile.settings.chatRequestsEnabled,
+                                        emailNotificationsEnabled: userProfile.settings.emailNotificationsEnabled,
+                                        pushNotificationsEnabled: value)
+        updateUserSettings(userSettings: userSettings)
     }
     
     func didSwitchEmailNotifications(value: Bool) {
-        
+        guard let userProfile = self.userProfile else { return }
+        let userSettings = UserSettings(chatRequestsEnabled: userProfile.settings.chatRequestsEnabled,
+                                        emailNotificationsEnabled: value,
+                                        pushNotificationsEnabled: userProfile.settings.pushNotificationsEnabled)
+        updateUserSettings(userSettings: userSettings)
     }
     
     fileprivate func fetchUserProfile() {
@@ -95,6 +122,20 @@ final class AccountInteractor: AccountInteracting {
         }
     }
     
+    fileprivate func updateUserSettings(userSettings: UserSettings) {
+        activityIndicatorPresenter?.presentActivity()
+        updateUserSettingsService.update(userSettings: userSettings) { [weak self] result in
+            guard let `self` = self else { return }
+            self.activityIndicatorPresenter?.dismissActivity()
+            result.on(success: nil, failure: { _ in
+                self.errorPresenter?.presentError(title: nil, message: Constants.failedToUpdateUserSettings)
+                guard let userProfile = self.userProfile else { return }
+                self.controller?.setEmailStatus(emailStatus: userProfile.settings.emailNotificationsEnabled)
+                self.controller?.setPushStatus(pushStatus: userProfile.settings.pushNotificationsEnabled)
+            })
+        }
+    }
+    
     fileprivate func setAppVersion() {
         let version = "version \(appVersionService.appVersion()) (\(appVersionService.buildVersion()))"
         controller?.setVersionLabel(text: version)
@@ -106,6 +147,26 @@ final class AccountInteractor: AccountInteracting {
         self.controller?.setInfluencerLabel(text: userProfile.username)
         guard let avatarUrl = userProfile.avatar else { return }
         self.controller?.setAvatar(imageFetcher: ImageFetcher(url: avatarUrl))
+    }
+    
+    fileprivate func deleteUser() {
+        alertPresenter?.presentAlert(with: Constants.deleteAlertTitle, message: Constants.deleteAlertMessage,
+                                     onAccept: { [weak self] _ in
+            guard let `self` = self else { return }
+            self.settingsDismisser?.dismiss()
+            self.activityIndicatorPresenter?.presentActivity()
+            self.deleteUserService.delete(completion: { result in
+                result.on(success: { _ in
+                    self.activityIndicatorPresenter?.dismissActivity()
+                    self.credentialsProvider.clear()
+                    self.chatCredentialsStorage.clear()
+                    self.unreadMessagesObserver.stopObserving()
+                    self.settingsDismisser?.dismiss()
+                }, failure: { _ in
+                    self.errorPresenter?.presentError(title: nil, message: Constants.failedToDeleteUser)
+                })
+            })
+        })
     }
 }
 

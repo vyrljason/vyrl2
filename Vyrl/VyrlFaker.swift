@@ -66,24 +66,10 @@ extension Faker {
 }
 
 extension Faker {
-    func userSettings(id: Int = VyrlFaker.faker.number.randomInt(),
-                      user: Int = VyrlFaker.faker.number.randomInt(),
-                      isAdmin: Bool = false,
-                      isBrand: Bool = false,
-                      isInfluencer: Bool = false,
-                      brandRequestClosed: Bool = false,
-                      brandStatusRequested: Bool = false,
-                      chatRequestsEnabled: Bool = false,
+    func userSettings(chatRequestsEnabled: Bool = false,
                       emailNotificationsEnabled: Bool = false,
                       pushNotificationsenabled: Bool = false) -> UserSettings {
-        return UserSettings(id: id,
-                            user: user,
-                            isAdmin: isAdmin,
-                            isBrand: isBrand,
-                            isInfluencer: isInfluencer,
-                            brandRequestClosed: brandRequestClosed,
-                            brandStatusRequested: brandStatusRequested,
-                            chatRequestsEnabled: chatRequestsEnabled,
+        return UserSettings(chatRequestsEnabled: chatRequestsEnabled,
                             emailNotificationsEnabled: emailNotificationsEnabled,
                             pushNotificationsEnabled: pushNotificationsenabled)
     }
