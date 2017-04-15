@@ -19,6 +19,8 @@ enum ConfigurationError: Error {
     case noAlternativeBaseLink
     case noFAQLink
     case noToSLink
+    case noShareLink
+    case noBugReportLink
 }
 
 protocol APIConfigurationHaving {
@@ -27,6 +29,8 @@ protocol APIConfigurationHaving {
     var mode: ConfigurationMode { get }
     var faqURL: URL { get }
     var tosURL: URL { get }
+    var shareURL: URL { get }
+    var bugReportURL: URL { get }
 }
 
 final class APIConfiguration: APIConfigurationHaving {
@@ -38,6 +42,8 @@ final class APIConfiguration: APIConfigurationHaving {
         static let defaultFileType = "plist"
         static let faqURL = "FAQ"
         static let tosURL = "ToS"
+        static let shareURL = "ShareURL"
+        static let bugReportURL = "BugReportURL"
     }
 
     private let configuration: [String: String]
@@ -47,7 +53,10 @@ final class APIConfiguration: APIConfigurationHaving {
     let influencersBaseURL: URL
     let faqURL: URL
     let tosURL: URL
+    let shareURL: URL
+    let bugReportURL: URL
 
+    // swiftlint:disable cyclomatic_complexity
     init(bundle: Bundle = Bundle.main,
          plistName: String = ConfigurationKeys.configurationFile,
          mode: ConfigurationMode) throws {
@@ -76,5 +85,15 @@ final class APIConfiguration: APIConfigurationHaving {
             throw ConfigurationError.noToSLink
         }
         self.tosURL = tosURL
+        
+        guard let bugReportURLString = configuration[ConfigurationKeys.bugReportURL], let bugReportURL = URL(string: bugReportURLString) else {
+            throw ConfigurationError.noBugReportLink
+        }
+        self.bugReportURL = bugReportURL
+        
+        guard let shareURLString = configuration[ConfigurationKeys.shareURL], let shareURL = URL(string: shareURLString) else {
+            throw ConfigurationError.noShareLink
+        }
+        self.shareURL = shareURL
     }
 }

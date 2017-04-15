@@ -17,12 +17,13 @@ final class RootNavigationBuilder {
                                                                         brandStoreFactory: BrandStoreControllerFactory.self,
                                                                         productDetailsFactory: ProductDetailsControllerFactory.self,
                                                                         navigationController: UINavigationController()) }()
+    var loginControllerMaker: LoginControllerMaking.Type = LoginControllerFactory.self
     var cart: CartNavigating = CartNavigationBuilder().build()
     var chat: ChatNavigating = ChatNavigationBuilder().build()
+    var settings: SettingsNavigating = SettingsNavigationBuilder().build()
     var window: WindowProtocol = UIWindow()
     var accountMaker: AccountViewControllerMaking.Type = AccountViewControllerFactory.self
     var leftMenuInteractor = LeftMenuInteractorFactory.make()
-    var loginControllerMaker: LoginControllerMaking.Type = LoginControllerFactory.self
     lazy var leftMenu: UIViewController = { return LeftMenuViewController(interactor: self.leftMenuInteractor) }()
     var credentialsProvider: APICredentialsProviding = APICredentialsProvider(storage: CredentialsStorage())
     var cartStorage: CartStoring = ServiceLocator.cartStorage
@@ -35,6 +36,7 @@ final class RootNavigationBuilder {
                                         mainNavigation: mainNavigation,
                                         cart: cart,
                                         chat: chat,
+                                        settings: settings,
                                         accountMaker: accountMaker,
                                         window: window,
                                         credentialsProvider: credentialsProvider,

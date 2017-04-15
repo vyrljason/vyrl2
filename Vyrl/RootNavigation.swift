@@ -26,7 +26,7 @@ protocol CartPresenting: class {
     func showCart()
 }
 
-protocol AuthorizationScreenPresenting {
+protocol AuthorizationScreenPresenting: class {
     func showAuthorization()
 }
 
@@ -75,6 +75,7 @@ final class RootNavigation {
     fileprivate var slideMenu: SlideMenuController!
     fileprivate let leftMenu: UIViewController
     fileprivate var chat: ChatNavigating
+    fileprivate var settings: SettingsNavigating
     fileprivate let accountMaker: AccountViewControllerMaking.Type
     fileprivate let interactor: RootNavigationInteracting & NavigationDelegateHaving
     fileprivate let credentialsProvider: APICredentialsProviding
@@ -92,6 +93,7 @@ final class RootNavigation {
          mainNavigation: NavigationControlling,
          cart: CartNavigating,
          chat: ChatNavigating,
+         settings: SettingsNavigating,
          accountMaker: AccountViewControllerMaking.Type,
          window: WindowProtocol,
          credentialsProvider: APICredentialsProviding,
@@ -103,6 +105,7 @@ final class RootNavigation {
         self.leftMenu = leftMenu
         self.cart = cart
         self.chat = chat
+        self.settings = settings
         self.accountMaker = accountMaker
         self.window = window
         self.credentialsProvider = credentialsProvider
@@ -255,8 +258,9 @@ extension RootNavigation: CategoryPresenting {
 
 extension RootNavigation: AccountScreenPresenting {
     func showAccount() {
-        let account = accountMaker.make()
-        presentModally(account)
+        let navigation = presentModally(settings.account)
+        settings.settingsNavigationController = navigation
+        settings.loginPresenter = self
         slideMenu.closeLeft()
     }
 }

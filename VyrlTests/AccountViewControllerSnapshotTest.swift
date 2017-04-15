@@ -7,8 +7,10 @@ import XCTest
 
 final class AccountInteractorMock: AccountInteracting, ApplicationSharing {
     weak var controller: AccountControlling?
-    weak var activityLoaderPresenter: ActivityLoaderPresenting?
+    weak var activityIndicatorPresenter: ActivityIndicatorPresenter?
     weak var errorPresenter: ErrorAlertPresenting?
+    weak var webviewPresenter: WebviewPresenting?
+    weak var sharePresenter: SharePresenting?
     
     func viewWillAppear() { }
     

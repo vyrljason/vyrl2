@@ -4,13 +4,13 @@
 
 import UIKit
 
-protocol WebViewControllerBuilding: class {
-    func build(webViewContentUrl: URL) -> WebViewController
+protocol WebViewControllerMaking: class {
+    static func make(webViewContentUrl: URL) -> WebViewController
 }
 
-final class WebViewControllerBuilder: WebViewControllerBuilding {
+final class WebViewControllerFactory: WebViewControllerMaking {
 
-    func build(webViewContentUrl: URL) -> WebViewController {
+    static func make(webViewContentUrl: URL) -> WebViewController {
         let interactor = WebViewInteractor(urlToDisplay: webViewContentUrl)
         let viewController = WebViewController(interactor: interactor)
         return viewController

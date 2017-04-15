@@ -34,6 +34,7 @@ final class WebViewController: UIViewController, HavingNib {
     }
 
     override func viewDidLoad() {
+        renderNoTitleBackButton()
         setUpWebView()
         interactor.loadViewContent()
     }

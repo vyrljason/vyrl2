@@ -16,11 +16,6 @@ protocol AccountControlling: class {
     func setPushStatus(pushStatus: Bool)
 }
 
-protocol ActivityLoaderPresenting: class {
-    func showActivityLoader()
-    func hideActivityLoader()
-}
-
 final class AccountViewController: UIViewController, HavingNib {
     static var nibName: String = "AccountViewController"
     
@@ -39,7 +34,7 @@ final class AccountViewController: UIViewController, HavingNib {
         super.init(nibName: AccountViewController.nibName, bundle: nil)
         self.interactor.controller = self
         self.interactor.errorPresenter = self
-        self.interactor.activityLoaderPresenter = self
+        self.interactor.activityIndicatorPresenter = self
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -127,12 +122,13 @@ extension AccountViewController: AccountControlling {
     }
 }
 
-extension AccountViewController: ActivityLoaderPresenting {
-    func showActivityLoader() {
+extension AccountViewController: ActivityIndicatorPresenter {
+    
+    func presentActivity() {
         activityPresenter.presentActivity(inView: view)
     }
     
-    func hideActivityLoader() {
+    func dismissActivity() {
         activityPresenter.dismissActivity(inView: view)
     }
 }

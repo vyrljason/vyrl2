@@ -11,4 +11,6 @@ final class APIConfigurationMock: APIConfigurationHaving {
     var faqURL: URL = URL(string: "http://faq.com")!
     var tosURL: URL = URL(string: "http://tos.com")!
     var mode: ConfigurationMode = .Staging
+    var bugReportURL: URL = URL(string: "http://bugreport.com")!
+    var shareURL: URL = URL(string: "http://share.com")!
 }

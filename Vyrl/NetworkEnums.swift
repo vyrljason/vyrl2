@@ -34,9 +34,11 @@ enum StatusCode: Int {
     case accessDenied
     case notFound
     case failure
+    case unknown
 
-    init?(httpStatusCode: Int?) {
-        guard let code = httpStatusCode else { return nil }
+    init(httpStatusCode: Int?) {
+        guard let code = httpStatusCode else { self = .unknown
+                                               return }
         switch code {
         case 200...299: self = .ok
         case 401, 403: self = .accessDenied
