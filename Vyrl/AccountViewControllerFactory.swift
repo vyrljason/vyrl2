@@ -6,12 +6,14 @@ import UIKit
 
 protocol AccountViewControllerMaking {
     static func make(webviewPresenter: WebviewPresenting, sharePresenter: SharePresenting,
-                     alertPresenter: AlertPresenting, settingsDismisser: SettingsDismissing) -> AccountViewController
+                     alertPresenter: AlertPresenting, settingsDismisser: SettingsDismissing,
+                     profilePresenter: ProfilePresenting) -> AccountViewController
 }
 
 enum AccountViewControllerFactory: AccountViewControllerMaking {
     static func make(webviewPresenter: WebviewPresenting, sharePresenter: SharePresenting,
-                     alertPresenter: AlertPresenting, settingsDismisser: SettingsDismissing) -> AccountViewController {
+                     alertPresenter: AlertPresenting, settingsDismisser: SettingsDismissing,
+                     profilePresenter: ProfilePresenting) -> AccountViewController {
         let resourceController = ServiceLocator.resourceConfigurator.resourceController
         let userProfileResource = Service<UserProfileResource>(resource: UserProfileResource(controller: resourceController))
         let userProfileService = UserProfileService(resource: userProfileResource)
@@ -33,6 +35,7 @@ enum AccountViewControllerFactory: AccountViewControllerMaking {
         interactor.sharePresenter = sharePresenter
         interactor.alertPresenter = alertPresenter
         interactor.settingsDismisser = settingsDismisser
+        interactor.profilePresenter = profilePresenter
         let account = AccountViewController(interactor: interactor)
         return account
     }
