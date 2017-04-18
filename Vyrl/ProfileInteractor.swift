@@ -9,6 +9,7 @@ fileprivate enum Constants {
 
 protocol ProfileInteracting {
     weak var controller: ProfileControlling? { get set }
+    weak var editProfilePresenter: EditProfilePresenting? { get set }
     func viewWillAppear()
     func didTapEdit()
 }
@@ -17,6 +18,7 @@ final class ProfileInteractor: ProfileInteracting {
     
     fileprivate let userProfile: UserProfile
     weak var controller: ProfileControlling?
+    weak var editProfilePresenter: EditProfilePresenting?
     
     init(userProfile: UserProfile) {
         self.userProfile = userProfile
@@ -27,7 +29,7 @@ final class ProfileInteractor: ProfileInteracting {
     }
     
     func didTapEdit() {
-        
+        editProfilePresenter?.presentEditProfile(with: userProfile, animated: true)
     }
     
     fileprivate func setUpView() {

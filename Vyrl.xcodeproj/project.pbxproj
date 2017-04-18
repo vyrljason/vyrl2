@@ -475,6 +475,10 @@
 		C47A7EC51EA529B10088E578 /* ProfileViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47A7EC41EA529B10088E578 /* ProfileViewControllerFactory.swift */; };
 		C47A7EC71EA54BE70088E578 /* ProfileViewControllerSnapshotTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47A7EC61EA54BE70088E578 /* ProfileViewControllerSnapshotTest.swift */; };
 		C47A7ECB1EA5507E0088E578 /* ProfileInteractorTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47A7ECA1EA5507E0088E578 /* ProfileInteractorTest.swift */; };
+		C47A7ED21EA609070088E578 /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47A7ED01EA609070088E578 /* EditProfileViewController.swift */; };
+		C47A7ED31EA609070088E578 /* EditProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C47A7ED11EA609070088E578 /* EditProfileViewController.xib */; };
+		C47A7ED51EA6091C0088E578 /* EditProfileInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47A7ED41EA6091C0088E578 /* EditProfileInteractor.swift */; };
+		C47A7ED71EA609310088E578 /* EditProfileViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47A7ED61EA609310088E578 /* EditProfileViewControllerFactory.swift */; };
 		C47B0ED31E950616005A687F /* SuccessMessagesFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47B0ED21E950616005A687F /* SuccessMessagesFooterView.swift */; };
 		C47B0ED51E950639005A687F /* SuccessMessagesFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C47B0ED41E950639005A687F /* SuccessMessagesFooterView.xib */; };
 		C47B0ED71E950EDF005A687F /* SuccessMessagesFooterViewSnapshotTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47B0ED61E950EDF005A687F /* SuccessMessagesFooterViewSnapshotTest.swift */; };
@@ -1000,6 +1004,10 @@
 		C47A7EC41EA529B10088E578 /* ProfileViewControllerFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewControllerFactory.swift; sourceTree = "<group>"; };
 		C47A7EC61EA54BE70088E578 /* ProfileViewControllerSnapshotTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewControllerSnapshotTest.swift; sourceTree = "<group>"; };
 		C47A7ECA1EA5507E0088E578 /* ProfileInteractorTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileInteractorTest.swift; sourceTree = "<group>"; };
+		C47A7ED01EA609070088E578 /* EditProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
+		C47A7ED11EA609070088E578 /* EditProfileViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EditProfileViewController.xib; sourceTree = "<group>"; };
+		C47A7ED41EA6091C0088E578 /* EditProfileInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditProfileInteractor.swift; sourceTree = "<group>"; };
+		C47A7ED61EA609310088E578 /* EditProfileViewControllerFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditProfileViewControllerFactory.swift; sourceTree = "<group>"; };
 		C47B0ED21E950616005A687F /* SuccessMessagesFooterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuccessMessagesFooterView.swift; sourceTree = "<group>"; };
 		C47B0ED41E950639005A687F /* SuccessMessagesFooterView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SuccessMessagesFooterView.xib; sourceTree = "<group>"; };
 		C47B0ED61E950EDF005A687F /* SuccessMessagesFooterViewSnapshotTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuccessMessagesFooterViewSnapshotTest.swift; sourceTree = "<group>"; };
@@ -1119,6 +1127,7 @@
 		1A1FA95E1E5F2E3B007EB61D /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				C47A7ECC1EA607B00088E578 /* EditProfile */,
 				C47A7EBA1EA529100088E578 /* Profile */,
 				C47A7EA11E9E49FE0088E578 /* Account */,
 				C47A7EA31E9E4A5F0088E578 /* SettingsNavigation.swift */,
@@ -3137,6 +3146,41 @@
 			name = Interactors;
 			sourceTree = "<group>";
 		};
+		C47A7ECC1EA607B00088E578 /* EditProfile */ = {
+			isa = PBXGroup;
+			children = (
+				C47A7ECF1EA608EC0088E578 /* Factories */,
+				C47A7ECE1EA608DB0088E578 /* Interactors */,
+				C47A7ECD1EA608CA0088E578 /* Views */,
+			);
+			name = EditProfile;
+			sourceTree = "<group>";
+		};
+		C47A7ECD1EA608CA0088E578 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				C47A7ED01EA609070088E578 /* EditProfileViewController.swift */,
+				C47A7ED11EA609070088E578 /* EditProfileViewController.xib */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		C47A7ECE1EA608DB0088E578 /* Interactors */ = {
+			isa = PBXGroup;
+			children = (
+				C47A7ED41EA6091C0088E578 /* EditProfileInteractor.swift */,
+			);
+			name = Interactors;
+			sourceTree = "<group>";
+		};
+		C47A7ECF1EA608EC0088E578 /* Factories */ = {
+			isa = PBXGroup;
+			children = (
+				C47A7ED61EA609310088E578 /* EditProfileViewControllerFactory.swift */,
+			);
+			name = Factories;
+			sourceTree = "<group>";
+		};
 		C47E31C61E921EF2009ED817 /* Factories */ = {
 			isa = PBXGroup;
 			children = (
@@ -3413,6 +3457,7 @@
 				31B0793C1E70A7370015C302 /* SwipeableGalleryItemCell.xib in Resources */,
 				C4B161D51E83DDD100C6E112 /* SingleStatusView.xib in Resources */,
 				313CF7FD1E6E1671005686F5 /* TextTableCell.xib in Resources */,
+				C47A7ED31EA609070088E578 /* EditProfileViewController.xib in Resources */,
 				C4C8876D1E8984660022558F /* InfluencerMessageCell.xib in Resources */,
 				313CF8031E6E268E005686F5 /* ExpandableTextTableCell.xib in Resources */,
 				31EF231C1E68AD810073F624 /* AddToCartTableCell.xib in Resources */,
@@ -3797,6 +3842,7 @@
 				8554BE831E6870BF00E05A37 /* ShippingAddress.swift in Sources */,
 				8554BE7D1E68465100E05A37 /* ProductsResource.swift in Sources */,
 				854AE0221E9258E100B0F322 /* MessagesSnapshotConverter.swift in Sources */,
+				C47A7ED51EA6091C0088E578 /* EditProfileInteractor.swift in Sources */,
 				85A2A80D1E7B4D0300271871 /* ChatCredentialsStorage.swift in Sources */,
 				8572E4B61E79A78F0042160D /* Collab.swift in Sources */,
 				31EF233C1E69C0860073F624 /* VariantHandler.swift in Sources */,
@@ -3849,6 +3895,7 @@
 				31EF230F1E67B6410073F624 /* NamePriceTableCellRenderable.swift in Sources */,
 				31EF232E1E69A69D0073F624 /* DetailTableCellRenderable.swift in Sources */,
 				850A80AE1E5D977C00E684A3 /* APIConfiguration.swift in Sources */,
+				C47A7ED71EA609310088E578 /* EditProfileViewControllerFactory.swift in Sources */,
 				1A1FA9611E5F2E55007EB61D /* AccountViewControllerFactory.swift in Sources */,
 				85DCFC241E75BC710046D0D5 /* ContactInfoViewFactory.swift in Sources */,
 				31B079311E709FF20015C302 /* SwipeableGalleryTableCell.swift in Sources */,
@@ -3873,6 +3920,7 @@
 				C47A7EA81EA0C5AB0088E578 /* UpdateUserSettingsResource.swift in Sources */,
 				313CF7D71E6D9B07005686F5 /* PickerPresenter.swift in Sources */,
 				1A3121661E64720000F71925 /* CartStorage.swift in Sources */,
+				C47A7ED21EA609070088E578 /* EditProfileViewController.swift in Sources */,
 				1AEBB9731E608A9E00113DC9 /* CartViewController.swift in Sources */,
 				8554BE6A1E68047C00E05A37 /* CategoriesResource.swift in Sources */,
 				853A83461E72AA57006EBA8C /* CheckoutControllerFactory.swift in Sources */,

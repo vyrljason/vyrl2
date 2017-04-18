@@ -35,14 +35,19 @@ protocol ProfilePresenting: class {
     func presentProfile(with userProfile: UserProfile, animated: Bool)
 }
 
+protocol EditProfilePresenting: class {
+    func presentEditProfile(with userProfile: UserProfile, animated: Bool)
+}
+
 final class SettingsNavigationBuilder {
     var accountFactory: AccountViewControllerMaking.Type = AccountViewControllerFactory.self
     var webviewFactory: WebViewControllerMaking.Type = WebViewControllerFactory.self
     var profileFactory: ProfileViewControllerMaking.Type = ProfileViewControllerFactory.self
+    var editProfileFactory: EditProfileViewControllerMaking.Type = EditProfileViewControllerFactory.self
     
     func build() -> SettingsNavigating {
         return SettingsNavigation(accountFactory: accountFactory, webviewFactory: webviewFactory,
-                                  profileFactory: profileFactory)
+                                  profileFactory: profileFactory, editProfileFactory: editProfileFactory)
     }
 }
 
@@ -53,12 +58,14 @@ final class SettingsNavigation: SettingsNavigating {
     fileprivate let accountFactory: AccountViewControllerMaking.Type
     fileprivate let webviewFactory: WebViewControllerMaking.Type
     fileprivate let profileFactory: ProfileViewControllerMaking.Type
+    fileprivate let editProfileFactory: EditProfileViewControllerMaking.Type
     
     init (accountFactory: AccountViewControllerMaking.Type, webviewFactory: WebViewControllerMaking.Type,
-          profileFactory: ProfileViewControllerMaking.Type) {
+          profileFactory: ProfileViewControllerMaking.Type, editProfileFactory: EditProfileViewControllerMaking.Type) {
         self.accountFactory = accountFactory
         self.webviewFactory = webviewFactory
         self.profileFactory = profileFactory
+        self.editProfileFactory = editProfileFactory
         account = accountFactory.make(webviewPresenter: self, sharePresenter: self,
                                       alertPresenter: self, settingsDismisser: self,
                                       profilePresenter: self)
@@ -101,7 +108,14 @@ extension SettingsNavigation: SettingsDismissing {
 
 extension SettingsNavigation: ProfilePresenting {
     func presentProfile(with userProfile: UserProfile, animated: Bool) {
-        let viewController = profileFactory.make(userProfile: userProfile)
+        let viewController = profileFactory.make(userProfile: userProfile, editProfilePresenter: self)
+        settingsNavigationController?.pushViewController(viewController, animated: animated)
+    }
+}
+
+extension SettingsNavigation: EditProfilePresenting {
+    func presentEditProfile(with userProfile: UserProfile, animated: Bool) {
+        let viewController = editProfileFactory.make(userProfile: userProfile)
         settingsNavigationController?.pushViewController(viewController, animated: animated)
     }
 }

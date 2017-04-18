@@ -4,7 +4,7 @@
 
 import UIKit
 
-protocol ProfileControlling: class {
+protocol EditProfileControlling: class {
     func setAvatar(imageFetcher: ImageFetcher)
     func setBackground(imageFetcher: ImageFetcher)
     func setInfluencerLabel(text: String)
@@ -12,8 +12,8 @@ protocol ProfileControlling: class {
     func setBioTextView(text: String)
 }
 
-final class ProfileViewController: UIViewController, HavingNib {
-    static var nibName: String = "ProfileViewController"
+final class EditProfileViewController: UIViewController, HavingNib {
+    static var nibName: String = "EditProfileViewController"
     
     @IBOutlet fileprivate weak var avatarImageView: DownloadingImageView!
     @IBOutlet fileprivate weak var backgroundImageView: DownloadingImageView!
@@ -21,11 +21,11 @@ final class ProfileViewController: UIViewController, HavingNib {
     @IBOutlet fileprivate weak var influencerIndustryLabel: UILabel!
     @IBOutlet fileprivate weak var influencerBioTextView: AutoexpandableTextView!
     
-    fileprivate var interactor: ProfileInteracting
+    fileprivate var interactor: EditProfileInteracting
     
-    init(interactor: ProfileInteracting) {
+    init(interactor: EditProfileInteracting) {
         self.interactor = interactor
-        super.init(nibName: ProfileViewController.nibName, bundle: nil)
+        super.init(nibName: EditProfileViewController.nibName, bundle: nil)
         self.interactor.controller = self
     }
     
@@ -33,28 +33,20 @@ final class ProfileViewController: UIViewController, HavingNib {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        setUpNavigationBar()
-    }
-    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         interactor.viewWillAppear()
     }
-    @IBAction func didTapEditButton() {
-        interactor.didTapEdit()
-    }
 }
 
-extension ProfileViewController {
+extension EditProfileViewController {
     
     fileprivate func setUpNavigationBar() {
         renderNoTitleBackButton()
     }
 }
 
-extension ProfileViewController: ProfileControlling {
+extension EditProfileViewController: EditProfileControlling {
     func setAvatar(imageFetcher: ImageFetcher) {
         avatarImageView.fetchImage(using: imageFetcher, placeholder: #imageLiteral(resourceName: "circleLogo"))
     }
