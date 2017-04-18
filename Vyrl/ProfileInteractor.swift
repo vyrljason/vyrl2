@@ -23,14 +23,14 @@ final class ProfileInteractor: ProfileInteracting {
     }
     
     func viewWillAppear() {
-        setView()
+        setUpView()
     }
     
     func didTapEdit() {
         
     }
     
-    fileprivate func setView() {
+    fileprivate func setUpView() {
         setAvatar()
         setBackground()
         controller?.setInfluencerLabel(text: userProfile.username)
