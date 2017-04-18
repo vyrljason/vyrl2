@@ -19,6 +19,7 @@ protocol AccountInteracting {
     weak var errorPresenter: ErrorAlertPresenting? { get set }
     weak var webviewPresenter: WebviewPresenting? { get set }
     weak var sharePresenter: SharePresenting? { get set }
+    weak var profilePresenter: ProfilePresenting? { get set }
     func didTapViewProfile()
     func didTapTermsOfService()
     func didTapFaq()
@@ -52,6 +53,7 @@ final class AccountInteractor: AccountInteracting {
     weak var alertPresenter: AlertPresenting?
     weak var authorizationPresenter: AuthorizationScreenPresenting?
     weak var settingsDismisser: SettingsDismissing?
+    weak var profilePresenter: ProfilePresenting?
     
     // swiftlint:disable function_parameter_count
     init(userProfileService: UserProfileProviding, appVersionService: AppVersionProviding,
@@ -86,7 +88,8 @@ final class AccountInteractor: AccountInteracting {
     }
     
     func didTapViewProfile() {
-        
+        guard let userProfile = self.userProfile else { return }
+        profilePresenter?.presentProfile(with: userProfile, animated: true)
     }
     
     func didTapDeleteAccount() {

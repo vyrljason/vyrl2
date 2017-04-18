@@ -11,6 +11,7 @@ final class AccountInteractorMock: AccountInteracting, ApplicationSharing {
     weak var errorPresenter: ErrorAlertPresenting?
     weak var webviewPresenter: WebviewPresenting?
     weak var sharePresenter: SharePresenting?
+    weak var profilePresenter: ProfilePresenting?
     
     func viewWillAppear() { }
     

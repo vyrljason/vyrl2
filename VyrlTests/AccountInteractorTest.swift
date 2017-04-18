@@ -114,6 +114,14 @@ final class AlertPresenterMock: AlertPresenting {
     }
 }
 
+final class ProfilePresenterMock: ProfilePresenting {
+    var didCallPresentProfile = false
+    
+    func presentProfile(with userProfile: UserProfile, animated: Bool) {
+        didCallPresentProfile = true
+    }
+}
+
 final class AuthorizationScreenPresentingMock: AuthorizationScreenPresenting {
     var didCallShowAuthorization = false
     
@@ -148,6 +156,7 @@ final class AccountInteractorTest: XCTestCase {
     var alertPresenter: AlertPresenterMock!
     var authorizationPresenter: AuthorizationScreenPresentingMock!
     var settingsDismisser: SettingsDismisserMock!
+    var profilePresenter: ProfilePresenterMock!
     
     override func setUp() {
         userProfileService = UserProfileServiceMock()
@@ -165,6 +174,7 @@ final class AccountInteractorTest: XCTestCase {
         alertPresenter = AlertPresenterMock()
         authorizationPresenter = AuthorizationScreenPresentingMock()
         settingsDismisser = SettingsDismisserMock()
+        profilePresenter = ProfilePresenterMock()
         
         subject = AccountInteractor(userProfileService: userProfileService, appVersionService: appVersionService,
                                     apiConfiguration: apiConfiguration, updateUserSettingsService: updateUserSettingsService,
@@ -177,6 +187,7 @@ final class AccountInteractorTest: XCTestCase {
         subject.alertPresenter = alertPresenter
         subject.authorizationPresenter = authorizationPresenter
         subject.settingsDismisser = settingsDismisser
+        subject.profilePresenter = profilePresenter
     }
     
     func test_onViewWillAppear_setVersionLabel() {
@@ -216,5 +227,20 @@ final class AccountInteractorTest: XCTestCase {
         subject.didTapFoundABug()
         
         XCTAssertTrue(webviewPresenter.didCallPresentWebview)
+    }
+    
+    func test_didTapViewProfile_callPresenter() {
+        subject.viewWillAppear()
+        subject.didTapViewProfile()
+        
+        XCTAssertTrue(profilePresenter.didCallPresentProfile)
+    }
+    
+    func test_didTapViewProfile_notCallPresenter() {
+        userProfileService.success = false
+        subject.viewWillAppear()
+        subject.didTapViewProfile()
+        
+        XCTAssertFalse(profilePresenter.didCallPresentProfile)
     }
 }
