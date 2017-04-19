@@ -15,7 +15,15 @@
                 <outlet property="avatarImageView" destination="Myh-Iy-cHy" id="9qM-bb-qsY"/>
                 <outlet property="backgroundImageView" destination="VAd-70-hDf" id="yMh-uR-lUJ"/>
                 <outlet property="influencerBioTextView" destination="srE-2h-ymf" id="2eS-gF-kis"/>
+                <outlet property="influencerEmailLabel" destination="xnd-95-bKM" id="GGN-ni-JHL"/>
+                <outlet property="influencerFullNameTextField" destination="JQR-kT-Mzm" id="7QB-Ds-N4c"/>
                 <outlet property="influencerNameLabel" destination="BmO-j3-tP9" id="oFf-Cp-TWJ"/>
+                <outlet property="primaryIndustryTextField" destination="vxB-Zy-QDt" id="yBo-KZ-9xX"/>
+                <outlet property="primaryIndustryView" destination="XSv-28-yzZ" id="F7M-ek-D3F"/>
+                <outlet property="secondaryIndustryTextField" destination="gPn-5b-mTZ" id="dSc-ca-Iie"/>
+                <outlet property="secondaryIndustryView" destination="bXM-WK-tBJ" id="5Ou-Bg-q5c"/>
+                <outlet property="tertiaryIndustryTextField" destination="XBD-nf-gE1" id="DrG-Ke-jT6"/>
+                <outlet property="tertiaryIndustryView" destination="KxB-qM-OdP" id="gep-bW-Rcf"/>
                 <outlet property="view" destination="1nD-7C-Zzl" id="Erd-A1-i0k"/>
             </connections>
         </placeholder>
@@ -176,33 +184,33 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Technology" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C8q-W0-kXj">
-                                                    <rect key="frame" x="70.5" y="10" width="271.5" height="21"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="21" id="xZF-9C-tbM"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chevronRight" translatesAutoresizingMaskIntoConstraints="NO" id="iJz-tI-GyW">
                                                     <rect key="frame" x="342" y="0.0" width="33" height="40"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="33" id="8wp-ET-Thi"/>
                                                     </constraints>
                                                 </imageView>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Select one..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vxB-Zy-QDt" customClass="UnselectableTextField" customModule="Vyrl" customModuleProvider="target">
+                                                    <rect key="frame" x="70" y="13" width="272" height="17"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="17" id="Sa5-22-LYT"/>
+                                                    </constraints>
+                                                    <nil key="textColor"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
                                             </subviews>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <constraints>
                                                 <constraint firstItem="mdO-zH-7XE" firstAttribute="centerY" secondItem="XSv-28-yzZ" secondAttribute="centerY" id="7Ov-ad-Q6P"/>
-                                                <constraint firstItem="C8q-W0-kXj" firstAttribute="leading" secondItem="mdO-zH-7XE" secondAttribute="trailing" constant="2" id="AFz-iA-Sd8"/>
                                                 <constraint firstAttribute="trailing" secondItem="iJz-tI-GyW" secondAttribute="trailing" id="H9e-VL-a9Y"/>
                                                 <constraint firstAttribute="height" constant="40" id="OYi-de-H2Z"/>
                                                 <constraint firstItem="iJz-tI-GyW" firstAttribute="top" secondItem="XSv-28-yzZ" secondAttribute="top" id="PpO-KX-zkX"/>
-                                                <constraint firstItem="C8q-W0-kXj" firstAttribute="centerY" secondItem="mdO-zH-7XE" secondAttribute="centerY" id="Rn3-cs-Q3g"/>
+                                                <constraint firstItem="vxB-Zy-QDt" firstAttribute="centerY" secondItem="mdO-zH-7XE" secondAttribute="centerY" constant="1" id="W7G-sp-0zG"/>
+                                                <constraint firstItem="iJz-tI-GyW" firstAttribute="leading" secondItem="vxB-Zy-QDt" secondAttribute="trailing" id="ay6-wT-LlD"/>
                                                 <constraint firstItem="mdO-zH-7XE" firstAttribute="leading" secondItem="XSv-28-yzZ" secondAttribute="leading" constant="8" id="fL2-wK-tAm"/>
-                                                <constraint firstItem="iJz-tI-GyW" firstAttribute="leading" secondItem="C8q-W0-kXj" secondAttribute="trailing" id="gR1-ZN-Bqh"/>
                                                 <constraint firstAttribute="bottom" secondItem="iJz-tI-GyW" secondAttribute="bottom" id="giT-pf-ki5"/>
+                                                <constraint firstItem="vxB-Zy-QDt" firstAttribute="leading" secondItem="mdO-zH-7XE" secondAttribute="trailing" constant="2" id="kjP-Ka-gKL"/>
                                             </constraints>
                                         </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bXM-WK-tBJ">
@@ -218,33 +226,33 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sports" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ywB-IX-KFW">
-                                                    <rect key="frame" x="90" y="10" width="252" height="21"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="21" id="SDc-pu-kzU"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chevronRight" translatesAutoresizingMaskIntoConstraints="NO" id="bmu-Pw-90f">
                                                     <rect key="frame" x="342" y="0.0" width="33" height="40"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="33" id="0lZ-Ed-TQc"/>
                                                     </constraints>
                                                 </imageView>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Select one..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gPn-5b-mTZ" customClass="UnselectableTextField" customModule="Vyrl" customModuleProvider="target">
+                                                    <rect key="frame" x="90" y="13" width="252" height="17"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="17" id="8Kz-gg-4hJ"/>
+                                                    </constraints>
+                                                    <nil key="textColor"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
                                             </subviews>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="40" id="1iO-QB-COi"/>
+                                                <constraint firstItem="gPn-5b-mTZ" firstAttribute="leading" secondItem="Pwm-Kt-PUM" secondAttribute="trailing" constant="2" id="2J5-wy-BHQ"/>
                                                 <constraint firstAttribute="trailing" secondItem="bmu-Pw-90f" secondAttribute="trailing" id="8IB-gp-qZ3"/>
+                                                <constraint firstItem="gPn-5b-mTZ" firstAttribute="centerY" secondItem="Pwm-Kt-PUM" secondAttribute="centerY" constant="1" id="IiZ-QW-2Mw"/>
                                                 <constraint firstItem="bmu-Pw-90f" firstAttribute="top" secondItem="bXM-WK-tBJ" secondAttribute="top" id="J7g-CR-Itf"/>
-                                                <constraint firstItem="ywB-IX-KFW" firstAttribute="centerY" secondItem="Pwm-Kt-PUM" secondAttribute="centerY" id="f5U-nv-qsh"/>
                                                 <constraint firstItem="Pwm-Kt-PUM" firstAttribute="centerY" secondItem="bXM-WK-tBJ" secondAttribute="centerY" id="jNK-ql-Wc3"/>
                                                 <constraint firstItem="Pwm-Kt-PUM" firstAttribute="leading" secondItem="bXM-WK-tBJ" secondAttribute="leading" constant="8" id="mGl-bp-wAF"/>
                                                 <constraint firstAttribute="bottom" secondItem="bmu-Pw-90f" secondAttribute="bottom" id="mMt-HN-NxC"/>
-                                                <constraint firstItem="ywB-IX-KFW" firstAttribute="leading" secondItem="Pwm-Kt-PUM" secondAttribute="trailing" constant="2" id="pb6-3D-fjN"/>
-                                                <constraint firstItem="bmu-Pw-90f" firstAttribute="leading" secondItem="ywB-IX-KFW" secondAttribute="trailing" id="qXI-QH-dUY"/>
+                                                <constraint firstItem="bmu-Pw-90f" firstAttribute="leading" secondItem="gPn-5b-mTZ" secondAttribute="trailing" id="yjb-tZ-HaE"/>
                                             </constraints>
                                         </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KxB-qM-OdP">
@@ -260,32 +268,32 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Music" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MKS-jT-FXZ">
-                                                    <rect key="frame" x="70.5" y="10" width="271.5" height="21"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="21" id="ka8-1G-1CB"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chevronRight" translatesAutoresizingMaskIntoConstraints="NO" id="XJT-8o-20I">
                                                     <rect key="frame" x="342" y="0.0" width="33" height="40"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="33" id="mcK-kM-Rx0"/>
                                                     </constraints>
                                                 </imageView>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Select one..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XBD-nf-gE1" customClass="UnselectableTextField" customModule="Vyrl" customModuleProvider="target">
+                                                    <rect key="frame" x="70" y="13" width="272" height="17"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="17" id="X9o-yy-S94"/>
+                                                    </constraints>
+                                                    <nil key="textColor"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
                                             </subviews>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <constraints>
+                                                <constraint firstItem="XBD-nf-gE1" firstAttribute="leading" secondItem="mYO-Kf-MBU" secondAttribute="trailing" constant="2" id="HWH-0N-XS4"/>
                                                 <constraint firstItem="XJT-8o-20I" firstAttribute="top" secondItem="KxB-qM-OdP" secondAttribute="top" id="KEa-XE-mkz"/>
                                                 <constraint firstAttribute="height" constant="40" id="Nfg-Vq-oXq"/>
                                                 <constraint firstAttribute="bottom" secondItem="XJT-8o-20I" secondAttribute="bottom" id="Qd2-OJ-J8T"/>
                                                 <constraint firstAttribute="trailing" secondItem="XJT-8o-20I" secondAttribute="trailing" id="QfD-O9-usY"/>
-                                                <constraint firstItem="MKS-jT-FXZ" firstAttribute="leading" secondItem="mYO-Kf-MBU" secondAttribute="trailing" constant="2" id="U2U-gx-7yX"/>
+                                                <constraint firstItem="XBD-nf-gE1" firstAttribute="centerY" secondItem="mYO-Kf-MBU" secondAttribute="centerY" constant="1" id="WX4-SV-atk"/>
                                                 <constraint firstItem="mYO-Kf-MBU" firstAttribute="leading" secondItem="KxB-qM-OdP" secondAttribute="leading" constant="8" id="XP7-CZ-3yp"/>
-                                                <constraint firstItem="MKS-jT-FXZ" firstAttribute="centerY" secondItem="mYO-Kf-MBU" secondAttribute="centerY" id="ZT8-fc-xeA"/>
-                                                <constraint firstItem="XJT-8o-20I" firstAttribute="leading" secondItem="MKS-jT-FXZ" secondAttribute="trailing" id="aDG-sx-mmX"/>
+                                                <constraint firstItem="XJT-8o-20I" firstAttribute="leading" secondItem="XBD-nf-gE1" secondAttribute="trailing" id="b2c-YW-beg"/>
                                                 <constraint firstItem="mYO-Kf-MBU" firstAttribute="centerY" secondItem="KxB-qM-OdP" secondAttribute="centerY" id="ncP-6p-F6F"/>
                                             </constraints>
                                         </view>
@@ -396,7 +404,7 @@
             <constraints>
                 <constraint firstItem="rdC-bi-zxW" firstAttribute="leading" secondItem="1nD-7C-Zzl" secondAttribute="leading" id="Nyh-bu-UOJ"/>
                 <constraint firstItem="rdC-bi-zxW" firstAttribute="top" secondItem="1nD-7C-Zzl" secondAttribute="top" id="q75-Ws-l38"/>
-                <constraint firstAttribute="bottom" secondItem="rdC-bi-zxW" secondAttribute="bottom" id="qQ5-Lc-Gbz"/>
+                <constraint firstAttribute="bottom" secondItem="rdC-bi-zxW" secondAttribute="bottom" id="qQ5-Lc-Gbz" customClass="KeyboardLayoutConstraint" customModule="Spring"/>
                 <constraint firstAttribute="trailing" secondItem="rdC-bi-zxW" secondAttribute="trailing" id="vFX-kZ-zmh"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>

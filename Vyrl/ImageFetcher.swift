@@ -8,7 +8,7 @@ protocol ImageFetching: class, Cancelable {
     func fetchImage(callback: @escaping ImageRetrieverCallback)
 }
 
-final class ImageFetcher: ImageFetching {
+@objc final class ImageFetcher: NSObject, ImageFetching {
 
     fileprivate var url: URL
     fileprivate var retriever: ImageRetrieving

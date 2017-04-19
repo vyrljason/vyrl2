@@ -47,3 +47,5 @@
 "general.button.alert.no" = "No";
 "account.deleteAlert.title" = "Delete Account?";
 "account.deleteAlert.message" = "But I thought we had something special. Are you sure?";
+"editProfile.industry.select" = "Select one...";
+"editProfile.error.failedToFetchPossibleIndustries" = "Something ham jammed while attempting to fetch possible industries. Please try again.";

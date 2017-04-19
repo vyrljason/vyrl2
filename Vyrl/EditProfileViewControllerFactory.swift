@@ -10,7 +10,10 @@ protocol EditProfileViewControllerMaking {
 
 enum EditProfileViewControllerFactory: EditProfileViewControllerMaking {
     static func make(userProfile: UserProfile) -> EditProfileViewController {
-        let interactor = EditProfileInteractor(userProfile: userProfile)
+        let resourceController = ServiceLocator.resourceConfigurator.resourceController
+        let industriesResource = Service<IndustriesResource>(resource: IndustriesResource(controller: resourceController))
+        let industriesService = IndustriesService(resource: industriesResource)
+        let interactor = EditProfileInteractor(userProfile: userProfile, industriesService: industriesService)
         let editProfile = EditProfileViewController(interactor: interactor)
         return editProfile
     }

@@ -5,7 +5,7 @@
 import WebKit
 import UIKit
 
-protocol ActivityIndicatorPresenter: class {
+@objc protocol ActivityIndicatorPresenter: class {
     func presentActivity()
     func dismissActivity()
 }
