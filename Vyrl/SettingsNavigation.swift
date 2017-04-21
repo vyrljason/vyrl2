@@ -7,6 +7,7 @@ import UIKit
 fileprivate enum Constants {
     static let alertYes: String = NSLocalizedString("general.button.alert.yes", comment: "")
     static let alertNo: String = NSLocalizedString("general.button.alert.no", comment: "")
+    static let titleImage: UIImage = StyleKit.navigationBarLogo
 }
 
 protocol SettingsNavigating: class {
@@ -35,14 +36,23 @@ protocol ProfilePresenting: class {
     func presentProfile(with userProfile: UserProfile, animated: Bool)
 }
 
+protocol EditProfilePresenting: class {
+    func presentEditProfile(with userProfile: UserProfile, animated: Bool)
+}
+
+@objc protocol AccountReturning: class {
+    func returnToAccount(animated: Bool)
+}
+
 final class SettingsNavigationBuilder {
     var accountFactory: AccountViewControllerMaking.Type = AccountViewControllerFactory.self
     var webviewFactory: WebViewControllerMaking.Type = WebViewControllerFactory.self
     var profileFactory: ProfileViewControllerMaking.Type = ProfileViewControllerFactory.self
+    var editProfileFactory: EditProfileViewControllerMaking.Type = EditProfileViewControllerFactory.self
     
     func build() -> SettingsNavigating {
         return SettingsNavigation(accountFactory: accountFactory, webviewFactory: webviewFactory,
-                                  profileFactory: profileFactory)
+                                  profileFactory: profileFactory, editProfileFactory: editProfileFactory)
     }
 }
 
@@ -53,15 +63,18 @@ final class SettingsNavigation: SettingsNavigating {
     fileprivate let accountFactory: AccountViewControllerMaking.Type
     fileprivate let webviewFactory: WebViewControllerMaking.Type
     fileprivate let profileFactory: ProfileViewControllerMaking.Type
+    fileprivate let editProfileFactory: EditProfileViewControllerMaking.Type
     
     init (accountFactory: AccountViewControllerMaking.Type, webviewFactory: WebViewControllerMaking.Type,
-          profileFactory: ProfileViewControllerMaking.Type) {
+          profileFactory: ProfileViewControllerMaking.Type, editProfileFactory: EditProfileViewControllerMaking.Type) {
         self.accountFactory = accountFactory
         self.webviewFactory = webviewFactory
         self.profileFactory = profileFactory
+        self.editProfileFactory = editProfileFactory
         account = accountFactory.make(webviewPresenter: self, sharePresenter: self,
                                       alertPresenter: self, settingsDismisser: self,
                                       profilePresenter: self)
+        account.render(NavigationItemRenderable(titleImage: Constants.titleImage))
     }
 }
 
@@ -101,7 +114,22 @@ extension SettingsNavigation: SettingsDismissing {
 
 extension SettingsNavigation: ProfilePresenting {
     func presentProfile(with userProfile: UserProfile, animated: Bool) {
-        let viewController = profileFactory.make(userProfile: userProfile)
+        let viewController = profileFactory.make(userProfile: userProfile, editProfilePresenter: self)
+        viewController.render(NavigationItemRenderable(titleImage: Constants.titleImage))
         settingsNavigationController?.pushViewController(viewController, animated: animated)
+    }
+}
+
+extension SettingsNavigation: EditProfilePresenting {
+    func presentEditProfile(with userProfile: UserProfile, animated: Bool) {
+        let viewController = editProfileFactory.make(userProfile: userProfile, accountReturner: self)
+        viewController.render(NavigationItemRenderable(titleImage: Constants.titleImage))
+        settingsNavigationController?.pushViewController(viewController, animated: animated)
+    }
+}
+
+extension SettingsNavigation: AccountReturning {
+    func returnToAccount(animated: Bool) {
+        settingsNavigationController?.popToRootViewController(animated: animated)
     }
 }

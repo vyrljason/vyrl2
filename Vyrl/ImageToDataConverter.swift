@@ -5,7 +5,7 @@
 import UIKit
 
 private enum Constants {
-    static let jpegQuality: CGFloat = 0.4
+    static let jpegQuality: CGFloat = 0.3
 }
 
 protocol ImageToDataConverting {

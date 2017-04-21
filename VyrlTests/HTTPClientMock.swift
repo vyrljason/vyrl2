@@ -19,4 +19,12 @@ final class APIResourceControllerMock<Value: Decodable>: APIResourceControlling 
             completion(.failure(error))
         }
     }
+    
+    func upload<Model>(endpoint: APIEndpoint, dataUrl: URL, completion: @escaping (Result<Model, APIResponseError>) -> Void) where Model : Decodable {
+        if let result = result as? Model, success == true {
+            completion(.success(result))
+        } else {
+            completion(.failure(error))
+        }
+    }
 }

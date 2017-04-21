@@ -7,6 +7,7 @@ import XCTest
 
 final class ProfileInteractorMock: ProfileInteracting {
     weak var controller: ProfileControlling?
+    weak var editProfilePresenter: EditProfilePresenting?
     
     func viewWillAppear() { }
     

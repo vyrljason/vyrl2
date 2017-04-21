@@ -21,6 +21,8 @@ enum AuthorizationType {
                 return [String(describing: HTTPHeaderField.authorization): Constants.userHeaderPrefix + " " + token]
             case .main:
                 return [String(describing: HTTPHeaderField.authorization): token]
+            default:
+                return [:]
             }
         }
     }
@@ -33,11 +35,19 @@ protocol APIEndpoint {
     var parameters: [String: Any]? { get }
     var api: APIType { get }
     var encoding: Alamofire.ParameterEncoding { get }
+    var customHeaders: [String: String] { get }
+}
+
+extension APIEndpoint {
+    var customHeaders: [String: String] {
+        return [:]
+    }
 }
 
 enum APIType {
     case main
     case influencers
+    case signedRequest(url: URL)
 }
 
 extension APIType {
@@ -45,6 +55,7 @@ extension APIType {
         switch self {
         case .main: return configuration.mainBaseURL
         case .influencers: return configuration.influencersBaseURL
+        case .signedRequest(let url): return url
         }
     }
 }
