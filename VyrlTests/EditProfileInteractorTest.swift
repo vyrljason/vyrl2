@@ -39,7 +39,7 @@ final class UserProfileUpdaterMock: UserProfileUpdating {
     var success = true
     var error = UpdateUserProfileError.userProfileUpdate
     
-    func update(avatar: UIImage?, discoverImage: UIImage?, userIndustries: UpdatedUserIndustries, fullName: String, bio: String, completion: @escaping (Result<Void, UpdateUserProfileError>) -> Void) {
+    func update(avatarFilePath: URL?, discoverImageFilePath: URL?, userIndustries: UpdatedUserIndustries, fullName: String, bio: String, completion: @escaping (Result<Void, UpdateUserProfileError>) -> Void) {
         if success {
             completion(.success())
         } else {
@@ -136,7 +136,9 @@ final class EditProfileInteractorTest: XCTestCase {
         industriesService = IndustriesServiceMock()
         errorPresenter = ErrorPresenterMock()
         userProfileUpdater = UserProfileUpdaterMock()
-        userProfile = VyrlFaker.faker.userProfile()
+        userProfile = VyrlFaker.faker.userProfile(industries: [VyrlFaker.faker.industry(),
+                                                               VyrlFaker.faker.industry(),
+                                                               VyrlFaker.faker.industry()])
         picker = PickPresenterMock()
         controller = EditProfileControllerMock()
         activityIndicatorPresenter = ActivityIndicatorPresenterMock()
@@ -161,7 +163,8 @@ final class EditProfileInteractorTest: XCTestCase {
     }
     
     func test_didTapSave_updateProfile_success() {
-        subject.didTapSave(fullName: "", bio: "", userIndustries: VyrlFaker.faker.updatedUserIndustries())
+        subject.viewDidLoad()
+        subject.didTapSave(fullName: "", bio: "")
         
         XCTAssertTrue(accountReturner.wasCalled)
         XCTAssertFalse(errorPresenter.didPresentError)
@@ -169,14 +172,14 @@ final class EditProfileInteractorTest: XCTestCase {
     
     func test_didTapSave_updateProfile_failure() {
         userProfileUpdater.success = false
-        subject.didTapSave(fullName: "", bio: "", userIndustries: VyrlFaker.faker.updatedUserIndustries())
+        subject.didTapSave(fullName: "", bio: "")
         
         XCTAssertFalse(accountReturner.wasCalled)
         XCTAssertTrue(errorPresenter.didPresentError)
     }
     
     func test_didTapIndustry_callPresenter() {
-        subject.didTapIndustry(textfield: UITextField())
+        subject.didTapIndustry(textfield: UITextField(), editProfileIndustry: .primary)
         
         XCTAssertTrue(picker.wasCalled)
     }

@@ -13,13 +13,13 @@ final class EditProfileInteractorMock: NSObject, EditProfileInteracting, ImagePi
     
     func viewDidLoad() { }
     
-    func didTapIndustry(textfield: UITextField) { }
+    func didTapIndustry(textfield: UITextField, editProfileIndustry: EditProfileIndustry) { }
     
     func didTapAvatar() { }
     
     func didTapBackground() { }
     
-    func didTapSave(fullName: String, bio: String, userIndustries: UpdatedUserIndustries) { }
+    func didTapSave(fullName: String, bio: String) { }
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) { }
     
