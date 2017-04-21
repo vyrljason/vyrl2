@@ -47,7 +47,7 @@ extension APIEndpoint {
 enum APIType {
     case main
     case influencers
-    case signedRequest
+    case signedRequest(url: URL)
 }
 
 extension APIType {
@@ -55,7 +55,7 @@ extension APIType {
         switch self {
         case .main: return configuration.mainBaseURL
         case .influencers: return configuration.influencersBaseURL
-        case .signedRequest: return URL(string: "")!
+        case .signedRequest(let url): return url
         }
     }
 }

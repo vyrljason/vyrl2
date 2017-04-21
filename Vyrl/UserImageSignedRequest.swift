@@ -9,7 +9,7 @@ struct UserImageUploadResponse {
         static let signedRequest = "signed_request"
         static let url = "url"
     }
-    let signedRequest: String
+    let signedRequest: URL
     let url: URL
 }
 
@@ -18,7 +18,10 @@ extension UserImageUploadResponse: Decodable {
         guard let imageURL = try URL(string: json => KeyPath(JSONKeys.url)) else {
             throw DecodingError.typeMismatch(expected: URL.self, actual: String.self, DecodingError.Metadata(object: JSONKeys.url))
         }
-        return try self.init(signedRequest: json => KeyPath(JSONKeys.signedRequest),
-                             url: imageURL)
+        guard let signedRequestURL = try URL(string: json => KeyPath(JSONKeys.signedRequest)) else {
+            throw DecodingError.typeMismatch(expected: URL.self, actual: String.self, DecodingError.Metadata(object: JSONKeys.signedRequest))
+        }
+        return self.init(signedRequest: signedRequestURL,
+                         url: imageURL)
     }
 }

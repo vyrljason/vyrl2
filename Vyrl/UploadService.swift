@@ -6,7 +6,7 @@ import Foundation
 
 protocol Uploading {
     associatedtype ResponseModel
-    func upload(using dataUrl: URL, toStringUrl: String, completion: @escaping (Result<ResponseModel, APIResponseError>) -> Void)
+    func upload(using dataUrl: URL, toUrl: URL, completion: @escaping (Result<ResponseModel, APIResponseError>) -> Void)
 }
 
 final class UploadService<Resource: Uploading> {
@@ -17,8 +17,8 @@ final class UploadService<Resource: Uploading> {
         self.resource = resource
     }
     
-    func upload(using dataUrl: URL, toStringUrl: String, completion: @escaping (Result<Resource.ResponseModel, ServiceError>) -> Void) {
-        resource.upload(using: dataUrl, toStringUrl: toStringUrl) { result in
+    func upload(using dataUrl: URL, toUrl: URL, completion: @escaping (Result<Resource.ResponseModel, ServiceError>) -> Void) {
+        resource.upload(using: dataUrl, toUrl: toUrl) { result in
             switch result {
             case .success(let object):
                 completion(.success(object))

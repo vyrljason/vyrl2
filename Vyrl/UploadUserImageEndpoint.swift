@@ -13,7 +13,7 @@ enum UserImageType: CustomStringConvertible {
         case .avatar:
             return "avatar"
         case .discoveryFeed:
-            return "dwi"
+            return "dfi"
         }
     }
 }

@@ -5,16 +5,16 @@
 import Alamofire
 
 struct UploadUserImageSignedRequestEndpoint: APIEndpoint {
-    let path: String
+    let path: String = ""
     let authorization: AuthorizationType = .none
     let method: HTTPMethod = .put
     let parameters: [String: Any]? = nil
-    let api: APIType = .signedRequest
+    let api: APIType
     let encoding: ParameterEncoding = JSONEncoding()
     let customHeaders: [String : String] = ["Connection": "close",
                                             "Content-Type": "image/png"]
     
-    init(signedRequest: String) {
-        self.path = signedRequest
+    init(signedRequest: URL) {
+        self.api = .signedRequest(url: signedRequest)
     }
 }

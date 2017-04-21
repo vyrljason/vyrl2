@@ -75,7 +75,7 @@ final class UserProfileUpdater: UserProfileUpdating {
             guard let `self` = self else { return }
             self.userImageUploadService.post(using: photoType) { result in
                 result.on(success: { userImageUploadResponse in
-                    self.userImageUploadSignedRequest.upload(using: photoFilePath, toStringUrl: userImageUploadResponse.signedRequest) { result in
+                    self.userImageUploadSignedRequest.upload(using: photoFilePath, toUrl: userImageUploadResponse.signedRequest) { result in
                         result.on(success: { _ in
                             uploadCompletion(userImageUploadResponse.url)
                             self.dispatchGroup.leave()

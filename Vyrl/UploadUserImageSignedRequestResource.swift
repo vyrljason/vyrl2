@@ -13,7 +13,7 @@ final class UploadUserImageSignedRequestResource: Uploading, APIResource {
         self.controller = controller
     }
     
-    func upload(using dataUrl: URL, toStringUrl: String, completion: @escaping (Result<ResponseModel, APIResponseError>) -> Void) {
-        controller.upload(endpoint: UploadUserImageSignedRequestEndpoint(signedRequest: toStringUrl), dataUrl: dataUrl, completion: completion)
+    func upload(using dataUrl: URL, toUrl: URL, completion: @escaping (Result<ResponseModel, APIResponseError>) -> Void) {
+        controller.upload(endpoint: UploadUserImageSignedRequestEndpoint(signedRequest: toUrl), dataUrl: dataUrl, completion: completion)
     }
 }

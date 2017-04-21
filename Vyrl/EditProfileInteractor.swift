@@ -183,7 +183,7 @@ extension EditProfileInteractor: ImagePicking {
         let documentsPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as String
         let imageFilePathString = documentsPath.appending("/\(imageName).png")
         let imageFilePath = URL(fileURLWithPath: imageFilePathString)
-        try? UIImagePNGRepresentation(image)?.write(to: imageFilePath, options: .atomic)
+        try? UIImageJPEGRepresentation(image, 0.5)?.write(to: imageFilePath, options: .atomic)
         return imageFilePath
     }
 }
