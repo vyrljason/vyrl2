@@ -964,27 +964,6 @@
 			name = Core;
 			sourceTree = "<group>";
 		};
-		1FDD94ACDA3887E22B40D342E73F6F9F /* Core */ = {
-			isa = PBXGroup;
-			children = (
-				A402B0D42AF6AFC31F5762AF1AD952C4 /* FBSnapshotTestCase.h */,
-				FD19F9300E100D7200B0A381B2114D2A /* FBSnapshotTestCase.m */,
-				3B4275C26D0FAC8959ED32C36BF028B4 /* FBSnapshotTestCasePlatform.h */,
-				B17799DEA9B6547CB15B4083486F17F8 /* FBSnapshotTestCasePlatform.m */,
-				477166B6BD3108F804E42BC08710E98C /* FBSnapshotTestController.h */,
-				A6EC1BDF4DC9C74FD35B5B597A53AC05 /* FBSnapshotTestController.m */,
-				2C80035CB3804B31C1A18A88D362B8A9 /* UIApplication+StrictKeyWindow.h */,
-				3879F7E838EF4BC3EEFED3AB045223CD /* UIApplication+StrictKeyWindow.m */,
-				FB53AEBAC79ED48E299E74672D3A8A11 /* UIImage+Compare.h */,
-				3945326AF1329357AC15A8E527C77016 /* UIImage+Compare.m */,
-				12A57BED36F79A0C11123C2F2847E31A /* UIImage+Diff.h */,
-				C6977F535BEFF2A6752318ACA573A389 /* UIImage+Diff.m */,
-				6FBDA54C06A5D20B158AC66A11B52EBA /* UIImage+Snapshot.h */,
-				295B98E96A1DBB72798678CDC792546E /* UIImage+Snapshot.m */,
-			);
-			name = Core;
-			sourceTree = "<group>";
-		};
 		22138B487B549952F0CE36024923BC85 /* Pods-VyrlTests */ = {
 			isa = PBXGroup;
 			children = (

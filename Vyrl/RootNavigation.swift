@@ -99,6 +99,7 @@ final class RootNavigation {
          accountMaker: AccountViewControllerMaking.Type,
          window: WindowProtocol,
          credentialsProvider: APICredentialsProviding,
+         welcomeViewMaker: WelcomeViewMaking.Type,
          loginControllerMaker: LoginControllerMaking.Type,
          notificationObserver: NotificationObserving,
          cartStorage: CartStoring) {

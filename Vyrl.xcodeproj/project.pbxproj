@@ -69,7 +69,6 @@
 		1AA7FAB61E69CB3E001C0B6F /* OrderProposalResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AA7FAB41E69CB3E001C0B6F /* OrderProposalResource.swift */; };
 		1ADAF7C81E545F3C00155D9F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ADAF7C71E545F3C00155D9F /* AppDelegate.swift */; };
 		1ADAF7CF1E545F3C00155D9F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1ADAF7CE1E545F3C00155D9F /* Assets.xcassets */; };
-		1ADAF7D21E545F3C00155D9F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1ADAF7D01E545F3C00155D9F /* LaunchScreen.storyboard */; };
 		1ADAF7DD1E545F3C00155D9F /* RootNavigationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ADAF7DC1E545F3C00155D9F /* RootNavigationTests.swift */; };
 		1ADAF7F61E545FA300155D9F /* RootNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ADAF7F51E545FA300155D9F /* RootNavigation.swift */; };
 		1ADAF7FC1E54648A00155D9F /* WindowMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ADAF7FB1E54648A00155D9F /* WindowMock.swift */; };
@@ -427,26 +426,27 @@
 		85EEA4AF1E93F9AB00D04704 /* PostInstagramService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85EEA4AE1E93F9AB00D04704 /* PostInstagramService.swift */; };
 		85FA7A281E5C730800491EED /* NavigationHaving.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FA7A271E5C730800491EED /* NavigationHaving.swift */; };
 		85FB31E11E65E1C500E2F113 /* StyleKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FB31E01E65E1C500E2F113 /* StyleKit.swift */; };
-		8B93F52018D6B44C46B04178 /* Pods_VyrlTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E0EB38848E0C16BD8FCFD361 /* Pods_VyrlTests.framework */; };
-		B27A51401E91505E003F0802 /* SignUpFormFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27A513D1E91505E003F0802 /* SignUpFormFactory.swift */; };
-		B27A51411E91505E003F0802 /* SignUpViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27A513E1E91505E003F0802 /* SignUpViewFactory.swift */; };
-		B27A51421E91505E003F0802 /* WelcomeViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27A513F1E91505E003F0802 /* WelcomeViewFactory.swift */; };
-		B27A51441E915068003F0802 /* SignUpService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27A51431E915068003F0802 /* SignUpService.swift */; };
-		B27A514B1E915077003F0802 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27A51471E915077003F0802 /* WelcomeViewController.swift */; };
-		B27A514C1E915077003F0802 /* WelcomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B27A51481E915077003F0802 /* WelcomeViewController.xib */; };
-		B27A51501E915083003F0802 /* SignUpFormInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27A514D1E915083003F0802 /* SignUpFormInteractor.swift */; };
-		B27A51511E915083003F0802 /* SignUpInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27A514E1E915083003F0802 /* SignUpInteractor.swift */; };
-		B27A51521E915083003F0802 /* WelcomeViewInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27A514F1E915083003F0802 /* WelcomeViewInteractor.swift */; };
-		B27A51551E9150A4003F0802 /* SignUpResources.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27A51541E9150A4003F0802 /* SignUpResources.swift */; };
+		8B93F52018D6B44C46B04178 /* (null) in Frameworks */ = {isa = PBXBuildFile; };
+		B24ED7451EAAC205001362A5 /* SignUpFormFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B24ED7381EAAC205001362A5 /* SignUpFormFactory.swift */; };
+		B24ED7461EAAC205001362A5 /* SignUpFormInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B24ED7391EAAC205001362A5 /* SignUpFormInteractor.swift */; };
+		B24ED7471EAAC205001362A5 /* SignUpInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B24ED73A1EAAC205001362A5 /* SignUpInteractor.swift */; };
+		B24ED7481EAAC205001362A5 /* SignUpResources.swift in Sources */ = {isa = PBXBuildFile; fileRef = B24ED73B1EAAC205001362A5 /* SignUpResources.swift */; };
+		B24ED7491EAAC205001362A5 /* SignUpService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B24ED73C1EAAC205001362A5 /* SignUpService.swift */; };
+		B24ED74A1EAAC205001362A5 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B24ED73D1EAAC205001362A5 /* SignUpViewController.swift */; };
+		B24ED74B1EAAC205001362A5 /* SignUpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B24ED73E1EAAC205001362A5 /* SignUpViewController.xib */; };
+		B24ED74C1EAAC205001362A5 /* SignUpViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B24ED73F1EAAC205001362A5 /* SignUpViewFactory.swift */; };
+		B24ED74D1EAAC205001362A5 /* UserSignUpRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B24ED7401EAAC205001362A5 /* UserSignUpRequest.swift */; };
+		B24ED74E1EAAC205001362A5 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B24ED7411EAAC205001362A5 /* WelcomeViewController.swift */; };
+		B24ED74F1EAAC205001362A5 /* WelcomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B24ED7421EAAC205001362A5 /* WelcomeViewController.xib */; };
+		B24ED7501EAAC205001362A5 /* WelcomeViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B24ED7431EAAC205001362A5 /* WelcomeViewFactory.swift */; };
+		B24ED7511EAAC205001362A5 /* WelcomeViewInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B24ED7441EAAC205001362A5 /* WelcomeViewInteractor.swift */; };
+		B24ED7521EAAC337001362A5 /* FormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27A51691E915C88003F0802 /* FormView.swift */; };
+		B24ED7531EAAC342001362A5 /* AuthorizationNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27A51581E9150CE003F0802 /* AuthorizationNavigation.swift */; };
+		B24ED7571EAAC3EF001362A5 /* ImageUploadEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = B24ED7541EAAC3EF001362A5 /* ImageUploadEndpoint.swift */; };
+		B24ED7581EAAC3EF001362A5 /* ImageUploadResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B24ED7551EAAC3EF001362A5 /* ImageUploadResource.swift */; };
+		B24ED7591EAAC3EF001362A5 /* BrandsViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B24ED7561EAAC3EF001362A5 /* BrandsViewControllerFactory.swift */; };
 		B27A51571E9150BD003F0802 /* SignUpEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27A51561E9150BD003F0802 /* SignUpEndpoint.swift */; };
-		B27A51591E9150CE003F0802 /* AuthorizationNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27A51581E9150CE003F0802 /* AuthorizationNavigation.swift */; };
-		B27A515B1E91512D003F0802 /* UserSignUpRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27A515A1E91512D003F0802 /* UserSignUpRequest.swift */; };
 		B27A515D1E91523A003F0802 /* AuthorizationNavigationMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27A515C1E91523A003F0802 /* AuthorizationNavigationMock.swift */; };
-		B27A51621E91529A003F0802 /* ImageUploadEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27A515F1E91529A003F0802 /* ImageUploadEndpoint.swift */; };
-		B27A51631E91529A003F0802 /* ImageUploadResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27A51601E91529A003F0802 /* ImageUploadResource.swift */; };
-		B27A51671E91597B003F0802 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27A51651E91597B003F0802 /* SignUpViewController.swift */; };
-		B27A51681E91597B003F0802 /* SignUpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B27A51661E91597B003F0802 /* SignUpViewController.xib */; };
-		B27A516B1E915C88003F0802 /* FormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27A51691E915C88003F0802 /* FormView.swift */; };
 		B27A516C1E915C88003F0802 /* FormView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B27A516A1E915C88003F0802 /* FormView.xib */; };
 		B2DA9F901E8FB0BD00C2875F /* WelcomeViewBackgroundVideo.mov in Resources */ = {isa = PBXBuildFile; fileRef = B2DA9F8F1E8FB0BD00C2875F /* WelcomeViewBackgroundVideo.mov */; };
 		C414B25F1E8A7C4B002F973E /* UIView+IBInspectables.swift in Sources */ = {isa = PBXBuildFile; fileRef = C414B25E1E8A7C4B002F973E /* UIView+IBInspectables.swift */; };
@@ -529,9 +529,6 @@
 		C4C887821E89B02B0022558F /* MessagesServiceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C887811E89B02B0022558F /* MessagesServiceTest.swift */; };
 		C4C887841E89B1290022558F /* MessagesDataSourceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C887831E89B1290022558F /* MessagesDataSourceTest.swift */; };
 		C4C887861E89B5280022558F /* MessagesInteractorTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C887851E89B5280022558F /* MessagesInteractorTest.swift */; };
-		C4E110E21E8EC15D0098DF32 /* ComposeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4E110E01E8EC15D0098DF32 /* ComposeViewController.swift */; };
-		C4E110E31E8EC15D0098DF32 /* ComposeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4E110E11E8EC15D0098DF32 /* ComposeViewController.xib */; };
-		C4E25A001E92709B003E1AB7 /* ImagePicking.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4E259FF1E92709B003E1AB7 /* ImagePicking.swift */; };
 		C4DA7B551EA8C11300809118 /* UpdateIndustriesEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DA7B541EA8C11300809118 /* UpdateIndustriesEndpoint.swift */; };
 		C4DA7B571EA8C15000809118 /* UpdateUserProfileEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DA7B561EA8C15000809118 /* UpdateUserProfileEndpoint.swift */; };
 		C4DA7B5A1EA8C25400809118 /* UpdatedUserIndustries.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DA7B591EA8C25400809118 /* UpdatedUserIndustries.swift */; };
@@ -1000,25 +997,25 @@
 		85EEA4AE1E93F9AB00D04704 /* PostInstagramService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostInstagramService.swift; sourceTree = "<group>"; };
 		85FA7A271E5C730800491EED /* NavigationHaving.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationHaving.swift; sourceTree = "<group>"; };
 		85FB31E01E65E1C500E2F113 /* StyleKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StyleKit.swift; sourceTree = "<group>"; };
-		B27A513D1E91505E003F0802 /* SignUpFormFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpFormFactory.swift; sourceTree = "<group>"; };
-		B27A513E1E91505E003F0802 /* SignUpViewFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewFactory.swift; sourceTree = "<group>"; };
-		B27A513F1E91505E003F0802 /* WelcomeViewFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeViewFactory.swift; sourceTree = "<group>"; };
-		B27A51431E915068003F0802 /* SignUpService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpService.swift; sourceTree = "<group>"; };
-		B27A51471E915077003F0802 /* WelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
-		B27A51481E915077003F0802 /* WelcomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WelcomeViewController.xib; sourceTree = "<group>"; };
-		B27A514D1E915083003F0802 /* SignUpFormInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpFormInteractor.swift; sourceTree = "<group>"; };
-		B27A514E1E915083003F0802 /* SignUpInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpInteractor.swift; sourceTree = "<group>"; };
-		B27A514F1E915083003F0802 /* WelcomeViewInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeViewInteractor.swift; sourceTree = "<group>"; };
-		B27A51541E9150A4003F0802 /* SignUpResources.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpResources.swift; sourceTree = "<group>"; };
+		B24ED7381EAAC205001362A5 /* SignUpFormFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpFormFactory.swift; sourceTree = "<group>"; };
+		B24ED7391EAAC205001362A5 /* SignUpFormInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpFormInteractor.swift; sourceTree = "<group>"; };
+		B24ED73A1EAAC205001362A5 /* SignUpInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpInteractor.swift; sourceTree = "<group>"; };
+		B24ED73B1EAAC205001362A5 /* SignUpResources.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpResources.swift; sourceTree = "<group>"; };
+		B24ED73C1EAAC205001362A5 /* SignUpService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpService.swift; sourceTree = "<group>"; };
+		B24ED73D1EAAC205001362A5 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		B24ED73E1EAAC205001362A5 /* SignUpViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SignUpViewController.xib; sourceTree = "<group>"; };
+		B24ED73F1EAAC205001362A5 /* SignUpViewFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewFactory.swift; sourceTree = "<group>"; };
+		B24ED7401EAAC205001362A5 /* UserSignUpRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSignUpRequest.swift; sourceTree = "<group>"; };
+		B24ED7411EAAC205001362A5 /* WelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
+		B24ED7421EAAC205001362A5 /* WelcomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WelcomeViewController.xib; sourceTree = "<group>"; };
+		B24ED7431EAAC205001362A5 /* WelcomeViewFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeViewFactory.swift; sourceTree = "<group>"; };
+		B24ED7441EAAC205001362A5 /* WelcomeViewInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeViewInteractor.swift; sourceTree = "<group>"; };
+		B24ED7541EAAC3EF001362A5 /* ImageUploadEndpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageUploadEndpoint.swift; sourceTree = "<group>"; };
+		B24ED7551EAAC3EF001362A5 /* ImageUploadResource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageUploadResource.swift; sourceTree = "<group>"; };
+		B24ED7561EAAC3EF001362A5 /* BrandsViewControllerFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrandsViewControllerFactory.swift; sourceTree = "<group>"; };
 		B27A51561E9150BD003F0802 /* SignUpEndpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpEndpoint.swift; sourceTree = "<group>"; };
 		B27A51581E9150CE003F0802 /* AuthorizationNavigation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthorizationNavigation.swift; sourceTree = "<group>"; };
-		B27A515A1E91512D003F0802 /* UserSignUpRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSignUpRequest.swift; sourceTree = "<group>"; };
 		B27A515C1E91523A003F0802 /* AuthorizationNavigationMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthorizationNavigationMock.swift; sourceTree = "<group>"; };
-		B27A515F1E91529A003F0802 /* ImageUploadEndpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageUploadEndpoint.swift; sourceTree = "<group>"; };
-		B27A51601E91529A003F0802 /* ImageUploadResource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageUploadResource.swift; sourceTree = "<group>"; };
-		B27A51611E91529A003F0802 /* ImageUploadService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageUploadService.swift; sourceTree = "<group>"; };
-		B27A51651E91597B003F0802 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
-		B27A51661E91597B003F0802 /* SignUpViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SignUpViewController.xib; sourceTree = "<group>"; };
 		B27A51691E915C88003F0802 /* FormView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormView.swift; sourceTree = "<group>"; };
 		B27A516A1E915C88003F0802 /* FormView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FormView.xib; sourceTree = "<group>"; };
 		B2DA9F8F1E8FB0BD00C2875F /* WelcomeViewBackgroundVideo.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = WelcomeViewBackgroundVideo.mov; sourceTree = "<group>"; };
@@ -1102,9 +1099,6 @@
 		C4C887811E89B02B0022558F /* MessagesServiceTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagesServiceTest.swift; sourceTree = "<group>"; };
 		C4C887831E89B1290022558F /* MessagesDataSourceTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagesDataSourceTest.swift; sourceTree = "<group>"; };
 		C4C887851E89B5280022558F /* MessagesInteractorTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagesInteractorTest.swift; sourceTree = "<group>"; };
-		C4E110E01E8EC15D0098DF32 /* ComposeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComposeViewController.swift; sourceTree = "<group>"; };
-		C4E110E11E8EC15D0098DF32 /* ComposeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ComposeViewController.xib; sourceTree = "<group>"; };
-		C4E259FF1E92709B003E1AB7 /* ImagePicking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagePicking.swift; sourceTree = "<group>"; };
 		C4DA7B541EA8C11300809118 /* UpdateIndustriesEndpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdateIndustriesEndpoint.swift; sourceTree = "<group>"; };
 		C4DA7B561EA8C15000809118 /* UpdateUserProfileEndpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdateUserProfileEndpoint.swift; sourceTree = "<group>"; };
 		C4DA7B591EA8C25400809118 /* UpdatedUserIndustries.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdatedUserIndustries.swift; sourceTree = "<group>"; };
@@ -1146,8 +1140,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8217F9377CE6236507E326A4 /* (null) in Frameworks */,
-				8B93F52018D6B44C46B04178 /* Pods_VyrlTests.framework in Frameworks */,
+				8B93F52018D6B44C46B04178 /* (null) in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1341,8 +1334,9 @@
 				1ADAF7C61E545F3C00155D9F /* Vyrl */,
 				1ADAF7DB1E545F3C00155D9F /* VyrlTests */,
 				1ADAF7C51E545F3C00155D9F /* Products */,
-				F1A85FC39E82348889D7EDFF /* Pods */,
+				F1A85FC39E82348889D7EDFF /* Compose */,
 				8CA5761405E19FFA8680B4E6 /* Frameworks */,
+				B24ED7371EAABD4A001362A5 /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -1397,11 +1391,26 @@
 		1ADAF7F81E54605D00155D9F /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				B24ED7541EAAC3EF001362A5 /* ImageUploadEndpoint.swift */,
+				B24ED7551EAAC3EF001362A5 /* ImageUploadResource.swift */,
+				B24ED7561EAAC3EF001362A5 /* BrandsViewControllerFactory.swift */,
+				B24ED7381EAAC205001362A5 /* SignUpFormFactory.swift */,
+				B24ED7391EAAC205001362A5 /* SignUpFormInteractor.swift */,
+				B24ED73A1EAAC205001362A5 /* SignUpInteractor.swift */,
+				B24ED73B1EAAC205001362A5 /* SignUpResources.swift */,
+				B24ED73C1EAAC205001362A5 /* SignUpService.swift */,
+				B24ED73D1EAAC205001362A5 /* SignUpViewController.swift */,
+				B24ED73E1EAAC205001362A5 /* SignUpViewController.xib */,
+				B24ED73F1EAAC205001362A5 /* SignUpViewFactory.swift */,
+				B24ED7401EAAC205001362A5 /* UserSignUpRequest.swift */,
+				B24ED7411EAAC205001362A5 /* WelcomeViewController.swift */,
+				B24ED7421EAAC205001362A5 /* WelcomeViewController.xib */,
+				B24ED7431EAAC205001362A5 /* WelcomeViewFactory.swift */,
+				B24ED7441EAAC205001362A5 /* WelcomeViewInteractor.swift */,
 				85B60D551E8DC81C007F129F /* Shared */,
 				853A83521E72C52F006EBA8C /* Cart */,
 				31B0794D1E7732B20015C302 /* Chat */,
 				85CA3FD61E64778800D43805 /* Login */,
-				B27A51381E914FF5003F0802 /* SignUp */,
 				850A80C91E5DC17B00E684A3 /* Deserializing */,
 				1A1FA95E1E5F2E3B007EB61D /* Settings */,
 				850A80D41E5DE7B500E684A3 /* Authorization */,
@@ -1544,7 +1553,7 @@
 				3168A27D1E5EF6F100C65434 /* Product.swift */,
 				8554BE7E1E68466300E05A37 /* Products.swift */,
 				8554BE841E6870D000E05A37 /* Variants.swift */,
-				8554BE861E6870F200E05A37 /* ProductImage.swift */,
+				8554BE861E6870F200E05A37 /* ImageContainer.swift */,
 				8554BE881E68731D00E05A37 /* OrderProposal.swift */,
 			);
 			name = Model;
@@ -1869,7 +1878,6 @@
 				B27A51561E9150BD003F0802 /* SignUpEndpoint.swift */,
 				850A80BA1E5DA92800E684A3 /* APIEndpoint.swift */,
 				850A80C71E5DAB3200E684A3 /* LoginEndpoint.swift */,
-				853859941E6029050098D1EB /* RegisterEndpoint.swift */,
 			);
 			name = APIEndpoints;
 			sourceTree = "<group>";
@@ -1929,7 +1937,6 @@
 			isa = PBXGroup;
 			children = (
 				850A80FA1E5EE8DF00E684A3 /* APIResource.swift */,
-				850A80C51E5DAA1E00E684A3 /* AuthorizationResources.swift */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -1995,9 +2002,7 @@
 		852ACD3D1E55DB6B00219E90 /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				B27A515E1E915287003F0802 /* ImageUpload */,
 				85DCFC411E76D59E0046D0D5 /* Form */,
-				858D63E61E55F21800CFDD4C /* ServiceLocator.swift */,
 				1A1FA9461E5DB05E007EB61D /* Networking */,
 				852ACD3E1E55DB7400219E90 /* Protocols */,
 				858D64191E57268300CFDD4C /* Mock */,
@@ -2069,7 +2074,6 @@
 		853859961E602BD00098D1EB /* Request */ = {
 			isa = PBXGroup;
 			children = (
-				853859971E602BFD0098D1EB /* UserRegistrationRequest.swift */,
 			);
 			name = Request;
 			sourceTree = "<group>";
@@ -2820,8 +2824,6 @@
 		859377C11E94C335007C10DF /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				852BC35F1E8DBD47009115FA /* ImageUploadEndpoint.swift */,
-				852BC35D1E8DBD25009115FA /* ImageUploadResource.swift */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -2886,7 +2888,6 @@
 		85B60D561E8DC822007F129F /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				8554BE861E6870F200E05A37 /* ImageContainer.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -2894,7 +2895,6 @@
 		85CA3FCE1E6439DF00D43805 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				85CA3FCF1E6439EE00D43805 /* AuthorizationResourcesTest.swift */,
 				85CA3FD41E646FE700D43805 /* BaseResourcesTest.swift */,
 			);
 			name = Resources;
@@ -2969,8 +2969,6 @@
 			isa = PBXGroup;
 			children = (
 				85CA3FEE1E6489CF00D43805 /* LoginFormInteractor.swift */,
-				85CA3FF01E648A3400D43805 /* FormField.swift */,
-				85CA3FF21E648A8200D43805 /* FormValidator.swift */,
 			);
 			name = Other;
 			sourceTree = "<group>";
@@ -3089,9 +3087,16 @@
 			isa = PBXGroup;
 			children = (
 				2D02CB810235182E25EE1F8B /* Pods_Vyrl.framework */,
-				E0EB38848E0C16BD8FCFD361 /* Pods_VyrlTests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B24ED7371EAABD4A001362A5 /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+				41D34CDCBBCD4E7EFCD66AC2 /* Pods-VyrlTests.ad hoc.xcconfig */,
+			);
+			name = "Recovered References";
 			sourceTree = "<group>";
 		};
 		C44C3FF31E92F985005F776E /* Compose */ = {
@@ -3521,34 +3526,15 @@
 			name = Interactors;
 			sourceTree = "<group>";
 		};
-		F1A85FC39E82348889D7EDFF /* Pods */ = {
+		F1A85FC39E82348889D7EDFF /* Compose */ = {
 			isa = PBXGroup;
 			children = (
 				36E484A59E4A208220452393 /* Pods-Vyrl.release.xcconfig */,
-				97CBD94580D69E2EFCC220E2 /* Pods-Vyrl.ad hoc.xcconfig */,
 				7F12BBECEACCAA3DF5ACEC47 /* Pods-VyrlTests.debug.xcconfig */,
 				21CC19E04AE6243D1B242F7D /* Pods-VyrlTests.release.xcconfig */,
-				96549903E451F71A0DF3113D /* Pods-VyrlTests.ad hoc.xcconfig */,
 				7F8A3F2908216E08C5DAF64C /* Pods-Vyrl.debug.xcconfig */,
 			);
 			name = Compose;
-			sourceTree = "<group>";
-		};
-		C4E110DE1E8EC05A0098DF32 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				C4E110E01E8EC15D0098DF32 /* ComposeViewController.swift */,
-				C4E110E11E8EC15D0098DF32 /* ComposeViewController.xib */,
-			);
-			name = Views;
-			sourceTree = "<group>";
-		};
-		C4E110DF1E8EC0660098DF32 /* Interactors */ = {
-			isa = PBXGroup;
-			children = (
-				C47E31C91E921F89009ED817 /* ComposeInteractor.swift */,
-			);
-			name = Interactors;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -3651,9 +3637,7 @@
 				C44C3FFC1E93B864005F776E /* InfluencerMediaMessageCell.xib in Resources */,
 				31B079551E7736EF0015C302 /* CollabsViewController.xib in Resources */,
 				C4BDA4311E7FD7720009BB67 /* MessagesViewController.xib in Resources */,
-				1ADAF7D21E545F3C00155D9F /* LaunchScreen.storyboard in Resources */,
 				8572E4AD1E797CA90042160D /* CollabCell.xib in Resources */,
-				B27A514C1E915077003F0802 /* WelcomeViewController.xib in Resources */,
 				C4B161D71E85074300C6E112 /* MainStatusView.xib in Resources */,
 				1AA7FAA61E69783F001C0B6F /* CheckoutViewController.xib in Resources */,
 				85CA3FE51E647A5400D43805 /* LoginViewController.xib in Resources */,
@@ -3665,7 +3649,6 @@
 				C4C8876D1E8984660022558F /* InfluencerMessageCell.xib in Resources */,
 				313CF8031E6E268E005686F5 /* ExpandableTextTableCell.xib in Resources */,
 				31EF231C1E68AD810073F624 /* AddToCartTableCell.xib in Resources */,
-				B27A51681E91597B003F0802 /* SignUpViewController.xib in Resources */,
 				858D64161E57130500CFDD4C /* Localizable.strings in Resources */,
 				31FEB5B21E5CBE4800C5E41D /* BrandStoreHeader.xib in Resources */,
 				C47B0ED51E950639005A687F /* SuccessMessagesFooterView.xib in Resources */,
@@ -3676,6 +3659,7 @@
 				C414B2671E8BC5E5002F973E /* MessagesFooterView.xib in Resources */,
 				31B079321E709FF20015C302 /* SwipeableGalleryTableCell.xib in Resources */,
 				858F76E61E9CCB30005FDF6A /* WebViewController.xib in Resources */,
+				B24ED74F1EAAC205001362A5 /* WelcomeViewController.xib in Resources */,
 				852ACD4D1E55DE1500219E90 /* BrandCell.xib in Resources */,
 				1ADAF7CF1E545F3C00155D9F /* Assets.xcassets in Resources */,
 				31EF22E81E664C180073F624 /* ProductDetailsViewController.xib in Resources */,
@@ -3687,6 +3671,7 @@
 				853A83571E72C57D006EBA8C /* CheckoutSummaryViewController.xib in Resources */,
 				1AA7FA9C1E687FE7001C0B6F /* InfoView.xib in Resources */,
 				31FEB5AB1E5C3A4800C5E41D /* BrandStoreViewController.xib in Resources */,
+				B24ED74B1EAAC205001362A5 /* SignUpViewController.xib in Resources */,
 				1A31215E1E641CFB00F71925 /* CartItemCell.xib in Resources */,
 				C4C887791E89A5590022558F /* BrandMessageCell.xib in Resources */,
 				853BAC101E7C1A9600874075 /* GoogleService-Info.plist in Resources */,
@@ -3857,7 +3842,6 @@
 				31B079461E75A4380015C302 /* ClosureBarButtonItem.swift in Sources */,
 				850A80EB1E5E1FFA00E684A3 /* DataResponseProtocol.swift in Sources */,
 				852ACD401E55DB8400219E90 /* HavingNib.swift in Sources */,
-				B27A515B1E91512D003F0802 /* UserSignUpRequest.swift in Sources */,
 				313CF8021E6E268E005686F5 /* ExpandableTextTableCell.swift in Sources */,
 				853A83551E72C563006EBA8C /* CheckoutSummaryViewController.swift in Sources */,
 				85CA3FF31E648A8200D43805 /* FormValidator.swift in Sources */,
@@ -3880,6 +3864,7 @@
 				8554BEC61E69DE8000E05A37 /* ShippingAddressInteractor.swift in Sources */,
 				858D63DE1E55F18100CFDD4C /* DownloadingImageView.swift in Sources */,
 				31B079341E70A6580015C302 /* ProductDetailsGalleryDataSource.swift in Sources */,
+				B24ED7461EAAC205001362A5 /* SignUpFormInteractor.swift in Sources */,
 				85DCFC431E76D5B50046D0D5 /* FormInteracting.swift in Sources */,
 				850A80CD1E5DC7F900E684A3 /* APIError.swift in Sources */,
 				C47A7ED91EA7633E0088E578 /* Industries.swift in Sources */,
@@ -3905,9 +3890,9 @@
 				1AA7FA9E1E6883F7001C0B6F /* AutoexpandableTextView.swift in Sources */,
 				C4B161DB1E8509E100C6E112 /* StatusView.swift in Sources */,
 				8597AB6B1E8AEF7800A64585 /* ChatRoom.swift in Sources */,
-				B27A51511E915083003F0802 /* SignUpInteractor.swift in Sources */,
 				85CA3FC51E642EB500D43805 /* RequestDataProvider.swift in Sources */,
 				C47D450C1E825F1B005DD524 /* MessageContainer.swift in Sources */,
+				B24ED7581EAAC3EF001362A5 /* ImageUploadResource.swift in Sources */,
 				8554BE6F1E6804E600E05A37 /* CategoriesEndpoint.swift in Sources */,
 				85EEA4981E930F7000D04704 /* ChatPresenceService.swift in Sources */,
 				1AA7FAA81E699D07001C0B6F /* CheckoutInteractor.swift in Sources */,
@@ -3918,7 +3903,6 @@
 				854AE01E1E9249AC00B0F322 /* ChatRoomUpdater.swift in Sources */,
 				C4DA7B601EA950FD00809118 /* UpdateUserProfileResource.swift in Sources */,
 				85CA3FDA1E6477D100D43805 /* LoginViewController.swift in Sources */,
-				B27A51501E915083003F0802 /* SignUpFormInteractor.swift in Sources */,
 				85A2A80A1E7B4C3900271871 /* StoredRepository.swift in Sources */,
 				853A83401E71D011006EBA8C /* Orders.swift in Sources */,
 				850A80F71E5EDC9E00E684A3 /* URLSessionDataTaskProtocol.swift in Sources */,
@@ -3948,6 +3932,7 @@
 				313CF8051E6E26E7005686F5 /* ExpandableTextTableCellRenderable.swift in Sources */,
 				85DCFC371E76961A0046D0D5 /* BadgeBarButtonItem.swift in Sources */,
 				31EF23011E6791BB0073F624 /* ProductDetailsDataSource.swift in Sources */,
+				B24ED74C1EAAC205001362A5 /* SignUpViewFactory.swift in Sources */,
 				1A31215C1E641CE400F71925 /* CartItemCell.swift in Sources */,
 				1A1FA94B1E5DF3E0007EB61D /* LeftMenuInteractorFactory.swift in Sources */,
 				850A80CF1E5DCABA00E684A3 /* JSONSerializationProtocol.swift in Sources */,
@@ -3958,6 +3943,8 @@
 				31EF22F11E67742C0073F624 /* TableViewDataProviding.swift in Sources */,
 				31B0793B1E70A7370015C302 /* SwipeableGalleryItemCell.swift in Sources */,
 				853771961E5C425B00E693AD /* BrandsNavigation.swift in Sources */,
+				B24ED7481EAAC205001362A5 /* SignUpResources.swift in Sources */,
+				B24ED7521EAAC337001362A5 /* FormView.swift in Sources */,
 				C47A7EE31EA7678E0088E578 /* IndustriesService.swift in Sources */,
 				1A859C101E575E180013EB09 /* RootNavigationInteractor.swift in Sources */,
 				854AE0291E92ABF500B0F322 /* ChatRoomSnapshotConverter.swift in Sources */,
@@ -3996,7 +3983,6 @@
 				C47B0ED91E964B8F005A687F /* PresentingActivity.swift in Sources */,
 				85B0A8381E6703A2002093BA /* CALayer+BottomBorder.swift in Sources */,
 				C4C8876C1E8984660022558F /* InfluencerMessageCell.swift in Sources */,
-				B27A51401E91505E003F0802 /* SignUpFormFactory.swift in Sources */,
 				85CA3FEA1E647E9300D43805 /* FormTextField.swift in Sources */,
 				850A80D81E5DEB2B00E684A3 /* KeychainProtocol.swift in Sources */,
 				85DCFC261E75C1760046D0D5 /* FormFieldsInteractor.swift in Sources */,
@@ -4008,13 +3994,13 @@
 				C4B161D91E85090700C6E112 /* MainStatusView.swift in Sources */,
 				850A80E41E5E16E500E684A3 /* JSONToModelDeserializer.swift in Sources */,
 				85DCFC3A1E76B3490046D0D5 /* ActionButtonRenderable.swift in Sources */,
-				B27A51631E91529A003F0802 /* ImageUploadResource.swift in Sources */,
 				858D64471E58A4C000CFDD4C /* CollectionViewRefreshing.swift in Sources */,
 				858D63E51E55F1E000CFDD4C /* ImageRetriever.swift in Sources */,
 				3168A27B1E5EF66F00C65434 /* ProductsResourceMock.swift in Sources */,
 				852ACD4B1E55DDEE00219E90 /* BrandCell.swift in Sources */,
 				1A859C4B1E58D1950013EB09 /* LeftMenuInteractor.swift in Sources */,
 				8572E4AB1E797C6D0042160D /* CollabCell.swift in Sources */,
+				B24ED7501EAAC205001362A5 /* WelcomeViewFactory.swift in Sources */,
 				C4DA7B801EAA178E00809118 /* UserImageSignedRequest.swift in Sources */,
 				85CA3FEF1E6489CF00D43805 /* LoginFormInteractor.swift in Sources */,
 				85DCFC1C1E75BC2E0046D0D5 /* ContactInfoFormInteractor.swift in Sources */,
@@ -4029,14 +4015,15 @@
 				850A80D61E5DE83200E684A3 /* CredentialsStorage.swift in Sources */,
 				8597AB611E8A59F700A64585 /* MessagesService.swift in Sources */,
 				1A69C6A01E55DC8C00134EF5 /* LeftMenuViewController.swift in Sources */,
-				B27A51671E91597B003F0802 /* SignUpViewController.swift in Sources */,
 				85CA3FDF1E6477EF00D43805 /* LoginService.swift in Sources */,
 				85DCFC281E75C3760046D0D5 /* CustomIntegerConvertible.swift in Sources */,
 				C4C887781E89A5590022558F /* BrandMessageCell.swift in Sources */,
 				C4DA7B841EAA1B2000809118 /* UploadService.swift in Sources */,
 				858D64181E5722C900CFDD4C /* BrandsResourceMock.swift in Sources */,
+				B24ED74D1EAAC205001362A5 /* UserSignUpRequest.swift in Sources */,
 				858D63E01E55F19A00CFDD4C /* ImageFetcher.swift in Sources */,
 				850A80D31E5DE69200E684A3 /* APICredentialsProvider.swift in Sources */,
+				B24ED7571EAAC3EF001362A5 /* ImageUploadEndpoint.swift in Sources */,
 				C47A7E8E1E9DFC3F0088E578 /* UserProfileResource.swift in Sources */,
 				31EF231E1E68BD700073F624 /* AddToCartTableCellRenderable.swift in Sources */,
 				858F76E01E9CCAE6005FDF6A /* WebViewControllerBuilder.swift in Sources */,
@@ -4061,6 +4048,7 @@
 				85CA3FEC1E64887900D43805 /* String+Password.swift in Sources */,
 				855AD6DF1E8CF8FA00B9523D /* TextMessageService.swift in Sources */,
 				C47A7EAC1EA0C8350088E578 /* UpdateUserSettingsService.swift in Sources */,
+				B24ED74E1EAAC205001362A5 /* WelcomeViewController.swift in Sources */,
 				850A80D11E5DCBAF00E684A3 /* JSONModelDeserializer.swift in Sources */,
 				1AA7FAB11E69CB2F001C0B6F /* OrderProposalService.swift in Sources */,
 				C4BDA4331E7FDADA0009BB67 /* MessagesInteractor.swift in Sources */,
@@ -4068,6 +4056,7 @@
 				8554BE7D1E68465100E05A37 /* ProductsResource.swift in Sources */,
 				854AE0221E9258E100B0F322 /* MessagesSnapshotConverter.swift in Sources */,
 				C47A7ED51EA6091C0088E578 /* EditProfileInteractor.swift in Sources */,
+				B24ED7451EAAC205001362A5 /* SignUpFormFactory.swift in Sources */,
 				85A2A80D1E7B4D0300271871 /* ChatCredentialsStorage.swift in Sources */,
 				8572E4B61E79A78F0042160D /* Collab.swift in Sources */,
 				31EF233C1E69C0860073F624 /* VariantHandler.swift in Sources */,
@@ -4093,6 +4082,7 @@
 				1AA7FAA41E697747001C0B6F /* CheckoutViewController.swift in Sources */,
 				85DCFC1E1E75BC370046D0D5 /* ContactInfoViewController.swift in Sources */,
 				C4DA7B7E1EAA157A00809118 /* UploadUserImageResource.swift in Sources */,
+				B24ED7591EAAC3EF001362A5 /* BrandsViewControllerFactory.swift in Sources */,
 				31FEB5AE1E5C5E3900C5E41D /* BrandStoreHeaderRenderable.swift in Sources */,
 				850A810A1E5F2B4B00E684A3 /* ResourceConfiguratorFactory.swift in Sources */,
 				855AD6DE1E8CF8FA00B9523D /* PostMessageResource.swift in Sources */,
@@ -4103,13 +4093,13 @@
 				C4DA7B621EA9515000809118 /* UpdateUserIndustriesService.swift in Sources */,
 				31EF22F51E677E310073F624 /* TableViewHaving.swift in Sources */,
 				85DCFC1A1E75BC240046D0D5 /* ContactInfoInteractor.swift in Sources */,
+				B24ED7491EAAC205001362A5 /* SignUpService.swift in Sources */,
 				C47A7E8A1E9DFB0E0088E578 /* UserProfileEndpoint.swift in Sources */,
 				858D644A1E58A67200CFDD4C /* EmptyCollectionViewHandler.swift in Sources */,
 				85603F7D1E88EE600062485E /* ChatSigningIn.swift in Sources */,
 				85A2A80F1E7B4E7100271871 /* KeychainConstants.swift in Sources */,
 				85EEA4A01E93DEAB00D04704 /* PostImageResource.swift in Sources */,
 				31EF22E71E664C180073F624 /* ProductDetailsViewController.swift in Sources */,
-				B27A514B1E915077003F0802 /* WelcomeViewController.swift in Sources */,
 				1ADAF7F61E545FA300155D9F /* RootNavigation.swift in Sources */,
 				85CF95E71E94E6DD00EBDEC2 /* CollabStatus.swift in Sources */,
 				C47A7EDF1EA765330088E578 /* IndustriesResource.swift in Sources */,
@@ -4119,25 +4109,25 @@
 				85603F761E88ED530062485E /* ChatAuthenticator.swift in Sources */,
 				C4BDA43B1E8130700009BB67 /* MessagesDataSource.swift in Sources */,
 				85DCFC331E7689B70046D0D5 /* ButtonWithBadge.swift in Sources */,
+				B24ED7471EAAC205001362A5 /* SignUpInteractor.swift in Sources */,
 				31EF230F1E67B6410073F624 /* NamePriceTableCellRenderable.swift in Sources */,
 				31EF232E1E69A69D0073F624 /* DetailTableCellRenderable.swift in Sources */,
 				850A80AE1E5D977C00E684A3 /* APIConfiguration.swift in Sources */,
 				C47A7ED71EA609310088E578 /* EditProfileViewControllerFactory.swift in Sources */,
 				1A1FA9611E5F2E55007EB61D /* AccountViewControllerFactory.swift in Sources */,
 				85DCFC241E75BC710046D0D5 /* ContactInfoViewFactory.swift in Sources */,
-				B27A51551E9150A4003F0802 /* SignUpResources.swift in Sources */,
 				31B079311E709FF20015C302 /* SwipeableGalleryTableCell.swift in Sources */,
 				8554BE8F1E6883AE00E05A37 /* Variants.swift in Sources */,
 				C47B0ED31E950616005A687F /* SuccessMessagesFooterView.swift in Sources */,
 				1A1FA9641E5F4D19007EB61D /* AccountViewController.swift in Sources */,
 				1A69C6A41E55FF0000134EF5 /* UIColor.swift in Sources */,
+				B24ED7511EAAC205001362A5 /* WelcomeViewInteractor.swift in Sources */,
 				C4DA7B551EA8C11300809118 /* UpdateIndustriesEndpoint.swift in Sources */,
 				31EF232B1E69A63D0073F624 /* DetailTableViewCell.swift in Sources */,
 				31EF23361E69A8CA0073F624 /* TableHeaderRenderable.swift in Sources */,
 				852BC35C1E8DBD1B009115FA /* ImageMessageService.swift in Sources */,
 				3169B9CC1E64C7C1005F8A94 /* BrandStoreFlowLayoutHandler.swift in Sources */,
 				31EF23331E69A8A90073F624 /* TableHeaderCell.swift in Sources */,
-				B27A51621E91529A003F0802 /* ImageUploadEndpoint.swift in Sources */,
 				8554BEC91E69DECD00E05A37 /* ShippingAddressViewFactory.swift in Sources */,
 				85B2CD641E6D83C600C4C744 /* KeyboardHandler.swift in Sources */,
 				C47A7EC51EA529B10088E578 /* ProfileViewControllerFactory.swift in Sources */,
@@ -4145,8 +4135,8 @@
 				850A80BF1E5DA94100E684A3 /* HTTPClient.swift in Sources */,
 				855828A11E8E46E600748A9A /* ConfirmDeliveryResource.swift in Sources */,
 				8507FED51E8E318900C0711B /* ImageToDataConverter.swift in Sources */,
+				B24ED7531EAAC342001362A5 /* AuthorizationNavigation.swift in Sources */,
 				313CF7FF1E6E16F4005686F5 /* TextTableCellRenderable.swift in Sources */,
-				B27A51411E91505E003F0802 /* SignUpViewFactory.swift in Sources */,
 				8558289D1E8E455C00748A9A /* ConfirmDeliveryRequest.swift in Sources */,
 				C47A7EDD1EA763F90088E578 /* IndustriesEndpoint.swift in Sources */,
 				C47A7EA81EA0C5AB0088E578 /* UpdateUserSettingsResource.swift in Sources */,
@@ -4162,19 +4152,16 @@
 				858D64201E5734A800CFDD4C /* CollectionViewUsing.swift in Sources */,
 				3169B9AC1E5F3672005F8A94 /* BrandStoreCellRenderable.swift in Sources */,
 				853A83391E717CAC006EBA8C /* ShippingAddressFormFactory.swift in Sources */,
-				B27A51441E915068003F0802 /* SignUpService.swift in Sources */,
 				858D64051E56089B00CFDD4C /* BrandsDataSource.swift in Sources */,
 				1AA7FAB51E69CB3E001C0B6F /* OrderProposalEndpoint.swift in Sources */,
 				C47A7E971E9E1EC90088E578 /* AppVersionProvider.swift in Sources */,
 				85DCFC491E7814360046D0D5 /* NotificationPosting.swift in Sources */,
-				B27A51421E91505E003F0802 /* WelcomeViewFactory.swift in Sources */,
 				1AA7FAB61E69CB3E001C0B6F /* OrderProposalResource.swift in Sources */,
 				858D64091E560EBC00CFDD4C /* CollectionViewControlling.swift in Sources */,
 				8538599A1E606BFD0098D1EB /* VyrlServerTrustPolicyManager.swift in Sources */,
 				8572E4B51E799E0D0042160D /* DataLoadingEventsListener.swift in Sources */,
 				1AA7FAA01E6885FE001C0B6F /* Autolayout.swift in Sources */,
 				C47A7E931E9DFE510088E578 /* UserProfileService.swift in Sources */,
-				853859951E6029050098D1EB /* RegisterEndpoint.swift in Sources */,
 				858F76E21E9CCAFA005FDF6A /* WebViewInteractor.swift in Sources */,
 				C47A7EC01EA5296B0088E578 /* ProfileViewController.swift in Sources */,
 				C47A7EB21EA0FCBF0088E578 /* DeleteUserService.swift in Sources */,
@@ -4186,6 +4173,7 @@
 				85DCFC401E76C6FA0046D0D5 /* ActionDescriptionView.swift in Sources */,
 				85EEA4A91E93F88500D04704 /* PostInstagramEndpoint.swift in Sources */,
 				85DCFC471E77FED00046D0D5 /* Array+Hashable.swift in Sources */,
+				B24ED74A1EAAC205001362A5 /* SignUpViewController.swift in Sources */,
 				85FA7A281E5C730800491EED /* NavigationHaving.swift in Sources */,
 				C47A7EA41E9E4A5F0088E578 /* SettingsNavigation.swift in Sources */,
 				858D64261E5747D600CFDD4C /* BrandsControllerFactory.swift in Sources */,
@@ -4248,7 +4236,6 @@
 				850A80DB1E5E0DE600E684A3 /* CredentialsStorageTest.swift in Sources */,
 				1AA7FA8E1E672D08001C0B6F /* CartSummarySnapshotTests.swift in Sources */,
 				C4C8877D1E89AA4F0022558F /* BrandMessageCellSnapshotTest.swift in Sources */,
-				85CA3FD01E6439EE00D43805 /* AuthorizationResourcesTest.swift in Sources */,
 				C4DA7B781EA9EA2500809118 /* EditProfileInteractorTest.swift in Sources */,
 				858D63EF1E55F6A800CFDD4C /* ImageFetcherTest.swift in Sources */,
 				31B0794A1E76AA150015C302 /* NavigationItemMock.swift in Sources */,
@@ -4580,7 +4567,6 @@
 		};
 		B22B2B7F1E64B2B800089F7A /* Ad Hoc */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D5038BFF97843BFB11C86F4B /* Pods-Vyrl.ad hoc.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIconDev;

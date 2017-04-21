@@ -36,7 +36,7 @@ extension FIRAuth: ChatSigningIn {
         signIn(withCustomToken: token) { (user, error) in
             if let _ = user {
                 completion(.success())
-            } else if let error = error as? NSError {
+            } else if let error = error as NSError? {
                 completion(.failure(error))
             } else {
                 completion(.failure(FirebaseError.failedAuthorization.error))

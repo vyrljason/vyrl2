@@ -15,7 +15,7 @@ enum LoginControllerFactory: LoginControllerMaking {
         let apiLoginService = LoginService(resource: resource)
         let chatLoginService: ChatAuthenticating = ServiceLocator.chatAuthenticator
         let credentialsStorage = CredentialsStorage()
-        let interactor = LoginInteractor(apiLoginService: apiLoginService, chatLoginService: chatLoginService, credentialsStorage: credentialsStorage)
+        let interactor = LoginInteractor(apiLoginService: apiLoginService, chatLoginService: chatLoginService, credentialsStorage: credentialsStorage, navigator: navigator)
         let controller = LoginViewController(interactor: interactor, formMaker: LoginFormFactory.self)
         interactor.presenter = controller
         interactor.navigator = navigator

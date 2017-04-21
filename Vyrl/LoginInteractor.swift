@@ -26,7 +26,8 @@ final class LoginInteractor: LoginInteracting {
 
     init(apiLoginService: UserLoginProviding,
          chatLoginService: ChatAuthenticating,
-         credentialsStorage: CredentialsStoring) {
+         credentialsStorage: CredentialsStoring,
+         navigator: AuthorizationNavigating) {
         self.apiLoginService = apiLoginService
         self.chatLoginService = chatLoginService
         self.credentialsStorage = credentialsStorage
