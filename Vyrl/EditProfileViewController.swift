@@ -6,6 +6,7 @@ import UIKit
 
 fileprivate enum Constants {
     static let selectIndustry: String = NSLocalizedString("editProfile.industry.select", comment: "")
+    static let saveButtonTitle: String = NSLocalizedString("editProfile.navigation.saveButtonTitle", comment: "")
 }
 
 @objc protocol EditProfileControlling: class {
@@ -70,6 +71,11 @@ final class EditProfileViewController: UIViewController, HavingNib {
 extension EditProfileViewController {
     fileprivate func setUpNavigationBar() {
         renderNoTitleBackButton()
+        let save = UIBarButtonItem(title: Constants.saveButtonTitle,
+                                   style: .done,
+                                   target: self,
+                                   action: #selector(didTapSave))
+        navigationItem.rightBarButtonItem = save
     }
     
     fileprivate func setUp(activityPresenter: PresentingActivity) {
@@ -104,6 +110,14 @@ extension EditProfileViewController {
     
     @objc fileprivate func didTapTertiaryIndustry() {
         interactor.didTapIndustry(textfield: tertiaryIndustryTextField)
+    }
+    
+    @objc fileprivate func didTapSave() {
+        let updatedUserIndustries = UpdatedUserIndustries(primaryIndustryName: primaryIndustryTextField.text ?? "",
+                                                          secondaryIndustryName: secondaryIndustryTextField.text ?? "",
+                                                          tertiaryIndustryName: tertiaryIndustryTextField.text ?? "")
+        interactor.didTapSave(fullName: influencerFullNameTextField.text ?? "",
+                              bio: influencerBioTextView.text ?? "", userIndustries: updatedUserIndustries)
     }
     
     fileprivate func setUp(imagePicker: UIImagePickerController) {

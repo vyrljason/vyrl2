@@ -7,6 +7,7 @@ import UIKit
 fileprivate enum Constants {
     static let alertYes: String = NSLocalizedString("general.button.alert.yes", comment: "")
     static let alertNo: String = NSLocalizedString("general.button.alert.no", comment: "")
+    static let titleImage: UIImage = StyleKit.navigationBarLogo
 }
 
 protocol SettingsNavigating: class {
@@ -69,6 +70,7 @@ final class SettingsNavigation: SettingsNavigating {
         account = accountFactory.make(webviewPresenter: self, sharePresenter: self,
                                       alertPresenter: self, settingsDismisser: self,
                                       profilePresenter: self)
+        account.render(NavigationItemRenderable(titleImage: Constants.titleImage))
     }
 }
 
@@ -109,6 +111,7 @@ extension SettingsNavigation: SettingsDismissing {
 extension SettingsNavigation: ProfilePresenting {
     func presentProfile(with userProfile: UserProfile, animated: Bool) {
         let viewController = profileFactory.make(userProfile: userProfile, editProfilePresenter: self)
+        viewController.render(NavigationItemRenderable(titleImage: Constants.titleImage))
         settingsNavigationController?.pushViewController(viewController, animated: animated)
     }
 }
@@ -116,6 +119,7 @@ extension SettingsNavigation: ProfilePresenting {
 extension SettingsNavigation: EditProfilePresenting {
     func presentEditProfile(with userProfile: UserProfile, animated: Bool) {
         let viewController = editProfileFactory.make(userProfile: userProfile)
+        viewController.render(NavigationItemRenderable(titleImage: Constants.titleImage))
         settingsNavigationController?.pushViewController(viewController, animated: animated)
     }
 }

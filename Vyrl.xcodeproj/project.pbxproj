@@ -515,6 +515,15 @@
 		C4C887821E89B02B0022558F /* MessagesServiceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C887811E89B02B0022558F /* MessagesServiceTest.swift */; };
 		C4C887841E89B1290022558F /* MessagesDataSourceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C887831E89B1290022558F /* MessagesDataSourceTest.swift */; };
 		C4C887861E89B5280022558F /* MessagesInteractorTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C887851E89B5280022558F /* MessagesInteractorTest.swift */; };
+		C4DA7B551EA8C11300809118 /* UpdateIndustriesEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DA7B541EA8C11300809118 /* UpdateIndustriesEndpoint.swift */; };
+		C4DA7B571EA8C15000809118 /* UpdateUserProfileEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DA7B561EA8C15000809118 /* UpdateUserProfileEndpoint.swift */; };
+		C4DA7B5A1EA8C25400809118 /* UpdatedUserIndustries.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DA7B591EA8C25400809118 /* UpdatedUserIndustries.swift */; };
+		C4DA7B5C1EA94D8D00809118 /* UpdatedUserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DA7B5B1EA94D8D00809118 /* UpdatedUserProfile.swift */; };
+		C4DA7B5E1EA9504D00809118 /* UpdateUserIndustriesResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DA7B5D1EA9504D00809118 /* UpdateUserIndustriesResource.swift */; };
+		C4DA7B601EA950FD00809118 /* UpdateUserProfileResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DA7B5F1EA950FD00809118 /* UpdateUserProfileResource.swift */; };
+		C4DA7B621EA9515000809118 /* UpdateUserIndustriesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DA7B611EA9515000809118 /* UpdateUserIndustriesService.swift */; };
+		C4DA7B641EA9523A00809118 /* UpdateUserProfileService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DA7B631EA9523A00809118 /* UpdateUserProfileService.swift */; };
+		C4DA7B661EA9581F00809118 /* UserProfileUpdater.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DA7B651EA9581F00809118 /* UserProfileUpdater.swift */; };
 		C4E110E21E8EC15D0098DF32 /* ComposeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4E110E01E8EC15D0098DF32 /* ComposeViewController.swift */; };
 		C4E110E31E8EC15D0098DF32 /* ComposeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4E110E11E8EC15D0098DF32 /* ComposeViewController.xib */; };
 		C4E25A001E92709B003E1AB7 /* ImagePicking.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4E259FF1E92709B003E1AB7 /* ImagePicking.swift */; };
@@ -1049,6 +1058,15 @@
 		C4C887811E89B02B0022558F /* MessagesServiceTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagesServiceTest.swift; sourceTree = "<group>"; };
 		C4C887831E89B1290022558F /* MessagesDataSourceTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagesDataSourceTest.swift; sourceTree = "<group>"; };
 		C4C887851E89B5280022558F /* MessagesInteractorTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagesInteractorTest.swift; sourceTree = "<group>"; };
+		C4DA7B541EA8C11300809118 /* UpdateIndustriesEndpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdateIndustriesEndpoint.swift; sourceTree = "<group>"; };
+		C4DA7B561EA8C15000809118 /* UpdateUserProfileEndpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdateUserProfileEndpoint.swift; sourceTree = "<group>"; };
+		C4DA7B591EA8C25400809118 /* UpdatedUserIndustries.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdatedUserIndustries.swift; sourceTree = "<group>"; };
+		C4DA7B5B1EA94D8D00809118 /* UpdatedUserProfile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdatedUserProfile.swift; sourceTree = "<group>"; };
+		C4DA7B5D1EA9504D00809118 /* UpdateUserIndustriesResource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdateUserIndustriesResource.swift; sourceTree = "<group>"; };
+		C4DA7B5F1EA950FD00809118 /* UpdateUserProfileResource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdateUserProfileResource.swift; sourceTree = "<group>"; };
+		C4DA7B611EA9515000809118 /* UpdateUserIndustriesService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdateUserIndustriesService.swift; sourceTree = "<group>"; };
+		C4DA7B631EA9523A00809118 /* UpdateUserProfileService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdateUserProfileService.swift; sourceTree = "<group>"; };
+		C4DA7B651EA9581F00809118 /* UserProfileUpdater.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfileUpdater.swift; sourceTree = "<group>"; };
 		C4E110E01E8EC15D0098DF32 /* ComposeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComposeViewController.swift; sourceTree = "<group>"; };
 		C4E110E11E8EC15D0098DF32 /* ComposeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ComposeViewController.xib; sourceTree = "<group>"; };
 		C4E259FF1E92709B003E1AB7 /* ImagePicking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagePicking.swift; sourceTree = "<group>"; };
@@ -3160,6 +3178,7 @@
 		C47A7ECC1EA607B00088E578 /* EditProfile */ = {
 			isa = PBXGroup;
 			children = (
+				C4DA7B581EA8C22A00809118 /* Models */,
 				C47A7EDB1EA763E80088E578 /* Services */,
 				C47A7EDA1EA763D60088E578 /* Resources */,
 				C47A7ECF1EA608EC0088E578 /* Factories */,
@@ -3200,6 +3219,10 @@
 				C47A7EDC1EA763F90088E578 /* IndustriesEndpoint.swift */,
 				C47A7EDE1EA765330088E578 /* IndustriesResource.swift */,
 				C47A7EE01EA765420088E578 /* IndustriesResourceMock.swift */,
+				C4DA7B541EA8C11300809118 /* UpdateIndustriesEndpoint.swift */,
+				C4DA7B561EA8C15000809118 /* UpdateUserProfileEndpoint.swift */,
+				C4DA7B5D1EA9504D00809118 /* UpdateUserIndustriesResource.swift */,
+				C4DA7B5F1EA950FD00809118 /* UpdateUserProfileResource.swift */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -3208,6 +3231,9 @@
 			isa = PBXGroup;
 			children = (
 				C47A7EE21EA7678E0088E578 /* IndustriesService.swift */,
+				C4DA7B611EA9515000809118 /* UpdateUserIndustriesService.swift */,
+				C4DA7B631EA9523A00809118 /* UpdateUserProfileService.swift */,
+				C4DA7B651EA9581F00809118 /* UserProfileUpdater.swift */,
 			);
 			name = Services;
 			sourceTree = "<group>";
@@ -3336,6 +3362,15 @@
 				85EEA4991E93817900D04704 /* ChatPresenceServiceTest.swift */,
 			);
 			name = Services;
+			sourceTree = "<group>";
+		};
+		C4DA7B581EA8C22A00809118 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				C4DA7B591EA8C25400809118 /* UpdatedUserIndustries.swift */,
+				C4DA7B5B1EA94D8D00809118 /* UpdatedUserProfile.swift */,
+			);
+			name = Models;
 			sourceTree = "<group>";
 		};
 		C4E110DD1E8EC0490098DF32 /* Compose */ = {
@@ -3722,6 +3757,7 @@
 				31EF22EF1E676E380073F624 /* ProductDetailsInteractor.swift in Sources */,
 				31B0794F1E7732CE0015C302 /* ChatNavigation.swift in Sources */,
 				8597AB671E8ADF5900A64585 /* Array+DictionaryInitializable.swift in Sources */,
+				C4DA7B5E1EA9504D00809118 /* UpdateUserIndustriesResource.swift in Sources */,
 				1AA7FA9E1E6883F7001C0B6F /* AutoexpandableTextView.swift in Sources */,
 				C4B161DB1E8509E100C6E112 /* StatusView.swift in Sources */,
 				8597AB6B1E8AEF7800A64585 /* ChatRoom.swift in Sources */,
@@ -3735,6 +3771,7 @@
 				C47A7E901E9DFCFA0088E578 /* UserProfileResourceMock.swift in Sources */,
 				858D641E1E572C4300CFDD4C /* APIResponseError.swift in Sources */,
 				854AE01E1E9249AC00B0F322 /* ChatRoomUpdater.swift in Sources */,
+				C4DA7B601EA950FD00809118 /* UpdateUserProfileResource.swift in Sources */,
 				85CA3FDA1E6477D100D43805 /* LoginViewController.swift in Sources */,
 				85A2A80A1E7B4C3900271871 /* StoredRepository.swift in Sources */,
 				853A83401E71D011006EBA8C /* Orders.swift in Sources */,
@@ -3785,6 +3822,7 @@
 				85CF95E91E94E6FD00EBDEC2 /* OrderStatus.swift in Sources */,
 				1AA7FA9B1E687FE7001C0B6F /* InfoView.swift in Sources */,
 				1A1FA9481E5DD024007EB61D /* CategoriesResourceMock.swift in Sources */,
+				C4DA7B5C1EA94D8D00809118 /* UpdatedUserProfile.swift in Sources */,
 				31FEB5AA1E5C3A4800C5E41D /* BrandStoreViewController.swift in Sources */,
 				85603F7F1E8917280062485E /* ChatTokenDecoding.swift in Sources */,
 				31FEB5A31E5C37A100C5E41D /* BrandStoreInteractor.swift in Sources */,
@@ -3800,6 +3838,7 @@
 				1A1FA93C1E5D950A007EB61D /* CategoryCell.swift in Sources */,
 				8554BE891E68731D00E05A37 /* OrderProposal.swift in Sources */,
 				1A859C151E575E7E0013EB09 /* RootNavigationBuilder.swift in Sources */,
+				C4DA7B571EA8C15000809118 /* UpdateUserProfileEndpoint.swift in Sources */,
 				31EF22F71E677EB80073F624 /* TableViewControlling.swift in Sources */,
 				850A80F01E5E268300E684A3 /* AuthorizationCredentials.swift in Sources */,
 				850A80BB1E5DA92800E684A3 /* APIEndpoint.swift in Sources */,
@@ -3833,6 +3872,7 @@
 				852ACD3A1E55DB0F00219E90 /* BrandsViewController.swift in Sources */,
 				C414B2691E8BC5F5002F973E /* MessagesFooterView.swift in Sources */,
 				85B0A8411E670F1D002093BA /* BrandsService.swift in Sources */,
+				C4DA7B641EA9523A00809118 /* UpdateUserProfileService.swift in Sources */,
 				1A69C6A61E56008100134EF5 /* NavigationBar.swift in Sources */,
 				C4BDA4401E8163890009BB67 /* Sender.swift in Sources */,
 				852ACD451E55DCDC00219E90 /* ReusableView.swift in Sources */,
@@ -3864,6 +3904,7 @@
 				31B079481E75A4FD0015C302 /* UIViewController+NoTitleBackButton.swift in Sources */,
 				8597AB541E89B78C00A64585 /* ChatDatabaseAccessing.swift in Sources */,
 				85CA3FE31E64790700D43805 /* LoginControllerFactory.swift in Sources */,
+				C4DA7B661EA9581F00809118 /* UserProfileUpdater.swift in Sources */,
 				31B079421E71934A0015C302 /* SwipeableGalleryTableCellRenderable.swift in Sources */,
 				85B0A8261E65F335002093BA /* UIAlertController+Ok.swift in Sources */,
 				1A859C0E1E5756C50013EB09 /* UIFont.swift in Sources */,
@@ -3910,6 +3951,7 @@
 				1AEBB9721E608A9B00113DC9 /* CartInteractor.swift in Sources */,
 				855AD6DC1E8CF8FA00B9523D /* PostMessage.swift in Sources */,
 				855AD6DD1E8CF8FA00B9523D /* PostMessageEndpoint.swift in Sources */,
+				C4DA7B621EA9515000809118 /* UpdateUserIndustriesService.swift in Sources */,
 				31EF22F51E677E310073F624 /* TableViewHaving.swift in Sources */,
 				85DCFC1A1E75BC240046D0D5 /* ContactInfoInteractor.swift in Sources */,
 				C47A7E8A1E9DFB0E0088E578 /* UserProfileEndpoint.swift in Sources */,
@@ -3938,6 +3980,7 @@
 				C47B0ED31E950616005A687F /* SuccessMessagesFooterView.swift in Sources */,
 				1A1FA9641E5F4D19007EB61D /* AccountViewController.swift in Sources */,
 				1A69C6A41E55FF0000134EF5 /* UIColor.swift in Sources */,
+				C4DA7B551EA8C11300809118 /* UpdateIndustriesEndpoint.swift in Sources */,
 				31EF232B1E69A63D0073F624 /* DetailTableViewCell.swift in Sources */,
 				31EF23361E69A8CA0073F624 /* TableHeaderRenderable.swift in Sources */,
 				852BC35C1E8DBD1B009115FA /* ImageMessageService.swift in Sources */,
@@ -3957,6 +4000,7 @@
 				313CF7D71E6D9B07005686F5 /* PickerPresenter.swift in Sources */,
 				1A3121661E64720000F71925 /* CartStorage.swift in Sources */,
 				C47A7ED21EA609070088E578 /* EditProfileViewController.swift in Sources */,
+				C4DA7B5A1EA8C25400809118 /* UpdatedUserIndustries.swift in Sources */,
 				1AEBB9731E608A9E00113DC9 /* CartViewController.swift in Sources */,
 				8554BE6A1E68047C00E05A37 /* CategoriesResource.swift in Sources */,
 				853A83461E72AA57006EBA8C /* CheckoutControllerFactory.swift in Sources */,

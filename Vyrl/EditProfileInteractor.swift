@@ -7,6 +7,7 @@ import UIKit
 
 fileprivate enum Constants {
     static let failedToFetchPossibleIndustries: String = NSLocalizedString("editProfile.error.failedToFetchPossibleIndustries", comment: "")
+    static let failedToUpdateUserProfile: String = NSLocalizedString("editProfile.error.failedToUpdateUserProfile", comment: "")
 }
 
 @objc protocol EditProfileInteracting {
@@ -17,23 +18,29 @@ fileprivate enum Constants {
     func didTapIndustry(textfield: UITextField)
     func didTapAvatar()
     func didTapBackground()
+    func didTapSave(fullName: String, bio: String, userIndustries: UpdatedUserIndustries)
 }
 
 final class EditProfileInteractor: NSObject, EditProfileInteracting {
     
     fileprivate let industriesService: IndustriesProviding
+    fileprivate let userProfileUpdater: UserProfileUpdating
     fileprivate let userProfile: UserProfile
     fileprivate let picker: PickerPresenting
     fileprivate var possibleIndustriesNames: [String] = []
     fileprivate var isPickingAvatar = false
+    fileprivate var avatarImage: UIImage? = nil
+    fileprivate var backgroundImage: UIImage? = nil
     
     weak var controller: EditProfileControlling?
     weak var activityIndicatorPresenter: ActivityIndicatorPresenter?
     weak var errorPresenter: ErrorAlertPresenting?
     
-    init(userProfile: UserProfile, industriesService: IndustriesProviding) {
+    init(userProfile: UserProfile, industriesService: IndustriesProviding,
+         userProfileUpdater: UserProfileUpdating) {
         self.userProfile = userProfile
         self.industriesService = industriesService
+        self.userProfileUpdater = userProfileUpdater
         self.picker = PickerPresenter()
     }
     
@@ -55,6 +62,19 @@ final class EditProfileInteractor: NSObject, EditProfileInteracting {
     
     func didTapBackground() {
         controller?.showImagePicker()
+    }
+    
+    func didTapSave(fullName: String, bio: String, userIndustries: UpdatedUserIndustries) {
+        activityIndicatorPresenter?.presentActivity()
+        userProfileUpdater.update(avatar: avatarImage, discoverImage: backgroundImage,
+                                  userIndustries: userIndustries, fullName: fullName, bio: bio) { [weak self] result in
+                                    self?.activityIndicatorPresenter?.dismissActivity()
+                                    result.on(success: { _ in
+                                        print("topLEL")
+                                    }, failure: { _ in
+                                        self?.errorPresenter?.presentError(title: nil, message: Constants.failedToUpdateUserProfile)
+                                    })
+        }
     }
     
     fileprivate func setUpView() {
@@ -116,9 +136,11 @@ extension EditProfileInteractor: ImagePicking {
         if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
             if isPickingAvatar {
                 controller?.setAvatar(image: pickedImage)
+                avatarImage = pickedImage
                 isPickingAvatar = false
             } else {
                 controller?.setBackground(image: pickedImage)
+                backgroundImage = pickedImage
             }
         }
         controller?.closeImagePicker()
