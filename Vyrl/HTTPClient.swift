@@ -8,6 +8,7 @@ import Alamofire
 
 protocol APIResourceControlling {
     func call<Model: Decodable>(endpoint: APIEndpoint, completion: @escaping (Result<Model, APIResponseError>) -> Void)
+    func upload<Model: Decodable>(endpoint: APIEndpoint, dataUrl: URL, completion: @escaping (Result<Model, APIResponseError>) -> Void)
 }
 
 final class HTTPClient: APIResourceControlling {
@@ -35,7 +36,13 @@ final class HTTPClient: APIResourceControlling {
                         encoding: endpoint.encoding,
                         headers: requestDataProvider.headers(for: endpoint)).responseJSON { (response: DataResponse<Any>) in
                             self.responseHandler.handle(response: response, completion: completion)
-
+        }
+    }
+    
+    func upload<Model: Decodable>(endpoint: APIEndpoint, dataUrl: URL, completion: @escaping (Result<Model, APIResponseError>) -> Void) {
+        let url = endpoint.api.baseURL(using: apiConfiguration).appendingPathComponent(endpoint.path)
+        manager.upload(dataUrl, to: url, method: endpoint.method.alamofireMethod, headers: requestDataProvider.headers(for: endpoint)).responseJSON { (response: DataResponse<Any>) in
+            self.responseHandler.handle(response: response, completion: completion)
         }
     }
 }

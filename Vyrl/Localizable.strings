@@ -51,3 +51,4 @@
 "editProfile.error.failedToFetchPossibleIndustries" = "Something ham jammed while attempting to fetch possible industries. Please try again.";
 "editProfile.error.failedToUpdateUserProfile" = "Something ham jammed while attempting to update user profile. Please try again.";
 "editProfile.navigation.saveButtonTitle" = "Save";
+"editProfile.navigation.allIndustriesNotSelected" = "You need to select all industries.";

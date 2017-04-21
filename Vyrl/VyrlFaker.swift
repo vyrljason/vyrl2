@@ -50,6 +50,11 @@ extension Faker {
                   productVariants: [ProductVariant] = [VyrlFaker.faker.productVariant(), VyrlFaker.faker.productVariant()]) -> CartItem {
         return CartItem(productId: productId, addedAt: addedAt, productVariants: productVariants)
     }
+    
+    func industry(id: Int = VyrlFaker.faker.number.randomInt(),
+                  name: String = VyrlFaker.faker.lorem.word()) -> Industry {
+        return Industry(id: id, name: name)
+    }
 }
 
 extension Internet {
@@ -74,12 +79,12 @@ extension Faker {
                             pushNotificationsEnabled: pushNotificationsenabled)
     }
     
-    func updatedUserIndustries(primaryIndustryName: String = VyrlFaker.faker.lorem.word(),
-                               secondaryIndustryName: String = VyrlFaker.faker.lorem.word(),
-                               tertiaryIndustryName: String = VyrlFaker.faker.lorem.word()) -> UpdatedUserIndustries {
-        return UpdatedUserIndustries(primaryIndustryName: primaryIndustryName,
-                                     secondaryIndustryName: secondaryIndustryName,
-                                     tertiaryIndustryName: tertiaryIndustryName)
+    func updatedUserIndustries(primaryIndustry: Industry = VyrlFaker.faker.industry(),
+                               secondaryIndustry: Industry = VyrlFaker.faker.industry(),
+                               tertiaryIndustry: Industry = VyrlFaker.faker.industry()) -> UpdatedUserIndustries {
+        return UpdatedUserIndustries(primaryIndustry: primaryIndustry,
+                                     secondaryIndustry: secondaryIndustry,
+                                     tertiaryIndustry: tertiaryIndustry)
     }
     
     func updatedUserProfile(avatar: URL = URL(string: VyrlFaker.faker.internet.url())!,
@@ -88,8 +93,7 @@ extension Faker {
                             bio: String = VyrlFaker.faker.lorem.words(amount: 10)) -> UpdatedUserProfile {
         return UpdatedUserProfile(avatar: avatar, discoveryFeedImage: discoveryFeedImage, bio: bio, fullName: fullName)
     }
-                            
-
+    
     func socialNetworkProfile(username: String = VyrlFaker.faker.company.name()) -> SocialNetworkProfile {
         return SocialNetworkProfile(username: username)
     }

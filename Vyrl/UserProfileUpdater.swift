@@ -5,7 +5,6 @@
 import UIKit
 
 enum UpdateUserProfileError: Error {
-    case imageConversion
     case imageUpload
     case imagePost
     case userIndustriesUpdate
@@ -15,24 +14,24 @@ enum UpdateUserProfileError: Error {
 protocol UserProfileUpdating {
     // swiftlint:disable cyclomatic_complexity
     // swiftlint:disable function_parameter_count
-    func update(avatar: UIImage?, discoverImage: UIImage?, userIndustries: UpdatedUserIndustries,
+    func update(avatarFilePath: URL?, discoverImageFilePath: URL?, userIndustries: UpdatedUserIndustries,
                 fullName: String, bio: String, completion: @escaping (Result<Void, UpdateUserProfileError>) -> Void)
 }
 
 final class UserProfileUpdater: UserProfileUpdating {
-    private let imageUploader: ImageDataUploading
-    private let imageConverter: ImageToDataConverting
     private let updateUserIndustriesService: UpdateUserIndustriesService
     private let updateUserProfileService: UpdateUserProfileService
+    private let userImageUploadService: PostService<UploadUserImageResource>
+    private let userImageUploadSignedRequest: UploadService<UploadUserImageSignedRequestResource>
     private let dispatchQueue: DispatchQueue
     private let dispatchGroup: DispatchGroup
     
     init(updateUserIndustriesService: UpdateUserIndustriesService,
          updateUserProfileService: UpdateUserProfileService,
-         imageUploader: ImageDataUploading,
-         imageConverter: ImageToDataConverting) {
-        self.imageUploader = imageUploader
-        self.imageConverter = imageConverter
+         userImageUploadService: PostService<UploadUserImageResource>,
+         userImageUploadSignedRequest: UploadService<UploadUserImageSignedRequestResource>) {
+        self.userImageUploadService = userImageUploadService
+        self.userImageUploadSignedRequest = userImageUploadSignedRequest
         self.updateUserIndustriesService = updateUserIndustriesService
         self.updateUserProfileService = updateUserProfileService
         self.dispatchQueue = DispatchQueue(label: "com.vyrl.dispatchgroup", attributes: .concurrent, target: .main)
@@ -41,17 +40,17 @@ final class UserProfileUpdater: UserProfileUpdating {
     
     // swiftlint:disable cyclomatic_complexity
     // swiftlint:disable function_parameter_count
-    func update(avatar: UIImage?, discoverImage: UIImage?, userIndustries: UpdatedUserIndustries,
+    func update(avatarFilePath: URL?, discoverImageFilePath: URL?, userIndustries: UpdatedUserIndustries,
                 fullName: String, bio: String, completion: @escaping (Result<Void, UpdateUserProfileError>) -> Void) {
         var avatarUrl: URL? = nil
-        if let avatar = avatar {
-            upload(photo: avatar, updateCompletion: completion, uploadCompletion: { imageUrl in
+        if let avatarFilePath = avatarFilePath {
+            upload(photoFilePath: avatarFilePath, photoType: .avatar, updateCompletion: completion, uploadCompletion: { imageUrl in
                 avatarUrl = imageUrl
             })
         }
         var discoverImageUrl: URL? = nil
-        if let discoverImage = discoverImage {
-            upload(photo: discoverImage, updateCompletion: completion, uploadCompletion: { imageUrl in
+        if let discoverImageFilePath = discoverImageFilePath {
+            upload(photoFilePath: discoverImageFilePath, photoType: .discoveryFeed, updateCompletion: completion, uploadCompletion: { imageUrl in
                 discoverImageUrl = imageUrl
             })
         }
@@ -70,19 +69,22 @@ final class UserProfileUpdater: UserProfileUpdating {
         }
     }
     
-    private func upload(photo: UIImage, updateCompletion: @escaping (Result<Void, UpdateUserProfileError>) -> Void, uploadCompletion: @escaping (URL) -> Void) {
+    private func upload(photoFilePath: URL, photoType: UserImageType, updateCompletion: @escaping (Result<Void, UpdateUserProfileError>) -> Void, uploadCompletion: @escaping (URL) -> Void) {
         dispatchGroup.enter()
         dispatchQueue.async (group: dispatchGroup) { [weak self] in
-            guard let photoData = self?.imageConverter.convert(image: photo) else {
-                updateCompletion(.failure(.imageConversion))
-                self?.dispatchGroup.leave()
-                return
-            }
-            self?.imageUploader.upload(imageData: photoData) { [weak self] uploadResult in
-                guard let `self` = self else { return }
-                uploadResult.on(success: { imageContainer in
-                    uploadCompletion(imageContainer.url)
-                    self.dispatchGroup.leave()
+            guard let `self` = self else { return }
+            self.userImageUploadService.post(using: photoType) { result in
+                result.on(success: { userImageUploadResponse in
+                    self.userImageUploadSignedRequest.upload(using: photoFilePath, toStringUrl: userImageUploadResponse.signedRequest) { result in
+                        result.on(success: { _ in
+                            uploadCompletion(userImageUploadResponse.url)
+                            self.dispatchGroup.leave()
+                        }, failure: { _ in
+                            updateCompletion(.failure(.imageUpload))
+                            self.dispatchGroup.leave()
+                            return
+                        })
+                    }
                 }, failure: { _ in
                     updateCompletion(.failure(.imageUpload))
                     self.dispatchGroup.leave()

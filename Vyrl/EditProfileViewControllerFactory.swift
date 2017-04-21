@@ -17,12 +17,14 @@ enum EditProfileViewControllerFactory: EditProfileViewControllerMaking {
         let updateUserIndustriesService = UpdateUserIndustriesService(resource: updateUserIndustriesResource)
         let updateUserProfileResource = PostService<UpdateUserProfileResource>(resource: UpdateUserProfileResource(controller: resourceController))
         let updateUserProfileService = UpdateUserProfileService(resource: updateUserProfileResource)
-        let imageUploader = ImageUploadResource(controller: resourceController)
-        let imageToDataConverter = ImageToDataConverter()
+        let userImageUploadResource = UploadUserImageResource(controller: resourceController)
+        let userImageSignRequestUploadResource = UploadUserImageSignedRequestResource(controller: resourceController)
+        let userImageUploadService = PostService<UploadUserImageResource>(resource: userImageUploadResource)
+        let userImageSignedRequestService = UploadService<UploadUserImageSignedRequestResource>(resource: userImageSignRequestUploadResource)
         let userProfileUpdater = UserProfileUpdater(updateUserIndustriesService: updateUserIndustriesService,
                                                     updateUserProfileService: updateUserProfileService,
-                                                    imageUploader: imageUploader,
-                                                    imageConverter: imageToDataConverter)
+                                                    userImageUploadService: userImageUploadService,
+                                                    userImageUploadSignedRequest: userImageSignedRequestService)
         let interactor = EditProfileInteractor(userProfile: userProfile, industriesService: industriesService,
                                                userProfileUpdater: userProfileUpdater, picker: PickerPresenter())
         interactor.accountReturner = accountReturner

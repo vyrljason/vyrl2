@@ -9,6 +9,8 @@ private enum Constants {
     static let clientPlatformPrefix = "v"
     static let defaultAccept = "application/json"
     static let accessToken = "access_token"
+    static let image = "image/png"
+    static let close = "close"
 }
 
 enum HTTPHeaderField: String, CustomStringConvertible {
@@ -16,6 +18,8 @@ enum HTTPHeaderField: String, CustomStringConvertible {
     case platform = "client-platform"
     case version = "client-version"
     case accept = "Accept"
+    case connection = "Connection"
+    case contentType = "Content-Type"
 
     var description: String {
         return self.rawValue
@@ -26,6 +30,8 @@ enum HTTPHeaderField: String, CustomStringConvertible {
         case .platform: return Constants.clientPlatformValue
         case .version: return Constants.clientPlatformPrefix + Bundle.main.applicationVersion
         case .accept: return Constants.defaultAccept
+        case .connection: return Constants.close
+        case .contentType: return Constants.image
         default: return nil
         }
     }
@@ -50,8 +56,14 @@ final class RequestDataProvider: RequestDataProviding {
     }
 
     func headers(for endpoint: APIEndpoint) -> [String: String] {
-        var headers: [String: String] = additionalHeaders
-        headers += endpoint.authorization.requestHeader(with: credentialsProvider.userAccessToken, for: endpoint.api)
+        var headers: [String: String] = [:]
+        switch endpoint.api {
+        case .signedRequest:
+            headers = endpoint.customHeaders
+        default:
+            headers = additionalHeaders
+            headers += endpoint.authorization.requestHeader(with: credentialsProvider.userAccessToken, for: endpoint.api)
+        }
         return headers
     }
 

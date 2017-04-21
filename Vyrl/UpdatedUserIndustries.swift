@@ -6,24 +6,26 @@ import Foundation
 
 @objc class UpdatedUserIndustries: NSObject {
     fileprivate enum JSONKeys {
-        static let industryName = "name"
+        static let primaryIndustryKey = "1"
+        static let secondaryIndustryKey = "2"
+        static let tertiaryIndustryKey = "3"
     }
-    let primaryIndustryName: String
-    let secondaryIndustryName: String
-    let tertiaryIndustryName: String
+    let primaryIndustry: Industry
+    let secondaryIndustry: Industry
+    let tertiaryIndustry: Industry
     
-    init(primaryIndustryName: String, secondaryIndustryName: String,
-         tertiaryIndustryName: String) {
-        self.primaryIndustryName = primaryIndustryName
-        self.secondaryIndustryName = secondaryIndustryName
-        self.tertiaryIndustryName = tertiaryIndustryName
+    init(primaryIndustry: Industry, secondaryIndustry: Industry,
+         tertiaryIndustry: Industry) {
+        self.primaryIndustry = primaryIndustry
+        self.secondaryIndustry = secondaryIndustry
+        self.tertiaryIndustry = tertiaryIndustry
     }
 }
 
 extension UpdatedUserIndustries: DictionaryConvertible {
     var dictionaryRepresentation: [String: Any] {
-        return [JSONKeys.industryName: primaryIndustryName]
-//                "name1": secondaryIndustryName,
-//                "name ": tertiaryIndustryName]
+        return [JSONKeys.primaryIndustryKey: primaryIndustry.id,
+                JSONKeys.secondaryIndustryKey: secondaryIndustry.id,
+                JSONKeys.tertiaryIndustryKey: tertiaryIndustry.id]
     }
 }

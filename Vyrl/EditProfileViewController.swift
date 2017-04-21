@@ -101,23 +101,20 @@ extension EditProfileViewController {
     }
     
     @objc fileprivate func didTapPrimaryIndustry() {
-        interactor.didTapIndustry(textfield: primaryIndustryTextField)
+        interactor.didTapIndustry(textfield: primaryIndustryTextField, editProfileIndustry: .primary)
     }
     
     @objc fileprivate func didTapSecondaryIndustry() {
-        interactor.didTapIndustry(textfield: secondaryIndustryTextField)
+        interactor.didTapIndustry(textfield: secondaryIndustryTextField, editProfileIndustry: .secondary)
     }
     
     @objc fileprivate func didTapTertiaryIndustry() {
-        interactor.didTapIndustry(textfield: tertiaryIndustryTextField)
+        interactor.didTapIndustry(textfield: tertiaryIndustryTextField, editProfileIndustry: .tertiary)
     }
     
     @objc fileprivate func didTapSave() {
-        let updatedUserIndustries = UpdatedUserIndustries(primaryIndustryName: primaryIndustryTextField.text ?? "",
-                                                          secondaryIndustryName: secondaryIndustryTextField.text ?? "",
-                                                          tertiaryIndustryName: tertiaryIndustryTextField.text ?? "")
         interactor.didTapSave(fullName: influencerFullNameTextField.text ?? "",
-                              bio: influencerBioTextView.text ?? "", userIndustries: updatedUserIndustries)
+                              bio: influencerBioTextView.text ?? "")
     }
     
     fileprivate func setUp(imagePicker: UIImagePickerController) {
