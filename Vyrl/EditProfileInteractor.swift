@@ -14,6 +14,7 @@ fileprivate enum Constants {
     weak var controller: EditProfileControlling? { get set }
     weak var activityIndicatorPresenter: ActivityIndicatorPresenter? { get set }
     weak var errorPresenter: ErrorAlertPresenting? { get set }
+    weak var accountReturner: AccountReturning? { get set }
     func viewDidLoad()
     func didTapIndustry(textfield: UITextField)
     func didTapAvatar()
@@ -29,19 +30,20 @@ final class EditProfileInteractor: NSObject, EditProfileInteracting {
     fileprivate let picker: PickerPresenting
     fileprivate var possibleIndustriesNames: [String] = []
     fileprivate var isPickingAvatar = false
-    fileprivate var avatarImage: UIImage? = nil
-    fileprivate var backgroundImage: UIImage? = nil
+    fileprivate var avatarImage: UIImage?
+    fileprivate var backgroundImage: UIImage?
     
     weak var controller: EditProfileControlling?
     weak var activityIndicatorPresenter: ActivityIndicatorPresenter?
     weak var errorPresenter: ErrorAlertPresenting?
+    weak var accountReturner: AccountReturning?
     
     init(userProfile: UserProfile, industriesService: IndustriesProviding,
-         userProfileUpdater: UserProfileUpdating) {
+         userProfileUpdater: UserProfileUpdating, picker: PickerPresenting) {
         self.userProfile = userProfile
         self.industriesService = industriesService
         self.userProfileUpdater = userProfileUpdater
-        self.picker = PickerPresenter()
+        self.picker = picker
     }
     
     func viewDidLoad() {
@@ -70,7 +72,7 @@ final class EditProfileInteractor: NSObject, EditProfileInteracting {
                                   userIndustries: userIndustries, fullName: fullName, bio: bio) { [weak self] result in
                                     self?.activityIndicatorPresenter?.dismissActivity()
                                     result.on(success: { _ in
-                                        print("topLEL")
+                                        self?.accountReturner?.returnToAccount(animated: true)
                                     }, failure: { _ in
                                         self?.errorPresenter?.presentError(title: nil, message: Constants.failedToUpdateUserProfile)
                                     })

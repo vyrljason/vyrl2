@@ -73,6 +73,22 @@ extension Faker {
                             emailNotificationsEnabled: emailNotificationsEnabled,
                             pushNotificationsEnabled: pushNotificationsenabled)
     }
+    
+    func updatedUserIndustries(primaryIndustryName: String = VyrlFaker.faker.lorem.word(),
+                               secondaryIndustryName: String = VyrlFaker.faker.lorem.word(),
+                               tertiaryIndustryName: String = VyrlFaker.faker.lorem.word()) -> UpdatedUserIndustries {
+        return UpdatedUserIndustries(primaryIndustryName: primaryIndustryName,
+                                     secondaryIndustryName: secondaryIndustryName,
+                                     tertiaryIndustryName: tertiaryIndustryName)
+    }
+    
+    func updatedUserProfile(avatar: URL = URL(string: VyrlFaker.faker.internet.url())!,
+                            discoveryFeedImage: URL = URL(string: VyrlFaker.faker.internet.url())!,
+                            fullName: String = VyrlFaker.faker.lorem.words(amount: 2),
+                            bio: String = VyrlFaker.faker.lorem.words(amount: 10)) -> UpdatedUserProfile {
+        return UpdatedUserProfile(avatar: avatar, discoveryFeedImage: discoveryFeedImage, bio: bio, fullName: fullName)
+    }
+                            
 
     func socialNetworkProfile(username: String = VyrlFaker.faker.company.name()) -> SocialNetworkProfile {
         return SocialNetworkProfile(username: username)

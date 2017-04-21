@@ -40,6 +40,10 @@ protocol EditProfilePresenting: class {
     func presentEditProfile(with userProfile: UserProfile, animated: Bool)
 }
 
+@objc protocol AccountReturning: class {
+    func returnToAccount(animated: Bool)
+}
+
 final class SettingsNavigationBuilder {
     var accountFactory: AccountViewControllerMaking.Type = AccountViewControllerFactory.self
     var webviewFactory: WebViewControllerMaking.Type = WebViewControllerFactory.self
@@ -118,8 +122,14 @@ extension SettingsNavigation: ProfilePresenting {
 
 extension SettingsNavigation: EditProfilePresenting {
     func presentEditProfile(with userProfile: UserProfile, animated: Bool) {
-        let viewController = editProfileFactory.make(userProfile: userProfile)
+        let viewController = editProfileFactory.make(userProfile: userProfile, accountReturner: self)
         viewController.render(NavigationItemRenderable(titleImage: Constants.titleImage))
         settingsNavigationController?.pushViewController(viewController, animated: animated)
+    }
+}
+
+extension SettingsNavigation: AccountReturning {
+    func returnToAccount(animated: Bool) {
+        settingsNavigationController?.popToRootViewController(animated: animated)
     }
 }

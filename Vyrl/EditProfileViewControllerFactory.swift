@@ -5,11 +5,11 @@
 import UIKit
 
 protocol EditProfileViewControllerMaking {
-    static func make(userProfile: UserProfile) -> EditProfileViewController
+    static func make(userProfile: UserProfile, accountReturner: AccountReturning) -> EditProfileViewController
 }
 
 enum EditProfileViewControllerFactory: EditProfileViewControllerMaking {
-    static func make(userProfile: UserProfile) -> EditProfileViewController {
+    static func make(userProfile: UserProfile, accountReturner: AccountReturning) -> EditProfileViewController {
         let resourceController = ServiceLocator.resourceConfigurator.resourceController
         let industriesResource = Service<IndustriesResource>(resource: IndustriesResource(controller: resourceController))
         let industriesService = IndustriesService(resource: industriesResource)
@@ -19,8 +19,13 @@ enum EditProfileViewControllerFactory: EditProfileViewControllerMaking {
         let updateUserProfileService = UpdateUserProfileService(resource: updateUserProfileResource)
         let imageUploader = ImageUploadResource(controller: resourceController)
         let imageToDataConverter = ImageToDataConverter()
-        let userProfileUpdater = UserProfileUpdater(updateUserIndustriesService: updateUserIndustriesService, updateUserProfileService: updateUserProfileService, imageUploader: imageUploader, imageConverter: imageToDataConverter)
-        let interactor = EditProfileInteractor(userProfile: userProfile, industriesService: industriesService, userProfileUpdater: userProfileUpdater)
+        let userProfileUpdater = UserProfileUpdater(updateUserIndustriesService: updateUserIndustriesService,
+                                                    updateUserProfileService: updateUserProfileService,
+                                                    imageUploader: imageUploader,
+                                                    imageConverter: imageToDataConverter)
+        let interactor = EditProfileInteractor(userProfile: userProfile, industriesService: industriesService,
+                                               userProfileUpdater: userProfileUpdater, picker: PickerPresenter())
+        interactor.accountReturner = accountReturner
         let editProfile = EditProfileViewController(interactor: interactor)
         return editProfile
     }
