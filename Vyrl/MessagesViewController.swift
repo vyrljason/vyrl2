@@ -65,7 +65,7 @@ final class MessagesViewController: UIViewController, HavingNib {
     fileprivate var activityPresenter: PresentingActivity!
     fileprivate var currentAddMessageStatus: AddMessageStatus = .normal
     
-    init(interactor: MessagesInteracting & DataRefreshing) {
+    init(interactor: MessagesInteracting) {
         self.interactor = interactor
         super.init(nibName: MessagesViewController.nibName, bundle: nil)
         interactor.viewController = self

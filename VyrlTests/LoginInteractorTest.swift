@@ -69,8 +69,8 @@ final class LoginInteractorTest: XCTestCase {
         listener = AuthorizationListenerMock()
         authNavigation = AuthorizationNavigationMock()
         credentialsStorage = CredentialStorageMock()
-        formItem = FormItem(field: .vyrlUsername, textField: MockTextField())
-        subject = LoginInteractor(service: service, credentialsStorage: credentialsStorage, navigator: authNavigation)
+        formItem = FormItem(field: .username, textField: MockTextField())
+        subject = LoginInteractor(apiLoginService: apiService, chatLoginService: chatService, credentialsStorage: credentialsStorage)
         subject.presenter = presenter
     }
 

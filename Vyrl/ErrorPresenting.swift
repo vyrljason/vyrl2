@@ -14,7 +14,9 @@ fileprivate enum Constants {
 
 extension UIViewController: ErrorAlertPresenting {
     func presentError(title: String?, message: String?) {
-        let controller = UIAlertController(title: title, message: message)
+        let controller = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let action = UIAlertAction(title: Constants.okTitle, style: .cancel, handler: nil)
+        controller.addAction(action)
         present(controller, animated: true, completion: nil)
     }
 }

@@ -17,8 +17,10 @@ final class RootNavigationBuilder {
                                                                         brandStoreFactory: BrandStoreControllerFactory.self,
                                                                         productDetailsFactory: ProductDetailsControllerFactory.self,
                                                                         navigationController: UINavigationController()) }()
+    var loginControllerMaker: LoginControllerMaking.Type = LoginControllerFactory.self
     var cart: CartNavigating = CartNavigationBuilder().build()
     var chat: ChatNavigating = ChatNavigationBuilder().build()
+    var settings: SettingsNavigating = SettingsNavigationBuilder().build()
     var window: WindowProtocol = UIWindow()
     var accountMaker: AccountViewControllerMaking.Type = AccountViewControllerFactory.self
     var leftMenuInteractor = LeftMenuInteractorFactory.make()
@@ -35,6 +37,7 @@ final class RootNavigationBuilder {
                                         mainNavigation: mainNavigation,
                                         cart: cart,
                                         chat: chat,
+                                        settings: settings,
                                         accountMaker: accountMaker,
                                         window: window,
                                         credentialsProvider: credentialsProvider,

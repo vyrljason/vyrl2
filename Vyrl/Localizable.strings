@@ -32,6 +32,7 @@
 "contactInfo.error.invalid" = "Valid e-mail and phone number are required";
 "cart.error.title" = "Something went wrong";
 "cart.error.description" = "Please contact the administrator";
+"chat.title" = "CHAT";
 "validation.error.usernameEmpty" = "Username cannot be empty";
 "validation.error.passwordEmpty" = "Password cannot be empty";
 "validation.error.passwordInvalid" = "Password format is invalid";
@@ -61,3 +62,17 @@
 "compose.navigation.title" = "Compose";
 "chat.login.error.message" = "Something ham jammed while attempting to log in. Please try again.";
 "chat.login.error.title" = "Error";
+"account.share.title" = "Share VYRL";
+"account.share.text" = "Check out VYRL!";
+"account.error.failedToFetchUserProfile" = "Something ham jammed while attempting to fetch user profile. Please try again.";
+"account.error.failedToUpdateUserSettings" = "Something ham jammed while attempting to update user settings. Please try again.";
+"account.error.failedToDeleteUser" = "Something ham jammed while attempting to delete user. Please try again.";
+"general.button.alert.yes" = "Yes";
+"general.button.alert.no" = "No";
+"account.deleteAlert.title" = "Delete Account?";
+"account.deleteAlert.message" = "But I thought we had something special. Are you sure?";
+"editProfile.industry.select" = "Select one...";
+"editProfile.error.failedToFetchPossibleIndustries" = "Something ham jammed while attempting to fetch possible industries. Please try again.";
+"editProfile.error.failedToUpdateUserProfile" = "Something ham jammed while attempting to update user profile. Please try again.";
+"editProfile.navigation.saveButtonTitle" = "Save";
+"editProfile.navigation.allIndustriesNotSelected" = "You need to select all industries.";

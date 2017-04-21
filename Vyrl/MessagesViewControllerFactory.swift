@@ -10,7 +10,7 @@ protocol MessagesControllerMaking {
 }
 
 final class MessagesViewControllerFactory: MessagesControllerMaking {
-    static func make(collab: Collab) -> MessagesViewController {
+    static func make(collab: Collab, presenter: ComposePresenting) -> MessagesViewController {
         let databaseReference = ServiceLocator.chatDatabaseReference
         let chatCredentialsStorage = ChatCredentialsStorage()
         let resource = ServiceLocator.resourceConfigurator.resourceController

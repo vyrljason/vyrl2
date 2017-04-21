@@ -6,13 +6,14 @@ import Alamofire
 
 protocol APIResourceConfiguring {
     var resourceController: APIResourceControlling { get }
+    var configuration: APIConfigurationHaving { get }
 }
 
 final class ResourceConfigurator: APIResourceConfiguring {
 
-    private let configuration: APIConfigurationHaving
     private let responseHandler: APIResponseHandling
     let resourceController: APIResourceControlling
+    let configuration: APIConfigurationHaving
 
     init(configuration: APIConfigurationHaving,
          sessionManager: SessionManaging,

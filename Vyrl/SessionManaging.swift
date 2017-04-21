@@ -11,6 +11,10 @@ protocol SessionManaging {
                                     parameters: Alamofire.Parameters?,
                                     encoding: ParameterEncoding,
                                     headers: HTTPHeaders?) -> Alamofire.DataRequest
+    @discardableResult func upload(_ fileURL: URL,
+                                   to url: Alamofire.URLConvertible,
+                                   method: Alamofire.HTTPMethod,
+                                   headers: HTTPHeaders?) -> UploadRequest
 }
 
 extension SessionManager: SessionManaging { }

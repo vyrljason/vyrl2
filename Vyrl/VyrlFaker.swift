@@ -50,6 +50,11 @@ extension Faker {
                   productVariants: [ProductVariant] = [VyrlFaker.faker.productVariant(), VyrlFaker.faker.productVariant()]) -> CartItem {
         return CartItem(productId: productId, addedAt: addedAt, productVariants: productVariants)
     }
+    
+    func industry(id: Int = VyrlFaker.faker.number.randomInt(),
+                  name: String = VyrlFaker.faker.lorem.word()) -> Industry {
+        return Industry(id: id, name: name)
+    }
 }
 
 extension Internet {
@@ -66,28 +71,29 @@ extension Faker {
 }
 
 extension Faker {
-    func userSettings(id: Int = VyrlFaker.faker.number.randomInt(),
-                      user: Int = VyrlFaker.faker.number.randomInt(),
-                      isAdmin: Bool = false,
-                      isBrand: Bool = false,
-                      isInfluencer: Bool = false,
-                      brandRequestClosed: Bool = false,
-                      brandStatusRequested: Bool = false,
-                      chatRequestsEnabled: Bool = false,
+    func userSettings(chatRequestsEnabled: Bool = false,
                       emailNotificationsEnabled: Bool = false,
                       pushNotificationsenabled: Bool = false) -> UserSettings {
-        return UserSettings(id: id,
-                            user: user,
-                            isAdmin: isAdmin,
-                            isBrand: isBrand,
-                            isInfluencer: isInfluencer,
-                            brandRequestClosed: brandRequestClosed,
-                            brandStatusRequested: brandStatusRequested,
-                            chatRequestsEnabled: chatRequestsEnabled,
+        return UserSettings(chatRequestsEnabled: chatRequestsEnabled,
                             emailNotificationsEnabled: emailNotificationsEnabled,
                             pushNotificationsEnabled: pushNotificationsenabled)
     }
-
+    
+    func updatedUserIndustries(primaryIndustry: Industry = VyrlFaker.faker.industry(),
+                               secondaryIndustry: Industry = VyrlFaker.faker.industry(),
+                               tertiaryIndustry: Industry = VyrlFaker.faker.industry()) -> UpdatedUserIndustries {
+        return UpdatedUserIndustries(primaryIndustry: primaryIndustry,
+                                     secondaryIndustry: secondaryIndustry,
+                                     tertiaryIndustry: tertiaryIndustry)
+    }
+    
+    func updatedUserProfile(avatar: URL = URL(string: VyrlFaker.faker.internet.url())!,
+                            discoveryFeedImage: URL = URL(string: VyrlFaker.faker.internet.url())!,
+                            fullName: String = VyrlFaker.faker.lorem.words(amount: 2),
+                            bio: String = VyrlFaker.faker.lorem.words(amount: 10)) -> UpdatedUserProfile {
+        return UpdatedUserProfile(avatar: avatar, discoveryFeedImage: discoveryFeedImage, bio: bio, fullName: fullName)
+    }
+    
     func socialNetworkProfile(username: String = VyrlFaker.faker.company.name()) -> SocialNetworkProfile {
         return SocialNetworkProfile(username: username)
     }
@@ -101,7 +107,6 @@ extension Faker {
                      pendingEmail: String = VyrlFaker.faker.internet.email(),
                      isPlatformConfirmed: Bool = false,
                      tagline: String = VyrlFaker.faker.lorem.characters(amount: 20),
-                     token: String = VyrlFaker.faker.lorem.characters(amount: 20),
                      username: String = VyrlFaker.faker.company.name(),
                      settings: UserSettings = VyrlFaker.faker.userSettings(),
                      instagramProfile: SocialNetworkProfile = VyrlFaker.faker.socialNetworkProfile(),
@@ -114,11 +119,13 @@ extension Faker {
                            pendingEmail: pendingEmail,
                            isPlatformConfirmed: isPlatformConfirmed,
                            tagline: tagline,
-                           token: token,
                            username: username,
                            settings: settings,
                            instagramProfile: instagramProfile,
                            industries: industries)
+    }
+    func userToken(token: String = VyrlFaker.faker.lorem.characters(amount: 20)) -> UserToken {
+        return UserToken(token: token)
     }
 }
 

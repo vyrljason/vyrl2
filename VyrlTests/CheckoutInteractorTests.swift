@@ -8,10 +8,10 @@ import XCTest
 final class OrderProposalServiceMock: OrderProposalSending {
     var success = true
     var orders = Orders(orders: [])
-    var error = ServiceError.unknown
+    var error = OrderProposalError.unknown
     var didCallService = false
 
-    func send(proposal: OrderProposal, completion: @escaping (Result<Orders, ServiceError>) -> Void) {
+    func send(proposal: OrderProposal, completion: @escaping (Result<Orders, OrderProposalError>) -> Void) {
         didCallService = true
         if success {
             completion(.success(orders))

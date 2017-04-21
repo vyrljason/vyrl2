@@ -51,8 +51,8 @@ extension LoginInteractor: FormActionDelegate {
         presenter?.presentActivity()
         apiLoginService.login(using: credentials) { [weak self] apiResult in
             guard let `self` = self else { return }
-            apiResult.on(success: { userProfile in
-                self.credentialsStorage.saveToken(using: userProfile)
+            apiResult.on(success: { userToken in
+                self.credentialsStorage.saveToken(using: userToken)
                 self.chatLoginService.authenticateUser { chatResult in
                     chatResult.on(success: { _ in
                         self.presenter?.dismiss()

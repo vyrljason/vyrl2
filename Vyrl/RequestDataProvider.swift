@@ -50,8 +50,14 @@ final class RequestDataProvider: RequestDataProviding {
     }
 
     func headers(for endpoint: APIEndpoint) -> [String: String] {
-        var headers: [String: String] = additionalHeaders
-        headers += endpoint.authorization.requestHeader(with: credentialsProvider.userAccessToken, for: endpoint.api)
+        var headers: [String: String] = [:]
+        switch endpoint.api {
+        case .signedRequest:
+            headers = endpoint.customHeaders
+        default:
+            headers = additionalHeaders
+            headers += endpoint.authorization.requestHeader(with: credentialsProvider.userAccessToken, for: endpoint.api)
+        }
         return headers
     }
 

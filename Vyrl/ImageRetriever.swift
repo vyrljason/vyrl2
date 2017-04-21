@@ -14,7 +14,7 @@ protocol ImageRetrieving: class {
     func retrieveImage(with url: URL, callback: @escaping ImageRetrieverCallback) -> ImageRetrievingTask
 }
 
-protocol Cancelable {
+protocol Cancelable: class {
     func cancel()
 }
 

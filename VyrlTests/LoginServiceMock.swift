@@ -9,10 +9,10 @@ final class LoginServiceMock: UserLoginProviding {
     var didCalledService = false
     var success = true
     var credentials: UserCredentials?
-    var result = VyrlFaker.faker.userProfile()
+    var result = VyrlFaker.faker.userToken()
     var error: LoginError = .unknown
 
-    func login(using credentials: UserCredentials, completion: @escaping (Result<UserProfile, LoginError>) -> Void) {
+    func login(using credentials: UserCredentials, completion: @escaping (Result<UserToken, LoginError>) -> Void) {
         self.credentials = credentials
         didCalledService = true
         if success {
