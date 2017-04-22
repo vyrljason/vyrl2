@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1583098312B6B6BDAB9C4F9E /* Pods_VyrlTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43D13576855804055D3E3248 /* Pods_VyrlTests.framework */; };
 		1A1FA9381E5D93BA007EB61D /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A1FA9371E5D93BA007EB61D /* Category.swift */; };
 		1A1FA93A1E5D94FE007EB61D /* CategoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A1FA9391E5D94FE007EB61D /* CategoryCell.xib */; };
 		1A1FA93C1E5D950A007EB61D /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A1FA93B1E5D950A007EB61D /* CategoryCell.swift */; };
@@ -426,7 +427,7 @@
 		85EEA4AF1E93F9AB00D04704 /* PostInstagramService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85EEA4AE1E93F9AB00D04704 /* PostInstagramService.swift */; };
 		85FA7A281E5C730800491EED /* NavigationHaving.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FA7A271E5C730800491EED /* NavigationHaving.swift */; };
 		85FB31E11E65E1C500E2F113 /* StyleKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FB31E01E65E1C500E2F113 /* StyleKit.swift */; };
-		8B93F52018D6B44C46B04178 /* (null) in Frameworks */ = {isa = PBXBuildFile; };
+		8B93F52018D6B44C46B04178 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; };
 		B24ED7451EAAC205001362A5 /* SignUpFormFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B24ED7381EAAC205001362A5 /* SignUpFormFactory.swift */; };
 		B24ED7461EAAC205001362A5 /* SignUpFormInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B24ED7391EAAC205001362A5 /* SignUpFormInteractor.swift */; };
 		B24ED7471EAAC205001362A5 /* SignUpInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B24ED73A1EAAC205001362A5 /* SignUpInteractor.swift */; };
@@ -725,6 +726,10 @@
 		31FEB5B71E5D952600C5E41D /* BrandStoreCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BrandStoreCell.xib; sourceTree = "<group>"; };
 		36E484A59E4A208220452393 /* Pods-Vyrl.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Vyrl.release.xcconfig"; path = "Pods/Target Support Files/Pods-Vyrl/Pods-Vyrl.release.xcconfig"; sourceTree = "<group>"; };
 		41D34CDCBBCD4E7EFCD66AC2 /* Pods-VyrlTests.ad hoc.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VyrlTests.ad hoc.xcconfig"; path = "Pods/Target Support Files/Pods-VyrlTests/Pods-VyrlTests.ad hoc.xcconfig"; sourceTree = "<group>"; };
+		43D13576855804055D3E3248 /* Pods_VyrlTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VyrlTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		651F7870C74311E2AC5AA0E7 /* Pods-VyrlTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VyrlTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-VyrlTests/Pods-VyrlTests.release.xcconfig"; sourceTree = "<group>"; };
+		726F3480E2C88455651A8C77 /* Pods-Vyrl.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Vyrl.release.xcconfig"; path = "Pods/Target Support Files/Pods-Vyrl/Pods-Vyrl.release.xcconfig"; sourceTree = "<group>"; };
+		7BEDAE23DA897E3B532296C1 /* Pods-VyrlTests.ad hoc.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VyrlTests.ad hoc.xcconfig"; path = "Pods/Target Support Files/Pods-VyrlTests/Pods-VyrlTests.ad hoc.xcconfig"; sourceTree = "<group>"; };
 		7F12BBECEACCAA3DF5ACEC47 /* Pods-VyrlTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VyrlTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-VyrlTests/Pods-VyrlTests.debug.xcconfig"; sourceTree = "<group>"; };
 		7F8A3F2908216E08C5DAF64C /* Pods-Vyrl.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Vyrl.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Vyrl/Pods-Vyrl.debug.xcconfig"; sourceTree = "<group>"; };
 		850740CC1E55E71E00E2F65B /* Brand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Brand.swift; sourceTree = "<group>"; };
@@ -997,6 +1002,7 @@
 		85EEA4AE1E93F9AB00D04704 /* PostInstagramService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostInstagramService.swift; sourceTree = "<group>"; };
 		85FA7A271E5C730800491EED /* NavigationHaving.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationHaving.swift; sourceTree = "<group>"; };
 		85FB31E01E65E1C500E2F113 /* StyleKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StyleKit.swift; sourceTree = "<group>"; };
+		AA8AF31863641EE8020D9461 /* Pods-VyrlTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VyrlTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-VyrlTests/Pods-VyrlTests.debug.xcconfig"; sourceTree = "<group>"; };
 		B24ED7381EAAC205001362A5 /* SignUpFormFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpFormFactory.swift; sourceTree = "<group>"; };
 		B24ED7391EAAC205001362A5 /* SignUpFormInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpFormInteractor.swift; sourceTree = "<group>"; };
 		B24ED73A1EAAC205001362A5 /* SignUpInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpInteractor.swift; sourceTree = "<group>"; };
@@ -1125,6 +1131,8 @@
 		C4E110E01E8EC15D0098DF32 /* ComposeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComposeViewController.swift; sourceTree = "<group>"; };
 		C4E110E11E8EC15D0098DF32 /* ComposeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ComposeViewController.xib; sourceTree = "<group>"; };
 		C4E259FF1E92709B003E1AB7 /* ImagePicking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagePicking.swift; sourceTree = "<group>"; };
+		EBC24333DEBF60DD27BE041B /* Pods-Vyrl.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Vyrl.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Vyrl/Pods-Vyrl.debug.xcconfig"; sourceTree = "<group>"; };
+		EF91F92B84DBC98543B6D416 /* Pods-Vyrl.ad hoc.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Vyrl.ad hoc.xcconfig"; path = "Pods/Target Support Files/Pods-Vyrl/Pods-Vyrl.ad hoc.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1140,7 +1148,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8B93F52018D6B44C46B04178 /* (null) in Frameworks */,
+				8B93F52018D6B44C46B04178 /* BuildFile in Frameworks */,
+				1583098312B6B6BDAB9C4F9E /* Pods_VyrlTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1337,6 +1346,7 @@
 				F1A85FC39E82348889D7EDFF /* Compose */,
 				8CA5761405E19FFA8680B4E6 /* Frameworks */,
 				B24ED7371EAABD4A001362A5 /* Recovered References */,
+				1FB57ADF7E2B5893CA8E47C6 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -1537,6 +1547,19 @@
 				1A1FA9541E5EE0BC007EB61D /* Service */,
 			);
 			name = LeftMenu;
+			sourceTree = "<group>";
+		};
+		1FB57ADF7E2B5893CA8E47C6 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				EBC24333DEBF60DD27BE041B /* Pods-Vyrl.debug.xcconfig */,
+				726F3480E2C88455651A8C77 /* Pods-Vyrl.release.xcconfig */,
+				EF91F92B84DBC98543B6D416 /* Pods-Vyrl.ad hoc.xcconfig */,
+				AA8AF31863641EE8020D9461 /* Pods-VyrlTests.debug.xcconfig */,
+				651F7870C74311E2AC5AA0E7 /* Pods-VyrlTests.release.xcconfig */,
+				7BEDAE23DA897E3B532296C1 /* Pods-VyrlTests.ad hoc.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 		3168A2791E5EF5FE00C65434 /* Service */ = {
@@ -3087,6 +3110,7 @@
 			isa = PBXGroup;
 			children = (
 				2D02CB810235182E25EE1F8B /* Pods_Vyrl.framework */,
+				43D13576855804055D3E3248 /* Pods_VyrlTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -4567,6 +4591,7 @@
 		};
 		B22B2B7F1E64B2B800089F7A /* Ad Hoc */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EF91F92B84DBC98543B6D416 /* Pods-Vyrl.ad hoc.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIconDev;

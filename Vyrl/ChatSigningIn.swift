@@ -24,6 +24,7 @@ enum FirebaseError: Int, CustomIntegerConvertible {
     static var errorDomain: String {
         return "io.govyrl.vyrl.firebase"
     }
+    
 }
 
 protocol ChatSigningIn {

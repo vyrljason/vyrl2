@@ -2,6 +2,7 @@ platform :ios, '9.3'
 
 target 'Vyrl' do
     use_frameworks!
+    inhibit_all_warnings!
 
     pod 'Decodable'
     pod 'SwiftLint'
