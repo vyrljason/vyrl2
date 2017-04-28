@@ -427,7 +427,7 @@
 		85EEA4AF1E93F9AB00D04704 /* PostInstagramService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85EEA4AE1E93F9AB00D04704 /* PostInstagramService.swift */; };
 		85FA7A281E5C730800491EED /* NavigationHaving.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FA7A271E5C730800491EED /* NavigationHaving.swift */; };
 		85FB31E11E65E1C500E2F113 /* StyleKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FB31E01E65E1C500E2F113 /* StyleKit.swift */; };
-		8B93F52018D6B44C46B04178 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; };
+		8B93F52018D6B44C46B04178 /* (null) in Frameworks */ = {isa = PBXBuildFile; };
 		B24ED7451EAAC205001362A5 /* SignUpFormFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B24ED7381EAAC205001362A5 /* SignUpFormFactory.swift */; };
 		B24ED7461EAAC205001362A5 /* SignUpFormInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B24ED7391EAAC205001362A5 /* SignUpFormInteractor.swift */; };
 		B24ED7471EAAC205001362A5 /* SignUpInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B24ED73A1EAAC205001362A5 /* SignUpInteractor.swift */; };
@@ -449,6 +449,7 @@
 		B27A51571E9150BD003F0802 /* SignUpEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27A51561E9150BD003F0802 /* SignUpEndpoint.swift */; };
 		B27A515D1E91523A003F0802 /* AuthorizationNavigationMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27A515C1E91523A003F0802 /* AuthorizationNavigationMock.swift */; };
 		B27A516C1E915C88003F0802 /* FormView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B27A516A1E915C88003F0802 /* FormView.xib */; };
+		B2CD555C1EAB5BC900C79335 /* EditProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C47A7ED11EA609070088E578 /* EditProfileViewController.xib */; };
 		B2DA9F901E8FB0BD00C2875F /* WelcomeViewBackgroundVideo.mov in Resources */ = {isa = PBXBuildFile; fileRef = B2DA9F8F1E8FB0BD00C2875F /* WelcomeViewBackgroundVideo.mov */; };
 		C414B25F1E8A7C4B002F973E /* UIView+IBInspectables.swift in Sources */ = {isa = PBXBuildFile; fileRef = C414B25E1E8A7C4B002F973E /* UIView+IBInspectables.swift */; };
 		C414B2611E8A810D002F973E /* SystemMessageCellSnapshotTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C414B2601E8A810D002F973E /* SystemMessageCellSnapshotTest.swift */; };
@@ -491,7 +492,6 @@
 		C47A7EC71EA54BE70088E578 /* ProfileViewControllerSnapshotTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47A7EC61EA54BE70088E578 /* ProfileViewControllerSnapshotTest.swift */; };
 		C47A7ECB1EA5507E0088E578 /* ProfileInteractorTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47A7ECA1EA5507E0088E578 /* ProfileInteractorTest.swift */; };
 		C47A7ED21EA609070088E578 /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47A7ED01EA609070088E578 /* EditProfileViewController.swift */; };
-		C47A7ED31EA609070088E578 /* EditProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C47A7ED11EA609070088E578 /* EditProfileViewController.xib */; };
 		C47A7ED51EA6091C0088E578 /* EditProfileInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47A7ED41EA6091C0088E578 /* EditProfileInteractor.swift */; };
 		C47A7ED71EA609310088E578 /* EditProfileViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47A7ED61EA609310088E578 /* EditProfileViewControllerFactory.swift */; };
 		C47A7ED91EA7633E0088E578 /* Industries.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47A7ED81EA7633E0088E578 /* Industries.swift */; };
@@ -1148,7 +1148,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8B93F52018D6B44C46B04178 /* BuildFile in Frameworks */,
+				8B93F52018D6B44C46B04178 /* (null) in Frameworks */,
 				1583098312B6B6BDAB9C4F9E /* Pods_VyrlTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -3669,7 +3669,6 @@
 				31B0793C1E70A7370015C302 /* SwipeableGalleryItemCell.xib in Resources */,
 				C4B161D51E83DDD100C6E112 /* SingleStatusView.xib in Resources */,
 				313CF7FD1E6E1671005686F5 /* TextTableCell.xib in Resources */,
-				C47A7ED31EA609070088E578 /* EditProfileViewController.xib in Resources */,
 				C4C8876D1E8984660022558F /* InfluencerMessageCell.xib in Resources */,
 				313CF8031E6E268E005686F5 /* ExpandableTextTableCell.xib in Resources */,
 				31EF231C1E68AD810073F624 /* AddToCartTableCell.xib in Resources */,
@@ -3696,6 +3695,7 @@
 				1AA7FA9C1E687FE7001C0B6F /* InfoView.xib in Resources */,
 				31FEB5AB1E5C3A4800C5E41D /* BrandStoreViewController.xib in Resources */,
 				B24ED74B1EAAC205001362A5 /* SignUpViewController.xib in Resources */,
+				B2CD555C1EAB5BC900C79335 /* EditProfileViewController.xib in Resources */,
 				1A31215E1E641CFB00F71925 /* CartItemCell.xib in Resources */,
 				C4C887791E89A5590022558F /* BrandMessageCell.xib in Resources */,
 				853BAC101E7C1A9600874075 /* GoogleService-Info.plist in Resources */,
