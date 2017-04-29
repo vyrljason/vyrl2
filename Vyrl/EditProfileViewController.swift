@@ -14,13 +14,13 @@ fileprivate enum Constants {
     func setBackground(imageFetcher: ImageFetcher)
     func setAvatar(image: UIImage)
     func setBackground(image: UIImage)
-    func setInfluencerUsername(text: String)
-    func setInfluencerFullName(text: String)
+    func setInfluencerUsername(text: String?)
+    func setInfluencerFullName(text: String?)
     func setPrimaryIndustry(text: String?)
     func setSecondaryIndustry(text: String?)
     func setTertiaryIndustry(text: String?)
     func setEmailLabel(text: String?)
-    func setBioTextView(text: String)
+    func setBioTextView(text: String?)
     func showImagePicker()
     func closeImagePicker()
 }
@@ -120,7 +120,7 @@ extension EditProfileViewController {
     fileprivate func setUp(imagePicker: UIImagePickerController) {
         self.imagePicker = imagePicker
         imagePicker.delegate = interactor
-        imagePicker.allowsEditing = false
+        imagePicker.allowsEditing = true
         imagePicker.sourceType = .photoLibrary
     }
 }
@@ -154,15 +154,15 @@ extension EditProfileViewController: EditProfileControlling {
         tertiaryIndustryTextField.text = text
     }
     
-    func setInfluencerUsername(text: String) {
+    func setInfluencerUsername(text: String?) {
         influencerNameLabel.text = text
     }
     
-    func setInfluencerFullName(text: String) {
+    func setInfluencerFullName(text: String?) {
         influencerFullNameTextField.text = text
     }
     
-    func setBioTextView(text: String) {
+    func setBioTextView(text: String?) {
         influencerBioTextView.text = text
     }
     

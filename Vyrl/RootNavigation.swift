@@ -200,9 +200,7 @@ extension RootNavigation {
 
 extension RootNavigation: AuthorizationFlowPresenting {
     func presentAuthorizationNavigation(animated: Bool) {
-        self.authorizationNavigation = AuthorizationNavigation(listener: self,
-                                                               welcomeViewFactory: welcomeViewMaker,
-                                                               webViewFactory: WebViewControllerFactory.self)
+        self.authorizationNavigation = AuthorizationNavigation(listener: self, welcomeViewFactory: welcomeViewMaker, webViewFactory: WebViewControllerFactory.self, editProfileFactory: EditProfileViewControllerFactory.self)
         
         guard let authNavigationController = authorizationNavigation?.navigationController, authNavigationController.viewControllers.first is WelcomeViewController else {
             assertionFailure("Auth nav starts at welcome vc")

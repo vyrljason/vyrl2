@@ -12,6 +12,7 @@ protocol AuthorizationNavigating: class {
     weak var listener: AuthorizationListener? { get set }
 
     func didFinishAuthorization()
+    func didFinishRegistration()
 }
 
 protocol LoginPresenting: class {
@@ -27,10 +28,12 @@ final class AuthorizationNavigation: AuthorizationNavigating, NavigationControll
 
     weak var listener: AuthorizationListener?
     fileprivate let webViewFactory: WebViewControllerMaking.Type
-
-    init(listener: AuthorizationListener, welcomeViewFactory: WelcomeViewMaking.Type, webViewFactory: WebViewControllerMaking.Type) {
+    fileprivate let editProfileFactory: EditProfileViewControllerFactory.Type
+    
+    init(listener: AuthorizationListener, welcomeViewFactory: WelcomeViewMaking.Type, webViewFactory: WebViewControllerMaking.Type, editProfileFactory: EditProfileViewControllerFactory.Type) {
         self.listener = listener
         self.webViewFactory = webViewFactory
+        self.editProfileFactory = editProfileFactory
         
         let welcomeViewController = welcomeViewFactory.make(using: self)
         self.navigationController.viewControllers = [welcomeViewController]
@@ -55,6 +58,20 @@ extension AuthorizationNavigation: SignUpPresenting {
         viewController.render(NavigationItemRenderable(titleImage: StyleKit.navigationBarLogo))
         navigationController.pushViewController(viewController, animated: true)
     }
+    
+    func didFinishRegistration() {
+        let resourceController = ServiceLocator.resourceConfigurator.resourceController
+        let userProfileResource = Service<UserProfileResource>(resource: UserProfileResource(controller: resourceController))
+        let userProfileService = UserProfileService(resource: userProfileResource)
+        userProfileService.get { [weak self] result in
+            guard let `self` = self else { return }
+            result.on(success: { userProfile in
+                self.presentEditProfile(with: userProfile, animated: true)
+            }, failure: { _ in
+                self.presentEditProfile(with: nil, animated: true)
+            })
+        }
+    }
 }
 
 extension AuthorizationNavigation: WebviewPresenting {
@@ -63,3 +80,21 @@ extension AuthorizationNavigation: WebviewPresenting {
         navigationController.pushViewController(viewController, animated: animated)
     }
 }
+
+extension AuthorizationNavigation: EditProfilePresenting {
+    func presentEditProfile(with userProfile: UserProfile?, animated: Bool) {
+        let viewController = editProfileFactory.make(userProfile: userProfile, accountReturner: self)
+        viewController.render(NavigationItemRenderable(titleImage: StyleKit.navigationBarLogo))
+        navigationController.hideBackButton()
+        navigationController.pushViewController(viewController, animated: animated)
+    }
+}
+
+extension AuthorizationNavigation: AccountReturning {
+    func returnToAccount(animated: Bool) {
+        // brick wall or in, based solely on email?
+        print("return to account")
+        self.didFinishAuthorization()
+    }
+}
+

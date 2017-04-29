@@ -50,7 +50,7 @@ final class SignUpInteractor: SignUpInteracting {
             guard let `self` = self else { return }
             apiResult.on(success: { userToken in
                 // sign up complete
-                self.signUpNavigation?.listener?.didFinishAuthorizing()
+                self.signUpNavigation?.didFinishRegistration()
             }, failure: { error in
                 self.errorPresenter?.presentError(title: error.title, message: error.message)
             })
