@@ -32,6 +32,7 @@ final class LoginInteractor: LoginInteracting {
         self.chatLoginService = chatLoginService
         self.credentialsStorage = credentialsStorage
         self.navigator = navigator
+        self.listener = navigator.listener
     }
 
     func didPrepare(form: LoginFormInteracting) {

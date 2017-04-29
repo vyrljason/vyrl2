@@ -39,13 +39,9 @@ final class SignUpViewController: UIViewController, HavingNib {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
+    override func viewDidLoad() {
         let form = formFactory.make(fields: [vyrlUsername, email, emailConfirmation, password, instagramUsername])
         interactor.didPrepare(form: form)
-    }
-    
-    override func viewDidLoad() {
         super.viewDidLoad()
         setUp(keyboardHandler: KeyboardHandler(scrollView: scrollView, dismissOnTouch: false))
     }
