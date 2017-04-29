@@ -15,10 +15,16 @@ final class AuthorizationNavigationMock: AuthorizationNavigating, NavigationCont
     var navigationController: UINavigationController = UINavigationController()
 
     var finishAuthCalled: Bool = false
+    var finishRegistrationCalled: Bool = false
     
     func didFinishAuthorization() {
         finishAuthCalled = true
     }
+    
+    func didFinishRegistration(_ newProfile: UserProfile) {
+        finishRegistrationCalled = true
+    }
+
 
 
 }

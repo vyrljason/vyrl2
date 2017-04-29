@@ -446,6 +446,7 @@
 		B24ED7571EAAC3EF001362A5 /* ImageUploadEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = B24ED7541EAAC3EF001362A5 /* ImageUploadEndpoint.swift */; };
 		B24ED7581EAAC3EF001362A5 /* ImageUploadResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B24ED7551EAAC3EF001362A5 /* ImageUploadResource.swift */; };
 		B24ED7591EAAC3EF001362A5 /* BrandsViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B24ED7561EAAC3EF001362A5 /* BrandsViewControllerFactory.swift */; };
+		B26DE4731EB5216B00CAEE3A /* SignUpInteractorTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B26DE4721EB5216B00CAEE3A /* SignUpInteractorTest.swift */; };
 		B27A51571E9150BD003F0802 /* SignUpEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27A51561E9150BD003F0802 /* SignUpEndpoint.swift */; };
 		B27A515D1E91523A003F0802 /* AuthorizationNavigationMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27A515C1E91523A003F0802 /* AuthorizationNavigationMock.swift */; };
 		B2CD555C1EAB5BC900C79335 /* EditProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C47A7ED11EA609070088E578 /* EditProfileViewController.xib */; };
@@ -1018,6 +1019,7 @@
 		B24ED7541EAAC3EF001362A5 /* ImageUploadEndpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageUploadEndpoint.swift; sourceTree = "<group>"; };
 		B24ED7551EAAC3EF001362A5 /* ImageUploadResource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageUploadResource.swift; sourceTree = "<group>"; };
 		B24ED7561EAAC3EF001362A5 /* BrandsViewControllerFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrandsViewControllerFactory.swift; sourceTree = "<group>"; };
+		B26DE4721EB5216B00CAEE3A /* SignUpInteractorTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpInteractorTest.swift; sourceTree = "<group>"; };
 		B27A51561E9150BD003F0802 /* SignUpEndpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpEndpoint.swift; sourceTree = "<group>"; };
 		B27A51581E9150CE003F0802 /* AuthorizationNavigation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthorizationNavigation.swift; sourceTree = "<group>"; };
 		B27A515C1E91523A003F0802 /* AuthorizationNavigationMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthorizationNavigationMock.swift; sourceTree = "<group>"; };
@@ -1402,19 +1404,7 @@
 				B24ED7541EAAC3EF001362A5 /* ImageUploadEndpoint.swift */,
 				B24ED7551EAAC3EF001362A5 /* ImageUploadResource.swift */,
 				B24ED7561EAAC3EF001362A5 /* BrandsViewControllerFactory.swift */,
-				B24ED7381EAAC205001362A5 /* SignUpFormFactory.swift */,
-				B24ED7391EAAC205001362A5 /* SignUpFormInteractor.swift */,
-				B24ED73A1EAAC205001362A5 /* SignUpInteractor.swift */,
-				B24ED73B1EAAC205001362A5 /* SignUpResources.swift */,
-				B24ED73C1EAAC205001362A5 /* SignUpService.swift */,
-				B24ED73D1EAAC205001362A5 /* SignUpViewController.swift */,
-				B24ED73E1EAAC205001362A5 /* SignUpViewController.xib */,
-				B24ED73F1EAAC205001362A5 /* SignUpViewFactory.swift */,
-				B24ED7401EAAC205001362A5 /* UserSignUpRequest.swift */,
-				B24ED7411EAAC205001362A5 /* WelcomeViewController.swift */,
-				B24ED7421EAAC205001362A5 /* WelcomeViewController.xib */,
-				B24ED7431EAAC205001362A5 /* WelcomeViewFactory.swift */,
-				B24ED7441EAAC205001362A5 /* WelcomeViewInteractor.swift */,
+				B26DE4701EB5212200CAEE3A /* Sign Up */,
 				85B60D551E8DC81C007F129F /* Shared */,
 				853A83521E72C52F006EBA8C /* Cart */,
 				31B0794D1E7732B20015C302 /* Chat */,
@@ -2636,6 +2626,7 @@
 		858D64211E573D2700CFDD4C /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				B26DE4711EB5215A00CAEE3A /* Sign Up */,
 				C47A7EA21E9E4A1A0088E578 /* Settings */,
 				858F76E81E9CD214005FDF6A /* Shared */,
 				8572E4D51E7AC7C50042160D /* Chat */,
@@ -3118,6 +3109,34 @@
 				41D34CDCBBCD4E7EFCD66AC2 /* Pods-VyrlTests.ad hoc.xcconfig */,
 			);
 			name = "Recovered References";
+			sourceTree = "<group>";
+		};
+		B26DE4701EB5212200CAEE3A /* Sign Up */ = {
+			isa = PBXGroup;
+			children = (
+				B24ED7401EAAC205001362A5 /* UserSignUpRequest.swift */,
+				B24ED7411EAAC205001362A5 /* WelcomeViewController.swift */,
+				B24ED7421EAAC205001362A5 /* WelcomeViewController.xib */,
+				B24ED7431EAAC205001362A5 /* WelcomeViewFactory.swift */,
+				B24ED7441EAAC205001362A5 /* WelcomeViewInteractor.swift */,
+				B24ED7381EAAC205001362A5 /* SignUpFormFactory.swift */,
+				B24ED7391EAAC205001362A5 /* SignUpFormInteractor.swift */,
+				B24ED73A1EAAC205001362A5 /* SignUpInteractor.swift */,
+				B24ED73B1EAAC205001362A5 /* SignUpResources.swift */,
+				B24ED73C1EAAC205001362A5 /* SignUpService.swift */,
+				B24ED73D1EAAC205001362A5 /* SignUpViewController.swift */,
+				B24ED73E1EAAC205001362A5 /* SignUpViewController.xib */,
+				B24ED73F1EAAC205001362A5 /* SignUpViewFactory.swift */,
+			);
+			name = "Sign Up";
+			sourceTree = "<group>";
+		};
+		B26DE4711EB5215A00CAEE3A /* Sign Up */ = {
+			isa = PBXGroup;
+			children = (
+				B26DE4721EB5216B00CAEE3A /* SignUpInteractorTest.swift */,
+			);
+			name = "Sign Up";
 			sourceTree = "<group>";
 		};
 		C44C3FF31E92F985005F776E /* Compose */ = {
@@ -4216,6 +4235,7 @@
 				85CA3FD51E646FE700D43805 /* BaseResourcesTest.swift in Sources */,
 				858D63F11E55F6D600CFDD4C /* ImageRetrieverMock.swift in Sources */,
 				8554BEB71E69C3E300E05A37 /* ProductsServiceTest.swift in Sources */,
+				B26DE4731EB5216B00CAEE3A /* SignUpInteractorTest.swift in Sources */,
 				1A3121761E65E22900F71925 /* CartStorageTests.swift in Sources */,
 				853771981E5C46AB00E693AD /* BrandsNavigationTest.swift in Sources */,
 				C47A7EA01E9E31240088E578 /* UserProfileServiceTest.swift in Sources */,

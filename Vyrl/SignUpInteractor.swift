@@ -20,7 +20,7 @@ final class SignUpInteractor: SignUpInteracting {
 
     private var form: SignUpFormInteracting?
     fileprivate let apiConfiguration: APIConfigurationHaving
-    fileprivate let signUpService: SignUpService
+    fileprivate let signUpService: UserSignUpProviding
 
     weak var errorPresenter: ErrorAlertPresenting?
     weak var webviewPresenter: WebviewPresenting?
@@ -28,7 +28,7 @@ final class SignUpInteractor: SignUpInteracting {
     weak var signUpNavigation: AuthorizationNavigating?
     weak var activityIndicatorPresenter: ActivityIndicatorPresenter?
 
-    init(signUpService: SignUpService, apiConfiguration: APIConfigurationHaving) {
+    init(signUpService: UserSignUpProviding, apiConfiguration: APIConfigurationHaving) {
         self.signUpService = signUpService
         self.apiConfiguration = apiConfiguration
     }

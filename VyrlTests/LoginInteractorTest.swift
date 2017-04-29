@@ -59,7 +59,8 @@ final class LoginInteractorTest: XCTestCase {
     private var listener: AuthorizationListenerMock!
     private var credentialsStorage: CredentialStorageMock!
     private var chatService: ChatLoginServiceMock!
-
+    private var authNavigation: AuthorizationNavigating!
+    
     override func setUp() {
         super.setUp()
         apiService = LoginServiceMock()
@@ -69,8 +70,8 @@ final class LoginInteractorTest: XCTestCase {
         listener = AuthorizationListenerMock()
         authNavigation = AuthorizationNavigationMock()
         credentialsStorage = CredentialStorageMock()
-        formItem = FormItem(field: .username, textField: MockTextField())
-        subject = LoginInteractor(apiLoginService: apiService, chatLoginService: chatService, credentialsStorage: credentialsStorage)
+        formItem = FormItem(field: .vyrlUsername, textField: MockTextField())
+        subject = LoginInteractor(apiLoginService: apiService, chatLoginService: chatService, credentialsStorage: credentialsStorage, navigator: authNavigation)
         subject.presenter = presenter
     }
 
