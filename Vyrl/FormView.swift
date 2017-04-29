@@ -14,8 +14,7 @@ private enum Constants {
 }
 
 @IBDesignable
-final class FormView: UIView, HavingNib, ValidityIndicating {
-    static let nibName: String = "FormView"
+final class FormView: UIView, ValidityIndicating {
     
     @IBOutlet private(set) weak var title: UILabel!
     @IBOutlet private(set) weak var value: UITextField!

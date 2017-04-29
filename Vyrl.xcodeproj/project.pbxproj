@@ -448,7 +448,6 @@
 		B24ED7591EAAC3EF001362A5 /* BrandsViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B24ED7561EAAC3EF001362A5 /* BrandsViewControllerFactory.swift */; };
 		B27A51571E9150BD003F0802 /* SignUpEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27A51561E9150BD003F0802 /* SignUpEndpoint.swift */; };
 		B27A515D1E91523A003F0802 /* AuthorizationNavigationMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27A515C1E91523A003F0802 /* AuthorizationNavigationMock.swift */; };
-		B27A516C1E915C88003F0802 /* FormView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B27A516A1E915C88003F0802 /* FormView.xib */; };
 		B2CD555C1EAB5BC900C79335 /* EditProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C47A7ED11EA609070088E578 /* EditProfileViewController.xib */; };
 		B2DA9F901E8FB0BD00C2875F /* WelcomeViewBackgroundVideo.mov in Resources */ = {isa = PBXBuildFile; fileRef = B2DA9F8F1E8FB0BD00C2875F /* WelcomeViewBackgroundVideo.mov */; };
 		C414B25F1E8A7C4B002F973E /* UIView+IBInspectables.swift in Sources */ = {isa = PBXBuildFile; fileRef = C414B25E1E8A7C4B002F973E /* UIView+IBInspectables.swift */; };
@@ -1023,7 +1022,6 @@
 		B27A51581E9150CE003F0802 /* AuthorizationNavigation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthorizationNavigation.swift; sourceTree = "<group>"; };
 		B27A515C1E91523A003F0802 /* AuthorizationNavigationMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthorizationNavigationMock.swift; sourceTree = "<group>"; };
 		B27A51691E915C88003F0802 /* FormView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormView.swift; sourceTree = "<group>"; };
-		B27A516A1E915C88003F0802 /* FormView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FormView.xib; sourceTree = "<group>"; };
 		B2DA9F8F1E8FB0BD00C2875F /* WelcomeViewBackgroundVideo.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = WelcomeViewBackgroundVideo.mov; sourceTree = "<group>"; };
 		C414B25E1E8A7C4B002F973E /* UIView+IBInspectables.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+IBInspectables.swift"; sourceTree = "<group>"; };
 		C414B2601E8A810D002F973E /* SystemMessageCellSnapshotTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SystemMessageCellSnapshotTest.swift; sourceTree = "<group>"; };
@@ -2070,7 +2068,6 @@
 			children = (
 				85DCFC381E76961D0046D0D5 /* BadgeButton */,
 				B27A51691E915C88003F0802 /* FormView.swift */,
-				B27A516A1E915C88003F0802 /* FormView.xib */,
 				85CA3FE91E647E9200D43805 /* FormTextField.swift */,
 				3132612B1E6F0222004C68BD /* UnselectableTextField.swift */,
 				1A69C6A51E56008100134EF5 /* NavigationBar.swift */,
@@ -3678,7 +3675,6 @@
 				C47A7EC11EA5296B0088E578 /* ProfileViewController.xib in Resources */,
 				31EF232C1E69A63D0073F624 /* DetailTableViewCell.xib in Resources */,
 				31FEB5B91E5D952600C5E41D /* BrandStoreCell.xib in Resources */,
-				B27A516C1E915C88003F0802 /* FormView.xib in Resources */,
 				C414B2671E8BC5E5002F973E /* MessagesFooterView.xib in Resources */,
 				31B079321E709FF20015C302 /* SwipeableGalleryTableCell.xib in Resources */,
 				858F76E61E9CCB30005FDF6A /* WebViewController.xib in Resources */,

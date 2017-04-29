@@ -40,10 +40,14 @@ final class SignUpViewController: UIViewController, HavingNib {
     }
     
     override func viewDidLoad() {
-        let form = formFactory.make(fields: [vyrlUsername, email, emailConfirmation, password, instagramUsername])
-        interactor.didPrepare(form: form)
         super.viewDidLoad()
         setUp(keyboardHandler: KeyboardHandler(scrollView: scrollView, dismissOnTouch: false))
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        let form = formFactory.make(fields: [vyrlUsername, email, emailConfirmation, password, instagramUsername])
+        interactor.didPrepare(form: form)
+        super.viewDidAppear(animated)
     }
     
     @IBAction private func didTapSubmit() {
