@@ -26,6 +26,7 @@ final class SignUpViewController: UIViewController, HavingNib {
     @IBOutlet private weak var isBrandSwitch: UISwitch!
     @IBOutlet private weak var formFooterLabel: UILabel!
     @IBOutlet private weak var fixedTOCandPrivcayLabel: UILabel!
+    fileprivate var tocPrivacyLabelGestureRecognizer: UITapGestureRecognizer?
     
     @IBOutlet weak var submitButton: UIButton!
     
@@ -42,12 +43,24 @@ final class SignUpViewController: UIViewController, HavingNib {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUp(keyboardHandler: KeyboardHandler(scrollView: scrollView, dismissOnTouch: false))
+        setUpGestureRecognizers()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         let form = formFactory.make(fields: [vyrlUsername, email, emailConfirmation, password, instagramUsername])
         interactor.didPrepare(form: form)
         super.viewDidAppear(animated)
+    }
+    
+    func setUpGestureRecognizers() {
+        if let tocPrivacyLabelGestureRecognizer = tocPrivacyLabelGestureRecognizer, tocPrivacyLabelGestureRecognizer.view == fixedTOCandPrivcayLabel {
+            // recognizer already there
+            return
+        }
+        tocPrivacyLabelGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(SignUpViewController.didTapTOCAndPrivacyLabel))
+        if let tocPrivacyLabelGestureRecognizer = tocPrivacyLabelGestureRecognizer {
+            fixedTOCandPrivcayLabel.addGestureRecognizer(tocPrivacyLabelGestureRecognizer)
+        }
     }
     
     @IBAction private func didTapSubmit() {

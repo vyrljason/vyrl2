@@ -14,6 +14,9 @@ enum SignUpViewFactory: SignUpViewMaking {
         let interactor = SignUpInteractor(apiConfiguration: apiConfiguration)
         let viewController = SignUpViewController(interactor: interactor, formFactory: SignUpFormFactory.self)
         interactor.errorPresenter = viewController
+        if let webPresentingNavigation = navigation as? WebviewPresenting {
+            interactor.webviewPresenter = webPresentingNavigation
+        }
         interactor.signUpNavigation = navigation
         return viewController
     }
