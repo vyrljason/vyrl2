@@ -8,7 +8,7 @@ protocol SigningUpWithCredentials: APIResource {
     func signUp(using request: UserSignUpRequest, completion: @escaping (Result<UserProfile, APIResponseError>) -> Void)
 }
 
-final class SignUpResources: SigningUpWithCredentials {
+final class SignUpResource: SigningUpWithCredentials {
 
     private let controller: APIResourceControlling
 

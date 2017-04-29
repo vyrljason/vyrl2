@@ -15,11 +15,11 @@ enum SignUpFormFactory: SignUpFormMaking {
             fatalError("Invalid form definition for SignUpFormInteractor")
         }
 
-        let vyrlUsernameItem = FormItem(field: .vyrlUsername, formView: fields[ContactInfoFormIndex.email])
-        let emailItem = FormItem(field: .email, formView: fields[ContactInfoFormIndex.email])
-        let emailConfirmationItem = FormItem(field: .email, formView: fields[ContactInfoFormIndex.email])
-        let passwordItem = FormItem(field: .password, formView: fields[ContactInfoFormIndex.email])
-        let instagramUsernameItem = FormItem(field: .instagramUsername, formView: fields[ContactInfoFormIndex.email])
+        let vyrlUsernameItem = FormItem(field: .vyrlUsername, formView: fields[SignUpFormIndex.vyrlUsername])
+        let emailItem = FormItem(field: .email, formView: fields[SignUpFormIndex.email])
+        let emailConfirmationItem = FormItem(field: .email, formView: fields[SignUpFormIndex.emailConfirmation])
+        let passwordItem = FormItem(field: .password, formView: fields[SignUpFormIndex.password])
+        let instagramUsernameItem = FormItem(field: .instagramUsername, formView: fields[SignUpFormIndex.instagramUsername])
         
         let formFieldsInteractor = FormFieldsInteractor(fields: [vyrlUsernameItem, emailItem, emailConfirmationItem, passwordItem, instagramUsernameItem])
         return SignUpFormInteractor(fieldsInteractor: formFieldsInteractor)

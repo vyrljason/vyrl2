@@ -10,8 +10,11 @@ protocol SignUpViewMaking {
 
 enum SignUpViewFactory: SignUpViewMaking {
     static func make(using navigation: AuthorizationNavigating) -> SignUpViewController {
+        let resourceController = ServiceLocator.resourceConfigurator.resourceController
+        let resource = SignUpResource(controller: resourceController)
+        let signUpService = SignUpService(resource: resource)
         let apiConfiguration = ServiceLocator.resourceConfigurator.configuration
-        let interactor = SignUpInteractor(apiConfiguration: apiConfiguration)
+        let interactor = SignUpInteractor(signUpService: signUpService, apiConfiguration: apiConfiguration)
         let viewController = SignUpViewController(interactor: interactor, formFactory: SignUpFormFactory.self)
         interactor.errorPresenter = viewController
         if let webPresentingNavigation = navigation as? WebviewPresenting {

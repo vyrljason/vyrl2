@@ -56,7 +56,6 @@ final class SignUpFormInteractor: SignUpFormInteracting {
                 return nil
             }
         }
-        //TODO: check e-mail & e-mail confirmations match
         guard fieldsInteractor.fields[SignUpFormIndex.email].textField.text == fieldsInteractor.fields[SignUpFormIndex.emailConfirmation].textField.text else {
             return .invalid(errorMessage: Constants.emailsDontMatchError)
         }

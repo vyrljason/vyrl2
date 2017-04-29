@@ -8,6 +8,7 @@ protocol SignUpInteracting {
     weak var errorPresenter: ErrorAlertPresenting? { get set }
     func didPrepare(form: SignUpFormInteracting)
     func didTapTocAndPrivacy()
+    func didTapSubmitAsBrand()
     func didTapSubmit()
 }
 
@@ -15,12 +16,16 @@ final class SignUpInteractor: SignUpInteracting {
 
     private var form: SignUpFormInteracting?
     fileprivate let apiConfiguration: APIConfigurationHaving
+    fileprivate let signUpService: SignUpService
+
     weak var errorPresenter: ErrorAlertPresenting?
     weak var webviewPresenter: WebviewPresenting?
 
     weak var signUpNavigation: AuthorizationNavigating?
 
-    init(apiConfiguration: APIConfigurationHaving) {
+
+    init(signUpService: SignUpService, apiConfiguration: APIConfigurationHaving) {
+        self.signUpService = signUpService
         self.apiConfiguration = apiConfiguration
     }
     
@@ -28,14 +33,28 @@ final class SignUpInteractor: SignUpInteracting {
         self.form = form
     }
 
+    func didTapSubmitAsBrand() {
+        webviewPresenter?.presentWebview(with: apiConfiguration.mainBaseURL, animated: true)
+    }
+    
     func didTapSubmit() {
         guard let form = form else { return }
         if case .invalid(let errorMessage) = form.status {
             errorPresenter?.presentError(title: nil, message: errorMessage)
             return
         }
-        guard let _ = form.result else { return }
-        //TODO: call Service to execute networking call
+        guard let signUpData = form.result else { return }
+
+        let signUpRequest = UserSignUpRequest(username: signUpData.username, email: signUpData.email, password: signUpData.password, platformUsername: signUpData.platformUsername)
+        signUpService.signUp(using: signUpRequest) { [weak self] apiResult in
+            guard let `self` = self else { return }
+            apiResult.on(success: { userToken in
+                // sign up complete
+                self.signUpNavigation?.listener?.didFinishAuthorizing()
+            }, failure: { error in
+                self.errorPresenter?.presentError(title: error.title, message: error.message)
+            })
+        }
     }
     
     func didTapTocAndPrivacy() {

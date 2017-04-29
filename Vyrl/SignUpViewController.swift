@@ -64,7 +64,11 @@ final class SignUpViewController: UIViewController, HavingNib {
     }
     
     @IBAction private func didTapSubmit() {
-        interactor.didTapSubmit()
+        if isBrandSwitch.isOn {
+            interactor.didTapSubmitAsBrand()
+        } else {
+            interactor.didTapSubmit()
+        }
     }
     
     func didTapTOCAndPrivacyLabel() {
