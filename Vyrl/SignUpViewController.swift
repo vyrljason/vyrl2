@@ -53,6 +53,10 @@ final class SignUpViewController: UIViewController, HavingNib {
     @IBAction private func didTapSubmit() {
         interactor.didTapSubmit()
     }
+    
+    func didTapTOCAndPrivacyLabel() {
+        interactor.didTapTocAndPrivacy()
+    }
 }
 
 extension SignUpViewController {

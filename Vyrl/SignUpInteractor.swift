@@ -5,18 +5,25 @@
 import Foundation
 
 protocol SignUpInteracting {
-    weak var presenter: ErrorAlertPresenting? { get set }
+    weak var errorPresenter: ErrorAlertPresenting? { get set }
     func didPrepare(form: SignUpFormInteracting)
+    func didTapTocAndPrivacy()
     func didTapSubmit()
 }
 
 final class SignUpInteractor: SignUpInteracting {
 
     private var form: SignUpFormInteracting?
-    weak var presenter: ErrorAlertPresenting?
+    fileprivate let apiConfiguration: APIConfigurationHaving
+    weak var errorPresenter: ErrorAlertPresenting?
+    weak var webviewPresenter: WebviewPresenting?
 
     weak var signUpNavigation: AuthorizationNavigating?
 
+    init(apiConfiguration: APIConfigurationHaving) {
+        self.apiConfiguration = apiConfiguration
+    }
+    
     func didPrepare(form: SignUpFormInteracting) {
         self.form = form
     }
@@ -24,10 +31,14 @@ final class SignUpInteractor: SignUpInteracting {
     func didTapSubmit() {
         guard let form = form else { return }
         if case .invalid(let errorMessage) = form.status {
-            presenter?.presentError(title: nil, message: errorMessage)
+            errorPresenter?.presentError(title: nil, message: errorMessage)
             return
         }
         guard let _ = form.result else { return }
         //TODO: call Service to execute networking call
+    }
+    
+    func didTapTocAndPrivacy() {
+        webviewPresenter?.presentWebview(with: apiConfiguration.tosURL, animated: true)
     }
 }

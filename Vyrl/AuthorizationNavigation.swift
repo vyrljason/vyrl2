@@ -26,9 +26,12 @@ final class AuthorizationNavigation: AuthorizationNavigating, NavigationControll
     let navigationController = UINavigationController()
 
     weak var listener: AuthorizationListener?
+    fileprivate let webViewFactory: WebViewControllerMaking.Type
 
-    init(listener: AuthorizationListener, welcomeViewFactory: WelcomeViewMaking.Type) {
+    init(listener: AuthorizationListener, welcomeViewFactory: WelcomeViewMaking.Type, webViewFactory: WebViewControllerMaking.Type) {
         self.listener = listener
+        self.webViewFactory = webViewFactory
+        
         let welcomeViewController = welcomeViewFactory.make(using: self)
         self.navigationController.viewControllers = [welcomeViewController]
     }
@@ -51,5 +54,12 @@ extension AuthorizationNavigation: SignUpPresenting {
         let viewController = SignUpViewFactory.make(using: self)
         viewController.render(NavigationItemRenderable(titleImage: StyleKit.navigationBarLogo))
         navigationController.pushViewController(viewController, animated: true)
+    }
+}
+
+extension AuthorizationNavigation: WebviewPresenting {
+    func presentWebview(with url: URL, animated: Bool) {
+        let viewController = webViewFactory.make(webViewContentUrl: url)
+        navigationController.pushViewController(viewController, animated: animated)
     }
 }
