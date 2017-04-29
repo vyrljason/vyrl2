@@ -33,7 +33,7 @@ final class EditProfileInteractor: NSObject, EditProfileInteracting {
     
     fileprivate let industriesService: IndustriesProviding
     fileprivate let userProfileUpdater: UserProfileUpdating
-    fileprivate let userProfile: UserProfile?
+    public let userProfile: UserProfile?
     fileprivate let picker: PickerPresenting
     fileprivate var possibleIndustriesNames: [String] = []
     fileprivate var possibleIndustries: [Industry] = []
@@ -113,7 +113,7 @@ final class EditProfileInteractor: NSObject, EditProfileInteracting {
         controller?.setInfluencerFullName(text: userProfile?.fullName)
         setIndustries()
         controller?.setBioTextView(text: userProfile?.bio)
-        controller?.setEmailLabel(text: userProfile?.email)
+        controller?.setEmailLabel(text: userProfile?.email ?? userProfile?.pendingEmail)
     }
     
     fileprivate func setAvatar() {
@@ -155,7 +155,7 @@ final class EditProfileInteractor: NSObject, EditProfileInteracting {
                     return newIndustry
                 }
                 self?.possibleIndustries = trimmedIndustries
-                industries.forEach({ industry in
+                trimmedIndustries.forEach({ industry in
                     self?.possibleIndustriesNames.append(industry.name)
                 })
             }, failure: { _ in

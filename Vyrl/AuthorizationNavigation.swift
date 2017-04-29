@@ -12,7 +12,7 @@ protocol AuthorizationNavigating: class {
     weak var listener: AuthorizationListener? { get set }
 
     func didFinishAuthorization()
-    func didFinishRegistration()
+    func didFinishRegistration(_ newProfile: UserProfile)
 }
 
 protocol LoginPresenting: class {
@@ -59,18 +59,8 @@ extension AuthorizationNavigation: SignUpPresenting {
         navigationController.pushViewController(viewController, animated: true)
     }
     
-    func didFinishRegistration() {
-        let resourceController = ServiceLocator.resourceConfigurator.resourceController
-        let userProfileResource = Service<UserProfileResource>(resource: UserProfileResource(controller: resourceController))
-        let userProfileService = UserProfileService(resource: userProfileResource)
-        userProfileService.get { [weak self] result in
-            guard let `self` = self else { return }
-            result.on(success: { userProfile in
-                self.presentEditProfile(with: userProfile, animated: true)
-            }, failure: { _ in
-                self.presentEditProfile(with: nil, animated: true)
-            })
-        }
+    func didFinishRegistration(_ newProfile: UserProfile) {
+        self.presentEditProfile(with: newProfile, animated: true)
     }
 }
 

@@ -6,6 +6,10 @@ import Foundation
 
 protocol SignUpInteracting {
     weak var errorPresenter: ErrorAlertPresenting? { get set }
+    weak var webviewPresenter: WebviewPresenting? { get set }
+    weak var signUpNavigation: AuthorizationNavigating? { get set }
+    weak var activityIndicatorPresenter: ActivityIndicatorPresenter? { get set }
+    
     func didPrepare(form: SignUpFormInteracting)
     func didTapTocAndPrivacy()
     func didTapSubmitAsBrand()
@@ -22,7 +26,7 @@ final class SignUpInteractor: SignUpInteracting {
     weak var webviewPresenter: WebviewPresenting?
 
     weak var signUpNavigation: AuthorizationNavigating?
-
+    weak var activityIndicatorPresenter: ActivityIndicatorPresenter?
 
     init(signUpService: SignUpService, apiConfiguration: APIConfigurationHaving) {
         self.signUpService = signUpService
@@ -38,21 +42,29 @@ final class SignUpInteractor: SignUpInteracting {
     }
     
     func didTapSubmit() {
+        activityIndicatorPresenter?.presentActivity()
         guard let form = form else { return }
+        
         if case .invalid(let errorMessage) = form.status {
+            activityIndicatorPresenter?.dismissActivity()
             errorPresenter?.presentError(title: nil, message: errorMessage)
             return
         }
-        guard let signUpData = form.result else { return }
+        guard let signUpData = form.result else {
+            activityIndicatorPresenter?.dismissActivity()
+            return
+        }
 
         let signUpRequest = UserSignUpRequest(username: signUpData.username, email: signUpData.email, password: signUpData.password, platformUsername: signUpData.platformUsername)
         signUpService.signUp(using: signUpRequest) { [weak self] apiResult in
             guard let `self` = self else { return }
-            apiResult.on(success: { userToken in
+            apiResult.on(success: { userProfile in
                 // sign up complete
-                self.signUpNavigation?.didFinishRegistration()
+                self.signUpNavigation?.didFinishRegistration(userProfile)
+                self.activityIndicatorPresenter?.dismissActivity()
             }, failure: { error in
                 self.errorPresenter?.presentError(title: error.title, message: error.message)
+                self.activityIndicatorPresenter?.dismissActivity()
             })
         }
     }

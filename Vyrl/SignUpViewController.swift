@@ -11,7 +11,7 @@ private struct Constants {
 final class SignUpViewController: UIViewController, HavingNib {
     static let nibName: String = "SignUpViewController"
     
-    private let interactor: SignUpInteracting
+    private var interactor: SignUpInteracting
     private let formFactory: SignUpFormMaking.Type
     fileprivate var keyboardHandler: KeyboardHandler!
     @IBOutlet private weak var scrollView: UIScrollView!
@@ -27,13 +27,16 @@ final class SignUpViewController: UIViewController, HavingNib {
     @IBOutlet private weak var formFooterLabel: UILabel!
     @IBOutlet private weak var fixedTOCandPrivcayLabel: UILabel!
     fileprivate var tocPrivacyLabelGestureRecognizer: UITapGestureRecognizer?
-    
+    fileprivate var activityPresenter: PresentingActivity!
+
     @IBOutlet weak var submitButton: UIButton!
     
     init(interactor: SignUpInteracting, formFactory: SignUpFormMaking.Type) {
         self.interactor = interactor
         self.formFactory = formFactory
         super.init(nibName: SignUpViewController.nibName, bundle: nil)
+        self.interactor.activityIndicatorPresenter = self
+        self.interactor.errorPresenter = self
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -42,6 +45,7 @@ final class SignUpViewController: UIViewController, HavingNib {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setUp(activityPresenter: ServiceLocator.activityPresenter)
         setUp(keyboardHandler: KeyboardHandler(scrollView: scrollView, dismissOnTouch: false))
         setUpGestureRecognizers()
     }
@@ -50,6 +54,10 @@ final class SignUpViewController: UIViewController, HavingNib {
         let form = formFactory.make(fields: [vyrlUsername, email, emailConfirmation, password, instagramUsername])
         interactor.didPrepare(form: form)
         super.viewDidAppear(animated)
+    }
+    
+    fileprivate func setUp(activityPresenter: PresentingActivity) {
+        self.activityPresenter = activityPresenter
     }
     
     func setUpGestureRecognizers() {
@@ -73,6 +81,16 @@ final class SignUpViewController: UIViewController, HavingNib {
     
     func didTapTOCAndPrivacyLabel() {
         interactor.didTapTocAndPrivacy()
+    }
+}
+
+extension SignUpViewController: ActivityIndicatorPresenter {
+    func presentActivity() {
+        activityPresenter.presentActivity(inView: view)
+    }
+    
+    func dismissActivity() {
+        activityPresenter.dismissActivity(inView: view)
     }
 }
 
