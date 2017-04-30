@@ -5,6 +5,7 @@
 import Foundation
 
 protocol LoginInteracting: class, FormActionDelegate {
+    weak var navigator: AuthorizationNavigating? { get set }
     weak var presenter: (ErrorAlertPresenting & ViewActivityPresenting)? { get set }
     func didPrepare(form: LoginFormInteracting)
 }
@@ -19,15 +20,19 @@ final class LoginInteractor: LoginInteracting {
     fileprivate let apiLoginService: UserLoginProviding
     fileprivate let chatLoginService: ChatAuthenticating
     fileprivate let credentialsStorage: CredentialsStoring
+    weak var navigator: AuthorizationNavigating?
     weak var presenter: (ErrorAlertPresenting & ViewActivityPresenting)?
     weak var listener: AuthorizationListener?
 
     init(apiLoginService: UserLoginProviding,
          chatLoginService: ChatAuthenticating,
-         credentialsStorage: CredentialsStoring) {
+         credentialsStorage: CredentialsStoring,
+         navigator: AuthorizationNavigating) {
         self.apiLoginService = apiLoginService
         self.chatLoginService = chatLoginService
         self.credentialsStorage = credentialsStorage
+        self.navigator = navigator
+        self.listener = navigator.listener
     }
 
     func didPrepare(form: LoginFormInteracting) {

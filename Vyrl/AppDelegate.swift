@@ -11,7 +11,7 @@ import Firebase
 final class AppDelegate: UIResponder, UIApplicationDelegate {
 
     private var rootNavigation: RootNavigation!
-
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         setUpFirebaseConfiguration()
         setUpAnalytics()

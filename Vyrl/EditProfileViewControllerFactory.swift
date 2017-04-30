@@ -5,11 +5,11 @@
 import UIKit
 
 protocol EditProfileViewControllerMaking {
-    static func make(userProfile: UserProfile, accountReturner: AccountReturning) -> EditProfileViewController
+    static func make(userProfile: UserProfile?, accountReturner: AccountReturning) -> EditProfileViewController
 }
 
 enum EditProfileViewControllerFactory: EditProfileViewControllerMaking {
-    static func make(userProfile: UserProfile, accountReturner: AccountReturning) -> EditProfileViewController {
+    static func make(userProfile: UserProfile?, accountReturner: AccountReturning) -> EditProfileViewController {
         let resourceController = ServiceLocator.resourceConfigurator.resourceController
         let industriesResource = Service<IndustriesResource>(resource: IndustriesResource(controller: resourceController))
         let industriesService = IndustriesService(resource: industriesResource)

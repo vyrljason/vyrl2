@@ -56,6 +56,8 @@ protocol MainNavigationRendering: class {
 
 final class RootNavigation {
 
+    var authorizationNavigation: AuthorizationNavigation? = nil
+    
     fileprivate enum Constants {
         static let menuWidthRatio: CGFloat = 0.8
         static let contentViewScale: CGFloat = 1.0
@@ -79,7 +81,7 @@ final class RootNavigation {
     fileprivate let accountMaker: AccountViewControllerMaking.Type
     fileprivate let interactor: RootNavigationInteracting & NavigationDelegateHaving
     fileprivate let credentialsProvider: APICredentialsProviding
-    fileprivate let loginControllerMaker: LoginControllerMaking.Type
+    fileprivate let welcomeViewMaker: WelcomeViewMaking.Type
     fileprivate var cartButton: BadgeBarButtonItem?
     fileprivate var chatButton: BadgeBarButtonItem?
     fileprivate let notificationObserver: NotificationObserving
@@ -97,6 +99,7 @@ final class RootNavigation {
          accountMaker: AccountViewControllerMaking.Type,
          window: WindowProtocol,
          credentialsProvider: APICredentialsProviding,
+         welcomeViewMaker: WelcomeViewMaking.Type,
          loginControllerMaker: LoginControllerMaking.Type,
          notificationObserver: NotificationObserving,
          cartStorage: CartStoring) {
@@ -109,7 +112,7 @@ final class RootNavigation {
         self.accountMaker = accountMaker
         self.window = window
         self.credentialsProvider = credentialsProvider
-        self.loginControllerMaker = loginControllerMaker
+        self.welcomeViewMaker = welcomeViewMaker
         self.notificationObserver = notificationObserver
         self.cartStorage = cartStorage
         interactor.delegate = self
@@ -197,12 +200,21 @@ extension RootNavigation {
 
 extension RootNavigation: AuthorizationFlowPresenting {
     func presentAuthorizationNavigation(animated: Bool) {
-        let viewController = loginControllerMaker.make(using: self)
-        viewController.render(NavigationItemRenderable(titleImage: Constants.titleImage))
-        let authorizationNavigation = UINavigationController(rootViewController: viewController)
-        authorizationNavigation.render(Constants.navigationBarRenderable)
+        self.authorizationNavigation = AuthorizationNavigation(listener: self, welcomeViewFactory: welcomeViewMaker, webViewFactory: WebViewControllerFactory.self, editProfileFactory: EditProfileViewControllerFactory.self)
+        
+        guard let authNavigationController = authorizationNavigation?.navigationController, authNavigationController.viewControllers.first is WelcomeViewController else {
+            assertionFailure("Auth nav starts at welcome vc")
+            return
+        }
+        
+        let renderable = NavigationBarRenderable(tintColor: .white,
+                                                 titleFont: .titleFont,
+                                                 backgroundColor: .rouge,
+                                                 translucent: false)
+        
+        authNavigationController.render(renderable)
 
-        transition(to: authorizationNavigation, animated: animated)
+        transition(to: authNavigationController, animated: animated)
     }
 }
 

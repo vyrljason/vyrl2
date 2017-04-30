@@ -33,7 +33,7 @@ final class EditProfileInteractor: NSObject, EditProfileInteracting {
     
     fileprivate let industriesService: IndustriesProviding
     fileprivate let userProfileUpdater: UserProfileUpdating
-    fileprivate let userProfile: UserProfile
+    public let userProfile: UserProfile?
     fileprivate let picker: PickerPresenting
     fileprivate var possibleIndustriesNames: [String] = []
     fileprivate var possibleIndustries: [Industry] = []
@@ -49,7 +49,7 @@ final class EditProfileInteractor: NSObject, EditProfileInteracting {
     weak var errorPresenter: ErrorAlertPresenting?
     weak var accountReturner: AccountReturning?
     
-    init(userProfile: UserProfile, industriesService: IndustriesProviding,
+    init(userProfile: UserProfile?, industriesService: IndustriesProviding,
          userProfileUpdater: UserProfileUpdating, picker: PickerPresenting) {
         self.userProfile = userProfile
         self.industriesService = industriesService
@@ -109,25 +109,25 @@ final class EditProfileInteractor: NSObject, EditProfileInteracting {
     fileprivate func setUpView() {
         setAvatar()
         setBackground()
-        controller?.setInfluencerUsername(text: userProfile.username)
-        controller?.setInfluencerFullName(text: userProfile.fullName)
+        controller?.setInfluencerUsername(text: userProfile?.username)
+        controller?.setInfluencerFullName(text: userProfile?.fullName)
         setIndustries()
-        controller?.setBioTextView(text: userProfile.bio)
-        controller?.setEmailLabel(text: userProfile.email)
+        controller?.setBioTextView(text: userProfile?.bio)
+        controller?.setEmailLabel(text: userProfile?.email ?? userProfile?.pendingEmail)
     }
     
     fileprivate func setAvatar() {
-        guard let avatarUrl = userProfile.avatar else { return }
+        guard let avatarUrl = userProfile?.avatar else { return }
         controller?.setAvatar(imageFetcher: ImageFetcher(url: avatarUrl))
     }
     
     fileprivate func setBackground() {
-        guard let backgroundUrl = userProfile.discoveryFeedImage else { return }
+        guard let backgroundUrl = userProfile?.discoveryFeedImage else { return }
         controller?.setBackground(imageFetcher: ImageFetcher(url: backgroundUrl))
     }
     
     fileprivate func setIndustries() {
-        userProfile.industries.enumerated().forEach { (index, industry) in
+        userProfile?.industries.enumerated().forEach { (index, industry) in
             switch index {
             case 0:
                 primaryIndustry = industry
@@ -149,8 +149,13 @@ final class EditProfileInteractor: NSObject, EditProfileInteracting {
         industriesService.get { [weak self] result in
             self?.activityIndicatorPresenter?.dismissActivity()
             result.on(success: { industries in
-                self?.possibleIndustries = industries
-                industries.forEach({ industry in
+                let trimmedIndustries: [Industry] = industries.map {
+                    industry -> (Industry) in
+                    let newIndustry = Industry(id: industry.id, name: industry.name.replacingOccurrences(of: "_", with: " "))
+                    return newIndustry
+                }
+                self?.possibleIndustries = trimmedIndustries
+                trimmedIndustries.forEach({ industry in
                     self?.possibleIndustriesNames.append(industry.name)
                 })
             }, failure: { _ in
@@ -166,7 +171,7 @@ extension EditProfileInteractor: ImagePicking {
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
+        if let pickedImage = info[UIImagePickerControllerEditedImage] as? UIImage {
             if isPickingAvatar {
                 controller?.setAvatar(image: pickedImage)
                 avatarFilePath = saveImageToFile(imageName: "avatar", image: pickedImage)

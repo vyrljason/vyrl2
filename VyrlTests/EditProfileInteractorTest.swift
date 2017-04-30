@@ -83,10 +83,10 @@ final class EditProfileControllerMock: EditProfileControlling {
     func setBackground(image: UIImage) {
         didCallSetBackgroundFromImage = true
     }
-    func setInfluencerUsername(text: String) {
+    func setInfluencerUsername(text: String?) {
         didCallSetInfluencerUsername = true
     }
-    func setInfluencerFullName(text: String) {
+    func setInfluencerFullName(text: String?) {
         didCallSetInfluencerFullName = true
     }
     func setPrimaryIndustry(text: String?) {
@@ -101,7 +101,7 @@ final class EditProfileControllerMock: EditProfileControlling {
     func setEmailLabel(text: String?) {
         didCallSetEmailLabel = true
     }
-    func setBioTextView(text: String) {
+    func setBioTextView(text: String?) {
         didCallSetBioTextView = true
     }
     func showImagePicker() {

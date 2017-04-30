@@ -37,7 +37,7 @@ protocol ProfilePresenting: class {
 }
 
 protocol EditProfilePresenting: class {
-    func presentEditProfile(with userProfile: UserProfile, animated: Bool)
+    func presentEditProfile(with userProfile: UserProfile?, animated: Bool)
 }
 
 @objc protocol AccountReturning: class {
@@ -121,7 +121,7 @@ extension SettingsNavigation: ProfilePresenting {
 }
 
 extension SettingsNavigation: EditProfilePresenting {
-    func presentEditProfile(with userProfile: UserProfile, animated: Bool) {
+    func presentEditProfile(with userProfile: UserProfile?, animated: Bool) {
         let viewController = editProfileFactory.make(userProfile: userProfile, accountReturner: self)
         viewController.render(NavigationItemRenderable(titleImage: Constants.titleImage))
         settingsNavigationController?.pushViewController(viewController, animated: animated)

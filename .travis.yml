@@ -10,5 +10,8 @@ xcode_scheme: Vyrl
 osx_image: xcode8.3
 xcode_sdk: iphonesimulator10.3
 
+before_install:
+    - echo y | fastlane snapshot reset_simulators
+
 script:
     - xcodebuild -workspace Vyrl.xcworkspace -scheme Vyrl -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 7,OS=10.3' test

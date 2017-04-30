@@ -108,6 +108,12 @@ extension MessagesInteractor: TableViewUsing {
     }
 }
 
+extension MessagesInteractor: DataRefreshing {
+    func refreshData() {
+//        dataSource.loadTableData()
+    }
+}
+
 extension MessagesInteractor: DeliveryConfirming {
     func didTapConfirm() {
         deliveryService.confirmDelivery(forBrand: collab.chatRoom.brandId) { [weak self] result in

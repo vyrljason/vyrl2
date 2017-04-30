@@ -37,12 +37,21 @@ struct PasswordValidation: FormFieldValidating {
     }
 }
 
-struct UsernameValidation: FormFieldValidating {
+struct VYRLUsernameValidation: FormFieldValidating {
     let validationError: String = Constants.usernameError
 
     func validate(value: String?) -> Bool {
         guard let value = value else { return false }
-        return value.characters.count > 0
+        return value.strippedForVYRLUsernameValidation.characters.count > 0
+    }
+}
+
+struct InstagramUsernameValidation: FormFieldValidating {
+    let validationError: String = Constants.usernameError
+    
+    func validate(value: String?) -> Bool {
+        guard let value = value else { return false }
+        return value.strippedForInstagramUsernameValidation.characters.count > 2
     }
 }
 
