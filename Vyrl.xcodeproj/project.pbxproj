@@ -451,6 +451,7 @@
 		B27A515D1E91523A003F0802 /* AuthorizationNavigationMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27A515C1E91523A003F0802 /* AuthorizationNavigationMock.swift */; };
 		B2CD555C1EAB5BC900C79335 /* EditProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C47A7ED11EA609070088E578 /* EditProfileViewController.xib */; };
 		B2DA9F901E8FB0BD00C2875F /* WelcomeViewBackgroundVideo.mov in Resources */ = {isa = PBXBuildFile; fileRef = B2DA9F8F1E8FB0BD00C2875F /* WelcomeViewBackgroundVideo.mov */; };
+		B2DD99AC1EBF07B600886403 /* DeepLinkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2DD99AB1EBF07B600886403 /* DeepLinkManager.swift */; };
 		C414B25F1E8A7C4B002F973E /* UIView+IBInspectables.swift in Sources */ = {isa = PBXBuildFile; fileRef = C414B25E1E8A7C4B002F973E /* UIView+IBInspectables.swift */; };
 		C414B2611E8A810D002F973E /* SystemMessageCellSnapshotTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C414B2601E8A810D002F973E /* SystemMessageCellSnapshotTest.swift */; };
 		C414B2671E8BC5E5002F973E /* MessagesFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C414B2661E8BC5E5002F973E /* MessagesFooterView.xib */; };
@@ -1025,6 +1026,7 @@
 		B27A515C1E91523A003F0802 /* AuthorizationNavigationMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthorizationNavigationMock.swift; sourceTree = "<group>"; };
 		B27A51691E915C88003F0802 /* FormView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormView.swift; sourceTree = "<group>"; };
 		B2DA9F8F1E8FB0BD00C2875F /* WelcomeViewBackgroundVideo.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = WelcomeViewBackgroundVideo.mov; sourceTree = "<group>"; };
+		B2DD99AB1EBF07B600886403 /* DeepLinkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeepLinkManager.swift; sourceTree = "<group>"; };
 		C414B25E1E8A7C4B002F973E /* UIView+IBInspectables.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+IBInspectables.swift"; sourceTree = "<group>"; };
 		C414B2601E8A810D002F973E /* SystemMessageCellSnapshotTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SystemMessageCellSnapshotTest.swift; sourceTree = "<group>"; };
 		C414B2661E8BC5E5002F973E /* MessagesFooterView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MessagesFooterView.xib; sourceTree = "<group>"; };
@@ -1299,6 +1301,7 @@
 			isa = PBXGroup;
 			children = (
 				1ADAF7F51E545FA300155D9F /* RootNavigation.swift */,
+				B2DD99AB1EBF07B600886403 /* DeepLinkManager.swift */,
 				1A859C131E575E620013EB09 /* Builders */,
 				1A859C121E575E370013EB09 /* Interactors */,
 			);
@@ -4188,6 +4191,7 @@
 				8554BE6A1E68047C00E05A37 /* CategoriesResource.swift in Sources */,
 				853A83461E72AA57006EBA8C /* CheckoutControllerFactory.swift in Sources */,
 				8558289F1E8E468500748A9A /* ConfirmDeliveryService.swift in Sources */,
+				B2DD99AC1EBF07B600886403 /* DeepLinkManager.swift in Sources */,
 				858D64201E5734A800CFDD4C /* CollectionViewUsing.swift in Sources */,
 				3169B9AC1E5F3672005F8A94 /* BrandStoreCellRenderable.swift in Sources */,
 				853A83391E717CAC006EBA8C /* ShippingAddressFormFactory.swift in Sources */,
@@ -4498,7 +4502,7 @@
 				INFOPLIST_FILE = Vyrl/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited)";
-				PRODUCT_BUNDLE_IDENTIFIER = io.govyrl.vyrl.ios.main.brand.dev;
+				PRODUCT_BUNDLE_IDENTIFIER = io.govyrl.vyrl.ios.main.dev;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -4519,7 +4523,7 @@
 				INFOPLIST_FILE = Vyrl/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited)";
-				PRODUCT_BUNDLE_IDENTIFIER = io.govyrl.vyrl.ios.main.brand;
+				PRODUCT_BUNDLE_IDENTIFIER = io.govyrl.vyrl.ios.main.dev;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -4618,7 +4622,7 @@
 				INFOPLIST_FILE = Vyrl/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited)";
-				PRODUCT_BUNDLE_IDENTIFIER = io.govyrl.vyrl.ios.main.brand.dev;
+				PRODUCT_BUNDLE_IDENTIFIER = io.govyrl.vyrl.ios.main.dev;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
