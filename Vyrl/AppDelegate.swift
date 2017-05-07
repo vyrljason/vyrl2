@@ -99,11 +99,24 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
     
     // MARK: - DeviceToken
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
-                let characterSet = CharacterSet.init(charactersIn: "<>")
-                let fixedDeviceToken = deviceToken.description.trimmingCharacters(in: characterSet).replacingOccurrences(of: " ", with: "")
-                // Set device token.
-                Answers.logCustomEvent(withName: "Register For Remote Notifications from App Delegate", customAttributes:["deviceToken": "\(fixedDeviceToken)"])
-        //        APIManager.sharedInstance.registerUserDevice("\(deviceTokenFixed)")
+        let characterSet = CharacterSet.init(charactersIn: "<>")
+        let fixedDeviceToken = deviceToken.description.trimmingCharacters(in: characterSet).replacingOccurrences(of: " ", with: "")
+        // Set device token.
+        Answers.logCustomEvent(withName: "Register For Remote Notifications from App Delegate", customAttributes:["deviceToken": "\(fixedDeviceToken)"])
+        let resourceController = ServiceLocator.resourceConfigurator.resourceController
+        let pushResource = PushNotificationResource(controller: resourceController)
+        pushResource.register(token: fixedDeviceToken, completion: {
+            result in
+            result.map(success: {
+                didSucceed in
+                if !didSucceed {
+                    // TODO: re register here
+                }
+            }, failure: {
+                error in
+                // TODO: proper error handling
+            })
+        })
     }
     
     func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
