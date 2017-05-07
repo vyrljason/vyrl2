@@ -118,6 +118,7 @@ final class RootNavigation {
         self.notificationObserver = notificationObserver
         self.cartStorage = cartStorage
         self.deepLinkManager = DeepLinkManager(credentialsProvider: credentialsProvider)
+        deepLinkManager.delegate = self
         interactor.delegate = self
         cart.chatPresenter = self
         setUpSlideMenu()
@@ -257,6 +258,20 @@ extension RootNavigation: MainNavigationPresenting {
         viewController.navigationItem.leftBarButtonItems = [negativeButton, menuButton]
         guard let cartButton = cartButton, let chatButton = chatButton else { return }
         viewController.navigationItem.rightBarButtonItems = [cartButton, chatButton]
+    }
+}
+
+extension RootNavigation: DeepLinkManagerDelegate {
+    func linkToBrand(brand: Brand) {
+        if let brandNavigation = mainNavigation as? BrandsNavigation {
+            brandNavigation.presentStore(for: brand, animated: true)
+        }
+    }
+    
+    func linkToCollab(collab: Collab) {
+        if let chatNavigation = chat as? ChatNavigation {
+            chatNavigation.presentMessages(for: collab, animated: true)
+        }
     }
 }
 

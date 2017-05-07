@@ -6,6 +6,7 @@ import UIKit
 import Fabric
 import Crashlytics
 import Firebase
+import UserNotifications
 
 @UIApplicationMain
 final class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -23,9 +24,9 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
         if let pushPayload = launchOptions?[UIApplicationLaunchOptionsKey.remoteNotification] as? [NSObject: AnyObject]
         {
             self.application(application, didReceiveRemoteNotification: pushPayload)
-        } else if let deeplinkPayload = launchOptions?[UIApplicationLaunchOptionsKey.url] as? URL {
-            
-            rootNavigation.deepLinkManager.handleOpenUrl(url: deeplinkPayload, application: application)
+            // Seems currently un-needed
+            // } else if let _ = launchOptions?[UIApplicationLaunchOptionsKey.url] as? URL {
+            //return rootNavigation.deepLinkManager.handleOpenUrl(url: deeplinkPayload, application: application)
         }
         
         return true
@@ -65,10 +66,6 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     // MARK: - Push notification and deeplinking
-    func application(_ application: UIApplication, didReceive notification: UILocalNotification) {
-        // stub for local noti
-    }
-    
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any]) {
         if application.applicationState == UIApplicationState.active {
             // if active but a chat push -- badge chat
@@ -91,11 +88,14 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
             // Fire off the deep linking from the passed in url.
             if let urlString = aps["url"] as? String,
                 let url = URL(string: urlString) {
-                rootNavigation.deepLinkManager.handleOpenUrl(url: url, application: application)
+                _ = rootNavigation.deepLinkManager.handleOpenUrl(url: url, application: application)
             }
         }
     }
     
+    func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
+        return rootNavigation.deepLinkManager.handleOpenUrl(url: url, application: app)
+    }
     
     // MARK: - DeviceToken
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
@@ -121,11 +121,5 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
         print(error)
-    }
-    
-    func application(_ application: UIApplication, didRegister notificationSettings: UIUserNotificationSettings) {
-        if notificationSettings.types != .none {
-            application.registerForRemoteNotifications()
-        }
     }
 }
