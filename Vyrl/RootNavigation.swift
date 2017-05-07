@@ -4,6 +4,7 @@
 
 import UIKit
 import SlideMenuControllerSwift
+import UserNotifications
 
 protocol MainNavigationPresenting: class {
     func presentMainNavigation(animated: Bool)
@@ -230,6 +231,11 @@ extension RootNavigation: MainNavigationPresenting {
     func presentMainNavigation(animated: Bool) {
         setUpMainNavigationController()
         transition(to: slideMenu, animated: animated)
+        let center = UNUserNotificationCenter.current()
+        center.requestAuthorization(options:[.badge, .alert, .sound]) { (granted, error) in
+            // Enable or disable features based on authorization.
+            UIApplication.shared.registerForRemoteNotifications()
+        }
     }
 
     private func setUpMainNavigationController() {
