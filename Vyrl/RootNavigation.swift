@@ -86,7 +86,8 @@ final class RootNavigation {
     fileprivate var chatButton: BadgeBarButtonItem?
     fileprivate let notificationObserver: NotificationObserving
     fileprivate let cartStorage: CartStoring
-
+    let deepLinkManager: DeepLinkManager
+    
     weak var brandsFiltering: BrandsFilteringByCategory?
 
     // swiftlint:disable function_parameter_count
@@ -115,6 +116,7 @@ final class RootNavigation {
         self.welcomeViewMaker = welcomeViewMaker
         self.notificationObserver = notificationObserver
         self.cartStorage = cartStorage
+        self.deepLinkManager = DeepLinkManager(credentialsProvider: credentialsProvider)
         interactor.delegate = self
         cart.chatPresenter = self
         setUpSlideMenu()
