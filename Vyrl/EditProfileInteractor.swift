@@ -100,7 +100,7 @@ final class EditProfileInteractor: NSObject, EditProfileInteracting {
                                     self?.activityIndicatorPresenter?.dismissActivity()
                                     result.on(success: { _ in
                                         self?.accountReturner?.returnToAccount(animated: true)
-                                    }, failure: { _ in
+                                    }, failure: { error in
                                         self?.errorPresenter?.presentError(title: nil, message: Constants.failedToUpdateUserProfile)
                                     })
         }

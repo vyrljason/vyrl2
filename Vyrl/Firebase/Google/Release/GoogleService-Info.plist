@@ -7,21 +7,21 @@
 	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
 	<string>ca-app-pub-3940256099942544/4411468910</string>
 	<key>CLIENT_ID</key>
-	<string>391652103449-2bp8nd10n6vs2ea831knvgtqg1hn5k7a.apps.googleusercontent.com</string>
+	<string>90930526975-8lekrm05fe1ac0i9lslcofgf0i7j32rk.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.391652103449-2bp8nd10n6vs2ea831knvgtqg1hn5k7a</string>
+	<string>com.googleusercontent.apps.90930526975-8lekrm05fe1ac0i9lslcofgf0i7j32rk</string>
 	<key>API_KEY</key>
-	<string>AIzaSyBS07M_XksrkHE_4mBZVpB6FikxfSOIODA</string>
+	<string>AIzaSyB1RMBaJpEoQVBH2_iXdIoe0lAgVkR2Hs0</string>
 	<key>GCM_SENDER_ID</key>
-	<string>391652103449</string>
+	<string>90930526975</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
 	<string>io.govyrl.vyrl.ios.main</string>
 	<key>PROJECT_ID</key>
-	<string>vyrl-chat-develop</string>
+	<string>vyrl-chat-prod</string>
 	<key>STORAGE_BUCKET</key>
-	<string>vyrl-chat-develop.appspot.com</string>
+	<string>vyrl-chat-prod.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<true/>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -33,8 +33,8 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true/>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:391652103449:ios:319abb5799888d09</string>
+	<string>1:90930526975:ios:319abb5799888d09</string>
 	<key>DATABASE_URL</key>
-	<string>https://vyrl-chat-develop.firebaseio.com</string>
+	<string>https://vyrl-chat-prod.firebaseio.com</string>
 </dict>
 </plist>

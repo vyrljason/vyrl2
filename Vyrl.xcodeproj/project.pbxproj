@@ -454,6 +454,7 @@
 		B2DD99AC1EBF07B600886403 /* DeepLinkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2DD99AB1EBF07B600886403 /* DeepLinkManager.swift */; };
 		B2DD99AE1EBF17CC00886403 /* PushRegistrationEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2DD99AD1EBF17CC00886403 /* PushRegistrationEndpoint.swift */; };
 		B2DD99B01EBF193E00886403 /* PushNotificationResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2DD99AF1EBF193E00886403 /* PushNotificationResource.swift */; };
+		B2F082061ED4E12100B07E74 /* GoogleService-Info.plist in CopyFiles */ = {isa = PBXBuildFile; fileRef = 853BAC0F1E7C1A9600874075 /* GoogleService-Info.plist */; };
 		C414B25F1E8A7C4B002F973E /* UIView+IBInspectables.swift in Sources */ = {isa = PBXBuildFile; fileRef = C414B25E1E8A7C4B002F973E /* UIView+IBInspectables.swift */; };
 		C414B2611E8A810D002F973E /* SystemMessageCellSnapshotTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C414B2601E8A810D002F973E /* SystemMessageCellSnapshotTest.swift */; };
 		C414B2671E8BC5E5002F973E /* MessagesFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C414B2661E8BC5E5002F973E /* MessagesFooterView.xib */; };
@@ -570,6 +571,19 @@
 			remoteInfo = Vyrl;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		B2F082051ED4E0C800B07E74 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 7;
+			files = (
+				B2F082061ED4E12100B07E74 /* GoogleService-Info.plist in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		1A1FA9371E5D93BA007EB61D /* Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
@@ -3596,6 +3610,8 @@
 			buildConfigurationList = 1ADAF7EC1E545F3C00155D9F /* Build configuration list for PBXNativeTarget "Vyrl" */;
 			buildPhases = (
 				F383ED2103B42C555925BE74 /* [CP] Check Pods Manifest.lock */,
+				B2F082041ED4DFDD00B07E74 /* ShellScript */,
+				B2F082051ED4E0C800B07E74 /* CopyFiles */,
 				1ADAF7C01E545F3C00155D9F /* Sources */,
 				1ADAF7C11E545F3C00155D9F /* Frameworks */,
 				1ADAF7C21E545F3C00155D9F /* Resources */,
@@ -3825,6 +3841,19 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Fabric/run\" 08d922e6ae6e53d01869785f12389bb6fa98bd18 5ef27b6864e319771898508f9720404697cc29787cc9d129bbbb6eeec5a20b89\n";
+		};
+		B2F082041ED4DFDD00B07E74 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if [ \"${CONFIGURATION}\" != \"Release\" ]; then\ncp \"${PROJECT_DIR}/Vyrl/Firebase/Google/Dev/GoogleService-Info.plist\" \"${PROJECT_DIR}/Vyrl/GoogleService-Info.plist\"\nelse\ncp \"${PROJECT_DIR}/Vyrl/Firebase/Google/Release/GoogleService-Info.plist\" \"${PROJECT_DIR}/Vyrl/GoogleService-Info.plist\"\nfi";
 		};
 		D6BDAD155B4F2360C05B5969 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
