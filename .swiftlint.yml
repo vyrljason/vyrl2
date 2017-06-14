@@ -1,6 +1,23 @@
+# reenable and fix warnings 1 by 1 later
 disabled_rules:
   - line_length
   - trailing_whitespace
+  - identifier_name
+  - function_parameter_count
+  - unused_optional_binding
+  - todo
+  - redundant_discardable_let
+  - empty_parameters
+  - trailing_newline
+  - protocol_property_accessors_order
+  - closure_parameter_position
+  - mark
+  - vertical_whitespace
+  - for_where
+  - colon
+  - weak_delegate
+  - redundant_optional_initialization
+
 excluded:
   - Pods
 

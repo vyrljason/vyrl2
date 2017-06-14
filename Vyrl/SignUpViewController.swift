@@ -73,7 +73,9 @@ final class SignUpViewController: UIViewController, HavingNib {
     
     @IBAction private func didTapSubmit() {
         if isBrandSwitch.isOn {
-            interactor.didTapSubmitAsBrand()
+            navigationController?.popViewController(animated: true)
+            // disabled for brick wall
+//            interactor.didTapSubmitAsBrand()
         } else {
             interactor.didTapSubmit()
         }
