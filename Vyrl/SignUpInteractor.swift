@@ -38,7 +38,9 @@ final class SignUpInteractor: SignUpInteracting {
     }
 
     func didTapSubmitAsBrand() {
-        webviewPresenter?.presentWebview(with: apiConfiguration.mainBaseURL, animated: true)
+
+        // disabled for brick wall behavior
+//        webviewPresenter?.presentWebview(with: apiConfiguration.mainBaseURL, animated: true)
     }
     
     func didTapSubmit() {
