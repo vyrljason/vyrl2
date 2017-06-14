@@ -25,6 +25,7 @@ final class WelcomeViewController: UIViewController, HavingNib {
     @IBOutlet private weak var logoImageView: UIImageView!
     @IBOutlet private weak var loginButton: UIButton!
     @IBOutlet private weak var signUpButton: UIButton!
+    @IBOutlet private weak var comingSoonDescriptionLabel: UILabel!
 
     private let interactor: WelcomeViewInteracting
     private var player: AVPlayer?
@@ -91,5 +92,48 @@ final class WelcomeViewController: UIViewController, HavingNib {
     
     @IBAction private func didTapSignUp() {
         interactor.didTapSignUp()
+    }
+
+    @IBAction func comingSoonPressed() {
+        comingSoonDescriptionLabel.shakeAndScale()
+    }
+
+}
+
+extension UIView {
+    public func shakeAndScale(shakeOffset: CGFloat = 20, scaleFactor: CGFloat = 1.2) {
+        let originalPosition = center
+        var leftShakePosition = center
+        leftShakePosition.x -= shakeOffset
+        var rightShakePosition = center
+        rightShakePosition.x += shakeOffset
+
+        UIView.animateKeyframes(withDuration: 0.4, delay: 0, options: UIViewKeyframeAnimationOptions.calculationModeCubic, animations: {
+            UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: (1/6), animations: {
+                self.center = leftShakePosition
+            })
+            UIView.addKeyframe(withRelativeStartTime: (1/6), relativeDuration: (1/6), animations: {
+                self.center = originalPosition
+            })
+            UIView.addKeyframe(withRelativeStartTime: (2/6), relativeDuration: (1/6), animations: {
+                self.center = rightShakePosition
+            })
+            UIView.addKeyframe(withRelativeStartTime: (3/6), relativeDuration: (1/6), animations: {
+                self.center = originalPosition
+            })
+            UIView.addKeyframe(withRelativeStartTime: (4/6), relativeDuration: (1/6), animations: {
+                self.center = leftShakePosition
+            })
+            UIView.addKeyframe(withRelativeStartTime: (5/6), relativeDuration: (1/6), animations: {
+                self.center = originalPosition
+            })
+            UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: (1/2), animations: {
+                self.transform = CGAffineTransform(scaleX: scaleFactor, y: scaleFactor)
+            })
+            UIView.addKeyframe(withRelativeStartTime: (1/2), relativeDuration: (1/2), animations: {
+                self.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
+            })
+        }, completion: nil)
+
     }
 }

@@ -220,7 +220,10 @@ extension RootNavigation: AuthorizationFlowPresenting {
 
 extension RootNavigation: AuthorizationListener {
     func didFinishAuthorizing() {
-        presentMainNavigation(animated: true)
+        credentialsProvider.clear()
+        presentAuthorizationNavigation(animated: true)
+        // BRICK WALL FOR NOW WITH UPDATE MESSAGE
+//        presentMainNavigation(animated: true)
     }
 }
 

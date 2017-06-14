@@ -13,6 +13,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WelcomeViewController" customModule="Vyrl" customModuleProvider="target">
             <connections>
                 <outlet property="backgroundView" destination="EbA-6B-TE2" id="aug-G2-g57"/>
+                <outlet property="comingSoonDescriptionLabel" destination="MNk-iJ-pih" id="1Ow-uL-cnf"/>
                 <outlet property="loginButton" destination="5iQ-0Y-x3z" id="OhM-tO-TWa"/>
                 <outlet property="logoImageView" destination="xU9-la-2yY" id="fkd-Bq-V21"/>
                 <outlet property="signUpButton" destination="gzw-ew-S3I" id="6ih-ZW-5e9"/>
@@ -42,7 +43,7 @@
                         <action selector="didTapSignUp" destination="-1" eventType="touchUpInside" id="QB7-EO-SKj"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5iQ-0Y-x3z">
+                <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5iQ-0Y-x3z">
                     <rect key="frame" x="0.0" y="579" width="375" height="44"/>
                     <color key="backgroundColor" red="0.60392156862745094" green="0.11764705882352941" blue="0.14509803921568626" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
@@ -57,28 +58,58 @@
                     </connections>
                 </button>
                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mainLogo" highlightedImage="mainLogo" translatesAutoresizingMaskIntoConstraints="NO" id="xU9-la-2yY">
-                    <rect key="frame" x="40" y="253.5" width="295" height="60"/>
+                    <rect key="frame" x="40" y="183.5" width="295" height="60"/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="xU9-la-2yY" secondAttribute="height" multiplier="191:39" id="6uy-vz-PXu"/>
                     </constraints>
                 </imageView>
+                <label userInteractionEnabled="NO" alpha="0.59999999999999998" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MNk-iJ-pih">
+                    <rect key="frame" x="20" y="255.5" width="335" height="153"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <string key="text">Thanks for visiting VYRL, we have a major release coming soon! Influencers: stay posted for updates and brand collabs via email. To learn more, follow @govyrl on Instagram.  Brands: our team is reviewing your account and if you’re accepted, will be in touch with you soon. If you have any questions, feel free to reach out at support@govyrl.io</string>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Coming Soon" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I9W-5H-8ks">
+                    <rect key="frame" x="235.5" y="591.5" width="97.5" height="19.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="detailDisclosure" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RJs-Wj-v3l">
+                    <rect key="frame" x="341" y="590" width="22" height="22"/>
+                    <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    <connections>
+                        <action selector="comingSoonPressed" destination="-1" eventType="touchUpInside" id="1Sk-pw-ZWZ"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="xU9-la-2yY" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" constant="-50" id="3Qm-Bs-J3D"/>
+                <constraint firstItem="RJs-Wj-v3l" firstAttribute="leading" secondItem="I9W-5H-8ks" secondAttribute="trailing" constant="8" id="1p5-uh-CVv"/>
+                <constraint firstItem="xU9-la-2yY" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" constant="-120" id="3Qm-Bs-J3D"/>
                 <constraint firstItem="EbA-6B-TE2" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Ca5-4b-Rod"/>
+                <constraint firstItem="MNk-iJ-pih" firstAttribute="top" secondItem="xU9-la-2yY" secondAttribute="bottom" constant="12" id="H76-As-crg"/>
                 <constraint firstItem="gzw-ew-S3I" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Ndj-wW-ugf"/>
                 <constraint firstItem="EbA-6B-TE2" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="SAx-NM-Yh1"/>
                 <constraint firstItem="5iQ-0Y-x3z" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="TOg-1c-6JQ"/>
                 <constraint firstAttribute="bottom" secondItem="EbA-6B-TE2" secondAttribute="bottom" id="XhH-Rb-OM2"/>
+                <constraint firstAttribute="trailing" secondItem="RJs-Wj-v3l" secondAttribute="trailing" constant="12" id="YMh-99-c1Q"/>
                 <constraint firstAttribute="trailing" secondItem="5iQ-0Y-x3z" secondAttribute="trailing" id="Ybb-MR-AmX"/>
                 <constraint firstAttribute="bottom" secondItem="gzw-ew-S3I" secondAttribute="bottom" id="eFU-m2-0d0"/>
+                <constraint firstItem="I9W-5H-8ks" firstAttribute="centerY" secondItem="5iQ-0Y-x3z" secondAttribute="centerY" id="eqO-cI-I3r"/>
+                <constraint firstAttribute="trailing" secondItem="MNk-iJ-pih" secondAttribute="trailing" constant="20" id="f4b-Be-fqI"/>
                 <constraint firstAttribute="trailing" secondItem="EbA-6B-TE2" secondAttribute="trailing" id="hvC-fX-S4x"/>
                 <constraint firstItem="xU9-la-2yY" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="mBd-Zr-gZM"/>
                 <constraint firstItem="gzw-ew-S3I" firstAttribute="top" secondItem="5iQ-0Y-x3z" secondAttribute="bottom" id="oSn-PU-soS"/>
+                <constraint firstItem="RJs-Wj-v3l" firstAttribute="centerY" secondItem="5iQ-0Y-x3z" secondAttribute="centerY" id="r2s-lS-IIP"/>
                 <constraint firstAttribute="trailing" secondItem="gzw-ew-S3I" secondAttribute="trailing" id="wJ1-rJ-9T2"/>
+                <constraint firstItem="5iQ-0Y-x3z" firstAttribute="top" relation="greaterThanOrEqual" secondItem="MNk-iJ-pih" secondAttribute="bottom" constant="20" id="wao-SS-k9O"/>
+                <constraint firstItem="MNk-iJ-pih" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="wnH-l5-LpA"/>
                 <constraint firstItem="xU9-la-2yY" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="40" id="yJL-Ve-CmC"/>
             </constraints>
+            <point key="canvasLocation" x="24.5" y="51.5"/>
         </view>
     </objects>
     <resources>
